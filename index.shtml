@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Boothj5: Profanity</title>
+<meta name="viewport" content="width=device-width">
+<link href="css/boothj5_main.css" type="text/css" rel="stylesheet"/>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34156261-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<!--#include file="headerfooter.html" -->
+<div id="Content"/>
+<h2>Profanity</h2> 
+
+<p>
+Profanity is a console based XMPP client written in C using 
+<a href="http://www.gnu.org/software/ncurses/" target="_blank">ncurses</a> and 
+<a href="http://strophe.im/libstrophe/" target="_blank">libstrophe</a>, 
+inspired by <a href="http://irssi.org/" target="_blank">Irssi</a>.
+</p>
+
+<p>
+<b>Latest release: 0.1.9</b><br>
+Download: <a href="profanity-0.1.9.tar.gz">profanity-0.1.9.tar.gz</a>
+</p>
+
+<p>
+Installation instructions and FAQ can be found on the 
+<a href="https://github.com/boothj5/profanity/wiki" target="_blank">Github Wiki</a>
+</p>
+
+<p>
+Mailing list: 
+<a href="https://groups.google.com/forum/#!forum/profanitydev" target="_blank">Google Groups Profanity</a>
+</p>
+
+<p>
+The source can be found on 
+<a href="http://github.com/boothj5/profanity" target="_blank">Github</a>
+</p>
+
+<h4>Features</h4>
+
+<ul>
+<li>Supports any XMPP chat service including Google Talk</li>
+<li>Configuration via a simple properties file</li>
+<li>Desktop notifications and reminders</li>
+<li>Incoming Typing notifications</li>
+<li>Dated chat logs by user</li>
+<li>Option to show history of previous messages with a user</li>
+<li>Ability to send Tiny URLs</li>
+<li>Customisable UI<li>
+</ul>
+
+<h4>Screenshots</h4>
+
+<p>Click an image to load the fullsize version.</p>
+<a href="profterm.png"><img src="profterm_small.png"></a>
+<a href="profxfce.png"><img src="profxfce_small.png"></a>
+<a href="profwin.png"><img src="profwin_small.png"></a>
+<a href="profgreen.png"><img src="profgreen_small.png"></a>
+
+</div>
+</body>
+
+</html>
+
