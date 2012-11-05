@@ -1,0 +1,189 @@
+@import "base";
+
+@include establish-baseline;
+
+@include keyframes(fadeInH1) {
+	0% {
+		opacity: 0;
+		@include transform(translatex(-1em));
+		}
+	
+	100% {
+		opacity: 1;
+	}
+}
+
+@include keyframes(fadeInH2) {
+	0% {
+		opacity: 0;
+		@include transform(translatex(-0.6em));
+	}
+	40% {
+		opacity: 0;
+		@include transform(translatex(-0.6em));
+	}		
+	100% {
+		opacity: 1;
+	}
+}
+
+p {
+	@include text-shadow(0 0 1px transparentize(black, 0.3));
+}
+
+p, ul{ 
+    color: $bodyText;
+    @include adjust-font-size-to (13px);
+    @include margin-trailer(1);
+	@include at-breakpoint($medium) {
+		@include adjust-font-size-to(16px);
+		&.matty {
+			margin-right: 0;
+			float: right
+		}
+	}	
+	@include at-breakpoint($wide) {
+		@include adjust-font-size-to(19px);
+	}		
+    //max-width: 35em; //stop line getting too long. have to work out how to do this with changing stuff.
+  } 
+  
+.kern-ty{
+	letter-spacing: 0em;
+}
+  
+  
+body{
+	@include sans-families;
+}
+h1 {
+	@include text-shadow(0 0 7px transparentize(white, 0.5));
+	@include adjust-font-size-to(75px);
+	letter-spacing: -0.05em;
+	font-weight: normal;
+	@include at-breakpoint($medium) {
+		@include span-columns(5, $medium);
+		text-align: right;
+		@include adjust-font-size-to(95px);
+	}
+	@include at-breakpoint($wide) {
+		@include span-columns(7, $wide);
+		@include adjust-font-size-to(160px);
+	}	
+	@extend %animation-base;	
+	@include animation-duration(1s);
+	@include animation-name (fadeInH1);		
+}
+
+h1, h2, h3, h4 {
+	display: block;
+}
+
+h2, h3, h4 {
+	@include text-shadow(0 0 4px transparentize(black, 0.15));
+}
+
+
+h2 {
+	@include adjust-font-size-to(30px);
+    color: $bodyText;
+	@include at-breakpoint($medium) {
+		width: 100%;
+		@include prefix(5, $medium);		
+		@include adjust-font-size-to(35px, 1.5);
+		position: absolute;
+		bottom: 15%;		
+	}
+	@include at-breakpoint($wide) {
+		width: 100%;
+		@include prefix(8, $wide);
+		@include adjust-font-size-to(55px, 2.5);
+	}
+	@extend %animation-base;	
+	@include animation-duration(1.5s);
+	@include animation-name (fadeInH2);					
+}
+h3,
+h4 {
+	@include margin-trailer(2);	
+	color: $bodyText;
+	@include at-breakpoint($medium) {
+		text-align: right;
+	}	
+}
+	
+h3 {
+	@include adjust-font-size-to(28px);
+	@include at-breakpoint($medium) {
+		@include span-columns(5,$medium);
+		@include adjust-font-size-to(32px);
+	}
+	@include at-breakpoint($wide) {
+		@include span-columns(7,$wide);
+		@include adjust-font-size-to(35px);
+		
+	}	
+}
+
+h4 {
+	@include adjust-font-size-to(22px);
+	@include at-breakpoint($medium) {
+		@include adjust-font-size-to(24px);	
+		width: 100%;
+		text-align: right;
+		padding-right: space(5, $medium);			
+	}
+	@include at-breakpoint($wide) {
+		@include adjust-font-size-to(30px);
+		padding-right: space(9, $wide);
+	}			
+}
+
+// LINKS 
+
+a {
+	@include text-shadow(0 0 1px transparentize(black, 0.9));
+	text-decoration: none;
+	color: $ice;
+	&:hover {
+		color: mix($ice, white, 35%);
+		text-decoration: underline;
+	}
+}
+
+// LIST STYLES
+
+
+ul, ol {
+	color: $contrastText;
+	font-weight: bolder;
+	//@include text-shadow(0 0 1px transparentize(white, 0.3));	
+}
+
+li {	
+	@include margin-leader(0.5);
+}
+
+// PRE STYLES
+
+
+pre {
+font-family: "Courier New",Courier;
+display: block;
+@include adjust-font-size-to(13px);
+background: $contrastText; }
+
+// TABLE STYLING
+
+table {
+margin: 0 0 20px 0;
+@include adjust-font-size-to(13px);
+color: $grey;
+border-collapse: collapse; }
+tr {}
+td {
+border: 0px solid $bodyText;
+padding: 5px; }
+
+
+      
