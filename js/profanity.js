@@ -1,39 +1,51 @@
 (function($) {
 	//Global Vars
+	var jHTML = $('html');
+	var jBody = $('body');
+	
 	
 	function scrollToggle(setting){
-		var b = $('html');
-		var s = b.scrollTop();
-		b.css('overflow', setting);
-		b.scrollTop(s);
-	}
-	
-	function backToLife() {
-		$('#Zoomer').fadeOut(700, function(){
-			$(this).empty();
-		});
-		scrollToggle('auto');
+		var s = jHTML.scrollTop();
+		jHTML.css('overflow', setting);
+		if (setting === "hidden") {
+			jBody.css('overflow-y', 'scroll');
+		}
+		else {
+			jBody.css('overflow-y', 'auto');
+		}
+		jHTML.scrollTop(s);
 	}
 	
 	function gallery(gallerycontainer) {
+		
+
 		$('a', $(gallerycontainer)).click(function(e) {
 			e.preventDefault();
 			var image_href = $(this).attr('href');
-			$('body').prepend('<div id="Zoomer"></div>');
+			jBody.prepend('<div id="Zoomer"></div>');
+			var zoomer = $('#Zoomer');
 			scrollToggle('hidden');
-			$('#Zoomer').html('<img src="' + image_href + '" />').fadeIn(700);
-		});
+			zoomer.html('<img src="' + image_href + '" />').fadeIn(700);
+			
+			function backToLife() {
+				zoomer.fadeOut(700, function(){
+					$(this)
+						.empty();
+					scrollToggle('auto');
+				});
+			}
 		
-			$('#Zoomer').live('click', function() {
+			zoomer.live('click', function() {
 				backToLife();
 			});
 				
 			$(document).keydown(function() {
 				backToLife();
 			});
+			
+		});
 		
 		}
-
 	
 	$(window).load(function() {
 		gallery($('#Screenshots'));
