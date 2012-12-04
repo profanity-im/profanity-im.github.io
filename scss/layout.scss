@@ -22,7 +22,7 @@ body {
 	}	
 }
 
-div {
+div, article#manual {
 	@include rhythm(0,3,2,0);
 	@include at-breakpoint($medium) {
 		@include rhythm(0,4,5,0);
@@ -58,11 +58,10 @@ img.overlay {
 	}		
 }
 
-header {
+#landing header {
 	@extend %clearfix;
 	position: relative;
 	width: 100%;
-	@include rhythm(3,0,0,3);
 	@include at-breakpoint($medium) {
 		@include rhythm(6,0,0,7);
 	}	
@@ -78,6 +77,10 @@ header {
 	
 }
 
+header {
+	@include rhythm(3,0,0,3);
+}
+
 @include keyframes(fadeInDelay) {
 	0% {
 		opacity: 0;
@@ -90,7 +93,7 @@ header {
 	}
 }
 
-#Content {
+#landing #content {
 	@include box-shadow(inset 0 0 100px transparentize(black, 0.5), 0 0 100px transparentize(white, 0.8));
 	background: url("../images/talking-all-that-noise.png") mix($backgroundShade,black, 30%);
 	@extend %bleed;
@@ -133,7 +136,7 @@ header {
 		}
 	}	
 }
-#Features {
+#landing #features {
 	@include box-shadow(inset 0 0 40px transparentize(white, 0.7));
 	position: relative;
 	background: url("../images/talking-all-that-noise.png") mix($backgroundShade,white,90%);
@@ -185,7 +188,7 @@ header {
 }
 
 
-#Screenshots {
+#landing #screenshots {
 	@include box-shadow(inset 0 0 100px transparentize(black, 0.7));
 	@extend %bleed;	
 	@extend %clearfix;
@@ -220,6 +223,53 @@ header {
 			height: auto;
 		}
 	}
+}
+
+article#manual {
+	background: url("../images/talking-all-that-noise.png") #eee;
+	@include box-shadow(inset 0 0 100px transparentize(black, 0.7));
+	@extend %bleed;	
+	@extend %clearfix;
+
+    section {
+    	@include at-breakpoint ($minimum-medium) {
+    		max-width: 35em;
+    	}
+    	hr {
+    		border: 1px solid $backgroundShadeGreyRed;
+    	}
+    	position: relative;
+	    @include at-breakpoint ($medium) {
+	    	@include rhythm(2,0,0,2);
+	    	@include prefix(3, $medium);
+		    h3 {
+			    position: absolute;
+			    margin-top: -0.05em;
+			    left: 0;
+			    width: columns(3, $medium);
+			    text-align: right
+		    }
+		    hr {
+		    	width: columns(7, $medium);
+		    	position: absolute;
+		    	margin-top: -0.5em;
+		    }
+	    }
+	    @include at-breakpoint ($wide) {
+	    	@include prefix(5, $wide);
+	    	h3 {
+		    	width: columns(5, $wide);
+	    	}
+		    hr {
+		    	width: columns(11, $wide);
+		    }	    	
+	    }
+    }
+
+    ul, ol {
+	    list-style: none;
+    }
+    	
 }
 
 #Zoomer {
