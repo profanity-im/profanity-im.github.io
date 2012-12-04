@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Profanity</title>
+    <link href="css/profanity.css" type="text/css" rel="stylesheet"><!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+<body id="article">
+	<img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <header>
+        <h1>Profani<span class="kern-ty">ty</span></h1>
+        <h2>Accounts</h2>
+    </header>
+    
+    <div id="manual">
+
+<h3>Contents</h3>
+
+<ul>
+<li><a href="#requesting-presence-information">Requesting presence information</a>
+<li><a href="#approving-a-request">Approving a request</a>
+<li><a href="#deny-or-delete-a-request">Deny or delete a request</a>
+<li><a href="#list-pending-requests">List pending requests</a>
+</li></ul>
+
+<a name="requesting-presence-information"></a>
+<h3>Requesting presence information</h3>
+
+<p>To request presence information for a contact use the <code>/sub request</code> command:</p>
+
+<pre><code>/sub request newcontact@server.com</code></pre>
+
+<p>The user will be informed that you wish to know of their presence, and will need to approve the request.</p>
+
+<p>The contact parameter is optional if you are already in a chat window with the user, for example if you are currently chatting to newcontact@server.com, you can run the following to request subscription information for that contact:</p>
+
+<pre><code>/sub request</code></pre>
+
+<a name="approving-a-request"></a>
+<h3>Approving a request</h3>
+
+<p>You can approve subscription requests from contacts using the <code>/sub allow</code> command:</p>
+
+<pre><code>/sub allow newcontact@server.com</code></pre>
+
+<p>The contact parameter is optional if you are already in a chat window with the user, for example if you are currently chatting to newcontact@server.com, you can run the following to approve a subscription request from that contact:</p>
+
+<pre><code>/sub allow</code></pre>
+
+<a name="deny-or-delete-a-request"></a>
+<h3>Deny or delete a request</h3>
+
+<p>You can deny subscription requests from contacts using the <code>/sub deny</code> command:</p>
+
+<pre><code>/sub deny newcontact@server.com</code></pre>
+
+<p>The contact parameter is optional if you are already in a chat window with the user, for example if you are currently chatting to newcontact@server.com, you can run the following to deny a subscription request from that contact:</p>
+
+<pre><code>/sub deny</code></pre>
+
+<p>The <code>/sub deny</code> command also removes a contacts subscription to your presence if you have previously approved it.</p>
+
+<a name="list-pending-requests"></a>
+<h3>List pending requests</h3>
+
+<p>To list requests that you have sent that are currently awaiting approval from the contact, use the <code>/sub sent</code> command.</p>
+
+
+    </div>
+
+    
+    <footer>
+    <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+  
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
+    <script type="text/javascript" src="js/profanity-ck.js"></script> 
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35914460-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>    
+</body>
+</html>

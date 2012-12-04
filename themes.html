@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Profanity</title>
+    <link href="css/profanity.css" type="text/css" rel="stylesheet"><!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+<body id="article">
+	<img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <header>
+        <h1>Profani<span class="kern-ty">ty</span></h1>
+        <h2>Accounts</h2>
+    </header>
+    
+    <div id="manual">
+
+
+<h3>Contents</h3>
+
+<ul>
+<li><a href="#creating-a-theme">Creating a Theme</a>
+<li><a href="#example-theme">Example Theme</a>
+</li></ul>
+
+<a name="creating-a-theme"></a>
+<h3>Creating a Theme</h3>
+
+<p>To create a theme, create a file with the theme settings and put it in the <a href="files.html#themes-directory">themes directory</a>.</p>
+
+<p>To enable the theme, run the <a href="reference.html#theme">theme command</a> with the name of the file.</p>
+
+<a name="example-theme"></a>
+<h3>Example Theme</h3>
+
+<p>You can use the following (default colours theme) as a starting point, and alter the colour values.  Available colours are <code>black</code>,  <code>white</code>, <code>red</code>, <code>green</code>, <code>blue</code>, <code>yellow</code>, <code>cyan</code>, <code>magenta</code> and <code>default</code>, where <code>default</code> is the default forground or background colour on your terminal.</p>
+
+<pre><code>[colours]
+bkgnd=default
+titlebar=blue
+titlebar.text=white
+titlebar.brackets=cyan
+statusbar=blue
+statusbar.text=white
+statusbar.brackets=cyan
+statusbar.active=cyan
+statusbar.new=white
+main.text=white
+main.time=white
+main.splash=cyan
+input.text=white
+online=green
+away=cyan
+chat=green
+dnd=red
+xa=cyan
+offline=red
+typing=yellow
+gone=red
+error=red
+incoming=yellow
+roominfo=yellow
+me=yellow
+them=green</code></pre>
+
+
+    </div>
+
+    
+    <footer>
+    <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+  
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
+    <script type="text/javascript" src="js/profanity-ck.js"></script> 
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35914460-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>    
+</body>
+</html>
