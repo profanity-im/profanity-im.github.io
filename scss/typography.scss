@@ -27,12 +27,11 @@
 	}
 }
 
-p {
-	@include text-shadow(0 0 1px transparentize(black, 0.3));
+body {
+	color: $bodyText;
 }
 
-p, ul{ 
-    color: $bodyText;
+p, ul, pre, code, td{ 
     @include adjust-font-size-to (13px);
     @include margin-trailer(1);
 	@include at-breakpoint($medium) {
@@ -45,7 +44,6 @@ p, ul{
 	@include at-breakpoint($wide) {
 		@include adjust-font-size-to(19px);
 	}		
-    //max-width: 35em; //stop line getting too long. have to work out how to do this with changing stuff.
   } 
   
 .kern-ty{
@@ -56,7 +54,15 @@ p, ul{
 body{
 	@include sans-families;
 }
-h1 {
+#landing {
+	p {
+		@include text-shadow(0 0 1px transparentize(black, 0.3));
+	}
+	p, ul{ 
+    	color: $landingBody;
+    }	
+
+	h1 {
 	@include text-shadow(0 0 7px transparentize(white, 0.5));
 	@include adjust-font-size-to(75px);
 	letter-spacing: -0.05em;
@@ -75,67 +81,113 @@ h1 {
 	@include animation-name (fadeInH1);		
 }
 
-h1, h2, h3, h4 {
+	h2, h3, h4 {
+		@include text-shadow(0 0 4px transparentize(black, 0.15));
+	}
+
+
+	h2 {
+		@include adjust-font-size-to(30px);
+	    color: $landingBody;
+		@include at-breakpoint($medium) {
+			width: 100%;
+			@include prefix(5, $medium);		
+			@include adjust-font-size-to(35px, 1.5);
+			position: absolute;
+			bottom: 15%;		
+		}
+		@include at-breakpoint($wide) {
+			width: 100%;
+			@include prefix(8, $wide);
+			@include adjust-font-size-to(55px, 2.5);
+		}
+		@extend %animation-base;	
+		@include animation-duration(1.5s);
+		@include animation-name (fadeInH2);					
+	}
+	h3 {
+		@include at-breakpoint($medium) {
+			@include span-columns(5,$medium);
+		}
+		@include at-breakpoint($wide) {
+			@include span-columns(7,$wide);
+			
+		}	
+	}
+	h4 {
+		@include at-breakpoint($medium) {
+			width: 100%;
+			text-align: right;
+			padding-right: space(5, $medium);			
+		}
+		@include at-breakpoint($wide) {
+			padding-right: space(9, $wide);
+		}			
+	}		
+	h3,
+	h4 {
+		color: $landingBody;
+		@include at-breakpoint($medium) {
+			text-align: right;
+		}	
+	}
+}
+
+h1 {
+	letter-spacing: -0.05em;
+	@include at-breakpoint($medium) {
+		@include span-columns(3, $medium);
+		text-align: right;
+	}
+	@include at-breakpoint($wide) {
+		@include span-columns(5, $wide);
+	}
+}
+
+h2 {
+	color: $landingBody;
+}
+
+h2,
+header h3 {
+	font-weight: 300;
+	@include at-breakpoint($medium) {
+		width: 100%;
+		@include prefix(3, $medium);		
+	}
+	@include at-breakpoint($wide) {
+		width: 100%;
+		@include prefix(5, $wide);
+	}				
+}
+
+h3, h4 {
 	display: block;
 }
 
-h2, h3, h4 {
-	@include text-shadow(0 0 4px transparentize(black, 0.15));
-}
-
-
-h2 {
-	@include adjust-font-size-to(30px);
-    color: $bodyText;
-	@include at-breakpoint($medium) {
-		width: 100%;
-		@include prefix(5, $medium);		
-		@include adjust-font-size-to(35px, 1.5);
-		position: absolute;
-		bottom: 15%;		
-	}
-	@include at-breakpoint($wide) {
-		width: 100%;
-		@include prefix(8, $wide);
-		@include adjust-font-size-to(55px, 2.5);
-	}
-	@extend %animation-base;	
-	@include animation-duration(1.5s);
-	@include animation-name (fadeInH2);					
-}
 h3,
 h4 {
 	@include margin-trailer(2);	
-	color: $bodyText;
-	@include at-breakpoint($medium) {
-		text-align: right;
-	}	
 }
-	
-h3 {
+
+h1, h2, h3 {
 	@include adjust-font-size-to(28px);
 	@include at-breakpoint($medium) {
-		@include span-columns(5,$medium);
 		@include adjust-font-size-to(32px);
 	}
 	@include at-breakpoint($wide) {
-		@include span-columns(7,$wide);
-		@include adjust-font-size-to(35px);
-		
+		@include adjust-font-size-to(35px);		
 	}	
 }
 
-h4 {
+h4, 
+section > ul > li {
 	@include adjust-font-size-to(22px);
 	@include at-breakpoint($medium) {
 		@include adjust-font-size-to(24px);	
-		width: 100%;
-		text-align: right;
-		padding-right: space(5, $medium);			
 	}
 	@include at-breakpoint($wide) {
 		@include adjust-font-size-to(30px);
-		padding-right: space(9, $wide);
 	}			
 }
 
@@ -155,7 +207,6 @@ a {
 
 
 ul, ol {
-	color: $contrastText;
 	font-weight: bolder;
 	//@include text-shadow(0 0 1px transparentize(white, 0.3));	
 }
@@ -168,22 +219,36 @@ li {
 
 
 pre {
-font-family: "Courier New",Courier;
-display: block;
-@include adjust-font-size-to(13px);
-background: $contrastText; }
+	font-family: "Courier New",Courier;
+	display: block;
+	@include adjust-font-size-to(13px);
+	background: #f8f8f8; 
+	padding: 0.5em;
+}
 
 // TABLE STYLING
 
 table {
-margin: 0 0 20px 0;
-@include adjust-font-size-to(13px);
-color: $grey;
-border-collapse: collapse; }
-tr {}
+	margin: 0 0 20px 0;
+	@include adjust-font-size-to(13px);
+	background-color: #f8f8f8;
+	border-collapse: collapse; 
+}
+tr {
+	border-bottom: 1px dotted $backgroundShadeGreyRed;
+}
+tr:first-child {
+	border-top: 1px dotted $backgroundShadeGreyRed;
+}
+tr:nth-child(even) {
+	padding: 2em;
+	background-color: #eeeeee;
+}
 td {
-border: 0px solid $bodyText;
-padding: 5px; }
+	border: 0px solid $landingBody;
+	padding: 1em 2em 1em 0.5em;
+}
+
 
 
       
