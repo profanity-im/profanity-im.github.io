@@ -4,73 +4,6 @@
 <head>
     <title>Profanity</title>
     <link href="css/profanity.css" type="text/css" rel="stylesheet"><!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-</head>
-
-<body id="article">
-	<img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
-    <header>
-        <h1>Profani<span class="kern-ty">ty</span></h1>
-        <h2>Accounts</h2>
-    </header>
-    
-    <div id="manual">
-
-
-<h3>Contents</h3>
-
-<ul>
-<li><a href="#joining-a-chat-room">Joining a chat room</a>
-<li><a href="#changing-your-nickname">Changing your nickname</a>
-<li><a href="#listing-room-participants">Listing room participants</a>
-<li><a href="#sending-a-private-message">Sending a private message</a>
-<li><a href="#leaving-a-room">Leaving a room</a>
-</li></ul>
-
-<a name="joining-a-chat-room"></a>
-<h3>Joining a chat room</h3>
-
-<p>Use the <code>/join</code> command to join a chat room supplying the full name of the room and the nickname you wish to be seen as in that room:</p>
-
-<pre><code>/join room@conference.server.com mynick</code></pre>
-
-<p>The nickname parameter is optional, if not supplied the starting part of your Jabber ID will be used.  For example if you are logged in as itsme@server.com the following command will enter a room with the nickname 'itsme':</p>
-
-<pre><code>/join room@conference.server.com</code></pre>
-
-<a name="changing-your-nickname"></a>
-<h3>Changing your nickname</h3>
-
-<p>Use the <code>/nick</code> command whilst in a chat room to change your nickname, for example to change your nickname to 'bob':</p>
-
-<pre><code>/nick bob</code></pre>
-
-<a name="listing-room-participants"></a>
-<h3>Listing room participants</h3>
-
-<p>Room participants can be listed at any time whilst in a chat room by using the <code>/who</code> command.</p>
-
-<a name="sending-a-private-message"></a>
-<h3>Sending a private message</h3>
-
-<p>To start a private chat session with a member of the chat room, use the <code>/msg</code> command with the full Jabber ID of the room member (including the room name):<p>
-
-<pre><code>/msg room@conference.server.com/someuser</code></pre>
-
-<a name="leaving-a-room"></a>
-<h3>Leaving a room</h3>
-
-<p>To leave a chat room, use the <code>/close</code> command whilst the room is visible in the main window area.</p>
-
-
-    </div>
-
-    
-    <footer>
-    <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
-    </footer>
-  
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
-    <script type="text/javascript" src="js/profanity-ck.js"></script> 
     <script type="text/javascript">
 
     var _gaq = _gaq || [];
@@ -84,5 +17,88 @@
     })();
 
     </script>    
+</head>
+
+<body id="article">
+<img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+<header>
+    <h1>Profani<span class="kern-ty">ty</span></h1>
+    <h2>Chat Rooms</h2>
+</header>
+
+<article id="manual">
+
+<section>
+
+<h3>Contents</h3>
+
+<ul>
+<li><a href="#joining-a-chat-room">Joining a chat room</a>
+<li><a href="#changing-your-nickname">Changing your nickname</a>
+<li><a href="#listing-room-participants">Listing room participants</a>
+<li><a href="#sending-a-private-message">Sending a private message</a>
+<li><a href="#leaving-a-room">Leaving a room</a>
+</li></ul>
+
+</section>
+<section>
+
+<a name="joining-a-chat-room"></a>
+<h3>Joining a chat room</h3>
+
+<p>Use the <code>/join</code> command to join a chat room supplying the full name of the room and the nickname you wish to be seen as in that room:</p>
+
+<pre><code>/join room@conference.server.com mynick</code></pre>
+
+<p>The nickname parameter is optional, if not supplied the starting part of your Jabber ID will be used.  For example if you are logged in as itsme@server.com the following command will enter a room with the nickname 'itsme':</p>
+
+<pre><code>/join room@conference.server.com</code></pre>
+
+</section>
+<section>
+
+<a name="changing-your-nickname"></a>
+<h3>Changing your nickname</h3>
+
+<p>Use the <code>/nick</code> command whilst in a chat room to change your nickname, for example to change your nickname to 'bob':</p>
+
+<pre><code>/nick bob</code></pre>
+
+</section>
+<section>
+
+<a name="listing-room-participants"></a>
+<h3>Listing room participants</h3>
+
+<p>Room participants can be listed at any time whilst in a chat room by using the <code>/who</code> command.</p>
+
+</section>
+<section>
+
+<a name="sending-a-private-message"></a>
+<h3>Sending a private message</h3>
+
+<p>To start a private chat session with a member of the chat room, use the <code>/msg</code> command with the full Jabber ID of the room member (including the room name):<p>
+
+<pre><code>/msg room@conference.server.com/someuser</code></pre>
+
+</section>
+<section>
+
+<a name="leaving-a-room"></a>
+<h3>Leaving a room</h3>
+
+<p>To leave a chat room, use the <code>/close</code> command whilst the room is visible in the main window area.</p>
+
+</section>
+
+</article>
+
+<footer>
+<p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+</footer>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
+<script type="text/javascript" src="js/profanity-ck.js"></script> 
 </body>
 </html>

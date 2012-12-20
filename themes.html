@@ -4,17 +4,31 @@
 <head>
     <title>Profanity</title>
     <link href="css/profanity.css" type="text/css" rel="stylesheet"><!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35914460-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>    
 </head>
 
 <body id="article">
-	<img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
-    <header>
-        <h1>Profani<span class="kern-ty">ty</span></h1>
-        <h2>Accounts</h2>
-    </header>
-    
-    <div id="manual">
+<img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+<header>
+    <h1>Profani<span class="kern-ty">ty</span></h1>
+    <h2>Colour Themes</h2>
+</header>
 
+<article id="manual">
+
+<section>
 
 <h3>Contents</h3>
 
@@ -23,12 +37,18 @@
 <li><a href="#example-theme">Example Theme</a>
 </li></ul>
 
+</section>
+<section>
+
 <a name="creating-a-theme"></a>
 <h3>Creating a Theme</h3>
 
 <p>To create a theme, create a file with the theme settings and put it in the <a href="files.html#themes-directory">themes directory</a>.</p>
 
 <p>To enable the theme, run the <a href="reference.html#theme">theme command</a> with the name of the file.</p>
+
+</section>
+<section>
 
 <a name="example-theme"></a>
 <h3>Example Theme</h3>
@@ -63,28 +83,14 @@ roominfo=yellow
 me=yellow
 them=green</code></pre>
 
+</section>
+</article>
 
-    </div>
+<footer>
+<p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+</footer>
 
-    
-    <footer>
-    <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
-    </footer>
-  
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
-    <script type="text/javascript" src="js/profanity-ck.js"></script> 
-    <script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35914460-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-    </script>    
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
+<script type="text/javascript" src="js/profanity-ck.js"></script> 
 </body>
 </html>

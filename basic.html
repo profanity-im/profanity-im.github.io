@@ -4,16 +4,31 @@
 <head>
     <title>Profanity</title>
     <link href="css/profanity.css" type="text/css" rel="stylesheet"><!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35914460-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>    
 </head>
 
 <body id="article">
-	<img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
-    <header>
-        <h1>Profani<span class="kern-ty">ty</span></h1>
-        <h2>Getting Started</h2>
-    </header>
-    
-    <div id="manual">
+<img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+<header>
+    <h1>Profani<span class="kern-ty">ty</span></h1>
+    <h2>Getting Started</h2>
+</header>
+
+<article id="manual">
+
+<section>
 
 <h3>Contents</h3>
 
@@ -29,6 +44,9 @@
 <li><a href="#logging-out">Logging out</a>
 </li></ul>
 
+</section>
+<section>
+
 <a name="starting-profanity"></a>
 <h3>Starting Profanity</h3>
 
@@ -37,6 +55,9 @@
 <pre><code>$ profanity</code></pre>
 
 <p>From your command line.</p>
+
+</section>
+<section>
 
 <a name="user-interface"></a>
 <h3>User Interface</h3>
@@ -55,11 +76,17 @@
 <p>The status bar shows the time, the user you are logged in as, and on the far right the status of each virtual window.  If the virtual window is used, its number will appear, if it has new messages of any kind, the number will be highlighted.</p>
 <p>The input area is where you enter all of your commands and messages.  When in the console, commands may be entered here, when in chat with a user or a chat room, both commands and messages may be entered.</p>
 
+</section>
+<section>
+
 <a name="switching-between-virtual-windows"></a>
 <h3>Switching between virtual windows</h3>
 
 <p>To make a virtual window visible in the main window area, use Alt-1 to Alt-0 or the F1 to F10 keys.  Certain commands automatically make a virtual window visible such as joining a chat room, or sending a message to a contact.</p>
 <p>When a window is visible new messages within it do not highlight the windows number in the status bar.</p>
+
+</section>
+<section>
 
 <a name="connecting"></a>
 <h3>Connecting</h3>
@@ -69,6 +96,9 @@
 <pre><code>/connect user@server.com</code></pre>
 
 <p>You will be prompted by the status bar to enter your password.  Once entered you will be connected, and you should start receiving presence notifications from your contacts in the console window.</p>
+
+</section>
+<section>
 
 <a name="sending-a-message"></a>
 <h3>Sending a message</h3>
@@ -85,10 +115,16 @@
 
 <p>The above will open the new window, make it visible, but no message is sent.  This can be useful if you don't currently have a virtual window open with the contact and want to see some history of your conversation with that contact (see the <code>/chlog</code> and <code>/history</code> settings).</p>
 
+</section>
+<section>
+
 <a name="closing-a-virtual-window"></a>
 <h3>Closing a virtual window</h3>
 
 <p>You can close a virtual window whilst viewing it by using the <code>/close</code> command.</p>
+
+</section>
+<section>
 
 <a name="listing-virtual-windows"></a>
 <h3>Listing virtual windows</h3>
@@ -96,6 +132,9 @@
 <p>To see a list in the console of all your currently used virtual windows, what they are being used for and whether there are any unread messages in them, enter the following command:</p>
 
 <pre><code>/wins</code></pre>
+
+</section>
+<section>
 
 <a name="changing-your-presence"></a>
 <h3>Changing your presence</h3>
@@ -112,32 +151,22 @@
 
 <pre><code>/dnd I'm very busy</code></pre>
 
+</section>
+<section>
+
 <a name="logging-out"></a>
 <h3>Logging out</h3>
 
 <p>To log out from the current server, use the <code>/disconnect</code> command.</p>
 
-    </div>
+</section>
+</article>
 
-    
-    <footer>
-    <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
-    </footer>
-  
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
-    <script type="text/javascript" src="js/profanity-ck.js"></script> 
-    <script type="text/javascript">
+<footer>
+<p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+</footer>
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35914460-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-    </script>    
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
+<script type="text/javascript" src="js/profanity-ck.js"></script> 
 </body>
 </html>
