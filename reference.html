@@ -48,7 +48,8 @@
 </li></ul>
 <li><a href="#configuration">Configuration</a>
 <ul>
-<li><a href="#autoping">/autoping</a>, <a href="#autoaway">/autoaway</a>,
+<li><a href="#account">/account</a>,
+<a href="#autoping">/autoping</a>, <a href="#autoaway">/autoaway</a>,
 <a href="#beep">/beep</a>, <a href="#chlog">/chlog</a>, <a href="#flash">/flash</a>,
 <a href="#history">/history</a>, <a href="#intype">/intype</a>, <a href="#log">/log</a>,
 <a href="#notify">/notify</a>, <a href="#outtype">/outtype</a>, <a href="#priority">/priority</a>,
@@ -84,13 +85,16 @@
 
 <p>Log in to an XMPP chat server.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
-<pre><code>/connect login</code></pre>
+<pre><code>/connect account [server]</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
-<p><code>login</code> - The Jabber ID you wish to log in as, e.g. user@server.org.</p>
+<p><code>account</code> - Either the Jabber ID you wish to log in as, e.g. user@server.org, or the account name of a previously created account, see the <a href="#account">account</a> command.</p>
+<p><code>server</code> - Optional server to connect to if the chat service is hosted at a different domain to the domain part of the Jabber ID.</p>
+
+<p>The <code>/connect</code> command automatically creates an account using the Jabber ID as it's name if one does not exist already.  See the <a href="#account">account</a> command for more information.</p>
 
 <hr>
 
@@ -106,11 +110,11 @@
 
 <p>Show help information.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/help [list|area|command]</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 <table>
 <tr>
 <td><code>list</code></td>
@@ -118,7 +122,7 @@
 </tr>
 <tr>
 <td><code>area</code></td>
-<td>One of <code>basic</code>, <code>presence</code>, <code>settings</code>, <code>navigation</code>, shows summary help for commands in that area.</td>
+<td>One of <code>basic</code>, <code>presence</code>, <code>settings</code> or <code>navigation</code>. Shows summary help for commands in that area.</td>
 </tr>
 <tr>
 <td><code>command</code></td>
@@ -133,11 +137,11 @@
 
 <p>Show status information for a contact in your roster.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/info contact</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -153,11 +157,11 @@
 
 <p>Join a chat room.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/join room [nick]</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -177,11 +181,11 @@
 
 <p>Send a message.</p>
 
-<h5>Normal usage:</h5>
+<p>Normal usage:</p>
 
 <pre><code>/msg contact [message]</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -194,13 +198,13 @@
 </tr>
 </table>
 
-<h5>Chat room usage:</h5>
+<p>Chat room usage:</p>
 
 <p>When in a chat room, the message command can be used to send a private message:</p>
 
 <pre><code>/msg roommember [message]</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -219,11 +223,11 @@
 
 <p>Change nickname when in a chat room.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/nick nickname</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -239,11 +243,11 @@
 
 <p>Show current configuration settings.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/prefs [area]</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -259,18 +263,20 @@
 
 <p>Quit Profanity.</p>
 
+<hr>
+
 <a name="sub"></a>
 <h4>/sub</h4>
 
 <p>Manage presence subcriptions.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/sub command [contact]</code></pre>
 
 <p>If used whilst in chat with a contact, the <code>contact</code> parameter may be omitted and the current contact will be used.</p>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -295,11 +301,11 @@
 
 <p>Use the TinyURL service to send a tiny URL link, may only be used when in chat with a contact.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/tiny url</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -315,30 +321,26 @@
 
 <p>List members from your roster in various presence states.  Whilst in a chat room, list room members.</p>
 
-<h5>Normal usage:</h5>
+<p>Normal usage:</p>
 
 <pre><code>/who [presence]</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
 <td><code>presence</code></td>
 <td>
-<code>online</code> - Show all online contacts, includes those who are 'chat', 'away', 'xa', 'dnd'.<br/>
 <code>offline</code> - Show all offline contacts.<br/>
-<code>chat</code> - Show all online contacts with a presence of 'chat'.<br/>
-<code>dnd</code> - Show all online contacts with a presence of 'dnd'.<br/>
-<code>away</code> - Show all online contacts with a presence of 'away'.<br/>
-<code>xa</code> - Show all online contacts with a presence of 'xa'.<br/>
-<code>dnd</code> - Show all online contacts with a presence of 'dnd'.<br/>
+<code>chat</code>, <code>dnd</code>, <code>away</code>, <code>xa</code> - Show contacts with the specified presence.</br>
+<code>online</code> - Show all online contacts, includes those who are 'chat', 'away', 'xa', 'dnd'.<br/>
 <code>available</code> - Show all contacts with a presence of 'online', 'chat'.<br/>
 <code>unavailable</code> - Show all contacts with a presence of 'offline', 'away', 'xa', 'dnd'.<br/><br/>
 Omitting this argument will show all contacts in your roster.</td>
 </tr>
 </table>
 
-<h5>Chat room usage:</h5>
+<p>Chat room usage:</p>
 
 <pre><code>/who</code></pre>
 
@@ -351,7 +353,6 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Show a list of all currently active virtual windows in the console window, includes information about each window such as chat recipient, room, and unread messages.</p>
 
-<hr>
 </section>
 <section>
 <a name="changing-presence"></a>
@@ -364,11 +365,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Set your status to 'away' with optional message.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/away [message]</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -384,11 +385,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Set your status to 'chat' (availble for chat) with optional message.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/chat [message]</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -404,11 +405,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Set your status to 'dnd' (do not disturb) with optional message.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/dnd [message]</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -424,11 +425,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Set your status to 'online' with optional message.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/online [message]</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -444,11 +445,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Set your status to 'xa' (extended away) with optional message.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/xa [message]</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -457,7 +458,6 @@ Omitting this argument will show all contacts in your roster.</td>
 </tr>
 </table>
 
-<hr>
 
 </section>
 <section>
@@ -466,16 +466,75 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <hr>
 
+<a name="account"></a>
+<h4>/account</h4>
+
+<p>Manage local accounts.  A local account consists of a name, a Jabber ID and an optional server property.</p>
+<p>Accounts may be enabled/disabled, the only difference is that enabled accounts are used for autocompletion.</p>
+<p>When connecting with the <a href="#account">connect</a> command, if an account does not currently exist with the connection details, one will be created using the Jabber ID as the name.</p>
+<p>You may rename this account at a later point if desired, see usage below.</p>
+
+<p>For details of where accounts are stored, see the help on <a href="files.html">file locations</a>.</p>
+
+<p>Usage:</p>
+
+<pre><code>/account command [account]</code></pre>
+
+<p>Arguments:</p>
+
+<p>The command may be:</p>
+
+<table>
+<tr><td><code>list</code></td><td>List all accounts.</td></tr>
+<tr><td><code>add</code></td><td>Create an account, passing the <code>account</code> name as an argument.</td></tr>
+<tr><td><code>show</code></td><td>Show details of the specified <code>account</code>.</td></tr>
+<tr><td><code>enable</code></td><td>Enable the specified <code>account</code>.</td></tr>
+<tr><td><code>disable</code></td><td>Disable the specified <code>account</code>.</td></tr>
+</table>
+
+<p>Rename usage:</p>
+
+<pre><code>/account rename oldname newname</code></pre>
+
+<p>Arguments:</p>
+
+<table>
+<tr><td><code>oldname</code></td><td>The existing account to rename.</td></tr>
+<tr><td><code>newname</code></td><td>The new account name.</td></tr>
+</table>
+
+<p>Property set usage:</p>
+
+<pre><code>/account set account property value</code></pre>
+
+<p>Arguments:</p>
+
+<table>
+<tr><td><code>account</code></td><td>The account you wish to edit.</td></tr>
+<tr><td><code>property</code></td><td>Either <code>jid</code> or <code>server</code>.</td></tr>
+<tr><td><code>value</code></td><td>The new value for the property.</td></tr>
+</table>
+
+<p>Example:</p>
+
+<pre><code>/account add work
+/account set work jid myuser@mycompany.com
+/account set work server talk.google.com
+/account rename work gtalk</code></pre>
+
+<p>You can then log into the above account using <code>/connect gtalk</code>.</p>
+<hr>
+
 <a name="autoping"></a>
 <h4>/autoping</h4>
 
 <p>Configure profanity to send a ping to the chat server on a regular basis. This can sometimes be required to keep a connection from closing.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/autoping seconds</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -484,7 +543,7 @@ Omitting this argument will show all contacts in your roster.</td>
 </tr>
 </table>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>0</code> (disabled) by default.</p>
 
@@ -496,11 +555,11 @@ Omitting this argument will show all contacts in your roster.</td>
 <p>Configure profanity to send either a last activity presence, or an away status change when you have been idle for a given amount of time.</p>
 <p>If built in an X-Windows environment, with the libxss library available (this is the case with most Linux distributions), the desktop idle time will be used, otherwise the last input to the profanity window is used.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/autoaway command value</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -517,14 +576,14 @@ Omitting this argument will show all contacts in your roster.</td>
 </tr>
 </table>
 
-<h5>Defaults:</h5>
+<p>Defaults:</p>
 
 <p><code>mode</code> is set to <code>off</code>.</p>
 <p><code>time</code> is set to <code>15</code> minutes.</p>
 <p><code>message</code> is <code>off</code>.</p>
 <p><code>check</code> is set to <code>on</code>.</p>
 
-<h5>Examples:</h5>
+<p>Examples:</p>
 
 <p>To set profanity to send your idle time (with your presence remaining online) to contacts after a period of 30 minutes, with a message of "I'm not around", and report when you are no longer idle:</p>
 
@@ -548,11 +607,11 @@ Omitting this argument will show all contacts in your roster.</td>
 <p>Set profanity to send the terminal bell signal to the terminal when a new message arrives.</p>
 <p>On some terminals, this may result in the terminal flashing.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/beep on|off</code></pre>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>off</code> (disabled) by default.</p>
 
@@ -563,11 +622,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Enable chat logging. see <a href="files.html#chat-logs-directory">chat logs location</a>.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/chlog on|off</code></pre>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>off</code> (disabled) by default.</p>
 
@@ -579,11 +638,11 @@ Omitting this argument will show all contacts in your roster.</td>
 <p>Set profanity to send the terminal flash signal to the terminal when a new message arrives.</p>
 <p>On some terminals, this may result in the terminal bell sounding.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/flash on|off</code></pre>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>off</code> (disabled) by default.</p>
 
@@ -594,11 +653,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Show previous messsages with a contact when opening a new chat window.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/history on|off</code></pre>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>off</code> (disabled) by default.</p>
 
@@ -609,11 +668,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Show when a contact is typing a message in the console, and in the profanity title bar.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/intype on|off</code></pre>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>off</code> (disabled) by default.</p>
 
@@ -624,11 +683,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Configure various system logging properties.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/autoping setting value</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -637,7 +696,7 @@ Omitting this argument will show all contacts in your roster.</td>
 </tr>
 </table>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>1048580</code> (1MB) by default.</p>
 
@@ -648,11 +707,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Configure desktop notifications, profanity must be compiled with libnotify for desktop notifications to work.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/notify type value</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -668,13 +727,13 @@ Omitting this argument will show all contacts in your roster.</td>
 </tr>
 </table>
 
-<h5>Defaults:</h5>
+<p>Defaults:</p>
 
 <p><code>message</code> is set to <code>off</code>.</p>
 <p><code>typing</code> is set to <code>off</code>.</p>
 <p><code>remind</code> is set to <code>0</code> seconds (disabled).</p>
 
-<h5>Examples:</h5>
+<p>Examples:</p>
 
 <p>To enable desktop notifications when new messages arrive:</p>
 
@@ -695,11 +754,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Send composing chat states to contacts so they can see when you are typing.  Requires <code>/states</code> to be <code>on</code>.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/outtype on|off</code></pre>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>off</code> (disabled) by default.</p>
 
@@ -710,11 +769,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Set your presence priority associated with profanity.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/priority value</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -723,7 +782,7 @@ Omitting this argument will show all contacts in your roster.</td>
 </tr>
 </table>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>0</code> by default.</p>
 
@@ -734,11 +793,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Configure the interval with which profanity will try to reconnect if the server connection is lost.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/reconnect seconds</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -747,7 +806,7 @@ Omitting this argument will show all contacts in your roster.</td>
 </tr>
 </table>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>0</code> (disabled) by default.</p>
 
@@ -758,11 +817,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Enable the ASCII logo on startup.</code></p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/splash on|off</code></pre>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>off</code> (disabled) by default.</p>
 
@@ -774,11 +833,11 @@ Omitting this argument will show all contacts in your roster.</td>
 <p>Enable sending of chat states to your contacts.</p>
 <p>Chat states include notifying clients of when you are 'active', i.e. interacting with the chat window, 'inactive' when you have not interacted with the chat window after some time, and 'gone' when you have left the conversation (closed the chat window).</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/states on|off</code></pre>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>off</code> (disabled) by default.</p>
 
@@ -789,11 +848,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Choose a colour theme for profanity, see <a href="files.html#themes-directory">themes directory</a>.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/themes theme</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -802,7 +861,7 @@ Omitting this argument will show all contacts in your roster.</td>
 </tr>
 </table>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>default</code>.</p>
 
@@ -813,11 +872,11 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Configure what additional properties are displayed in the profanity window's title bar, and therefore visible in the desktop task bar etc.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/titlebar property on|off</code></pre>
 
-<h5>Arguments:</h5>
+<p>Arguments:</p>
 
 <table>
 <tr>
@@ -826,7 +885,7 @@ Omitting this argument will show all contacts in your roster.</td>
 </tr>
 </table>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>All properties are set to <code>off</code>.</p>
 
@@ -837,20 +896,19 @@ Omitting this argument will show all contacts in your roster.</td>
 
 <p>Enable checking for new versions of profanity on start up, and when the <code>/about</code> command is called.</p>
 
-<h5>Usage:</h5>
+<p>Usage:</p>
 
 <pre><code>/vercheck [on|off]</code></pre>
 
 <p>Calling with no argument does a check for new versions.</p>
 
-<h5>Default:</h5>
+<p>Default:</p>
 
 <p>Set to <code>off</code> (disabled) by default.</p>
 
 <hr>
 
 </article>
-
     
 <footer>
 <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
