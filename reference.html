@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>Profanity</title>
     <link href="css/profanity.css" type="text/css" rel="stylesheet"><!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
+    <script type="text/javascript" src="js/profanity-ck.js"></script> 
     <script type="text/javascript">
-
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-35914460-1']);
     _gaq.push(['_trackPageview']);
@@ -15,906 +15,660 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-
     </script>    
 </head>
-
 <body id="article">
-<img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
-<header>
-    <h1>Profani<span class="kern-ty">ty</span></h1>
-    <h2>Command Reference</h2>
-</header>
-
-<article id="manual">
-
-<section>
-
-<h3>Contents</h3>
-
-<ul>
-<li><a href="#basic-commands">Basic commands</a>
-<ul>
-<li><a href="#about">/about</a>, <a href="#close">/close</a>, <a href="#connect">/connect</a>,
-<a href="#disconnect">/disconnect</a>, <a href="#help">/help</a>, <a href="#info">/info</a>,
-<a href="#join">/join</a>, <a href="#msg">/msg</a>, <a href="#nick">/nick</a>,
-<a href="#prefs">/prefs</a>, <a href="#quit">/quit</a>, <a href="#sub">/sub</a>,
-<a href="#tiny">/tiny</a>, <a href="#who">/who</a>, <a href="#wins">/wins</a>
-</li></ul>
-<li><a href="#changing-presence">Changing presence</a>
-<ul>
-<li><a href="#away">/away</a>, <a href="#chat">/chat</a>, <a href="#dnd">/dnd</a>,
-<a href="#online">/online</a>, <a href="#xa">/xa</a>
-</li></ul>
-<li><a href="#configuration">Configuration</a>
-<ul>
-<li><a href="#account">/account</a>,
-<a href="#autoping">/autoping</a>, <a href="#autoaway">/autoaway</a>,
-<a href="#beep">/beep</a>, <a href="#chlog">/chlog</a>, <a href="#flash">/flash</a>,
-<a href="#history">/history</a>, <a href="#intype">/intype</a>, <a href="#log">/log</a>,
-<a href="#notify">/notify</a>, <a href="#outtype">/outtype</a>, <a href="#priority">/priority</a>,
-<a href="#reconnect">/reconnect</a>, <a href="#splash">/splash</a>, <a href="#states">/states</a>,
-<a href="#theme">/theme</a>, <a href="#titlebar">/titlebar</a>, <a href="#vercheck">/vercheck</a>
-</li></ul>
-</ul>
-
-</section>
-
-<section>
-<a name="basic-commands"></a>
-<h3>Basic commands</h3>
-
-<hr>
-
-<a name="about"></a>
-<h4>/about</h4>
-
-<p>Show version and license information.</p>
-
-<hr>
-
-<a name="close"></a>
-<h4>/close</h4>
-
-<p>Close a chat or chat room window.</p>
-
-<hr>
-
-<a name="connect"></a>
-<h4>/connect</h4>
-
-<p>Log in to an XMPP chat server.</p>
-
-<p>Usage:</p>
-
-<pre><code>/connect account [server]</code></pre>
-
-<p>Arguments:</p>
-
-<p><code>account</code> - Either the Jabber ID you wish to log in as, e.g. user@server.org, or the account name of a previously created account, see the <a href="#account">account</a> command.</p>
-<p><code>server</code> - Optional server to connect to if the chat service is hosted at a different domain to the domain part of the Jabber ID.</p>
-
-<p>The <code>/connect</code> command automatically creates an account using the Jabber ID as it's name if one does not exist already.  See the <a href="#account">account</a> command for more information.</p>
-
-<hr>
-
-<a name="disconnect"></a>
-<h4>/disconnect</h4>
-
-<p>Log out of the currently logged in session.</p>
-
-<hr>
-
-<a name="help"></a>
-<h4>/help</h4>
-
-<p>Show help information.</p>
-
-<p>Usage:</p>
-
-<pre><code>/help [list|area|command]</code></pre>
-
-<p>Arguments:</p>
-<table>
-<tr>
-<td><code>list</code></td>
-<td>List all commands.</td>
-</tr>
-<tr>
-<td><code>area</code></td>
-<td>One of <code>basic</code>, <code>presence</code>, <code>settings</code> or <code>navigation</code>. Shows summary help for commands in that area.</td>
-</tr>
-<tr>
-<td><code>command</code></td>
-<td>The specific command on which you want detailed help.</td>
-</tr>
-</table>
-
-<hr>
-
-<a name="info"></a>
-<h4>/info</h4>
-
-<p>Show status information for a contact in your roster.</p>
-
-<p>Usage:</p>
-
-<pre><code>/info contact</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>contact</code></td>
-<td>The full Jabber ID of the contact you are interested in, e.g. contact@server.org.</td>
-</tr>
-</table>
-
-<hr>
-
-<a name="join"></a>
-<h4>/join</h4>
-
-<p>Join a chat room.</p>
-
-<p>Usage:</p>
-
-<pre><code>/join room [nick]</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>room</code></td>
-<td>The Jabber ID of the chat room you wish to join, e.g. room@conference.server.org.</td>
-</tr>
-<tr>
-<td><code>nick</code></td>
-<td>Optional nickname to use in the room.  If this parameter is not supplied, the beginning part (before the '@') of your Jabber ID will be used.</td>
-</tr>
-</table>
-
-<hr>
-
-<a name="msg"></a>
-<h4>/msg</h4>
-
-<p>Send a message.</p>
-
-<p>Normal usage:</p>
-
-<pre><code>/msg contact [message]</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>contact</code></td>
-<td>The full Jabber ID of the contact you wish to message, e.g. contact@server.org.</td>
-</tr>
-<tr>
-<td><code>message</code></td>
-<td>The message to send, does not need to be quoted, if not supplied, a new chat window is opened with the contact, or an existing one becomes visible.</td>
-</tr>
-</table>
-
-<p>Chat room usage:</p>
-
-<p>When in a chat room, the message command can be used to send a private message:</p>
-
-<pre><code>/msg roommember [message]</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>roommember</code></td>
-<td>The full Jabber ID of the chat room member, including chat room and nickname, e.g. room@conference.server.org/nick</td>
-</tr>
-<td><code>message</code></td>
-<td>The message to send, does not need to be quoted, if not supplied, a new chat window is opened with the contact, or an existing one becomes visible.</td>
-</tr>
-</table>
-
-<hr>
-
-<a name="nick"></a>
-<h4>/nick</h4>
-
-<p>Change nickname when in a chat room.</p>
-
-<p>Usage:</p>
-
-<pre><code>/nick nickname</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>nickname</code></td>
-<td>The new nickname you wished to be known as in the chat room.</td>
-</tr>
-</table>
-
-<hr>
-
-<a name="prefs"></a>
-<h4>/prefs</h4>
-
-<p>Show current configuration settings.</p>
-
-<p>Usage:</p>
-
-<pre><code>/prefs [area]</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>area</code></td>
-<td>Show preferences in a specific area, one of <code>ui</code>, <code>desktop</code>, <code>chat</code>, <code>log</code>, <code>conn</code>, <code>presence</code>.  If no argument is supplied, all preferences are shown.</td>
-</tr>
-</table>
-
-<hr>
-
-<a name="quit"></a>
-<h4>/quit</h4>
-
-<p>Quit Profanity.</p>
-
-<hr>
-
-<a name="sub"></a>
-<h4>/sub</h4>
-
-<p>Manage presence subcriptions.</p>
-
-<p>Usage:</p>
-
-<pre><code>/sub command [contact]</code></pre>
-
-<p>If used whilst in chat with a contact, the <code>contact</code> parameter may be omitted and the current contact will be used.</p>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>command</code></td>
-<td>
-<code>request</code> - Requests presence subscriptions from a contact.<br/>
-<code>allow</code> - Approve a request from a contact to see your presence information.<br/>
-<code>deny</code> - Deny a request from a contact, or remove them from your previously approved list.<br/>
-<code>sent</code> - Show a list of sent presence subscriptions for which the recipient has not yet responded.<br/>
-<code>received</code> - Show a list of received presence subscriptions to which you have yet to respond to.</td>
-</tr>
-<tr>
-<td><code>contact</code></td>
-<td>The contact for whom you are managing subscriptions, may be omitted if currently in chat with a contact.</td>
-</tr>
-</table>
-
-<hr>
-
-<a name="tiny"></a>
-<h4>/tiny</h4>
-
-<p>Use the TinyURL service to send a tiny URL link, may only be used when in chat with a contact.</p>
-
-<p>Usage:</p>
-
-<pre><code>/tiny url</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>url</code></td>
-<td>The URL you wish to make tiny before sending.</td>
-</tr>
-</table>
-
-<hr>
-
-<a name="who"></a>
-<h4>/who</h4>
-
-<p>List members from your roster in various presence states.  Whilst in a chat room, list room members.</p>
-
-<p>Normal usage:</p>
-
-<pre><code>/who [presence]</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>presence</code></td>
-<td>
-<code>offline</code> - Show all offline contacts.<br/>
-<code>chat</code>, <code>dnd</code>, <code>away</code>, <code>xa</code> - Show contacts with the specified presence.</br>
-<code>online</code> - Show all online contacts, includes those who are 'chat', 'away', 'xa', 'dnd'.<br/>
-<code>available</code> - Show all contacts with a presence of 'online', 'chat'.<br/>
-<code>unavailable</code> - Show all contacts with a presence of 'offline', 'away', 'xa', 'dnd'.<br/><br/>
-Omitting this argument will show all contacts in your roster.</td>
-</tr>
-</table>
-
-<p>Chat room usage:</p>
-
-<pre><code>/who</code></pre>
-
-<p>List all members of the chat room.</p>
-
-<hr>
-
-<a name="wins"></a>
-<h4>/wins</h4>
-
-<p>Show a list of all currently active virtual windows in the console window, includes information about each window such as chat recipient, room, and unread messages.</p>
-
-</section>
-<section>
-<a name="changing-presence"></a>
-<h3>Changing presence</h3>
-
-<hr>
-
-<a name="away"></a>
-<h4>/away</h4>
-
-<p>Set your status to 'away' with optional message.</p>
-
-<p>Usage:</p>
-
-<pre><code>/away [message]</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>message</code></td>
-<td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
-</tr>
-</table>
-
-<hr>
-
-<a name="chat"></a>
-<h4>/chat</h4>
-
-<p>Set your status to 'chat' (availble for chat) with optional message.</p>
-
-<p>Usage:</p>
-
-<pre><code>/chat [message]</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>message</code></td>
-<td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
-</tr>
-</table>
-
-<hr>
-
-<a name="dnd"></a>
-<h4>/dnd</h4>
-
-<p>Set your status to 'dnd' (do not disturb) with optional message.</p>
-
-<p>Usage:</p>
-
-<pre><code>/dnd [message]</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>message</code></td>
-<td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
-</tr>
-</table>
-
-<hr>
-
-<a name="online"></a>
-<h4>/online</h4>
-
-<p>Set your status to 'online' with optional message.</p>
-
-<p>Usage:</p>
-
-<pre><code>/online [message]</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>message</code></td>
-<td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
-</tr>
-</table>
-
-<hr>
-
-<a name="xa"></a>
-<h4>/xa</h4>
-
-<p>Set your status to 'xa' (extended away) with optional message.</p>
-
-<p>Usage:</p>
-
-<pre><code>/xa [message]</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>message</code></td>
-<td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
-</tr>
-</table>
-
-
-</section>
-<section>
-<a name="configuration"></a>
-<h3>Configuration</h3>
-
-<hr>
-
-<a name="account"></a>
-<h4>/account</h4>
-
-<p>Manage local accounts.  A local account consists of a name, a Jabber ID and an optional server property.</p>
-<p>Accounts may be enabled/disabled, the only difference is that enabled accounts are used for autocompletion.</p>
-<p>When connecting with the <a href="#account">connect</a> command, if an account does not currently exist with the connection details, one will be created using the Jabber ID as the name.</p>
-<p>You may rename this account at a later point if desired, see usage below.</p>
-
-<p>For details of where accounts are stored, see the help on <a href="files.html">file locations</a>.</p>
-
-<p>Usage:</p>
-
-<pre><code>/account command [account]</code></pre>
-
-<p>Arguments:</p>
-
-<p>The command may be:</p>
-
-<table>
-<tr><td><code>list</code></td><td>List all accounts.</td></tr>
-<tr><td><code>add</code></td><td>Create an account, passing the <code>account</code> name as an argument.</td></tr>
-<tr><td><code>show</code></td><td>Show details of the specified <code>account</code>.</td></tr>
-<tr><td><code>enable</code></td><td>Enable the specified <code>account</code>.</td></tr>
-<tr><td><code>disable</code></td><td>Disable the specified <code>account</code>.</td></tr>
-</table>
-
-<p>Rename usage:</p>
-
-<pre><code>/account rename oldname newname</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr><td><code>oldname</code></td><td>The existing account to rename.</td></tr>
-<tr><td><code>newname</code></td><td>The new account name.</td></tr>
-</table>
-
-<p>Property set usage:</p>
-
-<pre><code>/account set account property value</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr><td><code>account</code></td><td>The account you wish to edit.</td></tr>
-<tr><td><code>property</code></td><td>Either <code>jid</code> or <code>server</code>.</td></tr>
-<tr><td><code>value</code></td><td>The new value for the property.</td></tr>
-</table>
-
-<p>Example:</p>
-
-<pre><code>/account add work
+    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <header>
+        <h1>Profani<span class="kern-ty">ty</span></h1>
+        <h2>Command Reference</h2>
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+
+            <ul>
+                <li><a href="#basic-commands">Basic commands</a>
+                <ul>
+                    <li><a href="#about">/about</a>, <a href="#close">/close</a>, <a href="#connect">/connect</a>,
+                        <a href="#disconnect">/disconnect</a>, <a href="#help">/help</a>, <a href="#info">/info</a>,
+                        <a href="#join">/join</a>, <a href="#msg">/msg</a>, <a href="#nick">/nick</a>,
+                        <a href="#prefs">/prefs</a>, <a href="#quit">/quit</a>, <a href="#sub">/sub</a>,
+                        <a href="#tiny">/tiny</a>, <a href="#who">/who</a>, <a href="#wins">/wins</a></li>
+                </ul>
+                    <li><a href="#changing-presence">Changing presence</a>
+                <ul>
+                    <li><a href="#away">/away</a>, <a href="#chat">/chat</a>, <a href="#dnd">/dnd</a>,
+                        <a href="#online">/online</a>, <a href="#xa">/xa</a></li>
+                </ul>
+                    <li><a href="#configuration">Configuration</a>
+                <ul>
+                    <li><a href="#account">/account</a>,
+                        <a href="#autoping">/autoping</a>, <a href="#autoaway">/autoaway</a>,
+                        <a href="#beep">/beep</a>, <a href="#chlog">/chlog</a>, <a href="#flash">/flash</a>,
+                        <a href="#history">/history</a>, <a href="#intype">/intype</a>, <a href="#log">/log</a>,
+                        <a href="#notify">/notify</a>, <a href="#outtype">/outtype</a>, <a href="#priority">/priority</a>,
+                        <a href="#reconnect">/reconnect</a>, <a href="#splash">/splash</a>, <a href="#states">/states</a>,
+                        <a href="#theme">/theme</a>, <a href="#titlebar">/titlebar</a>, <a href="#vercheck">/vercheck</a></li>
+                </ul>
+            </ul>
+        </section>
+        <section>
+            <a name="basic-commands"></a>
+            <h3>Basic commands</h3>
+            <hr>
+
+            <a name="about"></a>
+            <h4>/about</h4>
+            <p>Show version and license information.</p>
+            <hr>
+
+            <a name="close"></a>
+            <h4>/close</h4>
+            <p>Close a chat or chat room window.</p>
+            <hr>
+
+            <a name="connect"></a>
+            <h4>/connect</h4>
+            <p>Log in to an XMPP chat server.</p>
+            <p>Usage:</p>
+            <pre><code>/connect account [server]</code></pre>
+            <p>Arguments:</p>
+            <p><code>account</code> - Either the Jabber ID you wish to log in as, e.g. user@server.org, or the account name of a previously created account, see the <a href="#account">account</a> command.</p>
+            <p><code>server</code> - Optional server to connect to if the chat service is hosted at a different domain to the domain part of the Jabber ID.</p>
+            <p>The <code>/connect</code> command automatically creates an account using the Jabber ID as it's name if one does not exist already.  See the <a href="#account">account</a> command for more information.</p>
+            <hr>
+
+            <a name="disconnect"></a>
+            <h4>/disconnect</h4>
+            <p>Log out of the currently logged in session.</p>
+            <hr>
+
+            <a name="help"></a>
+            <h4>/help</h4>
+            <p>Show help information.</p>
+            <p>Usage:</p>
+            <pre><code>/help [list|area|command]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>list</code></td>
+                    <td>List all commands.</td>
+                </tr>
+                <tr>
+                    <td><code>area</code></td>
+                    <td>One of <code>basic</code>, <code>presence</code>, <code>settings</code> or <code>navigation</code>. Shows summary help for commands in that area.</td>
+                </tr>
+                <tr>
+                    <td><code>command</code></td>
+                    <td>The specific command on which you want detailed help.</td>
+                </tr>
+            </table>
+            <hr>
+
+            <a name="info"></a>
+            <h4>/info</h4>
+            <p>Show status information for a contact in your roster.</p>
+            <p>Usage:</p>
+            <pre><code>/info contact</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>contact</code></td>
+                    <td>The full Jabber ID of the contact you are interested in, e.g. contact@server.org.</td>
+                </tr>
+            </table>
+            <hr>
+
+            <a name="join"></a>
+            <h4>/join</h4>
+            <p>Join a chat room.</p>
+            <p>Usage:</p>
+            <pre><code>/join room [nick]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>room</code></td>
+                    <td>The Jabber ID of the chat room you wish to join, e.g. room@conference.server.org.</td>
+                </tr>
+                <tr>
+                    <td><code>nick</code></td>
+                    <td>Optional nickname to use in the room.  If this parameter is not supplied, the beginning part (before the '@') of your Jabber ID will be used.</td>
+                </tr>
+            </table>
+            <hr>
+
+            <a name="msg"></a>
+            <h4>/msg</h4>
+            <p>Send a message.</p>
+            <p>Normal usage:</p>
+            <pre><code>/msg contact [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>contact</code></td>
+                    <td>The full Jabber ID of the contact you wish to message, e.g. contact@server.org.</td>
+                </tr>
+                <tr>
+                    <td><code>message</code></td>
+                    <td>The message to send, does not need to be quoted, if not supplied, a new chat window is opened with the contact, or an existing one becomes visible.</td>
+                </tr>
+            </table>
+            <p>Chat room usage:</p>
+            <p>When in a chat room, the message command can be used to send a private message:</p>
+            <pre><code>/msg roommember [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>roommember</code></td>
+                    <td>The full Jabber ID of the chat room member, including chat room and nickname, e.g. room@conference.server.org/nick</td>
+                </tr>
+                    <td><code>message</code></td>
+                    <td>The message to send, does not need to be quoted, if not supplied, a new chat window is opened with the contact, or an existing one becomes visible.</td>
+                </tr>
+            </table>
+            <hr>
+
+            <a name="nick"></a>
+            <h4>/nick</h4>
+            <p>Change nickname when in a chat room.</p>
+            <p>Usage:</p>
+            <pre><code>/nick nickname</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>nickname</code></td>
+                    <td>The new nickname you wished to be known as in the chat room.</td>
+                </tr>
+            </table>
+            <hr>
+
+            <a name="prefs"></a>
+            <h4>/prefs</h4>
+            <p>Show current configuration settings.</p>
+            <p>Usage:</p>
+            <pre><code>/prefs [area]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>area</code></td>
+                    <td>Show preferences in a specific area, one of <code>ui</code>, <code>desktop</code>, <code>chat</code>, <code>log</code>, <code>conn</code>, <code>presence</code>.  If no argument is supplied, all preferences are shown.</td>
+                </tr>
+            </table>
+            <hr>
+
+            <a name="quit"></a>
+            <h4>/quit</h4>
+            <p>Quit Profanity.</p>
+            <hr>
+
+            <a name="sub"></a>
+            <h4>/sub</h4>
+            <p>Manage presence subcriptions.</p>
+            <p>Usage:</p>
+            <pre><code>/sub command [contact]</code></pre>
+            <p>If used whilst in chat with a contact, the <code>contact</code> parameter may be omitted and the current contact will be used.</p>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>command</code></td>
+                    <td><code>request</code> - Requests presence subscriptions from a contact.<br/>
+                        <code>allow</code> - Approve a request from a contact to see your presence information.<br/>
+                        <code>deny</code> - Deny a request from a contact, or remove them from your previously approved list.<br/>
+                        <code>sent</code> - Show a list of sent presence subscriptions for which the recipient has not yet responded.<br/>
+                        <code>received</code> - Show a list of received presence subscriptions to which you have yet to respond to.</td>
+                </tr>
+                <tr>
+                    <td><code>contact</code></td>
+                    <td>The contact for whom you are managing subscriptions, may be omitted if currently in chat with a contact.</td>
+                </tr>
+            </table>
+            <hr>
+
+            <a name="tiny"></a>
+            <h4>/tiny</h4>
+            <p>Use the TinyURL service to send a tiny URL link, may only be used when in chat with a contact.</p>
+            <p>Usage:</p>
+            <pre><code>/tiny url</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>url</code></td>
+                    <td>The URL you wish to make tiny before sending.</td>
+                </tr>
+            </table>
+            <hr>
+
+            <a name="who"></a>
+            <h4>/who</h4>
+            <p>List members from your roster in various presence states.  Whilst in a chat room, list room members.</p>
+            <p>Normal usage:</p>
+            <pre><code>/who [presence]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>presence</code></td>
+                    <td><code>offline</code> - Show all offline contacts.<br/>
+                        <code>chat</code>, <code>dnd</code>, <code>away</code>, <code>xa</code> - Show contacts with the specified presence.</br>
+                        <code>online</code> - Show all online contacts, includes those who are 'chat', 'away', 'xa', 'dnd'.<br/>
+                        <code>available</code> - Show all contacts with a presence of 'online', 'chat'.<br/>
+                        <code>unavailable</code> - Show all contacts with a presence of 'offline', 'away', 'xa', 'dnd'.<br/><br/>
+                        Omitting this argument will show all contacts in your roster.</td>
+                </tr>
+            </table>
+            <p>Chat room usage:</p>
+            <pre><code>/who</code></pre>
+            <p>List all members of the chat room.</p>
+            <hr>
+
+            <a name="wins"></a>
+            <h4>/wins</h4>
+            <p>Show a list of all currently active virtual windows in the console window, includes information about each window such as chat recipient, room, and unread messages.</p>
+        </section>
+        <section>
+            <a name="changing-presence"></a>
+            <h3>Changing presence</h3>
+            <hr>
+
+            <a name="away"></a>
+            <h4>/away</h4>
+            <p>Set your status to 'away' with optional message.</p>
+            <p>Usage:</p>
+            <pre><code>/away [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>message</code></td>
+                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
+                </tr>
+            </table>
+            <hr>
+
+            <a name="chat"></a>
+            <h4>/chat</h4>
+            <p>Set your status to 'chat' (availble for chat) with optional message.</p>
+            <p>Usage:</p>
+            <pre><code>/chat [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>message</code></td>
+                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
+                </tr>
+            </table>
+            <hr>
+
+            <a name="dnd"></a>
+            <h4>/dnd</h4>
+            <p>Set your status to 'dnd' (do not disturb) with optional message.</p>
+            <p>Usage:</p>
+            <pre><code>/dnd [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>message</code></td>
+                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
+                </tr>
+            </table>
+            <hr>
+
+            <a name="online"></a>
+            <h4>/online</h4>
+            <p>Set your status to 'online' with optional message.</p>
+            <p>Usage:</p>
+            <pre><code>/online [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>message</code></td>
+                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
+                </tr>
+            </table>
+            <hr>
+
+            <a name="xa"></a>
+            <h4>/xa</h4>
+            <p>Set your status to 'xa' (extended away) with optional message.</p>
+            <p>Usage:</p>
+            <pre><code>/xa [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>message</code></td>
+                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
+                </tr>
+            </table>
+
+        </section>
+        <section>
+            <a name="configuration"></a>
+            <h3>Configuration</h3>
+            <hr>
+
+            <a name="account"></a>
+            <h4>/account</h4>
+            <p>Manage local accounts.  A local account consists of a name, a Jabber ID and an optional server property.</p>
+            <p>Accounts may be enabled/disabled, the only difference is that enabled accounts are used for autocompletion.</p>
+            <p>When connecting with the <a href="#account">connect</a> command, if an account does not currently exist with the connection details, one will be created using the Jabber ID as the name.</p>
+            <p>You may rename this account at a later point if desired, see usage below.</p>
+            <p>For details of where accounts are stored, see the help on <a href="files.html">file locations</a>.</p>
+            <p>Usage:</p>
+            <pre><code>/account command [account]</code></pre>
+            <p>Arguments:</p>
+            <p>The command may be:</p>
+            <table>
+                <tr>
+                    <td><code>list</code></td>
+                    <td>List all accounts.</td>
+                </tr>
+                <tr>
+                    <td><code>add</code></td>
+                    <td>Create an account, passing the <code>account</code> name as an argument.</td>
+                </tr>
+                <tr>
+                    <td><code>show</code></td>
+                    <td>Show details of the specified <code>account</code>.</td>
+                </tr>
+                <tr>
+                    <td><code>enable</code></td>
+                    <td>Enable the specified <code>account</code>.</td>
+                </tr>
+                <tr>
+                    <td><code>disable</code></td>
+                    <td>Disable the specified <code>account</code>.</td>
+                </tr>
+            </table>
+            <p>Rename usage:</p>
+            <pre><code>/account rename oldname newname</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>oldname</code></td>
+                    <td>The existing account to rename.</td>
+                </tr>
+                <tr>
+                    <td><code>newname</code></td>
+                    <td>The new account name.</td>
+                </tr>
+            </table>
+            <p>Property set usage:</p>
+            <pre><code>/account set account property value</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>account</code></td>
+                    <td>The account you wish to edit.</td>
+                </tr>
+                <tr>
+                    <td><code>property</code></td>
+                    <td>Either <code>jid</code> or <code>server</code>.</td>
+                </tr>
+                <tr>
+                    <td><code>value</code></td>
+                    <td>The new value for the property.</td>
+                </tr>
+            </table>
+            <p>Example:</p>
+            <pre><code>/account add work
 /account set work jid myuser@mycompany.com
 /account set work server talk.google.com
 /account rename work gtalk</code></pre>
+            <p>You can then log into the above account using <code>/connect gtalk</code>.</p>
+            <hr>
 
-<p>You can then log into the above account using <code>/connect gtalk</code>.</p>
-<hr>
+            <a name="autoping"></a>
+            <h4>/autoping</h4>
+            <p>Configure profanity to send a ping to the chat server on a regular basis. This can sometimes be required to keep a connection from closing.</p>
+            <p>Usage:</p>
+            <pre><code>/autoping seconds</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>seconds</code></td>
+                    <td>The interval in seconds between sending pings to the server.  A value of <code>0</code> will diable automatic server pings.</td>
+                </tr>
+            </table>
+            <p>Default:</p>
+            <p>Set to <code>0</code> (disabled) by default.</p>
+            <hr>
 
-<a name="autoping"></a>
-<h4>/autoping</h4>
-
-<p>Configure profanity to send a ping to the chat server on a regular basis. This can sometimes be required to keep a connection from closing.</p>
-
-<p>Usage:</p>
-
-<pre><code>/autoping seconds</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>seconds</code></td>
-<td>The interval in seconds between sending pings to the server.  A value of <code>0</code> will diable automatic server pings.</td>
-</tr>
-</table>
-
-<p>Default:</p>
-
-<p>Set to <code>0</code> (disabled) by default.</p>
-
-<hr>
-
-<a name="autoaway"></a>
-<h4>/autoaway</h4>
-
-<p>Configure profanity to send either a last activity presence, or an away status change when you have been idle for a given amount of time.</p>
-<p>If built in an X-Windows environment, with the libxss library available (this is the case with most Linux distributions), the desktop idle time will be used, otherwise the last input to the profanity window is used.</p>
-
-<p>Usage:</p>
-
-<pre><code>/autoaway command value</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>command</code></td>
-<td>One of <code>mode</code>, <code>time</code>, <code>message</code>, <code>check</code>, see below for arguments to each.</td>
-</tr>
-<tr>
-<td><code>value</code></td>
-<td>
-<code>mode</code> - Values are <code>away</code>, <code>idle</code>, <code>off</code>.<br/>
-<code>time</code> - Time in minutes before sending presence change.<br/>
-<code>message</code> - Optional message, or <code>off</code> for no message.<br/>
-<code>check</code> - Automatically set status to online when input received, <code>on</code> or <code>off</code>.</td>
-</tr>
-</table>
-
-<p>Defaults:</p>
-
-<p><code>mode</code> is set to <code>off</code>.</p>
-<p><code>time</code> is set to <code>15</code> minutes.</p>
-<p><code>message</code> is <code>off</code>.</p>
-<p><code>check</code> is set to <code>on</code>.</p>
-
-<p>Examples:</p>
-
-<p>To set profanity to send your idle time (with your presence remaining online) to contacts after a period of 30 minutes, with a message of "I'm not around", and report when you are no longer idle:</p>
-
-<pre><code>/autoaway mode idle
+            <a name="autoaway"></a>
+            <h4>/autoaway</h4>
+            <p>Configure profanity to send either a last activity presence, or an away status change when you have been idle for a given amount of time.</p>
+            <p>If built in an X-Windows environment, with the libxss library available (this is the case with most Linux distributions), the desktop idle time will be used, otherwise the last input to the profanity window is used.</p>
+            <p>Usage:</p>
+            <pre><code>/autoaway command value</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>command</code></td>
+                    <td>One of <code>mode</code>, <code>time</code>, <code>message</code>, <code>check</code>, see below for arguments to each.</td>
+                </tr>
+                <tr>
+                    <td><code>value</code></td>
+                    <td><code>mode</code> - Values are <code>away</code>, <code>idle</code>, <code>off</code>.<br/>
+                        <code>time</code> - Time in minutes before sending presence change.<br/>
+                        <code>message</code> - Optional message, or <code>off</code> for no message.<br/>
+                        <code>check</code> - Automatically set status to online when input received, <code>on</code> or <code>off</code>.</td>
+                </tr>
+            </table>
+            <p>Defaults:</p>
+            <p><code>mode</code> is set to <code>off</code>.</p>
+            <p><code>time</code> is set to <code>15</code> minutes.</p>
+            <p><code>message</code> is <code>off</code>.</p>
+            <p><code>check</code> is set to <code>on</code>.</p>
+            <p>Examples:</p>
+            <p>To set profanity to send your idle time (with your presence remaining online) to contacts after a period of 30 minutes, with a message of "I'm not around", and report when you are no longer idle:</p>
+            <pre><code>/autoaway mode idle
 /autoaway time 30
 /autoaway message I'm not around
 /autoaway check on</code></pre>
-
-<p>To set profanity to change your status to 'away' to contacts after a period of 1 hour, with no message, and not automatically update status when you are no longer idle:</p>
-
-<pre><code>/autoaway mode awat
+            <p>To set profanity to change your status to 'away' to contacts after a period of 1 hour, with no message, and not automatically update status when you are no longer idle:</p>
+            <pre><code>/autoaway mode awat
 /autoaway time 60
 /autoaway message off
 /autoaway check off</code></pre>
-
-<hr>
-
-<a name="beep"></a>
-<h4>/beep</h4>
-
-<p>Set profanity to send the terminal bell signal to the terminal when a new message arrives.</p>
-<p>On some terminals, this may result in the terminal flashing.</p>
-
-<p>Usage:</p>
-
-<pre><code>/beep on|off</code></pre>
-
-<p>Default:</p>
-
-<p>Set to <code>off</code> (disabled) by default.</p>
-
-<hr>
-
-<a name="chlog"></a>
-<h4>/chlog</h4>
-
-<p>Enable chat logging. see <a href="files.html#chat-logs-directory">chat logs location</a>.</p>
-
-<p>Usage:</p>
-
-<pre><code>/chlog on|off</code></pre>
-
-<p>Default:</p>
-
-<p>Set to <code>off</code> (disabled) by default.</p>
-
-<hr>
-
-<a name="flash"></a>
-<h4>/flash</h4>
-
-<p>Set profanity to send the terminal flash signal to the terminal when a new message arrives.</p>
-<p>On some terminals, this may result in the terminal bell sounding.</p>
-
-<p>Usage:</p>
-
-<pre><code>/flash on|off</code></pre>
-
-<p>Default:</p>
-
-<p>Set to <code>off</code> (disabled) by default.</p>
-
-<hr>
-
-<a name="history"></a>
-<h4>/history</h4>
-
-<p>Show previous messsages with a contact when opening a new chat window.</p>
-
-<p>Usage:</p>
-
-<pre><code>/history on|off</code></pre>
-
-<p>Default:</p>
-
-<p>Set to <code>off</code> (disabled) by default.</p>
-
-<hr>
-
-<a name="intype"></a>
-<h4>/intype</h4>
-
-<p>Show when a contact is typing a message in the console, and in the profanity title bar.</p>
-
-<p>Usage:</p>
-
-<pre><code>/intype on|off</code></pre>
-
-<p>Default:</p>
-
-<p>Set to <code>off</code> (disabled) by default.</p>
-
-<hr>
-
-<a name="log"></a>
-<h4>/log</h4>
-
-<p>Configure various system logging properties.</p>
-
-<p>Usage:</p>
-
-<pre><code>/autoping setting value</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>setting</code></td>
-<td>Currently the only available setting is <code>maxsize</code>. The <code>value</code> must be the number of bytes the log reaches before it is rotated.</td>
-</tr>
-</table>
-
-<p>Default:</p>
-
-<p>Set to <code>1048580</code> (1MB) by default.</p>
-
-<hr>
-
-<a name="notify"></a>
-<h4>/notify</h4>
-
-<p>Configure desktop notifications, profanity must be compiled with libnotify for desktop notifications to work.</p>
-
-<p>Usage:</p>
-
-<pre><code>/notify type value</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>type</code></td>
-<td>One of <code>message</code>, <code>typing</code>, <code>remind</code>, see below for arguments to each.</td>
-</tr>
-<tr>
-<td><code>value</code></td>
-<td>
-<code>message</code> - Values are <code>on</code> or <code>off</code>.<br/>
-<code>typing</code> - Values are <code>on</code> or <code>off</code>.<br/>
-<code>remind</code> - Seconds between showing a desktop notification reminder of unread messages.</td>
-</tr>
-</table>
-
-<p>Defaults:</p>
-
-<p><code>message</code> is set to <code>off</code>.</p>
-<p><code>typing</code> is set to <code>off</code>.</p>
-<p><code>remind</code> is set to <code>0</code> seconds (disabled).</p>
-
-<p>Examples:</p>
-
-<p>To enable desktop notifications when new messages arrive:</p>
-
-<pre><code>/notify message on</code></pre>
-
-<p>To enable desktop notifications when when a contact is typing:</p>
-
-<pre><code>/notify typing on</code></pre>
-
-<p>To get desktop notifications reminding you that you have unread messages every 30 seconds:</p>
-
-<pre><code>/notify remind 30</code></pre>
-
-<hr>
-
-<a name="outtype"></a>
-<h4>/outtype</h4>
-
-<p>Send composing chat states to contacts so they can see when you are typing.  Requires <code>/states</code> to be <code>on</code>.</p>
-
-<p>Usage:</p>
-
-<pre><code>/outtype on|off</code></pre>
-
-<p>Default:</p>
-
-<p>Set to <code>off</code> (disabled) by default.</p>
-
-<hr>
-
-<a name="priority"></a>
-<h4>/priority</h4>
-
-<p>Set your presence priority associated with profanity.</p>
-
-<p>Usage:</p>
-
-<pre><code>/priority value</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>value</code></td>
-<td>A number between -128 and 127.</td>
-</tr>
-</table>
-
-<p>Default:</p>
-
-<p>Set to <code>0</code> by default.</p>
-
-<hr>
-
-<a name="reconnect"></a>
-<h4>/reconnect</h4>
-
-<p>Configure the interval with which profanity will try to reconnect if the server connection is lost.</p>
-
-<p>Usage:</p>
-
-<pre><code>/reconnect seconds</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>seconds</code></td>
-<td>The interval in seconds between reconnection attempts.  A value of <code>0</code> will diable automatic server reconnection attempts.</td>
-</tr>
-</table>
-
-<p>Default:</p>
-
-<p>Set to <code>0</code> (disabled) by default.</p>
-
-<hr>
-
-<a name="splash"></a>
-<h4>/splash</h4>
-
-<p>Enable the ASCII logo on startup.</code></p>
-
-<p>Usage:</p>
-
-<pre><code>/splash on|off</code></pre>
-
-<p>Default:</p>
-
-<p>Set to <code>off</code> (disabled) by default.</p>
-
-<hr>
-
-<a name="states"></a>
-<h4>/states</h4>
-
-<p>Enable sending of chat states to your contacts.</p>
-<p>Chat states include notifying clients of when you are 'active', i.e. interacting with the chat window, 'inactive' when you have not interacted with the chat window after some time, and 'gone' when you have left the conversation (closed the chat window).</p>
-
-<p>Usage:</p>
-
-<pre><code>/states on|off</code></pre>
-
-<p>Default:</p>
-
-<p>Set to <code>off</code> (disabled) by default.</p>
-
-<hr>
-
-<a name="theme"></a>
-<h4>/theme</h4>
-
-<p>Choose a colour theme for profanity, see <a href="files.html#themes-directory">themes directory</a>.</p>
-
-<p>Usage:</p>
-
-<pre><code>/themes theme</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>theme</code></td>
-<td>The theme file to use. A value of <code>default</code> will use the default theme.</td>
-</tr>
-</table>
-
-<p>Default:</p>
-
-<p>Set to <code>default</code>.</p>
-
-<hr>
-
-<a name="titlebar"></a>
-<h4>/titlebar</h4>
-
-<p>Configure what additional properties are displayed in the profanity window's title bar, and therefore visible in the desktop task bar etc.</p>
-
-<p>Usage:</p>
-
-<pre><code>/titlebar property on|off</code></pre>
-
-<p>Arguments:</p>
-
-<table>
-<tr>
-<td><code>property</code></td>
-<td>The only property available is <code>version</code>, to show the profanity version in the title bar.</td>
-</tr>
-</table>
-
-<p>Default:</p>
-
-<p>All properties are set to <code>off</code>.</p>
-
-<hr>
-
-<a name="vercheck"></a>
-<h4>/vercheck</h4>
-
-<p>Enable checking for new versions of profanity on start up, and when the <code>/about</code> command is called.</p>
-
-<p>Usage:</p>
-
-<pre><code>/vercheck [on|off]</code></pre>
-
-<p>Calling with no argument does a check for new versions.</p>
-
-<p>Default:</p>
-
-<p>Set to <code>off</code> (disabled) by default.</p>
-
-<hr>
-
-</article>
-    
-<footer>
-<p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
-</footer>
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
-<script type="text/javascript" src="js/profanity-ck.js"></script> 
+            <hr>
+
+            <a name="beep"></a>
+            <h4>/beep</h4>
+            <p>Set profanity to send the terminal bell signal to the terminal when a new message arrives.</p>
+            <p>On some terminals, this may result in the terminal flashing.</p>
+            <p>Usage:</p>
+            <pre><code>/beep on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>off</code> (disabled) by default.</p>
+            <hr>
+
+            <a name="chlog"></a>
+            <h4>/chlog</h4>
+            <p>Enable chat logging. see <a href="files.html#chat-logs-directory">chat logs location</a>.</p>
+            <p>Usage:</p>
+            <pre><code>/chlog on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>off</code> (disabled) by default.</p>
+            <hr>
+
+            <a name="flash"></a>
+            <h4>/flash</h4>
+            <p>Set profanity to send the terminal flash signal to the terminal when a new message arrives.</p>
+            <p>On some terminals, this may result in the terminal bell sounding.</p>
+            <p>Usage:</p>
+            <pre><code>/flash on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>off</code> (disabled) by default.</p>
+            <hr>
+
+            <a name="history"></a>
+            <h4>/history</h4>
+            <p>Show previous messsages with a contact when opening a new chat window.</p>
+            <p>Usage:</p>
+            <pre><code>/history on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>off</code> (disabled) by default.</p>
+            <hr>
+
+            <a name="intype"></a>
+            <h4>/intype</h4>
+            <p>Show when a contact is typing a message in the console, and in the profanity title bar.</p>
+            <p>Usage:</p>
+            <pre><code>/intype on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>off</code> (disabled) by default.</p>
+            <hr>
+
+            <a name="log"></a>
+            <h4>/log</h4>
+            <p>Configure various system logging properties.</p>
+            <p>Usage:</p>
+            <pre><code>/autoping setting value</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>setting</code></td>
+                    <td>Currently the only available setting is <code>maxsize</code>. The <code>value</code> must be the number of bytes the log reaches before it is rotated.</td>
+                </tr>
+            </table>
+            <p>Default:</p>
+            <p>Set to <code>1048580</code> (1MB) by default.</p>
+            <hr>
+
+            <a name="notify"></a>
+            <h4>/notify</h4>
+            <p>Configure desktop notifications, profanity must be compiled with libnotify for desktop notifications to work.</p>
+            <p>Usage:</p>
+            <pre><code>/notify type value</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>type</code></td>
+                    <td>One of <code>message</code>, <code>typing</code>, <code>remind</code>, see below for arguments to each.</td>
+                </tr>
+                <tr>
+                    <td><code>value</code></td>
+                    <td><code>message</code> - Values are <code>on</code> or <code>off</code>.<br/>
+                        <code>typing</code> - Values are <code>on</code> or <code>off</code>.<br/>
+                        <code>remind</code> - Seconds between showing a desktop notification reminder of unread messages.</td>
+                </tr>
+            </table>
+            <p>Defaults:</p>
+            <p><code>message</code> is set to <code>off</code>.</p>
+            <p><code>typing</code> is set to <code>off</code>.</p>
+            <p><code>remind</code> is set to <code>0</code> seconds (disabled).</p>
+            <p>Examples:</p>
+            <p>To enable desktop notifications when new messages arrive:</p>
+            <pre><code>/notify message on</code></pre>
+            <p>To enable desktop notifications when when a contact is typing:</p>
+            <pre><code>/notify typing on</code></pre>
+            <p>To get desktop notifications reminding you that you have unread messages every 30 seconds:</p>
+            <pre><code>/notify remind 30</code></pre>
+            <hr>
+
+            <a name="outtype"></a>
+            <h4>/outtype</h4>
+            <p>Send composing chat states to contacts so they can see when you are typing.  Requires <code>/states</code> to be <code>on</code>.</p>
+            <p>Usage:</p>
+            <pre><code>/outtype on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>off</code> (disabled) by default.</p>
+            <hr>
+
+            <a name="priority"></a>
+            <h4>/priority</h4>
+            <p>Set your presence priority associated with profanity.</p>
+            <p>Usage:</p>
+            <pre><code>/priority value</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>value</code></td>
+                    <td>A number between -128 and 127.</td>
+                </tr>
+            </table>
+            <p>Default:</p>
+            <p>Set to <code>0</code> by default.</p>
+            <hr>
+
+            <a name="reconnect"></a>
+            <h4>/reconnect</h4>
+            <p>Configure the interval with which profanity will try to reconnect if the server connection is lost.</p>
+            <p>Usage:</p>
+            <pre><code>/reconnect seconds</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>seconds</code></td>
+                    <td>The interval in seconds between reconnection attempts.  A value of <code>0</code> will diable automatic server reconnection attempts.</td>
+                </tr>
+            </table>
+            <p>Default:</p>
+            <p>Set to <code>0</code> (disabled) by default.</p>
+            <hr>
+
+            <a name="splash"></a>
+            <h4>/splash</h4>
+            <p>Enable the ASCII logo on startup.</code></p>
+            <p>Usage:</p>
+            <pre><code>/splash on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>off</code> (disabled) by default.</p>
+            <hr>
+
+            <a name="states"></a>
+            <h4>/states</h4>
+            <p>Enable sending of chat states to your contacts.</p>
+            <p>Chat states include notifying clients of when you are 'active', i.e. interacting with the chat window, 'inactive' when you have not interacted with the chat window after some time, and 'gone' when you have left the conversation (closed the chat window).</p>
+            <p>Usage:</p>
+            <pre><code>/states on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>off</code> (disabled) by default.</p>
+            <hr>
+
+            <a name="theme"></a>
+            <h4>/theme</h4>
+            <p>Choose a colour theme for profanity, see <a href="files.html#themes-directory">themes directory</a>.</p>
+            <p>Usage:</p>
+            <pre><code>/themes theme</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>theme</code></td>
+                    <td>The theme file to use. A value of <code>default</code> will use the default theme.</td>
+                </tr>
+            </table>
+            <p>Default:</p>
+            <p>Set to <code>default</code>.</p>
+            <hr>
+
+            <a name="titlebar"></a>
+            <h4>/titlebar</h4>
+            <p>Configure what additional properties are displayed in the profanity window's title bar, and therefore visible in the desktop task bar etc.</p>
+            <p>Usage:</p>
+            <pre><code>/titlebar property on|off</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>property</code></td>
+                    <td>The only property available is <code>version</code>, to show the profanity version in the title bar.</td>
+                </tr>
+            </table>
+            <p>Default:</p>
+            <p>All properties are set to <code>off</code>.</p>
+            <hr>
+
+            <a name="vercheck"></a>
+            <h4>/vercheck</h4>
+            <p>Enable checking for new versions of profanity on start up, and when the <code>/about</code> command is called.</p>
+            <p>Usage:</p>
+            <pre><code>/vercheck [on|off]</code></pre>
+            <p>Calling with no argument does a check for new versions.</p>
+            <p>Default:</p>
+            <p>Set to <code>off</code> (disabled) by default.</p>
+            <hr>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
 </body>
 </html>

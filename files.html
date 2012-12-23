@@ -4,8 +4,9 @@
 <head>
     <title>Profanity</title>
     <link href="css/profanity.css" type="text/css" rel="stylesheet"><!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
+    <script type="text/javascript" src="js/profanity-ck.js"></script> 
     <script type="text/javascript">
-
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-35914460-1']);
     _gaq.push(['_trackPageview']);
@@ -15,143 +16,107 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-
     </script>    
 </head>
-
 <body id="article">
-<img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
-<header>
-    <h1>Profani<span class="kern-ty">ty</span></h1>
-    <h2>File Locations</h2>
-</header>
+    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <header>
+        <h1>Profani<span class="kern-ty">ty</span></h1>
+        <h2>File Locations</h2>
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
 
-<article id="manual">
+            <ul>
+                <li><a href="#base-directories">Base Directories</a>
+                <li><a href="#configuration-file">Configuration File</a>
+                <li><a href="#profanity-log-file">Profanity Log File</a>
+                <li><a href="#chat-logs-directory">Chat Logs Directory</a>
+                <li><a href="#themes-directory">Themes Directory</a>
+                <li><a href="#accounts-file">Accounts File</a>
+                <li><a href="#examples">Examples</a></li>
+            </ul>
+        </section>
+        <section>
+            <a name="base-directories"></a>
+            <h3>Base Directories</h3>
 
-<section>
-<h3>Contents</h3>
+            <p>The <a href="http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html">XDG base directory specification</a> is used for base configuration and data directories.</a></p>
+            <p>The environment variables <code>$XDG_CONFIG_HOME</code> and <code>$XDG_DATA_HOME</code> will be used and a directory named <code>profanity</code> will be created in each.</p>
+            <p>As per the specification, if <code>$XDG_CONFIG_HOME</code> is not present or unset, <code>$HOME/.config</code> will be used. If <code>$XDG_DATA_HOME</code> is not present or unset, <code>$HOME/.local/share</code> will be used.</p>
+            <p>For the rest of this document the following names will be used:</p>
 
-<ul>
-<li><a href="#base-directories">Base Directories</a>
-<li><a href="#configuration-file">Configuration File</a>
-<li><a href="#profanity-log-file">Profanity Log File</a>
-<li><a href="#chat-logs-directory">Chat Logs Directory</a>
-<li><a href="#themes-directory">Themes Directory</a>
-<li><a href="#accounts-file">Accounts File</a>
-<li><a href="#examples">Examples</a>
-</li></ul>
+            <p><code>$CONFIG_HOME</code> = <code>$XDG_CONFIG_HOME/profanity</code></p>
+            <p><code>$DATA_HOME</code> = <code>$XDG_DATA_HOME/profanity</code></p>
+        </section>
+        <section>
+            <a name="configuration-file"></a>
+            <h3>Configuration File</h3>
 
-</section>
-<section>
+            <p>The main configuration file for profanity is stored at:<p>
+            <p><code>$CONFIG_HOME/profrc</code></p>
+        </section>
+        <section>
+            <a name="profanity-log-file"></a>
+            <h3>Profanity Log File</h3>
 
-<a name="base-directories"></a>
-<h3>Base Directories</h3>
+            <p>The Profanity log is at:<p>
+            <p><code>$DATA_HOME/logs/profanity.log</code></p>
+        </section>
+        <section>
+            <a name="chat-logs-directory"></a>
+            <h3>Chat Logs Directory</h3>
 
-<p>The <a href="http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html">XDG base directory specification</a> is used for base configuration and data directories.</a></p>
+            <p>If chat logging is enabled, chat logs will be stored in the following directory:<p>
+            <p><code>$DATA_HOME/chatlogs</code></p>
+        </section>
+        <section>
+            <a name="themes-directory"></a>
+            <h3>Themes Directory</h3>
 
-<p>The environment variables <code>$XDG_CONFIG_HOME</code> and <code>$XDG_DATA_HOME</code> will be used and a directory named <code>profanity</code> will be created in each.</p>
+            <p>Theme files are stored in the following directory:<p>
+            <p><code>$CONFIG_HOME/themes</code></p>
+        </section>
+        <section>
+            <a name="accounts-file"></a>
+            <h3>Accounts file</h3>
 
-<p>As per the specification, if <code>$XDG_CONFIG_HOME</code> is not present or unset, <code>$HOME/.config</code> will be used. If <code>$XDG_DATA_HOME</code> is not present or unset, <code>$HOME/.local/share</code> will be used.</p>
+            <p>User accounts are stored in the following file:<p>
+            <p><code>$DATA_HOME/accounts</code></p>
+        </section>
+        <section>
+            <a name="examples"></a>
+            <h3>Examples</h3>
 
-<p>For the rest of this document the following names will be used:</p>
+            <p>Assuming a user called eddie, and default values for <code>$XDG_CONFIG_HOME</code> and <code>$XDG_DATA_HOME</code> are used, the following example shows where files are stored:<p>
 
-<p><code>$CONFIG_HOME</code> = <code>$XDG_CONFIG_HOME/profanity</code></p>
-<p><code>$DATA_HOME</code> = <code>$XDG_DATA_HOME/profanity</code></p>
-
-</section>
-<section>
-
-<a name="configuration-file"></a>
-<h3>Configuration File</h3>
-
-<p>The main configuration file for profanity is stored at:<p>
-
-<p><code>$CONFIG_HOME/profrc</code></p>
-
-</section>
-<section>
-
-<a name="profanity-log-file"></a>
-<h3>Profanity Log File</h3>
-
-<p>The Profanity log is at:<p>
-
-<p><code>$DATA_HOME/logs/profanity.log</code></p>
-
-</section>
-<section>
-
-<a name="chat-logs-directory"></a>
-<h3>Chat Logs Directory</h3>
-
-<p>If chat logging is enabled, chat logs will be stored in the following directory:<p>
-
-<p><code>$DATA_HOME/chatlogs</code></p>
-
-</section>
-<section>
-
-<a name="themes-directory"></a>
-<h3>Themes Directory</h3>
-
-<p>Theme files are stored in the following directory:<p>
-
-<p><code>$CONFIG_HOME/themes</code></p>
-
-</section>
-<section>
-
-<a name="accounts-file"></a>
-<h3>Accounts file</h3>
-
-<p>User accounts are stored in the following file:<p>
-
-<p><code>$DATA_HOME/accounts</code></p>
-
-</section>
-<section>
-
-<a name="examples"></a>
-<h3>Examples</h3>
-
-<p>Assuming a user called eddie, and default values for <code>$XDG_CONFIG_HOME</code> and <code>$XDG_DATA_HOME</code> are used, the following example shows where files are stored:<p>
-
-<table>
-<tr><td>
-<code>/home/eddie/.config/profanity/profrc</code>
-</td><td>
-Configuration file
-</td></tr>
-<tr><td>
-<code>/home/eddie/.config/profanity/themes/</code>
-</td><td>
-Theme files
-</td></tr>
-<tr><td>
-<code>/home/eddie/.local/share/profanity/logs/profanity.log</code>
-</td><td>
-Main log file
-</td></tr>
-<tr><td>
-<code>/home/eddie/.local/share/profanity/chatlogs/</code>
-</td><td>
-Chat logs
-</td></tr>
-<tr><td>
-<code>/home/eddie/.local/share/profanity/accounts</code>
-</td><td>
-Accounts file
-</td></tr>
-</table>
-
-</section>
-</article>
-
-<footer>
-<p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
-</footer>
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
-<script type="text/javascript" src="js/profanity-ck.js"></script> 
+            <table>
+                <tr>
+                    <td><code>/home/eddie/.config/profanity/profrc</code></td>
+                    <td>Configuration file</td>
+                </tr>
+                <tr>
+                    <td><code>/home/eddie/.config/profanity/themes/</code></td>
+                    <td>Theme files</td>
+                </tr>
+                <tr>
+                    <td><code>/home/eddie/.local/share/profanity/logs/profanity.log</code></td>
+                    <td>Main log file</td>
+                </tr>
+                <tr>
+                    <td><code>/home/eddie/.local/share/profanity/chatlogs/</code></td>
+                    <td>Chat logs</td>
+                </tr>
+                <tr>
+                    <td><code>/home/eddie/.local/share/profanity/accounts</code></td>
+                    <td>Accounts file</td>
+                </tr>
+            </table>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
 </body>
 </html>

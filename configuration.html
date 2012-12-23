@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>Profanity</title>
     <link href="css/profanity.css" type="text/css" rel="stylesheet"><!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
+    <script type="text/javascript" src="js/profanity-ck.js"></script> 
     <script type="text/javascript">
-
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-35914460-1']);
     _gaq.push(['_trackPageview']);
@@ -15,46 +15,36 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-
     </script>    
 </head>
-
 <body id="article">
-<img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
-<header>
-    <h1>Profani<span class="kern-ty">ty</span></h1>
-    <h2>Configuration</h2>
-</header>
+    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <header>
+        <h1>Profani<span class="kern-ty">ty</span></h1>
+        <h2>Configuration</h2>
+    </header>
+    <article id="manual">
+        <section>
+        <h3>Contents</h3>
+        
+        <ul>
+            <li><a href="#configuring-profanity">Configuring Profanity</a>
+            <li><a href="#example-configuration-file">Example Configuration File</a>
+            <li><a href="#settings-commands">Settings commands</a></li>
+        </ul>
+        </section>
+        <section>
+            <a name="configuring-profanity"></a>
+            <h3>Configuring Profanity</h3>
+            
+            <p>It is recommended to use the commands provided within Profanity to make configuration changes rather than directly editing the configuration file.</p>
+            <p>The following shows an example configuration file, and lists below the commands related to each property.</p>
+        </section>
+        <section>
+            <a name="example-configuration-file"></a>
+            <h3>Example Configuration File</h3>
 
-<article id="manual">
-
-<section>
-
-<h3>Contents</h3>
-
-<ul>
-<li><a href="#configuring-profanity">Configuring Profanity</a>
-<li><a href="#example-configuration-file">Example Configuration File</a>
-<li><a href="#settings-commands">Settings commands</a>
-</li></ul>
-
-</section>
-<section>
-
-<a name="configuring-profanity"></a>
-<h3>Configuring Profanity</h3>
-
-<p>It is recommended to use the commands provided within Profanity to make configuration changes rather than directly editing the configuration file.</p>
-
-<p>The following shows an example configuration file, and lists below the commands related to each property.</p>
-
-</section>
-<section>
-
-<a name="example-configuration-file"></a>
-<h3>Example Configuration File</h3>
-
-<pre><code>[ui]
+            <pre><code>[ui]
 theme=boothj5
 beep=false
 flash=false
@@ -88,139 +78,132 @@ autoaway.time=20
 autoaway.message=I'm away from my computer
 autoaway.check=true</code></pre>
 
-</section>
-<section>
+        </section>
+        <section>
+            <a name="settings-commands"></a>
+            <h3>Settings Commands</h3>
 
-<a name="settings-commands"></a>
-<h3>Settings Commands</h3>
-
-<table>
-<tr>
-<td>Group</td>
-<td>Property</td>
-<td>Command</td>
-</tr>
-<tr>
-<td>ui</td>
-<td>theme</td>
-<td><a href="reference.html#theme">/theme</a></td>
-</tr>
-<tr>
-<td></td>
-<td>beep</td>
-<td><a href="reference.html#beep">/beep</a></td>
-</tr>
-<tr>
-<td></td>
-<td>flash</td>
-<td><a href="reference.html#flash">/flash</a></td>
-</tr>
-<tr>
-<td></td>
-<td>intype</td>
-<td><a href="reference.html#intype">/intype</a></td>
-</tr>
-<tr>
-<td></td>
-<td>splash</td>
-<td><a href="reference.html#splash">/splash</a></td>
-</tr>
-<tr>
-<td></td>
-<td>history</td>
-<td><a href="reference.html#history">/history</a></td>
-</tr>
-<tr>
-<td></td>
-<td>vercheck</td>
-<td><a href="reference.html#vercheck">/vercheck</a></td>
-</tr>
-<tr>
-<td></td>
-<td>titlebar.version</td>
-<td><a href="reference.html#titlebar">/titlebar</a></td>
-</tr>
-<tr>
-<td>notifications</td>
-<td>message</td>
-<td><a href="reference.html#notify">/notify</a></td>
-</tr>
-<tr>
-<td></td>
-<td>typing</td>
-<td><a href="reference.html#notify">/notify</a></td>
-</tr>
-<tr>
-<td></td>
-<td>remind</td>
-<td><a href="reference.html#notify">/notify</a></td>
-</tr>
-<tr>
-<td>chatstates</td>
-<td>enabled</td>
-<td><a href="reference.html#states">/states</a></td>
-</tr>
-<tr>
-<td></td>
-<td>outtype</td>
-<td><a href="reference.html#outtype">/outtype</a></td>
-</tr>
-<tr>
-<td>logging</td>
-<td>maxsize</td>
-<td><a href="reference.html#log">/log</a></td>
-</tr>
-<tr>
-<td></td>
-<td>chlog</td>
-<td><a href="reference.html#chlog">/chlog</a></td>
-</tr>
-<tr>
-<td>connection</td>
-<td>reconnect</td>
-<td><a href="reference.html#reconnect">/reconnect</a></td>
-</tr>
-<tr>
-<td></td>
-<td>autoping</td>
-<td><a href="reference.html#autoping">/autoping</a></td>
-</tr>
-<tr>
-<td>presence</td>
-<td>priority</td>
-<td><a href="reference.html#priority">/priority</a></td>
-</tr>
-<tr>
-<td></td>
-<td>autoaway.mode</td>
-<td><a href="reference.html#autoaway">/autoaway</a></td>
-</tr>
-<tr>
-<td></td>
-<td>autoaway.time</td>
-<td><a href="reference.html#autoaway">/autoaway</a></td>
-</tr>
-<tr>
-<td></td>
-<td>autoaway.message</td>
-<td><a href="reference.html#autoaway">/autoaway</a></td>
-</tr>
-<tr>
-<td></td>
-<td>autoaway.check</td>
-<td><a href="reference.html#autoaway">/autoaway</a></td>
-</tr>
-</table>
-
-</section>
-
-</article>
-
-<footer>
-<p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
-</footer>
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
-<script type="text/javascript" src="js/profanity-ck.js"></script> 
+            <table>
+                <tr>
+                    <td>Group</td>
+                    <td>Property</td>
+                    <td>Command</td>
+                </tr>
+                <tr>
+                    <td>ui</td>
+                    <td>theme</td>
+                    <td><a href="reference.html#theme">/theme</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>beep</td>
+                    <td><a href="reference.html#beep">/beep</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>flash</td>
+                    <td><a href="reference.html#flash">/flash</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>intype</td>
+                    <td><a href="reference.html#intype">/intype</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>splash</td>
+                    <td><a href="reference.html#splash">/splash</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>history</td>
+                    <td><a href="reference.html#history">/history</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>vercheck</td>
+                    <td><a href="reference.html#vercheck">/vercheck</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>titlebar.version</td>
+                    <td><a href="reference.html#titlebar">/titlebar</a></td>
+                </tr>
+                <tr>
+                    <td>notifications</td>
+                    <td>message</td>
+                    <td><a href="reference.html#notify">/notify</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>typing</td>
+                    <td><a href="reference.html#notify">/notify</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>remind</td>
+                    <td><a href="reference.html#notify">/notify</a></td>
+                </tr>
+                <tr>
+                    <td>chatstates</td>
+                    <td>enabled</td>
+                    <td><a href="reference.html#states">/states</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>outtype</td>
+                    <td><a href="reference.html#outtype">/outtype</a></td>
+                </tr>
+                <tr>
+                    <td>logging</td>
+                    <td>maxsize</td>
+                    <td><a href="reference.html#log">/log</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>chlog</td>
+                    <td><a href="reference.html#chlog">/chlog</a></td>
+                </tr>
+                <tr>
+                    <td>connection</td>
+                    <td>reconnect</td>
+                    <td><a href="reference.html#reconnect">/reconnect</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>autoping</td>
+                    <td><a href="reference.html#autoping">/autoping</a></td>
+                </tr>
+                <tr>
+                    <td>presence</td>
+                    <td>priority</td>
+                    <td><a href="reference.html#priority">/priority</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>autoaway.mode</td>
+                    <td><a href="reference.html#autoaway">/autoaway</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>autoaway.time</td>
+                    <td><a href="reference.html#autoaway">/autoaway</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>autoaway.message</td>
+                    <td><a href="reference.html#autoaway">/autoaway</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>autoaway.check</td>
+                    <td><a href="reference.html#autoaway">/autoaway</a></td>
+                </tr>
+            </table>
+        </section>
+    </article>
+    <footer>
+    <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
 </body>
 </html>
