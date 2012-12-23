@@ -21,99 +21,70 @@
     <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
     <header>
         <h1>Profani<span class="kern-ty">ty</span></h1>
-        <h2>Getting Started</h2>
+        <h2>Installation Guide</h2>
     </header>
     <article id="manual">
         <section>
             <h3>Contents</h3>
-            
             <ul>
-                <li><a href="#starting-profanity">Starting Profanity</a>
-                <li><a href="#user-interface">User Interface</a>
-                <li><a href="#switching-between-virtual-windows">Switching between virtual windows</a>
-                <li><a href="#connecting">Connecting</a>
-                <li><a href="#sending-a-message">Sending a message</a>
-                <li><a href="#closing-a-virtual-window">Closing a virtual window</a>
-                <li><a href="#listing-virtual-windows">Listing virtual windows</a>
-                <li><a href="#changing-your-presence">Changing your presence</a>
-                <li><a href="#logging-out">Logging out</a></li>
+            <li><a href="#overview">Overview</a>
+            <li><a href="#linux">Installing on Linux</a>
+            <ul>
+            <li><a href="#arch">Arch</a>, <a href="#gentoo">Gentoo</a>, 
+            <a href="#ubuntu">Ubuntu</a>, <a href="#fedora">Fedora</a>,
+            <a href="#other-linux">Other distros</a>
+            </li></ul>
+            <li><a href="#osx">Installing on Mac OS X</a>
+            <li><a href="#windows">Installing on Windows</a>
+            </li></ul>
             </ul>
         </section>
         <section>
-            <a name="starting-profanity"></a>
-            <h3>Starting Profanity</h3>
-            
+            <a name="overview"></a>
+            <h3>Overview</h3>
             <p>To start Profanity, run:</p>
             <pre><code>$ profanity</code></pre>
             <p>From your command line.</p>
         </section>
         <section>
-            <a name="user-interface"></a>
-            <h3>User Interface</h3>
-        
+            <a name="linux"></a>
+            <h3>Installing on Linux</h3>
             <p>The user interface is split into four main areas, from top to bottom:</p>
-            <p><b>Title bar</b> - Shows the title for the current visible 'virtual window' (usually the contact you are chatting with, or the chat room you have joined), and your current presence in the far right corner.</p>
-            <p><b>Main window area</b> - Used to show one of up to 10 virtual windows, numbered 1,2,3,4,5,6,7,9,0.  The first window (1) is always used as the 'console' window where system messages and command responses are shown.  The remaining windows (2 to 0) are available for chatting with contacts, and joining chat rooms.</p>
-            <p><b>Status bar</b> - Shows the time, the user you are logged in as, and on the far right the status of each virtual window.  If the virtual window is used, its number will appear, if it has new messages of any kind, the number will be highlighted.</p>
-            <p><b>Input area</b> - Where you enter all of your commands and messages.  When in the console, commands may be entered here, when in chat with a user or a chat room, both commands and messages may be entered.</p>
         </section>
         <section>
             <a name="switching-between-virtual-windows"></a>
             <h3>Switching between virtual windows</h3>
-
             <p>To make a virtual window visible in the main window area, use Alt-1 to Alt-0 or the F1 to F10 keys.  Certain commands automatically make a virtual window visible such as joining a chat room, or sending a message to a contact.</p>
             <p>When a window is visible new messages within it do not highlight the windows number in the status bar.</p>
         </section>
         <section>
             <a name="connecting"></a>
             <h3>Connecting</h3>
-
             <p>To connect to an XMPP server, use the <code>/connect</code> command:</p>
-            <pre><code>/connect user@server.com</code></pre>
-            <p>You will be prompted by the status bar to enter your password.  Once entered you will be connected, and you should start receiving presence notifications from your contacts in the console window.</p>
         </section>
         <section>
             <a name="sending-a-message"></a>
             <h3>Sending a message</h3>
-
             <p>To send a message use the <code>/msg</code> command:<p>
-            <pre><code>/msg mycontact@server.com Hello there!</code></pre>
-            <p>The above will send "Hello there!" to mycontact@server.com.  A new virtual window will be openend and become visible in the main window area, the message will be sent and displayed.</p>
-            <p>The message is optional:</p>
-            <pre><code>/msg mycontact@server.com</code></pre>
-            <p>The above will open the new window, make it visible, but no message is sent.  This can be useful if you don't currently have a virtual window open with the contact and want to see some history of your conversation with that contact (see the <code>/chlog</code> and <code>/history</code> settings).</p>
         </section>
         <section>
             <a name="closing-a-virtual-window"></a>
             <h3>Closing a virtual window</h3>
-
             <p>You can close a virtual window whilst viewing it by using the <code>/close</code> command.</p>
         </section>
         <section>
             <a name="listing-virtual-windows"></a>
             <h3>Listing virtual windows</h3>
-
             <p>To see a list in the console of all your currently used virtual windows, what they are being used for and whether there are any unread messages in them, enter the following command:</p>
-            <pre><code>/wins</code></pre>
         </section>
         <section>
             <a name="changing-your-presence"></a>
             <h3>Changing your presence</h3>
-
             <p>To change your presence, use the following commands:</p>
-            <pre><code>/away</code></pre>
-            <pre><code>/xa</code></pre>
-            <pre><code>/chat</code></pre>
-            <pre><code>/online</code></pre>
-            <pre><code>/dnd</code></pre>
-
-            <p>Each of these commands accepts a message as a parameter, so to show the message "I'm very busy" to your contacts when setting status to Do Not Disturb:</p>
-            <pre><code>/dnd I'm very busy</code></pre>
         </section>
         <section>
             <a name="logging-out"></a>
             <h3>Logging out</h3>
-
             <p>To log out from the current server, use the <code>/disconnect</code> command.</p>
         </section>
     </article>
