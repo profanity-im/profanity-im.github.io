@@ -39,6 +39,103 @@
                 <li><a href="#windows">Installing on Windows</a></li>
             </ul>
         </section>
+        <section>
+            <a name="overview"></a>
+            <h3>Overview</h3>
+
+            <p>In theory Profanity should run on any POSIX complaint operating system, meaning GNU/Linux and any other *nix variants such as OS X.</p>
+            <p>To run on Windows, a POSIX environment is required, such as Cygwin.</p>
+            <p>Arch and Gentoo currently have community supported packages.</p>
+            <p>Until distribution packages are created, a simple install script has been written which will work on Ubuntu and Fedora, the script simply installs dependencies and runs the usual <code>./configure && make && make install</code>
+            <p>For all other distributions/operating systems the install script can be used as a guide to installing dependencies.</p>
+        </section>
+        <section>
+            <a name="linux"></a>
+            <h3>Installing on Linux</h3>
+            <hr>
+
+            <a name="arch"></a>
+            <h4>Arch</h4>
+            <p>Profanity is available in the AUR:</p>
+            <p><a href="http://aur.archlinux.org/packages.php?ID=63780" target="_blank">http://aur.archlinux.org/packages.php?ID=63780</a></p>
+            <p>Instructions for installing from the AUR are at:
+            <p><a href="https://wiki.archlinux.org/index.php/AUR_User_Guidelines#Installing_packages" target="_blank">https://wiki.archlinux.org/index.php/AUR_User_Guidelines#Installing_packages</a></p>
+            <hr>
+            
+            <a name="gentoo"></a>
+            <h4>Gentoo</h4>
+            <p>Profanity is available from the 'stuff' overlay. Do the following to install:</p>
+            <p>Add the "stuff" overlay:</p>
+            <pre><code>layman -a stuff</code></pre>
+            <p>or add to existing:</p>
+            <pre><code>layman -s stuff</code></pre>
+            <p>Install the package:</p>
+            <pre><code>emerge profanity</code></pre>
+            <p>Profanity can be linked with either libxml2 or expat libraries. By default expat is used, set the 'xml' flag to link with libxml2.</p>
+            <p>To install last develepment version, add <code>net-im/profanity</code> to package.keywords file:</p>
+            <pre><code>echo "=net-im/profanity-9999 **" >> /etc/portage/package.keywords
+emerge =profanity-9999</code></pre>
+            <hr>
+
+            <a name="ubuntu"></a>
+            <h4>Ubuntu</h4>
+            <p>Download the latest source zip from the <a href="index.html">homepage</a>.</p>
+            <p>Unzip the file and cd into the directory e.g:</p>
+            <pre><code>tar -xvf profanity-0.1.10.tar.gz
+cd profanity-0.1.10</code></pre>
+            <p>Run the installer:</p>
+            <pre><code>./install-all.sh</code></pre>
+            <hr>
+
+            <a name="fedora"></a>
+            <h4>Fedora</h4>
+            <p>If your user doesn't have Sudoer rights, add them to the list:</p>
+            <pre><code>su
+&lt;enter password&gt;
+visudo</code></pre>
+            <p>Find the line:</p>
+            <pre><code>root ALL=(ALL) ALL</code></pre>
+            <p>And add your user under it:</p>
+            <pre><code>&lt;username&gt; ALL=(ALL) ALL</code></pre>
+            <p>Download the latest source zip from the <a href="index.html">homepage</a>.</p>
+            <p>Unzip the file and cd into the directory e.g:</p>
+            <pre><code>tar -xvf profanity-0.1.10.tar.gz
+cd profanity-0.1.10</code></pre>
+            <p>Run the installer:</p>
+            <pre><code>./install-all.sh</code></pre>
+            <hr>
+
+            <a name="other-linux"></a>
+            <h4>Other distros</h4>
+            <p>For other linux distributions, the install script is a good guide.  You will need to find the development packages for the dependencies, which are: </p>
+            <p>libssl, expat, ncurses, glib2.0, libnotify, and libcurl.</p>
+            <p>Profanity uses the libstrophe XMPP library which must be downloaded and built from the source which can be found at <a href="https://github.com/metajack/libstrophe">Github</a>.</p>
+        </section>
+        </section>
+        <section>
+            <a name="os-x"></a>
+            <h3>Installing on Mac OS X</h3>
+            <p>To install on OS X TODO</p>
+
+        </section>
+        <section>
+            <a name="windows"></a>
+            <h3>Installing on Windows</h3>
+            
+            <p>You will need Cygwin to run profanity on Windows:</p>
+            <p><a href="http://www.cygwin.com">http://www.cygwin.com</a></p>
+            <p>If you don't already have it, install Cygwin by downloading and running:</p>
+            <p><a href="http://cygwin.com/setup.exe">http://cygwin.com/setup.exe</a></p>
+            <p>You will need <code>git</code>, <code>wget</code> and <code>unzip</code> to install Profanity which are not by default installed with Cygwin. When running setup.exe (or running it again to install these packages) you can search for them and add them to the install when you are asked to select packages.</p>
+            <p>Download the latest source zip from the <a href="index.html">homepage</a></p>
+            <p>Put the zip somewhere on your Cygwin drive for example:</p>
+            <pre><code>C:\cygwin\home\james</code></pre>
+            <p>Unzip the file and cd into the directory e.g:</p>
+            <pre><code>unzip profanity-0.1.10.zip
+cd profanity-0.1.10</code></pre>
+            <p>Run the installer:</p>
+            <pre><code>./install-all.sh</code></pre>
+        </section>
     </article>
     <footer>
         <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
