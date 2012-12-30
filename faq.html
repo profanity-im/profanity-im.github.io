@@ -20,7 +20,7 @@
 <body id="article">
     <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
     <header>
-        <h1>Profani<span class="kern-ty">ty</span></h1>
+        <a href="index.html"><h1>Profani<span class="kern-ty">ty</span></h1></a>
         <h2>Frequently Asked Questions</h2>
     </header>
     <article id="manual">
@@ -28,26 +28,80 @@
             <h3>Contents</h3>
             
             <ul>
-                <li><a href="#why">Why another console based XMPP client?</a>
-                <li><a href="#gtalk">Will Profanity work with Google Talk, or Facebook chat?</a></li>
-                <li><a href="#termf1">Why does the F1 key open terminal help rather than going back to the main console window?</a></li>
+                <li>
+                    <ul>
+                        <li><a href="#why">Why another console based XMPP client?</a></li>
+                        <li><a href="#platform">Will Profanity run on &ltsome platform&gt?</a></li>
+                        <li><a href="#gtalk">Will Profanity work with Google Talk, or Facebook chat?</a></li>
+                        <li><a href="#msn">Will Profanity work with MSN/Yahoo/AIM/IRC etc?</a></li>
+                        <li><a href="#multiaccount">Can I connect to more than one account at a time?</a></li>
+                        <li><a href="#termf1">Why does the F1 key open terminal help rather than going back to the main console window?</a></li>
+                        <li><a href="#notify">Why don't the desktop notifications work for me?</a></li>
+                        <li><a href="#bugs">I've found a bug/have a feature request, who do I tell?</a></li>
+                        <li><a href="#contrib">I'd like to contribute, what should I do?</a></li>
+                    </ul>
+                </li>
             </ul>
         </section>
         <section>
             <a name="why"></a>
-            <h3>Why another console based XMPP client?</h3>
+            <h4>Why another console based XMPP client?</h4>
             <p>Profanity was originally written for two main reasons. Firstly, the author wanted something similar to Irssi, but with a focus on XMPP for use in his workplace. Secondly, it was a bit of fun and a learning exercise.</p>
             <p>Profanity is still a young project and there are plenty of good alternatives out there (although of course we'd love you to use Profanity), see the list at <a href="http://xmpp.org/xmpp-software/clients/">xmpp.org</a>.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="platform"></a>
+            <h4>Will Profanity run on &ltsome platform&gt?</h4>
+            <p>Profanity should run on any POSIX system, see the <a href="install.html">install guide</a> for specifics.</p>
+            <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
             <a name="gtalk"></a>
-            <h3>Will Profanity work with Google Talk, or Facebook chat?</h3>
-            <p>Both Google Talk and Facebook chat have been tested and work no problems.</p>
+            <h4>Will Profanity work with Google Talk, or Facebook chat?</h4>
+            <p>Both Google Talk and Facebook chat have been tested successfully.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="msn"></a>
+            <h4>Will Profanity work with MSN/Yahoo/AIM/IRC etc?</h4>
+            <p>No, Profanity is purely an XMPP chat client.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="multiaccount"></a>
+            <h4>Can I connect to more than one account at a time?</h4>
+            <p>No, the recommended way is to use multiple terminal windows, or GNU Screen.</p>
+            <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
             <a name="termf1"></a>
-            <h3>Why does the F1 key open terminal help rather than going back to the main console window?</h3>
-            <p>Some terminals have a key binding for F1 to open help. You can use the alt-num keys to change windows, or if you prefer to use the F keys, you'll need to change the terminal setting and rebind the F1 key.</p>
+            <h4>Why does the F1 key open terminal help rather than going back to the main console window?</h4>
+            <p>Some terminals have a key binding for F1 to open help. You can use the alt-num keys to change windows, or if you prefer to use the F keys, you'll need to change the terminal setting to open help with another key.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="notify"></a>
+            <h4>Why don't the desktop notifications work for me?</h4>
+            <p>Desktop notifications are currently only supported on Linux (for which you need libnotify available during compile), and Windows using the basic win32 balloon API.</p>
+            <p>OS X desktop notifications should be implemented in a future release.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="bugs"></a>
+            <h4>I've found a bug/have a feature request who do I tell?</h4>
+            <p>If you have a github account, you can log an issue on the <a href="https://github.com/boothj5/profanity/issues?state=open" target="_blank">issue tracker</a>.</p>
+            <p>Alternatively you are welcome to post on the <a href="https://groups.google.com/forum/?hl=en&fromgroups#!forum/profanitydev" target="_blank">mailing list</a>.</p>
+            <p>Finally you can email the project maintainer at boothj5web@gmail.com.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="contrib"></a>
+            <h4>I'd like to contribute, what should I do?</h4>
+            <p>You can fork the <a href="https://github.com/boothj5/profanity" target="_blank">project on Github</a> and try to fix an <a href="https://github.com/boothj5/profanity/issues?state=open" target="_blank">issue</a> or add a feature.</p>
+            <p>The XMPP standard has many features and <a href="http://xmpp.org/xmpp-protocols/xmpp-extensions/" target="_blank">extensions</a> that are not yet implemented in Profanity, so you could try to tackle one of those.</p>
+            <p>Feel free to post on the <a href="https://groups.google.com/forum/?hl=en&fromgroups#!forum/profanitydev" target="_blank">mailing list</a> if you have questions, or just email the project maintainer at boothj5web@gmail.com if you don't know where to start.</p>
+            <a href="#top"><h5>back to top</h5></a>
         </section>
     </article>
     <footer>

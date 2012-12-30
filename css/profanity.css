@@ -305,3 +305,23 @@ footer p { float: left; margin-right: 3em; }
 #landing header:after, #landing #content:after, #landing #features:after, #landing #screenshots:after, article#manual:after, footer:after { content: ""; display: table; clear: both; }
 
 #landing h1, #landing h2, img.overlay, #landing #content *, #landing #features * { -webkit-animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -ms-animation-timing-function: ease-out; -o-animation-timing-function: ease-out; animation-timing-function: ease-out; -webkit-animation-fill-mode: backwards; -moz-animation-fill-mode: backwards; -ms-animation-fill-mode: backwards; -o-animation-fill-mode: backwards; animation-fill-mode: backwards; }
+
+header a:link {
+  color: #222222;
+  text-decoration: none;
+}
+
+header a:visited {
+  color: #222222;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: #222222;
+  text-decoration: none;
+}
+
+header a:active {
+  color: #222222;
+  text-decoration: none;
+}

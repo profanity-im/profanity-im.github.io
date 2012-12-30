@@ -20,7 +20,7 @@
 <body id="article">
     <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
     <header>
-        <h1>Profani<span class="kern-ty">ty</span></h1>
+        <a href="index.html"><h1>Profani<span class="kern-ty">ty</span></h1></a>
         <h2>Installation Guide</h2>
     </header>
     <article id="manual">
@@ -64,7 +64,7 @@
             
             <a name="gentoo"></a>
             <h4>Gentoo</h4>
-            <p>Profanity is available from the 'stuff' overlay. Do the following to install:</p>
+            <p>Profanity is available from the 'stuff' overlay. Too install:</p>
             <p>Add the "stuff" overlay:</p>
             <pre><code>layman -a stuff</code></pre>
             <p>or add to existing:</p>
@@ -72,15 +72,15 @@
             <p>Install the package:</p>
             <pre><code>emerge profanity</code></pre>
             <p>Profanity can be linked with either libxml2 or expat libraries. By default expat is used, set the 'xml' flag to link with libxml2.</p>
-            <p>To install last develepment version, add <code>net-im/profanity</code> to package.keywords file:</p>
+            <p>To install latest develepment version, add <code>net-im/profanity</code> to package.keywords file:</p>
             <pre><code>echo "=net-im/profanity-9999 **" >> /etc/portage/package.keywords
 emerge =profanity-9999</code></pre>
             <hr>
 
             <a name="ubuntu"></a>
             <h4>Ubuntu</h4>
-            <p>Download the latest source zip from the <a href="index.html">homepage</a>.</p>
-            <p>Unzip the file and cd into the directory e.g:</p>
+            <p>Download the latest source tarball from the <a href="index.html">homepage</a>.</p>
+            <p>Extract the file and cd into the directory e.g:</p>
             <pre><code>tar -xvf profanity-0.1.10.tar.gz
 cd profanity-0.1.10</code></pre>
             <p>Run the installer:</p>
@@ -97,8 +97,8 @@ visudo</code></pre>
             <pre><code>root ALL=(ALL) ALL</code></pre>
             <p>And add your user under it:</p>
             <pre><code>&lt;username&gt; ALL=(ALL) ALL</code></pre>
-            <p>Download the latest source zip from the <a href="index.html">homepage</a>.</p>
-            <p>Unzip the file and cd into the directory e.g:</p>
+            <p>Download the latest source tarball from the <a href="index.html">homepage</a>.</p>
+            <p>Extract the file and cd into the directory e.g:</p>
             <pre><code>tar -xvf profanity-0.1.10.tar.gz
 cd profanity-0.1.10</code></pre>
             <p>Run the installer:</p>
@@ -107,7 +107,7 @@ cd profanity-0.1.10</code></pre>
 
             <a name="other-linux"></a>
             <h4>Other distros</h4>
-            <p>For other linux distributions, the install script is a good guide.  You will need to find the development packages for the dependencies, which are: </p>
+            <p>For other linux distributions, the install script is a good guide.  You will need to install the development packages for the dependencies, which are: </p>
             <p>libssl, expat, ncurses, glib2.0, libnotify, and libcurl.</p>
             <p>Profanity uses the libstrophe XMPP library which must be downloaded and built from the source which can be found at <a href="https://github.com/metajack/libstrophe">Github</a>.</p>
         </section>
@@ -115,8 +115,9 @@ cd profanity-0.1.10</code></pre>
         <section>
             <a name="os-x"></a>
             <h3>Installing on Mac OS X</h3>
-            <p>To install on OS X TODO</p>
-
+            <p>Instruction for installing on OS X have yet to be completed.</p>
+            <p>Users have successfully installed on OS X using the brew package management system.</p>
+            <p>Similar to the instructions for <a href="#other-linux">other linux distributions</a> the development packages will need to be installed for dependencies.</p>
         </section>
         <section>
             <a name="windows"></a>
