@@ -39,6 +39,7 @@
                         <li><a href="#notify">Why don't the desktop notifications work for me?</a></li>
                         <li><a href="#bugs">I've found a bug/have a feature request, who do I tell?</a></li>
                         <li><a href="#contrib">I'd like to contribute, what should I do?</a></li>
+                        <li><a href="#upgrade">Why after upgrading from 0.1.9 to 0.1.10 isn't my configuration being picked up?</a></li>
                     </ul>
                 </li>
             </ul>
@@ -101,6 +102,16 @@
             <p>You can fork the <a href="https://github.com/boothj5/profanity" target="_blank">project on Github</a> and try to fix an <a href="https://github.com/boothj5/profanity/issues?state=open" target="_blank">issue</a> or add a feature.</p>
             <p>The XMPP standard has many features and <a href="http://xmpp.org/xmpp-protocols/xmpp-extensions/" target="_blank">extensions</a> that are not yet implemented in Profanity, so you could try to tackle one of those.</p>
             <p>Feel free to post on the <a href="https://groups.google.com/forum/?hl=en&fromgroups#!forum/profanitydev" target="_blank">mailing list</a> if you have questions, or just email the project maintainer at boothj5web@gmail.com if you don't know where to start.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="upgrade"></a>
+            <h4>Why after upgrading from 0.1.9 to 0.1.10 isn't my configuration being picked up?</h4>
+            <p>Configuration file locations have been changed to be compliant with the <a href="http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html" target="_blank">XDG Base Directory Specficiation</a> and some changes have been made to the format.</p>
+            <p>Such non backwards compatible changes should be very rare in future but were required this time to make things more extensible from now on.</p>
+            <p>Details of the new configuration file locations can be found <a href="files.html">here</a> and the commands used to manipulate the settings <a href="configuration.html">here</a>.</p>
+            <p>The simplest way to get your configuration back (there were only a few options in 0.1.9) is to start Profanity after upgrading and use the commands to set your desired options.</p>
+            <p>Since <a href="themes.html">basic colour themes</a> are now supported, colours are no longer specified in the main configuration file, so you will need to create a theme as shown in the link.</p>
             <a href="#top"><h5>back to top</h5></a>
         </section>
     </article>
