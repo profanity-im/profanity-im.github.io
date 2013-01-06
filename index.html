@@ -21,20 +21,20 @@
     </script>    
 </head>
 <body id="landing">
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
 	<img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration"/>	
     <header>
         <h1>Profani<span class="kern-ty">ty</span></h1>
         <h2>A console based XMPP&nbsp;client</h2>
     </header>
     <div id="content">
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 	    <h4>Profanity is a console based XMPP client written in C using <a href="http://www.gnu.org/software/ncurses/" target="_blank">ncurses</a> and <a href="http://strophe.im/libstrophe/" target="_blank">libstrophe</a>, inspired&nbsp;by&nbsp;<a href="http://irssi.org/" target="_blank">Irssi</a></h4>
 	
 	    <p><b>Latest release: 0.1.10</b><br>
