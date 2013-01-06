@@ -27,14 +27,6 @@
         <h2>A console based XMPP&nbsp;client</h2>
     </header>
     <div id="content">
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
 	    <h4>Profanity is a console based XMPP client written in C using <a href="http://www.gnu.org/software/ncurses/" target="_blank">ncurses</a> and <a href="http://strophe.im/libstrophe/" target="_blank">libstrophe</a>, inspired&nbsp;by&nbsp;<a href="http://irssi.org/" target="_blank">Irssi</a></h4>
 	
 	    <p><b>Latest release: 0.1.10</b><br>
@@ -45,6 +37,14 @@
 	    <p>Mailing list: <a href="https://groups.google.com/forum/#!forum/profanitydev" target="_blank">Google Groups Profanity</a></p>
 	    <p>The source can be found on <a href="http://github.com/boothj5/profanity" target="_blank">Github</a></p>
         <p>Unicode support is currently available using latest development at Github and will be in the next release.</p>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
         <p>
             <a href="https://twitter.com/ProfanityIM" class="twitter-follow-button" data-show-count="false">Follow @ProfanityIM</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
