@@ -124,6 +124,7 @@
                 <tr>
                     <td><code>contact</code></td>
                     <td>The full Jabber ID of the contact you are interested in, e.g. contact@server.org.</td>
+                    <td>If in a chat room, supply the participants nickname, use double quotes to quote the nickname if it contains spaces.</td>
                 </tr>
             </table>
             <a href="#top"><h5>back to top</h5></a><br>
@@ -166,12 +167,12 @@
             </table>
             <p>Chat room usage:</p>
             <p>When in a chat room, the message command can be used to send a private message:</p>
-            <pre><code>/msg roommember [message]</code></pre>
+            <pre><code>/msg nick [message]</code></pre>
             <p>Arguments:</p>
             <table>
                 <tr>
-                    <td><code>roommember</code></td>
-                    <td>The full Jabber ID of the chat room member, including chat room and nickname, e.g. room@conference.server.org/nick</td>
+                    <td><code>nick</code></td>
+                    <td>The room participants nickname, use double quotes if the nickname contains spaces.</td>
                 </tr>
                     <td><code>message</code></td>
                     <td>The message to send, does not need to be quoted, if not supplied, a new chat window is opened with the contact, or an existing one becomes visible.</td>
