@@ -49,7 +49,7 @@
                     <li><a href="#account">/account</a>,
                         <a href="#autoping">/autoping</a>, <a href="#autoaway">/autoaway</a>,
                         <a href="#beep">/beep</a>, <a href="#chlog">/chlog</a>, <a href="#flash">/flash</a>,
-                        <a href="#history">/history</a>, <a href="#intype">/intype</a>, <a href="#log">/log</a>,
+                        <a href="#history">/history</a>, <a href="#intype">/intype</a>, <a href="#log">/log</a>, <a href="#mouse">/mouse</a>,
                         <a href="#notify">/notify</a>, <a href="#outtype">/outtype</a>, <a href="#priority">/priority</a>,
                         <a href="#reconnect">/reconnect</a>, <a href="#splash">/splash</a>, <a href="#states">/states</a>,
                         <a href="#theme">/theme</a>, <a href="#titlebar">/titlebar</a>, <a href="#vercheck">/vercheck</a></li>
@@ -118,12 +118,13 @@
             <h4>/info</h4>
             <p>Show status information for a contact in your roster.</p>
             <p>Usage:</p>
-            <pre><code>/info contact</code></pre>
+            <pre><code>/info [contact]</code></pre>
             <p>Arguments:</p>
             <table>
                 <tr>
                     <td><code>contact</code></td>
                     <td>The full Jabber ID of the contact you are interested in, e.g. contact@server.org.</td>
+                    <td>The parameter is not required when in a chat window, the current recipient is used.</td>
                     <td>If in a chat room, supply the participants nickname, use double quotes to quote the nickname if it contains spaces.</td>
                 </tr>
             </table>
@@ -259,7 +260,7 @@
             <a name="who"></a>
             <h4>/who</h4>
             <p>List members from your roster in various presence states.  Whilst in a chat room, list room members.</p>
-            <p>Normal usage:</p>
+            <p>Usage:</p>
             <pre><code>/who [presence]</code></pre>
             <p>Arguments:</p>
             <table>
@@ -270,12 +271,9 @@
                         <code>online</code> - Show all online contacts, includes those who are 'chat', 'away', 'xa', 'dnd'.<br/>
                         <code>available</code> - Show all contacts with a presence of 'online', 'chat'.<br/>
                         <code>unavailable</code> - Show all contacts with a presence of 'offline', 'away', 'xa', 'dnd'.<br/><br/>
-                        Omitting this argument will show all contacts in your roster.</td>
+                        Omitting this argument will show all contacts in your roster, or in the room.</td>
                 </tr>
             </table>
-            <p>Chat room usage:</p>
-            <pre><code>/who</code></pre>
-            <p>List all members of the chat room.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -553,7 +551,7 @@
             <h4>/log</h4>
             <p>Configure various system logging properties.</p>
             <p>Usage:</p>
-            <pre><code>/autoping setting value</code></pre>
+            <pre><code>/log setting value</code></pre>
             <p>Arguments:</p>
             <table>
                 <tr>
@@ -563,6 +561,18 @@
             </table>
             <p>Default:</p>
             <p>Set to <code>1048580</code> (1MB) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="mouse"></a>
+            <h4>/mouse</h4>
+            <p>Enable/disable mouse handling.</p>
+            <p>When enabled, Profanity takes control of mouse actions, allowing the mouse wheel to roll the chat window contents for example.</a>
+            <p>Enabling mouse handling may require shift to be held down to select text.</p>
+            <p>Usage:</p>
+            <pre><code>/mouse on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>off<code>.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
