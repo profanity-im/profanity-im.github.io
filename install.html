@@ -49,7 +49,7 @@
             <p>In theory Profanity should run on any POSIX complaint operating system, meaning GNU/Linux and any other *nix variants such as OS X.</p>
             <p>To run on Windows, a POSIX environment is required, such as Cygwin.</p>
             <p>Arch and Gentoo currently have community supported packages.</p>
-            <p>Until distribution packages are created, a simple install script has been written which will work on Ubuntu and Fedora, the script simply installs dependencies and runs the usual <code>./configure && make && make install</code>
+            <p>Until distribution packages are created, a simple install script has been written which will work on Ubuntu and Fedora, the script installs dependencies and runs <code>./configure && make && make install</code>
             <p>For all other distributions/operating systems the install script can be used as a guide to installing dependencies.</p>
         </section>
         <section>
@@ -86,8 +86,8 @@ emerge =profanity-9999</code></pre>
             <h4>Ubuntu</h4>
             <p>Download the latest source tarball from the <a href="index.html">homepage</a>.</p>
             <p>Extract the file and cd into the directory e.g:</p>
-            <pre><code>tar -xvf profanity-0.1.10.tar.gz
-cd profanity-0.1.10</code></pre>
+            <pre><code>tar -xvf profanity-0.2.0.tar.gz
+cd profanity-0.2.0</code></pre>
             <p>Run the installer:</p>
             <pre><code>./install-all.sh</code></pre>
             <hr>
@@ -104,17 +104,17 @@ visudo</code></pre>
             <pre><code>&lt;username&gt; ALL=(ALL) ALL</code></pre>
             <p>Download the latest source tarball from the <a href="index.html">homepage</a>.</p>
             <p>Extract the file and cd into the directory e.g:</p>
-            <pre><code>tar -xvf profanity-0.1.10.tar.gz
-cd profanity-0.1.10</code></pre>
+            <pre><code>tar -xvf profanity-0.2.0.tar.gz
+cd profanity-0.2.0</code></pre>
             <p>Run the installer:</p>
             <pre><code>./install-all.sh</code></pre>
             <hr>
 
             <a name="other-linux"></a>
             <h4>Other distros</h4>
-            <p>For other linux distributions, the install script is a good guide.  You will need to install the development packages for the dependencies, which are: </p>
-            <p>libssl, expat, ncurses, glib2.0, libnotify, libcurl and libXScrnSaver.</p>
-            <p>Profanity uses the libstrophe XMPP library which must be downloaded and built from the source which can be found at <a href="https://github.com/metajack/libstrophe">Github</a>.</p>
+            <p>For other linux distributions, the install script is a good guide.  You will need to install the development packages for dependencies, which are: </p>
+            <p>libssl, expat, ncursesw, glib2.0, libnotify, libcurl and libXScrnSaver.</p>
+            <p>Profanity uses the libstrophe XMPP library which must be downloaded and built from source which can be found at <a href="https://github.com/metajack/libstrophe">Github</a>.</p>
         </section>
         </section>
         <section>
@@ -137,8 +137,8 @@ cd profanity-0.1.10</code></pre>
             <p>Put the zip somewhere on your Cygwin drive for example:</p>
             <pre><code>C:\cygwin\home\james</code></pre>
             <p>Unzip the file and cd into the directory e.g:</p>
-            <pre><code>unzip profanity-0.1.10.zip
-cd profanity-0.1.10</code></pre>
+            <pre><code>unzip profanity-0.2.0.zip
+cd profanity-0.2.0</code></pre>
             <p>Run the installer:</p>
             <pre><code>./install-all.sh</code></pre>
         </section>
