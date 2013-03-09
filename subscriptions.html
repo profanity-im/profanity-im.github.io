@@ -64,13 +64,16 @@
             <pre><code>/sub deny newcontact@server.com</code></pre>
             <p>The contact parameter is optional if you are already in a chat window with the user, for example if you are currently chatting to newcontact@server.com, you can run the following to deny a subscription request from that contact:</p>
             <pre><code>/sub deny</code></pre>
-            <p>The <code>/sub deny</code> command also removes a contacts subscription to your presence if you have previously approved it.</p>
+            <p>The <code>/sub deny</code> command can also be used to remove a contacts subscription to your presence if you have previously approved it.</p>
         </section>
         <section>
             <a name="list-pending-requests"></a>
             <h3>List pending requests</h3>
 
-            <p>To list requests that you have sent that are currently awaiting approval from the contact, use the <code>/sub sent</code> command.</p>
+            <p>To list requests that you have sent that are awaiting approval from the contact, use the following command:</p>
+            <pre><code>/sub sent</code></pre>
+            <p>To list requests that you have received, but not yet approved or denied, use the following command:</p>
+            <pre><code>/sub received</code></pre>
         </section>
     </article>
     <footer>
