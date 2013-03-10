@@ -39,13 +39,16 @@
                         <a href="#autoping">/autoping</a><br>
                         <a href="#away">/away</a><br>
                         <a href="#beep">/beep</a><br>
+                        <a href="#caps">/caps</a><br>
                         <a href="#chat">/chat</a><br>
                         <a href="#chlog">/chlog</a><br>
+                        <a href="#clear">/clear</a><br>
                         <a href="#close">/close</a><br>
                         <a href="#connect">/connect</a><br>
                         <a href="#disconnect">/disconnect</a><br>
                         <a href="#dnd">/dnd</a><br>
                         <a href="#flash">/flash</a><br>
+                        <a href="#gone">/gone</a><br>
                         <a href="#help">/help</a><br>
                         <a href="#history">/history</a><br>
                         <a href="#info">/info</a><br>
@@ -62,8 +65,11 @@
                         <a href="#priority">/priority</a><br>
                         <a href="#quit">/quit</a><br>
                         <a href="#reconnect">/reconnect</a><br>
+                        <a href="#software">/software</a><br>
                         <a href="#splash">/splash</a><br>
                         <a href="#states">/states</a><br>
+                        <a href="#status">/status</a><br>
+                        <a href="#statuses">/statuses</a><br>
                         <a href="#sub">/sub</a><br>
                         <a href="#theme">/theme</a><br>
                         <a href="#tiny">/tiny</a><br>
@@ -81,18 +87,18 @@
 
             <a name="about"></a>
             <h4>/about</h4>
-            <p>Show version and license information.</p>
+            <p>Show version and license information. To show the ASCII logo with this command, see the <a href="#splash">splash</a> command.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
             <a name="account"></a>
             <h4>/account</h4>
             <p>Manage local accounts.  A local account consists of a name, a Jabber ID and an optional server property.</p>
-            <p>Accounts may be enabled/disabled, the only difference is that enabled accounts are used for autocompletion.</p>
+            <p>Accounts may be enabled/disabled, the only difference being that enabled accounts are used for autocompletion.</p>
             <p>When connecting with the <a href="#account">connect</a> command, if an account does not currently exist with the connection details, one will be created using the Jabber ID as the name.</p>
             <p>You may rename this account at a later point if desired, see usage below.</p>
             <p>For details of where accounts are stored, see the help on <a href="files.html">file locations</a>.</p>
-            <p>Usage:</p>
+            <p><b>Basic usage:</b></p>
             <pre><code>/account command [account]</code></pre>
             <p>Arguments:</p>
             <p>The command may be:</p>
@@ -107,7 +113,7 @@
                 </tr>
                 <tr>
                     <td><code>show</code></td>
-                    <td>Show details of the specified <code>account</code>.</td>
+                    <td>Show details and all settings of the specified <code>account</code>.</td>
                 </tr>
                 <tr>
                     <td><code>enable</code></td>
@@ -118,7 +124,7 @@
                     <td>Disable the specified <code>account</code>.</td>
                 </tr>
             </table>
-            <p>Rename usage:</p>
+            <p><b>Rename usage:</b></p>
             <pre><code>/account rename oldname newname</code></pre>
             <p>Arguments:</p>
             <table>
@@ -131,7 +137,7 @@
                     <td>The new account name.</td>
                 </tr>
             </table>
-            <p>Property set usage:</p>
+            <p><b>Setting properties:</b></p>
             <pre><code>/account set account property value</code></pre>
             <p>Arguments:</p>
             <table>
@@ -141,19 +147,35 @@
                 </tr>
                 <tr>
                     <td><code>property</code></td>
-                    <td>Either <code>jid</code> or <code>server</code>.</td>
+                    <td>One of <code>jid</code>, <code>server</code>, <code>status</code> or a presence <code>online</code>, <code>chat</code>, <code>away</code>, <code>xa</code>, <code>dnd</code></td>
                 </tr>
                 <tr>
                     <td><code>value</code></td>
-                    <td>The new value for the property.</td>
+                    <td><code>jid</code> - The value is the Jabber ID to use for the account.<br>
+                        <code>server</code> - The value is the server to connect to.<br>
+                        <code>resource</code> - The name to be used as the resource for Profanity, the default is 'profanity'.<br>
+                        <code>status</code> - The presence to use when logging in to this account. A value of <code>last</code> will use the presence at the time the previous logged in session logged out<br>
+                        <code>presence</code> - The value is the priority to use for this presence.<br></td>
                 </tr>
             </table>
             <p>Example:</p>
             <pre><code>/account add work
 /account set work jid myuser@mycompany.com
 /account set work server talk.google.com
+/account set work resource laptop
+/account set work status away
+/account set work chat 20
+/account set work online 10
+/account set work away 5
+/account set work xa 0
+/account set work dnd -1
 /account rename work gtalk</code></pre>
             <p>You can then log into the above account using <code>/connect gtalk</code>.</p>
+            <p>The talk.google.com server will be used to connect rather than mycompany.com.</p>
+            <p>The resource associated with this account when logged in will be 'laptop'.</p>
+            <p>Each time you log in, your status will be <code>away</code></p>
+            <p>When you change status to 'chat' by using the <a href="#chat">chat</a> command for example, the priority for Profanity will be set to 20.</p>
+
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -239,6 +261,17 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="caps"></a>
+            <h4>/caps</h4>
+            <p>Show the XMPP capabilities of a contact's client.</p>
+            <p>The capabilities are represented by their namespace as defined at the <a href="http://xmpp.org/registrar/namespaces.html">XMPP namespace registrar</a>.</p>
+            <p>Usage:</p>
+            <pre><code>/caps fulljid</code></pre>
+            <p>The full jid, is of the form localpart@domainpart/resource, e.g.:</p>
+            <pre><code>bob@chatserver.com/phone</code></pre>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="chat"></a>
             <h4>/chat</h4>
             <p>Set your status to 'chat' (availble for chat) with optional message.</p>
@@ -261,6 +294,12 @@
             <pre><code>/chlog on|off</code></pre>
             <p>Default:</p>
             <p>Set to <code>off</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="clear"></a>
+            <h4>/clear</h4>
+            <p>Clear the current window.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -314,6 +353,18 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="gone"></a>
+            <h4>/gone</h4>
+            <p>Send a 'gone' state to the recipient after the specified number of minutes.</p>
+            <p>This indicates to the recipient's client that you have left the conversation.</p>
+            <p>A value of 0 will disable sending the gone state.</p>
+            <p>Usage:</p>
+            <pre><code>/gone minutes</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>0</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="help"></a>
             <h4>/help</h4>
             <p>Show help information.</p>
@@ -340,6 +391,7 @@
             <a name="history"></a>
             <h4>/history</h4>
             <p>Show previous messsages with a contact when opening a new chat window.</p>
+            <p>The <a href="#chlog">chlog</a> setting must be enabled.</p>
             <p>Usage:</p>
             <pre><code>/history on|off</code></pre>
             <p>Default:</p>
@@ -349,7 +401,7 @@
 
             <a name="info"></a>
             <h4>/info</h4>
-            <p>Show status information for a contact in your roster.</p>
+            <p>Show information about a contact in the roster, including subscription information and their connected resources.</p>
             <p>Usage:</p>
             <pre><code>/info [contact]</code></pre>
             <p>Arguments:</p>
@@ -418,7 +470,7 @@
             <p>Usage:</p>
             <pre><code>/mouse on|off</code></pre>
             <p>Default:</p>
-            <p>Set to <code>off</code>.</p>
+            <p>Set to <code>on</code>.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -543,7 +595,8 @@
 
             <a name="priority"></a>
             <h4>/priority</h4>
-            <p>Set your presence priority associated with profanity.</p>
+            <p>Set the priority associated with the current logged in account.</p>
+            <p>Using this command will set the priority for all presence statuses.  For more flexible priority settings per presence, see the <a href="#account">account</a> command.</p>
             <p>Usage:</p>
             <pre><code>/priority value</code></pre>
             <p>Arguments:</p>
@@ -581,9 +634,20 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="software"></a>
+            <h4>/software</h4>
+            <p>Show software and OS version information of a contact's client.</p>
+            <p>If the contact's client does not support <a href="http://xmpp.org/extensions/xep-0092.html">software version</a> requests, no ouput it shown.</p>
+            <p>Usage:</p>
+            <pre><code>/software fulljid</code></pre>
+            <p>The full jid, is of the form localpart@domainpart/resource, e.g.:</p>
+            <pre><code>bob@chatserver.com/phone</code></pre>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="splash"></a>
             <h4>/splash</h4>
-            <p>Enable the ASCII logo on startup.</code></p>
+            <p>Enable the ASCII logo on startup and the <a href="#about">about</a> command.</p>
             <p>Usage:</p>
             <pre><code>/splash on|off</code></pre>
             <p>Default:</p>
@@ -599,6 +663,33 @@
             <pre><code>/states on|off</code></pre>
             <p>Default:</p>
             <p>Set to <code>off</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="status"></a>
+            <h4>/status</h4>
+            <p>Show status information for a contact in your roster.</p>
+            <p>Usage:</p>
+            <pre><code>/info [contact]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>contact</code></td>
+                    <td>The full Jabber ID of the contact you are interested in, e.g. contact@server.org.</td>
+                    <td>The parameter is not required when in a chat window, the current recipient is used.</td>
+                    <td>If in a chat room, supply the participants nickname, use double quotes to quote the nickname if it contains spaces.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="statuses"></a>
+            <h4>/statuses</h4>
+            <p>Enable/disable showing of status updates for contact in your roster.</p>
+            <p>Usage:</p>
+            <pre><code>/statuses on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>on</code> (enabled) by default.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
