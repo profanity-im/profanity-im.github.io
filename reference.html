@@ -31,340 +31,58 @@
             <h3>Contents</h3>
 
             <ul>
-                <li><a href="#basic-commands">Basic commands</a>
+                <li>
                 <ul>
-                    <li><a href="#about">/about</a>, <a href="#close">/close</a>, <a href="#connect">/connect</a>,
-                        <a href="#disconnect">/disconnect</a>, <a href="#help">/help</a>, <a href="#info">/info</a>,
-                        <a href="#join">/join</a>, <a href="#msg">/msg</a>, <a href="#nick">/nick</a>,
-                        <a href="#prefs">/prefs</a>, <a href="#quit">/quit</a>, <a href="#sub">/sub</a>,
-                        <a href="#tiny">/tiny</a>, <a href="#who">/who</a>, <a href="#wins">/wins</a></li>
-                </ul>
-                    <li><a href="#changing-presence">Changing presence</a>
-                <ul>
-                    <li><a href="#away">/away</a>, <a href="#chat">/chat</a>, <a href="#dnd">/dnd</a>,
-                        <a href="#online">/online</a>, <a href="#xa">/xa</a></li>
-                </ul>
-                    <li><a href="#configuration">Configuration</a>
-                <ul>
-                    <li><a href="#account">/account</a>,
-                        <a href="#autoping">/autoping</a>, <a href="#autoaway">/autoaway</a>,
-                        <a href="#beep">/beep</a>, <a href="#chlog">/chlog</a>, <a href="#flash">/flash</a>,
-                        <a href="#history">/history</a>, <a href="#intype">/intype</a>, <a href="#log">/log</a>, <a href="#mouse">/mouse</a>,
-                        <a href="#notify">/notify</a>, <a href="#outtype">/outtype</a>, <a href="#priority">/priority</a>,
-                        <a href="#reconnect">/reconnect</a>, <a href="#splash">/splash</a>, <a href="#states">/states</a>,
-                        <a href="#theme">/theme</a>, <a href="#titlebar">/titlebar</a>, <a href="#vercheck">/vercheck</a></li>
+                    <li><a href="#about">/about</a><br>
+                        <a href="#account">/account</a><br>
+                        <a href="#autoaway">/autoaway</a><br>
+                        <a href="#autoping">/autoping</a><br>
+                        <a href="#away">/away</a><br>
+                        <a href="#beep">/beep</a><br>
+                        <a href="#chat">/chat</a><br>
+                        <a href="#chlog">/chlog</a><br>
+                        <a href="#close">/close</a><br>
+                        <a href="#connect">/connect</a><br>
+                        <a href="#disconnect">/disconnect</a><br>
+                        <a href="#dnd">/dnd</a><br>
+                        <a href="#flash">/flash</a><br>
+                        <a href="#help">/help</a><br>
+                        <a href="#history">/history</a><br>
+                        <a href="#info">/info</a><br>
+                        <a href="#intype">/intype</a><br>
+                        <a href="#join">/join</a><br>
+                        <a href="#log">/log</a><br>
+                        <a href="#mouse">/mouse</a><br>
+                        <a href="#msg">/msg</a><br>
+                        <a href="#nick">/nick</a><br>
+                        <a href="#notify">/notify</a><br>
+                        <a href="#online">/online</a><br>
+                        <a href="#outtype">/outtype</a><br>
+                        <a href="#prefs">/prefs</a><br>
+                        <a href="#priority">/priority</a><br>
+                        <a href="#quit">/quit</a><br>
+                        <a href="#reconnect">/reconnect</a><br>
+                        <a href="#splash">/splash</a><br>
+                        <a href="#states">/states</a><br>
+                        <a href="#sub">/sub</a><br>
+                        <a href="#theme">/theme</a><br>
+                        <a href="#tiny">/tiny</a><br>
+                        <a href="#titlebar">/titlebar</a><br>
+                        <a href="#vercheck">/vercheck</a></li>
+                        <a href="#who">/who</a><br>
+                        <a href="#wins">/wins</a><br>
+                        <a href="#xa">/xa</a><br>
                 </ul>
             </ul>
         </section>
         <section>
-            <a name="basic-commands"></a>
-            <h3>Basic commands</h3>
+            <h3>Commands</h3>
             <hr>
 
             <a name="about"></a>
             <h4>/about</h4>
             <p>Show version and license information.</p>
             <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="close"></a>
-            <h4>/close</h4>
-            <p>Close a chat or chat room window.</p>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="connect"></a>
-            <h4>/connect</h4>
-            <p>Log in to an XMPP chat server.</p>
-            <p>Usage:</p>
-            <pre><code>/connect account [server]</code></pre>
-            <p>Arguments:</p>
-            <p><code>account</code> - Either the Jabber ID you wish to log in as, e.g. user@server.org, or the account name of a previously created account, see the <a href="#account">account</a> command.</p>
-            <p><code>server</code> - Optional server to connect to if the chat service is hosted at a different domain to the domain part of the Jabber ID.</p>
-            <p>The <code>/connect</code> command automatically creates an account using the Jabber ID as it's name if one does not exist already.  See the <a href="#account">account</a> command for more information.</p>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="disconnect"></a>
-            <h4>/disconnect</h4>
-            <p>Log out of the currently logged in session.</p>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="help"></a>
-            <h4>/help</h4>
-            <p>Show help information.</p>
-            <p>Usage:</p>
-            <pre><code>/help [list|area|command]</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>list</code></td>
-                    <td>List all commands.</td>
-                </tr>
-                <tr>
-                    <td><code>area</code></td>
-                    <td>One of <code>basic</code>, <code>presence</code>, <code>settings</code> or <code>navigation</code>. Shows summary help for commands in that area.</td>
-                </tr>
-                <tr>
-                    <td><code>command</code></td>
-                    <td>The specific command on which you want detailed help.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="info"></a>
-            <h4>/info</h4>
-            <p>Show status information for a contact in your roster.</p>
-            <p>Usage:</p>
-            <pre><code>/info [contact]</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>contact</code></td>
-                    <td>The full Jabber ID of the contact you are interested in, e.g. contact@server.org.</td>
-                    <td>The parameter is not required when in a chat window, the current recipient is used.</td>
-                    <td>If in a chat room, supply the participants nickname, use double quotes to quote the nickname if it contains spaces.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="join"></a>
-            <h4>/join</h4>
-            <p>Join a chat room.</p>
-            <p>Usage:</p>
-            <pre><code>/join room [nick]</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>room</code></td>
-                    <td>The Jabber ID of the chat room you wish to join, e.g. room@conference.server.org.</td>
-                </tr>
-                <tr>
-                    <td><code>nick</code></td>
-                    <td>Optional nickname to use in the room.  If this parameter is not supplied, the beginning part (before the '@') of your Jabber ID will be used.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="msg"></a>
-            <h4>/msg</h4>
-            <p>Send a message.</p>
-            <p>Normal usage:</p>
-            <pre><code>/msg contact [message]</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>contact</code></td>
-                    <td>The full Jabber ID of the contact you wish to message, e.g. contact@server.org.</td>
-                </tr>
-                <tr>
-                    <td><code>message</code></td>
-                    <td>The message to send, does not need to be quoted, if not supplied, a new chat window is opened with the contact, or an existing one becomes visible.</td>
-                </tr>
-            </table>
-            <p>Chat room usage:</p>
-            <p>When in a chat room, the message command can be used to send a private message:</p>
-            <pre><code>/msg nick [message]</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>nick</code></td>
-                    <td>The room participants nickname, use double quotes if the nickname contains spaces.</td>
-                </tr>
-                    <td><code>message</code></td>
-                    <td>The message to send, does not need to be quoted, if not supplied, a new chat window is opened with the contact, or an existing one becomes visible.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="nick"></a>
-            <h4>/nick</h4>
-            <p>Change nickname when in a chat room.</p>
-            <p>Usage:</p>
-            <pre><code>/nick nickname</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>nickname</code></td>
-                    <td>The new nickname you wished to be known as in the chat room.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="prefs"></a>
-            <h4>/prefs</h4>
-            <p>Show current configuration settings.</p>
-            <p>Usage:</p>
-            <pre><code>/prefs [area]</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>area</code></td>
-                    <td>Show preferences in a specific area, one of <code>ui</code>, <code>desktop</code>, <code>chat</code>, <code>log</code>, <code>conn</code>, <code>presence</code>.  If no argument is supplied, all preferences are shown.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="quit"></a>
-            <h4>/quit</h4>
-            <p>Quit Profanity.</p>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="sub"></a>
-            <h4>/sub</h4>
-            <p>Manage presence subcriptions.</p>
-            <p>Usage:</p>
-            <pre><code>/sub command [contact]</code></pre>
-            <p>If used whilst in chat with a contact, the <code>contact</code> parameter may be omitted and the current contact will be used.</p>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>command</code></td>
-                    <td><code>request</code> - Requests presence subscriptions from a contact.<br/>
-                        <code>allow</code> - Approve a request from a contact to see your presence information.<br/>
-                        <code>deny</code> - Deny a request from a contact, or remove them from your previously approved list.<br/>
-                        <code>sent</code> - Show a list of sent presence subscriptions for which the recipient has not yet responded.<br/>
-                        <code>received</code> - Show a list of received presence subscriptions to which you have yet to respond to.</td>
-                </tr>
-                <tr>
-                    <td><code>contact</code></td>
-                    <td>The contact for whom you are managing subscriptions, may be omitted if currently in chat with a contact.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="tiny"></a>
-            <h4>/tiny</h4>
-            <p>Use the TinyURL service to send a tiny URL link, may only be used when in chat with a contact.</p>
-            <p>Usage:</p>
-            <pre><code>/tiny url</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>url</code></td>
-                    <td>The URL you wish to make tiny before sending.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="who"></a>
-            <h4>/who</h4>
-            <p>List members from your roster in various presence states.  Whilst in a chat room, list room members.</p>
-            <p>Usage:</p>
-            <pre><code>/who [presence]</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>presence</code></td>
-                    <td><code>offline</code> - Show all offline contacts.<br/>
-                        <code>chat</code>, <code>dnd</code>, <code>away</code>, <code>xa</code> - Show contacts with the specified presence.</br>
-                        <code>online</code> - Show all online contacts, includes those who are 'chat', 'away', 'xa', 'dnd'.<br/>
-                        <code>available</code> - Show all contacts with a presence of 'online', 'chat'.<br/>
-                        <code>unavailable</code> - Show all contacts with a presence of 'offline', 'away', 'xa', 'dnd'.<br/><br/>
-                        Omitting this argument will show all contacts in your roster, or in the room.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="wins"></a>
-            <h4>/wins</h4>
-            <p>Show a list of all currently active virtual windows in the console window, includes information about each window such as chat recipient, room, and unread messages.</p>
-            <a href="#top"><h5>back to top</h5></a><br>
-        </section>
-        <section>
-            <a name="changing-presence"></a>
-            <h3>Changing presence</h3>
-            <hr>
-
-            <a name="away"></a>
-            <h4>/away</h4>
-            <p>Set your status to 'away' with optional message.</p>
-            <p>Usage:</p>
-            <pre><code>/away [message]</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>message</code></td>
-                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="chat"></a>
-            <h4>/chat</h4>
-            <p>Set your status to 'chat' (availble for chat) with optional message.</p>
-            <p>Usage:</p>
-            <pre><code>/chat [message]</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>message</code></td>
-                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="dnd"></a>
-            <h4>/dnd</h4>
-            <p>Set your status to 'dnd' (do not disturb) with optional message.</p>
-            <p>Usage:</p>
-            <pre><code>/dnd [message]</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>message</code></td>
-                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="online"></a>
-            <h4>/online</h4>
-            <p>Set your status to 'online' with optional message.</p>
-            <p>Usage:</p>
-            <pre><code>/online [message]</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>message</code></td>
-                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
-            <a name="xa"></a>
-            <h4>/xa</h4>
-            <p>Set your status to 'xa' (extended away) with optional message.</p>
-            <p>Usage:</p>
-            <pre><code>/xa [message]</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>message</code></td>
-                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-
-        </section>
-        <section>
-            <a name="configuration"></a>
-            <h3>Configuration</h3>
             <hr>
 
             <a name="account"></a>
@@ -439,23 +157,6 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
-            <a name="autoping"></a>
-            <h4>/autoping</h4>
-            <p>Configure profanity to send a ping to the chat server on a regular basis. This can sometimes be required to keep a connection from closing.</p>
-            <p>Usage:</p>
-            <pre><code>/autoping seconds</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>seconds</code></td>
-                    <td>The interval in seconds between sending pings to the server.  A value of <code>0</code> will diable automatic server pings.</td>
-                </tr>
-            </table>
-            <p>Default:</p>
-            <p>Set to <code>0</code> (disabled) by default.</p>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
             <a name="autoaway"></a>
             <h4>/autoaway</h4>
             <p>Configure profanity to send either a last activity presence, or an away status change when you have been idle for a given amount of time.</p>
@@ -495,6 +196,38 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="autoping"></a>
+            <h4>/autoping</h4>
+            <p>Configure profanity to send a ping to the chat server on a regular basis. This can sometimes be required to keep a connection from closing.</p>
+            <p>Usage:</p>
+            <pre><code>/autoping seconds</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>seconds</code></td>
+                    <td>The interval in seconds between sending pings to the server.  A value of <code>0</code> will diable automatic server pings.</td>
+                </tr>
+            </table>
+            <p>Default:</p>
+            <p>Set to <code>0</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="away"></a>
+            <h4>/away</h4>
+            <p>Set your status to 'away' with optional message.</p>
+            <p>Usage:</p>
+            <pre><code>/away [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>message</code></td>
+                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="beep"></a>
             <h4>/beep</h4>
             <p>Set profanity to send the terminal bell signal to the terminal when a new message arrives.</p>
@@ -506,6 +239,21 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="chat"></a>
+            <h4>/chat</h4>
+            <p>Set your status to 'chat' (availble for chat) with optional message.</p>
+            <p>Usage:</p>
+            <pre><code>/chat [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>message</code></td>
+                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="chlog"></a>
             <h4>/chlog</h4>
             <p>Enable chat logging. see <a href="files.html#chat-logs-directory">chat logs location</a>.</p>
@@ -513,6 +261,45 @@
             <pre><code>/chlog on|off</code></pre>
             <p>Default:</p>
             <p>Set to <code>off</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="close"></a>
+            <h4>/close</h4>
+            <p>Close a chat or chat room window.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="connect"></a>
+            <h4>/connect</h4>
+            <p>Log in to an XMPP chat server.</p>
+            <p>Usage:</p>
+            <pre><code>/connect account [server]</code></pre>
+            <p>Arguments:</p>
+            <p><code>account</code> - Either the Jabber ID you wish to log in as, e.g. user@server.org, or the account name of a previously created account, see the <a href="#account">account</a> command.</p>
+            <p><code>server</code> - Optional server to connect to if the chat service is hosted at a different domain to the domain part of the Jabber ID.</p>
+            <p>The <code>/connect</code> command automatically creates an account using the Jabber ID as it's name if one does not exist already.  See the <a href="#account">account</a> command for more information.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="disconnect"></a>
+            <h4>/disconnect</h4>
+            <p>Log out of the currently logged in session.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="dnd"></a>
+            <h4>/dnd</h4>
+            <p>Set your status to 'dnd' (do not disturb) with optional message.</p>
+            <p>Usage:</p>
+            <pre><code>/dnd [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>message</code></td>
+                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
+                </tr>
+            </table>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -527,6 +314,29 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="help"></a>
+            <h4>/help</h4>
+            <p>Show help information.</p>
+            <p>Usage:</p>
+            <pre><code>/help [list|area|command]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>list</code></td>
+                    <td>List all commands.</td>
+                </tr>
+                <tr>
+                    <td><code>area</code></td>
+                    <td>One of <code>basic</code>, <code>presence</code>, <code>settings</code> or <code>navigation</code>. Shows summary help for commands in that area.</td>
+                </tr>
+                <tr>
+                    <td><code>command</code></td>
+                    <td>The specific command on which you want detailed help.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="history"></a>
             <h4>/history</h4>
             <p>Show previous messsages with a contact when opening a new chat window.</p>
@@ -537,6 +347,23 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="info"></a>
+            <h4>/info</h4>
+            <p>Show status information for a contact in your roster.</p>
+            <p>Usage:</p>
+            <pre><code>/info [contact]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>contact</code></td>
+                    <td>The full Jabber ID of the contact you are interested in, e.g. contact@server.org.</td>
+                    <td>The parameter is not required when in a chat window, the current recipient is used.</td>
+                    <td>If in a chat room, supply the participants nickname, use double quotes to quote the nickname if it contains spaces.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="intype"></a>
             <h4>/intype</h4>
             <p>Show when a contact is typing a message in the console, and in the profanity title bar.</p>
@@ -544,6 +371,25 @@
             <pre><code>/intype on|off</code></pre>
             <p>Default:</p>
             <p>Set to <code>off</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="join"></a>
+            <h4>/join</h4>
+            <p>Join a chat room.</p>
+            <p>Usage:</p>
+            <pre><code>/join room [nick]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>room</code></td>
+                    <td>The Jabber ID of the chat room you wish to join, e.g. room@conference.server.org.</td>
+                </tr>
+                <tr>
+                    <td><code>nick</code></td>
+                    <td>Optional nickname to use in the room.  If this parameter is not supplied, the beginning part (before the '@') of your Jabber ID will be used.</td>
+                </tr>
+            </table>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -572,7 +418,54 @@
             <p>Usage:</p>
             <pre><code>/mouse on|off</code></pre>
             <p>Default:</p>
-            <p>Set to <code>off<code>.</p>
+            <p>Set to <code>off</code>.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="msg"></a>
+            <h4>/msg</h4>
+            <p>Send a message.</p>
+            <p>Normal usage:</p>
+            <pre><code>/msg contact [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>contact</code></td>
+                    <td>The full Jabber ID of the contact you wish to message, e.g. contact@server.org.</td>
+                </tr>
+                <tr>
+                    <td><code>message</code></td>
+                    <td>The message to send, does not need to be quoted, if not supplied, a new chat window is opened with the contact, or an existing one becomes visible.</td>
+                </tr>
+            </table>
+            <p>Chat room usage:</p>
+            <p>When in a chat room, the message command can be used to send a private message:</p>
+            <pre><code>/msg nick [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>nick</code></td>
+                    <td>The room participants nickname, use double quotes if the nickname contains spaces.</td>
+                </tr>
+                    <td><code>message</code></td>
+                    <td>The message to send, does not need to be quoted, if not supplied, a new chat window is opened with the contact, or an existing one becomes visible.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="nick"></a>
+            <h4>/nick</h4>
+            <p>Change nickname when in a chat room.</p>
+            <p>Usage:</p>
+            <pre><code>/nick nickname</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>nickname</code></td>
+                    <td>The new nickname you wished to be known as in the chat room.</td>
+                </tr>
+            </table>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -608,6 +501,21 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="online"></a>
+            <h4>/online</h4>
+            <p>Set your status to 'online' with optional message.</p>
+            <p>Usage:</p>
+            <pre><code>/online [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>message</code></td>
+                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="outtype"></a>
             <h4>/outtype</h4>
             <p>Send composing chat states to contacts so they can see when you are typing.  Requires <code>/states</code> to be <code>on</code>.</p>
@@ -615,6 +523,21 @@
             <pre><code>/outtype on|off</code></pre>
             <p>Default:</p>
             <p>Set to <code>off</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="prefs"></a>
+            <h4>/prefs</h4>
+            <p>Show current configuration settings.</p>
+            <p>Usage:</p>
+            <pre><code>/prefs [area]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>area</code></td>
+                    <td>Show preferences in a specific area, one of <code>ui</code>, <code>desktop</code>, <code>chat</code>, <code>log</code>, <code>conn</code>, <code>presence</code>.  If no argument is supplied, all preferences are shown.</td>
+                </tr>
+            </table>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -632,6 +555,12 @@
             </table>
             <p>Default:</p>
             <p>Set to <code>0</code> by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="quit"></a>
+            <h4>/quit</h4>
+            <p>Quit Profanity.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -673,6 +602,30 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="sub"></a>
+            <h4>/sub</h4>
+            <p>Manage presence subcriptions.</p>
+            <p>Usage:</p>
+            <pre><code>/sub command [contact]</code></pre>
+            <p>If used whilst in chat with a contact, the <code>contact</code> parameter may be omitted and the current contact will be used.</p>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>command</code></td>
+                    <td><code>request</code> - Requests presence subscriptions from a contact.<br/>
+                        <code>allow</code> - Approve a request from a contact to see your presence information.<br/>
+                        <code>deny</code> - Deny a request from a contact, or remove them from your previously approved list.<br/>
+                        <code>sent</code> - Show a list of sent presence subscriptions for which the recipient has not yet responded.<br/>
+                        <code>received</code> - Show a list of received presence subscriptions to which you have yet to respond to.</td>
+                </tr>
+                <tr>
+                    <td><code>contact</code></td>
+                    <td>The contact for whom you are managing subscriptions, may be omitted if currently in chat with a contact.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="theme"></a>
             <h4>/theme</h4>
             <p>Choose a colour theme for profanity, see <a href="files.html#themes-directory">themes directory</a>.</p>
@@ -687,6 +640,21 @@
             </table>
             <p>Default:</p>
             <p>Set to <code>default</code>.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="tiny"></a>
+            <h4>/tiny</h4>
+            <p>Use the TinyURL service to send a tiny URL link, may only be used when in chat with a contact.</p>
+            <p>Usage:</p>
+            <pre><code>/tiny url</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>url</code></td>
+                    <td>The URL you wish to make tiny before sending.</td>
+                </tr>
+            </table>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -715,6 +683,46 @@
             <p>Calling with no argument does a check for new versions.</p>
             <p>Default:</p>
             <p>Set to <code>off</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+            <a name="who"></a>
+            <h4>/who</h4>
+            <p>List members from your roster in various presence states.  Whilst in a chat room, list room members.</p>
+            <p>Usage:</p>
+            <pre><code>/who [presence]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>presence</code></td>
+                    <td><code>offline</code> - Show all offline contacts.<br/>
+                        <code>chat</code>, <code>dnd</code>, <code>away</code>, <code>xa</code> - Show contacts with the specified presence.</br>
+                        <code>online</code> - Show all online contacts, includes those who are 'chat', 'away', 'xa', 'dnd'.<br/>
+                        <code>available</code> - Show all contacts with a presence of 'online', 'chat'.<br/>
+                        <code>unavailable</code> - Show all contacts with a presence of 'offline', 'away', 'xa', 'dnd'.<br/><br/>
+                        Omitting this argument will show all contacts in your roster, or in the room.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="wins"></a>
+            <h4>/wins</h4>
+            <p>Show a list of all currently active virtual windows in the console window, includes information about each window such as chat recipient, room, and unread messages.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="xa"></a>
+            <h4>/xa</h4>
+            <p>Set your status to 'xa' (extended away) with optional message.</p>
+            <p>Usage:</p>
+            <pre><code>/xa [message]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>message</code></td>
+                    <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
+                </tr>
+            </table>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
         </section>
