@@ -8,8 +8,10 @@
     <link href="css/profanity.css" type="text/css" rel="stylesheet">
     <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
-    <script type="text/javascript" src="js/analytics.js"></script>
     <script type="text/javascript" src="js/zoomer.js"></script> 
+    <script type="text/javascript" src="js/analytics.js"></script>
+    <script type="text/javascript" src="js/trackdownloads.js"></script>
+    <script type="text/javascript" src="js/trackclicks.js"></script>
 </head>
 <body id="landing">
 	<img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration"/>	
@@ -21,12 +23,12 @@
 	    <h4>Profanity is a console based XMPP client written in C using <a href="http://www.gnu.org/software/ncurses/" target="_blank">ncurses</a> and <a href="http://strophe.im/libstrophe/" target="_blank">libstrophe</a>, inspired&nbsp;by&nbsp;<a href="http://irssi.org/" target="_blank">Irssi</a></h4>
 	
 	    <p><b>Latest release: 0.2.1</b><br>
-	    Downloads: <a href="profanity-0.2.1.tar.gz">profanity-0.2.1.tar.gz</a><br>
-        <a href="profanity-0.2.1.zip">profanity-0.2.1.zip</a></p>
+	    Downloads: <a id="download-tarball" href="profanity-0.2.1.tar.gz">profanity-0.2.1.tar.gz</a><br>
+        <a id="download-zip" href="profanity-0.2.1.zip">profanity-0.2.1.zip</a></p>
         <p>Profanity will run on Linux, Mac OS X and Windows (using Cygwin).</p>
 	    <p>See the <a href="userguide.html">User Guide</a> for information on installing and using Profanity.</p>
-	    <p>Mailing list: <a href="https://groups.google.com/forum/#!forum/profanitydev" target="_blank">Google Groups Profanity</a></p>
-	    <p>The source can be found on <a href="http://github.com/boothj5/profanity" target="_blank">Github</a></p>
+	    <p>Mailing list: <a id="link-mailinglist" href="https://groups.google.com/forum/#!forum/profanitydev" target="_blank">Google Groups Profanity</a></p>
+	    <p>The source can be found on <a id="link-github" href="http://github.com/boothj5/profanity" target="_blank">Github</a></p>
 	</div> 
     <div id ="features">
 	    <h3>Features</h3>
