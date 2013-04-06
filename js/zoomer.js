@@ -48,6 +48,6 @@
 		}
 	
 	$(window).load(function() {
-		gallery($('#Screenshots'));
+		gallery($('#screenshots'));
 	});
 })(jQuery);
