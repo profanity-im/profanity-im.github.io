@@ -27,6 +27,7 @@
                 <ul>
                     <li><a href="#arch">Arch</a>, <a href="#gentoo">Gentoo</a>, 
                         <a href="#ubuntu">Ubuntu</a>, <a href="#fedora">Fedora</a>,
+                        <a href="#rpm-spec">RPM (CentOS/Fedora)</a>,
                         <a href="#other-linux">Other distros</a></li>
                 </ul>
                 <li><a href="#os-x">Installing on Mac OS X</a>
@@ -99,6 +100,29 @@ visudo</code></pre>
 cd profanity-0.2.1</code></pre>
             <p>Run the installer:</p>
             <pre><code>./install-all.sh</code></pre>
+            <hr>
+
+            <a name="rpm-spec"></a>
+            <h4>RPM</h4>
+            <p>An RPM spec file is currently maintained by Florent Peterschmitt.</p>
+            <p>The spec file is available at the git repository <a href="http://projet.beastie.eu/?p=rpm.git;a=tree;f=SPECS;h=6edb71ccf3955362d31be3eed08d177009909cd6;hb=HEAD">here</a>.</p>
+            <p>If libstrophe is not already on your system, a spec file is also available at the above location.</p>
+            <p>1. Setup</p>
+            <pre><code>yum install gcc make expat-devel libstrophe</code></pre>
+            <p>Fedora:</p>
+            <pre><code>yum install fedora-packager
+rpmdev-setuptree</code></pre>
+            <p>CentOS:</p>
+            <pre><code>mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}</code></pre>
+            <p>2. Build</p>
+            <pre><code>cp profanity.spec rpmbuild/SPECS
+cp profanity-&lt;version&gt;.tar.gz rpmbuild/SOURCES
+rpmbuild -bb rpmbuild/SPECS/profanity.spec</code></pre>
+            <p>3. Install</p>
+            <pre><code>yum localinstall
+rpmbuild/RPMS/&lt;arch&gt;/profanity-&lt;version&gt;.&lt;dist&gt;.&lt;arch&gt;.rpm</code></pre>
+            <p>or, if <code>localinstall</code> is not recognised:</p>
+            <pre><code>rpm -i rpmbuild/RPMS/&lt;arch&gt;/profanity-&lt;version&gt;.&lt;dist&gt;.&lt;arch&gt;.rpm</code></pre>
             <hr>
 
             <a name="other-linux"></a>
