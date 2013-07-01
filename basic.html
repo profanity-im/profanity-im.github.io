@@ -50,6 +50,7 @@
             <p><b>Main window area</b> - Used to show one of up to 10 virtual windows, numbered 1,2,3,4,5,6,7,9,0.  The first window (1) is always used as the 'console' window where system messages and command responses are shown.  The remaining windows (2 to 0) are available for chatting with contacts, and joining chat rooms.</p>
             <p><b>Status bar</b> - Shows the time, the user you are logged in as, and on the far right the status of each virtual window.  If the virtual window is used, its number will appear, if it has new messages of any kind, the number will be highlighted.</p>
             <p><b>Input area</b> - Where you enter all of your commands and messages.  When in the console, commands may be entered here, when in chat with a user or a chat room, both commands and messages may be entered.</p>
+            <p>Use the tab key to autocomplete commands, autocompletion works for most features, if in doubt, hit tab.</p>
         </section>
         <section>
             <a name="switching-between-virtual-windows"></a>
@@ -77,6 +78,14 @@
             <p>The message is optional:</p>
             <pre><code>/msg mycontact@server.com</code></pre>
             <p>The above will open the new window, make it visible, but no message is sent.  This can be useful if you don't currently have a virtual window open with the contact and want to see some history of your conversation with that contact (see the <code>/chlog</code> and <code>/history</code> settings).</p>
+            <p>Profanity uses the contact's nickname by default, if one exists.  For example:</p>
+            <pre><code>/msg Bob Are you there bob?</code></pre>
+            <p>Double quotes must be used if the nickname contains spaces:</p>
+            <pre><code>/msg "Bob Smith" Here is the message.</code></pre>
+            <p>Note that Profanity will automatically add the quotes on tab autocompletion, for example:</p>
+            <pre><code>/msg B&lt;tab&gt;</code></pre>
+            <p>Will autocomplete to:</p>
+            <pre><code>/msg "Bob Smith"</code></pre>
         </section>
         <section>
             <a name="closing-a-virtual-window"></a>
