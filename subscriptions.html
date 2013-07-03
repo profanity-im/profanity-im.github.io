@@ -26,7 +26,7 @@
                 <li><a href="#roster-add-remove">Adding and removing contacts</a>
                 <li><a href="#roster-nick">Giving contacts a nickname</a>
                 <li><a href="#roster-groups">Managing groups</a>
-                <li><a href="#requesting-presence-information">Requesting presence information</a>
+                <li><a href="#subscription-request">Subscribing to a contact</a>
                 <li><a href="#approving-a-request">Approving a request</a>
                 <li><a href="#deny-or-delete-a-request">Deny or delete a request</a>
                 <li><a href="#list-pending-requests">List pending requests</a></li>
@@ -125,31 +125,31 @@
             <pre><code>/group remove friends Buddy</code></pre>
         </section>
         <section>
-            <a name="requesting-presence-information"></a>
-            <h3>Requesting presence information</h3>
+            <a name="subscription-request"></a>
+            <h3>Subscribing to a contact</h3>
 
-            <p>To request presence information for a contact use the <code>/sub request</code> command:</p>
+            <p>To request presence information for a contact use the <a href="reference.html#sub"><code>/sub</code></a> command:</p>
             <pre><code>/sub request newcontact@server.com</code></pre>
             <p>The user will be informed that you wish to know of their presence, and will need to approve the request.</p>
-            <p>The contact parameter is optional if you are already in a chat window with the user, for example if you are currently chatting to newcontact@server.com, you can run the following to request subscription information for that contact:</p>
+            <p>The contact parameter is optional if you are already in a chat window with the user, the request will be sent to that user:</p>
             <pre><code>/sub request</code></pre>
         </section>
         <section>
             <a name="approving-a-request"></a>
             <h3>Approving a request</h3>
 
-            <p>You can approve subscription requests from contacts using the <code>/sub allow</code> command:</p>
+            <p>You can approve subscription requests from contacts using the <a href="reference.html#sub"><code>/sub</code></a> command:</p>
             <pre><code>/sub allow newcontact@server.com</code></pre>
-            <p>The contact parameter is optional if you are already in a chat window with the user, for example if you are currently chatting to newcontact@server.com, you can run the following to approve a subscription request from that contact:</p>
+            <p>The contact parameter is optional if you are already in a chat window with the user, the approval will be sent to that user:</p>
             <pre><code>/sub allow</code></pre>
         </section>
         <section>
             <a name="deny-or-delete-a-request"></a>
             <h3>Deny or delete a request</h3>
 
-            <p>You can deny subscription requests from contacts using the <code>/sub deny</code> command:</p>
+            <p>You can deny subscription requests from contacts using the <a href="reference.html#sub"><code>/sub</code></a> command:</p>
             <pre><code>/sub deny newcontact@server.com</code></pre>
-            <p>The contact parameter is optional if you are already in a chat window with the user, for example if you are currently chatting to newcontact@server.com, you can run the following to deny a subscription request from that contact:</p>
+            <p>The contact parameter is optional if you are already in a chat window with the user, the denial will be sent to that user:</p>
             <pre><code>/sub deny</code></pre>
             <p>The <code>/sub deny</code> command can also be used to remove a contacts subscription to your presence if you have previously approved it.</p>
         </section>
