@@ -14,18 +14,115 @@
     <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
     <header>
         <a href="index.html"><h1>Profani<span class="kern-ty">ty</span></h1></a>
-        <h2>Managing Subscriptions</h2>
+        <h2>Managing Your Contacts</h2>
     </header>
     <article id="manual">
         <section>
             <h3>Contents</h3>
 
             <ul>
+                <li><a href="#overview">Overview</a>
+                <li><a href="#viewing-roster">Viewing your roster</a>
+                <li><a href="#roster-add-remove">Adding and removing contacts</a>
+                <li><a href="#roster-nick">Giving contacts a nickname</a>
+                <li><a href="#roster-groups">Managing groups</a>
                 <li><a href="#requesting-presence-information">Requesting presence information</a>
                 <li><a href="#approving-a-request">Approving a request</a>
                 <li><a href="#deny-or-delete-a-request">Deny or delete a request</a>
                 <li><a href="#list-pending-requests">List pending requests</a></li>
             </ul>
+        </section>
+        <section>
+            <a name="overview"></a>
+            <h3>Overview</h3>
+
+            <p>There are two parts to managing contacts, the roster and presence subscriptions.</a>
+            <p>The roster is a list of all of your contacts.</p>
+            <p>To receive updates about a contacts presence, i.e. to see when they are online and their current status, you must be subscribed to that contact.</p>
+            <p>For a contact to receive updates about your presence, you must have approved a subscription request from that contact.</p>
+            <p>Some servers may have already set up your roster and subscriptions for you, for example, many companys integrate with LDAP, and automatically subscribe all users to all other users.</p>
+            <p>The following sections describe roster and subscription management in more detail.</p>
+        </section>
+        <section>
+            <a name="viewing-roster"></a>
+            <h3>Viewing your roster</h3>
+
+            <p>To view all contacts in your roster, use the <a href="reference.html#roster"><code>/roster</code></a> command.  The output gives you the following information:<p>
+            <table>
+                <tr>
+                    <td>JID and nickname</td>
+                    <td>The contacts Jabber ID, and nickname if you have provided one.</td>
+                </tr>
+                <tr>
+                    <td>Subscripton</td>
+                    <td>The current subscription status, and whether you have received or sent a request that has not yet been approved or declined.</td>
+                </tr>
+                <tr>
+                    <td>Groups</td>
+                    <td>The list of groups to which the contact belongs, see <a href="#managing-groups">groups</a> below.</td>
+                </tr>
+            </table>
+
+            <p>The subscription status may be one of:</p>
+                <table>
+                    <tr>
+                        <td>none</td>
+                        <td>You are not subscribed to the contact, and the contact is not subscribed to you.</td>
+                    </tr>
+                    <tr>
+                        <td>to</td>
+                        <td>You are subscribed to the contact, but they are not subscribed to you.</td>
+                    </tr>
+                    <tr>
+                        <td>from</td>
+                        <td>You are not subscribed to the contact, but they are subscribed to you.</td>
+                    </tr>
+                    <tr>
+                        <td>both</td>
+                        <td>You are subscribed to the contact, and they are subscribed to you.</td>
+                    </tr>
+                </table>
+        </section>
+        <section>
+            <a name="roster-add-remove"></a>
+            <h3>Adding and removing contacts</h3>
+
+            <p>To add a contact to the roster, use the <a href="reference.html#roster"><code>/roster</code></a> command supplying the Jabber ID and optional nickname:</p>
+            <pre><code>/roster add buddy@service.net</code></pre>
+            <p>With optional nickname:</p>
+            <pre><code>/roster add buddy@service.net MyBuddy</code></pre>
+            <p>You can add a contact to the roster and send a subscription request at the same time, by using the <a href="reference.html#sub"><code>/sub</code></a> command:</p>
+            <pre><code>/sub request buddy@service.net</code></pre>
+            <p>To remove a contact from the roster:</p>
+            <pre><code>/roster remove buddy@service.net</code></pre>
+            <p>Removing a contact from your roster also removes your subscription to their presence, and their subscription to yours.</p>
+        </section>
+        <section>
+            <a name="roster-nick"></a>
+            <h3>Giving contacts a nickname</h3>
+
+            <p>Some servers automatically give your contacts nicknames (Facebook for example, or companies integrating with LDAP), which are more human readable than the Jabber ID.</p>
+            <p>Profanity uses nicknames by default in its user interface, and for most commands relating to contacts.</p>
+            <p>If the server allows it, you may change, add or remove the nickname for a given contact using the <a href="reference.html#roster"><code>/roster</code></a> command:<p>
+            <pre><code>/roster nick bob@company.org Bobster</code></pre>
+            <p>To clear a users nickname, supply no nickname parameter for a contact:</p>
+            <pre><code>/roster nick bob@company.org</code></pre>
+        </section>
+        <section>
+            <a name="roster-groups"></a>
+            <h3>Managing groups</h3>
+    
+            <p>The roster allows contacts to be added to named groups.  Profanity makes use of groups using the <a href="reference.html#who"><code>/who</code></a> command to filter the contacts shown.</p>
+            <p>Roster groups are managed with the <a href="reference.html#group"><code>/group</code></a> command.</p>
+            <p>To list all the current groups:</p>
+            <pre><code>/group</code></pre>
+            <p>To show the contacts in a particular group:</p>
+            <pre><code>/group show friends</code></pre>
+            <p>To add a contact to a group:<p>
+            <pre><code>/group add friends Buddy</code></pre>
+            <p>Note that there is no command to add a group, adding a contact to a group that doesn't yet exist will create the group.</p>
+            <p>To remove a contact from a group:</p>
+            <pre><code>/group remove friends Buddy</code></pre>
         </section>
         <section>
             <a name="requesting-presence-information"></a>
