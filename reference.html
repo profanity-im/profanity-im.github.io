@@ -38,13 +38,19 @@
                         <a href="#connect">/connect</a>,
                         <a href="#disconnect">/disconnect</a>,
                         <a href="#dnd">/dnd</a>,
+                        <a href="#duck">/duck</a>,
                         <a href="#flash">/flash</a>,
                         <a href="#gone">/gone</a>,
+                        <a href="#grlog">/grlog</a>,
+                        <a href="#group">/group</a>,
                         <a href="#help">/help</a>,
                         <a href="#history">/history</a>,
                         <a href="#info">/info</a>,
                         <a href="#intype">/intype</a>,
+                        <a href="#invite">/invite</a>,
+                        <a href="#invites">/invites</a>,
                         <a href="#join">/join</a>,
+                        <a href="#leave">/leave</a>,
                         <a href="#log">/log</a>,
                         <a href="#mouse">/mouse</a>,
                         <a href="#msg">/msg</a>,
@@ -56,6 +62,8 @@
                         <a href="#priority">/priority</a>,
                         <a href="#quit">/quit</a>,
                         <a href="#reconnect">/reconnect</a>,
+                        <a href="#rooms">/rooms</a>,
+                        <a href="#roster">/roster</a>,
                         <a href="#software">/software</a>,
                         <a href="#splash">/splash</a>,
                         <a href="#states">/states</a>,
@@ -202,7 +210,7 @@
 /autoaway message I'm not around
 /autoaway check on</code></pre>
             <p>To set profanity to change your status to 'away' to contacts after a period of 1 hour, with no message, and not automatically update status when you are no longer idle:</p>
-            <pre><code>/autoaway mode awat
+            <pre><code>/autoaway mode away
 /autoaway time 60
 /autoaway message off
 /autoaway check off</code></pre>
@@ -257,9 +265,11 @@
             <p>Show the XMPP capabilities of a contact's client.</p>
             <p>The capabilities are represented by their namespace as defined at the <a href="http://xmpp.org/registrar/namespaces.html">XMPP namespace registrar</a>.</p>
             <p>Usage:</p>
-            <pre><code>/caps fulljid</code></pre>
+            <pre><code>/caps [fulljid|nick]</code></pre>
             <p>The full jid, is of the form localpart@domainpart/resource, e.g.:</p>
             <pre><code>bob@chatserver.com/phone</code></pre>
+            <p>If in a chat room, specify a participants nickname:</p>
+            <p>If in a private chat with a chat room participant, no argument is required.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -302,7 +312,7 @@
 
             <a name="connect"></a>
             <h4>/connect</h4>
-            <p>Log in to an XMPP chat server.</p>
+            <p>Log in to an XMPP chat service.</p>
             <p>Usage:</p>
             <pre><code>/connect account [server]</code></pre>
             <p>Arguments:</p>
@@ -333,6 +343,21 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="duck"></a>
+            <h4>/duck</h4>
+            <p>Perform a search using the <a target="_blank" href="https://duckduckgo.com/?t=profanity">DuckDuckGo</a> XMPP bot. You will need to be connected to a federated chat service.</p>
+            <p>Usage:</p>
+            <pre><code>/duck query</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>query</code></td>
+                    <td>The search query.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="flash"></a>
             <h4>/flash</h4>
             <p>Set profanity to send the terminal flash signal to the terminal when a new message arrives.</p>
@@ -356,24 +381,91 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="grlog"></a>
+            <h4>/grlog</h4>
+            <p>Enable chat logging for chat rooms. see <a href="files.html#chat-logs-directory">chat logs location</a>.</p>
+            <p>Usage:</p>
+            <pre><code>/grlog on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>off</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="group"></a>
+            <h4>/group</h4>
+            <p>Manage roster groups.  You can list all groups, show the members of a group, add and remove contacts from groups.</p>
+            <p>Usage:</p>
+            <pre><code>/group [show|add|remove] [group] [contact]</code></pre>
+            <p>Calling with no arguments lists all groups.</p>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>show</code></td>
+                    <td>Specify a <code>group</code> to show members.</td>
+                </tr>
+                <tr>
+                    <td><code>add</code></td>
+                    <td>Specify a <code>group</code> and a <code>contact</code> to add that contact to the group.</td>
+                </tr>
+                <tr>
+                    <td><code>remove</code></td>
+                    <td>Specify a <code>group</code> and a <code>contact</code> to remove that contact from the group.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="help"></a>
             <h4>/help</h4>
             <p>Show help information.</p>
             <p>Usage:</p>
-            <pre><code>/help [list|area|command]</code></pre>
+            <pre><code>/help [area]</code></pre>
+            <p>Passing no arguments shows a help summary.</p>
             <p>Arguments:</p>
             <table>
                 <tr>
-                    <td><code>list</code></td>
+                    <td><code>commands</code></td>
                     <td>List all commands.</td>
                 </tr>
                 <tr>
-                    <td><code>area</code></td>
-                    <td>One of <code>basic</code>, <code>presence</code>, <code>settings</code> or <code>navigation</code>. Shows summary help for commands in that area.</td>
+                    <td><code>basic</code></td>
+                    <td>Help on basic commands for getting started.</td>
+                </tr>
+                <tr>
+                    <td><code>chatting</code></td>
+                    <td>Help related to chatting with contacts.</td>
+                </tr>
+                <tr>
+                    <td><code>groupchat</code></td>
+                    <td>Help with using chat rooms.</td>
+                </tr>
+                <tr>
+                    <td><code>presence</code></td>
+                    <td>Commands related to changing your presence.</td>
+                </tr>
+                <tr>
+                    <td><code>roster</code></td>
+                    <td>Commands for managing your roster.</td>
+                </tr>
+                <tr>
+                    <td><code>service</code></td>
+                    <td>Help with service discovery commands.</td>
+                </tr>
+                <tr>
+                    <td><code>settings</code></td>
+                    <td>Help summary for all settings.</td>
+                </tr>
+                <tr>
+                    <td><code>other</code></td>
+                    <td>Help that doesn't belong anywhere else.</td>
+                </tr>
+                <tr>
+                    <td><code>navigation</code></td>
+                    <td>Help with navigating around profanity, keyboard usage etc.</td>
                 </tr>
                 <tr>
                     <td><code>command</code></td>
-                    <td>The specific command on which you want detailed help.</td>
+                    <td>Help on a specific command.</td>
                 </tr>
             </table>
             <a href="#top"><h5>back to top</h5></a><br>
@@ -382,7 +474,7 @@
             <a name="history"></a>
             <h4>/history</h4>
             <p>Show previous messsages with a contact when opening a new chat window.</p>
-            <p>The <a href="#chlog">chlog</a> setting must be enabled.</p>
+            <p>The <a href="#chlog">chlog</a> setting will also be enabled.</p>
             <p>Usage:</p>
             <pre><code>/history on|off</code></pre>
             <p>Default:</p>
@@ -417,6 +509,26 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="invite"></a>
+            <h4>/invite</h4>
+            <p>TODO</p>
+            <p>Usage:</p>
+            <pre><code>/intype on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>off</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="invites"></a>
+            <h4>/invites</h4>
+            <p>TODO</p>
+            <p>Usage:</p>
+            <pre><code>/intype on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>off</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="join"></a>
             <h4>/join</h4>
             <p>Join a chat room.</p>
@@ -433,6 +545,16 @@
                     <td>Optional nickname to use in the room.  If this parameter is not supplied, the beginning part (before the '@') of your Jabber ID will be used.</td>
                 </tr>
             </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="leave"></a>
+            <h4>/leave</h4>
+            <p>TODO</p>
+            <p>Usage:</p>
+            <pre><code>/intype on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>off</code> (disabled) by default.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -623,6 +745,18 @@
             </table>
             <p>Default:</p>
             <p>Set to <code>0</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="rooms"></a>
+            <h4>/rooms</h4>
+            <p>TODO</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="roster"></a>
+            <h4>/roster</h4>
+            <p>TODO</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
