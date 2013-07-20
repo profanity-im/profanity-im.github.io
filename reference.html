@@ -36,6 +36,8 @@
                         <a href="#clear">/clear</a>,
                         <a href="#close">/close</a>,
                         <a href="#connect">/connect</a>,
+                        <a href="#decline">/decline</a>,
+                        <a href="#disco">/disco</a>,
                         <a href="#disconnect">/disconnect</a>,
                         <a href="#dnd">/dnd</a>,
                         <a href="#duck">/duck</a>,
@@ -306,7 +308,12 @@
 
             <a name="close"></a>
             <h4>/close</h4>
-            <p>Close a chat or chat room window.</p>
+            <p>Close virtual windows. If in a chat room window, that window will be closed.  The console window cannot be closed.</p>
+            <p>Passing a window number (2,3,4,5,6,7,8,9 or 0) will close that window.</p>
+            <p>To close all windows:</p>
+            <pre><code>/close all</code></pre>
+            <p>To close all windows that have no unread messages (not including chat rooms):</p>
+            <pre><code>/close read</code></pre>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -316,9 +323,53 @@
             <p>Usage:</p>
             <pre><code>/connect account [server]</code></pre>
             <p>Arguments:</p>
-            <p><code>account</code> - Either the Jabber ID you wish to log in as, e.g. user@server.org, or the account name of a previously created account, see the <a href="#account">account</a> command.</p>
-            <p><code>server</code> - Optional server to connect to if the chat service is hosted at a different domain to the domain part of the Jabber ID.</p>
+            <table>
+                <tr>
+                    <td>account</td>
+                    <td>Either the Jabber ID you wish to log in as, e.g. user@server.org, or the account name of a previously created account, see the <a href="#account">account</a> command.</td>
+                </tr>
+                <tr>
+                    <td>server</td>
+                    <td>Optional server to connect to if the chat service is hosted at a different domain to the domain part of the Jabber ID.</td>
+                </tr>
+            </table>
             <p>The <code>/connect</code> command automatically creates an account using the Jabber ID as it's name if one does not exist already.  See the <a href="#account">account</a> command for more information.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="decline"></a>
+            <h4>/decline</h4>
+            <p>Decline a chat room invite.</p>
+            <p>Usage:</p>
+            <pre><code>/decline room</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td>room</td>
+                    <td>The fulljid of a chat room that you have been invited to and wish to decline.</td>
+                </tr>
+            </table>
+            <p>See the <a href="#invites"><code>/invites</code></a> command to list current invites.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="disco"></a>
+            <h4>/disco</h4>
+            <p>Request service discovery information from an XMPP entity.</p>
+            <p>Usage:</p>
+            <pre><code>/disco command [entity]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td>command</td>
+                    <td><code>info</code> - Send a service discovery information request to the entity.</br>
+                        <code>items</code> - Send a service discovery items request to the entity.</td>
+                </tr>
+                <tr>
+                    <td>entity</td>
+                    <td>The Jabber ID of the entity you wish to send the request to. If omitted, the current chat server is queried.</td>
+                </tr>
+            </table>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -492,10 +543,10 @@
                 <tr>
                     <td><code>contact</code></td>
                     <td>The full Jabber ID of the contact you are interested in, e.g. contact@server.org.</td>
-                    <td>The parameter is not required when in a chat window, the current recipient is used.</td>
-                    <td>If in a chat room, supply the participants nickname, use double quotes to quote the nickname if it contains spaces.</td>
                 </tr>
             </table>
+            <p>The parameter is not required when in a chat window, the current recipient is used.</p>
+            <p>If in a chat room, supply the participants nickname, use double quotes to quote the nickname if it contains spaces.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -511,27 +562,33 @@
 
             <a name="invite"></a>
             <h4>/invite</h4>
-            <p>TODO</p>
+            <p>Invite a contact to a chat room. You must be in the chat room to send an invite.</p>
             <p>Usage:</p>
-            <pre><code>/intype on|off</code></pre>
-            <p>Default:</p>
-            <p>Set to <code>off</code> (disabled) by default.</p>
+            <pre><code>/invite contact [reason]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>contact</code></td>
+                    <td>The contact you wish to invite to the chat room.</td>
+                </tr>
+                <tr>
+                    <td><code>reason</code></td>
+                    <td>An optional reason that can be sent with the invite.</td>
+                </tr>
+            </table>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
             <a name="invites"></a>
             <h4>/invites</h4>
-            <p>TODO</p>
-            <p>Usage:</p>
-            <pre><code>/intype on|off</code></pre>
-            <p>Default:</p>
-            <p>Set to <code>off</code> (disabled) by default.</p>
+            <p>List chat rooms that you have been invited to but not yet accepted or declined.</p>
+            <p>See the <a href="#join"><code>/join</code></a> and <a href="#decline"><code>/decline</code></a> commands for accepting or declining chat room invites.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
             <a name="join"></a>
             <h4>/join</h4>
-            <p>Join a chat room.</p>
+            <p>Join a chat room. This command may also be used to accept a chat room invite.</p>
             <p>Usage:</p>
             <pre><code>/join room [nick]</code></pre>
             <p>Arguments:</p>
@@ -550,11 +607,7 @@
 
             <a name="leave"></a>
             <h4>/leave</h4>
-            <p>TODO</p>
-            <p>Usage:</p>
-            <pre><code>/intype on|off</code></pre>
-            <p>Default:</p>
-            <p>Set to <code>off</code> (disabled) by default.</p>
+            <p>Leave a chat room.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -644,25 +697,33 @@
             <table>
                 <tr>
                     <td><code>type</code></td>
-                    <td>One of <code>message</code>, <code>typing</code>, <code>remind</code>, see below for arguments to each.</td>
+                    <td>One of <code>message</code>, <code>typing</code>, <code>invite</code>, <code>sub</code>, <code>remind</code>, see below for arguments to each.</td>
                 </tr>
                 <tr>
                     <td><code>value</code></td>
                     <td><code>message</code> - Values are <code>on</code> or <code>off</code>.<br/>
                         <code>typing</code> - Values are <code>on</code> or <code>off</code>.<br/>
+                        <code>invite</code> - Values are <code>on</code> or <code>off</code>.<br/>
+                        <code>sub</code> - Values are <code>on</code> or <code>off</code>.<br/>
                         <code>remind</code> - Seconds between showing a desktop notification reminder of unread messages.</td>
                 </tr>
             </table>
             <p>Defaults:</p>
             <p><code>message</code> is set to <code>off</code>.</p>
             <p><code>typing</code> is set to <code>off</code>.</p>
+            <p><code>invite</code> is set to <code>off</code>.</p>
+            <p><code>sub</code> is set to <code>off</code>.</p>
             <p><code>remind</code> is set to <code>0</code> seconds (disabled).</p>
             <p>Examples:</p>
             <p>To enable desktop notifications when new messages arrive:</p>
             <pre><code>/notify message on</code></pre>
-            <p>To enable desktop notifications when when a contact is typing:</p>
+            <p>To enable desktop notifications when a contact is typing:</p>
             <pre><code>/notify typing on</code></pre>
-            <p>To get desktop notifications reminding you that you have unread messages every 30 seconds:</p>
+            <p>To enable desktop notifications when chat room invites are receieved:</p>
+            <pre><code>/notify invite on</code></pre>
+            <p>To enable desktop notifications when a subscription request is received:</p>
+            <pre><code>/notify sub on</code></pre>
+            <p>To get desktop notifications reminding you of any of the above every 30 seconds:</p>
             <pre><code>/notify remind 30</code></pre>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
@@ -750,13 +811,60 @@
 
             <a name="rooms"></a>
             <h4>/rooms</h4>
-            <p>TODO</p>
+            <p>List all chat rooms available at a conference service</p>
+            <p>Usage:</p>
+            <pre><code>/rooms [conference-service]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>conference-service</code></td>
+                    <td>Optional argument to supply the Jabber ID of the conference service you wish to query.</td>
+                </tr>
+            </table>
+            <p>If no argument is supplied, a default of <code>conference.&lt;domain&gt;</code> will be use.</p>
+            <p>For example, if you are logged in as <code>me@myserver.org</code>, calling <code>/rooms</code> with no arguments is the same as calling:</p>
+            <pre><code>/rooms conference.myserver.org</code></pre>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
             <a name="roster"></a>
             <h4>/roster</h4>
-            <p>TODO</p>
+            <p>Use the roster command to add and remove contacts from your roster, and give them nicknames.</p>
+            <p>Add contact Usage:</p>
+            <pre><code>/roster add jid [nick]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>jid</code></td>
+                    <td>The Jabber ID of the contact you wish to add.</td>
+                </tr>
+                <tr>
+                    <td><code>nick</code></td>
+                    <td>An optional nickname for the new contact.</td>
+                </tr>
+            </table>
+            <p>Remove contact Usage:</p>
+            <pre><code>/roster add jid</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>jid</code></td>
+                    <td>The Jabber ID of the contact you wish to remove.</td>
+                </tr>
+            </table>
+            <p>Change nickname Usage:</p>
+            <pre><code>/roster nick jid [nickname]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>jid</code></td>
+                    <td>The Jabber ID of the contact who's nickname you wish to change.</td>
+                </tr>
+                <tr>
+                    <td><code>nickname</code></td>
+                    <td>The new nickname for the contact. If omitted, the contact's nickname is cleared.</td>
+                </tr>
+            </table>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -905,11 +1013,12 @@
             <p>Set to <code>off</code> (disabled) by default.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
+
             <a name="who"></a>
             <h4>/who</h4>
             <p>List members from your roster in various presence states.  Whilst in a chat room, list room members.</p>
             <p>Usage:</p>
-            <pre><code>/who [presence]</code></pre>
+            <pre><code>/who [presence] [group]</code></pre>
             <p>Arguments:</p>
             <table>
                 <tr>
@@ -918,8 +1027,13 @@
                         <code>chat</code>, <code>dnd</code>, <code>away</code>, <code>xa</code> - Show contacts with the specified presence.</br>
                         <code>online</code> - Show all online contacts, includes those who are 'chat', 'away', 'xa', 'dnd'.<br/>
                         <code>available</code> - Show all contacts with a presence of 'online', 'chat'.<br/>
-                        <code>unavailable</code> - Show all contacts with a presence of 'offline', 'away', 'xa', 'dnd'.<br/><br/>
-                        Omitting this argument will show all contacts in your roster, or in the room.</td>
+                        <code>unavailable</code> - Show all contacts with a presence of 'offline', 'away', 'xa', 'dnd'.<br/>
+                        <code>any</code> - Show contacts with any presence.<br/><br/>
+                        Omitting this argument will show all contacts, the same as <code>any</code></td>
+                </tr>
+                <tr>
+                    <td><code>group</code></td>
+                    <td>Filter the output to only those who are in the specified roster group.</td>
                 </tr>
             </table>
             <a href="#top"><h5>back to top</h5></a><br>
@@ -927,7 +1041,12 @@
 
             <a name="wins"></a>
             <h4>/wins</h4>
-            <p>Show a list of all currently active virtual windows in the console window, includes information about each window such as chat recipient, room, and unread messages.</p>
+            <p>Manage active virtual windows.</p>
+            <p>Calling with no arguments will list all active virtual windows, with information about their contents.</p>
+            <p>To shuffle the virtual windows so there are no gaps between them, use:</p>
+            <pre><code>/wins tidy</code></pre>
+            <p>To close any windows with no unread messages, and then shuffle so there are no gaps:</p>
+            <pre><code>/wins prune</code></pre>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
