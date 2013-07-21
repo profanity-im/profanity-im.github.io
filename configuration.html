@@ -39,38 +39,42 @@
             <h3>Example Configuration File</h3>
 
             <pre><code>[ui]
-theme=boothj5
-beep=false
-flash=false
-intype=true
 splash=true
+intype=true
 history=true
 vercheck=true
-titlebar.version=false
-mouse=true
+theme=boothj5
+titlebar.version=true
+beep=false
+flash=false
+mouse=false
+statuses=true
+
+[logging]
+chlog=true
+grlog=true
+maxsize=1048580
 
 [notifications]
 message=true
 typing=true
-remind=20
+invite=true
+remind=30
+sub=true
+
+[connection]
+reconnect=60
+autoping=120
 
 [chatstates]
 enabled=true
 outtype=true
-
-[logging]
-maxsize=1048580
-chlog=true
-
-[connection]
-reconnect=30
-autoping=120
+gone=0
 
 [presence]
-priority=0
 autoaway.mode=away
-autoaway.time=20
-autoaway.message=I'm away from my computer
+autoaway.time=10
+autoaway.message=I'm not here
 autoaway.check=true</code></pre>
 
         </section>
@@ -130,6 +134,11 @@ autoaway.check=true</code></pre>
                     <td><a href="reference.html#mouse">/mouse</a></td>
                 </tr>
                 <tr>
+                    <td></td>
+                    <td>statuses</td>
+                    <td><a href="reference.html#statuses">/statuses</a></td>
+                </tr>
+                <tr>
                     <td>notifications</td>
                     <td>message</td>
                     <td><a href="reference.html#notify">/notify</a></td>
@@ -137,6 +146,16 @@ autoaway.check=true</code></pre>
                 <tr>
                     <td></td>
                     <td>typing</td>
+                    <td><a href="reference.html#notify">/notify</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>invite</td>
+                    <td><a href="reference.html#notify">/notify</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>sub</td>
                     <td><a href="reference.html#notify">/notify</a></td>
                 </tr>
                 <tr>
@@ -155,6 +174,11 @@ autoaway.check=true</code></pre>
                     <td><a href="reference.html#outtype">/outtype</a></td>
                 </tr>
                 <tr>
+                    <td></td>
+                    <td>gone</td>
+                    <td><a href="reference.html#gone">/gone</a></td>
+                </tr>
+                <tr>
                     <td>logging</td>
                     <td>maxsize</td>
                     <td><a href="reference.html#log">/log</a></td>
@@ -163,6 +187,11 @@ autoaway.check=true</code></pre>
                     <td></td>
                     <td>chlog</td>
                     <td><a href="reference.html#chlog">/chlog</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>grlog</td>
+                    <td><a href="reference.html#grlog">/grlog</a></td>
                 </tr>
                 <tr>
                     <td>connection</td>
@@ -176,11 +205,6 @@ autoaway.check=true</code></pre>
                 </tr>
                 <tr>
                     <td>presence</td>
-                    <td>priority</td>
-                    <td><a href="reference.html#priority">/priority</a></td>
-                </tr>
-                <tr>
-                    <td></td>
                     <td>autoaway.mode</td>
                     <td><a href="reference.html#autoaway">/autoaway</a></td>
                 </tr>
