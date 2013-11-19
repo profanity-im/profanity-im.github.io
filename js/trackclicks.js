@@ -3,6 +3,10 @@ $(document).ready(function () {
         _gaq.push(['_trackEvent', 'links', 'clicked', "mailing list"]);
     });
 
+    $("#link-mailinglist2").click(function (e) {
+        _gaq.push(['_trackEvent', 'links', 'clicked', "mailing list"]);
+    });
+
     $("#link-github").click(function (e) {
         _gaq.push(['_trackEvent', 'links', 'clicked', "github"]);
     });
