@@ -27,7 +27,6 @@
                 <ul>
                     <li><a href="#arch">Arch</a>, <a href="#gentoo">Gentoo</a>, 
                         <a href="#ubuntu">Ubuntu</a>, <a href="#fedora">Fedora</a>,
-                        <a href="#rpm-spec">RPM (CentOS/Fedora)</a>,
                         <a href="#other-linux">Other distros</a></li>
                 </ul>
                 <li><a href="#os-x">Installing on Mac OS X</a>
@@ -41,7 +40,7 @@
             <p>Profanity should run on any POSIX complaint operating system.</p>
             <p>To run on Windows, a POSIX environment is required, such as Cygwin.</p>
             <p>Arch and Gentoo currently have community supported packages.</p>
-            <p>Until distribution packages are created (volunteers welcome), a simple install script has been written which will work on Ubuntu and Fedora, the script installs dependencies and runs <code>./configure && make && make install</code>
+            <p>Until distribution packages are created (volunteers very welcome), a simple install script has been written which will work on Ubuntu and Fedora, the script installs dependencies and runs <code>./configure && make && make install</code>
             <p>For all other distributions/operating systems the install script can be used as a guide to installing dependencies.</p>
         </section>
         <section>
@@ -69,17 +68,17 @@
             <p>Install the package:</p>
             <pre><code>emerge profanity</code></pre>
             <p>Profanity can be linked with either libxml2 or expat libraries. By default expat is used, set the 'xml' flag to link with libxml2.</p>
-            <p>To install latest develepment version, add <code>net-im/profanity</code> to package.keywords file:</p>
+            <p>To install latest development version, add <code>net-im/profanity</code> to package.keywords file:</p>
             <pre><code>echo "=net-im/profanity-9999 **" >> /etc/portage/package.keywords
 emerge =profanity-9999</code></pre>
             <hr>
 
             <a name="ubuntu"></a>
             <h4>Ubuntu</h4>
-            <p>Download the latest source tarball, available <a href="profanity-0.3.0.tar.gz">here</a>.</p>
+            <p>Download the latest source tarball, available <a href="profanity-0.3.1.tar.gz">here</a>.</p>
             <p>Extract the file and cd into the directory e.g:</p>
-            <pre><code>tar -xvf profanity-0.3.0.tar.gz
-cd profanity-0.3.0</code></pre>
+            <pre><code>tar -xvf profanity-0.3.1.tar.gz
+cd profanity-0.3.1</code></pre>
             <p>Run the installer:</p>
             <pre><code>./install-all.sh</code></pre>
             <hr>
@@ -94,35 +93,12 @@ visudo</code></pre>
             <pre><code>root ALL=(ALL) ALL</code></pre>
             <p>And add your user under it:</p>
             <pre><code>&lt;username&gt; ALL=(ALL) ALL</code></pre>
-            <p>Download the latest source tarball, available <a href="profanity-0.3.0.tar.gz">here</a>.</p>
+            <p>Download the latest source tarball, available <a href="profanity-0.3.1.tar.gz">here</a>.</p>
             <p>Extract the file and cd into the directory e.g:</p>
-            <pre><code>tar -xvf profanity-0.3.0.tar.gz
-cd profanity-0.3.0</code></pre>
+            <pre><code>tar -xvf profanity-0.3.1.tar.gz
+cd profanity-0.3.1</code></pre>
             <p>Run the installer:</p>
             <pre><code>./install-all.sh</code></pre>
-            <hr>
-
-            <a name="rpm-spec"></a>
-            <h4>RPM</h4>
-            <p>An RPM spec file is currently maintained by Florent Peterschmitt.</p>
-            <p>The spec file is available at the git repository <a href="http://projet.beastie.eu/?p=rpm.git;a=tree;f=SPECS;h=6edb71ccf3955362d31be3eed08d177009909cd6;hb=HEAD">here</a>.</p>
-            <p>If libstrophe is not already on your system, a spec file is also available at the above location.</p>
-            <p>1. Setup</p>
-            <pre><code>yum install gcc make expat-devel libstrophe</code></pre>
-            <p>Fedora:</p>
-            <pre><code>yum install fedora-packager
-rpmdev-setuptree</code></pre>
-            <p>CentOS:</p>
-            <pre><code>mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}</code></pre>
-            <p>2. Build</p>
-            <pre><code>cp profanity.spec rpmbuild/SPECS
-cp profanity-&lt;version&gt;.tar.gz rpmbuild/SOURCES
-rpmbuild -bb rpmbuild/SPECS/profanity.spec</code></pre>
-            <p>3. Install</p>
-            <pre><code>yum localinstall
-rpmbuild/RPMS/&lt;arch&gt;/profanity-&lt;version&gt;.&lt;dist&gt;.&lt;arch&gt;.rpm</code></pre>
-            <p>or, if <code>localinstall</code> is not recognised:</p>
-            <pre><code>rpm -i rpmbuild/RPMS/&lt;arch&gt;/profanity-&lt;version&gt;.&lt;dist&gt;.&lt;arch&gt;.rpm</code></pre>
             <hr>
 
             <a name="other-linux"></a>
@@ -135,27 +111,27 @@ rpmbuild/RPMS/&lt;arch&gt;/profanity-&lt;version&gt;.&lt;dist&gt;.&lt;arch&gt;.r
         <section>
             <a name="os-x"></a>
             <h3>Installing on Mac OS X</h3>
-            <p>Instructions for installing on OS X have yet to be completed.</p>
-            <p>Users have successfully installed on OS X using the brew package management system, an example homebrew formula created by robrooms at Github is available <a id="robroom-brew" target="_blank" href="https://github.com/robrooms/homebrew-profanity">here</a>.</p>
+            <p>Supported instructions for installing on OS X have yet to be completed, however the following should be useful.</p>
+            <p>An example homebrew formula created by robrooms at Github is available <a id="robroom-brew" target="_blank" href="https://github.com/robrooms/homebrew-profanity">here</a>.</p>
+            <p>A howto using macports has been written by louiecaulfield at Github available <a id="louiecaulfield-macports" target="_blank" href="https://github.com/louiecaulfield/profanity/wiki/Building-under-OS-X">here</a>.</p>
             <p>The list of development packages required is similar to the instructions for <a href="#other-linux">other linux distributions</a>.</p>
         </section>
         <section>
             <a name="windows"></a>
             <h3>Installing on Windows</h3>
            
-            <p>Note: Since the relatively recent move to split Cygwin into 32/64 bit installers and packages, a few issues have arisen when installing profanity with the install script.  It is still possible to install with a couple of workarounds, detailed at the github issue <a href="https://github.com/boothj5/profanity/issues/244">here</a>.  The aim is to fix the issues as soon as possible in a 0.3.1 patch release.</a>
             <p>You will need Cygwin to run profanity on Windows:</p>
             <p><a href="http://www.cygwin.com">http://www.cygwin.com</a></p>
             <p>If you don't already have it, install Cygwin by downloading and running:</p>
             <p>64Bit: <a href="http://cygwin.com/setup-x86_64.exe">http://cygwin.com/setup-x86_64.exe</a></p>
             <p>32bit: <a href="http://cygwin.com/setup-x86.exe">http://cygwin.com/setup-x86.exe</a></p>
-            <p>You will need <code>git</code>, <code>wget</code> and <code>unzip</code> to install Profanity which are not by default installed with Cygwin. When running setup.exe (or running it again to install these packages) you can search for them and add them to the install when you are asked to select packages.</p>
-            <p>Download the latest source zip, available <a href="profanity-0.3.0.zip">here</a>.</p>
+            <p>You will need <code>wget</code> and <code>unzip</code> to install Profanity which are not by default installed with Cygwin. When running setup.exe (or running it again to install these packages) you can search for them and add them to the install when you are asked to select packages.</p>
+            <p>Download the latest source zip, available <a href="profanity-0.3.1.zip">here</a>.</p>
             <p>Put the zip somewhere on your Cygwin drive for example:</p>
-            <pre><code>C:\cygwin\home\james</code></pre>
+            <pre><code>C:\cygwin\home\boothj5</code></pre>
             <p>Unzip the file and cd into the directory e.g:</p>
-            <pre><code>unzip profanity-0.3.0.zip
-cd profanity-0.3.0</code></pre>
+            <pre><code>unzip profanity-0.3.1.zip
+cd profanity-0.3.1</code></pre>
             <p>Run the installer:</p>
             <pre><code>./install-all.sh</code></pre>
         </section>
