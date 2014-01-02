@@ -27,6 +27,7 @@
                     <li><a href="#about">/about</a>, 
                         <a href="#account">/account</a>,
                         <a href="#autoaway">/autoaway</a>,
+                        <a href="#autoconnect">/autoconnect</a>,
                         <a href="#autoping">/autoping</a>,
                         <a href="#away">/away</a>,
                         <a href="#beep">/beep</a>,
@@ -267,6 +268,26 @@
 /autoaway time 60
 /autoaway message off
 /autoaway check off</code></pre>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="autoconnect"></a>
+            <h4>/autoconnect</h4>
+            <p>Choose an account with which Profanity will autconnect on startup.</p>
+            <p>This option can be overriden by the <code>-a</code> (<code>--account</code>) command line parameter.</p>
+            <p>Usage:</p>
+            <pre><code>/autoconnect set|off account</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>set|off</code></td>
+                    <td>Set or disable autoconnect.</td>
+                </tr>
+                <tr>
+                    <td><code>account</code></td>
+                    <td>If <code>set</code>, the account name to connect with. The argument is not required for <code>off</code> which disables autoconnect.</td>
+                </tr>
+            </table>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
