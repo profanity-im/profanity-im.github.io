@@ -94,7 +94,16 @@
 
             <a name="account"></a>
             <h4>/account</h4>
-            <p>Manage local accounts.  A local account consists of a name, a Jabber ID and an optional server property.</p>
+            <p>Manage local accounts.  A local account has the following properties:</p>
+            <p><code>name</code> - The name for the account.<br>
+            <code>jid</code> - The Jabber ID of the account.<br>
+            <code>server</code> - The chat server to use, if different to the domainpart of the Jabber ID.<br>
+            <code>resource</code> - The name of the resource to connect with.<br>
+            <code>password</code> - The account password.<br>
+            <code>status</code> - The presence status to be used when connecting with this account.<br>
+            <code>status priority</code> - A priority associated with each presence status.<br>
+            <code>muc service</code> - The default conference service to use when joining chat rooms.<br>
+            <code>muc nickname</code> - The default nickname to use when joining chat rooms.</p>
             <p>Accounts may be enabled/disabled, the only difference being that enabled accounts are used for autocompletion.</p>
             <p>When connecting with the <a href="#account"><code>/connect</code></a> command, if an account does not currently exist with the connection details, one will be created using the Jabber ID as the name.</p>
             <p>You may rename this account at a later point if desired, see usage below.</p>
@@ -144,19 +153,61 @@
             <table>
                 <tr>
                     <td><code>account</code></td>
-                    <td>The account you wish to edit.</td>
+                    <td>The account name you wish to edit.</td>
                 </tr>
                 <tr>
                     <td><code>property</code></td>
-                    <td>One of <code>jid</code>, <code>server</code>, <code>status</code> or a presence <code>online</code>, <code>chat</code>, <code>away</code>, <code>xa</code>, <code>dnd</code></td>
+                    <td>One of <code>jid</code>, <code>server</code>, <code>resource</code>, <code>password</code>, <code>muc</code>, <code>nick</code>, <code>status</code> or a presence (<code>online</code>, <code>chat</code>, <code>away</code>, <code>xa</code>, <code>dnd</code>).</td>
+                </tr>
+            </table>
+
+            <p>Values for each property are described below.</p>
+            <table>
+                <tr>
+                    <td><code>jid</code></td>
+                    <td>The Jabber ID to use for the account, e.g. <code>me@myservice.org</code>. Defaults to the account name.</td>
                 </tr>
                 <tr>
-                    <td><code>value</code></td>
-                    <td><code>jid</code> - The value is the Jabber ID to use for the account.<br>
-                        <code>server</code> - The value is the server to connect to.<br>
-                        <code>resource</code> - The name to be used as the resource for Profanity, the default is 'profanity'.<br>
-                        <code>status</code> - The presence to use when logging in to this account. A value of <code>last</code> will use the presence at the time the previous logged in session logged out<br>
-                        <code>presence</code> - The value is the priority to use for this presence.<br></td>
+                    <td><code>server</code></td>
+                    <td>The server to connect to for the account, e.g. <code>talk.google.com</code>. Optional with no default.</td>
+                </tr>
+                <tr>
+                    <td><code>resource</code></td>
+                    <td>The resource name to use when connecting with this account, e.g. <code>laptop</code>. Defaults to <code>profanity</code>.</td>
+                </tr>
+                <tr>
+                    <td><code>password</code></td>
+                    <td>The password for the account. Note this password will be stored in plaintext. Optional with no default.</td>
+                </tr>
+                <tr>
+                    <td><code>muc</code></td>
+                    <td>The default conference service for this account, e.g. <code>conf.server.org</code>. Defaults to '<code>conference.<code>&lt;domainpart&gt;'</code>.</td>
+                </tr>
+                <tr>
+                    <td><code>nick</code></td>
+                    <td>The default nickname to use when joining chat rooms, e.g. <code>eddie</code>. Defaults to the localpart of the Jabber ID.</td>
+                </tr>
+                <tr>
+                    <td><code>status</code></td>
+                    <td>The presence status to use when connecting with this account. Values are <code>online</code>, <code>chat</code>, <code>away</code>, <code>xa</code>, <code>dnd</code> and <code>last</code>, where the special value <code>last</code> always uses the last presence that this account was connected with.</td>
+                </tr>
+                <tr>
+                    <td><code>online</code>, <code>chat</code>, <code>away</code>, <code>xa</code>, <code>dnd</code></td>
+                    <td>A valid priority (between -128 and 127) to use for the specified presence status.</td>
+                </tr>
+            </table>
+
+            <p><b>Clearing properties:</b></p>
+            <pre><code>/account clear account property</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>account</code></td>
+                    <td>The account name you wish to edit.</td>
+                </tr>
+                <tr>
+                    <td><code>property</code></td>
+                    <td>The only property which may be cleared is <code>password</code>.</td>
                 </tr>
             </table>
             <p>Example:</p>
