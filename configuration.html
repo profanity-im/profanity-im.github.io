@@ -39,37 +39,38 @@
             <h3>Example Configuration File</h3>
 
             <pre><code>[ui]
-splash=true
-intype=true
-history=true
-vercheck=true
-theme=boothj5
-titlebar.version=true
-beep=false
 flash=false
+splash=true
+beep=false
+theme=boothj5
+history=true
+intype=true
 mouse=false
 statuses=true
-
-[logging]
-chlog=true
-grlog=true
-maxsize=1048580
+titlebar.version=true
+vercheck=true
 
 [notifications]
 message=true
 typing=true
 invite=true
-remind=30
 sub=true
-
-[connection]
-reconnect=60
-autoping=120
+remind=30
 
 [chatstates]
+gone=5
 enabled=true
 outtype=true
-gone=0
+
+[logging]
+chlog=true
+grlog=true
+maxsize=2048580
+
+[connection]
+autoping=120
+reconnect=60
+account=jabber.org
 
 [presence]
 autoaway.mode=away
@@ -202,6 +203,11 @@ autoaway.check=true</code></pre>
                     <td></td>
                     <td>autoping</td>
                     <td><a href="reference.html#autoping">/autoping</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>account</td>
+                    <td><a href="reference.html#autoconnect">/autoconnect</a></td>
                 </tr>
                 <tr>
                     <td>presence</td>
