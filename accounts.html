@@ -30,19 +30,36 @@
             <h3>Configuring Accounts</h3>
 
             <p>The <a href="reference.html#account"><code>/account</code></a> command should be used to modify the settings below.</p>
-            <p>The following is an example account configuration element</p>
-            <pre><code>[work]
+            <p>The following is an example account configuration file with two configured accounts.</p>
+            <pre><code>[jabber]
 enabled=true
-jid=some.user@chatty.com
-server=main.chatserv.org
-resource=profanity
-presence.last=away
-presence.login=dnd
-priority.online=20
-priority.chat=30
-priority.away=10
+priority.online=10
+priority.chat=20
+priority.away=0
 priority.xa=0
-priority.dnd=-1</code></pre>
+priority.dnd=-10
+jid=someone@jabber.org
+resource=laptop
+presence.last=xa
+presence.login=online
+muc.service=conference.jabber.org
+muc.nick=aperson
+
+[work]
+enabled=true
+priority.online=2
+priority.chat=1
+priority.away=0
+priority.xa=-5
+priority.dnd=-10
+jid=bob.smith@mycompany.org
+server=talk.mycompany.org
+resource=office
+presence.last=online
+presence.login=away
+muc.service=rooms.mycompany.org
+muc.nick=smithy
+</code></pre>
         </section>
     </article>
     <footer>
