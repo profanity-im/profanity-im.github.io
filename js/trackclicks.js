@@ -38,4 +38,8 @@ $(document).ready(function () {
     $("#robroom-brew").click(function (e) {
         _gaq.push(['_trackEvent', 'links', 'clicked', "mac-brew"]);
     });
+
+    $("#louiecaulfield-macports").click(function (e) {
+        _gaq.push(['_trackEvent', 'links', 'clicked', "mac-ports"]);
+    });
 });
