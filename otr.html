@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profanity, a console based XMPP client - Off The Record (OTR) Encryption</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1"> 
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="css/profanity.css" type="text/css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> 
+    <script type="text/javascript" src="js/analytics.js"></script> 
+    <script type="text/javascript" src="js/trackclicks.js"></script>
+</head>
+<body id="article">
+    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <header>
+        <a href="index.html"><h1>Profani<span class="kern-ty">ty</span></h1></a>
+        <h2>OTR Message Encryption</h2>
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+            
+            <ul>
+                <li><a href="#what-is-otr">What is Off The Record messaging?</a>
+                <li><a href="#private-key-gen">Generating a private key</a>
+                <li><a href="#exchanging-fingerprints">Exchanging fingerprints</a>
+                <li><a href="#starting-otr-session">Starting an OTR session</a>
+                <li><a href="#verify-contact">Verifying a contact's identity</a>
+                <li><a href="#ending-otr">Ending an OTR session</a>
+                <li><a href="#subsequent-sessions">Subsequent chat sessions</a>
+            </ul>
+        </section>
+        <section>
+            <a name="what-is-otr"></a>
+            <h3>What is Off The Record messaging</h3>
+            
+            <p>Off The Record (OTR) messaging is a form of secure messaging, it includes encryption, authentication between users, deniability and perfect forward secrecy.</p>
+            <p>An overview and many useful resources can be found at the <a id="otr-site" href="https://otr.cypherpunks.ca/">OTR site</a>.</p>
+            <p>Currently supported features are encryption and authentication. If the <code>libotr-dev</code> library is available, Profanity will compile with OTR support.</p>
+        </section>
+        <section>
+            <a name="private-key-gen"></a>
+            <h3>Generating a private key</h3>
+            
+            <p>Before you can start using OTR for a particular account, you must generate a private key. Use the following command:</p>
+            <pre><code>/otr gen</code></pre>
+            <p>A message will appear informing you that the key is being generated:</p>
+            <img src="images/otr-gen.png"/><br><br>
+            <p>A message will appear once the key has been generated:</p>
+            <img src="images/otr-gen-done.png"/><br><br>
+            <p>Once you have generated a key, you will not need to do so again.</p>
+        </section>
+        <section>
+            <a name="exchanging-fingerprints"></a>
+            <h3>Exchanging fingerprints</h3>
+            
+            <p>Once you have a private key, you need to pass on your fingerprint to anyone you wish to have a verified OTR messaging session with. You should send this fingerprint through another communciation channel.</p>
+            <p>To view your fingerprint:</p>
+            <pre><code>/otr myfp</code></pre>
+            <img src="images/otr-myfp.png"/><br><br>
+            <p>At this point you should also get the fingerprints of any contacts you wish to have OTR sessions with, through other means.</p>
+            <p>You may use OTR encryption without exchanging fingerprints. However, those conversations will be unverified, i.e. you cannot be sure of the identity of your contact, and they cannot be sure of yours.</p>
+        </section>
+        <section>
+            <a name="starting-otr-session"></a>
+            <h3>Starting an OTR session</h3>
+            
+            <p>To start an OTR encrypted messaging session with a contact, you must be in a chat window with that contact. If you are not in a chat window, open one, for example:</p>
+            <pre><code>/msg prof2@panesar</code></pre>
+            <p>At this point you are not in an OTR session and can send unencrypted messages as usual:</p>
+            <img src="images/titlebar-no-otr.png"/><br><br>
+            <p>Now you can start the OTR session:</p>
+            <pre><code>/otr start</code></pre>
+            <p>If your contact is online and has OTR enabled in their chat client, a key exchange will take place. If the contact is not using an OTR enabled chat client, they may recieve a message which looks like the following:</p>
+            <pre><code>?OTR?</code></pre>
+            <p>And an OTR session will not be established.</p>
+            <p>If key exchange is successful, a message will appear, and an indicator will be shown in the title bar:</p>
+            <img src="images/titlebar-otr.png"/><br><br>
+            <p>At this point you have not verified the identity of your contact, which is why <code>(untrusted)</code> appears in the title bar.</p>
+        </section>
+        <section>
+            <a name="verify-contact"></a>
+            <h3>Verifying a contact's identity</h3>
+            
+            <p>At this point your communciation is encrypted, but you are not guaranteed that your contact is who they say they are. For a trusted session, you need to verify their fingerprint.</p>
+            <p>To view the contacts fingerprint use the following command:</p>
+            <pre><code>/otr theirfp</code></pre>
+            <p>The contacts fingerprint will be shown in the chat window:</p>
+            <img src="images/otr-theirfp.png"/><br><br>
+            <p>If the fingerprint matches the one you recieved using other means, then you can be sure that this is your contact. To indicate that the contact's identity is now verified, use the following command:</p>
+            <pre><code>/otr trust</code></pre>
+            <p>The title bar will be updated to show that this is a trusted encrypted session:</p>
+            <img src="images/otr-trusted.png"/><br><br>
+        </section>
+        <section>
+            <a name="ending-otr"></a>
+            <h3>Ending an OTR session</h3>
+            
+            <p>To stop the OTR session, and go back to unencrypted untrusted communication, either close the window:</p>
+            <pre><code>/close</code></pre>
+            <p>Or use the following command to remain in the chat window:</p>
+            <pre><code>/otr end</code></pre>
+            <p>A message will be displayed, and the OTR indicator will be removed from the title bar.</p>
+            <img src="images/otr-end.png"/><br><br>
+        </section>
+        <section>
+            <a name="subsequent-sessions"></a>
+            <h3>Subsequent chat sessions</h3>
+            
+            <p>Your private key only needs to be genrated once. The key will be loaded when you connect again with this account using <code>/connect</code>.</p>
+            <p>Once you have trusted a fingerprint, this information is saved, subsequent OTR sessions with this contact will be automatically trusted. You may revoke this trust with the following command:</p>
+            <pre><code>/otr untrust</code></pre>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+</html>
