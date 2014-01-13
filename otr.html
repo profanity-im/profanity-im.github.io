@@ -67,12 +67,12 @@
             <a name="starting-otr-session"></a>
             <h3>Starting an OTR session</h3>
             
-            <p>To start an OTR encrypted messaging session with a contact, you must be in a chat window with that contact. If you are not in a chat window, open one, for example:</p>
-            <pre><code>/msg prof2@panesar</code></pre>
-            <p>At this point you are not in an OTR session and can send unencrypted messages as usual:</p>
+            <p>If you are already in a chat window with a contact, and you wish to make this an OTR session:</p>
             <img src="images/titlebar-no-otr.png"/><br><br>
-            <p>Now you can start the OTR session:</p>
+            <p>You can start the OTR session with:</p>
             <pre><code>/otr start</code></pre>
+            <p>If you are not currently in a chat window with the contact, you can use the folowing command to open a new one, and make it secure:</p>
+            <pre><code>/otr start prof2@panesar</code></pre>
             <p>If your contact is online and has OTR enabled in their chat client, a key exchange will take place. If the contact is not using an OTR enabled chat client, they may recieve a message which looks like the following:</p>
             <pre><code>?OTR?</code></pre>
             <p>And an OTR session will not be established.</p>
