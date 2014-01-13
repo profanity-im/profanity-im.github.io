@@ -30,6 +30,7 @@
                 <li><a href="#verify-contact">Verifying a contact's identity</a>
                 <li><a href="#ending-otr">Ending an OTR session</a>
                 <li><a href="#subsequent-sessions">Subsequent chat sessions</a>
+                <li><a href="#otr-message-logging">OTR message logging</a>
             </ul>
         </section>
         <section>
@@ -112,6 +113,27 @@
             <p>Your private key only needs to be genrated once. The key will be loaded when you connect again with this account using <code>/connect</code>.</p>
             <p>Once you have trusted a fingerprint, this information is saved, subsequent OTR sessions with this contact will be automatically trusted. You may revoke this trust with the following command:</p>
             <pre><code>/otr untrust</code></pre>
+        </section>
+        <section>
+            <a name="otr-message-logging"></a>
+            <h3>OTR message logging</h3>
+
+            <p>The <code>/otr log</code> command may be used with the following options to control if and how OTR messages are recorded in chat logs.</p>
+            <table>
+                <tr>
+                    <td><pre><code>on</code></pre></td>
+                    <td>OTR messages will be logged in plaintext</td>
+                </tr>
+                <tr>
+                    <td><pre><code>redact</code></pre></td>
+                    <td>OTR messages will be logged, but the message will be replaced with the text '<code>[redacted]</code>'.</td>
+                </tr>
+                <tr>
+                    <td><pre><code>off</code></pre></td>
+                    <td>OTR messages will not be logged.</td>
+                </tr>
+            </table>
+            <p>For the <code>on</code> and <code>redact</code> settings, chat logging must also be enabled with the <a href="reference.html#chlog"><code>/chlog</code></a> command.</p>
         </section>
     </article>
     <footer>
