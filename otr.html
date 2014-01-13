@@ -24,6 +24,7 @@
             
             <ul>
                 <li><a href="#what-is-otr">What is Off The Record messaging?</a>
+                <li><a href="#why-bother">Why bother?</a>
                 <li><a href="#private-key-gen">Generating a private key</a>
                 <li><a href="#exchanging-fingerprints">Exchanging fingerprints</a>
                 <li><a href="#starting-otr-session">Starting an OTR session</a>
@@ -35,11 +36,25 @@
         </section>
         <section>
             <a name="what-is-otr"></a>
-            <h3>What is Off The Record messaging</h3>
+            <h3>What is Off The Record messaging?</h3>
+
+            <p>If you already know about OTR and it's benefits, you can skip the first two sections and go straight to <a href="#private-key-gen">Generating a private key</a>.</p>
             
             <p>Off The Record (OTR) messaging is a form of secure messaging, it includes encryption, authentication between users, deniability and perfect forward secrecy.</p>
             <p>An overview and many useful resources can be found at the <a id="otr-site" href="https://otr.cypherpunks.ca/">OTR site</a>.</p>
             <p>Currently supported features are encryption and authentication. If the <code>libotr-dev</code> library is available, Profanity will compile with OTR support.</p>
+        </section>
+        <section>
+            <a name="why-bother"></a>
+            <h3>Why bother?</h3>
+
+            <p>When talking about XMPP specifically, most chat clients talk to the chat server over Transport Layer Security.  Why bother encrypting messages again?</p>
+            <p>There are two main reasons:</p>
+            <p>Firstly, since encrytption happens at the transport layer, messages will be decrypted at the chat server, which may then log your conversations and view them.</p>
+            <p>Even if you trust your server not to log your messages, it's security may one day be compromised and your unencrypted messages will be available to the attackers.</p>
+            <p>Secondly, even though you can guarantee that your messages are encrypted from your client to your server, you cannot guarantee that they will be encrypted for their entire journey to your contact's client.</p>
+            <p>The messages may travel through a number of servers, and finally from a server to your contact's client, any of these journeys may be over a non TLS secured connection.</p>
+            <p>OTR is one method of Application Layer Security which guarantees your messages are encrypted from client to client, ensuring that no one else can read them.</p>
         </section>
         <section>
             <a name="private-key-gen"></a>
