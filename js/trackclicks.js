@@ -19,6 +19,10 @@ $(document).ready(function () {
         _gaq.push(['_trackEvent', 'links', 'clicked', "help out"]);
     });
 
+    $("#link-plugins").click(function (e) {
+        _gaq.push(['_trackEvent', 'links', 'clicked', "plugins github"]);
+    });
+
     $("#link-websitesource").click(function (e) {
         _gaq.push(['_trackEvent', 'links', 'clicked', "website source"]);
     });
