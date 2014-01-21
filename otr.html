@@ -32,6 +32,7 @@
                 <li><a href="#ending-otr">Ending an OTR session</a>
                 <li><a href="#subsequent-sessions">Subsequent chat sessions</a>
                 <li><a href="#otr-message-logging">OTR message logging</a>
+                <li><a href="#ui-options">User Interface options</a>
             </ul>
         </section>
         <section>
@@ -152,6 +153,25 @@
                 </tr>
             </table>
             <p>For the <code>on</code> and <code>redact</code> settings, chat logging must also be enabled with the <a href="reference.html#chlog"><code>/chlog</code></a> command.</p>
+        </section>
+        <section>
+            <a name="ui-options"></a>
+            <h3>User Interface options</h3>
+
+            <p>If Profanity is compiled with OTR support, the <code>[unencrypted]</code> warning will always appear in the titlebar for non OTR communication.</p>
+            <p>The warning can be turned off using:</p>
+            <pre><code>/otr warn off</code></pre>
+            <p>The colouring of the OTR notifiers in the titlebar, and system messages in chat windows can be changed in the theme, see <a href="themes.html">themes</a>.<p>
+            <p>The relevant settings are:</p>
+            <pre><code>titlebar.unencrypted
+titlebar.encrypted
+titlebar.untrusted
+titlebar.trusted
+otr.started.untrusted
+otr.started.trusted
+otr.ended
+otr.untrusted
+otr.trusted</code></pre>
         </section>
     </article>
     <footer>
