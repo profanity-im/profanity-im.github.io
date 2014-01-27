@@ -46,4 +46,8 @@ $(document).ready(function () {
     $("#louiecaulfield-macports").click(function (e) {
         _gaq.push(['_trackEvent', 'links', 'clicked', "mac-ports"]);
     });
+
+    $("#cyg-ports").click(function (e) {
+        _gaq.push(['_trackEvent', 'links', 'clicked', "cygwin ports"]);
+    });
 });

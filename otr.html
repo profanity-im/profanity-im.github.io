@@ -25,6 +25,7 @@
             <ul>
                 <li><a href="#what-is-otr">What is Off The Record messaging?</a>
                 <li><a href="#why-bother">Why bother?</a>
+                <li><a href="installing-otr">Building with OTR support</a>
                 <li><a href="#private-key-gen">Generating a private key</a>
                 <li><a href="#exchanging-fingerprints">Exchanging fingerprints</a>
                 <li><a href="#starting-otr-session">Starting an OTR session</a>
@@ -42,9 +43,7 @@
             <p>If you already know about OTR and it's benefits, you can skip the first two sections and go straight to <a href="#private-key-gen">Generating a private key</a>.</p>
             
             <p>Off The Record (OTR) messaging is a form of secure messaging, it includes encryption, authentication between users, deniability and perfect forward secrecy.</p>
-            <p>An overview and many useful resources can be found at the <a id="otr-site" href="https://otr.cypherpunks.ca/">OTR site</a>.</p>
-            <p>Currently supported features are encryption and authentication. If the <code>libotr-dev</code> library is available, Profanity will compile with OTR support.</p>
-            <p>Supported <code>libotr</code> versions are 3.2.x, work is in progress to be compatible with 4.0.0.</p>
+            <p>An overview and many useful resources can be found at the <a id="otr-site" target="_blank" href="https://otr.cypherpunks.ca/">OTR site</a>.</p>
         </section>
         <section>
             <a name="why-bother"></a>
@@ -57,6 +56,18 @@
             <p>Secondly, even though you can guarantee that your messages are encrypted from your client to your server, you cannot guarantee that they will be encrypted for their entire journey to your contact's client.</p>
             <p>The messages may travel through a number of servers, and finally from a server to your contact's client, any of these journeys may be over a non TLS secured connection.</p>
             <p>OTR is one method of Application Layer Security which guarantees your messages are encrypted from client to client, ensuring that no one else can read them.</p>
+        </section>
+        <section>
+            <a name="installing-otr"></a>
+            <h3>Building with OTR support</h3>
+
+            <p>Currently supported features are encryption and authentication. If the <code>libotr-dev</code> library is available, Profanity will compile with OTR support.</p>
+            <p>Supported <code>libotr</code> versions are 3.2.x, work is in progress to be compatible with 4.0.0.</p>
+            <p>On most distributions there is simply a <code>libotr-dev</code> package you need to install first.</p>
+            <p>On Cygwin you will need to install the <code>libgcrypt-devel</code> package first.  Secondly you will need <code>libotr-devel</code> package which is not currently in the
+                offical repositories. You can install it from the <a id="cyg-ports" target="_blank" href="https://sourceware.org/cygwinports/">Cygwin Ports project</a>.</p>
+            <p>To force a fail if OTR support cannot be configured, use the following during the <code>./configure</code> stage:</p>
+            <pre><code>./configure --enable-otr</code></pre>
         </section>
         <section>
             <a name="private-key-gen"></a>
