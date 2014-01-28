@@ -61,13 +61,12 @@
             <a name="installing-otr"></a>
             <h3>Building with OTR support</h3>
 
-            <p>Currently supported features are encryption and authentication. If the <code>libotr-dev</code> library is available, Profanity will compile with OTR support.</p>
-            <p>Supported <code>libotr</code> versions are 3.2.x, work is in progress to be compatible with 4.0.0.</p>
+            <p>Currently supported features are encryption and authentication. To build with OTR support, configure with the following:</p>
+            <pre><code>./configure --enable-otr</code></pre>
+            <p>Supported <code>libotr</code> versions are 3.2.x, work is in progress to be compatible with 4.0.0, until implemented the configure stage may pass, but the compile will fail.</p>
             <p>On most distributions there is simply a <code>libotr-dev</code> package you need to install first.</p>
             <p>On Cygwin you will need to install the <code>libgcrypt-devel</code> package first.  Secondly you will need <code>libotr-devel</code> package which is not currently in the
                 offical repositories. You can install it from the <a id="cyg-ports" target="_blank" href="https://sourceware.org/cygwinports/">Cygwin Ports project</a>.</p>
-            <p>To force a fail if OTR support cannot be configured, use the following during the <code>./configure</code> stage:</p>
-            <pre><code>./configure --enable-otr</code></pre>
         </section>
         <section>
             <a name="private-key-gen"></a>
