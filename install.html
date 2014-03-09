@@ -111,10 +111,12 @@ cd profanity-0.3.1</code></pre>
         <section>
             <a name="os-x"></a>
             <h3>Installing on Mac OS X</h3>
-            <p>Supported instructions for installing on OS X have yet to be completed, however the following should be useful.</p>
-            <p>An example homebrew formula created by robrooms at Github is available <a id="robroom-brew" target="_blank" href="https://github.com/robrooms/homebrew-profanity">here</a>.</p>
-            <p>A howto using macports has been written by louiecaulfield at Github available <a id="louiecaulfield-macports" target="_blank" href="https://github.com/louiecaulfield/profanity/wiki/Building-under-OS-X">here</a>.</p>
-            <p>The list of development packages required is similar to the instructions for <a href="#other-linux">other linux distributions</a>.</p>
+            <p>The easiest way to install Profanity on OSX is using the brew formula supplied by robsalasco at Github available <a id="robroom-brew" target="_blank" href="https://github.com/robsalasco/homebrew-profanity">here</a>:</p>
+            <pre><code>brew tap robrooms/homebrew-profanity
+brew install libstrophe --HEAD
+brew install profanity --HEAD</code></pre>
+            <p>This will install the latest development version including OTR support and desktop notifications.</p>
+            <p>A howto using macports has also been written by louiecaulfield at Github available <a id="louiecaulfield-macports" target="_blank" href="https://github.com/louiecaulfield/profanity/wiki/Building-under-OS-X">here</a>.</p>
         </section>
         <section>
             <a name="windows"></a>
