@@ -23,10 +23,8 @@
             <h3>Contents</h3>
             
             <ul>
-                <li><a href="#use-profanity">Use Profanity</a>
-                <li><a href="#report-bugs">Report bugs</a>
+                <li><a href="#use-profanity">Use Profanity!</a>
                 <li><a href="#website-help">Help with the website</a>
-                <li><a href="#testing">Testing</a>
                 <li><a href="#contribute-code">Contribute code</a>
                 <li><a href="#specific-areas">Specific help required</a>
             </ul>
@@ -35,56 +33,41 @@
             <a name="use-profanity"></a>
             <h3>Use Profanity</h3>
             
-            <p>The easiest way you can help out is just by using Profanity and sending any feedback you have to the <a id="link-mailinglist" href="https://groups.google.com/forum/#!forum/profanitydev" target="_blank">mailing list</a>.</p>
-            <p>Any feedback is welcome, although please keep it polite, and refrain from using profanity (pun intended).</p>
-            <p>If you prefer not so use the mailing list, feel free to send a mail directly to boothj5web@gmail.com.</p>
-        </section>
-        <section>
-            <a name="report-bugs"></a>
-            <h3>Report bugs</h3>
-            
-            <p>Should you come across a bug, the preferred method is to log it at the <a id="link-githubissues" href="https://github.com/boothj5/profanity/issues?page=1&state=open" target="_blank">github issue tracker</a>.</p>
-            <p>If you do not have a github account, you can still post the issue at the <a id="link-mailinglist2" href="https://groups.google.com/forum/#!forum/profanitydev" target="_blank">mailing list</a>, or email boothj5web@gmail.com directly.</p>
-            <p>The more information you can supply the better chance we'll have of recreating the issue. Your OS/Distribution/Environment etc.</p>
-            <p>A list steps to reproduce the issue can be very helpful.</p>
+            <p>The easiest way you can help out is just by using Profanity and sending any feedback you have to the <a id="link-mailinglist" href="https://groups.google.com/forum/#!forum/profanitydev" target="_blank">mailing list</a>.
+            Any feedback is welcome, although please keep it polite, and refrain from using profanity (pun intended).</p>
+            <p>The preferred method for logging issues (bugs/feature requests) is at the <a id="link-githubissues" href="https://github.com/boothj5/profanity/issues?page=1&state=open" target="_blank">github issue tracker</a>,
+            If you do not have a github account, you can post the issue at the <a id="link-mailinglist2" href="https://groups.google.com/forum/#!forum/profanitydev" target="_blank">mailing list</a>, or email boothj5web@gmail.com directly.</p>
             <p>Running Profanity with the following argument will set debug logging, (remember to remove any sensitive information before sending the logs):</p>
             <pre><code>$ profanity -l DEBUG</code></pre>
             <p>The logs can be found as per the <a href="files.html">files</a> page, usually:</a>
             <pre><code>~/.local/share/profanity/logs/profanity.log</code></pre>
-            <p>For those that know how, providing backtraces of coredumps can also be useful for crashes.</p>
-            <p>If you don't have time for any of the above, a simple description of the problem would still be preferred over no bug report at all.</p>
         </section>
         <section>
             <a name="website-help"></a>
             <h3>Help with the website</h3>
             
             <p>The website often has small errors or omissions in documentation etc. The website source is also <a id="link-websitesource" href="https://github.com/boothj5/www_profanity_im" target="_blank">available at github</a> so feel free to send pull requests there.</p>
-            <p>Again, if you don't have time, a quick mail to boothj5web@gmail.com would be welcome.</p>
-        </section>
-        <section>
-            <a name="testing"></a>
-            <h3>Testing</h3>
-            
-            <p>If you are one of those who enjoys trying to break software, we'd love you to break Profanity and tell us how you did it!</p>
+            <p>We love to hear about profanity being used in different environments, and if you have any interesting screenshots, we'd be happy to post them at the website.</p>
         </section>
         <section>
             <a name="contribute-code"></a>
             <h3>Contribute code</h3>
             
-            <p>Code contributions are always very welcome. From the Small (spelling mistakes in the built-in help) to the large (completely new XMPP features).</p>
-            <p>Documentation on the current code is pretty much non-existent, and needs to be improved.</p>
-            <p>Currently there is one maintainer, another regular contributor, and many one off contributors.</p>
+            <p>Code contributions are always very welcome. From the small (spelling mistakes in the built-in help) to the large (completely new XMPP features).</p>
             <p>If you would like to get involved, you can submit a pull request, or if you just want to get involved but don't know how, email boothj5web@gmail.com.</p>
-            <p>The original author knew next to nothing about coding real applications in C, XMPP, or building and installing software on Linux when starting the project (which probably shows!), so if you just want to join in and learn, you are also welcome.</p>
+            <p>The original author knew next to nothing about coding real applications in C, XMPP, or building and installing software on Linux when starting the project (which probably shows!),
+            so if you just want to join in and learn, you are also welcome.</p>
         </section>
         <section>
             <a name="specific-areas"></a>
             <h3>Specific help required</h3>
 
-            <p>The following areas are currently where some specific expertise would help:</p>
-            <p><b>OSX development and testing</b> - Whilst Profanity does work on OSX, there are some quirks in the build, and currently there is no developer on the project specifically taking care of this area.</p>
-            <p><b>Release process</b> - The current release process is fairly manual.  Using the autotools as much as possible to automate this process would be useful (see next point).</p>
-            <p><b>Distribution packages</b> - The install process is a mix of an install script and some distribution specific files.  Any expertise in various distributions would be most welcome.</p>
+            <p>The following areas in particular need investigation/development:</p>
+            <p><b>Extending MUC functionality</b> - Currently chat rooms can be joined, but not much else.  Room creation/configuration, bookmarks, roles/affiliations/privileges etc are yet to be implemented.</p>
+            <p><b>Release process</b> - The current release process is fairly manual.  Using the autotools as much as possible to automate this process would be useful.</p>
+            <p><b>Distribution packages</b> - The install process is a mix of an install script and some distribution specific files.  Any expertise in various distributions would be very helpful.</p>
+            <p><b>Spell checking</b> - Spell checking has been rasied a few times as a useful feature.</p>
+            <p><b>GNU Readline support</b> - Allow users to tailor the input method/keyboard shortcuts using GNU readline.</p>
     </article>
     <footer>
         <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
