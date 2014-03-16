@@ -22,32 +22,50 @@
             <h3>Contents</h3>
             
             <ul>
-                <li><a href="#overview">Overview</a>
-                <li><a href="#linux">Installing on Linux</a>
+                <li><a href="#manual">Manual install</a>
+                <li><a href="#installscript">Using the helper script</a>
+                <li><a href="#linuxdistros">Linux distribution packages</a>
                 <ul>
                     <li><a href="#arch">Arch</a>, <a href="#gentoo">Gentoo</a>, 
-                        <a href="#ubuntu">Ubuntu</a>, <a href="#fedora">Fedora</a>,
                         <a href="#other-linux">Other distros</a></li>
                 </ul>
                 <li><a href="#os-x">Installing on Mac OS X</a>
+                <ul>
+                    <li><a href="#homebrew">Homebrew</a>, <a href="#macports">Macports</a></li>
+                </ul>
                 <li><a href="#windows">Installing on Windows</a></li>
             </ul>
         </section>
         <section>
-            <a name="overview"></a>
-            <h3>Overview</h3>
+            <a name="manual"></a>
+            <h3>Manual install</h3>
 
-            <p>Profanity should run on any POSIX compliant operating system.</p>
-            <p>To run on Windows, a POSIX environment is required, such as Cygwin.</p>
-            <p>Arch and Gentoo currently have community supported packages.</p>
-            <p>Until distribution packages are created (volunteers very welcome), a simple install script has been written which will work on Ubuntu and Fedora, the script installs dependencies and runs <code>./configure && make && make install</code>
-            <p>For all other distributions/operating systems the install script can be used as a guide to installing dependencies.</p>
+            <p>Profanity uses the autotools for installation from source.<p>
+            <p>After downloading the archive from the homepage, and extracting it, use the following commands to install:<p>
+            <pre><code>./configure
+make
+make install</code></pre>
+            <p>The final step requires root privileges.</p>
+            <p>If you cloned the git repository rather than downloading a released version, an additional step is required to generate the <code>./configure</code> script:<p>
+            <pre><code>./bootstrap.sh
+./configure
+make
+make install</code></pre>
+            <p>Various dependencies are required to install Profanity, the <code>./configure</code> script will fail if the minimum dependencies cannot be found.<p>
         </section>
         <section>
-            <a name="linux"></a>
-            <h3>Installing on Linux</h3>
-            <hr>
+            <a name="installscript"></a>
+            <h3>Using the helper script</h3>
 
+            <p>A helper script has been written to install all required and optional dependencies and run the above steps. This script currently supports Ubuntu, Fedora, OpenSuse and Cygwin.<p>
+            <p>Whether you downloaded and extracted the archive, or cloned the git repository, you can run the following to install:<p>
+            <pre><code>./install-all.sh</code></pre>
+        </section>
+        <section>
+            <a name="linuxdistros"></a>
+            <h3>Linux distribution packages</h3>
+
+            <hr>
             <a name="arch"></a>
             <h4>Arch</h4>
             <p>Profanity is available in the AUR:</p>
@@ -56,67 +74,47 @@
             <p><a href="https://aur.archlinux.org/packages/profanity-git/" target="_blank">https://aur.archlinux.org/packages/profanity-git/</a></p>
             <p>Instructions for installing from the AUR are at:</p>
             <p><a href="https://wiki.archlinux.org/index.php/AUR_User_Guidelines#Installing_packages" target="_blank">https://wiki.archlinux.org/index.php/AUR_User_Guidelines#Installing_packages</a></p>
+
             <hr>
             
             <a name="gentoo"></a>
             <h4>Gentoo</h4>
-            <p>Profanity is available from the 'stuff' overlay. To install:</p>
-            <p>Add the "stuff" overlay:</p>
+            <p>Profanity is available from the <code>stuff</code> overlay. To install, add the <code>stuff</code> overlay:</p>
             <pre><code>layman -a stuff</code></pre>
             <p>or add to existing:</p>
             <pre><code>layman -s stuff</code></pre>
             <p>Install the package:</p>
             <pre><code>emerge profanity</code></pre>
-            <p>Profanity can be linked with either libxml2 or expat libraries. By default expat is used, set the 'xml' flag to link with libxml2.</p>
-            <p>To install latest development version, add <code>net-im/profanity</code> to package.keywords file:</p>
+            <p>Profanity can be linked with either libxml2 or expat libraries. By default expat is used, set the <code>xml</code> flag to link with libxml2.</p>
+            <p>To install latest development version, add <code>net-im/profanity</code> to the <code>package.keywords</code> file:</p>
             <pre><code>echo "=net-im/profanity-9999 **" >> /etc/portage/package.keywords
 emerge =profanity-9999</code></pre>
-            <hr>
 
-            <a name="ubuntu"></a>
-            <h4>Ubuntu</h4>
-            <p>Download the latest source tarball, available <a href="profanity-0.3.1.tar.gz">here</a>.</p>
-            <p>Extract the file and cd into the directory e.g:</p>
-            <pre><code>tar -xvf profanity-0.3.1.tar.gz
-cd profanity-0.3.1</code></pre>
-            <p>Run the installer:</p>
-            <pre><code>./install-all.sh</code></pre>
-            <hr>
-
-            <a name="fedora"></a>
-            <h4>Fedora</h4>
-            <p>If your user doesn't have Sudoer rights, add them to the list:</p>
-            <pre><code>su
-&lt;enter password&gt;
-visudo</code></pre>
-            <p>Find the line:</p>
-            <pre><code>root ALL=(ALL) ALL</code></pre>
-            <p>And add your user under it:</p>
-            <pre><code>&lt;username&gt; ALL=(ALL) ALL</code></pre>
-            <p>Download the latest source tarball, available <a href="profanity-0.3.1.tar.gz">here</a>.</p>
-            <p>Extract the file and cd into the directory e.g:</p>
-            <pre><code>tar -xvf profanity-0.3.1.tar.gz
-cd profanity-0.3.1</code></pre>
-            <p>Run the installer:</p>
-            <pre><code>./install-all.sh</code></pre>
             <hr>
 
             <a name="other-linux"></a>
             <h4>Other distros</h4>
-            <p>For other linux distributions, the install script is a good guide.  You will need to install the development packages for dependencies, which are: </p>
-            <p>libssl, expat, ncursesw, glib2.0, libnotify, libcurl and libXScrnSaver.</p>
+            <p>For other linux distributions, the install script is a good guide.  You will need to install the development packages for dependencies.</p>
             <p>Profanity uses the libstrophe XMPP library which must be downloaded and built from source which can be found at <a href="https://github.com/strophe/libstrophe">Github</a>.</p>
-        </section>
         </section>
         <section>
             <a name="os-x"></a>
             <h3>Installing on Mac OS X</h3>
+
+            <hr>
+            <a name="homebrew"></a>
+            <h4>Homebrew</h4>
+            <p>Profanity is available in the AUR:</p>
             <p>The easiest way to install Profanity on OSX is using the brew formula supplied by robsalasco at Github available <a id="robroom-brew" target="_blank" href="https://github.com/robsalasco/homebrew-profanity">here</a>:</p>
-            <pre><code>brew tap robrooms/homebrew-profanity
+            <pre><code>brew tap robsalasco/homebrew-profanity
 brew install libstrophe --HEAD
 brew install profanity --HEAD</code></pre>
-            <p>This will install the latest development version including OTR support and desktop notifications.</p>
+            <p>This will install the latest development version.</p>
+            <hr>
+            <a name="macports"></a>
+            <h4>Macports</h4>
             <p>A howto using macports has also been written by louiecaulfield at Github available <a id="louiecaulfield-macports" target="_blank" href="https://github.com/louiecaulfield/profanity/wiki/Building-under-OS-X">here</a>.</p>
+            <hr>
         </section>
         <section>
             <a name="windows"></a>
