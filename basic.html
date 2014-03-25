@@ -24,10 +24,10 @@
             <ul>
                 <li><a href="#starting-profanity">Starting Profanity</a>
                 <li><a href="#user-interface">User Interface</a>
-                <li><a href="#switching-between-virtual-windows">Switching between virtual windows</a>
+                <li><a href="#switching-between-windows">Switching between windows</a>
                 <li><a href="#connecting">Connecting</a>
                 <li><a href="#sending-a-message">Sending a message</a>
-                <li><a href="#managing-virtual-windows">Managing virtual windows</a>
+                <li><a href="#managing-windows">Managing windows</a>
                 <li><a href="#changing-your-presence">Changing your presence</a>
                 <li><a href="#logging-out">Logging out</a></li>
             </ul>
@@ -45,19 +45,31 @@
             <a name="user-interface"></a>
             <h3>User Interface</h3>
         
-            <p>The user interface is split into four main areas</p>
-            <img src="images/main.png"/>
-            <p><b>Title bar</b> - Shows the title for the current visible 'virtual window' (usually the contact you are chatting with, or the chat room you have joined), and your current presence in the far right corner.</p>
-            <p><b>Main window area</b> - Used to show one of up to 10 virtual windows, numbered 1,2,3,4,5,6,7,9,0.  The first window (1) is always used as the 'console' window where system messages and command responses are shown.  The remaining windows (2 to 0) are available for chatting with contacts, and joining chat rooms.</p>
-            <p><b>Status bar</b> - Shows the time, the user you are logged in as, and on the far right the status of each virtual window.  If the virtual window is used, its number will appear, if it has new messages of any kind, the number will be highlighted.</p>
-            <p><b>Input area</b> - Where you enter all of your commands and messages.  When in the console, commands may be entered here, when in chat with a user or a chat room, both commands and messages may be entered.</p>
-            <p>Use the tab key to autocomplete commands, autocompletion works for most features, if in doubt, hit tab.</p>
+            <p><img src="images/main.png"/></p>
+            <p>The user interface is split into four main areas:</p>
+            <p><b>Title bar</b></p>
+            <p><img src="images/main1.png"/></p>
+            <p>Shows the title for the current window (usually the contact you are chatting with, or the chat room you have joined), and your current presence in the far right corner.</p>
+            <p><b>Main window area</b></p>
+            <p><img src="images/main2.png"/></p>
+            <p>Used to show the current active window. The first window (1) is always used as the console window where system messages and command responses are shown.</p>
+            <p><b>Status bar</b></p>
+            <p><img src="images/main3.png"/></p>
+            <p>Shows the time, the user you are logged in as, and on the far right the status of each window. If the window is used, its number will appear, if it has new messages of any kind, the number will be highlighted. The current window is shown as -1-.</p>
+            <p><b>Input area</b></p>
+            <p><img src="images/main4.png"/></p>
+            <p>Where commands and messages are entered, use the tab key to autocomplete commands.</p>
         </section>
         <section>
-            <a name="switching-between-virtual-windows"></a>
-            <h3>Switching between virtual windows</h3>
+            <a name="switching-between-windows"></a>
+            <h3>Switching between windows</h3>
 
-            <p>To make a virtual window visible in the main window area, use Alt-1 to Alt-0 or the F1 to F10 keys.  Certain commands automatically make a virtual window visible such as joining a chat room, or sending a message to a contact.</p>
+            <p>To make a window visible in the main window area, use any of the following:<p>
+            <p>Alt-1 to Alt-0</p>
+            <p>F1 to F10</p>
+            <p>Alt-left, Alt-right</p>
+            <p>The <a href="reference.html#win"><code>/win</code></a> command.</p>
+            <p>Certain commands automatically make a window the main window such as joining a chat room, or sending a message to a contact.</p>
             <p>When a window is visible new messages within it do not highlight the window number in the status bar.</p>
         </section>
         <section>
@@ -89,12 +101,11 @@
             <pre><code>/msg "Bob Smith"</code></pre>
         </section>
         <section>
-            <a name="managing-virtual-windows"></a>
-            <h3>Managing virtual windows</h3>
+            <a name="managing-windows"></a>
+            <h3>Managing windows</h3>
 
-            <p>You can close a virtual window whilst viewing it by using the <a href="reference.html#close"><code>/close</code></a> command.</p>
-
-            <p>To see a list in the console of all your currently used virtual windows, what they are being used for and whether there are any unread messages in them, use the <a href="reference.html#wins"><code>/wins</code></a> command:</p>
+            <p>You can close a window whilst viewing it by using the <a href="reference.html#close"><code>/close</code></a> command.</p>
+            <p>To see a list in the console of all your currently used windows, what they are being used for and whether there are any unread messages in them, use the <a href="reference.html#wins"><code>/wins</code></a> command:</p>
             <pre><code>/wins</code></pre>
         </section>
         <section>
