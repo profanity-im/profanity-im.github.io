@@ -1016,9 +1016,25 @@
             <h4>/statuses</h4>
             <p>Enable/disable showing of status updates for contact in your roster.</p>
             <p>Usage:</p>
-            <pre><code>/statuses on|off</code></pre>
+            <pre><code>/statuses console|chat|muc setting</code></pre>
+            <p>The first parameter is the window type that you wish to configure, the console window, chat windows, or chat room windows.<p>
+            <p>The setting may be one of:<p>
+            <table>
+                <tr>
+                    <td><code>all</code></td>
+                    <td>Show all status changes in the window.</td>
+                </tr>
+                <tr>
+                    <td><code>online</code></td>
+                    <td>Show only online/offline (or join/leave) status changes in the window.</td>
+                </tr>
+                <tr>
+                    <td><code>none</code></td>
+                    <td>Do not show any status changes in the window.</td>
+                </tr>
+            </table>
             <p>Default:</p>
-            <p>Set to <code>on</code> (enabled) by default.</p>
+            <p>Set to <code>all</code> for all window types.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
