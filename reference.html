@@ -95,10 +95,11 @@
 
             <a name="account"></a>
             <h4>/account</h4>
-            <p>Manage local accounts.  A local account has the following properties:</p>
+            <p>Manage local accounts. A local account has the following properties:</p>
             <p><code>name</code> - The name for the account.<br>
             <code>jid</code> - The Jabber ID of the account.<br>
             <code>server</code> - The chat server to use, if different to the domainpart of the Jabber ID.<br>
+            <code>port</code> - The port used to connect to the server, if not the default.<br>
             <code>resource</code> - The name of the resource to connect with.<br>
             <code>password</code> - The account password.<br>
             <code>status</code> - The presence status to be used when connecting with this account.<br>
@@ -158,7 +159,7 @@
                 </tr>
                 <tr>
                     <td><code>property</code></td>
-                    <td>One of <code>jid</code>, <code>server</code>, <code>resource</code>, <code>password</code>, <code>muc</code>, <code>nick</code>, <code>status</code> or a presence (<code>online</code>, <code>chat</code>, <code>away</code>, <code>xa</code>, <code>dnd</code>).</td>
+                    <td>One of <code>jid</code>, <code>server</code>, <code>port</code>, <code>resource</code>, <code>password</code>, <code>muc</code>, <code>nick</code>, <code>status</code> or a presence (<code>online</code>, <code>chat</code>, <code>away</code>, <code>xa</code>, <code>dnd</code>).</td>
                 </tr>
             </table>
 
@@ -171,6 +172,10 @@
                 <tr>
                     <td><code>server</code></td>
                     <td>The server to connect to for the account, e.g. <code>talk.google.com</code>. Optional with no default.</td>
+                </tr>
+                <tr>
+                    <td><code>port</code></td>
+                    <td>The port used when connecting to the chat server, e.g. <code>5355</code>. Optional with a default of 5222.</td>
                 </tr>
                 <tr>
                     <td><code>resource</code></td>
@@ -215,6 +220,7 @@
             <pre><code>/account add work
 /account set work jid myuser@mycompany.com
 /account set work server talk.google.com
+/account set work port 5432
 /account set work resource laptop
 /account set work status away
 /account set work chat 20
@@ -224,7 +230,7 @@
 /account set work dnd -1
 /account rename work gtalk</code></pre>
             <p>You can then log into the above account using <code>/connect gtalk</code>.</p>
-            <p>The talk.google.com server will be used to connect rather than mycompany.com.</p>
+            <p>The talk.google.com server will be used to connect rather than mycompany.com, using port 5432</p>
             <p>The resource associated with this account when logged in will be 'laptop'.</p>
             <p>Each time you log in, your status will be <code>away</code></p>
             <p>When you change status to 'chat' by using the <a href="#chat"><code>/chat</code></a> command for example, the priority for Profanity will be set to 20.</p>
