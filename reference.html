@@ -672,7 +672,7 @@
             <h4>/join</h4>
             <p>Join a chat room. This command may also be used to accept a chat room invite.</p>
             <p>Usage:</p>
-            <pre><code>/join room [nick]</code></pre>
+            <pre><code>/join room [nick value] [password value]</code></pre>
             <p>Arguments:</p>
             <table>
                 <tr>
@@ -681,7 +681,11 @@
                 </tr>
                 <tr>
                     <td><code>nick</code></td>
-                    <td>Optional nickname to use in the room.  If this parameter is not supplied, the beginning part (before the '@') of your Jabber ID will be used.</td>
+                    <td>Optional nickname to use in the room.  If this parameter is not supplied, the account setting <code>nick</code> will be used.</td>
+                </tr>
+                <tr>
+                    <td><code>password</code></td>
+                    <td>Optional password for private chat rooms.</td>
                 </tr>
             </table>
             <a href="#top"><h5>back to top</h5></a><br>
