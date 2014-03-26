@@ -33,16 +33,18 @@
             <a name="joining-a-chat-room"></a>
             <h3>Joining a chat room</h3>
 
-            <p>Use the <a href="reference.html#join"><code>/join</code></a> command to join a chat room supplying the name of the room and the nickname you wish to be known as in the room:</p>
-            <pre><code>/join room@conference.server.com mynick</code></pre>
-            <p>The nickname parameter is optional, if not supplied the 'localpart' of your Jabber ID will be used.  For example if you are logged in as <code>itsme@server.com</code> the following command will enter a room with the nickname <code>itsme</code>:</p>
+            <p>Use the <a href="reference.html#join"><code>/join</code></a> command to join a chat room supplying the name of the room:</p>
             <pre><code>/join room@conference.server.com</code></pre>
-            <p>You may omit the domain part of the chat room address if it is the default <code>conference.domain</code>, for example, if you are logged in as <code>kai@mycompany.org</code>, using the following command:</p>
+            <p>Your nickname will be the account <code>nick</code> setting which by default is set to the 'localpart' of your Jabber ID. For example if you are logged in as <code>itsme@server.com</code> you will join the room with the nickname <code>itsme</code>.</p>
+            <p>To specify a nickname different to your account setting when joining the room, use the <code>nick</code> option:<p>
+            <pre><code>/join room@conference.server.com nick MrChatty</code></pre>
+            <p>If you omit the domain part of the chat room, the account setting <code>muc</code> will be used which by default is set to <code>conference.&lt;domain&gt;</code>. For example, if you are logged in as <code>kai@mycompany.org</code>, using the following command:</p>
             <pre><code>/join development</code></pre>
             <p>is the same as:</p>
             <pre><code>/join development@conference.mycompany.org</code></pre>
-            <p>The default nickname and conference service may be changed for any account using the <a href="reference.html#account"><code>/account</code></a> command.<p>
-            <p>Messages entered in the input bar will be sent to the room.</p>
+            <p>To join a room which requires a password, use the <code>password</code> option:</p>
+            <pre><code>/join privatedev@conference.someserver.im password p455w0rd</code></pre>
+            <p>The account settings for default nickname and conference service may be changed for any account using the <a href="reference.html#account"><code>/account</code></a> command.<p>
         </section>
         <section>
             <a name="changing-your-nickname"></a>
