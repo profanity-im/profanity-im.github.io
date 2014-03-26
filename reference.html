@@ -26,6 +26,7 @@
                 <ul>
                     <li><a href="#about">/about</a>, 
                         <a href="#account">/account</a>,
+                        <a href="#alias">/alias</a>,
                         <a href="#autoaway">/autoaway</a>,
                         <a href="#autoconnect">/autoconnect</a>,
                         <a href="#autoping">/autoping</a>,
@@ -235,6 +236,18 @@
             <p>Each time you log in, your status will be <code>away</code></p>
             <p>When you change status to 'chat' by using the <a href="#chat"><code>/chat</code></a> command for example, the priority for Profanity will be set to 20.</p>
 
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="alias"></a>
+            <h4>/alias</h4>
+            <p>Add command aliases. This command can be used to create shortcuts and avoid typing the same command over and again.</p>
+            <p>For example, to add a command alias <code>/waf</code> which will alias to <code>/who available friends</code>:</p>
+            <pre><code>/alias add waf /who available friends</code></pre>
+            <p>To remove an alias:</p>
+            <pre><code>/alias remove waf</code></pre>
+            <p>To list all current aliases:<p>
+            <pre><code>/alias list</code></pre>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
