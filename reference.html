@@ -399,7 +399,7 @@
             <h4>/connect</h4>
             <p>Log in to an XMPP chat service.</p>
             <p>Usage:</p>
-            <pre><code>/connect account [server]</code></pre>
+            <pre><code>/connect account [server value] [port value]</code></pre>
             <p>Arguments:</p>
             <table>
                 <tr>
@@ -409,6 +409,10 @@
                 <tr>
                     <td><code>server</code></td>
                     <td>Optional server to connect to if the chat service is hosted at a different domain to the domain part of the Jabber ID.</td>
+                </tr>
+                <tr>
+                    <td><code>port</code></td>
+                    <td>Optional port to use if not the default of 5222.</td>
                 </tr>
             </table>
             <p>The <code>/connect</code> command automatically creates an account using the Jabber ID as it's name if one does not exist already.  See the <a href="#account"><code>/account</code></a> command for more information.</p>
