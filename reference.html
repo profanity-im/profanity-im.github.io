@@ -61,6 +61,7 @@
                         <a href="#nick">/nick</a>,
                         <a href="#notify">/notify</a>,
                         <a href="#online">/online</a>,
+                        <a href="#otr">/otr</a>,
                         <a href="#outtype">/outtype</a>,
                         <a href="#prefs">/prefs</a>,
                         <a href="#priority">/priority</a>,
@@ -79,6 +80,7 @@
                         <a href="#titlebar">/titlebar</a>,
                         <a href="#vercheck">/vercheck</a>,
                         <a href="#who">/who</a>,
+                        <a href="#win">/win</a>,
                         <a href="#wins">/wins</a>,
                         <a href="#xa">/xa</a>
                 </ul>
@@ -842,6 +844,85 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="otr"></a>
+            <h4>/otr</h4>
+            <p>Off The Record message encryption.</p>
+            <p>Usage:</p>
+            <pre><code>/online gen|myfp|theirfp|start|end|trust|untrust|log|warn|libver</code></pre>
+            <p><b>Key generation usage:</b></p>
+            <pre><code>/otr gen</code></pre>
+            <p>Generate a key for the current logged in account.</p>
+            <p><b>Fingerprint usage:</b></p>
+            <pre><code>/otr myfp|theirfp</code></pre>
+            <p>Show OTR fingerprints.</p>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>myfp</code></td>
+                    <td>Show the fingerprint for your key in the current window.</td>
+                </tr>
+                <tr>
+                    <td><code>theirfp</code></td>
+                    <td>Show the fingerprint of a contact's key, you must be in an OTR session with the contact.</td>
+                </tr>
+            </table>
+            <p><b>OTR session usage:</b></p>
+            <pre><code>/otr start|end</code></pre>
+            <p>Manage an OTR session with a contact.</p>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>start</code></td>
+                    <td>Start an OTR session with the current contact, if the contact's client supports it.</td>
+                </tr>
+                <tr>
+                    <td><code>end</code></td>
+                    <td>End the current OTR session, go back to unencrypted messaging with the current contact.</td>
+                </tr>
+            </table>
+            <p><b>Trust usage:</b></p>
+            <pre><code>/otr trust|untrust</code></pre>
+            <p>Manage the trust status of a contact, you must be in an OTR session to change trust.</p>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>trust</code></td>
+                    <td>Mark the current contact as trusted.</td>
+                </tr>
+                <tr>
+                    <td><code>untrust</code></td>
+                    <td>Mark the current contact as untrusted.</td>
+                </tr>
+            </table>
+            <p><b>Log settings usage:</b></p>
+            <pre><code>/otr log on|off|redact</code></pre>
+            <p>Configure how OTR messages are logged.</p>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>on</code></td>
+                    <td>Enable plaintext logging of OTR messages in chat logs.</td>
+                </tr>
+                <tr>
+                    <td><code>off</code></td>
+                    <td>Disable logging of OTR messages.</td>
+                </tr>
+                <tr>
+                    <td><code>redact</code></td>
+                    <td>Log OTR messages but replace the contents with the string [redacted].</td>
+                </tr>
+            </table>
+            <p>By default this setting will be set to <code>redact</code></p>
+            <p><b>Titlebar indicator setting usage:</b></p>
+            <pre><code>/otr warn on|off</code></pre>
+            <p>Configure whether an <code>[unencrypted]</code> warning appears in the titlebar for message sessions that are not encrypted.</p>
+            <p>By default this setting will be set to <code>on</code></p>
+            <p><b>Library version usage:</b></p>
+            <pre><code>/otr libver</code></pre>
+            <p>Show which version of the libotr library is being used.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="outtype"></a>
             <h4>/outtype</h4>
             <p>Send composing chat states to contacts so they can see when you are typing.  Requires <a href="#states"><code>/states</code></a> to be <code>on</code>.</p>
@@ -1158,6 +1239,21 @@
                 <tr>
                     <td><code>group</code></td>
                     <td>Filter the output to only those who are in the specified roster group.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="win"></a>
+            <h4>/win</h4>
+            <p>Display the contents of a window in the main window area.</p>
+            <p>Usage:</p>
+            <pre><code>/win num</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>num</code></td>
+                    <td>The window to display.</td>
                 </tr>
             </table>
             <a href="#top"><h5>back to top</h5></a><br>
