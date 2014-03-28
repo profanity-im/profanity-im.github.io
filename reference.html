@@ -110,6 +110,7 @@
             <code>muc service</code> - The default conference service to use when joining chat rooms.<br>
             <code>muc nickname</code> - The default nickname to use when joining chat rooms.</p>
             <p>Accounts may be enabled/disabled, the only difference being that enabled accounts are used for autocompletion.</p>
+            <p>See <a href="presence.html">Advanced presence, resources and priorities</a> for an overview of account presence priorities.</p>
             <p>When connecting with the <a href="#account"><code>/connect</code></a> command, if an account does not currently exist with the connection details, one will be created using the Jabber ID as the name.</p>
             <p>You may rename this account at a later point if desired, see usage below.</p>
             <p>For details of where accounts are stored, see the help on <a href="files.html">file locations</a>.</p>
@@ -541,7 +542,8 @@
 
             <a name="group"></a>
             <h4>/group</h4>
-            <p>Manage roster groups.  You can list all groups, show the members of a group, add and remove contacts from groups.</p>
+            <p>Manage roster groups. You can list all groups, show the members of a group, add and remove contacts from groups.</p>
+            <p>See <a href="subscriptions.html">Managing your contacts</a> for an overview of roster related commands.</p>
             <p>Usage:</p>
             <pre><code>/group [show|add|remove] [group] [contact]</code></pre>
             <p>Calling with no arguments lists all groups.</p>
@@ -847,6 +849,7 @@
             <a name="otr"></a>
             <h4>/otr</h4>
             <p>Off The Record message encryption.</p>
+            <p>See <a href="otr.html">OTR Message Encryption</a> for an overview of Off The Record messaging.</p>
             <p>Usage:</p>
             <pre><code>/online gen|myfp|theirfp|start|end|trust|untrust|log|warn|libver</code></pre>
             <p><b>Key generation usage:</b></p>
@@ -951,6 +954,7 @@
             <a name="priority"></a>
             <h4>/priority</h4>
             <p>Set the priority associated with the current logged in account.</p>
+            <p>See <a href="presence.html">Advanced presence, resources and priorities</a> for an overview of account presence priorities.</p>
             <p>Using this command will set the priority for all presence statuses.  For more flexible priority settings per presence, see the <a href="#account"><code>/account</code></a> command.</p>
             <p>Usage:</p>
             <pre><code>/priority value</code></pre>
@@ -1010,6 +1014,7 @@
             <a name="roster"></a>
             <h4>/roster</h4>
             <p>Use the roster command to add and remove contacts from your roster, and give them nicknames.</p>
+            <p>See <a href="subscriptions.html">Managing your contacts</a> for an overview of roster related commands.</p>
             <p>Add contact Usage:</p>
             <pre><code>/roster add jid [nick]</code></pre>
             <p>Arguments:</p>
@@ -1135,6 +1140,7 @@
             <a name="sub"></a>
             <h4>/sub</h4>
             <p>Manage presence subcriptions.</p>
+            <p>See <a href="subscriptions.html">Managing your contacts</a> for an overview of roster related commands.</p>
             <p>Usage:</p>
             <pre><code>/sub command [contact]</code></pre>
             <p>If used whilst in chat with a contact, the <code>contact</code> parameter may be omitted and the current contact will be used.</p>
