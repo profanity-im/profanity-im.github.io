@@ -131,7 +131,7 @@
 
             <a name="shared-secret"></a>
             <h4>Shared secret</h4>
-            <p>Shared secret verification is a way for both paries to authenticate each other using a shared passphrase thay only the two of them know.</p>
+            <p>Shared secret verification is a way for both paries to authenticate each other at the same time using a shared passphrase thay only the two of them know.</p>
             <p>In an OTR session, one user may start shared secret authentication with the <code>/otr secret</code> command, supplying the secret, for example:</p>
             <pre><code>/otr secret 5up3r53cr3t</code></pre>
             <p>They will be shown a message indicating that authentication has started.</p>
@@ -145,13 +145,13 @@
             <p>Upon success the recipient will be informed that the authentication succeeded, and the sender will be marked as <code>[trusted]</code> in the titlebar.</p>
             <img src="images/otr/secret_received_success.png"/><br><br>
 
-            <p>The sender will also be notified of success.</p>
+            <p>The sender will also be notified of success and the recipient will be set to <code>[trusted]</code></p>
             <img src="images/otr/secret_sent_success.png"/><br><br>
 
             <p>If the secret entered by the recipient does not match that entered by the sender, they will be informed that the authentication failed, and the sender will remain <code>[untrusted]</code></p>
             <img src="images/otr/secret_received_fail.png"/><br><br>
 
-            <p>The sender will also be notified of the failure.</p>
+            <p>The sender will also be notified of the failure and the recipient will be <code>[untrusted]</code></p>
             <img src="images/otr/secret_sent_fail.png"/><br><br>
 
             <a name="fingerprints"></a>
