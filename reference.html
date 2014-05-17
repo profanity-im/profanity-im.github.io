@@ -109,7 +109,8 @@
             <code>status</code> - The presence status to be used when connecting with this account.<br>
             <code>status priority</code> - A priority associated with each presence status.<br>
             <code>muc service</code> - The default conference service to use when joining chat rooms.<br>
-            <code>muc nickname</code> - The default nickname to use when joining chat rooms.</p>
+            <code>muc nickname</code> - The default nickname to use when joining chat rooms.<br>
+            <code>otr setting</code> - The account wide OTR policy.</p>
             <p>Accounts may be enabled/disabled, the only difference being that enabled accounts are used for autocompletion.</p>
             <p>See <a href="presence.html">Advanced presence, resources and priorities</a> for an overview of account presence priorities.</p>
             <p>When connecting with the <a href="#account"><code>/connect</code></a> command, if an account does not currently exist with the connection details, one will be created using the Jabber ID as the name.</p>
@@ -197,6 +198,10 @@
                 <tr>
                     <td><code>nick</code></td>
                     <td>The default nickname to use when joining chat rooms, e.g. <code>eddie</code>. Defaults to the localpart of the Jabber ID.</td>
+                </tr>
+                <tr>
+                    <td><code>otr</code></td>
+                    <td>The account OTR policy, setting may be one of <code>manual</code>, <code>opportunistic</code> or <code>alwats</code>. See the <a href="otr.html#policy">OTR page</a> for more information on OTR policies.</td>
                 </tr>
                 <tr>
                     <td><code>status</code></td>
