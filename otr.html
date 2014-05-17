@@ -23,45 +23,32 @@
             <h3>Contents</h3>
             
             <ul>
-                <li><a href="#what-is-otr">What is Off The Record messaging?</a>
-                <li><a href="#why-bother">Why bother?</a>
                 <li><a href="#installing-otr">Building with OTR support</a>
                 <li><a href="#private-key-gen">Generating a private key</a>
-                <li><a href="#exchanging-fingerprints">Exchanging fingerprints</a>
-                <li><a href="#starting-otr-session">Starting an OTR session</a>
-                <li><a href="#verify-contact">Verifying a contact's identity</a>
-                <li><a href="#ending-otr">Ending an OTR session</a>
-                <li><a href="#subsequent-sessions">Subsequent chat sessions</a>
+                <li><a href="#private-conversation">Starting a private conversation</a>
+                <li><a href="#authentication">Authenticating a contact</a>
+                <ul>
+                    <li><a href="#question-answer">question and answer</a>,
+                        <a href="#shared-secret">shared secret</a>, 
+                        <a href="#fingerprints">manual authentication</a></li>
+                </ul>
+                <li><a href="#policy">Setting OTR policy</a>
+                <ul>
+                    <li><a href="#global-policy">global</a>,
+                        <a href="#account-policy">account</a>, 
+                        <a href="#contact-policy">contact</a></li>
+                </ul>
                 <li><a href="#otr-message-logging">OTR message logging</a>
                 <li><a href="#ui-options">User Interface options</a>
             </ul>
         </section>
         <section>
-            <a name="what-is-otr"></a>
-            <h3>What is Off The Record messaging?</h3>
-
-            <p>If you already know about OTR and it's benefits, you can skip the first two sections and go straight to <a href="#private-key-gen">Generating a private key</a>.</p>
-            
-            <p>Off The Record (OTR) messaging is a form of secure messaging, it includes encryption, authentication between users, deniability and perfect forward secrecy.</p>
-            <p>An overview and many useful resources can be found at the <a id="otr-site" target="_blank" href="https://otr.cypherpunks.ca/">OTR site</a>.</p>
-        </section>
-        <section>
-            <a name="why-bother"></a>
-            <h3>Why bother?</h3>
-
-            <p>When talking about XMPP specifically, most chat clients talk to the chat server over Transport Layer Security.  Why bother encrypting messages again?</p>
-            <p>There are two main reasons:</p>
-            <p>Firstly, since encryption happens at the transport layer, messages will be decrypted at the chat server, which may then log your conversations and view them.</p>
-            <p>Even if you trust your server not to log your messages, it's security may one day be compromised and your unencrypted messages will be available to the attackers.</p>
-            <p>Secondly, even though you can guarantee that your messages are encrypted from your client to your server, you cannot guarantee that they will be encrypted for their entire journey to your contact's client.</p>
-            <p>The messages may travel through a number of servers, and finally from a server to your contact's client, any of these journeys may be over a non TLS secured connection.</p>
-            <p>OTR is one method of Application Layer Security which guarantees your messages are encrypted from client to client, ensuring that no one else can read them.</p>
-        </section>
-        <section>
             <a name="installing-otr"></a>
             <h3>Building with OTR support</h3>
 
-            <p>Currently supported features are encryption and authentication. If you have <code>libotr-dev</code> installed, support will be included by default. To force the build to fail if support cannot be included, configure with the following:</p>
+            <p>Off The Record (OTR) messaging is a form of secure messaging, it includes encryption, authentication between users, deniability and perfect forward secrecy.</p>
+            <p>An overview and many useful resources can be found at the <a id="otr-site" target="_blank" href="https://otr.cypherpunks.ca/">OTR site</a>.</p>
+            <p>If you have <code>libotr-dev</code> installed, support will be included by default. To force the build to fail if support cannot be included, configure with the following:</p>
             <pre><code>./configure --enable-otr</code></pre>
             <p>Supported <code>libotr</code> versions are 3.2.x, and the latest release 4.0.0.</p>
             <p>On most distributions there is simply a <code>libotr-dev</code> package you need to install first.</p>
@@ -75,74 +62,149 @@
             
             <p>Before you can start using OTR for a particular account, you must generate a private key. Use the following command:</p>
             <pre><code>/otr gen</code></pre>
-            <p>A message will appear informing you that the key is being generated:</p>
-            <img src="images/otr-gen.png"/><br><br>
-            <p>A message will appear once the key has been generated:</p>
-            <img src="images/otr-gen-done.png"/><br><br>
+            <p>A message will appear informing you that the key is being generated which may take a few minutes.</p>
+            <img src="images/otr/key_generated.png"/><br><br>
             <p>Once you have generated a key, you will not need to do so again.</p>
         </section>
+
         <section>
-            <a name="exchanging-fingerprints"></a>
-            <h3>Exchanging fingerprints</h3>
-            
-            <p>Once you have a private key, you need to pass on your fingerprint to anyone you wish to have a verified OTR messaging session with. You should send this fingerprint through another communication channel.</p>
-            <p>To view your fingerprint:</p>
-            <pre><code>/otr myfp</code></pre>
-            <img src="images/otr-myfp.png"/><br><br>
-            <p>At this point you should also get the fingerprints of any contacts you wish to have OTR sessions with, through other means.</p>
-            <p>You may use OTR encryption without exchanging fingerprints. However, those conversations will be unverified, i.e. you cannot be sure of the identity of your contact, and they cannot be sure of yours.</p>
-        </section>
-        <section>
-            <a name="starting-otr-session"></a>
-            <h3>Starting an OTR session</h3>
-            
-            <p>If you are already in a chat window with a contact, and you wish to make this an OTR session:</p>
-            <img src="images/titlebar-no-otr.png"/><br><br>
-            <p>You can start the OTR session with:</p>
-            <pre><code>/otr start</code></pre>
-            <p>If you are not currently in a chat window with the contact, you can use the following command to open a new one, and make it secure:</p>
-            <pre><code>/otr start prof2@panesar</code></pre>
-            <p>If your contact is online and has OTR enabled in their chat client, a key exchange will take place. If the contact is not using an OTR enabled chat client, they may receive a message which looks like the following:</p>
-            <pre><code>?OTR?</code></pre>
-            <p>And an OTR session will not be established.</p>
-            <p>If key exchange is successful, a message will appear, and an indicator will be shown in the title bar:</p>
-            <img src="images/titlebar-otr.png"/><br><br>
-            <p>At this point you have not verified the identity of your contact, which is why <code>(untrusted)</code> appears in the title bar.</p>
-        </section>
-        <section>
-            <a name="verify-contact"></a>
-            <h3>Verifying a contact's identity</h3>
-            
-            <p>At this point your communication is encrypted, but you are not guaranteed that your contact is who they say they are. For a trusted session, you need to verify their fingerprint.</p>
-            <p>To view the contacts fingerprint use the following command:</p>
-            <pre><code>/otr theirfp</code></pre>
-            <p>The contacts fingerprint will be shown in the chat window:</p>
-            <img src="images/otr-theirfp.png"/><br><br>
-            <p>If the fingerprint matches the one you received using other means, then you can be sure that this is your contact. To indicate that the contact's identity is now verified, use the following command:</p>
-            <pre><code>/otr trust</code></pre>
-            <p>The title bar will be updated to show that this is a trusted encrypted session:</p>
-            <img src="images/otr-trusted.png"/><br><br>
-        </section>
-        <section>
-            <a name="ending-otr"></a>
-            <h3>Ending an OTR session</h3>
-            
+            <a name="private-conversation"></a>
+            <h3>Starting a private conversation</h3>
+
+            <p>Once you have a private key, you may start encrypted messaging sessions with other contacts who have also generated a key.</p>
+            <p>You may start an OTR session using the OTR command, for example</p>
+            <pre><code>/otr start ford@h2g2.org</code></pre>
+            <p>A new message window will be opened and the OTR session will be initiated:</p>
+            <img src="images/otr/started.png"/><br><br>
+            <p>To indicate that this is an encrypted conversation, <code>[OTR]</code> is shown in the titlebar.</p>
+            <p>The <code>[untrusted]</code> shown in the titlebar indicates that although this conversation is encrypted, the contact has not yet been authenticated.</p>
+            <p>The recipient will be notified that an OTR session has been started:</p>
+            <img src="images/otr/started_message.png"/><br><br>
+            <p>From this point on the conversation will be encrypted.</p>
+            <img src="images/otr/untrusted.png"/><br><br>
+            <p>If you start a conversation using the <code>/msg</code> command, the titlebar will indicate that the conversation is not secure with <code>[unencrypted]</code>:</p>
+            <img src="images/otr/unencrypted.png"/><br><br>
+            <p>You may start an OTR session for an existing conversation using the <code>/otr start</code> command with no arguments:</p>
+            <img src="images/otr/existing_to_otr.png"/><br><br>
             <p>To stop the OTR session, and go back to unencrypted untrusted communication, either close the window:</p>
             <pre><code>/close</code></pre>
             <p>Or use the following command to remain in the chat window:</p>
             <pre><code>/otr end</code></pre>
             <p>A message will be displayed, and the OTR indicator will be removed from the title bar.</p>
-            <img src="images/otr-end.png"/><br><br>
+        </section>
+
+        <section>
+            <a name="authentication"></a>
+            <h3>Authenticating a contact</h3>
+
+            <p>The previous conversations were encrypted, however as the recipient noticed, neither user can be certain of the identity of the other.</p>
+            <p>Authentication is for each OTR key that the contact may have generated. For example if your contact has different OTR keys on different devices, you will need to authenticate each device separately.</p>
+            <p>Once a particular contact (and client) has been authenticated, this information is saved.</p>
+            <p>OTR supports three ways to authenticate a contact, question and answer, shared secret, and manual fingerprint verification.</p>
+
+            <a name="question-answer"></a>
+            <h4>Question and answer</h4>
+            <p>Question and answer verification allows one user to verify the identity of another by asking a question with an expected answer.</p>
+            <p>Once in an OTR session, a user may ask the recipient a question, giving the answer that they are expecting from the recipient, for example:</p>
+            <pre><code>/otr question "Whats the name of your best friends rabbit?" fiffi</code></pre>
+            <p>A message will be displayed showing that the authentication process has started.</p>
+            <img src="images/otr/question_sent.png"/><br><br>
+
+            <p>The contact will be shown a message asking them to enter their answer to the question.</p>
+            <img src="images/otr/question_received.png"/><br><br>
+
+            <p>The contact must then enter their answer using the <code>/otr answer</code> command, for example:</p>
+            <pre><code>/otr answer fiffi</code></pre>
+            <p>If the answer matches that expected by the sender, a message will be shown indicating that they have successfully authenticated you.</p>
+            <img src="images/otr/question_received_success.png"/><br><br>
+
+            <p>The sender of the question will be notified that the authentication succeeded, and the contact will be marked as <code>[trusted]</code> in the titlebar.</p>
+            <img src="images/otr/question_sent_success.png"/><br><br>
+
+            <p>If the recipient's answer did not match the expected one, they will be shown a message informing them that the authentication failed.</p>
+            <img src="images/otr/question_received_fail.png"/><br><br>
+
+            <p>And the sender will also be notified and the session will remain <code>[untrusted]</code>.</p>
+            <img src="images/otr/question_sent_fail.png"/><br><br>
+
+            <p>Note that question answer authentication is a way for one contact to verify the identity of another. If the recipient answers correctly then the sender has authenticated them, however the recipient must also authenticate the sender with another question.</p>
+
+            <a name="shared-secret"></a>
+            <h4>Shared secret</h4>
+            <p>Shared secret verification is a way for both parties to authenticate each other at the same time using a shared passphrase that only the two of them know.</p>
+            <p>In an OTR session, one user may start shared secret authentication with the <code>/otr secret</code> command, supplying the secret, for example:</p>
+            <pre><code>/otr secret 5up3r53cr3t</code></pre>
+            <p>They will be shown a message indicating that authentication has started.</p>
+            <img src="images/otr/secret_sent.png"/><br><br>
+
+            <p>The recipient will be shown a message asking them to enter the shared secret:</p>
+            <img src="images/otr/secret_received.png"/><br><br>
+
+            <p>The recipient must also enter the secret using the same command as the sender:</p>
+            <pre><code>/otr secret 5up3r53cr3t</code></pre>
+            <p>Upon success the recipient will be informed that the authentication succeeded, and the sender will be marked as <code>[trusted]</code> in the titlebar.</p>
+            <img src="images/otr/secret_received_success.png"/><br><br>
+
+            <p>The sender will also be notified of success and the recipient will be set to <code>[trusted]</code></p>
+            <img src="images/otr/secret_sent_success.png"/><br><br>
+
+            <p>If the secret entered by the recipient does not match that entered by the sender, they will be informed that the authentication failed, and the sender will remain <code>[untrusted]</code></p>
+            <img src="images/otr/secret_received_fail.png"/><br><br>
+
+            <p>The sender will also be notified of the failure and the recipient will be <code>[untrusted]</code></p>
+            <img src="images/otr/secret_sent_fail.png"/><br><br>
+
+            <a name="fingerprints"></a>
+            <h4>Manual fingerprint authentication</h4>
+            <p>The above two methods allow you to verify the fingerprint of a contact's OTR key without having to know the fingerprint.  The final method is to manually verify the fingerprint.</p>
+            <p>You should exchange fingerprints with your contact's via another secure communication channel. To display your fingerprint, use the following command:</p>
+            <pre><code>/otr myfp</code></pre>
+            <img src="images/otr/myfp.png"/><br><br>
+
+            <p>To view the fingerprint of a contact whilst in an OTR session, use the following command:</p>
+            <pre><code>/otr theirfp</code></pre>
+            <img src="images/otr/theirfp.png"/><br><br>
+
+            <p>If the fingerprint you see matches the fingerprint you communicated via another means, you can manually authenticate the contact with the following command:</p>
+            <pre><code>/otr trust</code></pre>
+            <p>You can untrust a contact at anytime using the following command:</p>
+            <pre><code>/otr untrust</code></pre>
+        
         </section>
         <section>
-            <a name="subsequent-sessions"></a>
-            <h3>Subsequent chat sessions</h3>
-            
-            <p>Your private key only needs to be generated once. The key will be loaded when you connect again with this account using <code>/connect</code>.</p>
-            <p>Once you have trusted a fingerprint, this information is saved, subsequent OTR sessions with this contact will be automatically trusted:</p>
-            <img src="images/otr-again.png"/><br><br>
-            <p>You may revoke this trust with the following command:</p>
-            <pre><code>/otr untrust</code></pre>
+            <a name="policy"></a>
+            <h3>Setting OTR policy</h3>
+
+            <p>By default, OTR sessions must be started manually using the <code>/otr start</code> command.</p>
+            <p>The policy may be set at three levels, global, per account, and per contact with the order of preference being the most specific first:</p>
+<p>1 - Use the policy for the contact, if no setting found:<br/>
+2 - Use the policy for the account, if no setting found:<br/>
+3 - Use the global policy</p>
+            <p>The following three settings are available for each level:</p>
+            <p><b><code>manual</code></b> - The default. Unencrypted messaging is allowed, OTR sessions must be started manually.</p>
+<p><b><code>opportunistic</code></b> - Upon sending an unencrypted message with the <code>/msg</code> command, profanity will attempt to start an OTR session with the contact. The contact's policy must be set to <code>opportunistic</code> or <code>always</code> for the session to start</p>
+<p><b><code>always</code></b> - An error message will be displayed if you try to start a conversation without starting an OTR session and the message will not be sent.</p>
+
+            <a name="global-policy"></a>
+            <h4>Setting global policy</h4>
+            <p>To set the global policy:</p>
+            <pre><code>/otr policy &lt;setting&gt;</code></pre>
+            <p>The current global setting can be viewed with the following command:</p>
+            <pre><code>/prefs otr</code></pre>
+
+            <a name="account-policy"></a>
+            <h4>Setting account policy</h4>
+            <p>To set the policy for a particular account:</p>
+            <pre><code>/account set &lt;account_name&gt; otr &lt;setting&gt;</code></pre>
+            <p>The account setting can be viewed with the following command:</p>
+            <pre><code>/account show &lt;account_name&gt;</code></pre>
+
+            <a name="contact-policy"></a>
+            <h4>Setting contact policy</h4>
+            <p>To set the policy for a particular contact (you must be logged in):</p>
+            <pre><code>/otr policy &lt;setting&gt; &lt;contact&gt;</code></pre>
+            <p>Contact policy settings can also be viewed with:</p>
+            <pre><code>/account show &lt;account_name&gt;</code></pre>
         </section>
         <section>
             <a name="otr-message-logging"></a>
