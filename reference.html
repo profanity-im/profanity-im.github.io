@@ -881,56 +881,44 @@
             <p>Off The Record message encryption.</p>
             <p>See <a href="otr.html">OTR Message Encryption</a> for an overview of Off The Record messaging.</p>
             <p>Usage:</p>
-            <pre><code>/otr gen|myfp|theirfp|start|end|trust|untrust|log|warn|libver</code></pre>
-            <p><b>Key generation usage:</b></p>
             <pre><code>/otr gen</code></pre>
             <p>Generate a key for the current logged in account.</p>
-            <p><b>Fingerprint usage:</b></p>
             <pre><code>/otr myfp|theirfp</code></pre>
-            <p>Show OTR fingerprints.</p>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>myfp</code></td>
-                    <td>Show the fingerprint for your key in the current window.</td>
-                </tr>
-                <tr>
-                    <td><code>theirfp</code></td>
-                    <td>Show the fingerprint of a contact's key, you must be in an OTR session with the contact.</td>
-                </tr>
-            </table>
-            <p><b>OTR session usage:</b></p>
-            <pre><code>/otr start|end</code></pre>
-            <p>Manage an OTR session with a contact.</p>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>start</code></td>
-                    <td>Start an OTR session with the current contact, if the contact's client supports it.</td>
-                </tr>
-                <tr>
-                    <td><code>end</code></td>
-                    <td>End the current OTR session, go back to unencrypted messaging with the current contact.</td>
-                </tr>
-            </table>
-            <p><b>Trust usage:</b></p>
+            <p><b><code>myfp</code></b> - Show the fingerprint for your key in the current window.<br/>
+            <b><code>theirfp</code></b> - Show the fingerprint of a contact's key, you must be in an OTR session with the contact.</p>
+            <pre><code>/otr start [contact]</code></pre>
+            <p>Start an OTR session. If you are already in a chat window the <code>[contact]</code> may be omitted.</p>
+            <pre><code>/otr end</code></pre>
+            <p>End an OTR session with the current recipient in a chat window.<p>
+            <pre><code>/otr secert secret</code></pre>
+            <p>Start, or respond to shared secret authentication passing the secret as an argument.</p>
+            <pre><code>/otr question question answer</code></pre>
+            <p>Start question answer authentication, passing as arguments the question and expected answer.</p>
+            <pre><code>/otr answer answer</code></pre>
+            <p>Respond to question answer authentication, passing your answer as an argument.</p>
             <pre><code>/otr trust|untrust</code></pre>
-            <p>Manage the trust status of a contact, you must be in an OTR session to change trust.</p>
-            <p>Arguments:</p>
+            <p>Manage the trust level of a contact, you must be in an OTR session to change trust.</p>
+            <p><b><code>trust</code></b> - Mark the current contact as trusted.<br/>
+            <b><code>untrust</code></b> - Mark the current contact as untrusted.<p>
+            <pre><code>/otr policy setting [contact]</code></pre>
+            <p>Manage the global or per contact OTR policy.</p>
+            <p>If the contact is omitted, the global setting will be updated. Possible settings are:</p>
             <table>
                 <tr>
-                    <td><code>trust</code></td>
-                    <td>Mark the current contact as trusted.</td>
+                    <td><code>manual</code></td>
+                    <td>The default, OTR session must be manually started with <code>/otr start</code>.</td>
                 </tr>
                 <tr>
-                    <td><code>untrust</code></td>
-                    <td>Mark the current contact as untrusted.</td>
+                    <td><code>opportunistic</code></td>
+                    <td>Upon sending a message, profanity will attempt to start an OTR session with the recipient.</td>
+                </tr>
+                <tr>
+                    <td><code>always</code></td>
+                    <td>You will recieve an error message if you attempt to send an unencrypted message.</td>
                 </tr>
             </table>
-            <p><b>Log settings usage:</b></p>
-            <pre><code>/otr log on|off|redact</code></pre>
-            <p>Configure how OTR messages are logged.</p>
-            <p>Arguments:</p>
+            <pre><code>/otr log setting</code></pre>
+            <p>Configure how OTR messages are logged, setting may be one of:</p>
             <table>
                 <tr>
                     <td><code>on</code></td>
@@ -945,12 +933,9 @@
                     <td>Log OTR messages but replace the contents with the string [redacted].</td>
                 </tr>
             </table>
-            <p>By default this setting will be set to <code>redact</code></p>
-            <p><b>Titlebar indicator setting usage:</b></p>
             <pre><code>/otr warn on|off</code></pre>
             <p>Configure whether an <code>[unencrypted]</code> warning appears in the titlebar for message sessions that are not encrypted.</p>
             <p>By default this setting will be set to <code>on</code></p>
-            <p><b>Library version usage:</b></p>
             <pre><code>/otr libver</code></pre>
             <p>Show which version of the libotr library is being used.</p>
             <a href="#top"><h5>back to top</h5></a><br>
