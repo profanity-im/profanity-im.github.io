@@ -32,6 +32,7 @@
                         <a href="#autoping">/autoping</a>,
                         <a href="#away">/away</a>,
                         <a href="#beep">/beep</a>,
+                        <a href="#bookmark">/bookmark</a>,
                         <a href="#caps">/caps</a>,
                         <a href="#chat">/chat</a>,
                         <a href="#chlog">/chlog</a>,
@@ -353,6 +354,35 @@
             <pre><code>/beep on|off</code></pre>
             <p>Default:</p>
             <p>Set to <code>off</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="bookmark"></a>
+            <h4>/bookmark</h4>
+            <p>Manage MUC chat room bookmarks, including autojoining rooms on login.</p>
+            <p>Usage:</p>
+            <pre><code>/bookmark list</code></pre>
+            <p>List all current bookmarks. Rooms that have been joined will be highlighted and the window number displayed.</p>
+            <pre><code>/bookmark add|update room [nick value] [password value] [autojoin on|off]</code></pre>
+            <p>Add a bookmark, or update an existing bookmark.  The room argument is mandatory, the options are:</p>
+            <table>
+                <tr>
+                    <td><code>nick</code></td>
+                    <td>The nuckname to use for entering the room, if different to the account default.</td>
+                </tr>
+                <tr>
+                    <td><code>autojoin</code></td>
+                    <td>Whether or not to join the room when this account connects.</td>
+                </tr>
+                <tr>
+                    <td><code>password</code></td>
+                    <td>The password to use if the room is private. This option is not recommended as the password may be stored in plaintext on the server.</td>
+                </tr>
+            </table>
+            <pre><code>/bookmark remove room</code></pre>
+            <p>Remove a bookmark.<p>
+            <pre><code>/bookmark join room</code></pre>
+            <p>Join the bookmarked room using the settings associated with the bookmark.</p>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
