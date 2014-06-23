@@ -31,6 +31,7 @@
                         <li><a href="#msn">Will Profanity work with MSN/Yahoo/AIM/IRC etc?</a></li>
                         <li><a href="#multiaccount">Can I connect to more than one account at a time?</a></li>
                         <li><a href="#termf1">Why does the F1 key open terminal help rather than going back to the main console window?</a></li>
+                        <li><a href="#utf8encoding">Why can I not type anything in the input bar?</a></li>
                         <li><a href="#selecttext">How can I select text from Profanity to copy to the clipboard?</a></li>
                         <li><a href="#bugs">I've found a bug/have a feature request, who do I tell?</a></li>
                         <li><a href="#contrib">I'd like to contribute, what should I do?</a></li>
@@ -73,6 +74,13 @@
             <a name="termf1"></a>
             <h4>Why does the F1 key open terminal help rather than going back to the main console window?</h4>
             <p>Some terminals have a key binding for F1 to open help. You can use the alt-num keys to change windows, or if you prefer to use the F keys, you'll need to change the terminal setting to open help with another key.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="utf8encoding"></a>
+            <h4>Why can I not type anything in the input bar?</h4>
+            <p>Profanity uses the ncursesw library to support wide characters, which requires a UTF-8 encoding.  Try running the following (or the equivalent for your language's UTF-8 encoding) in the terminal before running profanity.</p>
+<pre><code>export LANG=en_US.UTF-8</code></pre>
             <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
