@@ -201,7 +201,7 @@
                 </tr>
                 <tr>
                     <td><code>otr</code></td>
-                    <td>The account OTR policy, setting may be one of <code>manual</code>, <code>opportunistic</code> or <code>alwats</code>. See the <a href="otr.html#policy">OTR page</a> for more information on OTR policies.</td>
+                    <td>The account OTR policy, setting may be one of <code>manual</code>, <code>opportunistic</code> or <code>always</code>. See the <a href="otr.html#policy">OTR page</a> for more information on OTR policies.</td>
                 </tr>
                 <tr>
                     <td><code>status</code></td>
@@ -301,8 +301,8 @@
 
             <a name="autoconnect"></a>
             <h4>/autoconnect</h4>
-            <p>Choose an account with which Profanity will autconnect on startup.</p>
-            <p>This option can be overriden by the <code>-a</code> (<code>--account</code>) command line parameter.</p>
+            <p>Choose an account with which Profanity will autoconnect on startup.</p>
+            <p>This option can be overridden by the <code>-a</code> (<code>--account</code>) command line parameter.</p>
             <p>Usage:</p>
             <pre><code>/autoconnect set|off account</code></pre>
             <p>Arguments:</p>
@@ -328,7 +328,7 @@
             <table>
                 <tr>
                     <td><code>seconds</code></td>
-                    <td>The interval in seconds between sending pings to the server.  A value of <code>0</code> will diable automatic server pings.</td>
+                    <td>The interval in seconds between sending pings to the server.  A value of <code>0</code> will disable automatic server pings.</td>
                 </tr>
             </table>
             <p>Default:</p>
@@ -406,7 +406,7 @@
 
             <a name="chat"></a>
             <h4>/chat</h4>
-            <p>Set your status to 'chat' (availble for chat) with optional message.</p>
+            <p>Set your status to 'chat' (available for chat) with optional message.</p>
             <p>Usage:</p>
             <pre><code>/chat [message]</code></pre>
             <p>Arguments:</p>
@@ -421,7 +421,7 @@
 
             <a name="chlog"></a>
             <h4>/chlog</h4>
-            <p>Enable chat logging. see <a href="files.html#chat-logs-directory">chat logs location</a>.</p>
+            <p>Enable chat logging. See <a href="files.html#chat-logs-directory">chat logs location</a>.</p>
             <p>Usage:</p>
             <pre><code>/chlog on|off</code></pre>
             <p>Default:</p>
@@ -567,7 +567,7 @@
 
             <a name="grlog"></a>
             <h4>/grlog</h4>
-            <p>Enable chat logging for chat rooms. see <a href="files.html#chat-logs-directory">chat logs location</a>.</p>
+            <p>Enable chat logging for chat rooms. See <a href="files.html#chat-logs-directory">chat logs location</a>.</p>
             <p>Usage:</p>
             <pre><code>/grlog on|off</code></pre>
             <p>Default:</p>
@@ -658,7 +658,7 @@
 
             <a name="history"></a>
             <h4>/history</h4>
-            <p>Show previous messsages with a contact when opening a new chat window.</p>
+            <p>Show previous messages with a contact when opening a new chat window.</p>
             <p>The <a href="#chlog"><code>/chlog</code></a> setting will also be enabled.</p>
             <p>Usage:</p>
             <pre><code>/history on|off</code></pre>
@@ -857,7 +857,7 @@
             <pre><code>/notify message on</code></pre>
             <p>To enable desktop notifications when a contact is typing:</p>
             <pre><code>/notify typing on</code></pre>
-            <p>To enable desktop notifications when chat room invites are receieved:</p>
+            <p>To enable desktop notifications when chat room invites are received:</p>
             <pre><code>/notify invite on</code></pre>
             <p>To enable desktop notifications when a subscription request is received:</p>
             <pre><code>/notify sub on</code></pre>
@@ -895,7 +895,7 @@
             <p>Start an OTR session. If you are already in a chat window the <code>[contact]</code> may be omitted.</p>
             <pre><code>/otr end</code></pre>
             <p>End an OTR session with the current recipient in a chat window.<p>
-            <pre><code>/otr secert secret</code></pre>
+            <pre><code>/otr secret secret</code></pre>
             <p>Start, or respond to shared secret authentication passing the secret as an argument.</p>
             <pre><code>/otr question question answer</code></pre>
             <p>Start question answer authentication, passing as arguments the question and expected answer.</p>
@@ -919,7 +919,7 @@
                 </tr>
                 <tr>
                     <td><code>always</code></td>
-                    <td>You will recieve an error message if you attempt to send an unencrypted message.</td>
+                    <td>You will receive an error message if you attempt to send an unencrypted message.</td>
                 </tr>
             </table>
             <pre><code>/otr log setting</code></pre>
@@ -1005,7 +1005,7 @@
             <table>
                 <tr>
                     <td><code>seconds</code></td>
-                    <td>The interval in seconds between reconnection attempts.  A value of <code>0</code> will diable automatic server reconnection attempts.</td>
+                    <td>The interval in seconds between reconnection attempts.  A value of <code>0</code> will disable automatic server reconnection attempts.</td>
                 </tr>
             </table>
             <p>Default:</p>
@@ -1085,7 +1085,7 @@
             <a name="software"></a>
             <h4>/software</h4>
             <p>Show software and OS version information of a contact's client.</p>
-            <p>If the contact's client does not support <a href="http://xmpp.org/extensions/xep-0092.html">software version</a> requests, no ouput it shown.</p>
+            <p>If the contact's client does not support <a href="http://xmpp.org/extensions/xep-0092.html">software version</a> requests, no output it shown.</p>
             <p>Usage:</p>
             <pre><code>/software fulljid</code></pre>
             <p>The full jid, is of the form <code>localpart@domainpart/resource</code>, e.g.:</p>
@@ -1159,7 +1159,7 @@
 
             <a name="sub"></a>
             <h4>/sub</h4>
-            <p>Manage presence subcriptions.</p>
+            <p>Manage presence subscriptions.</p>
             <p>See <a href="subscriptions.html">Managing your contacts</a> for an overview of roster related commands.</p>
             <p>Usage:</p>
             <pre><code>/sub command [contact]</code></pre>
