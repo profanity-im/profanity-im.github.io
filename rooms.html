@@ -25,6 +25,7 @@
                 <li><a href="#changing-your-nickname">Changing your nickname</a>
                 <li><a href="#listing-room-participants">Listing room participants</a>
                 <li><a href="#inviting-contacts">Inviting contacts to a room</a>
+                <li><a href="#sending-messages">Sending messages</a>
                 <li><a href="#sending-a-private-message">Sending a private message</a>
                 <li><a href="#leaving-a-room">Leaving a room</a></li>
             </ul>
@@ -77,6 +78,18 @@ unavailable</code></pre>
             <pre><code>/invite Bruce Come and join the chat</code></pre>
             <p>As with other commands, the name must be double quoted if it contains spaces:</p>
             <pre><code>/invite "Bruce Dickenson" Join us!</code></pre> 
+        </section>
+        <section>
+            <a name="sending-messages"></a>
+            <h3>Sending messages</h3>
+
+            <p>To send a message to the room, enter the message and press enter.</p>
+            <p>To direct a message to a particular recipient in the room, type the start of the recipients nickname and use &lt;tab&gt; to autocomplete the nickname. The nickname will be followed by ": ", after which you may type your message.<p>
+            <p>For example, assuming a participant exists in the room named <code>eddie</code>, type:</p>
+            <pre><code>ed&lt;tab&gt;this message is just for you</code></pre>
+            <p>Which will result in the following:</p>
+            <pre><code>eddie: this message is just for you</code></pre>
+            <p>Autocompletion using &lt;tab&gt; will also complete participants names in the middle of message text, without the ": ".</p>
         </section>
         <section>
             <a name="sending-a-private-message"></a>
