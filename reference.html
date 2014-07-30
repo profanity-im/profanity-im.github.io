@@ -830,31 +830,78 @@
             <h4>/notify</h4>
             <p>Configure desktop notifications, profanity must be compiled with libnotify for desktop notifications to work.</p>
             <p>Usage:</p>
-            <pre><code>/notify type value</code></pre>
-            <p>Arguments:</p>
+            <pre><code>/notify type [value|setting value]</code></pre>
+            <p>Regular chat messages:</p>
             <table>
                 <tr>
-                    <td><code>type</code></td>
-                    <td>One of <code>message</code>, <code>typing</code>, <code>invite</code>, <code>sub</code>, <code>remind</code>, see below for arguments to each.</td>
+                    <td><code>/notify message on|off</code></td>
+                    <td>Enable/disable regular chat message notifications.</td>
                 </tr>
                 <tr>
-                    <td><code>value</code></td>
-                    <td><code>message</code> - Values are <code>on</code> or <code>off</code>.<br/>
-                        <code>typing</code> - Values are <code>on</code> or <code>off</code>.<br/>
-                        <code>invite</code> - Values are <code>on</code> or <code>off</code>.<br/>
-                        <code>sub</code> - Values are <code>on</code> or <code>off</code>.<br/>
-                        <code>remind</code> - Seconds between showing a desktop notification reminder of unread messages.</td>
+                    <td><code>/notify message current on|off</code></td>
+                    <td>Enable/disable regular chat message notifications for the current window.</td>
+                </tr>
+                <tr>
+                    <td><code>/notify message text on|off</code></td>
+                    <td>Show/hide message text in notifications for regular chat messages.</td>
                 </tr>
             </table>
-            <p>Defaults:</p>
-            <p><code>message</code> is set to <code>off</code>.</p>
-            <p><code>typing</code> is set to <code>off</code>.</p>
-            <p><code>invite</code> is set to <code>off</code>.</p>
-            <p><code>sub</code> is set to <code>off</code>.</p>
-            <p><code>remind</code> is set to <code>0</code> seconds (disabled).</p>
+            <p>Chat room messages:</p>
+            <table>
+                <tr>
+                    <td><code>/notify room on|off|mention</code></td>
+                    <td>Enable/disable chat room message notifications, or enable only when nickname mentioned in message.</td>
+                </tr>
+                <tr>
+                    <td><code>/notify room current on|off</code></td>
+                    <td>Enable/disable chat room message notifications for the current window.</td>
+                </tr>
+                <tr>
+                    <td><code>/notify room text on|off</code></td>
+                    <td>Show/hide message text in notifications for chat room messages.</td>
+                </tr>
+            </table>
+            <p>Typing:</p>
+            <table>
+                <tr>
+                    <td><code>/notify typing on|off</code></td>
+                    <td>Enable/disable notifications when a contact is typing.</td>
+                </tr>
+                <tr>
+                    <td><code>/notify typing current on|off</code></td>
+                    <td>Enable/disable notifications when a contact is typing for the current window.</td>
+                </tr>
+            </table>
+            <p>Invites:</p>
+            <table>
+                <tr>
+                    <td><code>/notify invite on|off</code></td>
+                    <td>Enable/disable notifications for chat room invites.</td>
+                </tr>
+            </table>
+            <p>Subscription requests:</p>
+            <table>
+                <tr>
+                    <td><code>/notify sub on|off</code></td>
+                    <td>Enable/disable notifications for contact subscription requests.</td>
+                </tr>
+            </table>
+            <p>Reminders:</p>
+            <table>
+                <tr>
+                    <td><code>/notify remind [seconds]</code></td>
+                    <td>Set the period for desktop reminder notifications of unread messages. Use 0 to disable reminders.</td>
+                </tr>
+            </table>
             <p>Examples:</p>
-            <p>To enable desktop notifications when new messages arrive:</p>
+            <p>To enable desktop notifications when new regular messages arrive:</p>
             <pre><code>/notify message on</code></pre>
+            <p>To show message text for regular message notifications:</p>
+            <pre><code>/notify message text on</code></pre>
+            <p>To notify on room messages only when nickname mentioned:</p>
+            <pre><code>/notify room mention</code></pre>
+            <p>To disable chat room notifications when the chat room window is visible:</p>
+            <pre><code>/notify room current off</code></pre>
             <p>To enable desktop notifications when a contact is typing:</p>
             <pre><code>/notify typing on</code></pre>
             <p>To enable desktop notifications when chat room invites are received:</p>
