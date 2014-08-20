@@ -53,7 +53,8 @@ or send a mail directly to <span style="color: #4db0c4;">boothj5web@gmail.com</s
             <pre><code>$XDG_DATA_HOME/profanity/logs/profanity.log</code></pre>
             <p>Which on most systems is:</p>
             <pre><code>~/.local/share/profanity/logs/profanity.log</pre></code>
-            <p>Remember to remove or obfuscate any private information in the logs.</p>
+            <p>Remember to remove or obfuscate any private information in the logs. In particular check for credentials in connection logging.  For example the auth mechanism PLAIN sends the credentials as a base64 string which can be easily reversed to get your username and password, e.g.:</p>
+            <pre><code>12/12/2014 14:22:01: conn: DBG: SENT: &lt;auth mechanism="PLAIN" xmlns="urn:ietf:params:xml:ns:xmpp-sasl"&gt;<b>AG9saXZlci5tdWVoc2FtAE5oYTEyMDhnIw==</b>&lt;/auth&gt;</code></pre>
         </section>
         <section>
             <a name="backtrace"></a>
