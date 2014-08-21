@@ -24,7 +24,8 @@
             
             <ul>
                 <li><a href="#where">Where to report issues</a>
-                <li><a href="#proflogs">Attaching Profanity logs</a>
+                <li><a href="#proflogs">Attaching logs</a>
+                <li><a href="#config">Attaching configuration files</a>
                 <li><a href="#backtrace">Getting a backtrace</a>
                 <ul>
                     <li><a href="#ulimit">Enabling coredumps</a></li>
@@ -45,7 +46,7 @@ or send a mail directly to <span style="color: #4db0c4;">boothj5web@gmail.com</s
         </section>
         <section>
             <a name="proflogs"></a>
-            <h3>Attaching Profanity logs</h3>
+            <h3>Attaching logs</h3>
 
             <p>The logs can often help to diagnose an issue.  Firstly run Profanity in debug mode to enable full debug logging:</p>
             <pre><code>profanity -l DEBUG</code></pre>
@@ -55,6 +56,19 @@ or send a mail directly to <span style="color: #4db0c4;">boothj5web@gmail.com</s
             <pre><code>~/.local/share/profanity/logs/profanity.log</pre></code>
             <p>Remember to remove or obfuscate any private information in the logs. In particular check for credentials in connection logging.  For example the auth mechanism PLAIN sends the credentials as a base64 string which can be easily reversed to get your username and password, e.g.:</p>
             <pre><code>12/12/2014 14:22:01: conn: DBG: SENT: &lt;auth mechanism="PLAIN" xmlns="urn:ietf:params:xml:ns:xmpp-sasl"&gt;<b>AG9saXZlci5tdWVoc2FtAE5oYTEyMDhnIw==</b>&lt;/auth&gt;</code></pre>
+        </section>
+        <section>
+            <a name="config"></a>
+            <h3>Attaching configuration files</h3>
+            <p>Some issues are only reproducable using certain configuration options, so attaching your config can also help.  Profanity stores its core config in:</p> 
+            <pre><code>$XDG_CONFIG_HOME/profanity/profrc</code></pre>
+            <p>Which on most systems is:</p>
+            <pre><code>~/.config/profanity/profrc</pre></code>
+            <p>Account specific configuration is specified in:</p>
+            <pre><code>$XDG_DATA_HOME/profanity/accounts</code></pre>
+            <p>Which on most systems is:</p>
+            <pre><code>~/.local/share/profanity/accounts</pre></code>
+            <p>Remember to remove or obfuscate any usernames/passwords from the configuration before sending, for example, account configuration will include your password if you have set one using the <a href="reference.html#account">/account</a> command.</p>
         </section>
         <section>
             <a name="backtrace"></a>
