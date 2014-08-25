@@ -27,7 +27,8 @@
                     <ul>
                         <li><a href="#why">Why another console based XMPP client?</a></li>
                         <li><a href="#platform">Will Profanity run on &ltsome platform&gt?</a></li>
-                        <li><a href="#gtalk">Will Profanity work with Google Talk, or Facebook chat?</a></li>
+                        <li><a href="#gtalk">Will Profanity work with Google Talk?</a></li>
+                        <li><a href="#facebook">Will Profanity work with Facebook Chat?</a></li>
                         <li><a href="#msn">Will Profanity work with MSN/Yahoo/AIM/IRC etc?</a></li>
                         <li><a href="#multiaccount">Can I connect to more than one account at a time?</a></li>
                         <li><a href="#termf1">Why does the F1 key open terminal help rather than going back to the main console window?</a></li>
@@ -54,8 +55,23 @@
         </section>
         <section>
             <a name="gtalk"></a>
-            <h4>Will Profanity work with Google Talk, or Facebook chat?</h4>
-            <p>Both Google Talk and Facebook chat have been tested successfully.</p>
+            <h4>Will Profanity work with Google Talk?</h4>
+            <p>Profanity should work with Google Talk accounts as long as Google supports XMPP. Just use the <a href="reference.html#connect"<code>/connect</code></a> command with your email address e.g.:</p>
+            <pre><code>/connect user@gmail.com</code></pre>
+            <p>Google Talk is no longer a federated service, so you can only talk to other contacts who have a Google account.</p>
+            <p>If you are using a Google Apps account, the details are slightly different. For example, if your Google Apps user is "someuser" and your Google Apps domain is "company.org" you can connect with the following:</p>
+            <pre><code>/connect someuser@company.org server talk.google.com</code></pre>
+            <p>Google is deprecating older authentication mechanisms in favour or OAUTH2, which profanity does not yet support.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="facebook"></a>
+            <h4>Will Profanity work with Facebook Chat?</h4>
+            <p>Profanity should work with Facebook Chat, see the <a target="_blank" href="https://www.facebook.com/sitetour/chat.php">XMPP guide</a> at Facebook. Click the "Other - Windows/Mac/Linux" link under "Supported Clients" to see your Jabber ID, and use the <a href="reference.html#connect"><code>/connect</code></a> command with this ID, e.g.:</p>
+            <pre><code>/connect some.account.123456@chat.facebook.com</code></pre>
+            <p>If you have trouble logging in, it may be because you are currently logged in using your email address, <a target="_blank" href="http://radu.cotescu.com/facebook-pidgin-not-authorised/">see this blog post</a>.</p>
+            <p>Another common issue is when "Login Approval" is enabled, go to your security settings on Facebook and disable Login Approvals.<p>
+            <p>Facebook Chat is not a federated service, so you can only talk to other contacts who have a Facebook account.</p>
             <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
