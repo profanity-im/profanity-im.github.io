@@ -25,7 +25,7 @@
                 <li><a href="#configuring">Configuring a room</a>
                 <li><a href="#destroying">Destroying a room</a>
                 <li><a href="#kicking">Kicking occupants</a>
-                <li><a href="#bannig">Banning users</a>
+                <li><a href="#banning">Banning users</a>
                 <li><a href="#roles">Managing occupant roles</a>
                 <li><a href="#affiliations">Managing user affiliations</a></li>
             </ul>
@@ -35,7 +35,7 @@
             <h3>Creating a room</h3>
 
             <p>Chat rooms are created when you join a room that does not yet exist, using the <a href="reference.html#join"><code>/join</code></a> command.</p>
-            <p>If the server only supports an older version of the groupchat protocol, not further action is required, and other users may join the room.</p>
+            <p>If the server only supports an older version of the groupchat protocol, no further action is required, and other users may join the room.</p>
             <p>Servers supporting <a href="http://xmpp.org/extensions/xep-0045.html" target="_blank">xep-0045</a> will create the room, which will be locked until the room has been configured, or the default configuration has been accepted.</p>
             <p>To accept the default configuration and unlock the room:</p>
             <pre><code>/room accept</code></pre>
@@ -106,6 +106,8 @@
 /role list visitor</code></pre>
             <p>To change an occupant's role, for example to set the occupant with nick <code>bobmould</code> to have role <code>participant</code>:</p>
             <pre><code>/role set participant bobmould</code></pre>
+            <p>An optional reason may be specified:</p>
+            <pre><code>/role set participant bobmould You may now speak!</code></pre>
         </section>
         <section>
             <a name="affiliations"></a>
@@ -122,6 +124,8 @@
 /affiliation list outcast</code></pre>
             <p>To change an users's affiliation, for example to set the user with JID <code>bob_mould@chat.org</code> to have affiliation <code>member</code>:</p>
             <pre><code>/affiliation set member bob_mould@chat.org</code></pre>
+            <p>An optional reason may be specified:</p>
+            <pre><code>/affiliation set member bob_mould@chat.org Because you come here so often.</code></pre>
         </section>
     </article>
     <footer>
