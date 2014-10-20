@@ -50,7 +50,20 @@
 
             <p>At any stage, users with appropiate privileges may configure a room with the following command:</p>
             <pre><code>/room config</code></pre>
-            <p>A new window will be opened, and the room configuration form displayed. Each field in the form is given a tag (e.g. "field2").</p>
+            <p>A new window will be opened, and the room configuration form displayed. Each field in the form is given a tag (e.g. "field2"). TODO IMAGE</p>
+            <p>Form fields can be manipulated using the field tag and the value to set, add or remove depending on the field type. For example:</p>
+            <p><code>/field1 "New room name"</code> - Change the room name, note that text inputs must be double quoted.</p>
+            <p><code>/field3 off</code> - Do not allow occupants to change the room subject.</p>
+            <p><code>/field5 remove visitor</code> - Do not broadcast presence for occupants with role <code>visitor</code>.</p>
+            <p><code>/field18 add anotheruser@openfire.local</code>Make <code>anotheruser@openfire.local</code> and admin.</p>
+            <p>For more information on how to manipulate a specific field, use the <code>/form help</code> command specifying the field tag, e.g.:</p>
+            <pre><code>/form help field12</code></pre>
+            <p>At any time whilst the form is being edited, the latest values can be shown with:</p>
+            <pre><code>/form show</code></pre>
+            <p>To save the changes:</p>
+            <pre><code>/form submit</code></pre>
+            <p>To discard the changes:</p>
+            <pre><code>/form cancel</code></pre>
         </section>
         <section>
             <a name="destroying"></a>
