@@ -50,12 +50,14 @@
 
             <p>At any stage, users with appropiate privileges may configure a room with the following command:</p>
             <pre><code>/room config</code></pre>
-            <p>A new window will be opened, and the room configuration form displayed. Each field in the form is given a tag (e.g. "field2"). TODO IMAGE</p>
+            <p>A new window will be opened, and the room configuration form displayed. Each field in the form is given a tag (e.g. "field2").</p>
+            <img src="images/roomconfigform.png"/><br><br>
             <p>Form fields can be manipulated using the field tag and the value to set, add or remove depending on the field type. For example:</p>
-            <p><code>/field1 "New room name"</code> - Change the room name, note that text inputs must be double quoted.</p>
-            <p><code>/field3 off</code> - Do not allow occupants to change the room subject.</p>
-            <p><code>/field5 remove visitor</code> - Do not broadcast presence for occupants with role <code>visitor</code>.</p>
-            <p><code>/field18 add anotheruser@openfire.local</code>Make <code>anotheruser@openfire.local</code> and admin.</p>
+            <pre><code>/field1 "New room name"
+/field3 off
+/field5 remove visitor
+/field13 anyone
+/field18 add anotheruser@openfire.local</code></pre>
             <p>For more information on how to manipulate a specific field, use the <code>/form help</code> command specifying the field tag, e.g.:</p>
             <pre><code>/form help field12</code></pre>
             <p>At any time whilst the form is being edited, the latest values can be shown with:</p>
@@ -95,12 +97,31 @@
             <h3>Managing occupant roles</h3>
 
             <p>Roles specify an occupant's privileges within a room for the duration of one particular visit to that room. The possible roles, and the privileges associated with them are defined in <a href="http://xmpp.org/extensions/xep-0045.html#roles" target="_blank">xep-0045</a>.</p>
+            <p>Roles are set using an occupants room nickname, the user must have the appropriate privileges to run the following commands.</p>
+            <p>To show occupants of all roles:</p>
+            <pre><code>/role list</code></pre>
+            <p>To show occupants with a specific role:</p>
+            <pre><code>/role list moderator
+/role list participant
+/role list visitor</code></pre>
+            <p>To change an occupant's role, for example to set the occupant with nick <code>bobmould</code> to have role <code>participant</code>:</p>
+            <pre><code>/role set participant bobmould</code></pre>
         </section>
         <section>
             <a name="affiliations"></a>
             <h3>Managing user affiliations</h3>
 
             <p>Affiliations specify an user's privileges for a room across visits to that room. The possible affiliations, and the privileges associated with them are defined in <a href="http://xmpp.org/extensions/xep-0045.html#affil" target="_blank">xep-0045</a>.</p>
+            <p>Affiliations are set using a users JID, the user must have the appropriate privileges to run the following commands.</p>
+            <p>To show users of all affiliations:</p>
+            <pre><code>/affiliation list</code></pre>
+            <p>To show users with a specific affiliation:</p>
+            <pre><code>/affiliation list owner
+/affiliation list admin
+/affiliation list member
+/affiliation list outcast</code></pre>
+            <p>To change an users's affiliation, for example to set the user with JID <code>bob_mould@chat.org</code> to have affiliation <code>member</code>:</p>
+            <pre><code>/affiliation set member bob_mould@chat.org</code></pre>
         </section>
     </article>
     <footer>
