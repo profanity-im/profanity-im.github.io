@@ -22,8 +22,8 @@
 
             <ul>
                 <li><a href="#joining-a-chat-room">Joining a chat room</a>
+                <li><a href="#creating-a-chat-room">Creating a chat room</a>
                 <li><a href="#changing-your-nickname">Changing your nickname</a>
-                <li><a href="#listing-room-participants">Listing room participants</a>
                 <li><a href="#inviting-contacts">Inviting contacts to a room</a>
                 <li><a href="#sending-messages">Sending messages</a>
                 <li><a href="#sending-a-private-message">Sending a private message</a>
@@ -49,25 +49,17 @@
             <p>The account settings for default nickname and conference service may be changed for any account using the <a href="reference.html#account"><code>/account</code></a> command.<p>
         </section>
         <section>
+            <a name="creating-a-chat-room"></a>
+            <h3>Creating a chat room</h3>
+
+            <p>If a room is joined which did not previously exist, and the server allows it, the room will be created. More information on creating and configuring chat rooms can be found at <a href="roomconf.html">Chat Room Configuration and Administration</a>.</p>
+        </section>
+        <section>
             <a name="changing-your-nickname"></a>
             <h3>Changing your nickname</h3>
 
             <p>Use the <a href="reference.html#nick"><code>/nick</code></a> command whilst in a chat room to change your nickname, for example to change your nickname to <code>bob</code>:</p>
             <pre><code>/nick bob</code></pre>
-        </section>
-        <section>
-            <a name="listing-room-participants"></a>
-            <h3>Listing room participants</h3>
-
-            <p>Room participants can be listed at any time whilst in a chat room by using the <a href="reference.html#who"><code>/who</code></a> command.</p>
-            <p>The <code>/who</code> command takes an optional parameter specifying the presence you are interested in:</p>
-            <pre><code>chat
-online
-away
-xa
-dnd
-available
-unavailable</code></pre>
         </section>
         <section>
             <a name="inviting-contacts"></a>
@@ -110,7 +102,7 @@ unavailable</code></pre>
             <a name="bookmarks"></a>
             <h3>Bookmarking rooms</h3>
 
-            <p>To bookmark chat rooms, including the ability to autojoin the rooms when signing in, see the <a href="reference.html#bookmark"><code>/bookmark</code></a> command.</p>
+            <p>To bookmark chat rooms, including the ability to autojoin the rooms when signing in, see the <a href="reference.html#bookmark"><code>/bookmark</code></a> command. The simplest way to bookmark a room (and enable autojoin) is to use the <code>/bookmark</code> command with no arguments in the room you which to bookmark.</p>
         </section>
     </article>
     <footer>
