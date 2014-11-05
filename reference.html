@@ -26,11 +26,13 @@
                 <ul>
                     <li><a href="#about">/about</a>, 
                         <a href="#account">/account</a>,
+                        <a href="#affiliation">/affiliation</a>,
                         <a href="#alias">/alias</a>,
                         <a href="#autoaway">/autoaway</a>,
                         <a href="#autoconnect">/autoconnect</a>,
                         <a href="#autoping">/autoping</a>,
                         <a href="#away">/away</a>,
+                        <a href="#ban">/ban</a>,
                         <a href="#beep">/beep</a>,
                         <a href="#bookmark">/bookmark</a>,
                         <a href="#caps">/caps</a>,
@@ -43,8 +45,8 @@
                         <a href="#disco">/disco</a>,
                         <a href="#disconnect">/disconnect</a>,
                         <a href="#dnd">/dnd</a>,
-                        <a href="#duck">/duck</a>,
                         <a href="#flash">/flash</a>,
+                        <a href="#form">/form</a>,
                         <a href="#gone">/gone</a>,
                         <a href="#grlog">/grlog</a>,
                         <a href="#group">/group</a>,
@@ -55,19 +57,25 @@
                         <a href="#invite">/invite</a>,
                         <a href="#invites">/invites</a>,
                         <a href="#join">/join</a>,
+                        <a href="#kick">/kick</a>,
                         <a href="#leave">/leave</a>,
                         <a href="#log">/log</a>,
                         <a href="#mouse">/mouse</a>,
                         <a href="#msg">/msg</a>,
                         <a href="#nick">/nick</a>,
                         <a href="#notify">/notify</a>,
+                        <a href="#occupants">/occupants</a>,
                         <a href="#online">/online</a>,
                         <a href="#otr">/otr</a>,
                         <a href="#outtype">/outtype</a>,
+                        <a href="#ping">/ping</a>,
                         <a href="#prefs">/prefs</a>,
                         <a href="#priority">/priority</a>,
+                        <a href="#privileges">/privileges</a>,
                         <a href="#quit">/quit</a>,
                         <a href="#reconnect">/reconnect</a>,
+                        <a href="#role">/role</a>,
+                        <a href="#room">/room</a>,
                         <a href="#rooms">/rooms</a>,
                         <a href="#roster">/roster</a>,
                         <a href="#software">/software</a>,
@@ -248,6 +256,38 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="affiliation"></a>
+            <h4>/affiliation</h4>
+            <p>Manage user affiliations for a chat room. The user must have sufficient privileges to use the command.</p>
+            <p>Listing occupants with an affiliation:</p>
+            <pre><code>/affiliation list [affiliation]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>affiliation</code></td>
+                    <td>Must be one of <code>owner</code>, <code>admin</code>, <code>member</code>, <code>outcast</code> or <code>none</code>. If supplied, occupants with this affiliation will be displayed. If omitted, occupants in all affiliations will be displayed.</td>
+                </tr>
+            </table>
+            <p>Setting user's affiliation:</p>
+            <pre><code>/affiliation set jid affiliation [reason]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>jid</code></td>
+                    <td>The barejid of user who's affiliation you wish to change, e.g. chan@fu.org</td>
+                </tr>
+                <tr>
+                    <td><code>affiliation</code></td>
+                    <td>Must be one of <code>owner</code>, <code>admin</code>, <code>member</code>, <code>outcast</code> or <code>none</code>. The new affiliation for the user.</td>
+                </tr>
+                <tr>
+                    <td><code>reason</code></td>
+                    <td>An optional reason for changing the user's affiliation.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="alias"></a>
             <h4>/alias</h4>
             <p>Add command aliases. This command can be used to create shortcuts and avoid typing the same command over and again.</p>
@@ -346,6 +386,25 @@
                 <tr>
                     <td><code>message</code></td>
                     <td>The message you want others to see along with your presence. Omitting this argument will not set any message.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="ban"></a>
+            <h4>/ban</h4>
+            <p>Ban a user from entering a chat room. The user must have sufficient privileges to use the command.</p>
+            <p>Usage:</p>
+            <pre><code>/ban jid [reason]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>jid</code></td>
+                    <td>The barejid of the user you wish to ban from the room, e.g. <code>bob@server.org</code>.</td>
+                </tr>
+                <tr>
+                    <td><code>reason</code></td>
+                    <td>An optional reason for banning the user.</td>
                 </tr>
             </table>
             <a href="#top"><h5>back to top</h5></a><br>
@@ -529,21 +588,6 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
-            <a name="duck"></a>
-            <h4>/duck</h4>
-            <p>Perform a search using the <a target="_blank" href="https://duckduckgo.com/?t=profanity">DuckDuckGo</a> XMPP bot. You will need to be connected to a federated chat service.</p>
-            <p>Usage:</p>
-            <pre><code>/duck query</code></pre>
-            <p>Arguments:</p>
-            <table>
-                <tr>
-                    <td><code>query</code></td>
-                    <td>The search query.</td>
-                </tr>
-            </table>
-            <a href="#top"><h5>back to top</h5></a><br>
-            <hr>
-
             <a name="flash"></a>
             <h4>/flash</h4>
             <p>Set profanity to send the terminal flash signal to the terminal when a new message arrives.</p>
@@ -552,6 +596,33 @@
             <pre><code>/flash on|off</code></pre>
             <p>Default:</p>
             <p>Set to <code>off</code> (disabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="form"></a>
+            <h4>/form</h4>
+            <p>Commands to manage room configuration forms, see <a href="roomconf.html">Chat Room Configuration and Administration</a> for more information.</p>
+            <p>Usage:</p>
+            <pre><code>/form show|submit|cancel|help [tag]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>show</code></td>
+                    <td>Shows the current state of the form.</td>
+                </tr>
+                <tr>
+                    <td><code>submit</code></td>
+                    <td>Submit the current form with all changes, and close the form window.</td>
+                </tr>
+                <tr>
+                    <td><code>cancel</code></td>
+                    <td>Cancel the changes to the current form, and close the form window.</td>
+                </tr>
+                <tr>
+                    <td><code>help</code></td>
+                    <td>Show help for the form command, if <code>tag</code> is supplied (e.g. <code>field5</code>), specific help for that field is displayed.</td>
+                </tr>
+            </table>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -671,18 +742,23 @@
 
             <a name="info"></a>
             <h4>/info</h4>
-            <p>Show information about a contact in the roster, including subscription information and their connected resources.</p>
+            <p>Show information about a contact in the roster, a chat room, or a chat room occupant.</p>
             <p>Usage:</p>
-            <pre><code>/info [contact]</code></pre>
+            <pre><code>/info [contact|nick]</code></pre>
             <p>Arguments:</p>
             <table>
                 <tr>
                     <td><code>contact</code></td>
                     <td>The full Jabber ID of the contact you are interested in, e.g. <code>contact@server.org</code>.</td>
                 </tr>
+                <tr>
+                    <td><code>nick</code></td>
+                    <td>When in a chat room, the nickname of the room occupant you are interested in.</td>
+                </tr>
             </table>
             <p>The parameter is not required when in a chat window, the current recipient is used.</p>
-            <p>If in a chat room, supply the participants nickname, use double quotes to quote the nickname if it contains spaces.</p>
+            <p>If in a chat room, supplying no argument will show information about the current room.</p>
+
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -741,6 +817,25 @@
                 <tr>
                     <td><code>password</code></td>
                     <td>Optional password for private chat rooms.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="kick"></a>
+            <h4>/kick</h4>
+            <p>Kick a user from a chat room. The user must have sufficient privileges to use the command.</p>
+            <p>Usage:</p>
+            <pre><code>/kick nick [reason]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>nick</code></td>
+                    <td>The nickname of the occupant you wish to kick from the room.</td>
+                </tr>
+                <tr>
+                    <td><code>reason</code></td>
+                    <td>An optional reason for kicking the user.</td>
                 </tr>
             </table>
             <a href="#top"><h5>back to top</h5></a><br>
@@ -916,6 +1011,38 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="occupants"></a>
+            <h4>/occupants</h4>
+            <p>Show or hide the occupants panel in chat rooms.</p>
+            <p>Setting the global default:</p>
+            <pre><code>/occupants default show|hide</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>show</code></td>
+                    <td>Always show the occupants panel when entering chat rooms.</td>
+                </tr>
+                <tr>
+                    <td><code>hide</code></td>
+                    <td>Always hide the occupants panel when entering chat rooms.</td>
+                </tr>
+            </table>
+            <p>For the current room:</p>
+            <pre><code>/occupants show|hide</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>show</code></td>
+                    <td>Show the occupants panel in the current room.</td>
+                </tr>
+                <tr>
+                    <td><code>hide</code></td>
+                    <td>Hide the occupants panel in the current room.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="online"></a>
             <h4>/online</h4>
             <p>Set your status to 'online' with optional message.</p>
@@ -1006,6 +1133,22 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="ping"></a>
+            <h4>/ping</h4>
+            <p>Send an XMPP ping IQ.</p>
+            <p>Usage:</p>
+            <pre><code>/ping [jid]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>jid</code></td>
+                    <td>The Jabber ID of the entity you wish to ping, for example <code>jabber.org</code> or <code>friend@chat.com</code></td>
+                </tr>
+            </table>
+            <p>If no argument is supplied, your chat service is pinged.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="prefs"></a>
             <h4>/prefs</h4>
             <p>Show current configuration settings.</p>
@@ -1040,6 +1183,16 @@
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
+            <a name="privileges"></a>
+            <h4>/privileges</h4>
+            <p>Show or hide detailed privilege information for occupants in chat rooms. If enabled, the occupants panel will be broken down by occupant role, and role/affiliation information will be shown when occupants enter a room and when their privileges change.</p>
+            <p>Usage:</p>
+            <pre><code>/privileges on|off</code></pre>
+            <p>Default:</p>
+            <p>Set to <code>on</code> (enabled) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
             <a name="quit"></a>
             <h4>/quit</h4>
             <p>Quit Profanity.</p>
@@ -1060,6 +1213,61 @@
             </table>
             <p>Default:</p>
             <p>Set to <code>30</code> (30 seconds) by default.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="role"></a>
+            <h4>/role</h4>
+            <p>Manage occupant roles within chat rooms. The user must have sufficient privileges to use the command.</p>
+            <p>Listing occupants with a role:</p>
+            <pre><code>/role list [role]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>role</code></td>
+                    <td>Must be one of <code>moderator</code>, <code>participant</code>, <code>visitor</code> or <code>none</code>. If supplied, occupants with this role will be displayed. If omitted, occupants in all roles will be displayed.</td>
+                </tr>
+            </table>
+            <p>Setting an occupant's role:</p>
+            <pre><code>/role set nick role [reason]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>nick</code></td>
+                    <td>The nickname of the occupant who's role you wish to change.</td>
+                </tr>
+                <tr>
+                    <td><code>role</code></td>
+                    <td>Must be one of <code>moderator</code>, <code>participant</code>, <code>visitor</code> or <code>none</code>. The new role for the occupant.</td>
+                </tr>
+                <tr>
+                    <td><code>reason</code></td>
+                    <td>An optional reason for changing the occupant's role.</td>
+                </tr>
+            </table>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+
+            <a name="room"></a>
+            <h4>/room</h4>
+            <p>Manage room creation, or destroy a room, see <a href="roomconf.html">Chat Room Configuration and Administration</a> for more information.</p>
+            <p>Usage:</p>
+            <pre><code>/room accept|destroy|config</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>accept</code></td>
+                    <td>When in a newly created room, will accept default configuration and unlock the room for new occupants to enter.</td>
+                </tr>
+                <tr>
+                    <td><code>destroy</code></td>
+                    <td>Destroy the current chat room, if the user has sufficient privileges.</td>
+                </tr>
+                <tr>
+                    <td><code>config</code></td>
+                    <td>Edit the current chat room's configuration, if the user has sufficient privileges.</td>
+                </tr>
+            </table>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
 
@@ -1292,7 +1500,7 @@
             <a name="who"></a>
             <h4>/who</h4>
             <p>List members from your roster in various presence states.  Whilst in a chat room, list room members.</p>
-            <p>Usage:</p>
+            <p>Normal Usage:</p>
             <pre><code>/who [presence] [group]</code></pre>
             <p>Arguments:</p>
             <table>
@@ -1300,15 +1508,35 @@
                     <td><code>presence</code></td>
                     <td><code>offline</code> - Show all offline contacts.<br/>
                         <code>chat</code>, <code>dnd</code>, <code>away</code>, <code>xa</code> - Show contacts with the specified presence.</br>
-                        <code>online</code> - Show all online contacts, includes those who are 'chat', 'away', 'xa', 'dnd'.<br/>
-                        <code>available</code> - Show all contacts with a presence of 'online', 'chat'.<br/>
-                        <code>unavailable</code> - Show all contacts with a presence of 'offline', 'away', 'xa', 'dnd'.<br/>
+                        <code>online</code> - Show all online contacts, includes those who are <code>chat</code>, <code>away</code>, <code>xa</code>, <code>dnd</code>.<br/>
+                        <code>available</code> - Show all contacts with a presence of <code>online</code>, <code>chat</code>.<br/>
+                        <code>unavailable</code> - Show all contacts with a presence of <code>offline</code>, <code>away</code>, <code>xa</code>, <code>dnd</code>.<br/>
                         <code>any</code> - Show contacts with any presence.<br/><br/>
                         Omitting this argument will show all contacts, the same as <code>any</code></td>
                 </tr>
                 <tr>
                     <td><code>group</code></td>
                     <td>Filter the output to only those who are in the specified roster group.</td>
+                </tr>
+            </table>
+            <p>Chat Room Usage:</p>
+            <pre><code>/who [presence|role|affiliation]</code></pre>
+            <p>Arguments:</p>
+            <table>
+                <tr>
+                    <td><code>presence</code></td>
+                    <td><code>online</code>, <code>chat</code>, <code>dnd</code>, <code>away</code>, <code>xa</code> - Show contacts with the specified presence.</br>
+                    <code>available</code> - Show all occupants with a presence of <code>online</code>, <code>chat</code>.<br/>
+                    <code>unavailable</code> - Show all occupants with a presence of <code>away</code>, <code>xa</code>, <code>dnd</code>.<br/>
+                    Omitting this argument will show all occupants</td>
+                </tr>
+                <tr>
+                    <td><code>role</code></td>
+                    <td>Show all occupants with the specified role, where role is <code>moderator</code>, <code>participant</code> or <code>visitor</code>.</td>
+                </tr>
+                <tr>
+                    <td><code>affiliation</code></td>
+                    <td>Show all occupants with the specified affiliation, where affiliation is <code>owner</code>, <code>admin</code> or <code>member</code>.</td>
                 </tr>
             </table>
             <a href="#top"><h5>back to top</h5></a><br>
