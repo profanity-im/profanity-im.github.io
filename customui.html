@@ -19,16 +19,119 @@
     <article id="manual">
         <section>
             <h3>Contents</h3>
-
             <ul>
-                <li><a href="#section1">Section 1</a>
+                <li><a href="#general">General UI settings</a>
+                <li><a href="#notify">Getting notified of new messages</a>
+                <li><a href="#regular">Customising regular chat</a>
+                <li><a href="#muc">Customising chat rooms</a>
+                <li><a href="#aliases">Adding your own command aliases</a>
             </ul>
         </section>
         <section>
-            <a name="section1"></a>
-            <h3>Section 1</h3>
+            <a name="general"></a>
+            <h3>General UI settings</h3>
 
-            <p>Section 1.<p>
+            <p>The colour scheme may be changed by setting the theme, see the <a href="reference.html#theme"><code>/theme</code></a> command. You may add your own themes to the <a href="themes.html">themes directory</a>.<p>
+            <p>By default the ASCII logo is not displayed, to enable it:</p>
+            <pre><code>/splash on</code></pre>
+            <p><img src="images/splash.png"></p>
+            <p>To disable the logo:</p>
+            <pre><code>/splash off</code></pre>
+            <p>By default the terminal title bar will show information such as current logged in user, and number of unread messages.<p>
+            <p><img src="images/titlebar.png"></p>
+            <p>To disable the title bar information:</p>
+            <pre><code>/titlebar off</code></pre>
+            <p>To perform a check for new versions on start up, and with the <code>/about</code> command, enable version checking:<p>
+            <pre><code>/vercheck on</code></pre>
+            <p><img src="images/vercheck.png"></p>
+            <p>By default version checking is disabled.</p>
+            <p>All presence changes from your contacts are by default shown in the console window. This behaviour may be changed using the <a href="reference.html#statuses"><code>/statuses</code></a> command:</p>
+            <pre><code>/statuses console online
+/statuses console none
+/statuses console all</code></pre>
+            <p>Where <code>online</code> will show only online/offline presence updates, <code>none</code> will disable all presence updates, and <code>all</code> will show all updates (the default).</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+        </section>
+        <section>
+            <a name="notify"></a>
+            <h3>Getting notified of new messages</h3>
+            <p>The terminal can be made to beep and/or flash when new incoming messages are received, using the following commands:</p>
+            <pre><code>/beep on</code></pre>
+            <pre><code>/flash on</code></pre>
+            <p>Both are disabled by default. Note that some terminals may beep instead of flash, or flash instead of beep.</p>
+            <p>The <code>/notify</code> command allows customisation of desktop notifications, including whether or not to show a desktop notification, whether to show a desktop notification for new messages in the current window, and whether to show the message text with the notification.</p>
+            <p>For chat rooms an additional option allows desktop notifications only when your nickname is mentioned in a message.</p>
+            <p>Desktop notifications can also be enabled for incoming subscription requests, when a contact is typing, and for chat room invites.</p>
+            <p>Periodic desktop notifications may also be enabled as a reminder that you have unread messages.</p>
+            <p>Details of the options, how to set them and some examples can be found in the command reference for <a href="reference.html#notify"><code>/notify</code></a>.</p>
+            <p>Without any configuration, desktop notifications are disabled by default.</p>
+            <p>Profanity must be compiled with notification support for the notifications to work, see the <a href="install.html">Install Guide</a> for more information.</p>
+            <p>On Windows (Cygwin), notifications are enabled by default.</p>
+            <p>On Linux, <code>libnotify</code> is required as a dependency.</p>
+            <p>On OSX, <code>terminal-notifier</code> is required as a dependency</p>
+            <p>To find out if notification support was included, run <code>profanity -v</code>:<p>
+            <p><img src="images/buildinfo.png"></p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+        </section>
+        <section>
+            <a name="regular"></a>
+            <h3>Customising regular chat</h3>
+            <p>To show the history of messages up to a day old, when starting a new chat window with a contact, use the <a href="reference.html#history"><code>/history</code></a> command:</p>
+            <pre><code>/history on</code></pre>
+            <p>By default this setting is disabled.</p>
+            <p>Typing notifications are displayed in the console, or in the chat window. To disable these messages:</p>
+            <pre><code>/intype off</code></pre>
+            <p>If OTR support is enabled, chat windows will show a warning when you are sending unencrypted messages:</p>
+            <p><img src="images/otrwarn.png"></p>
+            <p>This warning may be disabled with the following command:</p>
+            <pre><code>/otr warn off</code></pre>
+            <p>All presence changes from chat recipients are by default shown in the chat window. This behaviour may be changed using the <a href="reference.html#statuses"><code>/statuses</code></a> command:</p>
+            <pre><code>/statuses chat online
+/statuses chat none
+/statuses chat all</code></pre>
+            <p>Where <code>online</code> will show only online/offline presence updates, <code>none</code> will disable all presence updates, and <code>all</code> will show all updates (the default).</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+        </section>
+        <section>
+            <a name="muc"></a>
+            <h3>Customising chat rooms</h3>
+            <p>When in a chat room, the list of occupants is displayed in a panel to the right of the main window.</p>
+            <p><img src="images/occupantspanel.png"></p>
+            <p>This panel may be hidden at any time using the <a href="reference.html#occupants"><code>/occupants</code></a> command:</p>
+            <pre><code>/occupants hide</code></pre>
+            <p>To show the occupants panel again:</p>
+            <pre><code>/occupants show</code></pre>
+            <p>The default behaviour when entering chat rooms is to show the occupants panel, this may also be configured using:</p>
+            <pre><code>/occupants default hide
+/occupants default show</code></pre>
+            <p>When joining a chat room, your role an affiliation are displayed, any updates to room occupants role and/or affiliation will also be displayed, and the occupants panel will be broken down by role. If you wish disable showing this information:</p>
+            <pre><code>/privileges off</code></pre>
+            <p>To enable the extra information again:</p>
+            <pre><code>/privileges on</code></pre>
+            <p>All presence changes from chat room occupants are by default shown in the room. This behaviour may be changed using the <a href="reference.html#statuses"><code>/statuses</code></a> command:</p>
+            <pre><code>/statuses muc online
+/statuses muc none
+/statuses muc all</code></pre>
+            <p>Where <code>online</code> will show only online/offline presence updates, <code>none</code> will disable all presence updates, and <code>all</code> will show all updates (the default).</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
+        </section>
+        <section>
+            <a name="aliases"></a>
+            <h3>Adding your own command aliases</h3>
+            <p>You can add aliases for commands that you use frequently using the <a href="reference.html#alias"><code>/alias</code></a> command.</p>
+            <p>For example, to add an alias for the command:<p>
+            <pre><code>/who online friends</code></pre>
+            <p>Use the alias command:</p>
+            <pre><code>/alias add wof /who online friends</code></pre>
+            <p>From this point on you may use the command:</p>
+            <pre><code>/wof</code></pre>
+            <p>Which will have the same affect as the full command.</p>
+            <a href="#top"><h5>back to top</h5></a><br>
+            <hr>
         </section>
     </article>
     <footer>
