@@ -31,25 +31,36 @@
             <a name="general"></a>
             <h3>General UI settings</h3>
 
-            <p>The colour scheme may be changed by setting the theme, see the <a href="reference.html#theme"><code>/theme</code></a> command. You may add your own themes to the <a href="themes.html">themes directory</a>.<p>
-            <p>By default the ASCII logo is not displayed, to enable it:</p>
-            <pre><code>/splash on</code></pre>
-            <p><img src="images/splash.png"></p>
-            <p>To disable the logo:</p>
-            <pre><code>/splash off</code></pre>
-            <p>By default the terminal title bar will show information such as current logged in user, and number of unread messages.<p>
-            <p><img src="images/titlebar.png"></p>
-            <p>To disable the title bar information:</p>
-            <pre><code>/titlebar off</code></pre>
-            <p>To perform a check for new versions on start up, and with the <code>/about</code> command, enable version checking:<p>
-            <pre><code>/vercheck on</code></pre>
-            <p><img src="images/vercheck.png"></p>
-            <p>By default version checking is disabled.</p>
-            <p>All presence changes from your contacts are by default shown in the console window. This behaviour may be changed using the <a href="reference.html#statuses"><code>/statuses</code></a> command:</p>
-            <pre><code>/statuses console online
-/statuses console none
-/statuses console all</code></pre>
-            <p>Where <code>online</code> will show only online/offline presence updates, <code>none</code> will disable all presence updates, and <code>all</code> will show all updates (the default).</p>
+            <table>
+                <tr>
+                    <td>Command</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><a href="reference.html#theme"><code>/theme</code></a></td>
+                    <td>Choose a theme, themes include colours and UI preferences.</td>
+                </tr>
+                <tr>
+                    <td><a href="reference.html#splash"><code>/splash</code></a></td>
+                    <td>Hide or show the splash logo.</td>
+                </tr>
+                <tr>
+                    <td><a href="reference.html#wrap"><code>/wrap</code></a></td>
+                    <td>Enable/disable word wrapping in the main window.</td>
+                </tr>
+                <tr>
+                    <td><a href="reference.html#titlebar"><code>/titlebar</code></a></td>
+                    <td>Allow profanity to write to the terminal window title bar.</td>
+                </tr>
+                <tr>
+                    <td><a href="reference.html#vercheck"><code>/vercheck</code></a></td>
+                    <td>Show when a new version is available on startup.</td>
+                </tr>
+                <tr>
+                    <td><a href="reference.html#statuses"><code>/statuses</code></a></td>
+                    <td>Control which status updates are displayed in various window types.</td>
+                </tr>
+            </table>
             <a href="#top"><h5>back to top</h5></a><br>
             <hr>
         </section>
