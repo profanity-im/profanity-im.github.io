@@ -14,6 +14,7 @@
 <p><pre><code>/account [command] [account] [property] [value]</code></pre></p>
 <p>Details:</p>
 <p><pre><code>Commands for creating and managing accounts.
+
 list                         : List all accounts.
 show account                 : Show information about an account.
 enable account               : Enable the account, it will be used for autocomplete.
@@ -25,35 +26,29 @@ rename account newname       : Rename account to newname.
 set account property value   : Set 'property' of 'account' to 'value'.
 clear account property value : Clear 'property' of 'account'.
 
-When connected, the /account command can be called with no arguments, to show current account settings.
+Account properties.
 
-The set command may use one of the following for 'property'.
-jid              : The Jabber ID of the account, the account name will be used if this property is not set.
-server           : The chat server, if different to the domainpart of the JID.
-port             : The port used for connecting if not the default (5222, or 5223 for SSL).
-status           : The presence status to use on login, use 'last' to use whatever your last status was.
-online|chat|away
-|xa|dnd          : Priority for the specified presence.
-resource         : The resource to be used.
-password         : Password for the account, note this is currently stored in plaintext if set.
-eval_password    : Shell command evaluated to retrieve password for the account.  Can be used to retrieve password from keyring.
-muc              : The default MUC chat service to use.
-nick             : The default nickname to use when joining chat rooms.
-otr              : Override global OTR policy for this account: manual, opportunistic or always.
+jid                     : The Jabber ID of the account, account name will be used if not set.
+server                  : The chat server, if different to the domainpart of the JID.
+port                    : The port used for connecting if not the default (5222, or 5223 for SSL).
+status                  : The presence status to use on login, use 'last' to use your last status before logging out.
+online|chat|away|xa|dnd : Priority for the specified presence.
+resource                : The resource to be used.
+password                : Password for the account, note this is currently stored in plaintext if set.
+eval_password           : Shell command evaluated to retrieve password for the account. Can be used to retrieve password from keyring.
+muc                     : The default MUC chat service to use.
+nick                    : The default nickname to use when joining chat rooms.
+otr                     : Override global OTR policy for this account: manual, opportunistic or always.
 
-The clear command works for password, port and server
-
-Example : /account add work
-        : /account set work jid me@chatty
-        : /account set work server talk.chat.com
-        : /account set work port 5111
-        : /account set work resource desktop
-        : /account set work muc chatservice.mycompany.com
-        : /account set work nick dennis
-        : /account set work status dnd
-        : /account set work dnd -1
-        : /account set work online 10
-        : /account rename work gtalk
+Example: /account add me
+Example: /account set me jid me@chatty
+Example: /account set me server talk.chat.com
+Example: /account set me port 5111
+Example: /account set me muc chatservice.mycompany.com
+Example: /account set me nick dennis
+Example: /account set me status dnd
+Example: /account set me dnd -1
+Example: /account rename me gtalk
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -62,8 +57,11 @@ Example : /account add work
 <p>Usage:</p>
 <p><pre><code>/affiliation set|list [affiliation] [jid] [reason]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>set affiliation jid [reason]- Set the affiliation of user with jid, with an optional reason.
-list [affiliation]          - List all users with the specified affiliation, or all if none specified.
+<p><pre><code>Manage room affiliations.
+
+set affiliation jid [reason]: Set the affiliation of user with jid, with an optional reason.
+list [affiliation]          : List all users with the specified affiliation, or all if none specified.
+
 The affiliation may be one of owner, admin, member, outcast or none.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
@@ -74,12 +72,17 @@ The affiliation may be one of owner, admin, member, outcast or none.
 <p><pre><code>/alias add|remove|list [name value]</code></pre></p>
 <p>Details:</p>
 <p><pre><code>Add, remove or show command aliases.
-The alias will be available as a command, the leading '/' will be added if not supplied.
-Example : /alias add friends /who online friends
-Example : /alias add /q /quit
-Example : /alias a /away "I'm in a meeting."
-Example : /alias remove q
-Example : /alias list
+
+add name value : Add a new command alias.
+remove name    : Remove a command alias.
+list           : List all aliases.
+
+Example: /alias add friends /who online friends
+Example: /alias add /q /quit
+Example: /alias a /away "I'm in a meeting."
+Example: /alias remove q
+Example: /alias list
+
 The above aliases will be available as /friends and /a
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
@@ -87,17 +90,16 @@ The above aliases will be available as /friends and /a
 <a name="autoaway"></a>
 <h4>/autoaway</h4>
 <p>Usage:</p>
-<p><pre><code>/autoaway setting value</code></pre></p>
+<p><pre><code>/autoaway mode|time|message|check value</code></pre></p>
 <p>Details:</p>
-<p><pre><code>'setting' may be one of 'mode', 'time', 'message' or 'check', with the following values:
+<p><pre><code>Manage autoway properties.
 
-mode    : idle - Sends idle time, whilst your status remains online.
-          away - Sends an away presence.
-          off - Disabled (default).
-time    : Number of minutes before the presence change is sent, the default is 15.
-message : Optional message to send with the presence change.
-        : off - Disable message (default).
-check   : on|off, when enabled, checks for activity and sends online presence, default is 'on'.
+mode idle        : Sends idle time, status remains online.
+mode away        : Sends an away presence.
+mode off         : Disabled (default).
+time minutes     : Number of minutes before the presence change is sent, default: 15.
+message text|off : Optional message to send with the presence change, default: off (disabled).
+check on|off     : When enabled, checks for activity and sends online presence, default: on.
 
 Example: /autoaway mode idle
 Example: /autoaway time 30
@@ -115,7 +117,7 @@ Example: /autoaway check off
 The setting can be overridden by the -a (--account) command line option.
 
 Example: /autoconnect set jc@stuntteam.org (autoconnect with the specified account).
-Example: /autoconnect off                  (disable autoconnect).
+Example: /autoconnect off (disable autoconnect).
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -132,12 +134,11 @@ A value of 0 will switch off autopinging the server.
 <a name="away"></a>
 <h4>/away</h4>
 <p>Usage:</p>
-<p><pre><code>/away [msg]</code></pre></p>
+<p><pre><code>/away [message]</code></pre></p>
 <p>Details:</p>
 <p><pre><code>Set your status to 'away' with the optional message.
-Your current status can be found in the top right of the screen.
 
-Example : /away Gone for lunch
+Example: /away Gone for lunch
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -146,8 +147,10 @@ Example : /away Gone for lunch
 <p>Usage:</p>
 <p><pre><code>/ban jid [reason]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>jid    - Bare JID of the user to ban from the room.
-reason - Optional reason for banning the user.
+<p><pre><code>Ban users from chat rooms.
+
+jid    : Bare JID of the user to ban from the room.
+reason : Optional reason for banning the user.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -165,18 +168,22 @@ If the terminal does not support sounds, it may attempt to flash the screen inst
 <a name="bookmark"></a>
 <h4>/bookmark</h4>
 <p>Usage:</p>
-<p><pre><code>/bookmark [list|add|update|remove|join] [room@server] [nick value] [password value] [autojoin on|off]</code></pre></p>
+<p><pre><code>/bookmark [command] [args..]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Manage bookmarks.
-list: List all bookmarks.
-add: Add a bookmark for room@server with the following optional properties:
-  nick: Nickname used in the chat room
-  password: Password for private rooms, note this may be stored in plaintext on your server
-  autojoin: Whether to join the room automatically on login "on" or "off".
-update: Update any of the above properties associated with the bookmark.
-remove: Remove the bookmark for room@server.
-join: Join room@server using the properties associated with the bookmark.
-When in a chat room, the /bookmark command with no arguments will bookmark the current room with the current settings, and set autojoin to "on".
+<p><pre><code>Manage bookmarks and join bookmarked rooms.
+
+command : list|add|update|remove|join
+
+list                              : List all bookmarks.
+add room@server [prop value..]    : Add a bookmark for room@server with the following optional properties:
+  nick value                      : Nickname used in the chat room
+  password value                  : Password if required, may be stored in plaintext on your server
+  autojoin on|off                 : Whether to join the room automatically on login.
+update room@server [prop value..] : Update any of the above properties associated with the bookmark.
+remove room@server                : Remove the bookmark for room@server.
+join room@server                  : Join room using the properties associated with the bookmark.
+
+In a chat room, /bookmark with no arguments will bookmark the current room, setting autojoin to "on".
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -185,26 +192,27 @@ When in a chat room, the /bookmark command with no arguments will bookmark the c
 <p>Usage:</p>
 <p><pre><code>/caps [fulljid|nick]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Find out a contact, or room members client software capabilities.
-If in the console window or a regular chat window, a full JID is required.
-If in a chat room, the nickname is required.
-If in private chat, no parameter is required.
+<p><pre><code>Find out a contacts, or room members client software capabilities.
 
-Example : /caps mybuddy@chat.server.org/laptop (contact's laptop resource)
-Example : /caps mybuddy@chat.server.org/phone (contact's phone resource)
-Example : /caps bruce (room member)
+fulljid : If in the console or a chat window, the full JID for which you wish to see capabilities.
+nick    : If in a chat room, nickname for which you wish to see capabilities.
+
+If in private chat initiated from a chat room, no parameter is required.
+
+Example: /caps mybuddy@chat.server.org/laptop (contact's laptop resource)
+Example: /caps mybuddy@chat.server.org/phone (contact's phone resource)
+Example: /caps bruce (room member)
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="chat"></a>
 <h4>/chat</h4>
 <p>Usage:</p>
-<p><pre><code>/chat [msg]</code></pre></p>
+<p><pre><code>/chat [message]</code></pre></p>
 <p>Details:</p>
 <p><pre><code>Set your status to 'chat', meaning 'available for chat', with the optional message.
-Your current status can be found in the top right of the screen.
 
-Example : /chat Please talk to me!
+Example: /chat Please talk to me!
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -232,14 +240,15 @@ See the /grlog setting for enabling logging of chat room (groupchat) messages.
 <a name="close"></a>
 <h4>/close</h4>
 <p>Usage:</p>
-<p><pre><code>/close [win|read|all]</code></pre></p>
+<p><pre><code>/close [num|read|all]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Passing no argument will close the current window.
-2,3,4,5,6,7,8,9 or 0 : Close the specified window.
-all                  : Close all currently open windows.
-read                 : Close all windows that have no new messages.
-The console window cannot be closed.
-If in a chat room, you will leave the room.
+<p><pre><code>Close the current window, or a number of windows.
+
+num  : Close the specified window.
+all  : Close all windows.
+read : Close all windows that have no new messages.
+
+Passing no argument will close the current window.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -248,11 +257,14 @@ If in a chat room, you will leave the room.
 <p>Usage:</p>
 <p><pre><code>/connect [account] [server value] [port value]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Connect to an XMPP service using the specified account.
-Use the server property to specify a server if required.
-Change the default port (5222, or 5223 for SSL) with the port property.
-An account is automatically created if one does not exist.
-If no account is specified, then the default account is used.See the /account command for more details.
+<p><pre><code>Login to a chat service.
+
+account      : The local account you wish to connect with, or a JID if connecting for the first time.
+server value : Supply a server if it is different to the domain part of your JID.
+port value   : The port to use if different to the default (5222, or 5223 for SSL).
+
+If no account is specified, the default is used if one is configured.
+A local account is created with the JID as it's name if it doesn't already exist.
 
 Example: /connect
 Example: /connect myuser@gmail.com
@@ -267,26 +279,27 @@ Example: /connect me@chatty server chatty.com port 5443
 <p>Usage:</p>
 <p><pre><code>/decline room</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Decline invitation to a chat room, the room will no longer be in the list of outstanding invites.
+<p><pre><code>Decline a chat room invitation.
+
+room : The room for the invite you wish to decline.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="disco"></a>
 <h4>/disco</h4>
 <p>Usage:</p>
-<p><pre><code>/disco command entity</code></pre></p>
+<p><pre><code>/disco info|items entity</code></pre></p>
 <p>Details:</p>
 <p><pre><code>Find out information about an entities supported services.
-Command may be one of:
-info: List protocols and features supported by an entity.
-items: List items associated with an entity.
 
-The entity must be a Jabber ID.
+info   : List protocols and features supported by an entity.
+items  : List items associated with an entity.
+entity : Jabber ID.
 
-Example : /disco info myserver.org
-Example : /disco items myserver.org
-Example : /disco items conference.jabber.org
-Example : /disco info myfriend@server.com/laptop
+Example: /disco info myserver.org
+Example: /disco items myserver.org
+Example: /disco items conference.jabber.org
+Example: /disco info myfriend@server.com/laptop
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -302,12 +315,11 @@ Example : /disco info myfriend@server.com/laptop
 <a name="dnd"></a>
 <h4>/dnd</h4>
 <p>Usage:</p>
-<p><pre><code>/dnd [msg]</code></pre></p>
+<p><pre><code>/dnd [message]</code></pre></p>
 <p>Details:</p>
 <p><pre><code>Set your status to 'dnd', meaning 'do not disturb', with the optional message.
-Your current status can be found in the top right of the screen.
 
-Example : /dnd I'm in the zone
+Example: /dnd I'm in the zone
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -316,8 +328,7 @@ Example : /dnd I'm in the zone
 <p>Usage:</p>
 <p><pre><code>/flash on|off</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Make the terminal flash when incoming messages are received.
-The flash will only occur if you are not in the chat window associated with the user sending the message.
+<p><pre><code>Make the terminal flash when incoming messages are received in another window.
 If the terminal doesn't support flashing, it may attempt to beep.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
@@ -327,10 +338,12 @@ If the terminal doesn't support flashing, it may attempt to beep.
 <p>Usage:</p>
 <p><pre><code>/form show|submit|cancel|help [tag]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>show             - Show the current form.
-submit           - Submit the current form.
-cancel           - Cancel changes to the current form.
-help [tag]       - Display help for form, or a specific field.
+<p><pre><code>Form configuration.
+
+show             : Show the current form.
+submit           : Submit the current form.
+cancel           : Cancel changes to the current form.
+help [tag]       : Display help for form, or a specific field.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -339,7 +352,7 @@ help [tag]       - Display help for form, or a specific field.
 <p>Usage:</p>
 <p><pre><code>/gone minutes</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Send a 'gone' state to the recipient after the specified number of minutes.This indicates to the recipient's client that you have left the conversation.
+<p><pre><code>Send a 'gone' state to the recipient after the specified number of minutes.
 A value of 0 will disable sending this chat state.
 Chat states (/states) will be enabled if this setting is set.
 </code></pre></p>
@@ -361,16 +374,18 @@ See the /chlog setting for enabling logging of one to one chat.
 <p><pre><code>/group [show|add|remove] [group] [contact]</code></pre></p>
 <p>Details:</p>
 <p><pre><code>View, add to, and remove from roster groups.
-Passing no argument will list all roster groups.
-The 'show' command takes 'group' as an argument, and lists all roster items in that group.
-The 'add' command takes 'group' and 'contact' arguments, and adds the contact to the group.
-The 'remove' command takes 'group' and 'contact' arguments and removes the contact from the group,
 
-Example : /group
-Example : /group show friends
-Example : /group add friends newfriend@server.org
-Example : /group add family Brother (using contacts nickname)
-Example : /group remove colleagues boss@work.com
+show group           : List all roster items a group.
+add group contact    : Added a contact to a group.
+remove group contact : Remove a contact from a group.
+
+Passing no argument will list all roster groups.
+
+Example: /group
+Example: /group show friends
+Example: /group add friends newfriend@server.org
+Example: /group add family Brother (using contacts nickname)
+Example: /group remove colleagues boss@work.com
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -379,15 +394,16 @@ Example : /group remove colleagues boss@work.com
 <p>Usage:</p>
 <p><pre><code>/help [area|command]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Use with no arguments to get a help summary.
-Supply an area to see help for commands related to specific features.
-Supply a command (without the leading slash) to see help for that command.
+<p><pre><code>Help on using Profanity.
 
-Example : /help commands
-Example : /help presence
-Example : /help who
+area    : Summary help for commands in a certain area of functionality.
+command : Full help for a specific command, for example '/help connect'.
 
-For more detailed help, see the user guide at http://www.profanity.im/userguide.html.
+Use with no arguments to see a list of areas.
+
+Example: /help commands
+Example: /help presence
+Example: /help who
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -406,14 +422,16 @@ When history is enabled, previous messages are shown in chat windows.
 <p>Usage:</p>
 <p><pre><code>/info [contact|nick]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Show basic information about a contact, room, or room member.
-If in the console, a contact must be specified.
-If in a chat window the parameter is not required, the current recipient will be used.
-If in a chat room, providing no arguments will display information about the room.
-If in a chat room, supplying a nick will show information about the occupant.
+<p><pre><code>Show information about a contact, room, or room member.
 
-Example : /info mybuddy@chat.server.org
-Example : /info kai
+contact : The contact you wish to view information about.
+nick    : When in a chat room, the occupant you wish to view information about.
+
+Passing no argument in a chat window will use the current recipient.
+Passing no argument in a chat room will display information about the room.
+
+Example: /info mybuddy@chat.server.org
+Example: /info kai
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -423,13 +441,9 @@ Example : /info kai
 <p><pre><code>/inpblock timeout|dynamic [millis|on|off]</code></pre></p>
 <p>Details:</p>
 <p><pre><code>How long to wait for input before checking for new messages or checking for state changes such as 'idle'.
-timeout : Time to wait in milliseconds before reading input from the terminal buffer, defaults to 500.
-        : Valid values are 1-1000.
-dynamic : Start with a 0 timeout and increase the value dynamically up to the specified 'timeout'.
-        : on|off
-A higher timeout will result in less CPU usage, but a noticable delay for response to input.
-A lower timeout will result in higher CPU usage, but faster response to input.
-Using the dynamic setting, higher CPU usage will occur during activity, but over time the CPU usage will decrease whilst there is no activity.
+
+timeout millis : Time to wait (1-1000) in milliseconds before reading input from the terminal buffer, default: 1000.
+dynamic on|off : Start with 0 millis and dynamically increase up to timeout when no activity, default: on.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -447,8 +461,10 @@ Using the dynamic setting, higher CPU usage will occur during activity, but over
 <p>Usage:</p>
 <p><pre><code>/invite contact [message]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Send a direct invite to the specified contact to the current chat room.
-If a message is supplied it will be sent as the reason for the invite.
+<p><pre><code>Send a direct invite to the current chat room.
+
+contact : The contact you wish to invite
+message : An optional message to send with the invite.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -457,9 +473,7 @@ If a message is supplied it will be sent as the reason for the invite.
 <p>Usage:</p>
 <p><pre><code>/invites</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Show all rooms that you have been invited to, and have not yet been accepted or declind.
-Use "/join <room>" to accept a room invitation.
-Use "/decline <room>" to decline a room invitation.
+<p><pre><code>Show all rooms that you have been invited to, and not accepted or declined.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -469,15 +483,19 @@ Use "/decline <room>" to decline a room invitation.
 <p><pre><code>/join room[@server] [nick value] [password value]</code></pre></p>
 <p>Details:</p>
 <p><pre><code>Join a chat room at the conference server.
-If nick is specified you will join with this nickname.
-Otherwise the account preference 'muc.nick' will be used which by default is the localpart of your JID (before the @).
-If no server is supplied, the account preference 'muc.service' is used, which is 'conference.<domain-part>' by default.
+
+room           : Bare room JID, the chat server is determined by the 'muc.service' account property, 'conference.<domainpart>' by default.
+room@server    : Full room JID.
+nick value     : Nickname to use in the room
+password value : Password if the room requires it.
+
+If no nickname is specified the account preference 'muc.nick' will be used which by default is the localpart of your JID.
 If the room doesn't exist, and the server allows it, a new one will be created.
 
-Example : /join jdev@conference.jabber.org
-Example : /join jdev@conference.jabber.org nick mynick
-Example : /join private@conference.jabber.org nick mynick password mypassword
-Example : /join jdev (as user@jabber.org will join jdev@conference.jabber.org)
+Example: /join jdev@conference.jabber.org
+Example: /join jdev@conference.jabber.org nick mynick
+Example: /join private@conference.jabber.org nick mynick password mypassword
+Example: /join jdev (as user@jabber.org will join jdev@conference.jabber.org)
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -486,8 +504,10 @@ Example : /join jdev (as user@jabber.org will join jdev@conference.jabber.org)
 <p>Usage:</p>
 <p><pre><code>/kick nick [reason]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>nick   - Nickname of the occupant to kick from the room.
-reason - Optional reason for kicking the occupant.
+<p><pre><code>Kick occupants from chat rooms.
+
+nick   : Nickname of the occupant to kick from the room.
+reason : Optional reason for kicking the occupant.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -503,13 +523,14 @@ reason - Optional reason for kicking the occupant.
 <a name="log"></a>
 <h4>/log</h4>
 <p>Usage:</p>
-<p><pre><code>/log [property] [value]</code></pre></p>
+<p><pre><code>/log where|rotate|maxsize|shared [value]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>where   : Show the current log file location.
-Property may be one of:
-rotate  : Rotate log, accepts 'on' or 'off', defaults to 'on'.
-maxsize : With rotate enabled, specifies the max log size, defaults to 1048580 (1MB).
-shared  : Share logs between all instances, accepts 'on' or 'off', defaults to 'on'.
+<p><pre><code>Manage profanity logging settings.
+
+where         : Show the current log file location.
+rotate on|off : Rotate log, default on.
+maxsize bytes : With rotate enabled, specifies the max log size, defaults to 1048580 (1MB).
+shared on|off : Share logs between all instances, default: on.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -518,12 +539,7 @@ shared  : Share logs between all instances, accepts 'on' or 'off', defaults to '
 <p>Usage:</p>
 <p><pre><code>/mouse on|off</code></pre></p>
 <p>Details:</p>
-<p><pre><code>If set to 'on', profanity will handle mouse actions, which enables scrolling the main window with the mouse wheel.
-To select text, use the shift key while selcting an area.
-If set to 'off', profanity leaves mouse handling to the terminal implementation.
-This feature is experimental, certain mouse click events may occasionally freeze
-Profanity until a key is pressed or another mouse event is received
-The default is 'off'.
+<p><pre><code>This feature is experimental, default is 'off'.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -532,14 +548,19 @@ The default is 'off'.
 <p>Usage:</p>
 <p><pre><code>/msg contact|nick [message]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Open a chat window for the contact and send the message if one is supplied.
-When in a chat room, supply a nickname to start private chat with a room member.
+<p><pre><code>Send a one to one chat message, or a private message to a chat room occupant.
+
+contact : The contact's JID, or nickname if one has been set in your roster.
+nick    : A chat room occupant, to whom you wish to send a private message.
+message : The message to send
+
+If the message is omitted, a new chat window will be opened without sending a message.
 Use quotes if the nickname includes spaces.
 
-Example : /msg myfriend@server.com Hey, here's a message!
-Example : /msg otherfriend@server.com
-Example : /msg Bob Here is a private message
-Example : /msg "My Friend" Hi, how are you?
+Example: /msg myfriend@server.com Hey, here's a message!
+Example: /msg otherfriend@server.com
+Example: /msg Bob Here is a private message
+Example: /msg "My Friend" Hi, how are you?
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -549,10 +570,11 @@ Example : /msg "My Friend" Hi, how are you?
 <p><pre><code>/nick nickname</code></pre></p>
 <p>Details:</p>
 <p><pre><code>Change the name by which other members of a chat room see you.
-This command is only valid when called within a chat room window.
 
-Example : /nick kai hansen
-Example : /nick bob
+nickname : The new nickname.
+
+Example: /nick kai hansen
+Example: /nick bob
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -561,40 +583,29 @@ Example : /nick bob
 <p>Usage:</p>
 <p><pre><code>/notify [type value]|[type setting value]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Settings for various desktop notifications where type is one of:
-message         : Notificaitons for regular messages.
-                : on|off
-message current : Whether messages in the current window trigger notifications.
-                : on|off
-message text    : Show message text in message notifications.
-                : on|off
-room            : Notificaitons for chat room messages.
-                : on|off|mention
-room current    : Whether chat room messages in the current window trigger notifications.
-                : on|off
-room text       : Show message test in chat room message notifications.
-                : on|off
-remind          : Notification reminders of unread messages.
-                : where value is the reminder period in seconds,
-                : use 0 to disable.
-typing          : Notifications when contacts are typing.
-                : on|off
-typing current  : Whether typing notifications are triggerd for the current window.
-                : on|off
-invite          : Notifications for chat room invites.
-                : on|off
-sub             : Notifications for subscription requests.
-                : on|off
+<p><pre><code>Settings for various kinds of desktop notifications.
 
-Example : /notify message on        (enable message notifications)
-Example : /notify message text on   (show message text in notifications)
-Example : /notify room mention      (enable chat room notifications only on mention)
-Example : /notify room current off  (disable room message notifications when window visible)
-Example : /notify room text off     (do not show message text in chat room notifications)
-Example : /notify remind 10         (remind every 10 seconds)
-Example : /notify remind 0          (switch off reminders)
-Example : /notify typing on         (enable typing notifications)
-Example : /notify invite on         (enable chat room invite notifications)
+message on|off         : Notifications for regular messages.
+message current on|off : Whether messages in the current window trigger notifications.
+message text on|off    : Show message text in message notifications.
+room on|off|mention    : Notifications for chat room messages.
+room current on|off    : Whether chat room messages in the current window trigger notifications.
+room text on|off       : Show message text in chat room message notifications.
+remind seconds         : Notification reminder period for unread messages, use 0 to disable.
+typing on|off          : Notifications when contacts are typing.
+typing current of|off  : Whether typing notifications are triggered for the current window.
+invite on|off          : Notifications for chat room invites.
+sub on|off             : Notifications for subscription requests.
+
+Example: /notify message on (enable message notifications)
+Example: /notify message text on (show message text in notifications)
+Example: /notify room mention (enable chat room notifications only on mention)
+Example: /notify room current off (disable room message notifications when window visible)
+Example: /notify room text off (do not show message text in chat room notifications)
+Example: /notify remind 10 (remind every 10 seconds)
+Example: /notify remind 0 (switch off reminders)
+Example: /notify typing on (enable typing notifications)
+Example: /notify invite on (enable chat room invite notifications)
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -603,44 +614,47 @@ Example : /notify invite on         (enable chat room invite notifications)
 <p>Usage:</p>
 <p><pre><code>/occupants show|hide|default|size [show|hide] [percent]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>show    - Show the occupants panel in chat rooms.
-hide    - Hide the occupants panel in chat rooms.
-default - Whether occupants are shown by default in new rooms, 'show' or 'hide'
-size    - Percentage of the screen taken by the occupants list in rooms (1-99).
+<p><pre><code>Show or hide room occupants, and occupants panel display settings.
+
+show              : Show the occupants panel in chat rooms.
+hide              : Hide the occupants panel in chat rooms.
+default show|hide : Whether occupants are shown by default in new rooms, 'show' or 'hide'
+size percent      : Percentage of the screen taken by the occupants list in rooms (1-99).
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="online"></a>
 <h4>/online</h4>
 <p>Usage:</p>
-<p><pre><code>/online [msg]</code></pre></p>
+<p><pre><code>/online [message]</code></pre></p>
 <p>Details:</p>
 <p><pre><code>Set your status to 'online' with the optional message.
-Your current status can be found in the top right of the screen.
 
-Example : /online Up the Irons!
+Example: /online Up the Irons!
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="otr"></a>
 <h4>/otr</h4>
 <p>Usage:</p>
-<p><pre><code>/otr gen|myfp|theirfp|start|end|trust|untrust|log|warn|libver|policy|secret|question|answer</code></pre></p>
+<p><pre><code>/otr command [args..]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>gen - Generate your private key.
-myfp - Show your fingerprint.
-theirfp - Show contacts fingerprint.
-start [contact] - Start an OTR session with the contact, or the current recipient if in a chat window and no argument supplied.
-end - End the current OTR session,
-trust - Indicate that you have verified the contact's fingerprint.
-untrust - Indicate the the contact's fingerprint is not verified,
-log - How to log OTR messages, options are 'on', 'off' and 'redact', with redaction being the default.
-warn - Show when unencrypted messaging is being used in the title bar, options are 'on' and 'off' with 'on' being the default.
-libver - Show which version of the libotr library is being used.
-policy - manual, opportunistic or always.
-secret [secret]- Verify a contacts identity using a shared secret.
-question [question] [answer] - Verify a contacts identity using a question and expected anwser, if the question has spaces, surround with double quotes.
-answer [answer] - Respond to a question answer verification request with your answer.
+<p><pre><code>Off The Record encryption commands.
+
+gen                                : Generate your private key.
+myfp                               : Show your fingerprint.
+theirfp                            : Show contacts fingerprint.
+start [contact]                    : Start an OTR session with contact, or current recipient if omitted.
+end                                : End the current OTR session,
+trust                              : Indicate that you have verified the contact's fingerprint.
+untrust                            : Indicate the the contact's fingerprint is not verified,
+log on|off|redact                  : OTR message logging, default: redact.
+warn on|off                        : Show in the titlebar when unencrypted messaging is being used.
+libver                             : Show which version of the libotr library is being used.
+policy manual|opportunistic|always : Set the global OTR policy.
+secret [secret]                    : Verify a contacts identity using a shared secret.
+question [question] [answer]       : Verify a contacts identity using a question and expected answer.
+answer [answer]                    : Respond to a question answer verification request with your answer.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -649,8 +663,7 @@ answer [answer] - Respond to a question answer verification request with your an
 <p>Usage:</p>
 <p><pre><code>/outtype on|off</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Send an indication that you are typing to the chat recipient.
-Chat states (/states) will be enabled if this setting is set.
+<p><pre><code>Send typing notifications, chat states (/states) will be enabled if this setting is set.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -659,17 +672,18 @@ Chat states (/states) will be enabled if this setting is set.
 <p>Usage:</p>
 <p><pre><code>/ping [target]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Sends an IQ ping stanza to the specificed target.
-If no target is supplied, your chat server will be used.
+<p><pre><code>Sends an IQ ping stanza to the specified target.
+If no target is supplied, your chat server will be pinged.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="prefs"></a>
 <h4>/prefs</h4>
 <p>Usage:</p>
-<p><pre><code>/prefs [area]</code></pre></p>
+<p><pre><code>/prefs [ui|desktop|chat|log|conn|presence]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Area is one of:
+<p><pre><code>Show preferences for different areas of functionality.
+
 ui       : User interface preferences.
 desktop  : Desktop notification preferences.
 chat     : Chat state preferences.
@@ -677,7 +691,7 @@ log      : Logging preferences.
 conn     : Connection handling preferences.
 presence : Chat presence preferences.
 
-No argument shows all categories.
+No argument shows all preferences.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -686,7 +700,7 @@ No argument shows all categories.
 <p>Usage:</p>
 <p><pre><code>/presence on|off</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Switch display of the contacts presence on or off.
+<p><pre><code>Switch display of the contacts presence in the titlebar on or off.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -695,9 +709,11 @@ No argument shows all categories.
 <p>Usage:</p>
 <p><pre><code>/priority value</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Set priority for the current account, presence will be sent when calling this command.
-See the /account command for more specific priority settings per presence status.
-value : Number between -128 and 127. Default value is 0.
+<p><pre><code>Set priority for the current account.
+
+value : Number between -128 and 127, default: 0.
+
+See the /account command for specific priority settings per presence status.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -706,7 +722,7 @@ value : Number between -128 and 127. Default value is 0.
 <p>Usage:</p>
 <p><pre><code>/privileges on|off</code></pre></p>
 <p>Details:</p>
-<p><pre><code>If enabled the room roster will be broken down my role, and role information will be showin in the room.
+<p><pre><code>If enabled the room occupants panel will be grouped by role, and role information will be shown in the room.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -734,11 +750,12 @@ A value of 0 will switch off reconnect attempts.
 <p>Usage:</p>
 <p><pre><code>/resource set|off|title|message [resource]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Set the resource to use when chatting to a contact and manage resource display settings.
-set resource   - Set the resource.
-off            - Let the server choose which resource to route messages to.
-title on|off   - Show or hide the current resource in the titlebar.
-message on|off - Show or hide the resource from which a message was recieved.
+<p><pre><code>Override chat session resource, and manage resource display settings.
+
+set resource   : Set the resource to which messages will be sent.
+off            : Let the server choose which resource to route messages to.
+title on|off   : Show or hide the current resource in the titlebar.
+message on|off : Show or hide the resource when showing an incoming message.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -747,8 +764,11 @@ message on|off - Show or hide the resource from which a message was recieved.
 <p>Usage:</p>
 <p><pre><code>/role set|list [role] [nick] [reason]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>set role nick [reason] - Set the role of occupant with nick, with an optional reason.
-list [role]            - List all occupants with the specified role, or all if none specified.
+<p><pre><code>Manage room roles.
+
+set role nick [reason] : Set the role of occupant with nick, with an optional reason.
+list [role]            : List all occupants with the specified role, or all if none specified.
+
 The role may be one of moderator, participant, visitor or none.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
@@ -758,9 +778,11 @@ The role may be one of moderator, participant, visitor or none.
 <p>Usage:</p>
 <p><pre><code>/room accept|destroy|config</code></pre></p>
 <p>Details:</p>
-<p><pre><code>accept  - Accept default room configuration.
-destroy - Reject default room configuration.
-config  - Edit room configuration.
+<p><pre><code>Chat room configuration.
+
+accept  : Accept default room configuration.
+destroy : Reject default room configuration.
+config  : Edit room configuration.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -770,42 +792,49 @@ config  - Edit room configuration.
 <p><pre><code>/rooms [conference-service]</code></pre></p>
 <p>Details:</p>
 <p><pre><code>List the chat rooms available at the specified conference service
-If no argument is supplied, the account preference 'muc.service' is used, which is 'conference.<domain-part>' by default.
 
-Example : /rooms conference.jabber.org
-Example : /rooms (if logged in as me@server.org, is equivalent to /rooms conference.server.org)
+conference-service : The conference service to query.
+
+If no argument is supplied, the account preference 'muc.service' is used, 'conference.<domain-part>' by default.
+
+Example: /rooms conference.jabber.org
+Example: /rooms (if logged in as me@server.org, is equivalent to /rooms conference.server.org)
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="roster"></a>
 <h4>/roster</h4>
 <p>Usage:</p>
-<p><pre><code>/roster [online|show|hide|by|size|add|remove|nick|clearnick] [offline|resource] [percent] [group|presence|none] [jid] [nickname]</code></pre></p>
+<p><pre><code>/roster [command] [args..]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>View, add to, and remove from your roster.
-Passing no arguments lists all contacts in your roster.
-online        - Show all online contacts in your roster.
-show          - Show the roster panel in the console window.
-hide          - Hide the roster panel.
-show offline  - Show offline contacts in the roster panel.
-hide offline  - Hide offline contacts in the roster panel.
-show resource - Show contact's connected resources in the roster panel.
-hide resource - Hide contact's connected resources in the roster panel.
-by group      - Group contacts in the roster panel by roster group.
-by presence   - Group contacts in the roster panel by presence.
-by none       - No grouping in the roster panel.
-size          - Percentage of the screen taken up by the roster (1-99).
-add           - Add a new item, jid is required, nickname is optional.
-remove        - Removes a contact, jid is required.
-nick          - Changes a contacts nickname, both jid and nickname are required,
-clearnick     - Removes the current nickname, jid is required.
+<p><pre><code>Manage your roster, and roster display settings.
 
-Example : /roster (show your roster)
-Example : /roster add someone@contacts.org (add the contact)
-Example : /roster add someone@contacts.org Buddy (add the contact with nickname 'Buddy')
-Example : /roster remove someone@contacts.org (remove the contact)
-Example : /roster nick myfriend@chat.org My Friend
-Example : /roster clearnick kai@server.com (clears nickname)
+command - online|show|hide|by|size|add|remove|nick|clearnick
+
+online         : Show all online contacts in your roster.
+show           : Show the roster panel.
+show offline   : Show offline contacts in the roster panel.
+show resource  : Show contact's connected resources in the roster panel.
+hide           : Hide the roster panel.
+hide offline   : Hide offline contacts in the roster panel.
+hide resource  : Hide contact's connected resources in the roster panel.
+by group       : Group contacts in the roster panel by roster group.
+by presence    : Group contacts in the roster panel by presence.
+by none        : No grouping in the roster panel.
+size           : Percentage of the screen taken up by the roster (1-99).
+add jid [nick] : Add a new item to the roster.
+remove jid     : Removes an item from the roster.
+nick jid nick  : Change a contacts nickname.
+clearnick jid  : Removes the current nickname.
+
+Passing no arguments lists all contacts in your roster.
+
+Example: /roster (show your roster)
+Example: /roster add someone@contacts.org (add the contact)
+Example: /roster add someone@contacts.org Buddy (add the contact with nickname 'Buddy')
+Example: /roster remove someone@contacts.org (remove the contact)
+Example: /roster nick myfriend@chat.org My Friend
+Example: /roster clearnick kai@server.com (clears nickname)
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -814,15 +843,17 @@ Example : /roster clearnick kai@server.com (clears nickname)
 <p>Usage:</p>
 <p><pre><code>/software [fulljid|nick]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Find out a contact, or room members software version information, if such requests are supported.
-If in the console window or a regular chat window, a full JID is required.
-If in a chat room, the nickname is required.
-If in private chat, no parameter is required.
+<p><pre><code>Find out a contact, or room members software version information.
+
+fulljid : If in the console or a chat window, the full JID for which you wish to see software information.
+nick    : If in a chat room, nickname for which you wish to see software information.
+
+If in private chat initiated from a chat room, no parameter is required.
 If the contact's software does not support software version requests, nothing will be displayed.
 
-Example : /software mybuddy@chat.server.org/laptop (contact's laptop resource)
-Example : /software mybuddy@chat.server.org/phone (contact's phone resource)
-Example : /software bruce (room member)
+Example: /software mybuddy@chat.server.org/laptop (contact's laptop resource)
+Example: /software mybuddy@chat.server.org/phone (contact's phone resource)
+Example: /software bruce (room member)
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -840,8 +871,7 @@ Example : /software bruce (room member)
 <p>Usage:</p>
 <p><pre><code>/states on|off</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Sending of chat state notifications during chat sessions.
-Such as whether you have become inactive, or have closed the chat window.
+<p><pre><code>Send chat state notifications during chat sessions.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -851,10 +881,14 @@ Such as whether you have become inactive, or have closed the chat window.
 <p><pre><code>/status [contact|nick]</code></pre></p>
 <p>Details:</p>
 <p><pre><code>Find out a contact, or room members presence information.
+
+contact : The contact who's presence you which to see.
+nick    : If in a chat room, the occupant who's presence you wish to see.
+
 If in a chat window the parameter is not required, the current recipient will be used.
 
-Example : /status buddy@server.com
-Example : /status jon
+Example: /status buddy@server.com
+Example: /status jon
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -863,31 +897,41 @@ Example : /status jon
 <p>Usage:</p>
 <p><pre><code>/statuses console|chat|muc setting</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Configure how presence changes are displayed in various windows.
-Settings:
-  all - Show all presence changes.
-  online - Show only online/offline changes.
-  none - Don't show any presence changes.
+<p><pre><code>Configure which presence changes are displayed in various windows.
+
+console : Configure what is displayed in the console window.
+chat    : Configure what is displayed in chat windows.
+muc     : Configure what is displayed in chat room windows.
+
+Available options are:
+
+all    : Show all presence changes.
+online : Show only online/offline changes.
+none   : Don't show any presence changes.
+
 The default is 'all' for all windows.
+
+Example: /statuses console none
+Example: /statuses chat online
+Example: /statuses muc all
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="sub"></a>
 <h4>/sub</h4>
 <p>Usage:</p>
-<p><pre><code>/sub command [jid]</code></pre></p>
+<p><pre><code>/sub request|allow|deny|show|sent|received [jid]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>command : One of the following,
-request  : Send a subscription request to the user to be informed of their
-         : presence.
-allow    : Approve a contact's subscription reqeust to see your presence.
-deny     : Remove subscription for a contact, or deny a request
-show     : Show subscriprion status for a contact.
-sent     : Show all sent subscription requests pending a response.
-received : Show all received subscription requests awaiting your response.
+<p><pre><code>Manage subscriptions to contact presence.
 
-The optional 'jid' parameter only applys to 'request', 'allow', 'deny' and 'show'
-If it is omitted the contact of the current window is used.
+request [jid] : Send a subscription request to the user.
+allow [jid]   : Approve a contact's subscription request.
+deny [jid]    : Remove subscription for a contact, or deny a request
+show [jid]    : Show subscription status for a contact.
+sent          : Show all sent subscription requests pending a response.
+received      : Show all received subscription requests awaiting your response.
+
+If jid is omitted, the contact of the current window is used.
 
 Example: /sub request myfriend@jabber.org
 Example: /sub allow myfriend@jabber.org
@@ -901,8 +945,10 @@ Example: /sub sent
 <p>Usage:</p>
 <p><pre><code>/subject set|clear [subject]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>set subject  - Set the room subject.
-clear        - Clear the room subject.
+<p><pre><code>Set or clear room subject.
+
+set subject  : Set the room subject.
+clear        : Clear the room subject.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -911,14 +957,14 @@ clear        - Clear the room subject.
 <p>Usage:</p>
 <p><pre><code>/theme list|set|colours [theme-name]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Change the colour settings used.
+<p><pre><code>Load a theme, includes colours and UI options.
 
 list           : List all available themes.
-set theme-name : Load the named theme."default" will reset to the default colours.
+set theme-name : Load the named theme. 'default' will reset to the default theme.
 colours        : Show the colour values as rendered by the terminal.
 
-Example : /theme list
-Example : /theme set mycooltheme
+Example: /theme list
+Example: /theme set mycooltheme
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -936,9 +982,11 @@ Example : /theme set mycooltheme
 <p>Usage:</p>
 <p><pre><code>/tiny url</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Send the url as a tiny url.
+<p><pre><code>Send url as tinyurl in current chat.
 
-Example : /tiny http://www.profanity.im
+url : The url to make tiny.
+
+Example: /tiny http://www.profanity.im
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -948,8 +996,9 @@ Example : /tiny http://www.profanity.im
 <p><pre><code>/titlebar show|goodbye on|off</code></pre></p>
 <p>Details:</p>
 <p><pre><code>Show or hide a title and exit message in the terminal window title.
-show    - Show current logged in user, and unread messages in the title.
-goodbye - Show a message in the title when exiting profanity.
+
+show    : Show current logged in user, and unread messages in the title.
+goodbye : Show a message in the title when exiting profanity.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -958,8 +1007,7 @@ goodbye - Show a message in the title when exiting profanity.
 <p>Usage:</p>
 <p><pre><code>/vercheck [on|off]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Without a parameter will check for a new release.
-Switching on or off will enable/disable a version check when Profanity starts, and each time the /about command is run.
+<p><pre><code>Enable/disable a version check when Profanity starts, and each time the /about command is run.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -968,18 +1016,16 @@ Switching on or off will enable/disable a version check when Profanity starts, a
 <p>Usage:</p>
 <p><pre><code>/who [status|role|affiliation] [group]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Normal usage:
-Status may be one of - online, offline, away, dnd, xa, chat, available, unavailable, or any where:
-online      : Contacts that are online, chat, away, xa, dnd
-available   : Contacts that are available for chat - online, chat.
-unavailable : Contacts that are not available for chat - offline, away, xa, dnd.
-any         : Contacts with any status (same as calling with no argument).
+<p><pre><code>Show contacts/room occupants with chosen status, role or affiliation
 
-The group argument filters the list by that group.
-
-In a chat room, a role or affiliation may also be supplied instead of status.
-Roles: moderator, participant, visitor
-Affiliations: owner, admin, member
+status : online|offline|away|dnd|xa|chat|available|unavailable|any
+  online      : Contacts that are online, chat, away, xa, dnd
+  available   : Contacts that are available for chat - online, chat.
+  unavailable : Contacts that are not available for chat - offline, away, xa, dnd.
+  any         : Contacts with any status (same as calling with no argument).
+role        : moderator|participant|visitor
+affiliation : owner|admin|member
+group       : Filter the results by the specified group.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -989,18 +1035,23 @@ Affiliations: owner, admin, member
 <p><pre><code>/win num</code></pre></p>
 <p>Details:</p>
 <p><pre><code>Show the contents of a specific window in the main window area.
+
+num - Window number to display.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="wins"></a>
 <h4>/wins</h4>
 <p>Usage:</p>
-<p><pre><code>/wins [tidy|prune|swap] [source] [target]</code></pre></p>
+<p><pre><code>/wins [tidy|prune|swap] [source target]</code></pre></p>
 <p>Details:</p>
-<p><pre><code>Passing no argument will list all currently active windows and information about their usage.
-tidy               : Shuffle windows so there are no gaps.
+<p><pre><code>Show a list of windows, or tidy or swap.
+
+tidy               : Move windows so there are no gaps.
 prune              : Close all windows with no unread messages, and then tidy as above.
 swap source target : Swap windows, target may be an empty position.
+
+Passing no argument will list all currently active windows and information about their usage.
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -1016,12 +1067,11 @@ swap source target : Swap windows, target may be an empty position.
 <a name="xa"></a>
 <h4>/xa</h4>
 <p>Usage:</p>
-<p><pre><code>/xa [msg]</code></pre></p>
+<p><pre><code>/xa [message]</code></pre></p>
 <p>Details:</p>
 <p><pre><code>Set your status to 'xa', meaning 'extended away', with the optional message.
-Your current status can be found in the top right of the screen.
 
-Example : /xa This meeting is going to be a long one
+Example: /xa This meeting is going to be a long one
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
