@@ -30,6 +30,7 @@
                         <li><a href="#gtalk">Will Profanity work with Google Talk?</a></li>
                         <li><a href="#facebook">Will Profanity work with Facebook Chat?</a></li>
                         <li><a href="#msn">Will Profanity work with MSN/Yahoo/AIM/IRC etc?</a></li>
+                        <li><a href="#keychain">Can Profanity use my keychain/keyring to retrieve my password?</a>
                         <li><a href="#multiaccount">Can I connect to more than one account at a time?</a></li>
                         <li><a href="#termf1">Why does the F1 key open terminal help rather than going back to the main console window?</a></li>
                         <li><a href="#utf8encoding">Why can I not type anything in the input bar?</a></li>
@@ -44,7 +45,7 @@
             <a name="why"></a>
             <h4>Why another console based XMPP client?</h4>
             <p>Profanity was originally written for two main reasons. Firstly, the author wanted something similar to Irssi, but with a focus on XMPP for use in his workplace. Secondly, it was a bit of fun and a learning exercise.</p>
-            <p>Profanity is still a young project and there are plenty of good alternatives out there (although of course we'd love you to use Profanity), see the list at <a href="http://xmpp.org/xmpp-software/clients/">xmpp.org</a>.</p>
+            <p>Profanity is still a young project and there are plenty of good alternatives out there (although of course we'd love you to use Profanity), see the list at <a href="http://xmpp.org/xmpp-software/clients/" target="_blank">xmpp.org</a>.</p>
             <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
@@ -81,6 +82,20 @@
             <p>No, Profanity is purely an XMPP chat client.</p>
             <a href="#top"><h5>back to top</h5></a>
         </section>
+        <section>
+            <a name="keychain"></a>
+            <h4>Can Profanity use my keychain/keyring to retrieve my password?</h4>
+            <p>Yes, the <a href="reference.html#account"></a><code>/account</code> command includes an <code>eval_password</code> property which can be used to execute a script to retrieve your password.</p>
+            <p>For example on Ubuntu using gnome-keyring and <a href="https://apps.ubuntu.com/cat/applications/libsecret-tools/" target="_blank"><code>secret-tool</code></a>:</p>
+            <p>Add the password:</p>
+<pre><code>secret-tool store --label="Bobs jabber password" xmpp bob@server.org</code></pre>
+            <p>Command to use for the account <code>eval_password</code> property:</p>
+<pre><code>secret-tool lookup xmpp bob@server.org</code></pre>
+            <p>On OS X, use the following command for the <code>eval_password</code> property:</p>
+<pre><code>security find-generic-password -s bob@server.org -w</code></pre>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+
         <section>
             <a name="multiaccount"></a>
             <h4>Can I connect to more than one account at a time?</h4>
