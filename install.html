@@ -22,44 +22,19 @@
             <h3>Contents</h3>
             
             <ul>
-                <li><a href="#manual">Manual install</a>
-                <li><a href="#installscript">Using the helper script</a>
                 <li><a href="#linuxdistros">Linux packages</a>
                 <ul>
                     <li><a href="#arch">Arch</a>, <a href="#debian">Debian</a>, <a href="#gentoo">Gentoo</a>, 
-                        <a href="#other-linux">Other distros</a></li>
+                        <a href="#slackware">Slackware</a>, <a href="#ubuntu">Ubuntu</a>, <a href="#other-linux">Other distros</a></li>
                 </ul>
                 <li><a href="#os-x">Installing on Mac OS X</a>
                 <ul>
                     <li><a href="#homebrew">Homebrew</a>, <a href="#macports">Macports</a></li>
                 </ul>
                 <li><a href="#windows">Installing on Windows</a></li>
+                <li><a href="#installscript">Using the helper script</a>
+                <li><a href="#manual">Manual install</a>
             </ul>
-        </section>
-        <section>
-            <a name="manual"></a>
-            <h3>Manual install</h3>
-
-            <p>Profanity uses the autotools for installation from source.<p>
-            <p>After downloading the archive from the homepage, and extracting it, use the following commands to install:<p>
-            <pre><code>./configure
-make
-make install</code></pre>
-            <p>The final step requires root privileges.</p>
-            <p>If you cloned the git repository rather than downloading a released version, an additional step is required to generate the <code>./configure</code> script:<p>
-            <pre><code>./bootstrap.sh
-./configure
-make
-make install</code></pre>
-            <p>Various dependencies are required to install Profanity, the <code>./configure</code> script will fail if the minimum dependencies cannot be found.<p>
-        </section>
-        <section>
-            <a name="installscript"></a>
-            <h3>Using the helper script</h3>
-
-            <p>A helper script has been written to install all required and optional dependencies and run the above steps. This script currently supports Ubuntu, Fedora, OpenSuse and Cygwin.<p>
-            <p>Whether you downloaded and extracted the archive, or cloned the git repository, you can run the following to install:<p>
-            <pre><code>./install-all.sh</code></pre>
         </section>
         <section>
             <a name="linuxdistros"></a>
@@ -69,8 +44,11 @@ make install</code></pre>
 
             <a name="arch"></a>
             <h4>Arch</h4>
-            <p>Profanity is available in community repository, to install:</p>
-            <pre><code>pacman -S profanity</code></pre>
+            <p>Profanity is available in the community repository, add the repository in <code>/etc/pacman.conf</code>: </p>
+            <pre><code>[community]
+Include = /etc/pacman.d/mirrorlist</code></pre>
+            <p>Install:</p>
+            <pre><code>pacman -Sy profanity</code></pre>
             <hr>
 
             <a name="debian"></a>
@@ -91,13 +69,23 @@ make install</code></pre>
             <p>To install latest development version, add <code>net-im/profanity</code> to the <code>package.keywords</code> file:</p>
             <pre><code>echo "=net-im/profanity-9999 **" >> /etc/portage/package.keywords
 emerge =profanity-9999</code></pre>
+            <hr>
 
+            <a name="slackware"></a>
+            <h4>Slackware</h4>
+            <p>Profanity is available at the <a href="http://slackbuilds.org/repository/14.1/network/profanity/" target="_blank">slackbuilds.org</a> repository, to install see the <a href="http://slackbuilds.org/howto/" target="_blank">guide</a>.</p>
+            <hr>
+
+            <a name="ubuntu"></a>
+            <h4>Ubuntu</h4>
+            <p>Profanity is available in the Universe repository, to add the repository see <a href="https://help.ubuntu.com/community/Repositories/Ubuntu#Adding_Repositories_in_Ubuntu" target="_blank">Adding repositories in Ubuntu</a>, to install:</p>
+            <pre><code>sudo apt-get install profanity</code></pre>
             <hr>
 
             <a name="other-linux"></a>
             <h4>Other distros</h4>
             <p>For other linux distributions, the install script is a good guide.  You will need to install the development packages for dependencies.</p>
-            <p>Profanity uses the libstrophe XMPP library which must be downloaded and built from source which can be found at <a href="https://github.com/strophe/libstrophe">Github</a>.</p>
+            <p>Profanity uses the libstrophe XMPP library which must be downloaded and built from source which can be found at <a href="https://github.com/strophe/libstrophe" target="_blank">Github</a>.</p>
         </section>
         <section>
             <a name="os-x"></a>
@@ -139,6 +127,31 @@ brew install profanity --HEAD</code></pre>
 cd profanity-0.4.6</code></pre>
             <p>Run the installer:</p>
             <pre><code>./install-all.sh</code></pre>
+        </section>
+        <section>
+            <a name="installscript"></a>
+            <h3>Using the helper script</h3>
+
+            <p>A helper script has been written to install all required and optional dependencies and run the above steps. This script currently supports Ubuntu, Fedora, OpenSuse and Cygwin.<p>
+            <p>Whether you downloaded and extracted the archive, or cloned the git repository, you can run the following to install:<p>
+            <pre><code>./install-all.sh</code></pre>
+        </section>
+        <section>
+            <a name="manual"></a>
+            <h3>Manual install</h3>
+
+            <p>Profanity uses the autotools for installation from source.<p>
+            <p>After downloading the archive from the homepage, and extracting it, use the following commands to install:<p>
+            <pre><code>./configure
+make
+make install</code></pre>
+            <p>The final step requires root privileges.</p>
+            <p>If you cloned the git repository rather than downloading a released version, an additional step is required to generate the <code>./configure</code> script:<p>
+            <pre><code>./bootstrap.sh
+./configure
+make
+make install</code></pre>
+            <p>Various dependencies are required to install Profanity, the <code>./configure</code> script will fail if the minimum dependencies cannot be found.<p>
         </section>
     </article>
     <footer>
