@@ -699,12 +699,13 @@
 /otr answer &lt;answer&gt;
 /otr policy manual|opportunistic|always
 /otr log on|off|redact
+/otr char &lt;char&gt;
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Off The Record (OTR) commands to manage keys, and perform OTR encryption during chat sessions.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>libver</code></td><td>Show which version of the libotr library is being used.</td></tr><tr><td><code>gen</code></td><td>Generate your private key.</td></tr><tr><td><code>myfp</code></td><td>Show your fingerprint.</td></tr><tr><td><code>theirfp</code></td><td>Show contacts fingerprint.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OTR session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OTR session,</td></tr><tr><td><code>trust|untrust</code></td><td>Indicate whether or not you trust the contact's fingerprint.</td></tr><tr><td><code>secret &lt;secret&gt;</code></td><td>Verify a contact's identity using a shared secret.</td></tr><tr><td><code>question &lt;question&gt; &lt;answer&gt;</code></td><td>Verify a contact's identity using a question and expected answer.</td></tr><tr><td><code>answer &lt;answer&gt;</code></td><td>Respond to a question answer verification request with your answer.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OTR policy to manual, OTR sessions must be started manually.</td></tr><tr><td><code>policy opportunistic</code></td><td>Set the global OTR policy to opportunistic, and OTR sessions will be attempted upon starting a conversation.</td></tr><tr><td><code>policy always</code></td><td>Set the global OTR policy to always, an error will be displayed if an OTR session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OTR encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OTR encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr></table>
+<table><tr><td><code>libver</code></td><td>Show which version of the libotr library is being used.</td></tr><tr><td><code>gen</code></td><td>Generate your private key.</td></tr><tr><td><code>myfp</code></td><td>Show your fingerprint.</td></tr><tr><td><code>theirfp</code></td><td>Show contacts fingerprint.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OTR session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OTR session,</td></tr><tr><td><code>trust|untrust</code></td><td>Indicate whether or not you trust the contact's fingerprint.</td></tr><tr><td><code>secret &lt;secret&gt;</code></td><td>Verify a contact's identity using a shared secret.</td></tr><tr><td><code>question &lt;question&gt; &lt;answer&gt;</code></td><td>Verify a contact's identity using a question and expected answer.</td></tr><tr><td><code>answer &lt;answer&gt;</code></td><td>Respond to a question answer verification request with your answer.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OTR policy to manual, OTR sessions must be started manually.</td></tr><tr><td><code>policy opportunistic</code></td><td>Set the global OTR policy to opportunistic, and OTR sessions will be attempted upon starting a conversation.</td></tr><tr><td><code>policy always</code></td><td>Set the global OTR policy to always, an error will be displayed if an OTR session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OTR encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OTR encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OTR encrypted messages.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/otr log off
 /otr policy manual
@@ -714,6 +715,7 @@
 /otr theirfp
 /otr question "What is the name of my rabbit?" fiffi
 /otr end
+/otr char *
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -734,22 +736,24 @@
 <p><b>Synopsis</b></p>
 <p><pre><code>/pgp libver
 /pgp keys
-/pgp fps
+/pgp contacts
 /pgp setkey &lt;contact&gt; &lt;keyid&gt;
 /pgp start [&lt;contact&gt;]
 /pgp end
 /pgp log on|off|redact
+/pgp char &lt;char&gt;
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Open PGP commands to manage keys, and perform PGP encryption during chat sessions. See the /account command to set your own PGP key.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>libver</code></td><td>Show which version of the libgpgme library is being used.</td></tr><tr><td><code>keys</code></td><td>List all keys.</td></tr><tr><td><code>fps</code></td><td>Show known fingerprints.</td></tr><tr><td><code>setkey &lt;contact&gt; &lt;keyid&gt;</code></td><td>Manually associate a key ID with a JID.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start PGP encrypted chat, current contact will be used if not specified.</td></tr><tr><td><code>end</code></td><td>End PGP encrypted chat with the current recipient.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of PGP encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log PGP encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr></table>
+<table><tr><td><code>libver</code></td><td>Show which version of the libgpgme library is being used.</td></tr><tr><td><code>keys</code></td><td>List all keys known to the system.</td></tr><tr><td><code>contacts</code></td><td>Show contacts with assigned public keys.</td></tr><tr><td><code>setkey &lt;contact&gt; &lt;keyid&gt;</code></td><td>Manually associate a contact with a public key.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start PGP encrypted chat, current contact will be used if not specified.</td></tr><tr><td><code>end</code></td><td>End PGP encrypted chat with the current recipient.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of PGP encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log PGP encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to PGP encrypted messages.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/pgp log off
 /pgp setkey buddy@buddychat.org BA19CACE5A9592C5
 /pgp start buddy@buddychat.org
 /pgp end
+/pgp char P
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
