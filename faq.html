@@ -28,6 +28,7 @@
                         <li><a href="#why">Why another console based XMPP client?</a></li>
                         <li><a href="#platform">Will Profanity run on &ltsome platform&gt?</a></li>
                         <li><a href="#gtalk">Will Profanity work with Google Talk?</a></li>
+                        <li><a href="#gtalkrooms">How do I start groupchat with Google Talk?</a></li>
                         <li><a href="#facebook">Will Profanity work with Facebook Chat?</a></li>
                         <li><a href="#msn">Will Profanity work with MSN/Yahoo/AIM/IRC etc?</a></li>
                         <li><a href="#keychain">Can Profanity use my keychain/keyring to retrieve my password?</a>
@@ -64,6 +65,19 @@
             <p>If you are using a Google Apps account, the details are slightly different. For example, if your Google Apps user is "someuser" and your Google Apps domain is "company.org" you can connect with the following:</p>
             <pre><code>/connect someuser@company.org server talk.google.com</code></pre>
             <p>Google is deprecating older authentication mechanisms in favour or OAUTH2, which profanity does not yet support.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="gtalkrooms"></a>
+            <h4>How to I start groupchat with Google Talk?</h4>
+            <p>Google Talk has a few constrains/subtleties for performing groupchat. Firstly your account <code>muc</code> property must be set to <code>groupchat.google.com</code>, you can do this with the following command:</p>
+            <pre><code>/account set someaddress@gmail.com muc groupchat.google.com</code></pre>
+            <p>Secondly, the chat room name must follow a certain convention <code>private-chat-[UUID]@[service]</code> where <code>UUID</code> is a unique identifier for the room, and <code>service</code> is the property set above. Profanity will automatically use this convention and generate the UUID for you if you simply enter:</p>
+            <pre><code>/join</code></pre>
+            <p>A new groupchat will be created for you.</p>
+            <p>To invite users to the room use the <a href="reference.html#invite"><code>/invite</code></a> command as usual.</p>
+            <p>Finally, depending on the client your contacts are using, they may appear as a random number rather than their user name. To show the email address associated with each contact:</p>
+            <pre><code>/occupants show jid</code></pre>
             <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
