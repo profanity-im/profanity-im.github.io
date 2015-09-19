@@ -772,13 +772,13 @@
 <a name="prefs"></a>
 <h4>/prefs</h4>
 <p><b>Synopsis</b></p>
-<p><pre><code>/prefs [ui|desktop|chat|log|conn|presence]
+<p><pre><code>/prefs [ui|desktop|chat|log|conn|presence|otr|pgp]
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Show preferences for different areas of functionality. Passing no arguments shows all preferences.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>ui</code></td><td>User interface preferences.</td></tr><tr><td><code>desktop</code></td><td>Desktop notification preferences.</td></tr><tr><td><code>chat</code></td><td>Chat state preferences.</td></tr><tr><td><code>log</code></td><td>Logging preferences.</td></tr><tr><td><code>conn</code></td><td>Connection handling preferences.</td></tr><tr><td><code>presence</code></td><td>Chat presence preferences.</td></tr></table>
+<table><tr><td><code>ui</code></td><td>User interface preferences.</td></tr><tr><td><code>desktop</code></td><td>Desktop notification preferences.</td></tr><tr><td><code>chat</code></td><td>Chat state preferences.</td></tr><tr><td><code>log</code></td><td>Logging preferences.</td></tr><tr><td><code>conn</code></td><td>Connection handling preferences.</td></tr><tr><td><code>presence</code></td><td>Chat presence preferences.</td></tr><tr><td><code>otr</code></td><td>Off The Record preferences.</td></tr><tr><td><code>pgp</code></td><td>OpenPGP preferences.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="presence"></a>
@@ -1167,6 +1167,7 @@
 <h4>/wins</h4>
 <p><b>Synopsis</b></p>
 <p><pre><code>/wins tidy
+/wins autotidy on|off
 /wins prune
 /wins swap &lt;source&gt; &lt;target&gt;
 </code></pre></p>
@@ -1174,19 +1175,7 @@
 <p>Manage windows. Passing no argument will list all currently active windows and information about their usage.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>tidy</code></td><td>Move windows so there are no gaps.</td></tr><tr><td><code>prune</code></td><td>Close all windows with no unread messages, and then tidy so there are no gaps.</td></tr><tr><td><code>swap &lt;source&gt; &lt;target&gt;</code></td><td>Swap windows, target may be an empty position.</td></tr></table>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
-<a name="winstidy"></a>
-<h4>/winstidy</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/winstidy on|off
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Auto tidy windows, when a window is closed, windows will be moved to fill the gap.
-</p>
-<p><b>Arguments</b></p>
-<table><tr><td><code>on|off</code></td><td>Enable or disable auto window tidy.</td></tr></table>
+<table><tr><td><code>tidy</code></td><td>Move windows so there are no gaps.</td></tr><tr><td><code>autotidy on|off</code></td><td>Automatically remove gaps when closing windows.</td></tr><tr><td><code>prune</code></td><td>Close all windows with no unread messages, and then tidy so there are no gaps.</td></tr><tr><td><code>swap &lt;source&gt; &lt;target&gt;</code></td><td>Swap windows, target may be an empty position.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="wrap"></a>
