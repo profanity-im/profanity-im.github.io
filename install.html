@@ -14,8 +14,9 @@
 <body id="article">
     <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
     <header>
-        <a href="index.html"><h1>Profani<span class="kern-ty">ty</span></h1></a>
+        <a href="userguide.html"><h1>User Guide</h1></a>
         <h2>Installation Guide</h2>
+        
     </header>
     <article id="manual">
         <section>
@@ -24,8 +25,11 @@
             <ul>
                 <li><a href="#linuxdistros">Linux packages</a>
                 <ul>
-                    <li><a href="#arch">Arch</a>, <a href="#debian">Debian</a>, <a href="#gentoo">Gentoo</a>, 
-                        <a href="#slackware">Slackware</a>, <a href="#ubuntu">Ubuntu</a>, <a href="#other-linux">Other distros</a></li>
+                    <li>
+                        <a href="#arch">Arch</a>, <a href="#debian">Debian</a>, <a href="#gentoo">Gentoo</a>, 
+                        <a href="#opensuse">OpenSUSE</a>, <a href="#slackware">Slackware</a>, 
+                        <a href="#ubuntu">Ubuntu</a>, <a href="#other-linux">Other distros</a>
+                    </li>
                 </ul>
                 <li><a href="#os-x">Installing on Mac OS X</a>
                 <ul>
@@ -69,6 +73,11 @@ Include = /etc/pacman.d/mirrorlist</code></pre>
             <p>To install latest development version, add <code>net-im/profanity</code> to the <code>package.keywords</code> file:</p>
             <pre><code>echo "=net-im/profanity-9999 **" >> /etc/portage/package.keywords
 emerge =profanity-9999</code></pre>
+            <hr>
+
+            <a name="opensuse"></a>
+            <h4>OpenSUSE</h4>
+            <p>Profanity is available from <a href="https://software.opensuse.org/package/profanity">OpenSUSE Tumbleweed</a>.</p>
             <hr>
 
             <a name="slackware"></a>
@@ -123,8 +132,8 @@ brew install profanity --HEAD</code></pre>
             <p>Put the zip somewhere on your Cygwin drive for example:</p>
             <pre><code>C:\cygwin\home\boothj5</code></pre>
             <p>Unzip the file and cd into the directory e.g:</p>
-            <pre><code>unzip profanity-0.4.6.zip
-cd profanity-0.4.6</code></pre>
+            <pre><code>unzip profanity-0.4.7.zip
+cd profanity-0.4.7</code></pre>
             <p>Run the installer:</p>
             <pre><code>./install-all.sh</code></pre>
         </section>

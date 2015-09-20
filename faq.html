@@ -25,28 +25,21 @@
             <ul>
                 <li>
                     <ul>
-                        <li><a href="#why">Why another console based XMPP client?</a></li>
                         <li><a href="#platform">Will Profanity run on &ltsome platform&gt?</a></li>
                         <li><a href="#gtalk">Will Profanity work with Google Talk?</a></li>
+                        <li><a href="#gtalkrooms">How do I start groupchat with Google Talk?</a></li>
                         <li><a href="#facebook">Will Profanity work with Facebook Chat?</a></li>
+                        <li><a href="#slack">Will Profanity work with Slack?</a></li>
                         <li><a href="#msn">Will Profanity work with MSN/Yahoo/AIM/IRC etc?</a></li>
                         <li><a href="#keychain">Can Profanity use my keychain/keyring to retrieve my password?</a>
                         <li><a href="#multiaccount">Can I connect to more than one account at a time?</a></li>
                         <li><a href="#termf1">Why does the F1 key open terminal help rather than going back to the main console window?</a></li>
                         <li><a href="#utf8encoding">Why can I not type anything in the input bar?</a></li>
-                        <li><a href="#selecttext">How can I select text from Profanity to copy to the clipboard?</a></li>
                         <li><a href="#bugs">I've found a bug/have a feature request, who do I tell?</a></li>
                         <li><a href="#contrib">I'd like to contribute, what should I do?</a></li>
                     </ul>
                 </li>
             </ul>
-        </section>
-        <section>
-            <a name="why"></a>
-            <h4>Why another console based XMPP client?</h4>
-            <p>Profanity was originally written for two main reasons. Firstly, the author wanted something similar to Irssi, but with a focus on XMPP for use in his workplace. Secondly, it was a bit of fun and a learning exercise.</p>
-            <p>Profanity is still a young project and there are plenty of good alternatives out there (although of course we'd love you to use Profanity), see the list at <a href="http://xmpp.org/xmpp-software/clients/" target="_blank">xmpp.org</a>.</p>
-            <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
             <a name="platform"></a>
@@ -67,9 +60,28 @@
             <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
+            <a name="gtalkrooms"></a>
+            <h4>How to I start groupchat with Google Talk?</h4>
+            <p>Google Talk has a few constrains/subtleties for performing groupchat. Firstly your account <code>muc</code> property must be set to <code>groupchat.google.com</code>, you can do this with the following command:</p>
+            <pre><code>/account set someaddress@gmail.com muc groupchat.google.com</code></pre>
+            <p>Secondly, the chat room name must follow a certain convention <code>private-chat-[UUID]@[service]</code> where <code>UUID</code> is a unique identifier for the room, and <code>service</code> is the property set above. Profanity will automatically use this convention and generate the UUID for you if you simply enter:</p>
+            <pre><code>/join</code></pre>
+            <p>A new groupchat will be created for you.</p>
+            <p>To invite users to the room use the <a href="reference.html#invite"><code>/invite</code></a> command as usual.</p>
+            <p>Finally, depending on the client your contacts are using, they may appear as a random number rather than their user name. To show the email address associated with each contact:</p>
+            <pre><code>/occupants show jid</code></pre>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
             <a name="facebook"></a>
             <h4>Will Profanity work with Facebook Chat?</h4>
             <p>Facebook have recently announced that they will no longer support the open XMPP chat protocol, so Profanity will no longer work with Facebook Chat.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="slack"></a>
+            <h4>Will Profanity work with Slack?</h4>
+            <p>Provided the XMPP gateway has been enabled for your team, Profanity will work. See <a target="_blank" href="https://slack.zendesk.com/hc/en-us/articles/201727913-Connecting-to-Slack-over-IRC-and-XMPP">the Slack page on gateways.</a></p>
             <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
@@ -81,10 +93,11 @@
         <section>
             <a name="keychain"></a>
             <h4>Can Profanity use my keychain/keyring to retrieve my password?</h4>
-            <p>Yes, the <a href="reference.html#account"></a><code>/account</code> command includes an <code>eval_password</code> property which can be used to execute a script to retrieve your password.</p>
+            <p>Yes, the <a href="reference.html#account"><code>/account</code></a> command includes an <code>eval_password</code> property which can be used to execute a script to retrieve your password.</p>
             <p>For example on Ubuntu using gnome-keyring and <a href="https://apps.ubuntu.com/cat/applications/libsecret-tools/" target="_blank"><code>secret-tool</code></a>:</p>
-            <p>Add the password:</p>
-<pre><code>secret-tool store --label="Bobs jabber password" xmpp bob@server.org</code></pre>
+            <p>To add the password:</p>
+<pre><code>secret-tool store --label="Bobs account" xmpp bob@server.org</code></pre>
+            <p>You will be prompted to enter the password.</p>
             <p>Command to use for the account <code>eval_password</code> property:</p>
 <pre><code>secret-tool lookup xmpp bob@server.org</code></pre>
             <p>On OS X, use the following command for the <code>eval_password</code> property:</p>
@@ -109,12 +122,6 @@
             <h4>Why can I not type anything in the input bar?</h4>
             <p>Profanity uses the ncursesw library to support wide characters, which requires a UTF-8 encoding.  Try running the following (or the equivalent for your language's UTF-8 encoding) in the terminal before running profanity.</p>
 <pre><code>export LANG=en_US.UTF-8</code></pre>
-            <a href="#top"><h5>back to top</h5></a>
-        </section>
-        <section>
-            <a name="selecttext"></a>
-            <h4>How can I select text from Profanity to copy to the clipboard?</h4>
-            <p>Selecting text should work as normal.  If the <a href="reference.html#mouse"><code>/mouse</code></a> setting is enabled, you have to hold the shift key down to select text.</p>
             <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
