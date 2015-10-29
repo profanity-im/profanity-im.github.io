@@ -68,9 +68,9 @@ some.friend@chat.server.org/phone</code></pre>
 
             <p><b>Priorities</b></p>
 
-            <p>Since a client may be connected using more than one client, the server needs to know where to route messages, therefore resources are given a priority</p>
+            <p>Since a user may be connected using more than one client, the server needs to know where to route messages, therefore resources are given a priority</p>
             <p>A priority is a number between -128 and 127.</p>
-            <p>The exact rules to determine which resource (laptop or phone, for example) gets a message, vary between server implmentations, but most follow something like the following:</p>
+            <p>The exact rules to determine which resource (laptop or phone, for example) gets a message, vary between server implementations, but most follow something like the following:</p>
             <pre><code>Find the resource with the highest priority
 Send the message to that resource
 If two resources have the same priority, send to both
