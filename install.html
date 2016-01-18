@@ -107,9 +107,6 @@ emerge =profanity-9999</code></pre>
             <pre><code>brew install profanity</code></pre>
             <p>Desktop notifications are an optional (disabled by default) dependency since terminal-notifier is not available on all versions of OSX. To attempt to install the formula with desktop notification support:</p>
             <pre><code>brew install profanity --with-terminal-notifier</code></pre>
-            <p>Note also that the brew package does not include the GPGME dependency which is required for PGP support. To enable PGP support:</p>
-            <pre><code>brew install gpgme
-brew install profanity --build-from-source --with-terminal-notifier</code></pre>
             <p>To ensure you have all features supported <code>profanity -v</code> should show the following:</p>
             <pre><code>Desktop notification support: Enabled
 OTR support: Enabled
