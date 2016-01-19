@@ -135,14 +135,12 @@ brew install profanity --HEAD</code></pre>
             You can install it from the <a id="cyg-ports" target="_blank" href="https://sourceware.org/cygwinports/">Cygwin Ports project</a>.</p>
 
             <h4>Download and Install</h4>
-            <p>In your Cygwin home directory download the zip, extract and cd into the directory:</p>
-            <pre><code>wget http://www.profanity.im/profanity-0.4.7.zip
-unzip profanity-0.4.7.zip
-cd profanity-0.4.7</code></pre>
-            <p>Recent changes to Cygwin library packages have <a href="https://github.com/boothj5/profanity/issues/692" target="_blank">broken</a> the supplied install script. A fixed version can be downloaded:</p>
-            <pre><code>wget http://www.profanity.im/install-all-cyg1.sh
-chmod u+x install-all-cyg1.sh
-./install-all-cyg1.sh</code></pre>
+            <p>Recent changes to Cygwin packages means the 0.4.7 release archive on the homepage no longer builds, the instructions below include downloading a patched version which fixes these issues.<p>
+            <p>In your Cygwin home directory download the zip, extract and run the install script:</p>
+            <pre><code>wget http://www.profanity.im/profanity-0.4.7.cyg1.zip
+unzip profanity-0.4.7.cyg1.zip
+cd profanity-0.4.7
+./install-all.sh</code></pre>
         </section>
         <section>
             <a name="installscript"></a>
