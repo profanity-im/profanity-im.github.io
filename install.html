@@ -37,7 +37,7 @@
                 </ul>
                 <li><a href="#windows">Installing on Windows</a></li>
                 <li><a href="#installscript">Using the helper script</a>
-                <li><a href="#manual">Manual install</a>
+                <li><a href="#manualinstall">Manual install</a>
             </ul>
         </section>
         <section>
@@ -107,6 +107,10 @@ emerge =profanity-9999</code></pre>
             <pre><code>brew install profanity</code></pre>
             <p>Desktop notifications are an optional (disabled by default) dependency since terminal-notifier is not available on all versions of OSX. To attempt to install the formula with desktop notification support:</p>
             <pre><code>brew install profanity --with-terminal-notifier</code></pre>
+            <p>To ensure you have all features supported <code>profanity -v</code> should show the following:</p>
+            <pre><code>Desktop notification support: Enabled
+OTR support: Enabled
+PGP support: Enabled</code></pre>
             <p>To install the latest development version, use the tap supplied by robsalasco at Github available <a id="robroom-brew" target="_blank" href="https://github.com/robsalasco/homebrew-profanity">here</a>:</p>
             <pre><code>brew tap robsalasco/homebrew-profanity
 brew install profanity --HEAD</code></pre>
@@ -120,22 +124,23 @@ brew install profanity --HEAD</code></pre>
             <a name="windows"></a>
             <h3>Installing on Windows</h3>
            
-            <p>You will need Cygwin to run profanity on Windows:</p>
-            <p><a href="http://www.cygwin.com">http://www.cygwin.com</a></p>
-            <p>If you don't already have it, install Cygwin by downloading and running:</p>
+            <h4>Install Cygwin</h4>
+            <p>Install Cygwin by downloading and running:</p>
             <p>64Bit: <a href="http://cygwin.com/setup-x86_64.exe">http://cygwin.com/setup-x86_64.exe</a></p>
             <p>32bit: <a href="http://cygwin.com/setup-x86.exe">http://cygwin.com/setup-x86.exe</a></p>
-            <p>You will need <code>wget</code> and <code>unzip</code> to install Profanity which are not by default installed with Cygwin. When running setup.exe (or running it again to install these packages) you can search for them and add them to the install when you are asked to select packages.</p>
+
+            <h4>Dependencies</h4>
+            <p><code>wget</code> and <code>unzip</code> are required to install Profanity. When running setup.exe, search for and add them when you are asked to select packages.</p>
             <p>Note: If you would like to make use of <a href="otr.html">OTR support</a> on Cygwin, you will first need to install the <code>libotr-devel</code> package which is not currently in the offical repositories.
             You can install it from the <a id="cyg-ports" target="_blank" href="https://sourceware.org/cygwinports/">Cygwin Ports project</a>.</p>
-            <p>Download the latest source zip, available on the <a href="index.html">homepage</a>.</p>
-            <p>Put the zip somewhere on your Cygwin drive for example:</p>
-            <pre><code>C:\cygwin\home\boothj5</code></pre>
-            <p>Unzip the file and cd into the directory e.g:</p>
-            <pre><code>unzip profanity-0.4.7.zip
-cd profanity-0.4.7</code></pre>
-            <p>Run the installer:</p>
-            <pre><code>./install-all.sh</code></pre>
+
+            <h4>Download and Install</h4>
+            <p>Recent changes to Cygwin packages means the 0.4.7 release archive on the homepage no longer builds, the instructions below include downloading a patched version which fixes these issues.<p>
+            <p>In your Cygwin home directory download the zip, extract and run the install script:</p>
+            <pre><code>wget http://www.profanity.im/profanity-0.4.7.cyg2.zip
+unzip profanity-0.4.7.cyg2.zip
+cd profanity-0.4.7
+./install-all.sh</code></pre>
         </section>
         <section>
             <a name="installscript"></a>
@@ -146,7 +151,7 @@ cd profanity-0.4.7</code></pre>
             <pre><code>./install-all.sh</code></pre>
         </section>
         <section>
-            <a name="manual"></a>
+            <a name="manualinstall"></a>
             <h3>Manual install</h3>
 
             <p>Profanity uses the autotools for installation from source.<p>
