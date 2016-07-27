@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profanity, a console based XMPP client - User Guide</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="css/profanity.css" type="text/css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/analytics.js"></script>
+</head>
+<body id="article">
+    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">
+    <header>
+        <a href="index.html"><h1>Profani<span class="kern-ty">ty</span></h1></a>
+        <h2>Plugins</h2>
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#overview">Overview</a>
+                <li><a href="#themes-settings">Themes and Settings</a>
+                <ul>
+                    <li>
+                        <a href="#themes">Themes</a>,
+                        <a href="#settings">Settings</a>
+                    </li>
+                </ul>
+                <li><a href="#known-issues">Known Issues</a>
+            </ul>
+        </section>
+        <section>
+            <a name="overview"></a>
+            <h3>Overview</h3>
+            <p>
+                Profanity supports plugins written in Python and C. The <a href="https://github.com/boothj5/profanity-plugins" target="_blank">profanity-plugins</a> project contains various plugins maintained by Profanity's author and other community maintained plugins.
+            </p>
+            <p>
+                The <a href="reference.html#plugins"><code>/plugins</code></a> command can be used to manage plugins, for example to install a Python plugin:
+            </p>
+            <pre><code>/plugins install ~/projects-git/profanity-plugins/say.py</code></pre>
+            <p>
+                If a plugin registers it's own commands, the usual <a href="reference.html#help"><code>/help</code></a> command can be used to find out more information:
+            </p>
+            <pre><code>/help say</code></pre>
+        </section>
+        <section>
+            <a name="themes-settings"></a>
+            <h3>Themes and Settings</h3>
+            <p>
+                Themes and Settings
+            </p>
+            <a name="themes"></a>
+            <h4>Themes</h4>
+            <p>
+                Themes
+            </p>
+            <a name="settings"></a>
+            <h4>Settings</h4>
+            <p>
+                Settings
+            </p>
+        </section>
+        <section>
+            <a name="known-issues"></a>
+            <h3>Known Issues</h3>
+            <p>
+                C plugins are not yet supported on Cywin due to difficulties with using DLLs, any help would be welcome on getting this working.
+            </p>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+</html>
