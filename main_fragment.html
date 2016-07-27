@@ -67,7 +67,7 @@
 <h4>/affiliation</h4>
 <p><b>Synopsis</b></p>
 <p><pre><code>/affiliation set &lt;affiliation&gt; &lt;jid&gt; [&lt;reason&gt;]
-/list [&lt;affiliation&gt;]
+/affiliation list [&lt;affiliation&gt;]
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Manage room affiliations. Affiliation may be one of owner, admin, member, outcast or none.
@@ -190,6 +190,23 @@
 <table><tr><td><code>on|off</code></td><td>Enable or disable terminal bell.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
+<a name="blocked"></a>
+<h4>/blocked</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/blocked
+/blocked add [&lt;jid&gt;]
+/blocked remove &lt;jid&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Manage blocked users, calling with no arguments shows the current list of blocked users.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>add [&lt;jid&gt;]</code></td><td>Block the specified Jabber ID, if in a chat window, and not jid specified, the current recipient will be blocked.</td></tr><tr><td><code>remove &lt;jid&gt;</code></td><td>Remove the specified Jabber ID from the blocked list.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/blocked add spammer@spam.org
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
 <a name="bookmark"></a>
 <h4>/bookmark</h4>
 <p><b>Synopsis</b></p>
@@ -199,12 +216,13 @@
 /bookmark update &lt;room&gt; [nick &lt;nick&gt;] [password &lt;password&gt;] [autojoin on|off]
 /bookmark remove &lt;room&gt;
 /bookmark join &lt;room&gt;
+/bookmark invites on|off
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Manage bookmarks and join bookmarked rooms. In a chat room, no arguments will bookmark the current room, setting autojoin to "on".
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>list</code></td><td>List all bookmarks.</td></tr><tr><td><code>add &lt;room&gt;</code></td><td>Add a bookmark.</td></tr><tr><td><code>remove &lt;room&gt;</code></td><td>Remove a bookmark.</td></tr><tr><td><code>update &lt;room&gt;</code></td><td>Update the properties associated with a bookmark.</td></tr><tr><td><code>nick &lt;nick&gt;</code></td><td>Nickname used in the chat room.</td></tr><tr><td><code>password &lt;password&gt;</code></td><td>Password if required, may be stored in plaintext on your server.</td></tr><tr><td><code>autojoin on|off</code></td><td>Whether to join the room automatically on login.</td></tr><tr><td><code>join &lt;room&gt;</code></td><td>Join room using the properties associated with the bookmark.</td></tr></table>
+<table><tr><td><code>list</code></td><td>List all bookmarks.</td></tr><tr><td><code>add &lt;room&gt;</code></td><td>Add a bookmark.</td></tr><tr><td><code>remove &lt;room&gt;</code></td><td>Remove a bookmark.</td></tr><tr><td><code>update &lt;room&gt;</code></td><td>Update the properties associated with a bookmark.</td></tr><tr><td><code>nick &lt;nick&gt;</code></td><td>Nickname used in the chat room.</td></tr><tr><td><code>password &lt;password&gt;</code></td><td>Password if required, may be stored in plaintext on your server.</td></tr><tr><td><code>autojoin on|off</code></td><td>Whether to join the room automatically on login.</td></tr><tr><td><code>join &lt;room&gt;</code></td><td>Join room using the properties associated with the bookmark.</td></tr><tr><td><code>invites on|off</code></td><td>Whether or not to bookmark accepted room invites, defaults to 'on'.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="caps"></a>
@@ -328,13 +346,15 @@
 <a name="console"></a>
 <h4>/console</h4>
 <p><b>Synopsis</b></p>
-<p><pre><code>/console muc all|first|none
+<p><pre><code>/console chat all|first|none
+/console muc all|first|none
+/console private all|first|none
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Configure what is displayed in the console window when new chat room messages are received. The default is set to 'all'.
+<p>Configure what is displayed in the console window when messages are received. The default is set to 'all' for all types of messages.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>muc all</code></td><td>Indicate all new chat room messages in the console.</td></tr><tr><td><code>muc first</code></td><td>Indicate only the first new message in each room in the console.</td></tr><tr><td><code>muc none</code></td><td>Do not show any new messages in the console window.</td></tr></table>
+<table><tr><td><code>chat all</code></td><td>Indicate all new chat messages in the console.</td></tr><tr><td><code>chat first</code></td><td>Indicate only the first new message per chat in the console.</td></tr><tr><td><code>chat none</code></td><td>Do not show any new chat messages in the console window.</td></tr><tr><td><code>muc all</code></td><td>Indicate all new chat room messages in the console.</td></tr><tr><td><code>muc first</code></td><td>Indicate only the first new message in each room in the console.</td></tr><tr><td><code>muc none</code></td><td>Do not show any new chat room messages in the console window.</td></tr><tr><td><code>private all</code></td><td>Indicate all new private room messages in the console.</td></tr><tr><td><code>private first</code></td><td>Indicate only the first private room message in the console.</td></tr><tr><td><code>private none</code></td><td>Do not show any new private room messages in the console window.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="decline"></a>
@@ -478,7 +498,8 @@
 <p><b>Synopsis</b></p>
 <p><pre><code>/group
 /group show &lt;group&gt;
-/group add &lt;group&gt; &lt;contat&gt;/group remove &lt;group&gt; &lt;contact&gt;
+/group add &lt;group&gt; &lt;contat&gt;
+/group remove &lt;group&gt; &lt;contact&gt;
 </code></pre></p>
 <p><b>Description</b></p>
 <p>View, add to, and remove from roster groups. Passing no argument will list all roster groups.
@@ -703,6 +724,8 @@
 /notify chat text on|off
 /notify room on|off
 /notify room mention on|off
+/notify room mention case_sensitive|case_insensitive
+/notify room mention word_whole|word_part
 /notify room current on|off
 /notify room text on|off
 /notify room trigger add &lt;text&gt;
@@ -720,10 +743,10 @@
 /notify sub on|off
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Settings for various kinds of desktop notifications.
+<p>Configure desktop notifications. To configure presence update messages in the console, chat and chat room windows, see '/help presence'.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>chat on|off</code></td><td>Notifications for regular chat messages.</td></tr><tr><td><code>chat current on|off</code></td><td>Whether to show regular chat message notifications when the window is focussed.</td></tr><tr><td><code>chat text on|off</code></td><td>Show message text in regular message notifications.</td></tr><tr><td><code>room on|off</code></td><td>Notifications for all chat room messages, 'mention' only notifies when your nick is mentioned.</td></tr><tr><td><code>room mention on|off</code></td><td>Notifications for all chat room messages when your nick is mentioned.</td></tr><tr><td><code>room current on|off</code></td><td>Whether to show all chat room messages notifications when the window is focussed.</td></tr><tr><td><code>room text on|off</code></td><td>Show message text in chat room message notifications.</td></tr><tr><td><code>room trigger add &lt;text&gt;</code></td><td>Notify when specified text included in all chat room messages.</td></tr><tr><td><code>room trigger remove &lt;text&gt;</code></td><td>Remove chat room notification trigger.</td></tr><tr><td><code>room trigger list</code></td><td>List all chat room triggers.</td></tr><tr><td><code>room trigger on|off</code></td><td>Enable or disable all chat room notification triggers.</td></tr><tr><td><code>on|off</code></td><td>Override the global message setting for the current chat room.</td></tr><tr><td><code>mention on|off</code></td><td>Override the global 'mention' setting for the current chat room.</td></tr><tr><td><code>trigger on|off</code></td><td>Override the global 'trigger' setting for the current chat room.</td></tr><tr><td><code>remind &lt;seconds&gt;</code></td><td>Notification reminder period for unread messages, use 0 to disable.</td></tr><tr><td><code>typing on|off</code></td><td>Notifications when contacts are typing.</td></tr><tr><td><code>typing current on|off</code></td><td>Whether typing notifications are triggered for the current window.</td></tr><tr><td><code>invite on|off</code></td><td>Notifications for chat room invites.</td></tr><tr><td><code>sub on|off</code></td><td>Notifications for subscription requests.</td></tr></table>
+<table><tr><td><code>chat on|off</code></td><td>Notifications for regular chat messages.</td></tr><tr><td><code>chat current on|off</code></td><td>Whether to show regular chat message notifications when the window is focussed.</td></tr><tr><td><code>chat text on|off</code></td><td>Show message text in regular message notifications.</td></tr><tr><td><code>room on|off</code></td><td>Notifications for all chat room messages, 'mention' only notifies when your nick is mentioned.</td></tr><tr><td><code>room mention on|off</code></td><td>Notifications for all chat room messages when your nick is mentioned.</td></tr><tr><td><code>room mention case_sensitive</code></td><td>Set room mention notifications as case sensitive.</td></tr><tr><td><code>room mention case_insensitive</code></td><td>Set room mention notifications as case insensitive.</td></tr><tr><td><code>room mention word_whole</code></td><td>Set room mention notifications only on whole word match, i.e. when nickname is not part of a larger word.</td></tr><tr><td><code>room mention word_part</code></td><td>Set room mention notifications on partial word match, i.e. nickname may be part of a larger word.</td></tr><tr><td><code>room current on|off</code></td><td>Whether to show all chat room messages notifications when the window is focussed.</td></tr><tr><td><code>room text on|off</code></td><td>Show message text in chat room message notifications.</td></tr><tr><td><code>room trigger add &lt;text&gt;</code></td><td>Notify when specified text included in all chat room messages.</td></tr><tr><td><code>room trigger remove &lt;text&gt;</code></td><td>Remove chat room notification trigger.</td></tr><tr><td><code>room trigger list</code></td><td>List all chat room triggers.</td></tr><tr><td><code>room trigger on|off</code></td><td>Enable or disable all chat room notification triggers.</td></tr><tr><td><code>on|off</code></td><td>Override the global message setting for the current chat room.</td></tr><tr><td><code>mention on|off</code></td><td>Override the global 'mention' setting for the current chat room.</td></tr><tr><td><code>trigger on|off</code></td><td>Override the global 'trigger' setting for the current chat room.</td></tr><tr><td><code>reset</code></td><td>Reset to global notification settings for the current chat room.</td></tr><tr><td><code>remind &lt;seconds&gt;</code></td><td>Notification reminder period for unread messages, use 0 to disable.</td></tr><tr><td><code>typing on|off</code></td><td>Notifications when contacts are typing.</td></tr><tr><td><code>typing current on|off</code></td><td>Whether typing notifications are triggered for the current window.</td></tr><tr><td><code>invite on|off</code></td><td>Notifications for chat room invites.</td></tr><tr><td><code>sub on|off</code></td><td>Notifications for subscription requests.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/notify chat on
 /notify chat text on
@@ -853,6 +876,29 @@
 <table><tr><td><code>&lt;jid&gt;</code></td><td>The Jabber ID to send the ping request to.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
+<a name="plugins"></a>
+<h4>/plugins</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/plugins
+/plugins install &lt;path&gt;
+/plugins unload &lt;plugin&gt;
+/plugins load &lt;plugin&gt;
+/plugins reload [&lt;plugin&gt;]
+/plugins python_version
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Manage plugins. Passing no arguments lists currently loaded plugins.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>install &lt;file&gt;</code></td><td>Install file to plugins directory, and load or reload the plugin.</td></tr><tr><td><code>load &lt;plugin&gt;</code></td><td>Load a plugin that already exists in the plugin directory.</td></tr><tr><td><code>unload &lt;plugin&gt;</code></td><td>Unload a loaded plugin.</td></tr><tr><td><code>reload [&lt;plugin&gt;]</code></td><td>Reload a plugin, passing no argument will reload all plugins.</td></tr><tr><td><code>python_version</code></td><td>Show the Python interpreter version.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/plugin install /home/steveharris/Downloads/metal.py
+/plugin load browser.py
+/plugin unload say.py
+/plugin reload wikipedia.py
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
 <a name="prefs"></a>
 <h4>/prefs</h4>
 <p><b>Synopsis</b></p>
@@ -868,13 +914,22 @@
 <a name="presence"></a>
 <h4>/presence</h4>
 <p><b>Synopsis</b></p>
-<p><pre><code>/presence on|off
+<p><pre><code>/presence titlebar on|off
+/presence console all|online|none
+/presence chat all|online|none
+/presence room all|online|none
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Show the contacts presence in the titlebar.
+<p>Show the contacts presence in the titlebar and configure presence messages in different window types.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>on|off</code></td><td>Switch display of the contacts presence in the titlebar on or off.</td></tr></table>
+<table><tr><td><code>titlebar on|off</code></td><td>Switch display of the contacts presence in the titlebar on or off.</td></tr><tr><td><code>console all</code></td><td>Show all presence changes in the console window.</td></tr><tr><td><code>console online</code></td><td>Show only online/offline presence changes in the console window.</td></tr><tr><td><code>console none</code></td><td>Don't show any presence changes in the console window.</td></tr><tr><td><code>chat all</code></td><td>Show all presence changes in the chat windows.</td></tr><tr><td><code>chat online</code></td><td>Show only online/offline presence changes in chat windows.</td></tr><tr><td><code>chat none</code></td><td>Don't show any presence changes in chat windows.</td></tr><tr><td><code>room all</code></td><td>Show all presence changes in chat room windows.</td></tr><tr><td><code>room online</code></td><td>Show only online/offline presence changes in chat room windows.</td></tr><tr><td><code>room none</code></td><td>Don't show any presence changes in chat room windows.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/presence titlebar off
+/presence console none
+/presence chat online
+/presence room all
+</code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="priority"></a>
@@ -955,7 +1010,7 @@
 <h4>/role</h4>
 <p><b>Synopsis</b></p>
 <p><pre><code>/role set &lt;role&gt; &lt;nick&gt; [&lt;reason&gt;]
-/list [&lt;role&gt;]
+/role list [&lt;role&gt;]
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Manage room roles. Role may be one of moderator, participant, visitor or none.
@@ -1061,6 +1116,22 @@
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
+<a name="sendfile"></a>
+<h4>/sendfile</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/sendfile &lt;file&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Send a file using XEP-0363 HTTP file transfer.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;file&gt;</code></td><td>Path to the file.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/sendfile /etc/hosts
+/sendfile ~/images/sweet_cat.jpg
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
 <a name="software"></a>
 <h4>/software</h4>
 <p><b>Synopsis</b></p>
@@ -1117,23 +1188,6 @@
 <p><b>Examples</b></p>
 <p><pre><code>/status buddy@server.com
 /status jon
-</code></pre></p>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
-<a name="statuses"></a>
-<h4>/statuses</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/statuses console|chat|muc all|online|none
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Configure which presence changes are displayed in various windows. The default is 'all' for all windows.
-</p>
-<p><b>Arguments</b></p>
-<table><tr><td><code>console</code></td><td>Configure what is displayed in the console window.</td></tr><tr><td><code>chat</code></td><td>Configure what is displayed in chat windows.</td></tr><tr><td><code>muc</code></td><td>Configure what is displayed in chat room windows.</td></tr><tr><td><code>all</code></td><td>Show all presence changes.</td></tr><tr><td><code>online</code></td><td>Show only online/offline changes.</td></tr><tr><td><code>none</code></td><td>Don't show any presence changes.</td></tr></table>
-<p><b>Examples</b></p>
-<p><pre><code>/statuses console none
-/statuses chat online
-/statuses muc all
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -1268,6 +1322,20 @@
 <table><tr><td><code>allow</code></td><td>Allow connection to continue with TLS certificate.</td></tr><tr><td><code>always</code></td><td>Always allow connections with TLS certificate.</td></tr><tr><td><code>deny</code></td><td>Abort connection.</td></tr><tr><td><code>cert</code></td><td>Show the current TLS certificate.</td></tr><tr><td><code>cert &lt;fingerprint&gt;</code></td><td>Show details of trusted certificate.</td></tr><tr><td><code>trust</code></td><td>Add the current TLS certificate to manually trusted certificates.</td></tr><tr><td><code>trusted</code></td><td>List summary of manually trusted certificates (with '/tls always' or '/tls trust').</td></tr><tr><td><code>revoke &lt;fingerprint&gt;</code></td><td>Remove a manually trusted certificate.</td></tr><tr><td><code>certpath</code></td><td>Show the trusted certificate path.</td></tr><tr><td><code>certpath set &lt;path&gt;</code></td><td>Specify filesystem path containing trusted certificates.</td></tr><tr><td><code>certpath clear</code></td><td>Clear the trusted certificate path.</td></tr><tr><td><code>show on|off</code></td><td>Show or hide the TLS indicator in the titlebar.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
+<a name="tray"></a>
+<h4>/tray</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/tray on|off
+/tray read on|off
+/tray timer &lt;seconds&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Display an icon in the tray that will indicate new messages.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Show tray icon.</td></tr><tr><td><code>read on|off</code></td><td>Show tray icon when no unread messages.</td></tr><tr><td><code>timer &lt;seconds&gt;</code></td><td>Set tray icon timer, seconds must be between 1-10</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
 <a name="vercheck"></a>
 <h4>/vercheck</h4>
 <p><b>Synopsis</b></p>
@@ -1313,12 +1381,13 @@
 /win &lt;roomjid&gt;
 /win &lt;roomoccupantjid&gt;
 /win xmlconsole
+/win &lt;plugin&gt;
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Move to the specified window.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>console</code></td><td>Go to the Console window.</td></tr><tr><td><code>&lt;num&gt;</code></td><td>Go to specified window number.</td></tr><tr><td><code>&lt;barejid&gt;</code></td><td>Go to chat window with contact by JID if open.</td></tr><tr><td><code>&lt;nick&gt;</code></td><td>Go to chat window with contact by nickname if open.</td></tr><tr><td><code>&lt;roomjid&gt;</code></td><td>Go to chat room window with roomjid if open.</td></tr><tr><td><code>&lt;roomoccupantjid&gt;</code></td><td>Go to private chat roomoccupantjid if open.</td></tr><tr><td><code>xmlconsole</code></td><td>Go to the XML Console window if open.</td></tr></table>
+<table><tr><td><code>console</code></td><td>Focus the Console window.</td></tr><tr><td><code>&lt;num&gt;</code></td><td>Focus specified window number.</td></tr><tr><td><code>&lt;barejid&gt;</code></td><td>Focus chat window with contact by JID if open.</td></tr><tr><td><code>&lt;nick&gt;</code></td><td>Focus chat window with contact by nickname if open.</td></tr><tr><td><code>&lt;roomjid&gt;</code></td><td>Focus chat room window with roomjid if open.</td></tr><tr><td><code>&lt;roomoccupantjid&gt;</code></td><td>Focus private chat roomoccupantjid if open.</td></tr><tr><td><code>xmlconsole</code></td><td>Focus the XML Console window if open.</td></tr><tr><td><code>&lt;plugin&gt;</code></td><td>Focus the plugin window.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/win console
 /win 4
@@ -1326,6 +1395,7 @@
 /win Eddie
 /win bigroom@conference.chat.org
 /win bigroom@conference.chat.org/bruce
+/win wikipedia
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
