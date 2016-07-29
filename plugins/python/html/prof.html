@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>prof module &mdash; Profanity Python Plugins</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Profanity Python Plugins" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Profanity Python Plugins API
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="simple">
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Profanity Python Plugins API</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>prof module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-prof">
+<span id="prof-module"></span><h1>prof module<a class="headerlink" href="#module-prof" title="Permalink to this headline">¶</a></h1>
+<p>Profanity plugin API</p>
+<dl class="function">
+<dt id="prof.cons_alert">
+<code class="descclassname">prof.</code><code class="descname">cons_alert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.cons_alert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Highlights the console window in the status bar.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.cons_bad_cmd_usage">
+<code class="descclassname">prof.</code><code class="descname">cons_bad_cmd_usage</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.cons_bad_cmd_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a message indicating the command has been called incorrectly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> &#8211; the command name with leading slash, e.g. <code class="docutils literal"><span class="pre">&quot;/say&quot;</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.cons_show">
+<code class="descclassname">prof.</code><code class="descname">cons_show</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.cons_show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a message in the console window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> &#8211; the message to print</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">True</span></code> on success, <code class="docutils literal"><span class="pre">False</span></code> on failure</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.cons_show_themed">
+<code class="descclassname">prof.</code><code class="descname">cons_show_themed</code><span class="sig-paren">(</span><em>group</em>, <em>item</em>, <em>default</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.cons_show_themed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a message in the console, using the specified theme.</p>
+<p>Themes can be must be specified in <code class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_themes</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>group</strong> &#8211; the group name in the themes file, or None</li>
+<li><strong>item</strong> &#8211; the item name within the group, or None</li>
+<li><strong>default</strong> &#8211; default colour if the theme cannot be found, or None</li>
+<li><strong>message</strong> &#8211; the message to print</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">True</span></code> on success, <code class="docutils literal"><span class="pre">False</span></code> on failure</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.current_win_is_console">
+<code class="descclassname">prof.</code><code class="descname">current_win_is_console</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.current_win_is_console" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.get_current_muc">
+<code class="descclassname">prof.</code><code class="descname">get_current_muc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.get_current_muc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.get_current_recipient">
+<code class="descclassname">prof.</code><code class="descname">get_current_recipient</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.get_current_recipient" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.log_debug">
+<code class="descclassname">prof.</code><code class="descname">log_debug</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.log_debug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.log_error">
+<code class="descclassname">prof.</code><code class="descname">log_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.log_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.log_info">
+<code class="descclassname">prof.</code><code class="descname">log_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.log_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.log_warning">
+<code class="descclassname">prof.</code><code class="descname">log_warning</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.log_warning" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.notify">
+<code class="descclassname">prof.</code><code class="descname">notify</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.notify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.register_ac">
+<code class="descclassname">prof.</code><code class="descname">register_ac</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.register_ac" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.register_command">
+<code class="descclassname">prof.</code><code class="descname">register_command</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.register_command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.register_timed">
+<code class="descclassname">prof.</code><code class="descname">register_timed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.register_timed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.send_line">
+<code class="descclassname">prof.</code><code class="descname">send_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.send_line" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.win_create">
+<code class="descclassname">prof.</code><code class="descname">win_create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.win_exists">
+<code class="descclassname">prof.</code><code class="descname">win_exists</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.win_focus">
+<code class="descclassname">prof.</code><code class="descname">win_focus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_focus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.win_show">
+<code class="descclassname">prof.</code><code class="descname">win_show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="prof.win_show_themed">
+<code class="descclassname">prof.</code><code class="descname">win_show_themed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_show_themed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.5.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
