@@ -30,7 +30,8 @@
   
 
   
-    <link rel="top" title="Profanity Python Plugins" href="index.html"/> 
+    <link rel="top" title="Profanity Python Plugins" href="index.html"/>
+        <link rel="prev" title="prof module" href="prof.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -79,7 +80,9 @@
           
             
             
-                <ul class="simple">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="prof.html">prof module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">plugin module</a></li>
 </ul>
 
             
@@ -124,151 +127,548 @@
             
   <div class="section" id="module-plugin">
 <span id="plugin-module"></span><h1>plugin module<a class="headerlink" href="#module-plugin" title="Permalink to this headline">¶</a></h1>
-<p>Profanity plugin Hooks</p>
+<p>This page describes functions that plugins may implement to be called from Profanity on certain events. All functions are optional.</p>
+<p>Examples:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prof_on_start</span><span class="p">():</span>
+    <span class="n">prof</span><span class="o">.</span><span class="n">cons_show</span><span class="p">(</span><span class="s2">&quot;Profanity has started...&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">prof_pre_room_message_display</span><span class="p">(</span><span class="n">room</span><span class="p">,</span> <span class="n">nick</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+    <span class="n">prof</span><span class="o">.</span><span class="n">cons_show</span><span class="p">(</span><span class="s2">&quot;Manipulating chat room message before display...&quot;</span><span class="p">)</span>
+    <span class="n">new_message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">+</span> <span class="s2">&quot; (added by plugin)&quot;</span>
+    <span class="k">return</span> <span class="n">new_message</span>
+
+<span class="k">def</span> <span class="nf">prof_on_contact_presence</span><span class="p">(</span><span class="n">barejid</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">presence</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">priority</span><span class="p">):</span>
+    <span class="n">notify_message</span> <span class="o">=</span> <span class="n">barejid</span> <span class="o">+</span> <span class="s2">&quot; is &quot;</span> <span class="o">+</span> <span class="n">presence</span>
+    <span class="n">prof</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="n">notify_message</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Presence&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="function">
 <dt id="plugin.prof_init">
 <code class="descclassname">plugin.</code><code class="descname">prof_init</code><span class="sig-paren">(</span><em>version</em>, <em>status</em>, <em>account_name</em>, <em>fulljid</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_init" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called when a plugin is loaded, either when profanity is started, or when the <code class="docutils literal"><span class="pre">/plugins</span> <span class="pre">load</span></code> or <code class="docutils literal"><span class="pre">/plugins</span> <span class="pre">install</span></code> commands are called</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>version</strong> (<em>str or unicode</em>) &#8211; the version of Profanity</li>
+<li><strong>status</strong> (<em>str or unicode</em>) &#8211; the package status of Profanity, <code class="docutils literal"><span class="pre">&quot;development&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;release&quot;</span></code></li>
+<li><strong>account_name</strong> (<em>str, unicode or None</em>) &#8211; account name of the currently logged in account, or <code class="docutils literal"><span class="pre">None</span></code> if not logged in</li>
+<li><strong>fulljid</strong> (<em>str, unicode or None</em>) &#8211; the users full Jabber ID (barejid and resource) if logged in, <code class="docutils literal"><span class="pre">None</span></code> otherwise</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_chat_win_focus">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_chat_win_focus</code><span class="sig-paren">(</span><em>barejid</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_chat_win_focus" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called when a chat window is focussed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the chat window recipient</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_connect">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_connect</code><span class="sig-paren">(</span><em>account_name</em>, <em>fulljid</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_connect" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called when the user connects with an account</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>account_name</strong> (<em>str or unicode</em>) &#8211; account name of the account used for logging in</li>
+<li><strong>fulljid</strong> (<em>str or unicode</em>) &#8211; the full Jabber ID (barejid and resource) of the account</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_contact_offline">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_contact_offline</code><span class="sig-paren">(</span><em>barejid</em>, <em>resource</em>, <em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_contact_offline" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called when a contact goes offline</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the contact</li>
+<li><strong>resource</strong> (<em>str or unicode</em>) &#8211; the resource being disconnected</li>
+<li><strong>status</strong> (<em>str or unicode</em>) &#8211; the status message received with the offline presence, or <code class="docutils literal"><span class="pre">None</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_contact_presence">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_contact_presence</code><span class="sig-paren">(</span><em>barejid</em>, <em>resource</em>, <em>presence</em>, <em>status</em>, <em>priority</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_contact_presence" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called when a presence notification is received from a contact</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the contact</li>
+<li><strong>resource</strong> (<em>str or unicode</em>) &#8211; the resource being disconnected</li>
+<li><strong>presence</strong> (<em>str or unicode</em>) &#8211; presence of the contact, one of <code class="docutils literal"><span class="pre">&quot;chat&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;online&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;away&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;xa&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;dnd&quot;</span></code></li>
+<li><strong>status</strong> (<em>str or unicode</em>) &#8211; the status message received with the presence, or <code class="docutils literal"><span class="pre">None</span></code></li>
+<li><strong>priority</strong> (<em>int</em>) &#8211; the priority associated with the resource</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_disconnect">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_disconnect</code><span class="sig-paren">(</span><em>account_name</em>, <em>fulljid</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_disconnect" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called when the user disconnects an account</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>account_name</strong> (<em>str or unicode</em>) &#8211; account name of the account being disconnected</li>
+<li><strong>fulljid</strong> (<em>str or unicode</em>) &#8211; the full Jabber ID (barejid and resource) of the account</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_iq_stanza_receive">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_iq_stanza_receive</code><span class="sig-paren">(</span><em>stanza</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_iq_stanza_receive" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called when an XMPP iq stanza is received</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stanza</strong> (<em>str or unicode</em>) &#8211; The stanza received</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">True</span></code> if Profanity should continue to process the iq stanza, <code class="docutils literal"><span class="pre">False</span></code> otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_iq_stanza_send">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_iq_stanza_send</code><span class="sig-paren">(</span><em>stanza</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_iq_stanza_send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called before an XMPP iq stanza is sent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stanza</strong> (<em>str or unicode</em>) &#8211; The stanza to send</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The new stanza to send, or <code class="docutils literal"><span class="pre">None</span></code> to preserve the original stanza</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str or unicode</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_message_stanza_receive">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_message_stanza_receive</code><span class="sig-paren">(</span><em>stanza</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_message_stanza_receive" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called when an XMPP message stanza is received</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stanza</strong> (<em>str or unicode</em>) &#8211; The stanza received</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">True</span></code> if Profanity should continue to process the message stanza, <code class="docutils literal"><span class="pre">False</span></code> otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_message_stanza_send">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_message_stanza_send</code><span class="sig-paren">(</span><em>stanza</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_message_stanza_send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called before an XMPP message stanza is sent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stanza</strong> (<em>str or unicode</em>) &#8211; The stanza to send</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The new stanza to send, or <code class="docutils literal"><span class="pre">None</span></code> to preserve the original stanza</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str or unicode</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_presence_stanza_receive">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_presence_stanza_receive</code><span class="sig-paren">(</span><em>stanza</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_presence_stanza_receive" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called when an XMPP presence stanza is received</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stanza</strong> (<em>str or unicode</em>) &#8211; The stanza received</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">True</span></code> if Profanity should continue to process the presence stanza, <code class="docutils literal"><span class="pre">False</span></code> otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_presence_stanza_send">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_presence_stanza_send</code><span class="sig-paren">(</span><em>stanza</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_presence_stanza_send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called before an XMPP presence stanza is sent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stanza</strong> (<em>str or unicode</em>) &#8211; The stanza to send</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The new stanza to send, or <code class="docutils literal"><span class="pre">None</span></code> to preserve the original stanza</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str or unicode</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_room_history_message">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_room_history_message</code><span class="sig-paren">(</span><em>room</em>, <em>nick</em>, <em>message</em>, <em>timestamp</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_room_history_message" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called when the server sends a chat room history message</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>nick</strong> (<em>str or unicode</em>) &#8211; nickname of the message sender</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to be sent</li>
+<li><strong>timestamp</strong> (<em>str or unicode</em>) &#8211; time the message was originally sent to the room, in ISO8601 format</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_room_win_focus">
-<code class="descclassname">plugin.</code><code class="descname">prof_on_room_win_focus</code><span class="sig-paren">(</span><em>roomjid</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_room_win_focus" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">plugin.</code><code class="descname">prof_on_room_win_focus</code><span class="sig-paren">(</span><em>room</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_room_win_focus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a chat room window is focussed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_shutdown">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_shutdown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_shutdown" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called when the user quits Profanity</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_start">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_start" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called when Profanity is started</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_on_unload">
 <code class="descclassname">plugin.</code><code class="descname">prof_on_unload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_on_unload" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called when a plugin is unloaded with the <code class="docutils literal"><span class="pre">/plugins</span> <span class="pre">unload</span></code> command</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_post_chat_message_display">
-<code class="descclassname">plugin.</code><code class="descname">prof_post_chat_message_display</code><span class="sig-paren">(</span><em>jid</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_post_chat_message_display" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">plugin.</code><code class="descname">prof_post_chat_message_display</code><span class="sig-paren">(</span><em>barejid</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_post_chat_message_display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called after a chat message is displayed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the message sender</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the received message</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_post_chat_message_send">
-<code class="descclassname">plugin.</code><code class="descname">prof_post_chat_message_send</code><span class="sig-paren">(</span><em>jid</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_post_chat_message_send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">plugin.</code><code class="descname">prof_post_chat_message_send</code><span class="sig-paren">(</span><em>barejid</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_post_chat_message_send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called after a chat message has been sent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the message recipient</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the sent message</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_post_priv_message_display">
 <code class="descclassname">plugin.</code><code class="descname">prof_post_priv_message_display</code><span class="sig-paren">(</span><em>room</em>, <em>nick</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_post_priv_message_display" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called after a private chat room message is displayed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>nick</strong> (<em>str or unicode</em>) &#8211; nickname of the message sender</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the received message</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_post_priv_message_send">
 <code class="descclassname">plugin.</code><code class="descname">prof_post_priv_message_send</code><span class="sig-paren">(</span><em>room</em>, <em>nick</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_post_priv_message_send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called after a private chat room message has been sent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>nick</strong> &#8211; nickname of the message recipient</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the sent message</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_post_room_message_display">
 <code class="descclassname">plugin.</code><code class="descname">prof_post_room_message_display</code><span class="sig-paren">(</span><em>room</em>, <em>nick</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_post_room_message_display" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called after a chat room message is displayed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>nick</strong> (<em>str or unicode</em>) &#8211; nickname of the message sender</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the received message</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_post_room_message_send">
 <code class="descclassname">plugin.</code><code class="descname">prof_post_room_message_send</code><span class="sig-paren">(</span><em>room</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_post_room_message_send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called after a chat room message has been sent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the sent message</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_pre_chat_message_display">
-<code class="descclassname">plugin.</code><code class="descname">prof_pre_chat_message_display</code><span class="sig-paren">(</span><em>jid</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_pre_chat_message_display" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">plugin.</code><code class="descname">prof_pre_chat_message_display</code><span class="sig-paren">(</span><em>barejid</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_pre_chat_message_display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called before a chat message is displayed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the message sender</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the received message</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the new message to display, or <code class="docutils literal"><span class="pre">None</span></code> to preserve the original message</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str or unicode</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_pre_chat_message_send">
-<code class="descclassname">plugin.</code><code class="descname">prof_pre_chat_message_send</code><span class="sig-paren">(</span><em>jid</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_pre_chat_message_send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">plugin.</code><code class="descname">prof_pre_chat_message_send</code><span class="sig-paren">(</span><em>barejid</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_pre_chat_message_send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called before a chat message is sent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the message recipient</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to be sent</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the new message to send, or <code class="docutils literal"><span class="pre">None</span></code> to preserve the original message</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str or unicode</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_pre_priv_message_display">
 <code class="descclassname">plugin.</code><code class="descname">prof_pre_priv_message_display</code><span class="sig-paren">(</span><em>room</em>, <em>nick</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_pre_priv_message_display" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called before a private chat room message is displayed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>nick</strong> (<em>str or unicode</em>) &#8211; nickname of message sender</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the received message</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the new message to display, or <code class="docutils literal"><span class="pre">None</span></code> to preserve the original message</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str or unicode</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_pre_priv_message_send">
 <code class="descclassname">plugin.</code><code class="descname">prof_pre_priv_message_send</code><span class="sig-paren">(</span><em>room</em>, <em>nick</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_pre_priv_message_send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called before a private chat room message is sent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>nick</strong> (<em>str or unicode</em>) &#8211; nickname of message recipient</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to be sent</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the new message to send, or <code class="docutils literal"><span class="pre">None</span></code> to preserve the original message</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str or unicode</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_pre_room_message_display">
 <code class="descclassname">plugin.</code><code class="descname">prof_pre_room_message_display</code><span class="sig-paren">(</span><em>room</em>, <em>nick</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_pre_room_message_display" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called before a chat room message is displayed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>nick</strong> (<em>str or unicode</em>) &#8211; nickname of message sender</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the received message</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the new message to display, or <code class="docutils literal"><span class="pre">None</span></code> to preserve the original message</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str or unicode</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="plugin.prof_pre_room_message_send">
 <code class="descclassname">plugin.</code><code class="descname">prof_pre_room_message_send</code><span class="sig-paren">(</span><em>room</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#plugin.prof_pre_room_message_send" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Called before a chat room message is sent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to be sent</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the new message to send, or <code class="docutils literal"><span class="pre">None</span></code> to preserve the original message</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str or unicode</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 
@@ -276,6 +676,13 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="prof.html" class="btn btn-neutral" title="prof module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
