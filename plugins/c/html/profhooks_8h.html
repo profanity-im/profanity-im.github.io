@@ -90,12 +90,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9e81b65b3befc4291512a5bc727c18b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a9e81b65b3befc4291512a5bc727c18b3">prof_init</a> (const char *const version, const char *const status)</td></tr>
-<tr class="separator:a9e81b65b3befc4291512a5bc727c18b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a331d6112c9e02e1b05f231c3ddce28f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a331d6112c9e02e1b05f231c3ddce28f0">prof_init</a> (const char *const version, const char *const status, const char *const account_name, const char *const fulljid)</td></tr>
+<tr class="separator:a331d6112c9e02e1b05f231c3ddce28f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c8c46d90408d09299bb3cd55649b214"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a0c8c46d90408d09299bb3cd55649b214">prof_on_start</a> (void)</td></tr>
 <tr class="separator:a0c8c46d90408d09299bb3cd55649b214"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0c949da00fc5923f635e9f729f46ea3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#af0c949da00fc5923f635e9f729f46ea3">prof_on_shutdown</a> (void)</td></tr>
 <tr class="separator:af0c949da00fc5923f635e9f729f46ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa525708e957a5a2f3b8b4c31601853d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#aa525708e957a5a2f3b8b4c31601853d5">prof_on_unload</a> (void)</td></tr>
+<tr class="separator:aa525708e957a5a2f3b8b4c31601853d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88c248cff853e01b151ac6634a8a4e0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a88c248cff853e01b151ac6634a8a4e0b">prof_on_connect</a> (const char *const account_name, const char *const fulljid)</td></tr>
 <tr class="separator:a88c248cff853e01b151ac6634a8a4e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a247bb946d46f81b3ee115467bec24dff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a247bb946d46f81b3ee115467bec24dff">prof_on_disconnect</a> (const char *const account_name, const char *const fulljid)</td></tr>
@@ -116,6 +118,8 @@ Functions</h2></td></tr>
 <tr class="separator:acd1bdbac1010d3f3a46f8798ac2dec71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac76ed7de012c9ccb5feae2f1963bbc4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#ac76ed7de012c9ccb5feae2f1963bbc4f">prof_post_room_message_send</a> (const char *const room, const char *message)</td></tr>
 <tr class="separator:ac76ed7de012c9ccb5feae2f1963bbc4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa91ba0b00c16dc83f5bc3cad68cc4698"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#aa91ba0b00c16dc83f5bc3cad68cc4698">prof_on_room_history_message</a> (const char *const room, const char *const nick, const char *const message, const char *const timestamp)</td></tr>
+<tr class="separator:aa91ba0b00c16dc83f5bc3cad68cc4698"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5d2f1aadca789260d9f0b1b323bfdae"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#ac5d2f1aadca789260d9f0b1b323bfdae">prof_pre_priv_message_display</a> (const char *const room, const char *const nick, const char *message)</td></tr>
 <tr class="separator:ac5d2f1aadca789260d9f0b1b323bfdae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8447b54969329ffa66f4e626bdd4e7d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a8447b54969329ffa66f4e626bdd4e7d5">prof_post_priv_message_display</a> (const char *const room, const char *const nick, const char *message)</td></tr>
@@ -124,11 +128,31 @@ Functions</h2></td></tr>
 <tr class="separator:a7aa6211b4a9ef57b0ebe49b089f3c1c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3eef5da0ec2b667c13409da651886bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#ae3eef5da0ec2b667c13409da651886bb">prof_post_priv_message_send</a> (const char *const room, const char *const nick, const char *message)</td></tr>
 <tr class="separator:ae3eef5da0ec2b667c13409da651886bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e5a8c73e2183f14c111cef12b265920"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a7e5a8c73e2183f14c111cef12b265920">prof_on_message_stanza_send</a> (const char *const stanza)</td></tr>
+<tr class="separator:a7e5a8c73e2183f14c111cef12b265920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3b19e570e80800c0c8569ef9834152a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#ae3b19e570e80800c0c8569ef9834152a">prof_on_message_stanza_receive</a> (const char *const stanza)</td></tr>
+<tr class="separator:ae3b19e570e80800c0c8569ef9834152a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a5ec57cedb00d9c7754bea88a17ab79"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a1a5ec57cedb00d9c7754bea88a17ab79">prof_on_presence_stanza_send</a> (const char *const stanza)</td></tr>
+<tr class="separator:a1a5ec57cedb00d9c7754bea88a17ab79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bc5a71c63d5e355954dfb86e550d1dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a5bc5a71c63d5e355954dfb86e550d1dd">prof_on_presence_stanza_receive</a> (const char *const stanza)</td></tr>
+<tr class="separator:a5bc5a71c63d5e355954dfb86e550d1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01f32486a6803b047d2acd4651c8f1b6"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a01f32486a6803b047d2acd4651c8f1b6">prof_on_iq_stanza_send</a> (const char *const stanza)</td></tr>
+<tr class="separator:a01f32486a6803b047d2acd4651c8f1b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace4fbbf1e8e4688feccb21d612015b6f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#ace4fbbf1e8e4688feccb21d612015b6f">prof_on_iq_stanza_receive</a> (const char *const stanza)</td></tr>
+<tr class="separator:ace4fbbf1e8e4688feccb21d612015b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21f3b80adfd16e9c68726815be6dca6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a21f3b80adfd16e9c68726815be6dca6b">prof_on_contact_offline</a> (const char *const barejid, const char *const resource, const char *const status)</td></tr>
+<tr class="separator:a21f3b80adfd16e9c68726815be6dca6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32960cfda50e5d5da3207c6ae18cee60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a32960cfda50e5d5da3207c6ae18cee60">prof_on_contact_presence</a> (const char *const barejid, const char *const resource, const char *const presence, const char *const status, const int priority)</td></tr>
+<tr class="separator:a32960cfda50e5d5da3207c6ae18cee60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a898d8ac824cf680e298ec0547fa566a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a898d8ac824cf680e298ec0547fa566a2">prof_on_chat_win_focus</a> (const char *const barejid)</td></tr>
+<tr class="separator:a898d8ac824cf680e298ec0547fa566a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cd6b8b0595875c2e7b4578e892cb783"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a5cd6b8b0595875c2e7b4578e892cb783">prof_on_room_win_focus</a> (const char *const roomjid)</td></tr>
+<tr class="separator:a5cd6b8b0595875c2e7b4578e892cb783"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>C Hooks. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a9e81b65b3befc4291512a5bc727c18b3"></a>
+<a class="anchor" id="a331d6112c9e02e1b05f231c3ddce28f0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -142,7 +166,19 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char *const&#160;</td>
-          <td class="paramname"><em>status</em>&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>account_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>fulljid</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -151,10 +187,34 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called when profanity loads the plugin </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called when a plugin is loaded, either when profanity is started, or when the /plugins load or /plugins install commands are called </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">version</td><td>The version of profanity as a string e.g. "0.5.0" </td></tr>
-    <tr><td class="paramname">status</td><td>The build status, either "development" or "release" </td></tr>
+    <tr><td class="paramname">version</td><td>the version of Profanity </td></tr>
+    <tr><td class="paramname">status</td><td>the package status of Profanity, "development" or "release" </td></tr>
+    <tr><td class="paramname">account_name</td><td>account name of the currently logged in account, or NULL if not logged in </td></tr>
+    <tr><td class="paramname">fulljid</td><td>the users full Jabber ID (barejid and resource) if logged in, NULL otherwise </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a898d8ac824cf680e298ec0547fa566a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void prof_on_chat_win_focus </td>
+          <td>(</td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>barejid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called when a chat window is focussed </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the chat window recipient </td></tr>
   </table>
   </dd>
 </dl>
@@ -184,10 +244,104 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called when an account is connected </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called when the user connects with an account </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">account_name</td><td>The name of the account </td></tr>
-    <tr><td class="paramname">fulljid</td><td>The full JID of the account </td></tr>
+    <tr><td class="paramname">account_name</td><td>account name of the account used for logging in </td></tr>
+    <tr><td class="paramname">fulljid</td><td>the full Jabber ID (barejid and resource) of the account </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a21f3b80adfd16e9c68726815be6dca6b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void prof_on_contact_offline </td>
+          <td>(</td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>barejid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>resource</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>status</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called when a contact goes offline </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the contact </td></tr>
+    <tr><td class="paramname">resource</td><td>the resource being disconnected </td></tr>
+    <tr><td class="paramname">status</td><td>the status message received with the offline presence, or NULL </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a32960cfda50e5d5da3207c6ae18cee60"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void prof_on_contact_presence </td>
+          <td>(</td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>barejid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>resource</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>presence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>priority</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called when a presence notification is received from a contact </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the contact </td></tr>
+    <tr><td class="paramname">resource</td><td>the resource being disconnected </td></tr>
+    <tr><td class="paramname">presence</td><td>presence of the contact, one of "chat", "online", "away", "xa" or "dnd" </td></tr>
+    <tr><td class="paramname">status</td><td>the status message received with the presence, or NULL </td></tr>
+    <tr><td class="paramname">priority</td><td>the priority associated with the resource </td></tr>
   </table>
   </dd>
 </dl>
@@ -217,10 +371,217 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called when an account is disconnected </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called when the user disconnects an account </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">account_name</td><td>The name of the account </td></tr>
-    <tr><td class="paramname">fulljid</td><td>The full JID of the account </td></tr>
+    <tr><td class="paramname">account_name</td><td>account name of the account being disconnected </td></tr>
+    <tr><td class="paramname">fulljid</td><td>the full Jabber ID (barejid and resource) of the account </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ace4fbbf1e8e4688feccb21d612015b6f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_on_iq_stanza_receive </td>
+          <td>(</td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>stanza</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called when an XMPP iq stanza is received </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stanza</td><td>The stanza received </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if Profanity should continue to process the iq stanza, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a01f32486a6803b047d2acd4651c8f1b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* prof_on_iq_stanza_send </td>
+          <td>(</td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>stanza</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called before an XMPP iq stanza is sent </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stanza</td><td>The stanza to send </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The new stanza to send, or NULL to preserve the original stanza </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae3b19e570e80800c0c8569ef9834152a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_on_message_stanza_receive </td>
+          <td>(</td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>stanza</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called when an XMPP message stanza is received </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stanza</td><td>The stanza received </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if Profanity should continue to process the message stanza, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7e5a8c73e2183f14c111cef12b265920"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* prof_on_message_stanza_send </td>
+          <td>(</td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>stanza</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called before an XMPP message stanza is sent </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stanza</td><td>The stanza to send </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The new stanza to send, or NULL to preserve the original stanza </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5bc5a71c63d5e355954dfb86e550d1dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_on_presence_stanza_receive </td>
+          <td>(</td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>stanza</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called when an XMPP presence stanza is received </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stanza</td><td>The stanza received </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if Profanity should continue to process the presence stanza, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1a5ec57cedb00d9c7754bea88a17ab79"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* prof_on_presence_stanza_send </td>
+          <td>(</td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>stanza</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called before an XMPP presence stanza is sent </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stanza</td><td>The stanza to send </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The new stanza to send, or NULL to preserve the original stanza </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa91ba0b00c16dc83f5bc3cad68cc4698"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void prof_on_room_history_message </td>
+          <td>(</td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>room</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>nick</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>timestamp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called when the server sends a chat room history message </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">room</td><td>Jabber ID of the room </td></tr>
+    <tr><td class="paramname">nick</td><td>nickname of the message sender </td></tr>
+    <tr><td class="paramname">message</td><td>the message to be sent </td></tr>
+    <tr><td class="paramname">timestamp</td><td>time the message was originally sent to the room, in ISO8601 format </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5cd6b8b0595875c2e7b4578e892cb783"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void prof_on_room_win_focus </td>
+          <td>(</td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>roomjid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called when a chat room window is focussed </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">room</td><td>Jabber ID of the room </td></tr>
   </table>
   </dd>
 </dl>
@@ -240,7 +601,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called when profanity shuts down </p>
+<p>Called when the user quits Profanity </p>
 
 </div>
 </div>
@@ -257,7 +618,24 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called when profanity starts, after <a class="el" href="profhooks_8h.html#a9e81b65b3befc4291512a5bc727c18b3">prof_init</a> </p>
+<p>Called when Profanity is started </p>
+
+</div>
+</div>
+<a class="anchor" id="aa525708e957a5a2f3b8b4c31601853d5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void prof_on_unload </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called when a plugin is unloaded with the /plugins unload command </p>
 
 </div>
 </div>
@@ -284,10 +662,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called after a regular chat message is displayed </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called after a chat message is displayed </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">jid</td><td>The JID of the sender </td></tr>
-    <tr><td class="paramname">message</td><td>The message received </td></tr>
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the message sender </td></tr>
+    <tr><td class="paramname">message</td><td>the received message </td></tr>
   </table>
   </dd>
 </dl>
@@ -317,10 +695,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called after a regular chat message is sent </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called after a chat message has been sent </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">jid</td><td>The JID of the recipient </td></tr>
-    <tr><td class="paramname">message</td><td>The message sent </td></tr>
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the message recipient </td></tr>
+    <tr><td class="paramname">message</td><td>the sent message </td></tr>
   </table>
   </dd>
 </dl>
@@ -356,11 +734,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called after a MUC private message is displayed </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called after a private chat room message is displayed </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">room</td><td>The JID of the room </td></tr>
-    <tr><td class="paramname">nick</td><td>The nickname of the sender </td></tr>
-    <tr><td class="paramname">message</td><td>The message received </td></tr>
+    <tr><td class="paramname">room</td><td>Jabber ID of the room </td></tr>
+    <tr><td class="paramname">nick</td><td>nickname of the message sender </td></tr>
+    <tr><td class="paramname">message</td><td>the received message </td></tr>
   </table>
   </dd>
 </dl>
@@ -396,11 +774,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called after a MUC private message is sent </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called after a private chat room message has been sent </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">room</td><td>The JID of the room </td></tr>
-    <tr><td class="paramname">nick</td><td>The nickname of the recipient </td></tr>
-    <tr><td class="paramname">message</td><td>The message sent </td></tr>
+    <tr><td class="paramname">room</td><td>Jabber ID of the room </td></tr>
+    <tr><td class="paramname">nick</td><td>nickname of the message recipient </td></tr>
+    <tr><td class="paramname">message</td><td>the sent message </td></tr>
   </table>
   </dd>
 </dl>
@@ -436,11 +814,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called after a MUC message is displayed </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called after a chat room message is displayed </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">room</td><td>The JID of the room </td></tr>
-    <tr><td class="paramname">nick</td><td>The nickname of the sender </td></tr>
-    <tr><td class="paramname">message</td><td>The message received </td></tr>
+    <tr><td class="paramname">room</td><td>Jabber ID of the room </td></tr>
+    <tr><td class="paramname">nick</td><td>nickname of the message sender </td></tr>
+    <tr><td class="paramname">message</td><td>the received message </td></tr>
   </table>
   </dd>
 </dl>
@@ -470,10 +848,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called after a MUC message is sent </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called after a chat room message has been sent </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">room</td><td>The JID of the room </td></tr>
-    <tr><td class="paramname">message</td><td>The message sent </td></tr>
+    <tr><td class="paramname">room</td><td>Jabber ID of the room </td></tr>
+    <tr><td class="paramname">message</td><td>the sent message </td></tr>
   </table>
   </dd>
 </dl>
@@ -503,14 +881,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called before a regular chat message is displayed </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called before a chat message is displayed </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">jid</td><td>The JID of the sender </td></tr>
-    <tr><td class="paramname">message</td><td>The message received </td></tr>
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the message sender </td></tr>
+    <tr><td class="paramname">message</td><td>the received message </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The new message, or NULL if no change made to the message </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the new message to display, or NULL to preserve the original message </dd></dl>
 
 </div>
 </div>
@@ -537,14 +915,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called before a regular chat message is sent </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called before a chat message is sent </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">jid</td><td>The JID of the recipient </td></tr>
-    <tr><td class="paramname">message</td><td>The message to send </td></tr>
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the message recipient </td></tr>
+    <tr><td class="paramname">message</td><td>the message to be sent </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The new message, or NULL if no change made to the message </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the new message to send, or NULL to preserve the original message </dd></dl>
 
 </div>
 </div>
@@ -577,15 +955,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called before a MUC private message is displayed </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called before a private chat room message is displayed </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">room</td><td>The JID of the room </td></tr>
-    <tr><td class="paramname">nick</td><td>The nickname of the sender </td></tr>
-    <tr><td class="paramname">message</td><td>The message received </td></tr>
+    <tr><td class="paramname">room</td><td>Jabber ID of the room </td></tr>
+    <tr><td class="paramname">nick</td><td>nickname of message sender </td></tr>
+    <tr><td class="paramname">message</td><td>the received message </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The new message, or NULL if no change made to the message </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the new message to display, or NULL to preserve the original message </dd></dl>
 
 </div>
 </div>
@@ -618,15 +996,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called before a MUC private message is sent </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called before a private chat room message is sent </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">room</td><td>The JID of the room </td></tr>
-    <tr><td class="paramname">nick</td><td>The nickname of the recipient </td></tr>
-    <tr><td class="paramname">message</td><td>The message to send </td></tr>
+    <tr><td class="paramname">room</td><td>Jabber ID of the room </td></tr>
+    <tr><td class="paramname">nick</td><td>nickname of message recipient </td></tr>
+    <tr><td class="paramname">message</td><td>the message to be sent </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The new message, or NULL if no change made to the message </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the new message to send, or NULL to preserve the original message </dd></dl>
 
 </div>
 </div>
@@ -659,15 +1037,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called before a MUC message is displayed </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called before a chat room message is displayed </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">room</td><td>The JID of the room </td></tr>
-    <tr><td class="paramname">nick</td><td>The nickname of the sender </td></tr>
-    <tr><td class="paramname">message</td><td>The message received </td></tr>
+    <tr><td class="paramname">room</td><td>Jabber ID of the room </td></tr>
+    <tr><td class="paramname">nick</td><td>nickname of message sender </td></tr>
+    <tr><td class="paramname">message</td><td>the received message </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The new message, or NULL if no change made to the message </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the new message to display, or NULL to preserve the original message </dd></dl>
 
 </div>
 </div>
@@ -694,14 +1072,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Called before a MUC message is sent </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Called before a chat room message is sent </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">room</td><td>The JID of the room </td></tr>
-    <tr><td class="paramname">message</td><td>The message to send </td></tr>
+    <tr><td class="paramname">room</td><td>Jabber ID of the room </td></tr>
+    <tr><td class="paramname">message</td><td>the message to be sent </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The new message, or NULL if no change made to the message </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the new message to send, or NULL to preserve the original message </dd></dl>
 
 </div>
 </div>

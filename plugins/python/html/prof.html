@@ -328,7 +328,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The Jabber ID of the current chat room e.g. <code class="docutils literal"><span class="pre">&quot;metalchat&#64;conference.chat.org&quot;</span></code>, or <code class="docutils literal"><span class="pre">None</span></code> if not in a chat room window.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the Jabber ID of the current chat room e.g. <code class="docutils literal"><span class="pre">&quot;metalchat&#64;conference.chat.org&quot;</span></code>, or <code class="docutils literal"><span class="pre">None</span></code> if not in a chat room window.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
 </tr>
@@ -344,7 +344,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The users nickname in the current chat room e.g. <code class="docutils literal"><span class="pre">&quot;eddie&quot;</span></code>, or <code class="docutils literal"><span class="pre">None</span></code> if not in a chat room window.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the users nickname in the current chat room e.g. <code class="docutils literal"><span class="pre">&quot;eddie&quot;</span></code>, or <code class="docutils literal"><span class="pre">None</span></code> if not in a chat room window.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
 </tr>
@@ -360,7 +360,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nicknames of all occupants in the current room or an empty list if not in a chat room window.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">nicknames of all occupants in the current room or an empty list if not in a chat room window.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of str</td>
 </tr>
@@ -376,7 +376,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The Jabber ID of the current chat recipient e.g. <code class="docutils literal"><span class="pre">&quot;buddy&#64;chat.org&quot;</span></code>, or <code class="docutils literal"><span class="pre">None</span></code> if not in a chat window.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the Jabber ID of the current chat recipient e.g. <code class="docutils literal"><span class="pre">&quot;buddy&#64;chat.org&quot;</span></code>, or <code class="docutils literal"><span class="pre">None</span></code> if not in a chat window.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
 </tr>
@@ -809,7 +809,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>tag</strong> (<em>str or unicode</em>) &#8211; The tag of the window to focus</li>
+<li><strong>tag</strong> (<em>str or unicode</em>) &#8211; The tag of the window to display the message</li>
 <li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to print</li>
 </ul>
 </td>
@@ -826,13 +826,13 @@
 <dt id="prof.win_show_themed">
 <code class="descclassname">prof.</code><code class="descname">win_show_themed</code><span class="sig-paren">(</span><em>tag</em>, <em>group</em>, <em>key</em>, <em>default</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_show_themed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show a message in the plugin window, using the specified theme.</p>
-<p>Themes can be must be specified in <code class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_themes</span></code></p>
+<p>Themes must be specified in <code class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_themes</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>tag</strong> (<em>str or unicode</em>) &#8211; The tag of the window to focus</li>
+<li><strong>tag</strong> (<em>str or unicode</em>) &#8211; The tag of the window to display the message</li>
 <li><strong>group</strong> (<em>str, unicode or None</em>) &#8211; the group name in the themes file</li>
 <li><strong>key</strong> (<em>str, unicode or None</em>) &#8211; the item name within the group</li>
 <li><strong>default</strong> (<em>str, unicode or None</em>) &#8211; default colour if the theme cannot be found</li>
