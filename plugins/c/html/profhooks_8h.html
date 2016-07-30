@@ -102,14 +102,14 @@ Functions</h2></td></tr>
 <tr class="separator:a88c248cff853e01b151ac6634a8a4e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a247bb946d46f81b3ee115467bec24dff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a247bb946d46f81b3ee115467bec24dff">prof_on_disconnect</a> (const char *const account_name, const char *const fulljid)</td></tr>
 <tr class="separator:a247bb946d46f81b3ee115467bec24dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34bbc102e2afd632eb6a6240f71eb4c7"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a34bbc102e2afd632eb6a6240f71eb4c7">prof_pre_chat_message_display</a> (const char *const jid, const char *message)</td></tr>
-<tr class="separator:a34bbc102e2afd632eb6a6240f71eb4c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f7990f4017523d2f9b88e222589ae0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a9f7990f4017523d2f9b88e222589ae0b">prof_post_chat_message_display</a> (const char *const jid, const char *message)</td></tr>
-<tr class="separator:a9f7990f4017523d2f9b88e222589ae0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80fb8c028f049c4be52c7a2779897ef9"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a80fb8c028f049c4be52c7a2779897ef9">prof_pre_chat_message_send</a> (const char *const jid, const char *message)</td></tr>
-<tr class="separator:a80fb8c028f049c4be52c7a2779897ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1332bea96a141edfdaac8ef05b3781e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a1332bea96a141edfdaac8ef05b3781e0">prof_post_chat_message_send</a> (const char *const jid, const char *message)</td></tr>
-<tr class="separator:a1332bea96a141edfdaac8ef05b3781e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac55782382560ff4e318fc815ece6ca2b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#ac55782382560ff4e318fc815ece6ca2b">prof_pre_chat_message_display</a> (const char *const barejid, const char *message)</td></tr>
+<tr class="separator:ac55782382560ff4e318fc815ece6ca2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85a7b3601d0d14c66745dbaa8abde9ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a85a7b3601d0d14c66745dbaa8abde9ba">prof_post_chat_message_display</a> (const char *const barejid, const char *message)</td></tr>
+<tr class="separator:a85a7b3601d0d14c66745dbaa8abde9ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44aac3e408c46b14c5adc78849088460"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a44aac3e408c46b14c5adc78849088460">prof_pre_chat_message_send</a> (const char *const barejid, const char *message)</td></tr>
+<tr class="separator:a44aac3e408c46b14c5adc78849088460"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94ee3dcb032b886a1bef0d5ede3d7b69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a94ee3dcb032b886a1bef0d5ede3d7b69">prof_post_chat_message_send</a> (const char *const barejid, const char *message)</td></tr>
+<tr class="separator:a94ee3dcb032b886a1bef0d5ede3d7b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60da4f7f5b734e2a53f1d70a5a999ec2"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a60da4f7f5b734e2a53f1d70a5a999ec2">prof_pre_room_message_display</a> (const char *const room, const char *const nick, const char *message)</td></tr>
 <tr class="separator:a60da4f7f5b734e2a53f1d70a5a999ec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a0f5aef16f4d458fea2f763c9d54ffc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a5a0f5aef16f4d458fea2f763c9d54ffc">prof_post_room_message_display</a> (const char *const room, const char *const nick, const char *message)</td></tr>
@@ -146,8 +146,8 @@ Functions</h2></td></tr>
 <tr class="separator:a32960cfda50e5d5da3207c6ae18cee60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a898d8ac824cf680e298ec0547fa566a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a898d8ac824cf680e298ec0547fa566a2">prof_on_chat_win_focus</a> (const char *const barejid)</td></tr>
 <tr class="separator:a898d8ac824cf680e298ec0547fa566a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cd6b8b0595875c2e7b4578e892cb783"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#a5cd6b8b0595875c2e7b4578e892cb783">prof_on_room_win_focus</a> (const char *const roomjid)</td></tr>
-<tr class="separator:a5cd6b8b0595875c2e7b4578e892cb783"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8158846c91e16992bd353e49798e8fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profhooks_8h.html#ad8158846c91e16992bd353e49798e8fd">prof_on_room_win_focus</a> (const char *const room)</td></tr>
+<tr class="separator:ad8158846c91e16992bd353e49798e8fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>C Hooks. </p>
@@ -566,7 +566,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a5cd6b8b0595875c2e7b4578e892cb783"></a>
+<a class="anchor" id="ad8158846c91e16992bd353e49798e8fd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -574,7 +574,7 @@ Functions</h2></td></tr>
           <td class="memname">void prof_on_room_win_focus </td>
           <td>(</td>
           <td class="paramtype">const char *const&#160;</td>
-          <td class="paramname"><em>roomjid</em></td><td>)</td>
+          <td class="paramname"><em>room</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -639,7 +639,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a9f7990f4017523d2f9b88e222589ae0b"></a>
+<a class="anchor" id="a85a7b3601d0d14c66745dbaa8abde9ba"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -647,7 +647,7 @@ Functions</h2></td></tr>
           <td class="memname">void prof_post_chat_message_display </td>
           <td>(</td>
           <td class="paramtype">const char *const&#160;</td>
-          <td class="paramname"><em>jid</em>, </td>
+          <td class="paramname"><em>barejid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -672,7 +672,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1332bea96a141edfdaac8ef05b3781e0"></a>
+<a class="anchor" id="a94ee3dcb032b886a1bef0d5ede3d7b69"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -680,7 +680,7 @@ Functions</h2></td></tr>
           <td class="memname">void prof_post_chat_message_send </td>
           <td>(</td>
           <td class="paramtype">const char *const&#160;</td>
-          <td class="paramname"><em>jid</em>, </td>
+          <td class="paramname"><em>barejid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -858,7 +858,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a34bbc102e2afd632eb6a6240f71eb4c7"></a>
+<a class="anchor" id="ac55782382560ff4e318fc815ece6ca2b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -866,7 +866,7 @@ Functions</h2></td></tr>
           <td class="memname">char* prof_pre_chat_message_display </td>
           <td>(</td>
           <td class="paramtype">const char *const&#160;</td>
-          <td class="paramname"><em>jid</em>, </td>
+          <td class="paramname"><em>barejid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -892,7 +892,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a80fb8c028f049c4be52c7a2779897ef9"></a>
+<a class="anchor" id="a44aac3e408c46b14c5adc78849088460"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -900,7 +900,7 @@ Functions</h2></td></tr>
           <td class="memname">char* prof_pre_chat_message_send </td>
           <td>(</td>
           <td class="paramtype">const char *const&#160;</td>
-          <td class="paramname"><em>jid</em>, </td>
+          <td class="paramname"><em>barejid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

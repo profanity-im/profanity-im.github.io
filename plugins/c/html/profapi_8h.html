@@ -148,10 +148,10 @@ Functions</h2></td></tr>
 <tr class="separator:a2175b87bd0746c18866fc074e3bc1c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a056b129179552c2c8ee2754686484206"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#a056b129179552c2c8ee2754686484206">prof_win_focus</a> (<a class="el" href="profapi_8h.html#aa6215be301ec1cd3277507f1973ec77a">PROF_WIN_TAG</a> win)</td></tr>
 <tr class="separator:a056b129179552c2c8ee2754686484206"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30789aaa381ba2b60b54230ad5e4f85e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#a30789aaa381ba2b60b54230ad5e4f85e">prof_win_show</a> (<a class="el" href="profapi_8h.html#aa6215be301ec1cd3277507f1973ec77a">PROF_WIN_TAG</a> win, char *line)</td></tr>
-<tr class="separator:a30789aaa381ba2b60b54230ad5e4f85e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af27eee73e534144b21ce128fa4e6da66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#af27eee73e534144b21ce128fa4e6da66">prof_win_show_themed</a> (<a class="el" href="profapi_8h.html#aa6215be301ec1cd3277507f1973ec77a">PROF_WIN_TAG</a> tag, char *group, char *key, char *def, char *line)</td></tr>
-<tr class="separator:af27eee73e534144b21ce128fa4e6da66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26d7b44226b14ba5e1425bb58ed81eb9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#a26d7b44226b14ba5e1425bb58ed81eb9">prof_win_show</a> (<a class="el" href="profapi_8h.html#aa6215be301ec1cd3277507f1973ec77a">PROF_WIN_TAG</a> win, char *message)</td></tr>
+<tr class="separator:a26d7b44226b14ba5e1425bb58ed81eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09d4b98ebbad3b16138e15296caecb2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#ad09d4b98ebbad3b16138e15296caecb2">prof_win_show_themed</a> (<a class="el" href="profapi_8h.html#aa6215be301ec1cd3277507f1973ec77a">PROF_WIN_TAG</a> tag, char *group, char *key, char *def, char *message)</td></tr>
+<tr class="separator:ad09d4b98ebbad3b16138e15296caecb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8b09683a5851eb0261cf0832cb6f5fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#af8b09683a5851eb0261cf0832cb6f5fe">prof_send_stanza</a> (char *stanza)</td></tr>
 <tr class="separator:af8b09683a5851eb0261cf0832cb6f5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79128008f7ef45c72b0a52f7bccac299"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#a79128008f7ef45c72b0a52f7bccac299">prof_settings_get_boolean</a> (char *group, char *key, int def)</td></tr>
@@ -277,7 +277,6 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">key</td><td>the prefix from which to clear the autocompletion items </td></tr>
-    <tr><td class="paramname">items</td><td>the items to remove </td></tr>
   </table>
   </dd>
 </dl>
@@ -1179,7 +1178,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a30789aaa381ba2b60b54230ad5e4f85e"></a>
+<a class="anchor" id="a26d7b44226b14ba5e1425bb58ed81eb9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1193,7 +1192,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>line</em>&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1205,7 +1204,7 @@ Functions</h2></td></tr>
 <p>Show a message in the plugin window. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">win</td><td>the <a class="el" href="profapi_8h.html#aa6215be301ec1cd3277507f1973ec77a">PROF_WIN_TAG</a> of the window to display the message </td></tr>
-    <tr><td class="paramname">line</td><td>The message to print </td></tr>
+    <tr><td class="paramname">message</td><td>The message to print </td></tr>
   </table>
   </dd>
 </dl>
@@ -1213,7 +1212,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af27eee73e534144b21ce128fa4e6da66"></a>
+<a class="anchor" id="ad09d4b98ebbad3b16138e15296caecb2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1245,7 +1244,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>line</em>&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
