@@ -22,15 +22,14 @@
             <h3>Contents</h3>
             <ul>
                 <li><a href="#overview">Overview</a>
-                <li><a href="#api-docs">API Documentation</a>
-                <li><a href="#themes-settings">Themes and Settings</a>
+                <li><a href="#developing-plugins">Developing Plugins</a>
                 <ul>
                     <li>
-                        <a href="#themes">Themes</a>,
-                        <a href="#settings">Settings</a>
+                        <a href="#python-plugins">Python</a>,
+                        <a href="#c-plugins">C</a>
                     </li>
                 </ul>
-                <li><a href="#known-issues">Known Issues</a>
+                <li><a href="#themes-settings">Themes and Settings</a>
             </ul>
         </section>
         <section>
@@ -40,46 +39,75 @@
                 Profanity supports plugins written in Python and C. The <a href="https://github.com/boothj5/profanity-plugins" target="_blank">profanity-plugins</a> project contains various plugins maintained by Profanity's author and other community maintained plugins.
             </p>
             <p>
-                The <a href="reference.html#plugins"><code>/plugins</code></a> command can be used to manage plugins, for example to install a Python plugin:
+                There is a <a href="https://github.com/boothj5/profanity/issues/749" target="_blank">known issue</a> that C plugins do not currently work on Cygwin.
+            </p>
+            <p>
+                To install a Python plugin:
             </p>
             <pre><code>/plugins install ~/projects-git/profanity-plugins/say.py</code></pre>
+            <p>
+                Any module dependencies for the plugin should be on the Python system path. If a plugin imports modules relative to its location, these modules need to manually be copied to <code>~/.local/share/profanity/plugins/</code> 
+            </p>
+            <p>
+                To install a C plugin:
+            </p>
+            <pre><code>/plugins install ~/projects-git/profanity-plugins/pid/pid.so</code></pre>
+            <p>
+                See the <a href="reference.html#plugins"><code>/plugins</code></a> command for more information on installing and enabling/disabling plugins. 
+            </p>
             <p>
                 If a plugin registers it's own commands, the usual <a href="reference.html#help"><code>/help</code></a> command can be used to find out more information:
             </p>
             <pre><code>/help say</code></pre>
         </section>
         <section>
-            <a name="api-docs"></a>
-            <h3>API Documentation</h3>
+            <a name="developing-plugins"></a>
+            <h3>Developing Plugins</h3>
             <p>
-                <a href="plugins/python/html/index.html">Python documentation</a>
+                Profanity provides an API for plugins to access various functionality. Plugins may also implement 'hooks' that Profanity will call on specific events.
+            </p>
+            <a name="python-plugins"></a>
+            <h4>Python</h4>
+            <p>
+                Python plugins need to import the <code>prof</code> module to access the API.
             </p>
             <p>
-                <a href="plugins/c/html/index.html">C documentation</a>
+                Profanity may be compiled against Python 2 or Python 3, so plugins should be able to work with both, the <a href="https://pypi.python.org/pypi/future" target="_blank">future</a> library can be used in most cases.
+            <p>
+                Full documentation of the <code>prof</code> module and the hooks a plugin may implement can be found at:
+            </p>
+            <p>
+                <a href="plugins/python/html/index.html">Python API documentation</a>
+            </p>
+            <p>A full example test plugin can be found at <a href="https://github.com/boothj5/profanity-plugins/blob/master/tests/python-test.py" target="_blank">python-test.py</a>. 
+            </p>
+            <a name="c-plugins"></a>
+            <h4>C</h4>
+            <p>
+                C plugins need to include the <code>profapi.h</code> header to access the API.
+            </p>
+            <p>
+                C plugins should include a <code>Makefile</code> to build a shared library (a <code>.so</code> file) which is the file Profanity will load.
+            </p>
+            <p>
+                Full documentation of the <code>profapi.h</code> header and the hooks a plugin may implement can be found at:
+            </p>
+            <p>
+                <a href="plugins/c/html/index.html">C API documentation</a>
+            </p>
+            <p>A full example test plugin can be found at <a href="https://github.com/boothj5/profanity-plugins/tree/master/tests/test-c-plugin" target="_blank">test-c-plugin</a>. 
             </p>
         </section>
         <section>
             <a name="themes-settings"></a>
             <h3>Themes and Settings</h3>
             <p>
-                Themes and Settings
+                Plugins may make use of themes and settings by accessing the following files: 
             </p>
-            <a name="themes"></a>
-            <h4>Themes</h4>
+            <pre><code>~/.local/share/profanity/plugin_themes
+~/.local/share/profanity/plugin_settings</code></pre>
             <p>
-                Themes
-            </p>
-            <a name="settings"></a>
-            <h4>Settings</h4>
-            <p>
-                Settings
-            </p>
-        </section>
-        <section>
-            <a name="known-issues"></a>
-            <h3>Known Issues</h3>
-            <p>
-                C plugins are not yet supported on Cywin due to difficulties with using DLLs, any help would be welcome on getting this working.
+                Plugins should contain documentation on the available settings and colours, most plugins have a command to manipulate settings. 
             </p>
         </section>
     </article>
