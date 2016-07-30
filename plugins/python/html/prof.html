@@ -126,6 +126,90 @@
 <span id="prof-module"></span><h1>prof module<a class="headerlink" href="#module-prof" title="Permalink to this headline">¶</a></h1>
 <p>Profanity plugin API</p>
 <dl class="function">
+<dt id="prof.completer_add">
+<code class="descclassname">prof.</code><code class="descname">completer_add</code><span class="sig-paren">(</span><em>key</em>, <em>items</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.completer_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add values to be autocompleted by Profanity for a command, or command argument. If the key already exists, Profanity will add the items to the existing autocomplete items for that key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the prefix to trigger autocompletion</li>
+<li><strong>items</strong> (<em>list of str or unicode</em>) &#8211; the items to return on autocompletion</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">completer_add</span><span class="p">(</span><span class="s2">&quot;/mycommand&quot;</span><span class="p">,</span> <span class="p">[</span> 
+    <span class="s2">&quot;action1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;action2&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;dosomething&quot;</span> 
+<span class="p">])</span>
+
+<span class="n">prof</span><span class="o">.</span><span class="n">completer_add</span><span class="p">(</span><span class="s2">&quot;/mycommand dosomething&quot;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s2">&quot;thing1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thing2&quot;</span> 
+<span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.completer_clear">
+<code class="descclassname">prof.</code><code class="descname">completer_clear</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.completer_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all values from autocompletion for a command, or command argument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> &#8211; the prefix from which to clear the autocompletion items</li>
+<li><strong>items</strong> &#8211; the items to remove</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">completer_clear</span><span class="p">(</span><span class="s2">&quot;/mycommand&quot;</span><span class="p">)</span>
+
+<span class="n">prof</span><span class="o">.</span><span class="n">completer_add</span><span class="p">(</span><span class="s2">&quot;/mycommand dosomething&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.completer_remove">
+<code class="descclassname">prof.</code><code class="descname">completer_remove</code><span class="sig-paren">(</span><em>key</em>, <em>items</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.completer_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove values from autocompletion for a command, or command argument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the prefix from which to remove the autocompletion items</li>
+<li><strong>items</strong> (<em>list of str or unicode</em>) &#8211; the items to remove</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">completer_remove</span><span class="p">(</span><span class="s2">&quot;/mycommand&quot;</span><span class="p">,</span> <span class="p">[</span> 
+    <span class="s2">&quot;action1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;action2&quot;</span>
+<span class="p">])</span>
+
+<span class="n">prof</span><span class="o">.</span><span class="n">completer_add</span><span class="p">(</span><span class="s2">&quot;/mycommand dosomething&quot;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s2">&quot;thing1&quot;</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="prof.cons_alert">
 <code class="descclassname">prof.</code><code class="descname">cons_alert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.cons_alert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Highlights the console window in the status bar.</p>
@@ -139,10 +223,14 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> &#8211; the command name with leading slash, e.g. <code class="docutils literal"><span class="pre">&quot;/say&quot;</span></code></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> (<em>str or unicode</em>) &#8211; the command name with leading slash, e.g. <code class="docutils literal"><span class="pre">&quot;/say&quot;</span></code></td>
 </tr>
 </tbody>
 </table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">cons_bad_cmd_usage</span><span class="p">(</span><span class="s2">&quot;/mycommand&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -153,122 +241,603 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> &#8211; the message to print</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">True</span></code> on success, <code class="docutils literal"><span class="pre">False</span></code> on failure</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to print</td>
 </tr>
 </tbody>
 </table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">cons_show</span><span class="p">(</span><span class="s2">&quot;This will appear in the console window&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="prof.cons_show_themed">
-<code class="descclassname">prof.</code><code class="descname">cons_show_themed</code><span class="sig-paren">(</span><em>group</em>, <em>item</em>, <em>default</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.cons_show_themed" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">prof.</code><code class="descname">cons_show_themed</code><span class="sig-paren">(</span><em>group</em>, <em>key</em>, <em>default</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.cons_show_themed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show a message in the console, using the specified theme.</p>
 <p>Themes can be must be specified in <code class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_themes</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>group</strong> &#8211; the group name in the themes file, or None</li>
-<li><strong>item</strong> &#8211; the item name within the group, or None</li>
-<li><strong>default</strong> &#8211; default colour if the theme cannot be found, or None</li>
-<li><strong>message</strong> &#8211; the message to print</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>group</strong> (<em>str, unicode or None</em>) &#8211; the group name in the themes file</li>
+<li><strong>key</strong> (<em>str, unicode or None</em>) &#8211; the item name within the group</li>
+<li><strong>default</strong> (<em>str, unicode or None</em>) &#8211; default colour if the theme cannot be found</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to print</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">True</span></code> on success, <code class="docutils literal"><span class="pre">False</span></code> on failure</p>
-</td>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">cons_show_themed</span><span class="p">(</span><span class="s2">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s2">&quot;Plugin themed message&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.current_win_is_console">
+<code class="descclassname">prof.</code><code class="descname">current_win_is_console</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.current_win_is_console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether or not the Console window is currently focussed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">True</span></code> if the user is currently in the Console window, <code class="docutils literal"><span class="pre">False</span></code> otherwise.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="function">
-<dt id="prof.current_win_is_console">
-<code class="descclassname">prof.</code><code class="descname">current_win_is_console</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.current_win_is_console" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="prof.disco_add_feature">
+<code class="descclassname">prof.</code><code class="descname">disco_add_feature</code><span class="sig-paren">(</span><em>feature</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.disco_add_feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a service discovery feature the list supported by Profanity.</p>
+<p>If a session is already connected, a presence update will be sent to allow any client/server caches to update their feature list for Profanity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature</strong> (<em>str</em>) &#8211; the service discovery feature to be added</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">disco_add_feature</span><span class="p">(</span><span class="s2">&quot;urn:xmpp:omemo:0:devicelist+notify&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.get_current_muc">
 <code class="descclassname">prof.</code><code class="descname">get_current_muc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.get_current_muc" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Retrieve the Jabber ID of the current room, when in a chat room window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The Jabber ID of the current chat room e.g. <code class="docutils literal"><span class="pre">&quot;metalchat&#64;conference.chat.org&quot;</span></code>, or <code class="docutils literal"><span class="pre">None</span></code> if not in a chat room window.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.get_current_nick">
+<code class="descclassname">prof.</code><code class="descname">get_current_nick</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.get_current_nick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the users nickname in a chat room, when in a chat room window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The users nickname in the current chat room e.g. <code class="docutils literal"><span class="pre">&quot;eddie&quot;</span></code>, or <code class="docutils literal"><span class="pre">None</span></code> if not in a chat room window.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.get_current_occupants">
+<code class="descclassname">prof.</code><code class="descname">get_current_occupants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.get_current_occupants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve nicknames of all occupants in a chat room, when in a chat room window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nicknames of all occupants in the current room or an empty list if not in a chat room window.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.get_current_recipient">
 <code class="descclassname">prof.</code><code class="descname">get_current_recipient</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.get_current_recipient" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Retrieve the Jabber ID of the current chat recipient, when in a chat window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The Jabber ID of the current chat recipient e.g. <code class="docutils literal"><span class="pre">&quot;buddy&#64;chat.org&quot;</span></code>, or <code class="docutils literal"><span class="pre">None</span></code> if not in a chat window.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.incoming_message">
+<code class="descclassname">prof.</code><code class="descname">incoming_message</code><span class="sig-paren">(</span><em>barejid</em>, <em>resource</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.incoming_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trigger incoming message handling, this plugin will make profanity act as if the message has been received</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the sender of the message</li>
+<li><strong>resource</strong> (<em>str or unicode</em>) &#8211; resource of the sender of the message</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message text</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">incoming_message</span><span class="p">(</span><span class="s2">&quot;bob@server.org&quot;</span><span class="p">,</span> <span class="s2">&quot;laptop&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello there&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.log_debug">
-<code class="descclassname">prof.</code><code class="descname">log_debug</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.log_debug" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">prof.</code><code class="descname">log_debug</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.log_debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write to the Profanity log at level <code class="docutils literal"><span class="pre">DEBUG</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to log</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.log_error">
 <code class="descclassname">prof.</code><code class="descname">log_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.log_error" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Write to the Profanity log at level <code class="docutils literal"><span class="pre">ERROR</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to log</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.log_info">
 <code class="descclassname">prof.</code><code class="descname">log_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.log_info" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Write to the Profanity log at level <code class="docutils literal"><span class="pre">INFO</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to log</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.log_warning">
 <code class="descclassname">prof.</code><code class="descname">log_warning</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.log_warning" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Write to the Profanity log at level <code class="docutils literal"><span class="pre">WARNING</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to log</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.notify">
-<code class="descclassname">prof.</code><code class="descname">notify</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.notify" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="prof.register_ac">
-<code class="descclassname">prof.</code><code class="descname">register_ac</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.register_ac" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">prof.</code><code class="descname">notify</code><span class="sig-paren">(</span><em>message</em>, <em>timeout</em>, <em>category</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.notify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a desktop notification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to display in the notification</li>
+<li><strong>timeout</strong> (<em>int</em>) &#8211; the length of time before the notification disappears in milliseconds</li>
+<li><strong>category</strong> (<em>str or unicode</em>) &#8211; the category of the notification, also displayed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="s2">&quot;Example notification for 5 seconds&quot;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="s2">&quot;Example plugin&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.register_command">
-<code class="descclassname">prof.</code><code class="descname">register_command</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.register_command" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">prof.</code><code class="descname">register_command</code><span class="sig-paren">(</span><em>name</em>, <em>min_args</em>, <em>max_args</em>, <em>synopsis</em>, <em>description</em>, <em>arguments</em>, <em>examples</em>, <em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.register_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a new command, with help information, and callback for command execution.</p>
+<p>Profanity will do some basic validation when the command is called using the argument range.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>str or unicode</em>) &#8211; the command name with leading slash, e.g. <code class="docutils literal"><span class="pre">&quot;/say&quot;</span></code></li>
+<li><strong>min_args</strong> (<em>int</em>) &#8211; minimum number or arguments that the command considers to be a valid call</li>
+<li><strong>max_args</strong> (<em>int</em>) &#8211; maximum number or arguments that the command considers to be a valid call</li>
+<li><strong>synopsis</strong> (<em>list of str or unicode</em>) &#8211; command usages</li>
+<li><strong>description</strong> (<em>str or unicode</em>) &#8211; a short description of the command</li>
+<li><strong>arguments</strong> (<em>list of list of str or unicode</em>) &#8211; argument descriptions, each element should be of the form [arguments, description]</li>
+<li><strong>examples</strong> (<em>list of str or unicode</em>) &#8211; example usages</li>
+<li><strong>callback</strong> (<em>function</em>) &#8211; function to call when the command is executed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">synopsis</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;/newcommand action1|action2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;/newcommand print &lt;argument&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;/newcommand dosomething [&lt;optional_argument&gt;]&quot;</span>
+<span class="p">]</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;An example for the documentation&quot;</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span> <span class="s2">&quot;action1|action2&quot;</span><span class="p">,</span> <span class="s2">&quot;Perform action1 or action2&quot;</span> <span class="p">],</span>
+    <span class="p">[</span> <span class="s2">&quot;print &lt;argument&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;Print argument&quot;</span> <span class="p">],</span>
+    <span class="p">[</span> <span class="s2">&quot;dosomething [&lt;optional_argument&gt;]&quot;</span><span class="p">,</span> <span class="s2">&quot;Do something, optionally with the argument&quot;</span> <span class="p">]</span>
+<span class="p">]</span>
+<span class="n">examples</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;/newcommand action1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;/newcommand print </span><span class="se">\&quot;</span><span class="s2">Test debug message</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;/newcommand dosomething&quot;</span>
+<span class="p">]</span>        
+
+<span class="n">prof</span><span class="o">.</span><span class="n">register_command</span><span class="p">(</span><span class="s2">&quot;/newcommand&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">synopsis</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">examples</span><span class="p">,</span> <span class="n">my_function</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.register_timed">
-<code class="descclassname">prof.</code><code class="descname">register_timed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.register_timed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">prof.</code><code class="descname">register_timed</code><span class="sig-paren">(</span><em>callback</em>, <em>interval</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.register_timed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a function that Profanity will call periodically.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>callback</strong> (<em>function</em>) &#8211; the funciton to call</li>
+<li><strong>interval</strong> (<em>int</em>) &#8211; the time between each call to the function, in seconds</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">register_timed</span><span class="p">(</span><span class="n">some_function</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.send_line">
-<code class="descclassname">prof.</code><code class="descname">send_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.send_line" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">prof.</code><code class="descname">send_line</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.send_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a line of input to Profanity to execute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>line</strong> (<em>str or unicode</em>) &#8211; the line to send</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">send_line</span><span class="p">(</span><span class="s2">&quot;/who online&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.send_stanza">
+<code class="descclassname">prof.</code><code class="descname">send_stanza</code><span class="sig-paren">(</span><em>stanza</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.send_stanza" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send an XMPP stanza</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stanza</strong> (<em>str or unicode</em>) &#8211; An XMPP stanza</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">True</span></code> if the stanza was sent successfully, <code class="docutils literal"><span class="pre">False</span></code> otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype boolean:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">send_stanza</span><span class="p">(</span><span class="s2">&quot;&lt;iq to=&#39;juliet@capulet.lit/balcony&#39; id=&#39;s2c1&#39; type=&#39;get&#39;&gt;&lt;ping xmlns=&#39;urn:xmpp:ping&#39;/&gt;&lt;/iq&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.settings_get_boolean">
+<code class="descclassname">prof.</code><code class="descname">settings_get_boolean</code><span class="sig-paren">(</span><em>group</em>, <em>key</em>, <em>default</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.settings_get_boolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a boolean setting</p>
+<p>Settings must be specified in <code class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
+<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
+<li><strong>default</strong> (<em>boolean</em>) &#8211; default value if setting not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">settings_get_boolean</span><span class="p">(</span><span class="s2">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s2">&quot;notify&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.settings_get_int">
+<code class="descclassname">prof.</code><code class="descname">settings_get_int</code><span class="sig-paren">(</span><em>group</em>, <em>key</em>, <em>default</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.settings_get_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an integer setting</p>
+<p>Settings must be specified in <code class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
+<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
+<li><strong>default</strong> (<em>int</em>) &#8211; default value if setting not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">settings_get_int</span><span class="p">(</span><span class="s2">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s2">&quot;timeout&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.settings_get_string">
+<code class="descclassname">prof.</code><code class="descname">settings_get_string</code><span class="sig-paren">(</span><em>group</em>, <em>key</em>, <em>default</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.settings_get_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a string setting</p>
+<p>Settings must be specified in <code class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
+<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
+<li><strong>default</strong> (<em>str</em>) &#8211; default value if setting not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">settings_get_string</span><span class="p">(</span><span class="s2">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s2">&quot;prefix&quot;</span><span class="p">,</span> <span class="s2">&quot;prefix--&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.settings_set_boolean">
+<code class="descclassname">prof.</code><code class="descname">settings_set_boolean</code><span class="sig-paren">(</span><em>group</em>, <em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.settings_set_boolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a boolean setting</p>
+<p>Settings must be specified in <code class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
+<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
+<li><strong>value</strong> (<em>boolean</em>) &#8211; value to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">settings_set_boolean</span><span class="p">(</span><span class="s2">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s2">&quot;activate&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.settings_set_int">
+<code class="descclassname">prof.</code><code class="descname">settings_set_int</code><span class="sig-paren">(</span><em>group</em>, <em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.settings_set_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an integer setting</p>
+<p>Settings must be specified in <code class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
+<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
+<li><strong>value</strong> (<em>int</em>) &#8211; value to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">settings_set_int</span><span class="p">(</span><span class="s2">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s2">&quot;timeout&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.settings_set_string">
+<code class="descclassname">prof.</code><code class="descname">settings_set_string</code><span class="sig-paren">(</span><em>group</em>, <em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.settings_set_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a string setting</p>
+<p>Settings must be specified in <code class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
+<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
+<li><strong>value</strong> (<em>str</em>) &#8211; value to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">settings_set_string</span><span class="p">(</span><span class="s2">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s2">&quot;prefix&quot;</span><span class="p">,</span> <span class="s2">&quot;myplugin, &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.win_create">
-<code class="descclassname">prof.</code><code class="descname">win_create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_create" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">prof.</code><code class="descname">win_create</code><span class="sig-paren">(</span><em>tag</em>, <em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a plugin window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tag</strong> (<em>str or unicode</em>) &#8211; The tag used to refer to the window</li>
+<li><strong>callback</strong> (<em>function</em>) &#8211; function to call when the window receives input</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">win_create</span><span class="p">(</span><span class="s2">&quot;My Plugin&quot;</span><span class="p">,</span> <span class="n">window_handler</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.win_exists">
-<code class="descclassname">prof.</code><code class="descname">win_exists</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_exists" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">prof.</code><code class="descname">win_exists</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether or not a plugin window currently exists for the tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str or unicode</em>) &#8211; The tag used when creating the plugin window</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">True</span></code> if the window exists, <code class="docutils literal"><span class="pre">False</span></code> otherwise.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">win_exists</span><span class="p">(</span><span class="s2">&quot;My Plugin&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.win_focus">
-<code class="descclassname">prof.</code><code class="descname">win_focus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_focus" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">prof.</code><code class="descname">win_focus</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_focus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Focus a plugin window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str or unicode</em>) &#8211; The tag of the window to focus</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">win_focus</span><span class="p">(</span><span class="s2">&quot;My Plugin&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.win_show">
-<code class="descclassname">prof.</code><code class="descname">win_show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_show" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">prof.</code><code class="descname">win_show</code><span class="sig-paren">(</span><em>tag</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a message in the plugin window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tag</strong> (<em>str or unicode</em>) &#8211; The tag of the window to focus</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to print</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">win_show</span><span class="p">(</span><span class="s2">&quot;My Plugin&quot;</span><span class="p">,</span> <span class="s2">&quot;This will appear in the plugin window&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="prof.win_show_themed">
-<code class="descclassname">prof.</code><code class="descname">win_show_themed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_show_themed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">prof.</code><code class="descname">win_show_themed</code><span class="sig-paren">(</span><em>tag</em>, <em>group</em>, <em>key</em>, <em>default</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#prof.win_show_themed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a message in the plugin window, using the specified theme.</p>
+<p>Themes can be must be specified in <code class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_themes</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tag</strong> (<em>str or unicode</em>) &#8211; The tag of the window to focus</li>
+<li><strong>group</strong> (<em>str, unicode or None</em>) &#8211; the group name in the themes file</li>
+<li><strong>key</strong> (<em>str, unicode or None</em>) &#8211; the item name within the group</li>
+<li><strong>default</strong> (<em>str, unicode or None</em>) &#8211; default colour if the theme cannot be found</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to print</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prof</span><span class="o">.</span><span class="n">win_show_themed</span><span class="p">(</span><span class="s2">&quot;My Plugin&quot;</span><span class="p">,</span> <span class="s2">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s2">&quot;Plugin themed message&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
 
 </div>
 
