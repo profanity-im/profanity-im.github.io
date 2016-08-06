@@ -517,8 +517,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="prof.settings_get_boolean">
-<tt class="descclassname">prof.</tt><tt class="descname">settings_get_boolean</tt><big>(</big><em>group</em>, <em>key</em>, <em>default</em><big>)</big><a class="headerlink" href="#prof.settings_get_boolean" title="Permalink to this definition">¶</a></dt>
+<dt id="prof.settings_boolean_get">
+<tt class="descclassname">prof.</tt><tt class="descname">settings_boolean_get</tt><big>(</big><em>group</em>, <em>key</em>, <em>default</em><big>)</big><a class="headerlink" href="#prof.settings_boolean_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a boolean setting</p>
 <p>Settings must be specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></tt></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -541,86 +541,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="prof.settings_get_int">
-<tt class="descclassname">prof.</tt><tt class="descname">settings_get_int</tt><big>(</big><em>group</em>, <em>key</em>, <em>default</em><big>)</big><a class="headerlink" href="#prof.settings_get_int" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get an integer setting</p>
-<p>Settings must be specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></tt></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
-<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
-<li><strong>default</strong> (<em>int</em>) &#8211; default value if setting not found</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">settings_get_int</span><span class="p">(</span><span class="s">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s">&quot;timeout&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="prof.settings_get_string">
-<tt class="descclassname">prof.</tt><tt class="descname">settings_get_string</tt><big>(</big><em>group</em>, <em>key</em>, <em>default</em><big>)</big><a class="headerlink" href="#prof.settings_get_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a string setting</p>
-<p>Settings must be specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></tt></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
-<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
-<li><strong>default</strong> (<em>str</em>) &#8211; default value if setting not found</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">settings_get_string</span><span class="p">(</span><span class="s">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s">&quot;prefix&quot;</span><span class="p">,</span> <span class="s">&quot;prefix--&gt;&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="prof.settings_get_string_list">
-<tt class="descclassname">prof.</tt><tt class="descname">settings_get_string_list</tt><big>(</big><em>group</em>, <em>key</em><big>)</big><a class="headerlink" href="#prof.settings_get_string_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a string list setting</p>
-<p>Settings must be specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></tt></p>
-<p>The string list setting items are separated by semicolons.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
-<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the list setting</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of str or unicode</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">settings_get_string_list</span><span class="p">(</span><span class="s">&quot;someplugin&quot;</span><span class="p">,</span> <span class="s">&quot;somelist&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="prof.settings_set_boolean">
-<tt class="descclassname">prof.</tt><tt class="descname">settings_set_boolean</tt><big>(</big><em>group</em>, <em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#prof.settings_set_boolean" title="Permalink to this definition">¶</a></dt>
+<dt id="prof.settings_boolean_set">
+<tt class="descclassname">prof.</tt><tt class="descname">settings_boolean_set</tt><big>(</big><em>group</em>, <em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#prof.settings_boolean_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set a boolean setting</p>
 <p>Settings must be specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></tt></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -643,8 +565,32 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="prof.settings_set_int">
-<tt class="descclassname">prof.</tt><tt class="descname">settings_set_int</tt><big>(</big><em>group</em>, <em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#prof.settings_set_int" title="Permalink to this definition">¶</a></dt>
+<dt id="prof.settings_int_get">
+<tt class="descclassname">prof.</tt><tt class="descname">settings_int_get</tt><big>(</big><em>group</em>, <em>key</em>, <em>default</em><big>)</big><a class="headerlink" href="#prof.settings_int_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an integer setting</p>
+<p>Settings must be specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
+<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
+<li><strong>default</strong> (<em>int</em>) &#8211; default value if setting not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">settings_get_int</span><span class="p">(</span><span class="s">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s">&quot;timeout&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.settings_int_set">
+<tt class="descclassname">prof.</tt><tt class="descname">settings_int_set</tt><big>(</big><em>group</em>, <em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#prof.settings_int_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set an integer setting</p>
 <p>Settings must be specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></tt></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -667,9 +613,9 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="prof.settings_set_string">
-<tt class="descclassname">prof.</tt><tt class="descname">settings_set_string</tt><big>(</big><em>group</em>, <em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#prof.settings_set_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set a string setting</p>
+<dt id="prof.settings_string_get">
+<tt class="descclassname">prof.</tt><tt class="descname">settings_string_get</tt><big>(</big><em>group</em>, <em>key</em>, <em>default</em><big>)</big><a class="headerlink" href="#prof.settings_string_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a string setting</p>
 <p>Settings must be specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></tt></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -678,14 +624,14 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
 <li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
-<li><strong>value</strong> (<em>str</em>) &#8211; value to set</li>
+<li><strong>default</strong> (<em>str</em>) &#8211; default value if setting not found</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">settings_set_string</span><span class="p">(</span><span class="s">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s">&quot;prefix&quot;</span><span class="p">,</span> <span class="s">&quot;myplugin, &quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">settings_get_string</span><span class="p">(</span><span class="s">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s">&quot;prefix&quot;</span><span class="p">,</span> <span class="s">&quot;prefix--&gt;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -711,6 +657,65 @@
 </table>
 <p>Example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">settings_string_list_add</span><span class="p">(</span><span class="s">&quot;someplugin&quot;</span><span class="p">,</span> <span class="s">&quot;somelist&quot;</span><span class="p">,</span> <span class="s">&quot;anelement&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.settings_string_list_clear">
+<tt class="descclassname">prof.</tt><tt class="descname">settings_string_list_clear</tt><big>(</big><em>group</em>, <em>key</em><big>)</big><a class="headerlink" href="#prof.settings_string_list_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all items from a string list setting</p>
+<p>Settings must be specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
+<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">True</span></tt> if the list was cleared, <tt class="docutils literal"><span class="pre">False</span></tt> if the list does not exist</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">settings_string_list_remove_all</span><span class="p">(</span><span class="s">&quot;someplugin&quot;</span><span class="p">,</span> <span class="s">&quot;somelist&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.settings_string_list_get">
+<tt class="descclassname">prof.</tt><tt class="descname">settings_string_list_get</tt><big>(</big><em>group</em>, <em>key</em><big>)</big><a class="headerlink" href="#prof.settings_string_list_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a string list setting</p>
+<p>Settings must be specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></tt></p>
+<p>The string list setting items are separated by semicolons.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
+<li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the list setting</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of str or unicode</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">settings_get_string_list</span><span class="p">(</span><span class="s">&quot;someplugin&quot;</span><span class="p">,</span> <span class="s">&quot;somelist&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -746,30 +751,25 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="prof.settings_string_list_remove_all">
-<tt class="descclassname">prof.</tt><tt class="descname">settings_string_list_remove_all</tt><big>(</big><em>group</em>, <em>key</em><big>)</big><a class="headerlink" href="#prof.settings_string_list_remove_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove all items from a string list setting</p>
+<dt id="prof.settings_string_set">
+<tt class="descclassname">prof.</tt><tt class="descname">settings_string_set</tt><big>(</big><em>group</em>, <em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#prof.settings_string_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a string setting</p>
 <p>Settings must be specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_settings</span></tt></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>group</strong> (<em>str or unicode</em>) &#8211; the group name in the settings file</li>
 <li><strong>key</strong> (<em>str or unicode</em>) &#8211; the item name within the group</li>
+<li><strong>value</strong> (<em>str</em>) &#8211; value to set</li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">True</span></tt> if the list was cleared, <tt class="docutils literal"><span class="pre">False</span></tt> if the list does not exist</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">settings_string_list_remove_all</span><span class="p">(</span><span class="s">&quot;someplugin&quot;</span><span class="p">,</span> <span class="s">&quot;somelist&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">settings_set_string</span><span class="p">(</span><span class="s">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s">&quot;prefix&quot;</span><span class="p">,</span> <span class="s">&quot;myplugin, &quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
