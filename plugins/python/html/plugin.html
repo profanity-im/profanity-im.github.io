@@ -285,14 +285,14 @@
 
 <dl class="function">
 <dt id="plugin.prof_on_room_history_message">
-<tt class="descclassname">plugin.</tt><tt class="descname">prof_on_room_history_message</tt><big>(</big><em>room</em>, <em>nick</em>, <em>message</em>, <em>timestamp</em><big>)</big><a class="headerlink" href="#plugin.prof_on_room_history_message" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">plugin.</tt><tt class="descname">prof_on_room_history_message</tt><big>(</big><em>barejid</em>, <em>nick</em>, <em>message</em>, <em>timestamp</em><big>)</big><a class="headerlink" href="#plugin.prof_on_room_history_message" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called when the server sends a chat room history message</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
 <li><strong>nick</strong> (<em>str or unicode</em>) &#8211; nickname of the message sender</li>
 <li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to be sent</li>
 <li><strong>timestamp</strong> (<em>str or unicode</em>) &#8211; time the message was originally sent to the room, in ISO8601 format</li>
@@ -305,13 +305,13 @@
 
 <dl class="function">
 <dt id="plugin.prof_on_room_win_focus">
-<tt class="descclassname">plugin.</tt><tt class="descname">prof_on_room_win_focus</tt><big>(</big><em>room</em><big>)</big><a class="headerlink" href="#plugin.prof_on_room_win_focus" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">plugin.</tt><tt class="descname">prof_on_room_win_focus</tt><big>(</big><em>barejid</em><big>)</big><a class="headerlink" href="#plugin.prof_on_room_win_focus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called when a chat room window is focussed</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</td>
 </tr>
 </tbody>
 </table>
@@ -337,7 +337,7 @@
 
 <dl class="function">
 <dt id="plugin.prof_post_chat_message_display">
-<tt class="descclassname">plugin.</tt><tt class="descname">prof_post_chat_message_display</tt><big>(</big><em>barejid</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_post_chat_message_display" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">plugin.</tt><tt class="descname">prof_post_chat_message_display</tt><big>(</big><em>barejid</em>, <em>resource</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_post_chat_message_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called after a chat message is displayed</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -345,6 +345,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the message sender</li>
+<li><strong>resource</strong> (<em>str or unicode</em>) &#8211; resource of the message sender</li>
 <li><strong>message</strong> (<em>str or unicode</em>) &#8211; the received message</li>
 </ul>
 </td>
@@ -373,14 +374,14 @@
 
 <dl class="function">
 <dt id="plugin.prof_post_priv_message_display">
-<tt class="descclassname">plugin.</tt><tt class="descname">prof_post_priv_message_display</tt><big>(</big><em>room</em>, <em>nick</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_post_priv_message_display" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">plugin.</tt><tt class="descname">prof_post_priv_message_display</tt><big>(</big><em>barejid</em>, <em>nick</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_post_priv_message_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called after a private chat room message is displayed</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
 <li><strong>nick</strong> (<em>str or unicode</em>) &#8211; nickname of the message sender</li>
 <li><strong>message</strong> (<em>str or unicode</em>) &#8211; the received message</li>
 </ul>
@@ -392,14 +393,14 @@
 
 <dl class="function">
 <dt id="plugin.prof_post_priv_message_send">
-<tt class="descclassname">plugin.</tt><tt class="descname">prof_post_priv_message_send</tt><big>(</big><em>room</em>, <em>nick</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_post_priv_message_send" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">plugin.</tt><tt class="descname">prof_post_priv_message_send</tt><big>(</big><em>barejid</em>, <em>nick</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_post_priv_message_send" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called after a private chat room message has been sent</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
 <li><strong>nick</strong> (<em>str or unicode</em>) &#8211; nickname of the message recipient</li>
 <li><strong>message</strong> (<em>str or unicode</em>) &#8211; the sent message</li>
 </ul>
@@ -411,14 +412,14 @@
 
 <dl class="function">
 <dt id="plugin.prof_post_room_message_display">
-<tt class="descclassname">plugin.</tt><tt class="descname">prof_post_room_message_display</tt><big>(</big><em>room</em>, <em>nick</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_post_room_message_display" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">plugin.</tt><tt class="descname">prof_post_room_message_display</tt><big>(</big><em>barejid</em>, <em>nick</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_post_room_message_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called after a chat room message is displayed</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
 <li><strong>nick</strong> (<em>str or unicode</em>) &#8211; nickname of the message sender</li>
 <li><strong>message</strong> (<em>str or unicode</em>) &#8211; the received message</li>
 </ul>
@@ -430,14 +431,14 @@
 
 <dl class="function">
 <dt id="plugin.prof_post_room_message_send">
-<tt class="descclassname">plugin.</tt><tt class="descname">prof_post_room_message_send</tt><big>(</big><em>room</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_post_room_message_send" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">plugin.</tt><tt class="descname">prof_post_room_message_send</tt><big>(</big><em>barejid</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_post_room_message_send" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called after a chat room message has been sent</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
 <li><strong>message</strong> (<em>str or unicode</em>) &#8211; the sent message</li>
 </ul>
 </td>
@@ -448,7 +449,7 @@
 
 <dl class="function">
 <dt id="plugin.prof_pre_chat_message_display">
-<tt class="descclassname">plugin.</tt><tt class="descname">prof_pre_chat_message_display</tt><big>(</big><em>barejid</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_pre_chat_message_display" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">plugin.</tt><tt class="descname">prof_pre_chat_message_display</tt><big>(</big><em>barejid</em>, <em>resource</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_pre_chat_message_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called before a chat message is displayed</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -456,6 +457,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the message sender</li>
+<li><strong>resource</strong> (<em>str or unicode</em>) &#8211; resource of the message sender</li>
 <li><strong>message</strong> (<em>str or unicode</em>) &#8211; the received message</li>
 </ul>
 </td>
@@ -496,14 +498,14 @@
 
 <dl class="function">
 <dt id="plugin.prof_pre_priv_message_display">
-<tt class="descclassname">plugin.</tt><tt class="descname">prof_pre_priv_message_display</tt><big>(</big><em>room</em>, <em>nick</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_pre_priv_message_display" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">plugin.</tt><tt class="descname">prof_pre_priv_message_display</tt><big>(</big><em>barejid</em>, <em>nick</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_pre_priv_message_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called before a private chat room message is displayed</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
 <li><strong>nick</strong> (<em>str or unicode</em>) &#8211; nickname of message sender</li>
 <li><strong>message</strong> (<em>str or unicode</em>) &#8211; the received message</li>
 </ul>
@@ -521,14 +523,14 @@
 
 <dl class="function">
 <dt id="plugin.prof_pre_priv_message_send">
-<tt class="descclassname">plugin.</tt><tt class="descname">prof_pre_priv_message_send</tt><big>(</big><em>room</em>, <em>nick</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_pre_priv_message_send" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">plugin.</tt><tt class="descname">prof_pre_priv_message_send</tt><big>(</big><em>barejid</em>, <em>nick</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_pre_priv_message_send" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called before a private chat room message is sent</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
 <li><strong>nick</strong> (<em>str or unicode</em>) &#8211; nickname of message recipient</li>
 <li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to be sent</li>
 </ul>
@@ -546,14 +548,14 @@
 
 <dl class="function">
 <dt id="plugin.prof_pre_room_message_display">
-<tt class="descclassname">plugin.</tt><tt class="descname">prof_pre_room_message_display</tt><big>(</big><em>room</em>, <em>nick</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_pre_room_message_display" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">plugin.</tt><tt class="descname">prof_pre_room_message_display</tt><big>(</big><em>barejid</em>, <em>nick</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_pre_room_message_display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called before a chat room message is displayed</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
 <li><strong>nick</strong> (<em>str or unicode</em>) &#8211; nickname of message sender</li>
 <li><strong>message</strong> (<em>str or unicode</em>) &#8211; the received message</li>
 </ul>
@@ -571,14 +573,14 @@
 
 <dl class="function">
 <dt id="plugin.prof_pre_room_message_send">
-<tt class="descclassname">plugin.</tt><tt class="descname">prof_pre_room_message_send</tt><big>(</big><em>room</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_pre_room_message_send" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">plugin.</tt><tt class="descname">prof_pre_room_message_send</tt><big>(</big><em>barejid</em>, <em>message</em><big>)</big><a class="headerlink" href="#plugin.prof_pre_room_message_send" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called before a chat room message is sent</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>room</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
 <li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to be sent</li>
 </ul>
 </td>
