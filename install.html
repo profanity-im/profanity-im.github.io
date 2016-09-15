@@ -137,11 +137,12 @@ brew install profanity --HEAD</code></pre>
             You can install it from the <a id="cyg-ports" target="_blank" href="https://sourceware.org/cygwinports/">Cygwin Ports project</a>.</p>
 
             <h4>Download and Install</h4>
-            <p>Recent changes to Cygwin packages means the 0.4.7 release archive on the homepage no longer builds, the instructions below include downloading a patched version which fixes these issues.<p>
-            <p>In your Cygwin home directory download the zip, extract and run the install script:</p>
-            <pre><code>wget http://www.profanity.im/profanity-0.4.7.cyg3.zip
-unzip profanity-0.4.7.cyg3.zip
-cd profanity-0.4.7
+            <p>Download the zip archive from the homepage and extract. Download the install script and run it in the project directory:<p>
+            <pre><code>wget http://www.profanity.im/profanity-0.5.0.zip
+unzip profanity-0.5.0.zip
+cd profanity-0.5.0
+wget http://www.profanity.im/install-all.sh
+chmod u+x install-all.sh
 ./install-all.sh</code></pre>
         </section>
         <section>
@@ -149,8 +150,10 @@ cd profanity-0.4.7
             <h3>Using the helper script</h3>
 
             <p>A helper script has been written to install all required and optional dependencies and run the above steps. This script currently supports Ubuntu, Fedora, OpenSuse and Cygwin.<p>
-            <p>Whether you downloaded and extracted the archive, or cloned the git repository, you can run the following to install:<p>
-            <pre><code>./install-all.sh</code></pre>
+            <p>Whether you downloaded and extracted the archive, or cloned the git repository, download the script into the project directory and run it:<p>
+            <pre><code>wget http://www.profanity.im/install-all.sh
+chmod u+x install-all.sh
+./install-all.sh</code></pre>
         </section>
         <section>
             <a name="manualinstall"></a>
