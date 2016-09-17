@@ -79,7 +79,7 @@ install_lib_mesode()
     echo
     git clone https://github.com/boothj5/libmesode.git
     cd libmesode
-    git checkout 0.9.0
+    git checkout 0.9.1
     ./bootstrap.sh
     ./configure $@
     make
@@ -121,7 +121,7 @@ cyg_install_lib_mesode()
     echo
     git clone https://github.com/boothj5/libmesode.git
     cd libmesode
-    git checkout 0.9.0
+    git checkout 0.9.1
     ./bootstrap.sh
     ./bootstrap.sh # second call seems to fix problem on cygwin
     ./configure --prefix=/usr
