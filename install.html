@@ -23,19 +23,17 @@
             <h3>Contents</h3>
             
             <ul>
-                <li><a href="#linuxdistros">Linux packages</a>
-                <li><a href="#os-x">Installing on Mac OS X</a>
-                <ul>
-                    <li><a href="#homebrew">Homebrew</a>, <a href="#macports">Macports</a></li>
-                </ul>
-                <li><a href="#windows">Installing on Windows</a></li>
-                <li><a href="#installscript">Using the helper script</a>
+                <li><a href="#linuxdistros">Linux</a>
+                <li><a href="#os-x">Mac OS X</a>
+                <li><a href="#windows">Windows (Cygwin)</a></li>
+                <li><a href="#androidtermux">Android (Termux)</a>
+                <li><a href="#installscript">Helper script</a>
                 <li><a href="#manualinstall">Manual install</a>
             </ul>
         </section>
         <section>
             <a name="linuxdistros"></a>
-            <h3>Linux packages</h3>
+            <h3>Linux</h3>
             <table>
                 <tr>
                     <td>Arch</td>
@@ -80,9 +78,8 @@
         </section>
         <section>
             <a name="os-x"></a>
-            <h3>Installing on Mac OS X</h3>
+            <h3>Mac OS X</h3>
 
-            <a name="homebrew"></a>
             <h4>Homebrew</h4>
             <p>To install profanity using homebrew:</p>
             <pre><code>brew install profanity</code></pre>
@@ -98,13 +95,12 @@ Python plugins: Enabled</code></pre>
             <pre><code>brew tap robsalasco/homebrew-profanity
 brew install profanity --HEAD</code></pre>
             
-            <a name="macports"></a>
             <h4>Macports</h4>
             <p>A howto using macports has also been written by louiecaulfield at Github available <a id="louiecaulfield-macports" target="_blank" href="https://github.com/louiecaulfield/profanity/wiki/Building-under-OS-X">here</a>.</p>
         </section>
         <section>
             <a name="windows"></a>
-            <h3>Installing on Windows</h3>
+            <h3>Windows</h3>
            
             <h4>Install Cygwin</h4>
             <p>Install Cygwin by downloading and running:</p>
@@ -125,8 +121,16 @@ chmod u+x install-all.sh
 ./install-all.sh</code></pre>
         </section>
         <section>
+            <a name="androidtermux"></a>
+            <h3>Android</h3>
+            <p>Profanity is included as a Termux package on Android. Install Termux from the <a href="https://play.google.com/store/apps/details?id=com.termux&hl=en" target="_blank">Google Play App store</a>.</p>
+            <p>Update the package list and install Profanity:<p>
+            <pre><code>apt update
+apt install profanity</code></pre>
+        </section>
+        <section>
             <a name="installscript"></a>
-            <h3>Using the helper script</h3>
+            <h3>Helper script</h3>
 
             <p>A helper script has been written to install all required and optional dependencies and run the above steps. This script currently supports Ubuntu, Fedora, Centos, OpenSuse and Cygwin.<p>
             <p>Download the script into the project directory and run it:<p>
