@@ -85,7 +85,7 @@
             <a name="c-plugins"></a>
             <h4>C</h4>
             <p>
-                C plugins need to include the <code>profapi.h</code> header to access the API.
+                C plugins need to include the <code>profapi.h</code> header to access the API, and must be linked against <code>libprofanity</code> using the linker flag <code>-lprofanity</code>.
             </p>
             <p>
                 C plugins should include a <code>Makefile</code> to build a shared library (a <code>.so</code> file) which is the file Profanity will load.
