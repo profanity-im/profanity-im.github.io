@@ -23,6 +23,7 @@
             <ul>
                 <li><a href="#gnu-readline">GNU Readline</a>
                 <li><a href="#nav-bindings">User Interface Navigation</a>
+                <li><a href="#readline-funcs">Custom Readline functions</a>
             </ul>
         </section>
         <section>
@@ -30,7 +31,10 @@
             <h3>GNU Readline</h3>
 
             <p>
-                Since version 0.4.7 Profanity uses <a target="_blank" href="https://cnswww.cns.cwru.edu/php/chet/readline/rltop.html">GNU Readline</a> for handling input. GNU Readline comes with many features including customisable key bindings, and Emacs or Vi editing modes.
+                Profanity uses <a target="_blank" href="https://cnswww.cns.cwru.edu/php/chet/readline/rltop.html">GNU Readline</a> for handling input. GNU Readline comes with many features including customisable key bindings, and Emacs or Vi editing modes.
+            </p>
+            <p>
+                In addition to checking <code>~/.inputrc</code>, Profanity will also look in <code>~/.config/profanity/inputrc</code> for Readline bindings.
             </p>
             <p>
                 For more information on key bindings and customisations available in GNU Readline, see the <a target="_blank" href="https://cnswww.cns.cwru.edu/php/chet/readline/rluserman.html">guide</a>. Taken from the above guide, below is a list of basic bindings that come with GNU Readline by default.
@@ -138,6 +142,59 @@
                     <td>Scroll forwards through occupants/roster panel.</td>
                 </tr>
             </table>
+        </section>
+        <section>
+            <a name="readline-funcs"></a>
+            <h3>Custom Readline functions</h3>
+            <p>
+                Profanity also makes functions available to readline to allow customising Profanity bindings:
+            </p>
+            <table>
+                <tr>
+                    <td><code>prof_win_N</code></td>
+                    <td>Focus window N where N is 1,2,3,4,5,6,7,8,9 or 0</td>
+                </tr>
+                <tr>
+                    <td><code>prof_win_prev</code></td>
+                    <td>Focus previous window</td>
+                </tr>
+                <tr>
+                    <td><code>prof_win_next</code></td>
+                    <td>Focus next window</td>
+                </tr>
+                <tr>
+                    <td><code>prof_win_pageup</code></td>
+                    <td>Page up contents of main window</td>
+                </tr>
+                <tr>
+                    <td><code>prof_win_pagedown</code></td>
+                    <td>Page down contents of main window</td>
+                </tr>
+                <tr>
+                    <td><code>prof_subwin_pageup</code></td>
+                    <td>Page up contents of sub window (roster or occupants)</td>
+                </tr>
+                <tr>
+                    <td><code>prof_subwin_pagedown</code></td>
+                    <td>Page down contents of sub window (roster or occupants)</td>
+                </tr>
+                <tr>
+                    <td><code>prof_win_clear</code></td>
+                    <td>Clear current window contents</td>
+                </tr>
+            </table>
+            <p>
+                Example usage in <code>inputrc</code>:
+                <pre><code>$if profanity
+"\C-p": prof_win_prev
+"\C-n": prof_win_next
+"\C-j": prof_win_pageup
+"\C-k": prof_win_pagedown
+"\C-h": prof_subwin_pageup
+"\C-l": prof_subwin_pagedown
+"\C-y": prof_win_clear
+$endif</code></pre>
+            </p>
         </section>
     </article>
     <footer>
