@@ -24,13 +24,6 @@
             
             <ul>
                 <li><a href="#linuxdistros">Linux packages</a>
-                <ul>
-                    <li>
-                        <a href="#arch">Arch</a>, <a href="#debian">Debian</a>, <a href="#gentoo">Gentoo</a>, 
-                        <a href="#opensuse">OpenSUSE</a>, <a href="#slackware">Slackware</a>, 
-                        <a href="#ubuntu">Ubuntu</a>, <a href="#other-linux">Other distros</a>
-                    </li>
-                </ul>
                 <li><a href="#os-x">Installing on Mac OS X</a>
                 <ul>
                     <li><a href="#homebrew">Homebrew</a>, <a href="#macports">Macports</a></li>
@@ -43,66 +36,52 @@
         <section>
             <a name="linuxdistros"></a>
             <h3>Linux packages</h3>
-
-            <hr>
-
-            <a name="arch"></a>
-            <h4>Arch</h4>
-            <p>Profanity is available in the community repository, add the repository in <code>/etc/pacman.conf</code>: </p>
-            <pre><code>[community]
-Include = /etc/pacman.d/mirrorlist</code></pre>
-            <p>Install:</p>
-            <pre><code>pacman -S profanity</code></pre>
-            <hr>
-
-            <a name="debian"></a>
-            <h4>Debian</h4>
-            <p>Profanity is available in various <a href="https://packages.debian.org/search?keywords=profanity" target="_blank">Debian repositories</a>, to install:</p>
-            <pre><code>sudo apt-get install profanity</code></pre>
-            <hr>
-            
-            <a name="gentoo"></a>
-            <h4>Gentoo</h4>
-            <p>Profanity is available from the <code>stuff</code> overlay. To install, add the <code>stuff</code> overlay:</p>
-            <pre><code>layman -a stuff</code></pre>
-            <p>or add to existing:</p>
-            <pre><code>layman -s stuff</code></pre>
-            <p>Install the package:</p>
-            <pre><code>emerge profanity</code></pre>
-            <p>Profanity can be linked with either libxml2 or expat libraries. By default expat is used, set the <code>xml</code> flag to link with libxml2.</p>
-            <p>To install latest development version, add <code>net-im/profanity</code> to the <code>package.keywords</code> file:</p>
-            <pre><code>echo "=net-im/profanity-9999 **" >> /etc/portage/package.keywords
-emerge =profanity-9999</code></pre>
-            <p>Also available: <a href="https://github.com/maxrp/profanity-overlay" target="_blank">https://github.com/maxrp/profanity-overlay</a></p>
-            <p>Overlay list: <a href="http://gpo.zugaina.org/net-im/profanity" target="_blank">http://gpo.zugaina.org/net-im/profanity</a></p>
-            <hr>
-
-            <a name="opensuse"></a>
-            <h4>OpenSUSE</h4>
-            <p>Profanity is available from <a href="https://software.opensuse.org/package/profanity">OpenSUSE Tumbleweed</a>.</p>
-            <hr>
-
-            <a name="slackware"></a>
-            <h4>Slackware</h4>
-            <p>Profanity is available at the <a href="http://slackbuilds.org/repository/14.1/network/profanity/" target="_blank">slackbuilds.org</a> repository, to install see the <a href="http://slackbuilds.org/howto/" target="_blank">guide</a>.</p>
-            <hr>
-
-            <a name="ubuntu"></a>
-            <h4>Ubuntu</h4>
-            <p>Profanity is available in the Universe repository, to add the repository see <a href="https://help.ubuntu.com/community/Repositories/Ubuntu#Adding_Repositories_in_Ubuntu" target="_blank">Adding repositories in Ubuntu</a>, to install:</p>
-            <pre><code>sudo apt-get install profanity</code></pre>
-            <hr>
-
-            <a name="other-linux"></a>
-            <h4>Other distros</h4>
-            <p>For other linux distributions, the install script is a good guide.  You will need to install the development packages for dependencies.</p>
-            <p>Profanity uses the libstrophe XMPP library which must be downloaded and built from source which can be found at <a href="https://github.com/strophe/libstrophe" target="_blank">Github</a>.</p>
+            <table>
+                <tr>
+                    <td>Arch</td>
+                    <td>
+                        <a href="https://www.archlinux.org/packages/?sort=&q=profanity&maintainer=&flagged=" target="_blank">archlinux.org</a><br>
+                        <a href="https://aur.archlinux.org/packages/profanity-git/" target="_blank">aur.archlinux.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Debian</td>
+                    <td>
+                        <a href="https://packages.debian.org/search?keywords=profanity" target="_blank">packages.debian.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gentoo</td>
+                    <td>
+                        <a href="http://gpo.zugaina.org/net-im/profanity" target="_blank">gpo.zugaina.org</a><br>
+                        <a href="https://github.com/maxrp/profanity-overlay" target="_blank">github.com maxrp</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>OpenSUSE</td>
+                    <td>
+                        <a href="https://software.opensuse.org/package/profanity" target="_blank">software.opensuse.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Slackware</td>
+                    <td>
+                        <a href="https://slackbuilds.org/result/?search=profanity&sv=" target="_blank">slackbuilds.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ubuntu</td>
+                    <td>
+                        <a href="http://packages.ubuntu.com/search?keywords=profanity&searchon=names&suite=all&section=all" target="_blank">packages.ubuntu.org</a>
+                    </td>
+                </tr>
+            </table>
+            <p>To add this this list, submit a pull request to the <a href="https://github.com/boothj5/www_profanity_im/blob/master/install.html" target="_blank">website source</a>, or email the <a href="https://groups.google.com/forum/#!forum/profanitydev" target="_blank">Mailing list</a> with details.</p>
         </section>
         <section>
             <a name="os-x"></a>
             <h3>Installing on Mac OS X</h3>
 
-            <hr>
             <a name="homebrew"></a>
             <h4>Homebrew</h4>
             <p>To install profanity using homebrew:</p>
@@ -112,15 +91,16 @@ emerge =profanity-9999</code></pre>
             <p>To ensure you have all features supported <code>profanity -v</code> should show the following:</p>
             <pre><code>Desktop notification support: Enabled
 OTR support: Enabled
-PGP support: Enabled</code></pre>
+PGP support: Enabled
+C plugins: Enabled
+Python plugins: Enabled</code></pre>
             <p>To install the latest development version, use the tap supplied by robsalasco at Github available <a id="robroom-brew" target="_blank" href="https://github.com/robsalasco/homebrew-profanity">here</a>:</p>
             <pre><code>brew tap robsalasco/homebrew-profanity
 brew install profanity --HEAD</code></pre>
-            <hr>
+            
             <a name="macports"></a>
             <h4>Macports</h4>
             <p>A howto using macports has also been written by louiecaulfield at Github available <a id="louiecaulfield-macports" target="_blank" href="https://github.com/louiecaulfield/profanity/wiki/Building-under-OS-X">here</a>.</p>
-            <hr>
         </section>
         <section>
             <a name="windows"></a>
@@ -132,12 +112,11 @@ brew install profanity --HEAD</code></pre>
             <p>32bit: <a href="http://cygwin.com/setup-x86.exe">http://cygwin.com/setup-x86.exe</a></p>
 
             <h4>Dependencies</h4>
-            <p><code>wget</code> and <code>unzip</code> are required to install Profanity. When running setup.exe, search for and add them when you are asked to select packages.</p>
-            <p>Note: If you would like to make use of <a href="otr.html">OTR support</a> on Cygwin, you will first need to install the <code>libotr-devel</code> package which is not currently in the offical repositories.
-            You can install it from the <a id="cyg-ports" target="_blank" href="https://sourceware.org/cygwinports/">Cygwin Ports project</a>.</p>
+            <p><code>wget</code> and <code>unzip</code> are required to install Profanity. When running setup.exe, search for and add them when asked to select packages.</p>
+            <p>Note: To make use of <a href="otr.html">OTR support</a> on Cygwin, the <code>libotr-devel</code> package is requirted which is not currently in the official repositories. <code>libotr-devel</code> can be found in the <a id="cyg-ports" target="_blank" href="https://sourceware.org/cygwinports/">Cygwin Ports project</a>.</p>
 
             <h4>Download and Install</h4>
-            <p>Download the zip archive from the homepage and extract. Download the install script and run it in the project directory:<p>
+            <p>Download the zip archive from the homepage and extractm, then download the install script and run it in the project directory:<p>
             <pre><code>wget http://www.profanity.im/profanity-0.5.0.zip
 unzip profanity-0.5.0.zip
 cd profanity-0.5.0
@@ -149,8 +128,8 @@ chmod u+x install-all.sh
             <a name="installscript"></a>
             <h3>Using the helper script</h3>
 
-            <p>A helper script has been written to install all required and optional dependencies and run the above steps. This script currently supports Ubuntu, Fedora, OpenSuse and Cygwin.<p>
-            <p>Whether you downloaded and extracted the archive, or cloned the git repository, download the script into the project directory and run it:<p>
+            <p>A helper script has been written to install all required and optional dependencies and run the above steps. This script currently supports Ubuntu, Fedora, Centos, OpenSuse and Cygwin.<p>
+            <p>Download the script into the project directory and run it:<p>
             <pre><code>wget http://www.profanity.im/install-all.sh
 chmod u+x install-all.sh
 ./install-all.sh</code></pre>
