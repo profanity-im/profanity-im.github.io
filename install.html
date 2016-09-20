@@ -29,6 +29,7 @@
                 <li><a href="#androidtermux">Android (Termux)</a>
                 <li><a href="#installscript">Helper script</a>
                 <li><a href="#manualinstall">Manual install</a>
+                <li><a href="#pkgdeps">Dependencies</a>
             </ul>
         </section>
         <section>
@@ -187,6 +188,32 @@ make
 make install</code></pre>
             <p>Various dependencies are required to install Profanity, the <code>./configure</code> script will fail if the minimum dependencies cannot be found.<p>
             <p>The latest code in <code>master</code> is also kept up to date with development changes to libmesode/libstrophe, so a manual build of this library may also be needed, see the <a target="_blank" href="https://github.com/boothj5/libmesode/blob/master/README.markdown">README</a> at libmesode.</p>
+        </section>
+        <section>
+            <a name="pkgdeps"></a>
+            <h3>Dependencies</h3>
+
+            <p>The package names below are from Ubuntu and may differ per distribution.</p>
+
+            <p>Build dependencies:</p>
+            <pre><code>automake
+autoconf
+autoconf-archive
+libtool</code></pre>
+
+            <p>Required dependencies:</p>
+            <pre><code>libncursesw5-dev
+libglib2.0-dev
+libcurl3-dev
+libreadline-dev</code></pre>
+
+            <p>Optional dependencies:</p>
+            <pre><code>libnotify-dev  # Desktop notification support
+libxss-dev     # Desktop idle time autoaway support
+libotr5-dev    # OTR support
+libgpgme11-dev # PGP support
+libgtk2.0-dev  # Desktop tray icon support
+python-dev     # Python plugin support</code></pre>
         </section>
     </article>
     <footer>
