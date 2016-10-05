@@ -189,19 +189,24 @@ make install</code></pre>
 
             <p>The package names below are from Ubuntu and may differ per distribution.</p>
 
-            <p>Build dependencies:</p>
+            <h4>Build dependencies:</h4>
             <pre><code>automake
 autoconf
 autoconf-archive
 libtool</code></pre>
 
-            <p>Required dependencies:</p>
+            <h4>Required dependencies:</h4>
+
+            <p>Profanity can be built against either <a href="https://github.com/strophe/libstrophe" target="_blank">libstrophe</a>, or <a href="https://github.com/boothj5/libmesode" target="_blank">libmesode</a>. Libmesode has a few extra features around manual TLS certificate verification.  Version 0.5.0 of Profanity requires version 0.9.x of libstrophe or libmesode.</p> 
+
+            <p>Profanity also requires:</p>
             <pre><code>libncursesw5-dev
 libglib2.0-dev
 libcurl3-dev
 libreadline-dev</code></pre>
 
-            <p>Optional dependencies:</p>
+            <h4>Optional dependencies:</h4>
+
             <pre><code>libnotify-dev  # Desktop notification support
 libxss-dev     # Desktop idle time autoaway support
 libotr5-dev    # OTR support
