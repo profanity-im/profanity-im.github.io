@@ -184,6 +184,10 @@ Functions</h2></td></tr>
 <tr class="separator:a2f9c221685082043f920b6644660b081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e25a7cc51a328524a582dec9b169f15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#a5e25a7cc51a328524a582dec9b169f15">prof_encryption_reset</a> (char *barejid)</td></tr>
 <tr class="separator:a5e25a7cc51a328524a582dec9b169f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e887dd75c4718c540c9e2a90de1ec10"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#a9e887dd75c4718c540c9e2a90de1ec10">prof_chat_set_titlebar_enctext</a> (char *barejid, char *enctext)</td></tr>
+<tr class="separator:a9e887dd75c4718c540c9e2a90de1ec10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeab2be77fc11b8c11c279847a8bb2466"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#aeab2be77fc11b8c11c279847a8bb2466">prof_chat_unset_titlebar_enctext</a> (char *barejid)</td></tr>
+<tr class="separator:aeab2be77fc11b8c11c279847a8bb2466"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>C plugin API. </p>
@@ -241,6 +245,63 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a9e887dd75c4718c540c9e2a90de1ec10"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_chat_set_titlebar_enctext </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>barejid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>enctext</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the text to display in the titlebar encryption indicator. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the recipient </td></tr>
+    <tr><td class="paramname">enctext</td><td>The text to display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aeab2be77fc11b8c11c279847a8bb2466"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_chat_unset_titlebar_enctext </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>barejid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Let profanity decide what to show in the titlebar encryption indicator </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the recipient </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ac3c80f03f5ef671adb3bead55514c4fb"></a>
 <div class="memitem">
 <div class="memproto">

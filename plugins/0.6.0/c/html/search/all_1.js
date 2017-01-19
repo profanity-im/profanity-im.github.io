@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['prof_5fchat_5fset_5ftitlebar_5fenctext',['prof_chat_set_titlebar_enctext',['../profapi_8h.html#a9e887dd75c4718c540c9e2a90de1ec10',1,'profapi.h']]],
+  ['prof_5fchat_5funset_5ftitlebar_5fenctext',['prof_chat_unset_titlebar_enctext',['../profapi_8h.html#aeab2be77fc11b8c11c279847a8bb2466',1,'profapi.h']]],
   ['prof_5fcompleter_5fadd',['prof_completer_add',['../profapi_8h.html#ac3c80f03f5ef671adb3bead55514c4fb',1,'profapi.h']]],
   ['prof_5fcompleter_5fclear',['prof_completer_clear',['../profapi_8h.html#a7b3ed066885d170eb9105a8c329affdf',1,'profapi.h']]],
   ['prof_5fcompleter_5fremove',['prof_completer_remove',['../profapi_8h.html#a0a123442cc32a455e4574b726cb8b4b9',1,'profapi.h']]],
