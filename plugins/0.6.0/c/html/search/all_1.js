@@ -1,6 +1,10 @@
 var searchData=
 [
+  ['prof_5fchat_5fset_5fincoming_5fchar',['prof_chat_set_incoming_char',['../profapi_8h.html#ac2e86768a1774a8ecaa12cc6dad7c050',1,'profapi.h']]],
+  ['prof_5fchat_5fset_5foutgoing_5fchar',['prof_chat_set_outgoing_char',['../profapi_8h.html#af9aaf7b503eabded68246486bd68fc37',1,'profapi.h']]],
   ['prof_5fchat_5fset_5ftitlebar_5fenctext',['prof_chat_set_titlebar_enctext',['../profapi_8h.html#a9e887dd75c4718c540c9e2a90de1ec10',1,'profapi.h']]],
+  ['prof_5fchat_5funset_5fincoming_5fchar',['prof_chat_unset_incoming_char',['../profapi_8h.html#a76512591634ef33ff8db71a62de18c1b',1,'profapi.h']]],
+  ['prof_5fchat_5funset_5foutgoing_5fchar',['prof_chat_unset_outgoing_char',['../profapi_8h.html#aa648da9f1cc8d785ebf60cb8bfbecea6',1,'profapi.h']]],
   ['prof_5fchat_5funset_5ftitlebar_5fenctext',['prof_chat_unset_titlebar_enctext',['../profapi_8h.html#aeab2be77fc11b8c11c279847a8bb2466',1,'profapi.h']]],
   ['prof_5fcompleter_5fadd',['prof_completer_add',['../profapi_8h.html#ac3c80f03f5ef671adb3bead55514c4fb',1,'profapi.h']]],
   ['prof_5fcompleter_5fclear',['prof_completer_clear',['../profapi_8h.html#a7b3ed066885d170eb9105a8c329affdf',1,'profapi.h']]],
@@ -55,6 +59,10 @@ var searchData=
   ['prof_5fpre_5froom_5fmessage_5fsend',['prof_pre_room_message_send',['../profhooks_8h.html#a858db66a0cec5c07f343a7442c14c030',1,'profhooks.h']]],
   ['prof_5fregister_5fcommand',['prof_register_command',['../profapi_8h.html#afb7c0a95146537bceb355c966acc6a01',1,'profapi.h']]],
   ['prof_5fregister_5ftimed',['prof_register_timed',['../profapi_8h.html#a6f88b78bf8c31220f95075b54a018415',1,'profapi.h']]],
+  ['prof_5froom_5fset_5fmessage_5fchar',['prof_room_set_message_char',['../profapi_8h.html#a00ba59b2feba2d8f3f6cd7381e362958',1,'profapi.h']]],
+  ['prof_5froom_5fset_5ftitlebar_5fenctext',['prof_room_set_titlebar_enctext',['../profapi_8h.html#aba151ae659a33997c8770158a2d42dc2',1,'profapi.h']]],
+  ['prof_5froom_5funset_5fmessage_5fchar',['prof_room_unset_message_char',['../profapi_8h.html#ad07710b9a221866f299a66e1764a2059',1,'profapi.h']]],
+  ['prof_5froom_5funset_5ftitlebar_5fenctext',['prof_room_unset_titlebar_enctext',['../profapi_8h.html#a1aa030d4f917d380d3d0963085176fc1',1,'profapi.h']]],
   ['prof_5fsend_5fline',['prof_send_line',['../profapi_8h.html#a7da9e82a3a69d5249a8b754394f2bd71',1,'profapi.h']]],
   ['prof_5fsend_5fstanza',['prof_send_stanza',['../profapi_8h.html#af8b09683a5851eb0261cf0832cb6f5fe',1,'profapi.h']]],
   ['prof_5fsettings_5fboolean_5fget',['prof_settings_boolean_get',['../profapi_8h.html#a126b576db04346fef59023c42cdf2421',1,'profapi.h']]],

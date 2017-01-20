@@ -188,6 +188,22 @@ Functions</h2></td></tr>
 <tr class="separator:a9e887dd75c4718c540c9e2a90de1ec10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeab2be77fc11b8c11c279847a8bb2466"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#aeab2be77fc11b8c11c279847a8bb2466">prof_chat_unset_titlebar_enctext</a> (char *barejid)</td></tr>
 <tr class="separator:aeab2be77fc11b8c11c279847a8bb2466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2e86768a1774a8ecaa12cc6dad7c050"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#ac2e86768a1774a8ecaa12cc6dad7c050">prof_chat_set_incoming_char</a> (char *barejid, char *ch)</td></tr>
+<tr class="separator:ac2e86768a1774a8ecaa12cc6dad7c050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76512591634ef33ff8db71a62de18c1b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#a76512591634ef33ff8db71a62de18c1b">prof_chat_unset_incoming_char</a> (char *barejid)</td></tr>
+<tr class="separator:a76512591634ef33ff8db71a62de18c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9aaf7b503eabded68246486bd68fc37"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#af9aaf7b503eabded68246486bd68fc37">prof_chat_set_outgoing_char</a> (char *barejid, char *ch)</td></tr>
+<tr class="separator:af9aaf7b503eabded68246486bd68fc37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa648da9f1cc8d785ebf60cb8bfbecea6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#aa648da9f1cc8d785ebf60cb8bfbecea6">prof_chat_unset_outgoing_char</a> (char *barejid)</td></tr>
+<tr class="separator:aa648da9f1cc8d785ebf60cb8bfbecea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba151ae659a33997c8770158a2d42dc2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#aba151ae659a33997c8770158a2d42dc2">prof_room_set_titlebar_enctext</a> (char *roomjid, char *enctext)</td></tr>
+<tr class="separator:aba151ae659a33997c8770158a2d42dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aa030d4f917d380d3d0963085176fc1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#a1aa030d4f917d380d3d0963085176fc1">prof_room_unset_titlebar_enctext</a> (char *roomjid)</td></tr>
+<tr class="separator:a1aa030d4f917d380d3d0963085176fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00ba59b2feba2d8f3f6cd7381e362958"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#a00ba59b2feba2d8f3f6cd7381e362958">prof_room_set_message_char</a> (char *roomjid, char *ch)</td></tr>
+<tr class="separator:a00ba59b2feba2d8f3f6cd7381e362958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad07710b9a221866f299a66e1764a2059"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#ad07710b9a221866f299a66e1764a2059">prof_room_unset_message_char</a> (char *roomjid)</td></tr>
+<tr class="separator:ad07710b9a221866f299a66e1764a2059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>C plugin API. </p>
@@ -245,6 +261,74 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ac2e86768a1774a8ecaa12cc6dad7c050"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_chat_set_incoming_char </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>barejid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the incoming message prefix character for specified contact. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the recipient </td></tr>
+    <tr><td class="paramname">ch</td><td>The character to display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af9aaf7b503eabded68246486bd68fc37"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_chat_set_outgoing_char </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>barejid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the outgoing message prefix character for specified contact. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the recipient </td></tr>
+    <tr><td class="paramname">ch</td><td>The character to display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a9e887dd75c4718c540c9e2a90de1ec10"></a>
 <div class="memitem">
 <div class="memproto">
@@ -268,10 +352,56 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the text to display in the titlebar encryption indicator. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Set the text to display in the titlebar encryption indicator for recipient. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">barejid</td><td>Jabber ID of the recipient </td></tr>
     <tr><td class="paramname">enctext</td><td>The text to display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a76512591634ef33ff8db71a62de18c1b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_chat_unset_incoming_char </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>barejid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reset the incoming message prefix character for specified contact. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the recipient </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa648da9f1cc8d785ebf60cb8bfbecea6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_chat_unset_outgoing_char </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>barejid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reset the outgoing message prefix character for specified contact. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the recipient </td></tr>
   </table>
   </dd>
 </dl>
@@ -292,7 +422,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Let profanity decide what to show in the titlebar encryption indicator </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Let profanity decide what to show in the titlebar encryption indicator for recipient. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">barejid</td><td>Jabber ID of the recipient </td></tr>
   </table>
@@ -951,6 +1081,120 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a00ba59b2feba2d8f3f6cd7381e362958"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_room_set_message_char </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>roomjid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the message prefix character for specified room. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roomjid</td><td>Jabber ID of the room </td></tr>
+    <tr><td class="paramname">ch</td><td>The character to display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aba151ae659a33997c8770158a2d42dc2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_room_set_titlebar_enctext </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>roomjid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>enctext</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the text to display in the titlebar encryption indicator for room. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roomjid</td><td>Jabber ID of the room </td></tr>
+    <tr><td class="paramname">enctext</td><td>The text to display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad07710b9a221866f299a66e1764a2059"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_room_unset_message_char </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>roomjid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reset the message prefix character for specified room. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roomjid</td><td>Jabber ID of the room </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1aa030d4f917d380d3d0963085176fc1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_room_unset_titlebar_enctext </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>roomjid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Let profanity decide what to show in the titlebar encryption indicator for room. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roomjid</td><td>Jabber ID of the room </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
 
 </div>
 </div>

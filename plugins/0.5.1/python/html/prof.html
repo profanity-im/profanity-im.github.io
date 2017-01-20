@@ -61,9 +61,65 @@
 </div>
 <p>Profanity accepts both <tt class="docutils literal"><span class="pre">str</span></tt> and <tt class="docutils literal"><span class="pre">unicode</span></tt> objects as string arguments, to allow plugins to work with both Python 2 and 3.</p>
 <dl class="function">
+<dt id="prof.chat_set_incoming_char">
+<tt class="descclassname">prof.</tt><tt class="descname">chat_set_incoming_char</tt><big>(</big><em>barejid</em>, <em>ch</em><big>)</big><a class="headerlink" href="#prof.chat_set_incoming_char" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the incoming message prefix character for specified contact.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the recipient</li>
+<li><strong>enctext</strong> (<em>str or unicode</em>) &#8211; The character to display</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">True</span></tt> if the character was set successfully, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">chat_set_incoming_char</span><span class="p">(</span><span class="s">&quot;kristine@chat.org&quot;</span><span class="p">,</span> <span class="s">&quot;*&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.chat_set_outgoing_char">
+<tt class="descclassname">prof.</tt><tt class="descname">chat_set_outgoing_char</tt><big>(</big><em>barejid</em>, <em>ch</em><big>)</big><a class="headerlink" href="#prof.chat_set_outgoing_char" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the outgoing message prefix character for specified contact.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the recipient</li>
+<li><strong>enctext</strong> (<em>str or unicode</em>) &#8211; The character to display</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">True</span></tt> if the character was set successfully, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">chat_set_outgoing_char</span><span class="p">(</span><span class="s">&quot;david@chat.org&quot;</span><span class="p">,</span> <span class="s">&quot;+&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="prof.chat_set_titlebar_enctext">
 <tt class="descclassname">prof.</tt><tt class="descname">chat_set_titlebar_enctext</tt><big>(</big><em>barejid</em>, <em>enctext</em><big>)</big><a class="headerlink" href="#prof.chat_set_titlebar_enctext" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the text to display in the titlebar encryption indicator.</p>
+<dd><p>Set the text to display in the titlebar encryption indicator for recipient.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -89,9 +145,53 @@
 </dd></dl>
 
 <dl class="function">
+<dt id="prof.chat_unset_incoming_char">
+<tt class="descclassname">prof.</tt><tt class="descname">chat_unset_incoming_char</tt><big>(</big><em>barejid</em><big>)</big><a class="headerlink" href="#prof.chat_unset_incoming_char" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the incoming message prefix character for specified contact.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the recipient</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">True</span></tt> if the char was unset successfully, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">chat_unset_incoming_char</span><span class="p">(</span><span class="s">&quot;kristine@chat.org&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.chat_unset_outgoing_char">
+<tt class="descclassname">prof.</tt><tt class="descname">chat_unset_outgoing_char</tt><big>(</big><em>barejid</em><big>)</big><a class="headerlink" href="#prof.chat_unset_outgoing_char" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the outgoing message prefix character for specified contact.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the recipient</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">True</span></tt> if the char was unset successfully, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">chat_unset_outgoing_char</span><span class="p">(</span><span class="s">&quot;david@chat.org&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="prof.chat_unset_titlebar_enctext">
 <tt class="descclassname">prof.</tt><tt class="descname">chat_unset_titlebar_enctext</tt><big>(</big><em>barejid</em><big>)</big><a class="headerlink" href="#prof.chat_unset_titlebar_enctext" title="Permalink to this definition">¶</a></dt>
-<dd><p>Let profanity decide what to show in the titlebar encryption indicator.</p>
+<dd><p>Let profanity decide what to show in the titlebar encryption indicator for recipient.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -576,6 +676,106 @@
 </table>
 <p>Example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">register_timed</span><span class="p">(</span><span class="n">some_function</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.room_set_message_char">
+<tt class="descclassname">prof.</tt><tt class="descname">room_set_message_char</tt><big>(</big><em>roomjid</em>, <em>ch</em><big>)</big><a class="headerlink" href="#prof.room_set_message_char" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the message prefix character for specified room.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>roomjid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>enctext</strong> (<em>str or unicode</em>) &#8211; The character to display</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">True</span></tt> if the character was set successfully, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">room_set_message_char</span><span class="p">(</span><span class="s">&quot;ohnoes@conference.chat.org&quot;</span><span class="p">,</span> <span class="s">&quot;^&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.room_set_titlebar_enctext">
+<tt class="descclassname">prof.</tt><tt class="descname">room_set_titlebar_enctext</tt><big>(</big><em>roomjid</em>, <em>enctext</em><big>)</big><a class="headerlink" href="#prof.room_set_titlebar_enctext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the text to display in the titlebar encryption indicator for room.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>roomjid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>enctext</strong> (<em>str or unicode</em>) &#8211; The text to display</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">True</span></tt> if the text was set successfully, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">room_set_titlebar_enctext</span><span class="p">(</span><span class="s">&quot;generalchat@conference.service.com&quot;</span><span class="p">,</span> <span class="s">&quot;secret&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.room_unset_message_char">
+<tt class="descclassname">prof.</tt><tt class="descname">room_unset_message_char</tt><big>(</big><em>roomjid</em><big>)</big><a class="headerlink" href="#prof.room_unset_message_char" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the message prefix character for specified room.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>roomjid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">True</span></tt> if the char was unset successfully, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">room_unset_message_char</span><span class="p">(</span><span class="s">&quot;ohnoes@conference.chat.org&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.room_unset_titlebar_enctext">
+<tt class="descclassname">prof.</tt><tt class="descname">room_unset_titlebar_enctext</tt><big>(</big><em>roomjid</em><big>)</big><a class="headerlink" href="#prof.room_unset_titlebar_enctext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Let profanity decide what to show in the titlebar encryption indicator for room.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>roomjid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">True</span></tt> if the text was unset successfully, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">room_unset_titlebar_enctext</span><span class="p">(</span><span class="s">&quot;generalchat@conference.service.com&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
