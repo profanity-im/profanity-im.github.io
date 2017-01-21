@@ -204,6 +204,14 @@ Functions</h2></td></tr>
 <tr class="separator:a00ba59b2feba2d8f3f6cd7381e362958"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad07710b9a221866f299a66e1764a2059"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#ad07710b9a221866f299a66e1764a2059">prof_room_unset_message_char</a> (char *roomjid)</td></tr>
 <tr class="separator:ad07710b9a221866f299a66e1764a2059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07b19953b72a22bda95ebfc74bcdf617"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#a07b19953b72a22bda95ebfc74bcdf617">prof_chat_show</a> (char *barejid, char *message)</td></tr>
+<tr class="separator:a07b19953b72a22bda95ebfc74bcdf617"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf5dbc950717a3684ada699d2f919b9e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#abf5dbc950717a3684ada699d2f919b9e">prof_chat_show_themed</a> (char *barejid, char *group, char *item, char *def, char *ch, char *message)</td></tr>
+<tr class="separator:abf5dbc950717a3684ada699d2f919b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9fbe84a60c39d2d883b0c6305260fa1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#ad9fbe84a60c39d2d883b0c6305260fa1">prof_room_show</a> (char *roomjid, char *message)</td></tr>
+<tr class="separator:ad9fbe84a60c39d2d883b0c6305260fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b0a261844fb38aa8a2a5943a587348a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="profapi_8h.html#a5b0a261844fb38aa8a2a5943a587348a">prof_room_show_themed</a> (char *roomjid, char *group, char *item, char *def, char *ch, char *message)</td></tr>
+<tr class="separator:a5b0a261844fb38aa8a2a5943a587348a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>C plugin API. </p>
@@ -356,6 +364,102 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">barejid</td><td>Jabber ID of the recipient </td></tr>
     <tr><td class="paramname">enctext</td><td>The text to display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a07b19953b72a22bda95ebfc74bcdf617"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_chat_show </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>barejid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Show a message in a chat window. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the recipient </td></tr>
+    <tr><td class="paramname">message</td><td>the message to print </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abf5dbc950717a3684ada699d2f919b9e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_chat_show_themed </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>barejid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>def</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Show a message in a chat window, using the specified theme, and prefix character Themes are specified in ~/.local/share/profanity/plugin_themes </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the recipient </td></tr>
+    <tr><td class="paramname">group</td><td>the group name in the themes file or NULL </td></tr>
+    <tr><td class="paramname">item</td><td>the item name within the group or NULL </td></tr>
+    <tr><td class="paramname">def</td><td>default colour if the theme cannot be found </td></tr>
+    <tr><td class="paramname">ch</td><td>The character to prefix the message, or NULL for default behaviour </td></tr>
+    <tr><td class="paramname">message</td><td>the message to print </td></tr>
   </table>
   </dd>
 </dl>
@@ -620,7 +724,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Show a message in the console, using the specified theme. Themes can be must be specified in ~/.local/share/profanity/plugin_themes </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Show a message in the console, using the specified theme. Themes are specified in ~/.local/share/profanity/plugin_themes </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">group</td><td>the group name in the themes file </td></tr>
     <tr><td class="paramname">item</td><td>the item name within the group </td></tr>
@@ -1145,6 +1249,102 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">roomjid</td><td>Jabber ID of the room </td></tr>
     <tr><td class="paramname">enctext</td><td>The text to display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad9fbe84a60c39d2d883b0c6305260fa1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_room_show </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>roomjid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Show a message in a chat room window. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the room </td></tr>
+    <tr><td class="paramname">message</td><td>the message to print </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5b0a261844fb38aa8a2a5943a587348a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prof_room_show_themed </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>roomjid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>def</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Show a message in a chat room window, using the specified theme, and prefix character Themes are specified in ~/.local/share/profanity/plugin_themes </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">barejid</td><td>Jabber ID of the room </td></tr>
+    <tr><td class="paramname">group</td><td>the group name in the themes file or NULL </td></tr>
+    <tr><td class="paramname">item</td><td>the item name within the group or NULL </td></tr>
+    <tr><td class="paramname">def</td><td>default colour if the theme cannot be found </td></tr>
+    <tr><td class="paramname">ch</td><td>The character to prefix the message, or NULL for default behaviour </td></tr>
+    <tr><td class="paramname">message</td><td>the message to print </td></tr>
   </table>
   </dd>
 </dl>
@@ -1789,7 +1989,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Show a message in the plugin window, using the specified theme. Themes must be specified in ~/.local/share/profanity/plugin_themes </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Show a message in the plugin window, using the specified theme. Themes are specified in ~/.local/share/profanity/plugin_themes </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tag</td><td>The <a class="el" href="profapi_8h.html#aa6215be301ec1cd3277507f1973ec77a">PROF_WIN_TAG</a> of the window to display the message </td></tr>
     <tr><td class="paramname">group</td><td>the group name in the themes file </td></tr>

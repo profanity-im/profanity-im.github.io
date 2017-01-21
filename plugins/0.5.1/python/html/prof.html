@@ -145,6 +145,67 @@
 </dd></dl>
 
 <dl class="function">
+<dt id="prof.chat_show">
+<tt class="descclassname">prof.</tt><tt class="descname">chat_show</tt><big>(</big><em>barejid</em>, <em>message</em><big>)</big><a class="headerlink" href="#prof.chat_show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a message in a chat window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the recipient</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to print</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">True</span></tt> if the message was printed, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">chat_show</span><span class="p">(</span><span class="s">&quot;bob@server.org&quot;</span><span class="p">,</span> <span class="s">&quot;From a plugin in the chat window for bob&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.chat_show_themed">
+<tt class="descclassname">prof.</tt><tt class="descname">chat_show_themed</tt><big>(</big><em>barejid</em>, <em>group</em>, <em>key</em>, <em>default</em>, <em>ch</em>, <em>message</em><big>)</big><a class="headerlink" href="#prof.chat_show_themed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a message a chat window, using the specified theme and prefix character.</p>
+<p>Themes are specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_themes</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>barejid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the recipient</li>
+<li><strong>group</strong> (<em>str, unicode or None</em>) &#8211; the group name in the themes file or <tt class="docutils literal"><span class="pre">None</span></tt></li>
+<li><strong>key</strong> (<em>str, unicode or None</em>) &#8211; the item name within the group or <tt class="docutils literal"><span class="pre">None</span></tt></li>
+<li><strong>default</strong> (<em>str, unicode or None</em>) &#8211; default colour if the theme cannot be found or <tt class="docutils literal"><span class="pre">None</span></tt></li>
+<li><strong>ch</strong> (<em>str or unicode</em>) &#8211; The prefix character to show, or <tt class="docutils literal"><span class="pre">None</span></tt> for default behaviour</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to print</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">True</span></tt> if the message was printed, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">chat_show_themed</span><span class="p">(</span><span class="s">&quot;bob@server.org&quot;</span><span class="p">,</span> <span class="s">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s">&quot;text&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&quot;!&quot;</span><span class="p">,</span> <span class="s">&quot;Plugin themed message&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="prof.chat_unset_incoming_char">
 <tt class="descclassname">prof.</tt><tt class="descname">chat_unset_incoming_char</tt><big>(</big><em>barejid</em><big>)</big><a class="headerlink" href="#prof.chat_unset_incoming_char" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the incoming message prefix character for specified contact.</p>
@@ -336,7 +397,7 @@
 <dt id="prof.cons_show_themed">
 <tt class="descclassname">prof.</tt><tt class="descname">cons_show_themed</tt><big>(</big><em>group</em>, <em>key</em>, <em>default</em>, <em>message</em><big>)</big><a class="headerlink" href="#prof.cons_show_themed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show a message in the console, using the specified theme.</p>
-<p>Themes can be must be specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_themes</span></tt></p>
+<p>Themes are specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_themes</span></tt></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -732,6 +793,67 @@
 </table>
 <p>Example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">room_set_titlebar_enctext</span><span class="p">(</span><span class="s">&quot;generalchat@conference.service.com&quot;</span><span class="p">,</span> <span class="s">&quot;secret&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.room_show">
+<tt class="descclassname">prof.</tt><tt class="descname">room_show</tt><big>(</big><em>roomjid</em>, <em>message</em><big>)</big><a class="headerlink" href="#prof.room_show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a message in a chat room window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>roomjid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to print</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">True</span></tt> if the message was printed, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">room_show</span><span class="p">(</span><span class="s">&quot;chat@conference.chat.org&quot;</span><span class="p">,</span> <span class="s">&quot;From a plugin in the chat room window&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="prof.room_show_themed">
+<tt class="descclassname">prof.</tt><tt class="descname">room_show_themed</tt><big>(</big><em>roomjid</em>, <em>group</em>, <em>key</em>, <em>default</em>, <em>ch</em>, <em>message</em><big>)</big><a class="headerlink" href="#prof.room_show_themed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a message a chat room window, using the specified theme and prefix character.</p>
+<p>Themes are specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_themes</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>roomjid</strong> (<em>str or unicode</em>) &#8211; Jabber ID of the room</li>
+<li><strong>group</strong> (<em>str, unicode or None</em>) &#8211; the group name in the themes file or <tt class="docutils literal"><span class="pre">None</span></tt></li>
+<li><strong>key</strong> (<em>str, unicode or None</em>) &#8211; the item name within the group or <tt class="docutils literal"><span class="pre">None</span></tt></li>
+<li><strong>default</strong> (<em>str, unicode or None</em>) &#8211; default colour if the theme cannot be found or <tt class="docutils literal"><span class="pre">None</span></tt></li>
+<li><strong>ch</strong> (<em>str or unicode</em>) &#8211; The prefix character to show, or <tt class="docutils literal"><span class="pre">None</span></tt> for default behaviour</li>
+<li><strong>message</strong> (<em>str or unicode</em>) &#8211; the message to print</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">True</span></tt> if the message was printed, <tt class="docutils literal"><span class="pre">False</span></tt> otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prof</span><span class="o">.</span><span class="n">room_show_themed</span><span class="p">(</span><span class="s">&quot;chat@conference.chat.org&quot;</span><span class="p">,</span> <span class="s">&quot;myplugin&quot;</span><span class="p">,</span> <span class="s">&quot;text&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&quot;!&quot;</span><span class="p">,</span> <span class="s">&quot;Plugin themed message&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1166,7 +1288,7 @@
 <dt id="prof.win_show_themed">
 <tt class="descclassname">prof.</tt><tt class="descname">win_show_themed</tt><big>(</big><em>tag</em>, <em>group</em>, <em>key</em>, <em>default</em>, <em>message</em><big>)</big><a class="headerlink" href="#prof.win_show_themed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show a message in the plugin window, using the specified theme.</p>
-<p>Themes must be specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_themes</span></tt></p>
+<p>Themes are specified in <tt class="docutils literal"><span class="pre">~/.local/share/profanity/plugin_themes</span></tt></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
