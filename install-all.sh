@@ -52,6 +52,7 @@ centos_prepare()
     echo
 
     sudo yum -y install epel-release
+    sudo yum -y install wget
     sudo yum -y install git
     sudo yum -y install gcc autoconf automake cmake
     sudo yum -y install openssl-devel expat-devel ncurses-devel glib2-devel libnotify-devel libcurl-devel libXScrnSaver-devel libotr-devel readline-devel libtool gpgme-devel gtk2-devel autoconf-archive python-devel
