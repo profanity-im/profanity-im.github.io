@@ -80,7 +80,7 @@ install_lib_mesode()
     echo
     git clone https://github.com/boothj5/libmesode.git
     cd libmesode
-    git checkout 0.9.1
+    git checkout 0.9.2
     ./bootstrap.sh
     ./configure $@
     make
