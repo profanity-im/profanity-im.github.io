@@ -23,17 +23,27 @@
             <h3>Contents</h3>
 
             <ul>
-                <li><a href="#installing-omemo">Building with OMEMO support</a>
-                <li><a href="#prelim-setup">Setup</a>
+                <li><a href="#state">Current state</a></li>
+                <li><a href="#installing-omemo">Building with OMEMO support</a></li>
+                <li><a href="#prelim-setup">Setup</a></li>
                 <ul>
                     <li><a href="#private-key-gen">Generating Crypto Materials</a>,
                         <a href="#fingerprints">Fingerprint authentication</a>,
                         <a href="#private-conversation">Starting a private conversation</a></li>
                 </ul>
-                <li><a href="#policy">Setting OMEMO policy</a>
-                <li><a href="#ui-opts">User Interface options</a>
-                <li><a href="#omemo-message-logging">OMEMO message logging</a>
+                <li><a href="#policy">Setting OMEMO policy</a></li>
+                <li><a href="#ui-opts">User Interface options</a></li>
+                <li><a href="#omemo-message-logging">OMEMO message logging</a></li>
             </ul>
+        </section>
+        <section>
+            <a name="state"></a>
+            <h3>Current state</h3>
+            <p>OMEMO support is currently only available if you build from git master.</p>
+            <p>Enabling carbons (<code>/carbons on</code>) is recommended in order to enhance OMEMO and overall chat experience.</p>
+            <p>To be able to read on other devices (eg your phone) what you wrote on profanity you need to trust the fingerprints of your other devices manually (<code>/omemo fingerprint <yourjid> <fingerprint></code>).</p>
+            <p>Filetranser is not OMEMO encrypted since this is not part of the original <a href="https://xmpp.org/extensions/xep-0384.html">XEP-0384</a> but only a <a href="https://xmpp.org/extensions/inbox/omemo-media-sharing.html">proto XEP.</a></p>
+            <p><code>/omemo fingerprint</code> does autocomplete <b>all</b> fingerprints not just the ones for the JID mentioned.</p>
         </section>
         <section>
             <a name="installing-omemo"></a>
