@@ -103,7 +103,8 @@ libcmocka-dev            # To run tests</code></pre>
 
             <p>openssl is keg-only, which means it is not symlinked into /usr/local therefore pkg-config will fail when detecting the library and the build will fail. In order to fix this we need to add the openssl path to PKG_CONFIG_PATH.</p>
 
-            <pre><code>export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig:$PKG_CONFIG_PATH"</code></pre>
+            <pre><code>export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/
+libffi/lib/pkgconfig:$PKG_CONFIG_PATH"</code></pre>
         </section>
         <section>
             <a name="installscript"></a>
