@@ -99,11 +99,12 @@ libcmocka-dev            # To run tests</code></pre>
             <pre><code>zypper in gcc automake autoconf libtool glib2-devel gtk2-devel libcurl-devel libexpat-devel libgpgme-devel libmesode-devel libnotify-devel libotr-devel libuuid-devel ncurses-devel python3-devel readline-devel autoconf-archive libsignal-protocol-c-devel libgcrypt-devel</code></pre>
 
             <h4>Mac OS</h4>
-            <pre><code>brew install autoconf autoconf-archive automake libtool pkg-config glib gnutls gpgme libotr libstrophe openssl ossp-uuid readline terminal-notifier</code></pre>
+            <pre><code>brew install autoconf autoconf-archive automake libtool pkg-config glib gnutls gpgme libotr libstrophe openssl ossp-uuid readline terminal-notifier libsignal-protocol-c</code></pre>
 
             <p>openssl is keg-only, which means it is not symlinked into /usr/local therefore pkg-config will fail when detecting the library and the build will fail. In order to fix this we need to add the openssl path to PKG_CONFIG_PATH.</p>
 
-            <pre><code>export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig:$PKG_CONFIG_PATH"</code></pre>
+            <pre><code>export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/
+libffi/lib/pkgconfig:$PKG_CONFIG_PATH"</code></pre>
         </section>
         <section>
             <a name="installscript"></a>
