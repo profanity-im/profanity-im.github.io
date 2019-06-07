@@ -77,12 +77,15 @@
             <p>
                 If the generation takes a long time you can try to move the mouse or install an entropy daemon, such as <code>haveged</code>, to increase the available entropy.
             </p>
-            <!-- TODO
-            <img src="images/otr/key_generated.png"/><br><br>
-            -->
+            <img  src="images/omemo/key_generated.png"/><br><br>
             <p>
-                Once you have generated a key, you will not need to do so again.
+                Once you have generated a key, you will not need to do so again. If you want to check your own fingerprint or see the fingerprints of your other devices type:
             </p>
+			<pre><code>/omemo fingerprint</code></pre>
+			<p>
+				Hint: To be able to receive messages from your other devices you need to enable carbons. Also trust your own devices analogous to your buddies fingerprints, as described in the next paragraph.
+			</p>
+			<pre><code>/carbons on</code></pre>
         </section>
         <section>
             <a name="fingerprints"></a>
@@ -94,24 +97,20 @@
                 You should exchange fingerprints with your contact's via another secure communication channel. To display your fingerprint, use the following command:
             </p>
             <pre><code>/omemo fingerprint</code></pre>
-            <!--TODO
-            <img src="images/otr/myfp.png"/><br><br>
-            -->
+            <img src="images/omemo/myfp.png"/><br><br>
             <p>
                 To view the fingerprint of a contact use the following command:
             </p>
-            <pre><code>/omemo fingerprint bob@ejabberd.local</code></pre>
-            <!--TODO
-            <img src="images/otr/theirfp.png"/><br><br>
-            -->
+            <pre><code>/omemo fingerprint bob</code></pre>
+            <img src="images/omemo/theirfp.png"/><br><br>
             <p>
                 If the fingerprint you see matches the fingerprint you communicated via another means, you can manually authenticate the contact with the following command:
             </p>
-            <pre><code>/omemo trust 23232323-55555555-70702599-df3c90ac-e4c4e946-f0703684-765c9b11-7934dd7e</code></pre>
+            <pre><code>/omemo trust 7ef54f6a-af23d766-efc9a4ea-da6fca40-3e8a5c82-9c46e4a4-e4c7230f-937b9144</code></pre>
             <p>
                 You can untrust a contact at anytime using the following command:
             </p>
-            <pre><code>/omemo untrust 23232323-55555555-70702599-df3c90ac-e4c4e946-f0703684-765c9b11-7934dd7e</code></pre>
+            <pre><code>/omemo untrust 7ef54f6a-af23d766-efc9a4ea-da6fca40-3e8a5c82-9c46e4a4-e4c7230f-937b9144</code></pre>
         </section>
         <section>
             <a name="private-conversation"></a>
@@ -126,10 +125,8 @@
             <p>
                 If you are already in a conversation window without OMEMO, you can start sending encrypted messages with the same command omitting the contact:
             </p>
-            <pre><code>/omemo start bob@ejabberd.local</code></pre>
-            <!--TODO
-            <img src="images/otr/started.png"/><br><br>
-            -->
+            <pre><code>/omemo start bob</code></pre>
+            <img src="images/omemo/started.png"/><br><br>
             <p>
                 The <code>[OMEMO]</code> shown in the titlebar indicates that the conversation is now encrypted.
             </p>
@@ -161,35 +158,25 @@
             <p>
                 By default, an indicator is displayed in the titlebar when no encryption is being used.
             </p>
-            <!--TODO
-            <img src="images/pgp/encwarn.png"/><br><br>
-            -->
+            <img src="images/omemo/encwarn.png"/><br><br>
             <p>
                 This indicator can be removed using the <a href="reference.html#encwarn"><code>/encwarn</code></a> command.
             </p>
             <pre><code>/encwarn off</code></pre>
-            <!--TODO
-            <img src="images/pgp/encwarnoff.png"/><br><br>
-            -->
+            <img src="images/omemo/encwarnoff.png"/><br><br>
             <p>
                 Both incoming and outgoing plaintext messages are always preceeded by the '<code>-</code>' character.
             </p>
-            <!--TODO
-            <img src="images/pgp/plainchar.png"/><br><br>
-            -->
+            <img src="images/omemo/plainchar.png"/><br><br>
             <p>
                 By default OMEMO encrypted messages are preceeded by the '<code>*</code>' character.
             </p>
-            <!--TODO
-            <img src="images/otr/otrchar.png"/><br><br>
-            -->
+            <img src="images/omemo/omemochar.png"/><br><br>
             <p>
                 This character can be changed using the <code>/omemo char</code> command.
             </p>
             <pre><code>/omemo char O</code></pre>
-            <!--TODO
-            <img src="images/otr/newchar.png"/><br><br>
-            -->
+            <img src="images/omemo/newchar.png"/><br><br>
         </section>
         <section>
             <a name="omemo-message-logging"></a>
