@@ -3,17 +3,17 @@
 <head>
     <title>Profanity, a console based XMPP client - Off The Record (OTR) Encryption</title>
     <meta charset="utf-8">
-    <meta http-equiv="Expires" content="-1"> 
+    <meta http-equiv="Expires" content="-1">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
     <link href="css/profanity.css" type="text/css" rel="stylesheet">
     <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/analytics.js"></script> 
+    <script type="text/javascript" src="js/analytics.js"></script>
     <script type="text/javascript" src="js/trackclicks.js"></script>
 </head>
 <body id="article">
-    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">
     <header>
         <a href="userguide.html"><h1>User Guide</h1></a>
         <h2>OTR Message Encryption</h2>
@@ -21,7 +21,7 @@
     <article id="manual">
         <section>
             <h3>Contents</h3>
-            
+
             <ul>
                 <li><a href="#installing-otr">Building with OTR support</a>
                 <li><a href="#private-key-gen">Generating a private key</a>
@@ -29,13 +29,13 @@
                 <li><a href="#authentication">Authenticating a contact</a>
                 <ul>
                     <li><a href="#question-answer">question and answer</a>,
-                        <a href="#shared-secret">shared secret</a>, 
+                        <a href="#shared-secret">shared secret</a>,
                         <a href="#fingerprints">manual authentication</a></li>
                 </ul>
                 <li><a href="#policy">Setting OTR policy</a>
                 <ul>
                     <li><a href="#global-policy">global</a>,
-                        <a href="#account-policy">account</a>, 
+                        <a href="#account-policy">account</a>,
                         <a href="#contact-policy">contact</a></li>
                 </ul>
                 <li><a href="#ui-opts">User Interface options</a>
@@ -77,6 +77,9 @@
             <pre><code>/otr gen</code></pre>
             <p>
                 A message will appear informing you that the key is being generated which may take a few minutes.
+            </p>
+            <p>
+                If the generation takes a long time you can try to move the mouse or install an entropy daemon, such as <code>haveged</code>, to increase the available entropy.
             </p>
             <img src="images/otr/key_generated.png"/><br><br>
             <p>
