@@ -654,10 +654,10 @@
 <table><tr><td><code>&lt;room&gt;</code></td><td>The chat room to join.</td></tr><tr><td><code>nick &lt;nick&gt;</code></td><td>Nickname to use in the room.</td></tr><tr><td><code>password &lt;password&gt;</code></td><td>Password if the room requires one.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/join
-/join jdev@conference.jabber.org
-/join jdev@conference.jabber.org nick mynick
+/join profanity@rooms.dismail.de
+/join profanity@rooms.dismail.de nick mynick
 /join private@conference.jabber.org nick mynick password mypassword
-/join jdev
+/join mychannel
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -1373,8 +1373,8 @@
 <a name="time"></a>
 <h4>/time</h4>
 <p><b>Synopsis</b></p>
-<p><pre><code>/time console|chat|muc|config|private|xml set &lt;format&gt;
-/time console|chat|muc|config|private|xml off
+<p><pre><code>/time all|console|chat|muc|config|private|xml set &lt;format&gt;
+/time all|console|chat|muc|config|private|xml off
 /time statusbar set &lt;format&gt;
 /time statusbar off
 /time lastactivity set &lt;format&gt;
@@ -1383,13 +1383,14 @@
 <p>Configure time display preferences. Time formats are strings supported by g_date_time_format. See https://developer.gnome.org/glib/stable/glib-GDateTime.html#g-date-time-format for more details. Setting the format to an unsupported string, will display the string. If the format contains spaces, it must be surrounded with double quotes.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>console set &lt;format&gt;</code></td><td>Set time format for console window.</td></tr><tr><td><code>console off</code></td><td>Do not show time in console window.</td></tr><tr><td><code>chat set &lt;format&gt;</code></td><td>Set time format for chat windows.</td></tr><tr><td><code>chat off</code></td><td>Do not show time in chat windows.</td></tr><tr><td><code>muc set &lt;format&gt;</code></td><td>Set time format for chat room windows.</td></tr><tr><td><code>muc off</code></td><td>Do not show time in chat room windows.</td></tr><tr><td><code>config set &lt;format&gt;</code></td><td>Set time format for config windows.</td></tr><tr><td><code>config off</code></td><td>Do not show time in config windows.</td></tr><tr><td><code>private set &lt;format&gt;</code></td><td>Set time format for private chat windows.</td></tr><tr><td><code>private off</code></td><td>Do not show time in private chat windows.</td></tr><tr><td><code>xml set &lt;format&gt;</code></td><td>Set time format for XML console window.</td></tr><tr><td><code>xml off</code></td><td>Do not show time in XML console window.</td></tr><tr><td><code>statusbar set &lt;format&gt;</code></td><td>Change time format in statusbar.</td></tr><tr><td><code>statusbar off</code></td><td>Do not show time in status bar.</td></tr><tr><td><code>lastactivity set &lt;format&gt;</code></td><td>Change time format for last activity.</td></tr></table>
+<table><tr><td><code>console set &lt;format&gt;</code></td><td>Set time format for console window.</td></tr><tr><td><code>console off</code></td><td>Do not show time in console window.</td></tr><tr><td><code>chat set &lt;format&gt;</code></td><td>Set time format for chat windows.</td></tr><tr><td><code>chat off</code></td><td>Do not show time in chat windows.</td></tr><tr><td><code>muc set &lt;format&gt;</code></td><td>Set time format for chat room windows.</td></tr><tr><td><code>muc off</code></td><td>Do not show time in chat room windows.</td></tr><tr><td><code>config set &lt;format&gt;</code></td><td>Set time format for config windows.</td></tr><tr><td><code>config off</code></td><td>Do not show time in config windows.</td></tr><tr><td><code>private set &lt;format&gt;</code></td><td>Set time format for private chat windows.</td></tr><tr><td><code>private off</code></td><td>Do not show time in private chat windows.</td></tr><tr><td><code>xml set &lt;format&gt;</code></td><td>Set time format for XML console window.</td></tr><tr><td><code>xml off</code></td><td>Do not show time in XML console window.</td></tr><tr><td><code>statusbar set &lt;format&gt;</code></td><td>Change time format in statusbar.</td></tr><tr><td><code>statusbar off</code></td><td>Do not show time in status bar.</td></tr><tr><td><code>lastactivity set &lt;format&gt;</code></td><td>Change time format for last activity.</td></tr><tr><td><code>all set &lt;format&gt;</code></td><td>Set time for: console, chat, muc, config, private and xml windows.</td></tr><tr><td><code>all off</code></td><td>Do not show time for: console, chat, muc, config, private and xml windows.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/time console set %H:%M:%S
 /time chat set "%d-%m-%y %H:%M:%S"
 /time xml off
 /time statusbar set %H:%M
 /time lastactivity set "%d-%m-%y %H:%M:%S"
+/time all set "%d-%m-%y %H:%M:%S"
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
