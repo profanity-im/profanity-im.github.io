@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profanity, a console based XMPP client - Manual Building</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="css/profanity.css" type="text/css" rel="stylesheet"><!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/analytics.js"></script>
+    <script type="text/javascript" src="js/trackclicks.js"></script>
+</head>
+<body id="article">
+    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">
+    <header>
+        <a href="userguide.html"><h1>User Guide</h1></a>
+        <h2>Code Overview</h2>
+
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+
+            <ul>
+                <li><a href="#mainloop">The main loop</a>
+                <li><a href="#modules">Modules</a>
+            </ul>
+        </section>
+        <section>
+            <a name="mainloop"></a>
+            <h3>The main loop</h3>
+            <p>Everything in Profanity happens within a simple loop. When you run:</p>
+            <pre><code>profanity</code></pre>
+            <p>The <code>main()</code> function is called in:</p>
+            <pre><code>src/main.c</code></pre>
+            <p>At the end of <code>main()</code>, a call is made to <code>prof_run()</code> which can be found in:</p>
+            <pre><code>src/profanity.c</code></pre>
+            <p>At time of writing, this function is as follows:</p>
+            <pre><code>void
+prof_run(const int disable_tls, char *log_level, char *account_name)
+{
+    _init(disable_tls, log_level);
+    _connect_default(account_name);
+    ui_update();
+
+    log_info("Starting main event loop");
+
+    char *line = NULL;
+    while(cont) {
+        log_stderr_handler();
+        _check_autoaway();
+
+        line = ui_readline();
+        if (line) {
+            ProfWin *window = wins_get_current();
+            cont = cmd_process_input(window, line);
+            free(line);
+            line = NULL;
+        } else {
+            cont = TRUE;
+        }
+
+#ifdef HAVE_LIBOTR
+        otr_poll();
+#endif
+        notify_remind();
+        jabber_process_events(10);
+        ui_update();
+    }
+}</code></pre>
+            <p>The important sequence of events in the main loop are:</p>
+            <ul>
+                <li>Check if the user entered a line (ui_readline() at src/ui/core.c).</li>
+                <li>If they did, attempt to process the input (cmd_process_input() at src/command.c).</li>
+                <li>Check for and handle any incoming XMPP events (jabber_process_events() at src/xmpp/connection.c).</li>
+                <li>Refresh the UI (ui_update() at src/ui/core.c).</li>
+                <li>Loop</li>
+            </ul>
+        </section>
+
+        <section>
+            <a name="modules"></a>
+            <h3>Modules</h3>
+
+            <h4>Commands</h4>
+            <p>All code related to running user entered commands, for example <code>/who</code>.</p>
+            <p>Location: <code>src/command</code></p>
+            <p><code>src/command/command.c</code> - Command definitions, and autocompletion rules.</br>
+            <code>src/command/commands.c</code> - Command implementation functions</p>
+
+            <h4>Configuration</h4>
+            <p>Code related to looking up and storing information in configuration files.</p>
+            <p>Location: <code>src/config</code>
+            <p><code>src/config/account.c</code> - Data structure representing an account.</br>
+            <code>src/config/accounts.c</code> - Access to the accounts config file.</br>
+            <code>src/config/preferences.c</code> - Access to the profrc config file.</br>
+            <code>src/config/theme.c</code> - Access to themes.</p>
+
+            <h4>Events</h4>
+            <p>Work in progress. The intention is to move all events that could involve a plugin hook into this directory. Currently only a small number of functions have been moved here.</p>
+            <p>Location: <code>src/event</code></p>
+            <p><code>src/event/client_events.c</code> - Events initiated by Profanity, e.g. connecting, or sending a message.</br>
+            <code>src/event/server_events.c</code> - Events received from the XMPP server, e.g. an incoming message.</br>
+            <code>src/event/ui_events.c</code> - User Interface events, e.g. opening a new chat window.</p>
+
+            <h4>Off The Record Encryption</h4>
+            <p>Code to deal with OTR encryption using the libotr library. Hides the different library version API's from the core Profanity code.</p>
+            <p>Location: <code>src/otr</code></p>
+
+            <h4>OpenPGP Encryption</h4>
+            <p>Code to handle PGP encryption.</p>
+            <p>Location: <code>src/pgp</code>
+
+            <h4>Common Tools</h4>
+            <p>Basic utility functions and common code such as autocomplete implementation.</p>
+            <p>Location: <code>src/tools</code>
+
+            <h4>User Interface</h4>
+            <p>All User Interface code, input handling, window rendering etc.</p>
+            <p>Location: <code>src/ui</code></p>
+            <p><code>src/buffer.c</code> - Buffer of all output, used for redrawing the UI on resize.</br>
+            <code>src/console.c</code> - Display functions for the console window.</br>
+            <code>src/core.c</code> - Display functions for most other operations involving the main window area.</br>
+            <code>src/inputwin.c</code> - Functions to handle the input window (where the user types).</br>
+            <code>src/notifier.c</code> - Desktop notification functions.</br>
+            <code>src/occupantswin.c</code> - Functions for rendering the Occupants panel in chat rooms.</br>
+            <code>src/rosterwin.c</code> - Functions for rendering the Roster panel in the console window.</br>
+            <code>src/statusbar.c</code> - Drawing the status bar (above the input line).</br>
+            <code>src/titlebar.c</code> - Drawing the title bar (the top line).</br>
+            <code>src/window.c</code> - Data structures representing different window types and functions to manipulate them.</p>
+
+        </section>
+
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+</html>
