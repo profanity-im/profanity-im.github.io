@@ -27,7 +27,6 @@
                     <ul>
                         <li><a href="#platform">Will Profanity run on &ltsome platform&gt?</a></li>
                         <li><a href="#gtalk">Will Profanity work with Google Talk?</a></li>
-                        <li><a href="#gtalkrooms">How do I start groupchat with Google Talk?</a></li>
                         <li><a href="#facebook">Will Profanity work with Facebook Chat?</a></li>
                         <li><a href="#slack">Will Profanity work with Slack?</a></li>
                         <li><a href="#msn">Will Profanity work with MSN/Yahoo/AIM/IRC etc?</a></li>
@@ -51,26 +50,7 @@
         <section>
             <a name="gtalk"></a>
             <h4>Will Profanity work with Google Talk?</h4>
-            <p>Profanity should work with Google Talk accounts as long as Google supports XMPP. Just use the <a href="reference.html#connect"<code>/connect</code></a> command with your email address e.g.:</p>
-            <pre><code>/connect user@gmail.com</code></pre>
-            <p>If you receive a "Login failed" message, you may need to enable access to your Google account from third party applications. Use the following link after signing in to your Google account: <a href="https://www.google.com/settings/security/lesssecureapps" target="_blank">https://www.google.com/settings/security/lesssecureapps</a>.</p>
-            <p>Google Talk is no longer a federated service, so you can only talk to other contacts who have a Google account.</p>
-            <p>If you are using a Google Apps account, the details are slightly different. For example, if your Google Apps user is "someuser" and your Google Apps domain is "company.org" you can connect with the following:</p>
-            <pre><code>/connect someuser@company.org server talk.google.com</code></pre>
-            <p>Google is deprecating older authentication mechanisms in favour or OAUTH2, which profanity does not yet support.</p>
-            <a href="#top"><h5>back to top</h5></a>
-        </section>
-        <section>
-            <a name="gtalkrooms"></a>
-            <h4>How to I start groupchat with Google Talk?</h4>
-            <p>Google Talk has a few constrains/subtleties for performing groupchat. Firstly your account <code>muc</code> property must be set to <code>groupchat.google.com</code>, you can do this with the following command:</p>
-            <pre><code>/account set someaddress@gmail.com muc groupchat.google.com</code></pre>
-            <p>Secondly, the chat room name must follow a certain convention <code>private-chat-[UUID]@[service]</code> where <code>UUID</code> is a unique identifier for the room, and <code>service</code> is the property set above. Profanity will automatically use this convention and generate the UUID for you if you simply enter:</p>
-            <pre><code>/join</code></pre>
-            <p>A new groupchat will be created for you.</p>
-            <p>To invite users to the room use the <a href="reference.html#invite"><code>/invite</code></a> command as usual.</p>
-            <p>Finally, depending on the client your contacts are using, they may appear as a random number rather than their user name. To show the email address associated with each contact:</p>
-            <pre><code>/occupants show jid</code></pre>
+            <p>Profanity was able to work with Google Talk. But in 2013 after Google merged it's messenger products Google Talk, Google+ Messenger and Hangouts together XMPP support was <a href="https://www.theverge.com/2013/5/15/4318830/inside-hangouts-googles-big-fix-for-its-messaging-mess">dropped</a>.
             <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
@@ -103,13 +83,14 @@
 <pre><code>secret-tool lookup xmpp bob@server.org</code></pre>
             <p>On OS X, use the following command for the <code>eval_password</code> property:</p>
 <pre><code>security find-generic-password -s bob@server.org -w</code></pre>
+            <p>You can also use Profanity together with <code>pass</code>, see this <a href="https://hispagatos.org/blog/2019-02-04-xmpp_profanity_and_pass/">guide</a>
             <a href="#top"><h5>back to top</h5></a>
         </section>
 
         <section>
             <a name="multiaccount"></a>
             <h4>Can I connect to more than one account at a time?</h4>
-            <p>No, the recommended way is to use multiple terminal windows, or GNU Screen.</p>
+            <p>No, the recommended way is to use multiple terminal windows, or a terminal multiplexer like GNU Screen or tmux.</p>
             <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
@@ -128,15 +109,15 @@
         <section>
             <a name="bugs"></a>
             <h4>I've found a bug/have a feature request who do I tell?</h4>
-            <p>If you have a github account, you can log an issue on the <a href="https://github.com/boothj5/profanity/issues?state=open" target="_blank">issue tracker</a>.</p>
+            <p>If you have a github account, you can log an issue on the <a href="https://github.com/profanity-im/profanity/issues?state=open" target="_blank">issue tracker</a>.</p>
             <p>Alternatively you are welcome to post on the <a href="https://groups.google.com/forum/?hl=en&fromgroups#!forum/profanitydev" target="_blank">mailing list</a>.</p>
-            <p>Finally you can email the project maintainer at boothj5web@gmail.com.</p>
+            <p>Finally you can email the project creator at boothj5web@gmail.com.</p>
             <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
             <a name="contrib"></a>
             <h4>I'd like to contribute, what should I do?</h4>
-            <p>A page has been written with some ideas for how to <a id="link-helpout" href="helpout.html">help out</a>.  Any contributions/ideas are very welcome.</p>
+            <p>A page has been written with some ideas for how to <a id="link-helpout" href="helpout.html">help out</a>.  Any contributions/ideas are very welcome. Also see the <a href="https://github.com/profanity-im/profanity/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> file on GitHub.</p>
             <a href="#top"><h5>back to top</h5></a>
         </section>
         <section>
