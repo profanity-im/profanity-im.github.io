@@ -28,6 +28,8 @@
             </ul>
         </section>
         <section>
+            <p>This page gives an overview of the code base, the various modules and their responsibilities.</p>
+            <p>It was originally written in 2015 and might not be up to date, but can help you navigate the profanity codebase nevertheless.</p>
             <a name="mainloop"></a>
             <h3>The main loop</h3>
             <p>Everything in Profanity happens within a simple loop. When you run:</p>
@@ -70,13 +72,14 @@ prof_run(const int disable_tls, char *log_level, char *account_name)
     }
 }</code></pre>
             <p>The important sequence of events in the main loop are:</p>
-            <ul>
-                <li>Check if the user entered a line (ui_readline() at src/ui/core.c).</li>
-                <li>If they did, attempt to process the input (cmd_process_input() at src/command.c).</li>
-                <li>Check for and handle any incoming XMPP events (jabber_process_events() at src/xmpp/connection.c).</li>
-                <li>Refresh the UI (ui_update() at src/ui/core.c).</li>
-                <li>Loop</li>
-            </ul>
+            <!--TODO: use some nice css formatted list here-->
+            <!--            <ul> -->
+            <p>- Check if the user entered a line (<code>ui_readline()</code> at <code>src/ui/core.c</code>).</br>
+            - If they did, attempt to process the input (<code>cmd_process_input()</code> at <code>src/command.c</code>).</br>
+            - Check for and handle any incoming XMPP events (<code>jabber_process_events()</code> at <code>src/xmpp/connection.c</code>).</br>
+            - Refresh the UI (<code>ui_update()</code> at <code>src/ui/core.c</code>).</br>
+            - Loop</p>
+                <!-- </ul> -->
         </section>
 
         <section>
