@@ -3,25 +3,23 @@
 <head>
     <title>Profanity, a console based XMPP client - Installation Guide</title>
     <meta charset="utf-8">
-    <meta http-equiv="Expires" content="-1"> 
+    <meta http-equiv="Expires" content="-1">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
     <link href="css/profanity.css" type="text/css" rel="stylesheet"><!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/analytics.js"></script> 
-    <script type="text/javascript" src="js/trackclicks.js"></script> 
+    <script type="text/javascript" src="js/analytics.js"></script>
+    <script type="text/javascript" src="js/trackclicks.js"></script>
 </head>
 <body id="article">
-    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">
     <header>
         <a href="userguide.html"><h1>User Guide</h1></a>
         <h2>Installation Guide</h2>
-        
     </header>
     <article id="manual">
         <section>
             <h3>Contents</h3>
-            
             <ul>
                 <li><a href="#nixdistros">Linux/FreeBSD</a>
                 <li><a href="#os-x">Mac OS X</a>
@@ -116,7 +114,6 @@
         <section>
             <a name="os-x"></a>
             <h3>Mac OS X</h3>
-
             <h4>Homebrew</h4>
             <p>To install profanity using homebrew:</p>
             <pre><code>brew install profanity</code></pre>
@@ -131,29 +128,25 @@ Python plugins: Enabled</code></pre>
             <p>To install the latest development version, use the tap supplied by robsalasco at Github available <a id="robroom-brew" target="_blank" href="https://github.com/robsalasco/homebrew-profanity">here</a>:</p>
             <pre><code>brew tap robsalasco/homebrew-profanity
 brew install profanity --HEAD</code></pre>
-            
             <h4>Macports</h4>
             <p>A howto using macports has also been written by louiecaulfield at Github available <a id="louiecaulfield-macports" target="_blank" href="https://github.com/louiecaulfield/profanity/wiki/Building-under-OS-X">here</a>.</p>
         </section>
         <section>
             <a name="windows"></a>
             <h3>Windows</h3>
-           
             <h4>Install Cygwin</h4>
             <p>Install Cygwin by downloading and running:</p>
-            <p>64Bit: <a href="http://cygwin.com/setup-x86_64.exe">http://cygwin.com/setup-x86_64.exe</a></p>
-            <p>32bit: <a href="http://cygwin.com/setup-x86.exe">http://cygwin.com/setup-x86.exe</a></p>
-
+            <p>64Bit: <a href="https://cygwin.com/setup-x86_64.exe">http://cygwin.com/setup-x86_64.exe</a></p>
+            <p>32bit: <a href="https://cygwin.com/setup-x86.exe">http://cygwin.com/setup-x86.exe</a></p>
             <h4>Dependencies</h4>
             <p><code>wget</code> and <code>unzip</code> are required to install Profanity. When running setup.exe, search for and add them when asked to select packages.</p>
-            <p>Note: To make use of <a href="otr.html">OTR support</a> on Cygwin, the <code>libotr-devel</code> package is required which is not currently in the official repositories. <code>libotr-devel</code> can be found in the <a id="cyg-ports" target="_blank" href="https://sourceware.org/cygwinports/">Cygwin Ports project</a>.</p>
-
+            <p>Note: To make use of <a href="otr.html">OTR</a> and <a href="omemo.html">OMEMO</a> support on Cygwin, <code>libotr</code> and <code>libsignal-protocol-c</code> need to be build from source, since they are not part of the Cygwin repository.</p>
             <h4>Download and Install</h4>
             <p>Download the zip archive from the homepage and extract, then download the install script and run it in the project directory:<p>
-            <pre><code>wget http://www.profanity.im/profanity-0.5.1.zip
-unzip profanity-0.5.1.zip
-cd profanity-0.5.1
-wget http://www.profanity.im/install-all.sh
+            <pre><code>wget https://profanity-im.github.io/profanity-0.7.0.zip
+unzip profanity-0.7.0.zip
+cd profanity-0.7.0
+wget https://profanity-im.github.io/install-all.sh
 chmod u+x install-all.sh
 ./install-all.sh</code></pre>
         </section>
