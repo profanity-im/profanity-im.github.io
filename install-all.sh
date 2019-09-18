@@ -66,9 +66,9 @@ cygwin_prepare()
 
     if ! command -v apt-cyg &>/dev/null; then cyg_install_apt_cyg; fi
     if [ -n "$CYG_MIRROR" ]; then
-        apt-cyg -m $CYG_MIRROR install git make gcc-core m4 automake autoconf pkg-config openssl-devel libexpat-devel zlib-devel libncursesw-devel libglib2.0-devel libcurl-devel libidn-devel libssh2-devel libkrb5-devel openldap-devel libgcrypt-devel libreadline-devel libgpgme-devel libtool libpcre-devel libisl10 libcloog-isl4 autoconf-archive
+        apt-cyg -m $CYG_MIRROR install git make gcc-core m4 automake autoconf pkg-config openssl-devel libexpat-devel zlib-devel libncursesw-devel libglib2.0-devel libcurl-devel libidn-devel libssh2-devel libkrb5-devel openldap-devel libgcrypt-devel libreadline-devel libgpgme-devel libtool libpcre-devel libisl15 autoconf-archive
     else
-        apt-cyg install git make gcc-core m4 automake autoconf pkg-config openssl-devel libexpat-devel zlib-devel libncursesw-devel libglib2.0-devel libcurl-devel libidn-devel libssh2-devel libkrb5-devel openldap-devel libgcrypt-devel libreadline-devel libgpgme-devel libtool libpcre-devel libisl10 libcloog-isl4 autoconf-archive python
+        apt-cyg install git make gcc-core m4 automake autoconf pkg-config openssl-devel libexpat-devel zlib-devel libncursesw-devel libglib2.0-devel libcurl-devel libidn-devel libssh2-devel libkrb5-devel openldap-devel libgcrypt-devel libreadline-devel libgpgme-devel libtool libpcre-devel libisl15 autoconf-archive python
 
     fi
 }
@@ -122,7 +122,7 @@ cyg_install_lib_mesode()
     echo
     git clone https://github.com/boothj5/libmesode.git
     cd libmesode
-    git checkout 0.9.1
+    git checkout 0.9.2
     ./bootstrap.sh
     ./bootstrap.sh # second call seems to fix problem on cygwin
     ./configure --prefix=/usr
