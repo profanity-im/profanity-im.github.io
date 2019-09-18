@@ -149,13 +149,14 @@ brew install profanity --HEAD</code></pre>
             <p><code>wget</code> and <code>unzip</code> are required to install Profanity. When running setup.exe, search for and add them when asked to select packages.</p>
             <p>Note: To make use of <a href="otr.html">OTR</a> and <a href="omemo.html">OMEMO</a> support on Cygwin, <code>libotr</code> and <code>libsignal-protocol-c</code> need to be build from source, since they are not part of the Cygwin repository.</p>
             <h4>Download and Install</h4>
-            <p>Download the zip archive from the homepage and extract, then download the install script and run it in the project directory:<p>
+            <p>Download the zip archive from the homepage and extract it, then download the install script and run it in the project directory:<p>
             <pre><code>wget https://profanity-im.github.io/profanity-0.7.0.zip
 unzip profanity-0.7.0.zip
 cd profanity-0.7.0
 wget https://profanity-im.github.io/install-all.sh
 chmod u+x install-all.sh
 ./install-all.sh</code></pre>
+            <p>The script will install the neccessary build dependencies for Profanity using apt-cyg. Download, build and install libmesode and then build and install Profanity. Make sure to read the script before executing it.</p>
         </section>
         <section>
             <a name="androidtermux"></a>
