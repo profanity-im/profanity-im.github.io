@@ -23,7 +23,7 @@
             <ul>
                 <li><a href="#nixdistros">Linux/FreeBSD</a>
                 <li><a href="#os-x">Mac OS X</a>
-                <li><a href="#windows">Windows (Cygwin)</a></li>
+                <li><a href="#windows">Windows</a></li>
                 <li><a href="#androidtermux">Android (Termux)</a>
             </ul>
         </section>
@@ -134,7 +134,14 @@ brew install profanity --HEAD</code></pre>
         <section>
             <a name="windows"></a>
             <h3>Windows</h3>
-            <h4>Install Cygwin</h4>
+            <p>On Windows you can either install Profanity over the Windows Subsystem for Linux or via Cygwin.</p>
+
+            <h4>WSL</h4>
+            <p>The Windows Subsystem for Linux is available since Windows 10 only.</p>
+            <p>Please read the <a href="https://docs.microsoft.com/de-de/windows/wsl/about">documentation</a> provided by Microsoft on what WSL is and how to install it</p>
+            <p>You will have to choose an distribution that you install (Debian, openSUSE, Ubuntu..) and then install Profanity via the distributions package manager. We recommend to choose a distribution that you are already familiar with or one where you can find a lot of documentation and help online (Debian, openSUSE). Another point to consider is which stable version of Profanity is available in the distributions repositories. One way to find this is out is to check <a href="https://repology.org/project/profanity/versions">Repology</a>.
+           
+            <h4>Cygwin</h4>
             <p>Install Cygwin by downloading and running:</p>
             <p>64Bit: <a href="https://cygwin.com/setup-x86_64.exe">http://cygwin.com/setup-x86_64.exe</a></p>
             <p>32bit: <a href="https://cygwin.com/setup-x86.exe">http://cygwin.com/setup-x86.exe</a></p>
