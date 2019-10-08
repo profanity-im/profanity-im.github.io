@@ -1,0 +1,1590 @@
+<hr>
+<a name="about"></a>
+<h4>/about</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/about
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Show version and license information.
+</p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="account"></a>
+<h4>/account</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/account
+/account list
+/account show &lt;account&gt;
+/account enable|disable &lt;account&gt;
+/account default set &lt;account&gt;
+/account default off
+/account add &lt;account&gt;
+/account remove &lt;account&gt;
+/account rename &lt;account&gt; &lt;newaccount&gt;
+/account set &lt;account&gt; jid &lt;jid&gt;
+/account set &lt;account&gt; server &lt;server&gt;
+/account set &lt;account&gt; port &lt;port&gt;
+/account set &lt;account&gt; status &lt;presence&gt;
+/account set &lt;account&gt; status last
+/account set &lt;account&gt; &lt;presence&gt; &lt;priority&gt;
+/account set &lt;account&gt; resource &lt;resource&gt;
+/account set &lt;account&gt; password &lt;password&gt;
+/account set &lt;account&gt; eval_password &lt;command&gt;
+/account set &lt;account&gt; muc &lt;service&gt;
+/account set &lt;account&gt; nick &lt;nick&gt;
+/account set &lt;account&gt; otr &lt;policy&gt;
+/account set &lt;account&gt; pgpkeyid &lt;pgpkeyid&gt;
+/account set &lt;account&gt; startscript &lt;script&gt;
+/account set &lt;account&gt; tls force|allow|trust|legacy|disable
+/account set &lt;account&gt; theme &lt;theme&gt;
+/account clear &lt;account&gt; password
+/account clear &lt;account&gt; eval_password
+/account clear &lt;account&gt; server
+/account clear &lt;account&gt; port
+/account clear &lt;account&gt; otr
+/account clear &lt;account&gt; pgpkeyid
+/account clear &lt;account&gt; startscript
+/account clear &lt;account&gt; muc
+/account clear &lt;account&gt; resource
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Commands for creating and managing accounts. Calling with no arguments will display information for the current account.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>list</code></td><td>List all accounts.</td></tr><tr><td><code>enable &lt;account&gt;</code></td><td>Enable the account, it will be used for autocompletion.</td></tr><tr><td><code>show &lt;account&gt;</code></td><td>Show details for the specified account.</td></tr><tr><td><code>disable &lt;account&gt;</code></td><td>Disable the account.</td></tr><tr><td><code>default set &lt;account&gt;</code></td><td>Set the default account, used when no argument passed to the /connect command.</td></tr><tr><td><code>default off</code></td><td>Clear the default account setting.</td></tr><tr><td><code>add &lt;account&gt;</code></td><td>Create a new account.</td></tr><tr><td><code>remove &lt;account&gt;</code></td><td>Remove an account.</td></tr><tr><td><code>rename &lt;account&gt; &lt;newaccount&gt;</code></td><td>Rename 'account' to 'newaccount'.</td></tr><tr><td><code>set &lt;account&gt; jid &lt;jid&gt;</code></td><td>Set the Jabber ID for the account, account name will be used if not set.</td></tr><tr><td><code>set &lt;account&gt; server &lt;server&gt;</code></td><td>The chat server, if different to the domainpart of the JID.</td></tr><tr><td><code>set &lt;account&gt; port &lt;port&gt;</code></td><td>The port used for connecting if not the default (5222, or 5223 for SSL).</td></tr><tr><td><code>set &lt;account&gt; status &lt;presence&gt;</code></td><td>The presence status to use on login.</td></tr><tr><td><code>set &lt;account&gt; status last</code></td><td>Use your last status before logging out, when logging in.</td></tr><tr><td><code>set &lt;account&gt; &lt;presence&gt; &lt;priority&gt;</code></td><td>Set the priority (-128..127) to use for the specified presence.</td></tr><tr><td><code>set &lt;account&gt; resource &lt;resource&gt;</code></td><td>The resource to be used for this account, defaults to 'profanity'.</td></tr><tr><td><code>set &lt;account&gt; password &lt;password&gt;</code></td><td>Password for the account, note this is currently stored in plaintext if set.</td></tr><tr><td><code>set &lt;account&gt; eval_password &lt;command&gt;</code></td><td>Shell command evaluated to retrieve password for the account. Can be used to retrieve password from keyring.</td></tr><tr><td><code>set &lt;account&gt; muc &lt;service&gt;</code></td><td>The default MUC chat service to use, defaults to the servers disco info response.</td></tr><tr><td><code>set &lt;account&gt; nick &lt;nick&gt;</code></td><td>The default nickname to use when joining chat rooms.</td></tr><tr><td><code>set &lt;account&gt; otr &lt;policy&gt;</code></td><td>Override global OTR policy for this account, see /otr.</td></tr><tr><td><code>set &lt;account&gt; pgpkeyid &lt;pgpkeyid&gt;</code></td><td>Set the ID of the PGP key for this account, see /pgp.</td></tr><tr><td><code>set &lt;account&gt; startscript &lt;script&gt;</code></td><td>Set the script to execute after connecting.</td></tr><tr><td><code>set &lt;account&gt; tls force</code></td><td>Force TLS connection, and fail if one cannot be established, this is default behaviour.</td></tr><tr><td><code>set &lt;account&gt; tls allow</code></td><td>Use TLS for the connection if it is available.</td></tr><tr><td><code>set &lt;account&gt; tls trust</code></td><td>Force TLS connection and trust server's certificate.</td></tr><tr><td><code>set &lt;account&gt; tls legacy</code></td><td>Use legacy TLS for the connection. It means server doesn't support STARTTLS and TLS is forced just after TCP connection is established.</td></tr><tr><td><code>set &lt;account&gt; tls disable</code></td><td>Disable TLS for the connection.</td></tr><tr><td><code>set &lt;account&gt; &lt;theme&gt;</code></td><td>Set the UI theme for the account.</td></tr><tr><td><code>clear &lt;account&gt; server</code></td><td>Remove the server setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; port</code></td><td>Remove the port setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; password</code></td><td>Remove the password setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; eval_password</code></td><td>Remove the eval_password setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; otr</code></td><td>Remove the OTR policy setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; pgpkeyid</code></td><td>Remove pgpkeyid associated with this account.</td></tr><tr><td><code>clear &lt;account&gt; startscript</code></td><td>Remove startscript associated with this account.</td></tr><tr><td><code>clear &lt;account&gt; theme</code></td><td>Clear the theme setting for the account, the global theme will be used.</td></tr><tr><td><code>clear &lt;account&gt; resource</code></td><td>Remove the resource setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; muc</code></td><td>Remove the default MUC service setting.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/account add me
+/account set me jid me@chatty
+/account set me server talk.chat.com
+/account set me port 5111
+/account set me muc chatservice.mycompany.com
+/account set me nick dennis
+/account set me status dnd
+/account set me dnd -1
+/account rename me chattyme
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="affiliation"></a>
+<h4>/affiliation</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/affiliation set &lt;affiliation&gt; &lt;jid&gt; [&lt;reason&gt;]
+/affiliation list [&lt;affiliation&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Manage room affiliations. Affiliation may be one of owner, admin, member, outcast or none.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>set &lt;affiliation&gt; &lt;jid&gt; [&lt;reason&gt;]</code></td><td>Set the affiliation of user with jid, with an optional reason.</td></tr><tr><td><code>list [&lt;affiliation&gt;]</code></td><td>List all users with the specified affiliation, or all if none specified.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="alias"></a>
+<h4>/alias</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/alias list
+/alias add &lt;name&gt; &lt;value&gt;
+/alias remove &lt;name&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Add, remove or list command aliases.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>list</code></td><td>List all aliases.</td></tr><tr><td><code>add &lt;name&gt; &lt;value&gt;</code></td><td>Add a new command alias.</td></tr><tr><td><code>remove &lt;name&gt;</code></td><td>Remove a command alias.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/alias add friends /who online friends
+/alias add /q /quit
+/alias add a /away "I'm in a meeting."
+/alias remove q
+/alias list
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="autoaway"></a>
+<h4>/autoaway</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/autoaway mode idle|away|off
+/autoaway time away|xa &lt;minutes&gt;
+/autoaway message away|xa &lt;message&gt;|off
+/autoaway check on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Manage autoaway settings for idle time.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>mode idle</code></td><td>Sends idle time, status remains online.</td></tr><tr><td><code>mode away</code></td><td>Sends away and xa presence as well as idle time.</td></tr><tr><td><code>mode off</code></td><td>Disabled (default).</td></tr><tr><td><code>time away &lt;minutes&gt;</code></td><td>Number of minutes before the away presence is sent, default: 15.</td></tr><tr><td><code>time xa &lt;minutes&gt;</code></td><td>Number of minutes before the xa presence is sent, default: 0 (disabled).</td></tr><tr><td><code>message away &lt;message&gt;</code></td><td>Optional message to send with the away presence, default: off (disabled).</td></tr><tr><td><code>message xa &lt;message&gt;</code></td><td>Optional message to send with the xa presence, default: off (disabled).</td></tr><tr><td><code>message away off</code></td><td>Send no message with away presence.</td></tr><tr><td><code>message xa off</code></td><td>Send no message with xa presence.</td></tr><tr><td><code>check on|off</code></td><td>When enabled, checks for activity and sends online presence, default: on.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/autoaway mode away
+/autoaway time away 30
+/autoaway message away Away from computer for a while
+/autoaway time xa 120
+/autoaway message xa Away from computer for a very long time
+/autoaway check off
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="autoconnect"></a>
+<h4>/autoconnect</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/autoconnect set &lt;account&gt;
+/autoconnect off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Enable or disable autoconnect on start up. The setting can be overridden by the -a (--account) command line option.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>set &lt;account&gt;</code></td><td>Connect with account on start up.</td></tr><tr><td><code>off</code></td><td>Disable autoconnect.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/autoconnect set jc@stuntteam.org
+/autoconnect off
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="autoping"></a>
+<h4>/autoping</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/autoping set &lt;seconds&gt;
+/autoping timeout &lt;seconds&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Set the interval between sending ping requests to the server to ensure the connection is kept alive.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>set &lt;seconds&gt;</code></td><td>Number of seconds between sending pings, a value of 0 disables autoping.</td></tr><tr><td><code>timeout &lt;seconds&gt;</code></td><td>Seconds to wait for autoping responses, after which the connection is considered broken.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="away"></a>
+<h4>/away</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/away [&lt;message&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Set your status to 'away'.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;message&gt;</code></td><td>Optional message to use with the status.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/away
+/away Gone for lunch
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="ban"></a>
+<h4>/ban</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/ban &lt;jid&gt; [&lt;reason&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Ban user from chat room.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;jid&gt;</code></td><td>Bare JID of the user to ban from the room.</td></tr><tr><td><code>&lt;reason&gt;</code></td><td>Optional reason for banning the user.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="beep"></a>
+<h4>/beep</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/beep on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Switch the terminal bell on or off. The bell will sound when incoming messages are received. If the terminal does not support sounds, it may attempt to flash the screen instead.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable terminal bell.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="blocked"></a>
+<h4>/blocked</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/blocked
+/blocked add [&lt;jid&gt;]
+/blocked remove &lt;jid&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Manage blocked users, calling with no arguments shows the current list of blocked users.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>add [&lt;jid&gt;]</code></td><td>Block the specified Jabber ID. If in a chat window and no jid is specified, the current recipient will be blocked.</td></tr><tr><td><code>remove &lt;jid&gt;</code></td><td>Remove the specified Jabber ID from the blocked list.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/blocked add spammer@spam.org
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="bookmark"></a>
+<h4>/bookmark</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/bookmark
+/bookmark list
+/bookmark add [&lt;room&gt;] [nick &lt;nick&gt;] [password &lt;password&gt;] [autojoin on|off]
+/bookmark update &lt;room&gt; [nick &lt;nick&gt;] [password &lt;password&gt;] [autojoin on|off]
+/bookmark remove [&lt;room&gt;]
+/bookmark join &lt;room&gt;
+/bookmark invites on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Manage bookmarks and join bookmarked rooms. In a chat room, no arguments will bookmark the current room, setting autojoin to "on".
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>list</code></td><td>List all bookmarks.</td></tr><tr><td><code>add [&lt;room&gt;]</code></td><td>Add a bookmark, passing no room will bookmark the current room, setting autojoin to "on".</td></tr><tr><td><code>remove [&lt;room&gt;]</code></td><td>Remove a bookmark, passing no room will remove the bookmark for the current room, if one exists.</td></tr><tr><td><code>update &lt;room&gt;</code></td><td>Update the properties associated with a bookmark.</td></tr><tr><td><code>nick &lt;nick&gt;</code></td><td>Nickname used in the chat room.</td></tr><tr><td><code>password &lt;password&gt;</code></td><td>Password if required, may be stored in plaintext on your server.</td></tr><tr><td><code>autojoin on|off</code></td><td>Whether to join the room automatically on login.</td></tr><tr><td><code>join &lt;room&gt;</code></td><td>Join room using the properties associated with the bookmark.</td></tr><tr><td><code>invites on|off</code></td><td>Whether or not to bookmark accepted room invites, defaults to 'on'.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="caps"></a>
+<h4>/caps</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/caps
+/caps &lt;fulljid&gt;|&lt;nick&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Find out a contacts, or room members client software capabilities. If in private chat initiated from a chat room, no parameter is required.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;fulljid&gt;</code></td><td>If in the console or a chat window, the full JID for which you wish to see capabilities.</td></tr><tr><td><code>&lt;nick&gt;</code></td><td>If in a chat room, nickname for which you wish to see capabilities.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/caps mybuddy@chat.server.org/laptop
+/caps mybuddy@chat.server.org/phone
+/caps bruce
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="carbons"></a>
+<h4>/carbons</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/carbons on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Enable or disable message carbons. Message carbons ensure that both sides of all conversations are shared with all the user's clients that implement this protocol.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable message carbons.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="charset"></a>
+<h4>/charset</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/charset
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Display information about the current character set supported by the terminal. 
+</p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="chat"></a>
+<h4>/chat</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/chat [&lt;message&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Set your status to 'chat' (available for chat).
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;message&gt;</code></td><td>Optional message to use with the status.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/chat
+/chat Please talk to me!
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="chlog"></a>
+<h4>/chlog</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/chlog on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Switch chat logging on or off. This setting will be enabled if /history is set to on. When disabling this option, /history will also be disabled. See the /grlog setting for enabling logging of chat room (groupchat) messages.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable chat logging.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="clear"></a>
+<h4>/clear</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/clear
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Clear the current window.
+</p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="close"></a>
+<h4>/close</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/close
+/close &lt;num&gt;
+/close &lt;barejid&gt;
+/close &lt;nick&gt;
+/close &lt;roomjid&gt;
+/close &lt;roomoccupantjid&gt;
+/close xmlconsole
+/close all|read
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Close windows. Passing no argument closes the current window.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;num&gt;</code></td><td>Close specified window number.</td></tr><tr><td><code>&lt;barejid&gt;</code></td><td>Close chat window with contact by JID if open.</td></tr><tr><td><code>&lt;nick&gt;</code></td><td>Close chat window with contact by nickname if open.</td></tr><tr><td><code>&lt;roomjid&gt;</code></td><td>Close chat room window with roomjid if open.</td></tr><tr><td><code>&lt;roomoccupantjid&gt;</code></td><td>Close private chat roomoccupantjid if open.</td></tr><tr><td><code>xmlconsole</code></td><td>Close the XML Console window if open.</td></tr><tr><td><code>all</code></td><td>Close all windows.</td></tr><tr><td><code>read</code></td><td>Close all windows that have no unread messages.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="cmd"></a>
+<h4>/cmd</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/cmd list [&lt;jid&gt;]
+/cmd exec &lt;command&gt; [&lt;jid&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Execute ad hoc commands.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>list</code></td><td>List supported ad hoc commands.</td></tr><tr><td><code>exec &lt;command&gt;</code></td><td>Execute a command.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/cmd list
+/cmd exec ping
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="connect"></a>
+<h4>/connect</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/connect [&lt;account&gt;]
+/connect &lt;account&gt; [server &lt;server&gt;] [port &lt;port&gt;] [tls force|allow|trust|legacy|disable]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Login to a chat service. If no account is specified, the default is used if one is configured. A local account is created with the JID as it's name if it doesn't already exist.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;account&gt;</code></td><td>The local account you wish to connect with, or a JID if connecting for the first time.</td></tr><tr><td><code>server &lt;server&gt;</code></td><td>Supply a server if it is different to the domain part of your JID.</td></tr><tr><td><code>port &lt;port&gt;</code></td><td>The port to use if different to the default (5222, or 5223 for SSL).</td></tr><tr><td><code>tls force</code></td><td>Force TLS connection, and fail if one cannot be established, this is default behaviour.</td></tr><tr><td><code>tls allow</code></td><td>Use TLS for the connection if it is available.</td></tr><tr><td><code>tls trust</code></td><td>Force TLS connection and trust server's certificate.</td></tr><tr><td><code>tls legacy</code></td><td>Use legacy TLS for the connection. It means server doesn't support STARTTLS and TLS is forced just after TCP connection is established.</td></tr><tr><td><code>tls disable</code></td><td>Disable TLS for the connection.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/connect
+/connect myuser@gmail.com
+/connect myuser@mycompany.com server talk.google.com
+/connect bob@someplace port 5678
+/connect me@localhost.test.org server 127.0.0.1 tls disable
+/connect me@chatty server chatty.com port 5443
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="console"></a>
+<h4>/console</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/console chat all|first|none
+/console muc all|first|none
+/console private all|first|none
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Configure what is displayed in the console window when messages are received. The default is set to 'all' for all types of messages.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>chat all</code></td><td>Indicate all new chat messages in the console.</td></tr><tr><td><code>chat first</code></td><td>Indicate only the first new message per chat in the console.</td></tr><tr><td><code>chat none</code></td><td>Do not show any new chat messages in the console window.</td></tr><tr><td><code>muc all</code></td><td>Indicate all new chat room messages in the console.</td></tr><tr><td><code>muc first</code></td><td>Indicate only the first new message in each room in the console.</td></tr><tr><td><code>muc none</code></td><td>Do not show any new chat room messages in the console window.</td></tr><tr><td><code>private all</code></td><td>Indicate all new private room messages in the console.</td></tr><tr><td><code>private first</code></td><td>Indicate only the first private room message in the console.</td></tr><tr><td><code>private none</code></td><td>Do not show any new private room messages in the console window.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="decline"></a>
+<h4>/decline</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/decline &lt;room&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Decline a chat room invitation.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;room&gt;</code></td><td>The room for the invite you wish to decline.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="disco"></a>
+<h4>/disco</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/disco info [&lt;jid&gt;]
+/disco items [&lt;jid&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Find out information about an entities supported services. Calling with no arguments will query the server you are currently connected to.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>info [&lt;jid&gt;]</code></td><td>List protocols and features supported by an entity.</td></tr><tr><td><code>items [&lt;jid&gt;]</code></td><td>List items associated with an entity.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/disco info
+/disco items myserver.org
+/disco items conference.jabber.org
+/disco info myfriend@server.com/laptop
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="disconnect"></a>
+<h4>/disconnect</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/disconnect
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Disconnect from the current chat service.
+</p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="dnd"></a>
+<h4>/dnd</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/dnd [&lt;message&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Set your status to 'dnd' (do not disturb).
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;message&gt;</code></td><td>Optional message to use with the status.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/dnd
+/dnd I'm in the zone
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="encwarn"></a>
+<h4>/encwarn</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/encwarn on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Titlebar encryption warning.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable the unencrypted warning message in the titlebar.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="export"></a>
+<h4>/export</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/export &lt;filepath&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Exports contacts to a csv file.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;filepath&gt;</code></td><td>Path to the output file.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/export /path/to/output.csv
+/export ~/contacts.csv
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="flash"></a>
+<h4>/flash</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/flash on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Make the terminal flash when incoming messages are received in another window. If the terminal doesn't support flashing, it may attempt to beep.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable terminal flash.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="form"></a>
+<h4>/form</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/form show
+/form submit
+/form cancel
+/form help [&lt;tag&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Form configuration.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>show</code></td><td>Show the current form.</td></tr><tr><td><code>submit</code></td><td>Submit the current form.</td></tr><tr><td><code>cancel</code></td><td>Cancel changes to the current form.</td></tr><tr><td><code>help [&lt;tag&gt;]</code></td><td>Display help for form, or a specific field.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="gone"></a>
+<h4>/gone</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/gone &lt;minutes&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Send a 'gone' state to the recipient after the specified number of minutes. Chat states (/states) will be enabled if this setting is set.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;minutes&gt;</code></td><td>Number of minutes of inactivity before sending the 'gone' state, a value of 0 will disable sending this state.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="grlog"></a>
+<h4>/grlog</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/grlog on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Switch chat room logging on or off. See the /chlog setting for enabling logging of one to one chat.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable chat room logging.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="group"></a>
+<h4>/group</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/group
+/group show &lt;group&gt;
+/group add &lt;group&gt; &lt;contat&gt;
+/group remove &lt;group&gt; &lt;contact&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>View, add to, and remove from roster groups. Passing no argument will list all roster groups.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>show &lt;group&gt;</code></td><td>List all roster items in a group.</td></tr><tr><td><code>add &lt;group&gt; &lt;contact&gt;</code></td><td>Add a contact to a group.</td></tr><tr><td><code>remove &lt;group&gt; &lt;contact&gt;</code></td><td>Remove a contact from a group.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/group
+/group show friends
+/group add friends newfriend@server.org
+/group add family Brother
+/group remove colleagues boss@work.com
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="help"></a>
+<h4>/help</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/help [&lt;area&gt;|&lt;command&gt;|search_all|search_any] [&lt;search_terms&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Help on using Profanity. Passing no arguments list help areas. For command help, optional arguments are shown using square brackets, arguments representing variables rather than a literal name are surrounded by angle brackets. Arguments that may be one of a number of values are separated by a pipe e.g. val1|val2|val3.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;area&gt;</code></td><td>Summary help for commands in a certain area of functionality.</td></tr><tr><td><code>&lt;command&gt;</code></td><td>Full help for a specific command, for example '/help connect'.</td></tr><tr><td><code>search_all &lt;search_terms&gt;</code></td><td>Search commands for returning matches that contain all of the search terms.</td></tr><tr><td><code>search_any &lt;search_terms&gt;</code></td><td>Search commands for returning matches that contain any of the search terms.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/help search_all presence online
+/help commands
+/help presence
+/help who
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="history"></a>
+<h4>/history</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/history on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Switch chat history on or off, /chlog will automatically be enabled when this setting is on. When history is enabled, previous messages are shown in chat windows.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable showing chat history.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="info"></a>
+<h4>/info</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/info
+/info &lt;contact&gt;|&lt;nick&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Show information about a contact, room, or room member. Passing no argument in a chat window will use the current recipient. Passing no argument in a chat room will display information about the room.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;contact&gt;</code></td><td>The contact you wish to view information about.</td></tr><tr><td><code>&lt;nick&gt;</code></td><td>When in a chat room, the occupant you wish to view information about.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/info mybuddy@chat.server.org
+/info kai
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="inpblock"></a>
+<h4>/inpblock</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/inpblock timeout &lt;millis&gt;
+/inpblock dynamic on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>How long to wait for keyboard input before checking for new messages or checking for state changes such as 'idle'.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>timeout &lt;millis&gt;</code></td><td>Time to wait (1-1000) in milliseconds before reading input from the terminal buffer, default: 1000.</td></tr><tr><td><code>dynamic on|off</code></td><td>Start with 0 millis and dynamically increase up to timeout when no activity, default: on.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="inputwin"></a>
+<h4>/inputwin</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/inputwin up
+/inputwin down
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Move the input window.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>up</code></td><td>Move the input window up the screen.</td></tr><tr><td><code>down</code></td><td>Move the input window down the screen.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="intype"></a>
+<h4>/intype</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/intype on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Show when a contact is typing in the console, and in active message window.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable contact typing messages.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="invite"></a>
+<h4>/invite</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/invite &lt;contact&gt; [&lt;message&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Send an invite to a contact for the current chat room.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;contact&gt;</code></td><td>The contact you wish to invite.</td></tr><tr><td><code>&lt;message&gt;</code></td><td>An optional message to send with the invite.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="invites"></a>
+<h4>/invites</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/invites
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Show all rooms that you have been invited to, and not accepted or declined.
+</p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="join"></a>
+<h4>/join</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/join
+/join &lt;room&gt; [nick &lt;nick&gt;] [password &lt;password&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Join a chat room at the conference server. If no room is supplied, a generated name will be used with the format private-chat-[UUID]. If the domain part is not included in the room name, the account preference 'muc.service' will be used. If no nickname is specified the account preference 'muc.nick' will be used which by default is the localpart of your JID. If the room doesn't exist, and the server allows it, a new one will be created.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;room&gt;</code></td><td>The chat room to join.</td></tr><tr><td><code>nick &lt;nick&gt;</code></td><td>Nickname to use in the room.</td></tr><tr><td><code>password &lt;password&gt;</code></td><td>Password if the room requires one.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/join
+/join profanity@rooms.dismail.de
+/join profanity@rooms.dismail.de nick mynick
+/join private@conference.jabber.org nick mynick password mypassword
+/join mychannel
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="kick"></a>
+<h4>/kick</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/kick &lt;nick&gt; [&lt;reason&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Kick occupant from chat room.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;nick&gt;</code></td><td>Nickname of the occupant to kick from the room.</td></tr><tr><td><code>&lt;reason&gt;</code></td><td>Optional reason for kicking the occupant.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="lastactivity"></a>
+<h4>/lastactivity</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/lastactivity on|off
+/lastactivity [&lt;jid&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Enable/disable sending last activity, and send last activity requests.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable sending of last activity.</td></tr><tr><td><code>&lt;jid&gt;</code></td><td>The JID of the entity to query, omitting the JID will query your server.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/lastactivity
+/lastactivity off
+/lastactivity alice@securechat.org
+/lastactivity alice@securechat.org/laptop
+/lastactivity someserver.com
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="leave"></a>
+<h4>/leave</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/leave
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Leave the current chat or room.
+</p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="log"></a>
+<h4>/log</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/log where
+/log rotate on|off
+/log maxsize &lt;bytes&gt;
+/log shared on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Manage profanity log settings.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>where</code></td><td>Show the current log file location.</td></tr><tr><td><code>rotate on|off</code></td><td>Rotate log, default on.</td></tr><tr><td><code>maxsize &lt;bytes&gt;</code></td><td>With rotate enabled, specifies the max log size, defaults to 1048580 (1MB).</td></tr><tr><td><code>shared on|off</code></td><td>Share logs between all instances, default: on. When off, the process id will be included in the log filename.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="mainwin"></a>
+<h4>/mainwin</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/mainwin up
+/mainwin down
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Move the main window.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>up</code></td><td>Move the main window up the screen.</td></tr><tr><td><code>down</code></td><td>Move the main window down the screen.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="msg"></a>
+<h4>/msg</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/msg &lt;contact&gt; [&lt;message&gt;]
+/msg &lt;nick&gt; [&lt;message&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Send a one to one chat message, or a private message to a chat room occupant. If the message is omitted, a new chat window will be opened without sending a message. Use quotes if the nickname includes spaces.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;contact&gt;</code></td><td>Open chat window with contact, by JID or nickname.</td></tr><tr><td><code>&lt;contact&gt; [&lt;message&gt;]</code></td><td>Send message to contact, by JID or nickname.</td></tr><tr><td><code>&lt;nick&gt;</code></td><td>Open private chat window with chat room occupant.</td></tr><tr><td><code>&lt;nick&gt; [&lt;message&gt;]</code></td><td>Send a private message to a chat room occupant.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/msg myfriend@server.com Hey, here's a message!
+/msg otherfriend@server.com
+/msg Bob Here is a private message
+/msg "My Friend" Hi, how are you?
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="nick"></a>
+<h4>/nick</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/nick &lt;nickname&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Change your nickname in the current chat room.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;nickname&gt;</code></td><td>Your new nickname.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="notify"></a>
+<h4>/notify</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/notify chat on|off
+/notify chat current on|off
+/notify chat text on|off
+/notify room on|off
+/notify room mention on|off
+/notify room mention case_sensitive|case_insensitive
+/notify room mention word_whole|word_part
+/notify room current on|off
+/notify room text on|off
+/notify room trigger add &lt;text&gt;
+/notify room trigger remove &lt;text&gt;
+/notify room trigger list
+/notify room trigger on|off
+/notify on|off
+/notify mention on|off
+/notify trigger on|off
+/notify reset
+/notify remind &lt;seconds&gt;
+/notify typing on|off
+/notify typing current on|off
+/notify invite on|off
+/notify sub on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Configure desktop notifications. To configure presence update messages in the console, chat and chat room windows, see '/help presence'.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>chat on|off</code></td><td>Notifications for regular chat messages.</td></tr><tr><td><code>chat current on|off</code></td><td>Whether to show regular chat message notifications when the window is focussed.</td></tr><tr><td><code>chat text on|off</code></td><td>Show message text in regular message notifications.</td></tr><tr><td><code>room on|off</code></td><td>Notifications for all chat room messages.</td></tr><tr><td><code>room mention on|off</code></td><td>Notifications for chat room messages when your nick is mentioned.</td></tr><tr><td><code>room mention case_sensitive</code></td><td>Set room mention notifications as case sensitive.</td></tr><tr><td><code>room mention case_insensitive</code></td><td>Set room mention notifications as case insensitive.</td></tr><tr><td><code>room mention word_whole</code></td><td>Set room mention notifications only on whole word match, i.e. when nickname is not part of a larger word.</td></tr><tr><td><code>room mention word_part</code></td><td>Set room mention notifications on partial word match, i.e. nickname may be part of a larger word.</td></tr><tr><td><code>room current on|off</code></td><td>Whether to show all chat room messages notifications when the window is focussed.</td></tr><tr><td><code>room text on|off</code></td><td>Show message text in chat room message notifications.</td></tr><tr><td><code>room trigger add &lt;text&gt;</code></td><td>Notify when specified text included in all chat room messages.</td></tr><tr><td><code>room trigger remove &lt;text&gt;</code></td><td>Remove chat room notification trigger.</td></tr><tr><td><code>room trigger list</code></td><td>List all chat room triggers.</td></tr><tr><td><code>room trigger on|off</code></td><td>Enable or disable all chat room notification triggers.</td></tr><tr><td><code>on|off</code></td><td>Override the global message setting for the current chat room.</td></tr><tr><td><code>mention on|off</code></td><td>Override the global 'mention' setting for the current chat room.</td></tr><tr><td><code>trigger on|off</code></td><td>Override the global 'trigger' setting for the current chat room.</td></tr><tr><td><code>reset</code></td><td>Reset to global notification settings for the current chat room.</td></tr><tr><td><code>remind &lt;seconds&gt;</code></td><td>Notification reminder period for unread messages, use 0 to disable.</td></tr><tr><td><code>typing on|off</code></td><td>Notifications when contacts are typing.</td></tr><tr><td><code>typing current on|off</code></td><td>Whether typing notifications are triggered for the current window.</td></tr><tr><td><code>invite on|off</code></td><td>Notifications for chat room invites.</td></tr><tr><td><code>sub on|off</code></td><td>Notifications for subscription requests.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/notify chat on
+/notify chat text on
+/notify room mention on
+/notify room trigger add beer
+/notify room trigger on
+/notify room current off
+/notify room text off
+/notify remind 60
+/notify typing on
+/notify invite on
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="occupants"></a>
+<h4>/occupants</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/occupants show|hide [jid]
+/occupants char &lt;char&gt;|none
+/occupants default show|hide [jid]
+/occupants size [&lt;percent&gt;]
+/occupants indent &lt;indent&gt;
+/occupants header char &lt;char&gt;|none
+/occupants wrap on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Show or hide room occupants, and occupants panel display settings.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>show</code></td><td>Show the occupants panel in current room.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Prefix occupants with specified character.</td></tr><tr><td><code>char none</code></td><td>Remove occupants character prefix.</td></tr><tr><td><code>hide</code></td><td>Hide the occupants panel in current room.</td></tr><tr><td><code>show jid</code></td><td>Show jid in the occupants panel in current room.</td></tr><tr><td><code>hide jid</code></td><td>Hide jid in the occupants panel in current room.</td></tr><tr><td><code>default show|hide</code></td><td>Whether occupants are shown by default in new rooms.</td></tr><tr><td><code>default show|hide jid</code></td><td>Whether occupants jids are shown by default in new rooms.</td></tr><tr><td><code>size &lt;percent&gt;</code></td><td>Percentage of the screen taken by the occupants list in rooms (1-99).</td></tr><tr><td><code>indent &lt;indent&gt;</code></td><td>Indent contact line by <indent> spaces (0 to 10).</td></tr><tr><td><code>header char &lt;char&gt;</code></td><td>Prefix occupants headers with specified character.</td></tr><tr><td><code>header char none</code></td><td>Remove occupants header character prefix.</td></tr><tr><td><code>wrap on|off</code></td><td>Enable or disable line wrapping in occupants panel.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="omemo"></a>
+<h4>/omemo</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/omemo gen
+/omemo log on|off|redact
+/omemo start [&lt;contact&gt;]
+/omemo trust [&lt;contact&gt;] &lt;fingerprint&gt;
+/omemo end
+/omemo fingerprint [&lt;contact&gt;]
+/omemo char &lt;char&gt;
+/omemo policy manual|automatic|always
+/omemo clear_device_list
+</code></pre></p>
+<p><b>Description</b></p>
+<p>OMEMO commands to manage keys, and perform encryption during chat sessions.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>gen</code></td><td>Generate OMEMO crytographic materials for current account.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OMEMO session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OMEMO session.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OMEMO encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OMEMO encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>fingerprint [&lt;contact&gt;]</code></td><td>Show contact fingerprints, or current recipient if omitted.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OMEMO encrypted messages.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OMEMO policy to manual, OMEMO sessions must be started manually.</td></tr><tr><td><code>policy automatic</code></td><td>Set the global OMEMO policy to opportunistic, an OMEMO session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy always</code></td><td>Set the global OMEMO policy to always, an error will be displayed if an OMEMO session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>clear_device_list</code></td><td>Clear your own device list on server side. Each client will reannounce itself when connected back.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/omemo gen
+/omemo start buddy@buddychat.org
+/omemo trust c4f9c875-144d7a3b-0c4a05b6-ca3be51a-a037f329-0bd3ae62-07f99719-55559d2a
+/omemo untrust buddy@buddychat.org c4f9c875-144d7a3b-0c4a05b6-ca3be51a-a037f329-0bd3ae62-07f99719-55559d2a
+/omemo char *
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="online"></a>
+<h4>/online</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/online [&lt;message&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Set your status to 'online'.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;message&gt;</code></td><td>Optional message to use with the status.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/online
+/online Up the Irons!
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="otr"></a>
+<h4>/otr</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/otr libver
+/otr gen
+/otr myfp|theirfp
+/otr start [&lt;contact&gt;]
+/otr end
+/otr trust|untrust
+/otr secret &lt;secret&gt;
+/otr question &lt;question&gt; &lt;answer&gt;
+/otr answer &lt;answer&gt;
+/otr policy manual|opportunistic|always [&lt;contact&gt;]
+/otr log on|off|redact
+/otr char &lt;char&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Off The Record (OTR) commands to manage keys, and perform OTR encryption during chat sessions.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>libver</code></td><td>Show which version of the libotr library is being used.</td></tr><tr><td><code>gen</code></td><td>Generate your private key.</td></tr><tr><td><code>myfp</code></td><td>Show your fingerprint.</td></tr><tr><td><code>theirfp</code></td><td>Show contacts fingerprint.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OTR session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OTR session,</td></tr><tr><td><code>trust|untrust</code></td><td>Indicate whether or not you trust the contact's fingerprint.</td></tr><tr><td><code>secret &lt;secret&gt;</code></td><td>Verify a contact's identity using a shared secret.</td></tr><tr><td><code>question &lt;question&gt; &lt;answer&gt;</code></td><td>Verify a contact's identity using a question and expected answer.</td></tr><tr><td><code>answer &lt;answer&gt;</code></td><td>Respond to a question answer verification request with your answer.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OTR policy to manual, OTR sessions must be started manually.</td></tr><tr><td><code>policy manual &lt;contact&gt;</code></td><td>Set the OTR policy to manual for a specific contact.</td></tr><tr><td><code>policy opportunistic</code></td><td>Set the global OTR policy to opportunistic, an OTR session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy opportunistic &lt;contact&gt;</code></td><td>Set the OTR policy to opportunistic for a specific contact.</td></tr><tr><td><code>policy always</code></td><td>Set the global OTR policy to always, an error will be displayed if an OTR session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>policy always &lt;contact&gt;</code></td><td>Set the OTR policy to always for a specific contact.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OTR encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OTR encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OTR encrypted messages.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/otr log off
+/otr policy manual
+/otr policy opportunistic mrfriend@workchat.org
+/otr gen
+/otr start buddy@buddychat.org
+/otr myfp
+/otr theirfp
+/otr question "What is the name of my rabbit?" fiffi
+/otr end
+/otr char *
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="outtype"></a>
+<h4>/outtype</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/outtype on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Send typing notifications, chat states (/states) will be enabled if this setting is enabled.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable sending typing notifications.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="pgp"></a>
+<h4>/pgp</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/pgp libver
+/pgp keys
+/pgp contacts
+/pgp setkey &lt;contact&gt; &lt;keyid&gt;
+/pgp start [&lt;contact&gt;]
+/pgp end
+/pgp log on|off|redact
+/pgp char &lt;char&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Open PGP commands to manage keys, and perform PGP encryption during chat sessions. See the /account command to set your own PGP key.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>libver</code></td><td>Show which version of the libgpgme library is being used.</td></tr><tr><td><code>keys</code></td><td>List all keys known to the system.</td></tr><tr><td><code>contacts</code></td><td>Show contacts with assigned public keys.</td></tr><tr><td><code>setkey &lt;contact&gt; &lt;keyid&gt;</code></td><td>Manually associate a contact with a public key.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start PGP encrypted chat, current contact will be used if not specified.</td></tr><tr><td><code>end</code></td><td>End PGP encrypted chat with the current recipient.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of PGP encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log PGP encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to PGP encrypted messages.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/pgp log off
+/pgp setkey buddy@buddychat.org BA19CACE5A9592C5
+/pgp start buddy@buddychat.org
+/pgp end
+/pgp char P
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="ping"></a>
+<h4>/ping</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/ping [&lt;jid&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Sends an IQ ping stanza to the specified JID. If no JID is supplied, your chat server will be pinged.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;jid&gt;</code></td><td>The Jabber ID to send the ping request to.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="plugins"></a>
+<h4>/plugins</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/plugins
+/plugins sourcepath set &lt;path&gt;
+/plugins sourcepath clear
+/plugins install [&lt;path&gt;]
+/plugins uninstall [&lt;plugin&gt;]
+/plugins update [&lt;path&gt;]
+/plugins unload [&lt;plugin&gt;]
+/plugins load [&lt;plugin&gt;]
+/plugins reload [&lt;plugin&gt;]
+/plugins python_version
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Manage plugins. Passing no arguments lists currently loaded plugins.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>sourcepath set &lt;path&gt;</code></td><td>Set the default path to install plugins from, will be used if no arg is passed to /plugins install.</td></tr><tr><td><code>sourcepath clear</code></td><td>Clear the default plugins source path.</td></tr><tr><td><code>install [&lt;path&gt;]</code></td><td>Install a plugin, or all plugins found in a directory (recursive). Passing no argument will use the sourcepath if one is set.</td></tr><tr><td><code>uninstall [&lt;plugin&gt;]</code></td><td>Uninstall a plugin.</td></tr><tr><td><code>update [&lt;path&gt;]</code></td><td>Updates an installed plugin</td></tr><tr><td><code>load [&lt;plugin&gt;]</code></td><td>Load a plugin that already exists in the plugin directory, passing no argument loads all found plugins.</td></tr><tr><td><code>unload [&lt;plugin&gt;]</code></td><td>Unload a loaded plugin, passing no argument will unload all plugins.</td></tr><tr><td><code>reload [&lt;plugin&gt;]</code></td><td>Reload a plugin, passing no argument will reload all plugins.</td></tr><tr><td><code>python_version</code></td><td>Show the Python interpreter version.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/plugins sourcepath set /home/meee/projects/profanity-plugins
+/plugins install
+/plugins install /home/steveharris/Downloads/metal.py
+/plugins update /home/steveharris/Downloads/metal.py
+/plugins uninstall browser.py
+/plugins load browser.py
+/plugins unload say.py
+/plugins reload wikipedia.py
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="prefs"></a>
+<h4>/prefs</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/prefs [ui|desktop|chat|log|conn|presence|otr|pgp|omemo]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Show preferences for different areas of functionality. Passing no arguments shows all preferences.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>ui</code></td><td>User interface preferences.</td></tr><tr><td><code>desktop</code></td><td>Desktop notification preferences.</td></tr><tr><td><code>chat</code></td><td>Chat state preferences.</td></tr><tr><td><code>log</code></td><td>Logging preferences.</td></tr><tr><td><code>conn</code></td><td>Connection handling preferences.</td></tr><tr><td><code>presence</code></td><td>Chat presence preferences.</td></tr><tr><td><code>otr</code></td><td>Off The Record preferences.</td></tr><tr><td><code>pgp</code></td><td>OpenPGP preferences.</td></tr><tr><td><code>omemo</code></td><td>OMEMO preferences.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="presence"></a>
+<h4>/presence</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/presence titlebar on|off
+/presence console all|online|none
+/presence chat all|online|none
+/presence room all|online|none
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Show the contacts presence in the titlebar and configure presence messages in different window types.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>titlebar on|off</code></td><td>Switch display of the contacts presence in the titlebar on or off.</td></tr><tr><td><code>console all</code></td><td>Show all presence changes in the console window.</td></tr><tr><td><code>console online</code></td><td>Show only online/offline presence changes in the console window.</td></tr><tr><td><code>console none</code></td><td>Don't show any presence changes in the console window.</td></tr><tr><td><code>chat all</code></td><td>Show all presence changes in the chat windows.</td></tr><tr><td><code>chat online</code></td><td>Show only online/offline presence changes in chat windows.</td></tr><tr><td><code>chat none</code></td><td>Don't show any presence changes in chat windows.</td></tr><tr><td><code>room all</code></td><td>Show all presence changes in chat room windows.</td></tr><tr><td><code>room online</code></td><td>Show only online/offline presence changes in chat room windows.</td></tr><tr><td><code>room none</code></td><td>Don't show any presence changes in chat room windows.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/presence titlebar off
+/presence console none
+/presence chat online
+/presence room all
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="priority"></a>
+<h4>/priority</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/priority &lt;priority&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Set priority for the current account. See the /account command for specific priority settings per presence status.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;priority&gt;</code></td><td>Number between -128 and 127, default: 0.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="privileges"></a>
+<h4>/privileges</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/privileges on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Group occupants panel by role, and show role information in chat rooms.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable privilege information.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="quit"></a>
+<h4>/quit</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/quit
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Logout of any current session, and quit Profanity.
+</p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="receipts"></a>
+<h4>/receipts</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/receipts request on|off
+/receipts send on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Enable or disable message delivery receipts. The interface will indicate when a message has been received.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>request on|off</code></td><td>Whether or not to request a receipt upon sending a message.</td></tr><tr><td><code>send on|off</code></td><td>Whether or not to send a receipt if one has been requested with a received message.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="reconnect"></a>
+<h4>/reconnect</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/reconnect &lt;seconds&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Set the reconnect attempt interval for when the connection is lost.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;seconds&gt;</code></td><td>Number of seconds before attempting to reconnect, a value of 0 disables reconnect.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="resource"></a>
+<h4>/resource</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/resource set &lt;resource&gt;
+/resource off
+/resource title on|off
+/resource message on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Override chat session resource, and manage resource display settings.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>set &lt;resource&gt;</code></td><td>Set the resource to which messages will be sent.</td></tr><tr><td><code>off</code></td><td>Let the server choose which resource to route messages to.</td></tr><tr><td><code>title on|off</code></td><td>Show or hide the current resource in the titlebar.</td></tr><tr><td><code>message on|off</code></td><td>Show or hide the resource when showing an incoming message.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="role"></a>
+<h4>/role</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/role set &lt;role&gt; &lt;nick&gt; [&lt;reason&gt;]
+/role list [&lt;role&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Manage room roles. Role may be one of moderator, participant, visitor or none.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>set &lt;role&gt; &lt;nick&gt; [&lt;reason&gt;]</code></td><td>Set the role of occupant with nick, with an optional reason.</td></tr><tr><td><code>list [&lt;role&gt;]</code></td><td>List all occupants with the specified role, or all if none specified.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="room"></a>
+<h4>/room</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/room accept|destroy|config
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Chat room configuration.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>accept</code></td><td>Accept default room configuration.</td></tr><tr><td><code>destroy</code></td><td>Reject default room configuration, and destroy the room.</td></tr><tr><td><code>config</code></td><td>Edit room configuration.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="rooms"></a>
+<h4>/rooms</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/rooms
+/rooms filter &lt;text&gt;
+/rooms service &lt;service&gt;
+/rooms service &lt;service&gt; filter &lt;text&gt;
+/rooms cache on|off|clear
+</code></pre></p>
+<p><b>Description</b></p>
+<p>List the chat rooms available at the specified conference service. If no argument is supplied, the account preference 'muc.service' is used, 'conference.<domain-part>' by default. The filter argument only shows rooms that contain the provided text, case insensitive.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>service &lt;service&gt;</code></td><td>The conference service to query.</td></tr><tr><td><code>filter &lt;text&gt;</code></td><td>The text to filter results by.</td></tr><tr><td><code>cache on|off</code></td><td>Enable or disable caching of rooms list response, enabled by default.</td></tr><tr><td><code>cache clear</code></td><td>Clear the rooms response cache if enabled.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/rooms
+/rooms filter development
+/rooms service conference.jabber.org
+/rooms service conference.jabber.org filter "News Room"
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="roster"></a>
+<h4>/roster</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/roster
+/roster online
+/roster show [offline|resource|presence|status|empty|priority|contacts|rooms]
+/roster hide [offline|resource|presence|status|empty|priority|contacts|rooms]
+/roster by group|presence|none
+/roster count unread|items|off
+/roster count zero on|off
+/roster order name|presence
+/roster unread before|after|off
+/roster room char &lt;char&gt;|none
+/roster room private char &lt;char&gt;|none
+/roster room position first|last
+/roster room by service|none
+/roster room order name|unread
+/roster room unread before|after|off
+/roster room show server
+/roster room hide server
+/roster private room|group|off
+/roster private char &lt;char&gt;|none
+/roster header char &lt;char&gt;|none
+/roster presence indent &lt;indent&gt;
+/roster contact char &lt;char&gt;|none
+/roster contact indent &lt;indent&gt;
+/roster resource char &lt;char&gt;|none
+/roster resource indent &lt;indent&gt;
+/roster resource join on|off
+/roster size &lt;percent&gt;
+/roster wrap on|off
+/roster add &lt;jid&gt; [&lt;nick&gt;]
+/roster remove &lt;jid&gt;
+/roster remove_all contacts
+/roster nick &lt;jid&gt; &lt;nick&gt;
+/roster clearnick &lt;jid&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Manage your roster, and roster display settings. Passing no arguments lists all contacts in your roster.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>online</code></td><td>Show all online contacts in console.</td></tr><tr><td><code>show</code></td><td>Show the roster panel.</td></tr><tr><td><code>show offline</code></td><td>Show offline contacts in roster panel.</td></tr><tr><td><code>show resource</code></td><td>Show contact's connected resources in roster panel.</td></tr><tr><td><code>show presence</code></td><td>Show contact's presence in roster panel.</td></tr><tr><td><code>show status</code></td><td>Show contact's status message in roster panel.</td></tr><tr><td><code>show empty</code></td><td>Show empty groups in roster panel.</td></tr><tr><td><code>show priority</code></td><td>Show resource priority in roster panel.</td></tr><tr><td><code>show contacts</code></td><td>Show contacts in roster panel.</td></tr><tr><td><code>show rooms</code></td><td>Show chat rooms in roster panel.</td></tr><tr><td><code>hide</code></td><td>Hide the roster panel.</td></tr><tr><td><code>hide offline</code></td><td>Hide offline contacts in roster panel.</td></tr><tr><td><code>hide resource</code></td><td>Hide contact's connected resources in roster panel.</td></tr><tr><td><code>hide presence</code></td><td>Hide contact's presence in roster panel.</td></tr><tr><td><code>hide status</code></td><td>Hide contact's status message in roster panel.</td></tr><tr><td><code>hide empty</code></td><td>Hide empty groups in roster panel.</td></tr><tr><td><code>hide priority</code></td><td>Hide resource priority in roster panel.</td></tr><tr><td><code>hide contacts</code></td><td>Hide contacts in roster panel.</td></tr><tr><td><code>hide rooms</code></td><td>Hide chat rooms in roster panel.</td></tr><tr><td><code>by group</code></td><td>Group contacts in roster panel by roster group.</td></tr><tr><td><code>by presence</code></td><td>Group contacts in roster panel by presence.</td></tr><tr><td><code>by none</code></td><td>No grouping in roster panel.</td></tr><tr><td><code>count unread</code></td><td>Show unread message count with roster headers.</td></tr><tr><td><code>count items</code></td><td>Show item count with roster headers.</td></tr><tr><td><code>count off</code></td><td>Do not show any count with roster headers.</td></tr><tr><td><code>count zero on</code></td><td>Show roster header count when 0.</td></tr><tr><td><code>count zero off</code></td><td>Hide roster header count when 0.</td></tr><tr><td><code>order name</code></td><td>Order roster contacts by name only.</td></tr><tr><td><code>order presence</code></td><td>Order roster contacts by presence, and then by name.</td></tr><tr><td><code>unread before</code></td><td>Show unread message count before contact.</td></tr><tr><td><code>unread after</code></td><td>Show unread message count after contact.</td></tr><tr><td><code>unread off</code></td><td>Do not show unread message count for contacts.</td></tr><tr><td><code>room char &lt;char&gt;</code></td><td>Prefix rooms with specified character.</td></tr><tr><td><code>room char none</code></td><td>Remove room character prefix.</td></tr><tr><td><code>room private char &lt;char&gt;</code></td><td>Prefix private room chat with specified character when displayed with room.</td></tr><tr><td><code>room private char none</code></td><td>Remove private room chat character prefix when displayed with room.</td></tr><tr><td><code>room position first</code></td><td>Show rooms first in roster.</td></tr><tr><td><code>room position last</code></td><td>Show rooms last in roster.</td></tr><tr><td><code>room by service</code></td><td>Group rooms by chat service.</td></tr><tr><td><code>room by none</code></td><td>Do not group rooms.</td></tr><tr><td><code>room order name</code></td><td>Order rooms by name.</td></tr><tr><td><code>room order unread</code></td><td>Order rooms by unread messages, and then by name.</td></tr><tr><td><code>room unread before</code></td><td>Show unread message count before room.</td></tr><tr><td><code>room unread after</code></td><td>Show unread message count after room.</td></tr><tr><td><code>room unread off</code></td><td>Do not show unread message count for rooms.</td></tr><tr><td><code>room show server</code></td><td>Show the conference server with room JIDs.</td></tr><tr><td><code>room hide server</code></td><td>Do not show the conference server with room JIDs.</td></tr><tr><td><code>private room</code></td><td>Show room private chats with the room.</td></tr><tr><td><code>private group</code></td><td>Show room private chats as a separate roster group.</td></tr><tr><td><code>private off</code></td><td>Do not show room private chats.</td></tr><tr><td><code>private char &lt;char&gt;</code></td><td>Prefix private room chats with specified character when displayed in separate group.</td></tr><tr><td><code>private char none</code></td><td>Remove private room chat character prefix.</td></tr><tr><td><code>header char &lt;char&gt;</code></td><td>Prefix roster headers with specified character.</td></tr><tr><td><code>header char none</code></td><td>Remove roster header character prefix.</td></tr><tr><td><code>contact char &lt;char&gt;</code></td><td>Prefix roster contacts with specified character.</td></tr><tr><td><code>contact char none</code></td><td>Remove roster contact character prefix.</td></tr><tr><td><code>contact indent &lt;indent&gt;</code></td><td>Indent contact line by <indent> spaces (0 to 10).</td></tr><tr><td><code>resource char &lt;char&gt;</code></td><td>Prefix roster resources with specified character.</td></tr><tr><td><code>resource char none</code></td><td>Remove roster resource character prefix.</td></tr><tr><td><code>resource indent &lt;indent&gt;</code></td><td>Indent resource line by <indent> spaces (0 to 10).</td></tr><tr><td><code>resource join on|off</code></td><td>Join resource with previous line when only one available resource.</td></tr><tr><td><code>presence indent &lt;indent&gt;</code></td><td>Indent presence line by <indent> spaces (-1 to 10), a value of -1 will show presence on the previous line.</td></tr><tr><td><code>size &lt;percent&gt;</code></td><td>Percentage of the screen taken up by the roster (1-99).</td></tr><tr><td><code>wrap on|off</code></td><td>Enable or disable line wrapping in roster panel.</td></tr><tr><td><code>add &lt;jid&gt; [&lt;nick&gt;]</code></td><td>Add a new item to the roster.</td></tr><tr><td><code>remove &lt;jid&gt;</code></td><td>Removes an item from the roster.</td></tr><tr><td><code>remove_all contacts</code></td><td>Remove all items from roster.</td></tr><tr><td><code>nick &lt;jid&gt; &lt;nick&gt;</code></td><td>Change a contacts nickname.</td></tr><tr><td><code>clearnick &lt;jid&gt;</code></td><td>Removes the current nickname.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/roster
+/roster add someone@contacts.org
+/roster add someone@contacts.org Buddy
+/roster remove someone@contacts.org
+/roster nick myfriend@chat.org "My Friend"
+/roster clearnick kai@server.com
+/roster size 15
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="script"></a>
+<h4>/script</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/script run &lt;script&gt;
+/script list
+/script show &lt;script&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Run command scripts. Scripts are stored in $XDG_DATA_HOME/profanity/scripts/ which is usually $HOME/.local/share/profanity/scripts/.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>script run &lt;script&gt;</code></td><td>Execute a script.</td></tr><tr><td><code>script list</code></td><td>List all scripts TODO.</td></tr><tr><td><code>script show &lt;script&gt;</code></td><td>Show the commands in script TODO.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/script list
+/script run myscript
+/script show somescript
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="sendfile"></a>
+<h4>/sendfile</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/sendfile &lt;file&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Send a file using XEP-0363 HTTP file transfer.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;file&gt;</code></td><td>Path to the file.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/sendfile /etc/hosts
+/sendfile ~/images/sweet_cat.jpg
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="software"></a>
+<h4>/software</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/software
+/software &lt;fulljid&gt;|&lt;nick&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Find out a contact, or room members software version information. If in private chat initiated from a chat room, no parameter is required. If the contact's software does not support software version requests, nothing will be displayed.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;fulljid&gt;</code></td><td>If in the console or a chat window, the full JID for which you wish to see software information.</td></tr><tr><td><code>&lt;nick&gt;</code></td><td>If in a chat room, nickname for which you wish to see software information.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/software mybuddy@chat.server.org/laptop
+/software mybuddy@chat.server.org/phone
+/software bruce
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="splash"></a>
+<h4>/splash</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/splash on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Switch on or off the ascii logo on start up and when the /about command is called.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable splash logo.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="states"></a>
+<h4>/states</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/states on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Send chat state notifications to recipient during chat sessions, such as typing, paused, active, gone.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable sending of chat state notifications.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="status"></a>
+<h4>/status</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/status
+/status &lt;contact&gt;|&lt;nick&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Find out a contact, or room members presence information. If in a chat window the parameter is not required, the current recipient will be used.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;contact&gt;</code></td><td>The contact who's presence you which to see.</td></tr><tr><td><code>&lt;nick&gt;</code></td><td>If in a chat room, the occupant who's presence you wish to see.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/status buddy@server.com
+/status jon
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="statusbar"></a>
+<h4>/statusbar</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/statusbar show name|number
+/statusbar hide name|number
+/statusbar maxtabs &lt;value&gt;
+/statusbar tablen &lt;value&gt;
+/statusbar self user|barejid|fulljid|off
+/statusbar chat user|jid
+/statusbar room room|jid
+/statusbar up
+/statusbar down
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Manage statusbar display preferences.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>maxtabs &lt;value&gt;</code></td><td>Set the maximum number of tabs to display, <value> must be between 0 and 10</td></tr><tr><td><code>tablen &lt;value&gt;</code></td><td>Set the maximum number of characters to show as the tab name, 0 sets to unlimited.</td></tr><tr><td><code>show|hide name</code></td><td>Show or hide names in tabs.</td></tr><tr><td><code>show|hide number</code></td><td>Show or hide numbers in tabs.</td></tr><tr><td><code>self user|barejid|fulljid</code></td><td>Show account user name, barejid, fulljid as status bar title.</td></tr><tr><td><code>self off</code></td><td>Disable showing self as status bar title.</td></tr><tr><td><code>chat user|jid</code></td><td>Show users name, or the fulljid if no nick is present for chat tabs.</td></tr><tr><td><code>room room|jid</code></td><td>Show room name, or the fulljid for room tabs.</td></tr><tr><td><code>up</code></td><td>Move the status bar up the screen.</td></tr><tr><td><code>down</code></td><td>Move the status bar down the screen.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/statusbar maxtabs 8
+/statusbar tablen 5
+/statusbar self user
+/statusbar chat jid
+/statusbar hide name
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="sub"></a>
+<h4>/sub</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/sub request [&lt;jid&gt;]
+/sub allow [&lt;jid&gt;]
+/sub deny [&lt;jid&gt;]
+/sub show [&lt;jid&gt;]
+/sub sent
+/sub received
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Manage subscriptions to contact presence. If jid is omitted, the contact of the current window is used.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>request [&lt;jid&gt;]</code></td><td>Send a subscription request to the user.</td></tr><tr><td><code>allow [&lt;jid&gt;]</code></td><td>Approve a contact's subscription request.</td></tr><tr><td><code>deny [&lt;jid&gt;]</code></td><td>Remove subscription for a contact, or deny a request.</td></tr><tr><td><code>show [&lt;jid&gt;]</code></td><td>Show subscription status for a contact.</td></tr><tr><td><code>sent</code></td><td>Show all sent subscription requests pending a response.</td></tr><tr><td><code>received</code></td><td>Show all received subscription requests awaiting your response.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/sub request myfriend@jabber.org
+/sub allow myfriend@jabber.org
+/sub request
+/sub sent
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="subject"></a>
+<h4>/subject</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/subject set &lt;subject&gt;
+/subject edit &lt;subject&gt;
+/subject prepend &lt;text&gt;
+/subject append &lt;text&gt;
+/subject clear
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Set, modify, or clear room subject.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>set &lt;subject&gt;</code></td><td>Set the room subject.</td></tr><tr><td><code>edit &lt;subject&gt;</code></td><td>Edit the current room subject, tab autocompletion will display the subject to edit.</td></tr><tr><td><code>prepend &lt;text&gt;</code></td><td>Prepend text to the current room subject, use double quotes if a trailing space is needed.</td></tr><tr><td><code>append &lt;text&gt;</code></td><td>Append text to the current room subject, use double quotes if a preceding space is needed.</td></tr><tr><td><code>clear</code></td><td>Clear the room subject.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="theme"></a>
+<h4>/theme</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/theme list
+/theme load &lt;theme&gt;
+/theme colours
+/theme properties
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Load a theme, includes colours and UI options.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>list</code></td><td>List all available themes.</td></tr><tr><td><code>load &lt;theme&gt;</code></td><td>Load the specified theme. 'default' will reset to the default theme.</td></tr><tr><td><code>colours</code></td><td>Show colour values as rendered by the terminal.</td></tr><tr><td><code>properties</code></td><td>Show colour settings for current theme.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/theme list
+/theme load forest
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="time"></a>
+<h4>/time</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/time all|console|chat|muc|config|private|xml set &lt;format&gt;
+/time all|console|chat|muc|config|private|xml off
+/time statusbar set &lt;format&gt;
+/time statusbar off
+/time lastactivity set &lt;format&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Configure time display preferences. Time formats are strings supported by g_date_time_format. See https://developer.gnome.org/glib/stable/glib-GDateTime.html#g-date-time-format for more details. Setting the format to an unsupported string, will display the string. If the format contains spaces, it must be surrounded with double quotes.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>console set &lt;format&gt;</code></td><td>Set time format for console window.</td></tr><tr><td><code>console off</code></td><td>Do not show time in console window.</td></tr><tr><td><code>chat set &lt;format&gt;</code></td><td>Set time format for chat windows.</td></tr><tr><td><code>chat off</code></td><td>Do not show time in chat windows.</td></tr><tr><td><code>muc set &lt;format&gt;</code></td><td>Set time format for chat room windows.</td></tr><tr><td><code>muc off</code></td><td>Do not show time in chat room windows.</td></tr><tr><td><code>config set &lt;format&gt;</code></td><td>Set time format for config windows.</td></tr><tr><td><code>config off</code></td><td>Do not show time in config windows.</td></tr><tr><td><code>private set &lt;format&gt;</code></td><td>Set time format for private chat windows.</td></tr><tr><td><code>private off</code></td><td>Do not show time in private chat windows.</td></tr><tr><td><code>xml set &lt;format&gt;</code></td><td>Set time format for XML console window.</td></tr><tr><td><code>xml off</code></td><td>Do not show time in XML console window.</td></tr><tr><td><code>statusbar set &lt;format&gt;</code></td><td>Change time format in statusbar.</td></tr><tr><td><code>statusbar off</code></td><td>Do not show time in status bar.</td></tr><tr><td><code>lastactivity set &lt;format&gt;</code></td><td>Change time format for last activity.</td></tr><tr><td><code>all set &lt;format&gt;</code></td><td>Set time for: console, chat, muc, config, private and xml windows.</td></tr><tr><td><code>all off</code></td><td>Do not show time for: console, chat, muc, config, private and xml windows.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/time console set %H:%M:%S
+/time chat set "%d-%m-%y %H:%M:%S"
+/time xml off
+/time statusbar set %H:%M
+/time lastactivity set "%d-%m-%y %H:%M:%S"
+/time all set "%d-%m-%y %H:%M:%S"
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="tiny"></a>
+<h4>/tiny</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/tiny &lt;url&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Send url as tinyurl in current chat.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;url&gt;</code></td><td>The url to make tiny.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>Example: /tiny https://profanity-im.github.io/
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="titlebar"></a>
+<h4>/titlebar</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/titlebar up
+/titlebar down
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Move the title bar.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>up</code></td><td>Move the title bar up the screen.</td></tr><tr><td><code>down</code></td><td>Move the title bar down the screen.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="tls"></a>
+<h4>/tls</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/tls allow
+/tls always
+/tls deny
+/tls cert [&lt;fingerprint&gt;]
+/tls trust
+/tls trusted
+/tls revoke &lt;fingerprint&gt;
+/tls certpath
+/tls certpath set &lt;path&gt;
+/tls certpath clear
+/tls certpath default
+/tls show on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Handle TLS certificates. 
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>allow</code></td><td>Allow connection to continue with TLS certificate.</td></tr><tr><td><code>always</code></td><td>Always allow connections with TLS certificate.</td></tr><tr><td><code>deny</code></td><td>Abort connection.</td></tr><tr><td><code>cert</code></td><td>Show the current TLS certificate.</td></tr><tr><td><code>cert &lt;fingerprint&gt;</code></td><td>Show details of trusted certificate.</td></tr><tr><td><code>trust</code></td><td>Add the current TLS certificate to manually trusted certificates.</td></tr><tr><td><code>trusted</code></td><td>List summary of manually trusted certificates (with '/tls always' or '/tls trust').</td></tr><tr><td><code>revoke &lt;fingerprint&gt;</code></td><td>Remove a manually trusted certificate.</td></tr><tr><td><code>certpath</code></td><td>Show the trusted certificate path.</td></tr><tr><td><code>certpath set &lt;path&gt;</code></td><td>Specify filesystem path containing trusted certificates.</td></tr><tr><td><code>certpath clear</code></td><td>Clear the trusted certificate path.</td></tr><tr><td><code>certpath default</code></td><td>Use default system certificate path, if it can be found.</td></tr><tr><td><code>show on|off</code></td><td>Show or hide the TLS indicator in the titlebar.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="tray"></a>
+<h4>/tray</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/tray on|off
+/tray read on|off
+/tray timer &lt;seconds&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Display an icon in the tray that will indicate new messages.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Show tray icon.</td></tr><tr><td><code>read on|off</code></td><td>Show tray icon when no unread messages.</td></tr><tr><td><code>timer &lt;seconds&gt;</code></td><td>Set tray icon timer, seconds must be between 1-10</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="vercheck"></a>
+<h4>/vercheck</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/vercheck on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Check for new versions when Profanity starts, and when the /about command is run.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable the version check.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="who"></a>
+<h4>/who</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/who
+/who online|offline|away|dnd|xa|chat|available|unavailable|any [&lt;group&gt;]
+/who moderator|participant|visitor
+/who owner|admin|member
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Show contacts or room occupants with chosen status, role or affiliation
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>offline|away|dnd|xa|chat</code></td><td>Show contacts or room occupants with specified presence.</td></tr><tr><td><code>online</code></td><td>Contacts that are online, chat, away, xa, dnd.</td></tr><tr><td><code>available</code></td><td>Contacts that are available for chat - online, chat.</td></tr><tr><td><code>unavailable</code></td><td>Contacts that are not available for chat - offline, away, xa, dnd.</td></tr><tr><td><code>any</code></td><td>Contacts with any status (same as calling with no argument).</td></tr><tr><td><code>&lt;group&gt;</code></td><td>Filter the results by the specified roster group, not applicable in chat rooms.</td></tr><tr><td><code>moderator|participant|visitor</code></td><td>Room occupants with the specified role.</td></tr><tr><td><code>owner|admin|member</code></td><td>Room occupants with the specified affiliation.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/who
+/who xa
+/who online friends
+/who any family
+/who participant
+/who admin
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="win"></a>
+<h4>/win</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/win console
+/win &lt;num&gt;
+/win &lt;barejid&gt;
+/win &lt;nick&gt;
+/win &lt;roomjid&gt;
+/win &lt;roomoccupantjid&gt;
+/win xmlconsole
+/win &lt;plugin&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Move to the specified window.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>console</code></td><td>Focus the Console window.</td></tr><tr><td><code>&lt;num&gt;</code></td><td>Focus specified window number.</td></tr><tr><td><code>&lt;barejid&gt;</code></td><td>Focus chat window with contact by JID if open.</td></tr><tr><td><code>&lt;nick&gt;</code></td><td>Focus chat window with contact by nickname if open.</td></tr><tr><td><code>&lt;roomjid&gt;</code></td><td>Focus chat room window with roomjid if open.</td></tr><tr><td><code>&lt;roomoccupantjid&gt;</code></td><td>Focus private chat roomoccupantjid if open.</td></tr><tr><td><code>xmlconsole</code></td><td>Focus the XML Console window if open.</td></tr><tr><td><code>&lt;plugin&gt;</code></td><td>Focus the plugin window.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/win console
+/win 4
+/win friend@chat.org
+/win Eddie
+/win bigroom@conference.chat.org
+/win bigroom@conference.chat.org/bruce
+/win wikipedia
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="wins"></a>
+<h4>/wins</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/wins
+/wins unread
+/wins prune
+/wins swap &lt;source&gt; &lt;target&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Manage windows. Passing no argument will list all currently active windows and information about their usage.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>unread</code></td><td>List windows with unread messages.</td></tr><tr><td><code>prune</code></td><td>Close all windows with no unread messages.</td></tr><tr><td><code>swap &lt;source&gt; &lt;target&gt;</code></td><td>Swap windows, target may be an empty position.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="wintitle"></a>
+<h4>/wintitle</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/wintitle show on|off
+/wintitle goodbye on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Allow Profanity to modify the window title bar.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>show on|off</code></td><td>Show current logged in user, and unread messages as the window title.</td></tr><tr><td><code>goodbye on|off</code></td><td>Show a message in the title when exiting profanity.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="wrap"></a>
+<h4>/wrap</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/wrap on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Word wrapping.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable word wrapping in the main window.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="xa"></a>
+<h4>/xa</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/xa [&lt;message&gt;]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Set your status to 'xa' (extended away).
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;message&gt;</code></td><td>Optional message to use with the status.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/xa
+/xa This meeting is going to be a long one
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="xmlconsole"></a>
+<h4>/xmlconsole</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/xmlconsole
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Open the XML console to view incoming and outgoing XMPP traffic.
+</p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
