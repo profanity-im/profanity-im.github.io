@@ -6,14 +6,14 @@
     <meta http-equiv="Expires" content="-1"> 
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
-    <link href="css/profanity.css" type="text/css" rel="stylesheet">
+    <link href="../../css/profanity.css" type="text/css" rel="stylesheet">
     <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/analytics.js"></script> 
-    <script type="text/javascript" src="js/trackclicks.js"></script>
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/analytics.js"></script> 
+    <script type="text/javascript" src="../../js/trackclicks.js"></script>
 </head>
 <body id="article">
-    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration">	
     <header>
         <a href="userguide.html"><h1>User Guide</h1></a>
         <h2>PGP Encryption</h2>
@@ -49,7 +49,7 @@
             <p>
                 To allow contacts to send you PGP encrypted messages you must have a PGP key assigned to your account. To list all available keys on your system, use the command <code>/pgp keys</code>
             </p>
-            <img src="images/pgp/pgpkeys.png"/><br><br>
+            <img src="../../images/pgp/pgpkeys.png"/><br><br>
             <p>
                 Set the account <code>pgpkeyid</code> property with the <a href="reference.html#account"><code>/account</code></a> command.
             </p>
@@ -70,7 +70,7 @@
                 To view a list of all currently known public keys, either through received signed presence or set manually.
             </p>
             <pre><code>/pgp contacts</code></pre>
-            <img src="images/pgp/contacts.png"/><br><br>
+            <img src="../../images/pgp/contacts.png"/><br><br>
         </section>
         <section>
             <a name="sending"></a>
@@ -84,7 +84,7 @@
                 If you are already in a conversation window without PGP, you can start sending encrypted messages with the same command omitting the contact:
             </p>
             <pre><code>/pgp start</code></pre>
-            <img src="images/pgp/sending.png"/><br><br>
+            <img src="../../images/pgp/sending.png"/><br><br>
         </section>
         <section>
             <a name="receiving"></a>
@@ -93,7 +93,7 @@
             <p>
                 Assuming a public key is associated with the contact, they must also have enabled PGP encryption at their end.
             </p>
-            <img src="images/pgp/receiving.png"/><br><br>
+            <img src="../../images/pgp/receiving.png"/><br><br>
         </section>
         <section>
             <a name="ending"></a>
@@ -103,11 +103,11 @@
                 To stop sending PGP encrypted messages to a contact:
             </p>
             <pre><code>/pgp end</code></pre>
-            <img src="images/pgp/endingsend.png"/><br><br>
+            <img src="../../images/pgp/endingsend.png"/><br><br>
             <p>
                 The contact may also end PGP encryption at their end at any time.
             </p>
-            <img src="images/pgp/endingrecv.png"/><br><br>
+            <img src="../../images/pgp/endingrecv.png"/><br><br>
         </section>
         <section>
             <a name="ui-opts"></a>
@@ -116,25 +116,25 @@
             <p>
                 By default, an indicator is displayed in the titlebar when no encryption is being used (including <a href="otr.html">OTR</a> and <a href="omemo.html">OMEMO</a>).
             </p>
-            <img src="images/pgp/encwarn.png"/><br><br>
+            <img src="../../images/pgp/encwarn.png"/><br><br>
             <p>
                 This indicator can be removed using the <a href="reference.html#encwarn"><code>/encwarn</code></a> command.
             </p>
             <pre><code>/encwarn off</code></pre>
-            <img src="images/pgp/encwarnoff.png"/><br><br>
+            <img src="../../images/pgp/encwarnoff.png"/><br><br>
             <p>
                 Both incoming and outgoing plaintext messages are always preceded by the '<code>-</code>' character.
             </p>
-            <img src="images/pgp/plainchar.png"/><br><br>
+            <img src="../../images/pgp/plainchar.png"/><br><br>
             <p>
                 By default PGP encrypted messages are preceded by the '<code>~</code>' character.
             </p>
-            <img src="images/pgp/pgpchar.png"/><br><br>
+            <img src="../../images/pgp/pgpchar.png"/><br><br>
             <p>
                 This character can be changed using the <code>/pgp char</code> command.
             </p>
             <pre><code>/pgp char P</code></pre>
-            <img src="images/pgp/newchar.png"/><br><br>
+            <img src="../../images/pgp/newchar.png"/><br><br>
         </section>
         <section>
             <a name="pgp-message-logging"></a>

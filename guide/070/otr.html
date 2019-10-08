@@ -6,14 +6,14 @@
     <meta http-equiv="Expires" content="-1">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
-    <link href="css/profanity.css" type="text/css" rel="stylesheet">
+    <link href="../../css/profanity.css" type="text/css" rel="stylesheet">
     <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/analytics.js"></script>
-    <script type="text/javascript" src="js/trackclicks.js"></script>
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/analytics.js"></script>
+    <script type="text/javascript" src="../../js/trackclicks.js"></script>
 </head>
 <body id="article">
-    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">
+    <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration">
     <header>
         <a href="userguide.html"><h1>User Guide</h1></a>
         <h2>OTR Message Encryption</h2>
@@ -81,7 +81,7 @@
             <p>
                 If the generation takes a long time you can try to move the mouse or install an entropy daemon, such as <code>haveged</code>, to increase the available entropy.
             </p>
-            <img src="images/otr/key_generated.png"/><br><br>
+            <img src="../../images/otr/key_generated.png"/><br><br>
             <p>
                 Once you have generated a key, you will not need to do so again.
             </p>
@@ -100,7 +100,7 @@
                 If you are already in a conversation window without OTR, you can start sending encrypted messages with the same command omitting the contact:
             </p>
             <pre><code>/otr start</code></pre>
-            <img src="images/otr/started.png"/><br><br>
+            <img src="../../images/otr/started.png"/><br><br>
             <p>
                 The <code>[untrusted]</code> shown in the titlebar indicates that although this conversation is encrypted, the contact has not yet been authenticated.
             </p>
@@ -133,20 +133,20 @@
             <p>
                 A message will be displayed showing that the authentication process has started.
             </p>
-            <img src="images/otr/question_sent.png"/><br><br>
+            <img src="../../images/otr/question_sent.png"/><br><br>
             <p>
                 If Bob answers correctly a message will be shown indicating that Bob is now trusted by Alice.
             </p>
-            <img src="images/otr/question_received_success.png"/><br><br>
+            <img src="../../images/otr/question_received_success.png"/><br><br>
             <p>
                 If Bob answers incorrectly a message will be shown indicating that Bob is not trusted by Alice.
             </p>
-            <img src="images/otr/question_received_fail.png"/><br><br>
+            <img src="../../images/otr/question_received_fail.png"/><br><br>
             <p>
                 Bob may also wish to authenticate Alice. If he does, Alice will receive a message showing Bob's question, and prompting her to answer. Alice may answer using the <code>/otr answer</code> command:
             </p>
             <pre><code>/otr answer red</code></pre>
-            <img src="images/otr/bobquestion.png"/><br><br>
+            <img src="../../images/otr/bobquestion.png"/><br><br>
             <p>
                 Note that question and answer authentication is a way for one contact to verify the identity of another. If the recipient answers correctly then the sender has authenticated them, however the recipient must also authenticate the sender with another question.
             </p>
@@ -163,13 +163,13 @@
             <p>
                 Bob enters the same secret using his client, Alice and Bob now trust each other.
             </p>
-            <img src="images/otr/secret_received_success.png"/><br><br>
+            <img src="../../images/otr/secret_received_success.png"/><br><br>
 
             <p>
                 If Bob started the shared secret authentication, Alice will receive a message asking her to enter the secret using the <code>/otr secret</code> command:
             </p>
             <pre><code>/otr secret 5up3r53cr3t</code></pre>
-            <img src="images/otr/secret_sent_success.png"/><br><br>
+            <img src="../../images/otr/secret_sent_success.png"/><br><br>
 
             <a name="fingerprints"></a>
             <h4>Manual fingerprint authentication</h4>
@@ -180,12 +180,12 @@
                 You should exchange fingerprints with your contact's via another secure communication channel. To display your fingerprint, use the following command:
             </p>
             <pre><code>/otr myfp</code></pre>
-            <img src="images/otr/myfp.png"/><br><br>
+            <img src="../../images/otr/myfp.png"/><br><br>
             <p>
                 To view the fingerprint of a contact whilst in an OTR session, use the following command:
             </p>
             <pre><code>/otr theirfp</code></pre>
-            <img src="images/otr/theirfp.png"/><br><br>
+            <img src="../../images/otr/theirfp.png"/><br><br>
             <p>
                 If the fingerprint you see matches the fingerprint you communicated via another means, you can manually authenticate the contact with the following command:
             </p>
@@ -263,25 +263,25 @@
             <p>
                 By default, an indicator is displayed in the titlebar when no encryption is being used (including <a href="pgp.html">PGP</a> and <a href="omemo.html">OMEMO</a>).
             </p>
-            <img src="images/pgp/encwarn.png"/><br><br>
+            <img src="../../images/pgp/encwarn.png"/><br><br>
             <p>
                 This indicator can be removed using the <a href="reference.html#encwarn"><code>/encwarn</code></a> command.
             </p>
             <pre><code>/encwarn off</code></pre>
-            <img src="images/pgp/encwarnoff.png"/><br><br>
+            <img src="../../images/pgp/encwarnoff.png"/><br><br>
             <p>
                 Both incoming and outgoing plaintext messages are always preceeded by the '<code>-</code>' character.
             </p>
-            <img src="images/pgp/plainchar.png"/><br><br>
+            <img src="../../images/pgp/plainchar.png"/><br><br>
             <p>
                 By default OTR encrypted messages are preceeded by the '<code>~</code>' character.
             </p>
-            <img src="images/otr/otrchar.png"/><br><br>
+            <img src="../../images/otr/otrchar.png"/><br><br>
             <p>
                 This character can be changed using the <code>/otr char</code> command.
             </p>
             <pre><code>/otr char O</code></pre>
-            <img src="images/otr/newchar.png"/><br><br>
+            <img src="../../images/otr/newchar.png"/><br><br>
         </section>
         <section>
             <a name="otr-message-logging"></a>
