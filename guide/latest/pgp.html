@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profanity, a console based XMPP client - PGP Encryption</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1"> 
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="../../css/profanity.css" type="text/css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/analytics.js"></script> 
+    <script type="text/javascript" src="../../js/trackclicks.js"></script>
+</head>
+<body id="article">
+    <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <header>
+        <a href="userguide.html"><h1>User Guide</h1></a>
+        <h2>PGP Encryption</h2>
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+            
+            <ul>
+                <li><a href="#installing-pgp">Building with PGP support</a></li>
+                <li><a href="#assign-private">Assigning a key to your account</a></li>
+                <li><a href="#assign-public">Assigning keys to contacts</a></li>
+                <li><a href="#sending">Sending PGP encrypted messages</a></li>
+                <li><a href="#receiving">Receiving PGP encrypted messages</a></li>
+                <li><a href="#ending">Ending PGP encryption</a></li>
+                <li><a href="#ui-opts">User Interface options</a></li>
+                <li><a href="#pgp-message-logging">PGP message logging</a></li>
+            </ul>
+        </section>
+        <section>
+            <a name="installing-pgp"></a>
+            <h3>Building with PGP support</h3>
+
+            <p>
+                Profanity uses the <a target="_blank" href="https://www.gnupg.org/%28es%29/related_software/gpgme/index.html">GPGME library</a> to support PGP encryption. You will need the <code>libgpgme-dev</code> or equivalent installed. If the package is installed PGP support will be included automatically. To force the build to fail if support cannot be included, configure with the following:
+            </p>
+            <pre><code>./configure --enable-pgp</code></pre>
+        </section>
+        <section>
+            <a name="assign-private"></a>
+            <h3>Assigning a key to your account</h3>
+
+            <p>
+                To allow contacts to send you PGP encrypted messages you must have a PGP key assigned to your account. To list all available keys on your system, use the command <code>/pgp keys</code>
+            </p>
+            <img src="../../images/pgp/pgpkeys.png"/><br><br>
+            <p>
+                Set the account <code>pgpkeyid</code> property with the <a href="reference.html#account"><code>/account</code></a> command.
+            </p>
+            <pre><code>/account set alice@ejabberd.local pgpkeyid B4510EE476F2AA6F</code></pre>
+        </section>
+        <section>
+            <a name="assign-public"></a>
+            <h3>Assigning keys to contacts</h3>
+
+            <p>
+                To be able to send PGP encrypted messages to contacts, you must associate a public key with them. The <a target="_blank" href="http://www.xmpp.org/extensions/xep-0027.html#signing">specification</a> states that contacts should sign their presence with their key, if your contacts do this, you need to do nothing else.
+            </p>
+            <p>
+                If your contacts do not sign their presence, you will need to manually assign a public key using the <code>/pgp setkey</code> command.
+            </p>
+            <pre><code>/pgp setkey eddie@ironmaiden.com C4C71F21D0F2EC3D</code></pre>
+            <p>
+                To view a list of all currently known public keys, either through received signed presence or set manually.
+            </p>
+            <pre><code>/pgp contacts</code></pre>
+            <img src="../../images/pgp/contacts.png"/><br><br>
+        </section>
+        <section>
+            <a name="sending"></a>
+            <h3>Sending PGP encrypted messages</h3>
+
+            <p>
+                To start a new conversation sending PGP encrypted messages to a contact:
+            </p>
+            <pre><code>/pgp start bob@ejabberd.local</code></pre>
+            <p>
+                If you are already in a conversation window without PGP, you can start sending encrypted messages with the same command omitting the contact:
+            </p>
+            <pre><code>/pgp start</code></pre>
+            <img src="../../images/pgp/sending.png"/><br><br>
+        </section>
+        <section>
+            <a name="receiving"></a>
+            <h3>Receiving PGP encrypted messages</h3>
+
+            <p>
+                Assuming a public key is associated with the contact, they must also have enabled PGP encryption at their end.
+            </p>
+            <img src="../../images/pgp/receiving.png"/><br><br>
+        </section>
+        <section>
+            <a name="ending"></a>
+            <h3>Ending PGP encryption</h3>
+
+            <p>
+                To stop sending PGP encrypted messages to a contact:
+            </p>
+            <pre><code>/pgp end</code></pre>
+            <img src="../../images/pgp/endingsend.png"/><br><br>
+            <p>
+                The contact may also end PGP encryption at their end at any time.
+            </p>
+            <img src="../../images/pgp/endingrecv.png"/><br><br>
+        </section>
+        <section>
+            <a name="ui-opts"></a>
+            <h3>User Interface options</h3>
+
+            <p>
+                By default, an indicator is displayed in the titlebar when no encryption is being used (including <a href="otr.html">OTR</a> and <a href="omemo.html">OMEMO</a>).
+            </p>
+            <img src="../../images/pgp/encwarn.png"/><br><br>
+            <p>
+                This indicator can be removed using the <a href="reference.html#encwarn"><code>/encwarn</code></a> command.
+            </p>
+            <pre><code>/encwarn off</code></pre>
+            <img src="../../images/pgp/encwarnoff.png"/><br><br>
+            <p>
+                Both incoming and outgoing plaintext messages are always preceded by the '<code>-</code>' character.
+            </p>
+            <img src="../../images/pgp/plainchar.png"/><br><br>
+            <p>
+                By default PGP encrypted messages are preceded by the '<code>~</code>' character.
+            </p>
+            <img src="../../images/pgp/pgpchar.png"/><br><br>
+            <p>
+                This character can be changed using the <code>/pgp char</code> command.
+            </p>
+            <pre><code>/pgp char P</code></pre>
+            <img src="../../images/pgp/newchar.png"/><br><br>
+        </section>
+        <section>
+            <a name="pgp-message-logging"></a>
+            <h3>PGP message logging</h3>
+
+            <p>The <code>/pgp log</code> command may be used with the following options to control if and how PGP messages are recorded in chat logs.</p>
+            <table>
+                <tr>
+                    <td><pre><code>on</code></pre></td>
+                    <td>PGP messages will be logged in plaintext</td>
+                </tr>
+                <tr>
+                    <td><pre><code>redact</code></pre></td>
+                    <td>PGP messages will be logged, but the message will be replaced with the text '<code>[redacted]</code>'.</td>
+                </tr>
+                <tr>
+                    <td><pre><code>off</code></pre></td>
+                    <td>PGP messages will not be logged.</td>
+                </tr>
+            </table>
+            <p>For the <code>on</code> and <code>redact</code> settings, chat logging must also be enabled with the <a href="reference.html#chlog"><code>/chlog</code></a> command.</p>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+</html>

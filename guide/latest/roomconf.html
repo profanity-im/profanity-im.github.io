@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profanity, a console based XMPP client - Chat Room Configuration and Administration</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1"> 
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="../../css/profanity.css" type="text/css" rel="stylesheet"><!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/analytics.js"></script> 
+</head>
+<body id="article">
+    <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <header>
+        <a href="userguide.html"><h1>User Guide</h1></a>
+        <h2>Chat Room Configuration and Administration</h2>
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+
+            <ul>
+                <li><a href="#creating">Creating a room</a>
+                <li><a href="#configuring">Configuring a room</a>
+                <li><a href="#destroying">Destroying a room</a>
+                <li><a href="#kicking">Kicking occupants</a>
+                <li><a href="#banning">Banning users</a>
+                <li><a href="#roles">Managing occupant roles</a>
+                <li><a href="#affiliations">Managing user affiliations</a></li>
+            </ul>
+        </section>
+        <section>
+            <a name="creating"></a>
+            <h3>Creating a room</h3>
+
+            <p>Chat rooms are created when you join a room that does not yet exist, using the <a href="reference.html#join"><code>/join</code></a> command.</p>
+            <p>If the server only supports an older version of the groupchat protocol, no further action is required, and other users may join the room.</p>
+            <p>Servers supporting <a href="http://xmpp.org/extensions/xep-0045.html" target="_blank">xep-0045</a> will create the room, which will be locked until the room has been configured, or the default configuration has been accepted.</p>
+            <p>To accept the default configuration and unlock the room:</p>
+            <pre><code>/room accept</code></pre>
+            <p>To view and edit the room configuration (see the next section for details):</p>
+            <pre><code>/room config</code></pre>
+            <p>To cancel room creation and destroy the room:</p>
+            <pre><code>/room destroy</code></pre>
+        </section>
+        <section>
+            <a name="configuring"></a>
+            <h3>Configuring a room</h3>
+
+            <p>At any stage, users with appropriate privileges may configure a room with the following command:</p>
+            <pre><code>/room config</code></pre>
+            <p>A new window will be opened, and the room configuration form displayed. Each field in the form is given a tag (e.g. "field2").</p>
+            <img src="../../images/roomconfigform.png"/><br><br>
+            <p>Form fields can be manipulated using the field tag and the value to set, add or remove depending on the field type. For example:</p>
+            <pre><code>/field1 "New room name"
+/field3 off
+/field5 remove visitor
+/field13 anyone
+/field18 add anotheruser@openfire.local</code></pre>
+            <p>For more information on how to manipulate a specific field, use the <code>/form help</code> command specifying the field tag, e.g.:</p>
+            <pre><code>/form help field12</code></pre>
+            <p>At any time whilst the form is being edited, the latest values can be shown with:</p>
+            <pre><code>/form show</code></pre>
+            <p>To save the changes:</p>
+            <pre><code>/form submit</code></pre>
+            <p>To discard the changes:</p>
+            <pre><code>/form cancel</code></pre>
+        </section>
+        <section>
+            <a name="destroying"></a>
+            <h3>Destroying a room</h3>
+
+            <p>If a user has appropriate privileges a room can be destroyed at any time using the following command:</p>
+            <pre><code>/room destroy</code></pre>
+        </section>
+        <section>
+            <a name="kicking"></a>
+            <h3>Kicking occupants</h3>
+
+            <p>Users with appropriate privileges may kick occupants from a room:</p>
+            <pre><code>/kick nova</code></pre>
+            <p>An optional reason may be supplied:</p>
+            <pre><code>/kick nova Please do not use foul language.</code></pre>
+        </section>
+        <section>
+            <a name="banning"></a>
+            <h3>Banning users</h3>
+
+            <p>Users with appropriate privileges may ban users permanently from a room, banning is carried out using the users Jabber ID rather than their nickname in the room:</p>
+            <pre><code>/ban molly@chat.org</code></pre>
+            <p>An optional reason may be supplied:</p>
+            <pre><code>/ban molly@chat.org You may not enter this room anymore.</code></pre>
+        </section>
+        <section>
+            <a name="roles"></a>
+            <h3>Managing occupant roles</h3>
+
+            <p>Roles specify an occupant's privileges within a room for the duration of one particular visit to that room. The possible roles, and the privileges associated with them are defined in <a href="http://xmpp.org/extensions/xep-0045.html#roles" target="_blank">xep-0045</a>.</p>
+            <p>Roles are set using an occupant's room nickname, the user must have the appropriate privileges to run the following commands.</p>
+            <p>To show occupants of all roles:</p>
+            <pre><code>/role list</code></pre>
+            <p>To show occupants with a specific role:</p>
+            <pre><code>/role list moderator
+/role list participant
+/role list visitor</code></pre>
+            <p>To change an occupant's role, for example to set the occupant with nick <code>bobmould</code> to have role <code>participant</code>:</p>
+            <pre><code>/role set participant bobmould</code></pre>
+            <p>An optional reason may be specified:</p>
+            <pre><code>/role set participant bobmould You may now speak!</code></pre>
+        </section>
+        <section>
+            <a name="affiliations"></a>
+            <h3>Managing user affiliations</h3>
+
+            <p>Affiliations specify a user's privileges for a room across visits to that room. The possible affiliations, and the privileges associated with them are defined in <a href="http://xmpp.org/extensions/xep-0045.html#affil" target="_blank">xep-0045</a>.</p>
+            <p>Affiliations are set using a user's JID, the user must have the appropriate privileges to run the following commands.</p>
+            <p>To show users of all affiliations:</p>
+            <pre><code>/affiliation list</code></pre>
+            <p>To show users with a specific affiliation:</p>
+            <pre><code>/affiliation list owner
+/affiliation list admin
+/affiliation list member
+/affiliation list outcast</code></pre>
+            <p>To change a user's affiliation, for example to set the user with JID <code>bob_mould@chat.org</code> to have affiliation <code>member</code>:</p>
+            <pre><code>/affiliation set member bob_mould@chat.org</code></pre>
+            <p>An optional reason may be specified:</p>
+            <pre><code>/affiliation set member bob_mould@chat.org Because you come here so often.</code></pre>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+</html>
