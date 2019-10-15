@@ -40,6 +40,7 @@
                 </ul>
                 <li><a href="#ui-opts">User Interface options</a>
                 <li><a href="#otr-message-logging">OTR message logging</a>
+                <li><a href="#otr-importing-keys">Importing OTR keys</a>
             </ul>
         </section>
         <section>
@@ -306,6 +307,18 @@
             <p>
                 For the <code>on</code> and <code>redact</code> settings, chat logging must also be enabled with the <a href="reference.html#chlog"><code>/chlog</code></a> command.
             </p>
+        </section>
+        <section>
+            <a name="otr-importing-keys"></a>
+            <h3>Importing OTR keys</h3>
+            <p>Since profanity uses the libotr library to store keys and trusted fingerprints, files created by another client which uses libotr should also work with profanity.</p>
+            <p>The files need to be placed in the following locations:</p>
+            <pre><code>$XDG_DATA_HOME/profanity/otr/<account>/keys.txt
+$XDG_DATA_HOME/profanity/otr/<account>/fingerprints.txt</code></pre>
+            <p>On most systems <code>$XDG_DATA_HOME</code> is <code>~/.local/share</code>.
+            The <account> folder is the account name with <code>_at_</code> replacing the @ symbol, for example account my.account@server.org will have the above two files stored as:</p>
+            <pre><code>~/.local/share/profanity/otr/my.account_at_server.org/keys.txt
+~/.local/share/profanity/otr/my.account_at_server.org/fingerprints.txt</code></pre>
         </section>
     </article>
     <footer>
