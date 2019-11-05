@@ -62,6 +62,7 @@
 /account set me status dnd
 /account set me dnd -1
 /account rename me chattyme
+/account clear me pgpkeyid
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -200,12 +201,13 @@
 /blocked remove &lt;jid&gt;
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Manage blocked users, calling with no arguments shows the current list of blocked users.
+<p>Manage blocked users (XEP-0191), calling with no arguments shows the current list of blocked users.To blog a certain user in a MUC use the following as jid: room@conference.example.org/spammy-user
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>add [&lt;jid&gt;]</code></td><td>Block the specified Jabber ID. If in a chat window and no jid is specified, the current recipient will be blocked.</td></tr><tr><td><code>remove &lt;jid&gt;</code></td><td>Remove the specified Jabber ID from the blocked list.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/blocked add spammer@spam.org
+/blocked add profanity@rooms.dismail.de/spammy-user
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -299,10 +301,18 @@
 <h4>/clear</h4>
 <p><b>Synopsis</b></p>
 <p><pre><code>/clear
+/clear persist_history &lt;on|off&gt;
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Clear the current window.
+<p>Clear the current window. If you set persist_history you can still access the history by pressing PAGE UP.
 </p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>persist_history on|off</code></td><td>Whether or not to clear the screen persistently</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/clear
+/clear persist_history
+/clear persist_history on
+</code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="close"></a>
@@ -376,18 +386,6 @@
 <table><tr><td><code>chat all</code></td><td>Indicate all new chat messages in the console.</td></tr><tr><td><code>chat first</code></td><td>Indicate only the first new message per chat in the console.</td></tr><tr><td><code>chat none</code></td><td>Do not show any new chat messages in the console window.</td></tr><tr><td><code>muc all</code></td><td>Indicate all new chat room messages in the console.</td></tr><tr><td><code>muc first</code></td><td>Indicate only the first new message in each room in the console.</td></tr><tr><td><code>muc none</code></td><td>Do not show any new chat room messages in the console window.</td></tr><tr><td><code>private all</code></td><td>Indicate all new private room messages in the console.</td></tr><tr><td><code>private first</code></td><td>Indicate only the first private room message in the console.</td></tr><tr><td><code>private none</code></td><td>Do not show any new private room messages in the console window.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
-<a name="decline"></a>
-<h4>/decline</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/decline &lt;room&gt;
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Decline a chat room invitation.
-</p>
-<p><b>Arguments</b></p>
-<table><tr><td><code>&lt;room&gt;</code></td><td>The room for the invite you wish to decline.</td></tr></table>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
 <a name="disco"></a>
 <h4>/disco</h4>
 <p><b>Synopsis</b></p>
@@ -431,18 +429,6 @@
 <p><pre><code>/dnd
 /dnd I'm in the zone
 </code></pre></p>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
-<a name="encwarn"></a>
-<h4>/encwarn</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/encwarn on|off
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Titlebar encryption warning.
-</p>
-<p><b>Arguments</b></p>
-<table><tr><td><code>on|off</code></td><td>Enable or disable the unencrypted warning message in the titlebar.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="export"></a>
@@ -622,23 +608,19 @@
 <a name="invite"></a>
 <h4>/invite</h4>
 <p><b>Synopsis</b></p>
-<p><pre><code>/invite &lt;contact&gt; [&lt;message&gt;]
+<p><pre><code>/invite send &lt;contact&gt; [&lt;message&gt;]
+/invite list
+/invite decline
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Send an invite to a contact for the current chat room.
+<p>Manage room invites. Send an invite to a contact for the current chat room. List received invites. Decline them using /invite decline and accept them using /join.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>&lt;contact&gt;</code></td><td>The contact you wish to invite.</td></tr><tr><td><code>&lt;message&gt;</code></td><td>An optional message to send with the invite.</td></tr></table>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
-<a name="invites"></a>
-<h4>/invites</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/invites
+<table><tr><td><code>send &lt;contact&gt; [&lt;message&gt;]</code></td><td>The contact you wish to invite. And an optional message.</td></tr><tr><td><code>list</code></td><td>Show all rooms that you have been invited to, and not accepted or declined.</td></tr><tr><td><code>decline &lt;room&gt;</code></td><td>Decline a chat room invitation.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/invite send gustavo@pollos.tx
+/invite decline profanity@rooms.dismail.de/invite list
 </code></pre></p>
-<p><b>Description</b></p>
-<p>Show all rooms that you have been invited to, and not accepted or declined.
-</p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="join"></a>
@@ -691,16 +673,6 @@
 /lastactivity alice@securechat.org/laptop
 /lastactivity someserver.com
 </code></pre></p>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
-<a name="leave"></a>
-<h4>/leave</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/leave
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Leave the current chat or room.
-</p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="log"></a>
@@ -915,6 +887,16 @@
 <table><tr><td><code>on|off</code></td><td>Enable or disable sending typing notifications.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
+<a name="paste"></a>
+<h4>/paste</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/paste
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Paste clipboard.
+</p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
 <a name="pgp"></a>
 <h4>/pgp</h4>
 <p><b>Synopsis</b></p>
@@ -1076,6 +1058,16 @@
 <table><tr><td><code>&lt;seconds&gt;</code></td><td>Number of seconds before attempting to reconnect, a value of 0 disables reconnect.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
+<a name="reload"></a>
+<h4>/reload</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/reload
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Reload preferences from configuration file.
+</p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
 <a name="resource"></a>
 <h4>/resource</h4>
 <p><b>Synopsis</b></p>
@@ -1189,6 +1181,16 @@
 /roster clearnick kai@server.com
 /roster size 15
 </code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="save"></a>
+<h4>/save</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/save
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Save preferences to configuration file.
+</p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="script"></a>
@@ -1414,12 +1416,18 @@
 <p><b>Synopsis</b></p>
 <p><pre><code>/titlebar up
 /titlebar down
+/titlebar show|hide [encwarn|resource|tls]
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Move the title bar.
+<p>Titlebar settings.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>up</code></td><td>Move the title bar up the screen.</td></tr><tr><td><code>down</code></td><td>Move the title bar down the screen.</td></tr></table>
+<table><tr><td><code>up</code></td><td>Move the title bar up the screen.</td></tr><tr><td><code>down</code></td><td>Move the title bar down the screen.</td></tr><tr><td><code>show tls</code></td><td>Show or hide TLS indicator in the titlebar.</td></tr><tr><td><code>show encwarn</code></td><td>Enable or disable the unencrypted warning message in the titlebar.</td></tr><tr><td><code>show resource</code></td><td>Show or hide the current resource in the titlebar.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/titlebar up
+/titlebar show tls
+/titlebar hide encwarn
+</code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="tls"></a>
@@ -1436,13 +1444,12 @@
 /tls certpath set &lt;path&gt;
 /tls certpath clear
 /tls certpath default
-/tls show on|off
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Handle TLS certificates. 
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>allow</code></td><td>Allow connection to continue with TLS certificate.</td></tr><tr><td><code>always</code></td><td>Always allow connections with TLS certificate.</td></tr><tr><td><code>deny</code></td><td>Abort connection.</td></tr><tr><td><code>cert</code></td><td>Show the current TLS certificate.</td></tr><tr><td><code>cert &lt;fingerprint&gt;</code></td><td>Show details of trusted certificate.</td></tr><tr><td><code>trust</code></td><td>Add the current TLS certificate to manually trusted certificates.</td></tr><tr><td><code>trusted</code></td><td>List summary of manually trusted certificates (with '/tls always' or '/tls trust').</td></tr><tr><td><code>revoke &lt;fingerprint&gt;</code></td><td>Remove a manually trusted certificate.</td></tr><tr><td><code>certpath</code></td><td>Show the trusted certificate path.</td></tr><tr><td><code>certpath set &lt;path&gt;</code></td><td>Specify filesystem path containing trusted certificates.</td></tr><tr><td><code>certpath clear</code></td><td>Clear the trusted certificate path.</td></tr><tr><td><code>certpath default</code></td><td>Use default system certificate path, if it can be found.</td></tr><tr><td><code>show on|off</code></td><td>Show or hide the TLS indicator in the titlebar.</td></tr></table>
+<table><tr><td><code>allow</code></td><td>Allow connection to continue with TLS certificate.</td></tr><tr><td><code>always</code></td><td>Always allow connections with TLS certificate.</td></tr><tr><td><code>deny</code></td><td>Abort connection.</td></tr><tr><td><code>cert</code></td><td>Show the current TLS certificate.</td></tr><tr><td><code>cert &lt;fingerprint&gt;</code></td><td>Show details of trusted certificate.</td></tr><tr><td><code>trust</code></td><td>Add the current TLS certificate to manually trusted certificates.</td></tr><tr><td><code>trusted</code></td><td>List summary of manually trusted certificates (with '/tls always' or '/tls trust').</td></tr><tr><td><code>revoke &lt;fingerprint&gt;</code></td><td>Remove a manually trusted certificate.</td></tr><tr><td><code>certpath</code></td><td>Show the trusted certificate path.</td></tr><tr><td><code>certpath set &lt;path&gt;</code></td><td>Specify filesystem path containing trusted certificates.</td></tr><tr><td><code>certpath clear</code></td><td>Clear the trusted certificate path.</td></tr><tr><td><code>certpath default</code></td><td>Use default system certificate path, if it can be found.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="tray"></a>
