@@ -153,22 +153,6 @@
 <table><tr><td><code>set &lt;seconds&gt;</code></td><td>Number of seconds between sending pings, a value of 0 disables autoping.</td></tr><tr><td><code>timeout &lt;seconds&gt;</code></td><td>Seconds to wait for autoping responses, after which the connection is considered broken.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
-<a name="away"></a>
-<h4>/away</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/away [&lt;message&gt;]
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Set your status to 'away'.
-</p>
-<p><b>Arguments</b></p>
-<table><tr><td><code>&lt;message&gt;</code></td><td>Optional message to use with the status.</td></tr></table>
-<p><b>Examples</b></p>
-<p><pre><code>/away
-/away Gone for lunch
-</code></pre></p>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
 <a name="ban"></a>
 <h4>/ban</h4>
 <p><b>Synopsis</b></p>
@@ -267,22 +251,6 @@
 <p><b>Description</b></p>
 <p>Display information about the current character set supported by the terminal. 
 </p>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
-<a name="chat"></a>
-<h4>/chat</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/chat [&lt;message&gt;]
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Set your status to 'chat' (available for chat).
-</p>
-<p><b>Arguments</b></p>
-<table><tr><td><code>&lt;message&gt;</code></td><td>Optional message to use with the status.</td></tr></table>
-<p><b>Examples</b></p>
-<p><pre><code>/chat
-/chat Please talk to me!
-</code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="chlog"></a>
@@ -413,22 +381,6 @@
 <p><b>Description</b></p>
 <p>Disconnect from the current chat service.
 </p>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
-<a name="dnd"></a>
-<h4>/dnd</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/dnd [&lt;message&gt;]
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Set your status to 'dnd' (do not disturb).
-</p>
-<p><b>Arguments</b></p>
-<table><tr><td><code>&lt;message&gt;</code></td><td>Optional message to use with the status.</td></tr></table>
-<p><b>Examples</b></p>
-<p><pre><code>/dnd
-/dnd I'm in the zone
-</code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="export"></a>
@@ -619,7 +571,8 @@
 <table><tr><td><code>send &lt;contact&gt; [&lt;message&gt;]</code></td><td>The contact you wish to invite. And an optional message.</td></tr><tr><td><code>list</code></td><td>Show all rooms that you have been invited to, and not accepted or declined.</td></tr><tr><td><code>decline &lt;room&gt;</code></td><td>Decline a chat room invitation.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/invite send gustavo@pollos.tx
-/invite decline profanity@rooms.dismail.de/invite list
+/invite decline profanity@rooms.dismail.de
+/invite list
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -821,22 +774,6 @@
 /omemo trust c4f9c875-144d7a3b-0c4a05b6-ca3be51a-a037f329-0bd3ae62-07f99719-55559d2a
 /omemo untrust buddy@buddychat.org c4f9c875-144d7a3b-0c4a05b6-ca3be51a-a037f329-0bd3ae62-07f99719-55559d2a
 /omemo char *
-</code></pre></p>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
-<a name="online"></a>
-<h4>/online</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/online [&lt;message&gt;]
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Set your status to 'online'.
-</p>
-<p><b>Arguments</b></p>
-<table><tr><td><code>&lt;message&gt;</code></td><td>Optional message to use with the status.</td></tr></table>
-<p><b>Examples</b></p>
-<p><pre><code>/online
-/online Up the Irons!
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -1273,17 +1210,18 @@
 <a name="status"></a>
 <h4>/status</h4>
 <p><b>Synopsis</b></p>
-<p><pre><code>/status
-/status &lt;contact&gt;|&lt;nick&gt;
+<p><pre><code>/status set &lt;state&gt; [&lt;message&gt;]
+/status get &lt;contact&gt;|&lt;nick&gt;
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Find out a contact, or room members presence information. If in a chat window the parameter is not required, the current recipient will be used.
+<p>/status get: Find out a contact, or room members presence information. /status set: set own status.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>&lt;contact&gt;</code></td><td>The contact who's presence you which to see.</td></tr><tr><td><code>&lt;nick&gt;</code></td><td>If in a chat room, the occupant who's presence you wish to see.</td></tr></table>
+<table><tr><td><code>&lt;state&gt;</code></td><td>Own status. Possible values: chat, online, away, dnd, xa</td></tr><tr><td><code>&lt;message&gt;</code></td><td>Optional message to use with the status.</td></tr><tr><td><code>&lt;contact&gt;</code></td><td>The contact who's presence you which to see.</td></tr><tr><td><code>&lt;nick&gt;</code></td><td>If in a chat room, the occupant who's presence you wish to see.</td></tr></table>
 <p><b>Examples</b></p>
-<p><pre><code>/status buddy@server.com
-/status jon
+<p><pre><code>/status get buddy@server.com
+/status get jon
+/status set online
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -1567,22 +1505,6 @@
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>on|off</code></td><td>Enable or disable word wrapping in the main window.</td></tr></table>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
-<a name="xa"></a>
-<h4>/xa</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/xa [&lt;message&gt;]
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Set your status to 'xa' (extended away).
-</p>
-<p><b>Arguments</b></p>
-<table><tr><td><code>&lt;message&gt;</code></td><td>Optional message to use with the status.</td></tr></table>
-<p><b>Examples</b></p>
-<p><pre><code>/xa
-/xa This meeting is going to be a long one
-</code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="xmlconsole"></a>
