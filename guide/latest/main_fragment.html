@@ -253,18 +253,6 @@
 </p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
-<a name="chlog"></a>
-<h4>/chlog</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/chlog on|off
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Switch chat logging on or off. This setting will be enabled if /history is set to on. When disabling this option, /history will also be disabled. See the /grlog setting for enabling logging of chat room (groupchat) messages.
-</p>
-<p><b>Arguments</b></p>
-<table><tr><td><code>on|off</code></td><td>Enable or disable chat logging.</td></tr></table>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
 <a name="clear"></a>
 <h4>/clear</h4>
 <p><b>Synopsis</b></p>
@@ -436,18 +424,6 @@
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>&lt;minutes&gt;</code></td><td>Number of minutes of inactivity before sending the 'gone' state, a value of 0 will disable sending this state.</td></tr></table>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
-<a name="grlog"></a>
-<h4>/grlog</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/grlog on|off
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Switch chat room logging on or off. See the /chlog setting for enabling logging of one to one chat.
-</p>
-<p><b>Arguments</b></p>
-<table><tr><td><code>on|off</code></td><td>Enable or disable chat room logging.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="group"></a>
@@ -641,6 +617,22 @@
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>where</code></td><td>Show the current log file location.</td></tr><tr><td><code>rotate on|off</code></td><td>Rotate log, default on.</td></tr><tr><td><code>maxsize &lt;bytes&gt;</code></td><td>With rotate enabled, specifies the max log size, defaults to 1048580 (1MB).</td></tr><tr><td><code>shared on|off</code></td><td>Share logs between all instances, default: on. When off, the process id will be included in the log filename.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="logging"></a>
+<h4>/logging</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/logging chat|group on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Switch logging on or off. Chat logging will be enabled if /history is set to on. When disabling this option, /history will also be disabled. 
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>chat</code></td><td>Regular chat logging</td></tr><tr><td><code>group</code></td><td>Groupchat (room) logging</td></tr><tr><td><code>on|off</code></td><td>Enable or disable logging.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/logging chat on
+/logging group off
+</code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="mainwin"></a>
@@ -1210,14 +1202,14 @@
 <a name="status"></a>
 <h4>/status</h4>
 <p><b>Synopsis</b></p>
-<p><pre><code>/status set &lt;state&gt; [&lt;message&gt;]
+<p><pre><code>/status set &lt;state&gt; ["&lt;message&gt;"]
 /status get &lt;contact&gt;|&lt;nick&gt;
 </code></pre></p>
 <p><b>Description</b></p>
 <p>/status get: Find out a contact, or room members presence information. /status set: set own status.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>&lt;state&gt;</code></td><td>Own status. Possible values: chat, online, away, dnd, xa</td></tr><tr><td><code>&lt;message&gt;</code></td><td>Optional message to use with the status.</td></tr><tr><td><code>&lt;contact&gt;</code></td><td>The contact who's presence you which to see.</td></tr><tr><td><code>&lt;nick&gt;</code></td><td>If in a chat room, the occupant who's presence you wish to see.</td></tr></table>
+<table><tr><td><code>&lt;state&gt;</code></td><td>Own status. Possible values: chat, online, away, dnd, xa</td></tr><tr><td><code>&lt;message&gt;</code></td><td>Optional message to use with the status. Needs quotation marks if it's more than one word.</td></tr><tr><td><code>&lt;contact&gt;</code></td><td>The contact who's presence you which to see.</td></tr><tr><td><code>&lt;nick&gt;</code></td><td>If in a chat room, the occupant who's presence you wish to see.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/status get buddy@server.com
 /status get jon
