@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on profanity</title>
+    <link>https://profanity-im.github.io/blog/post/</link>
+    <description>Recent content in Posts on profanity</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Jan 2020 17:16:59 +0200</lastBuildDate>
+    
+	<atom:link href="https://profanity-im.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Intro</title>
+      <link>https://profanity-im.github.io/blog/post/intro/</link>
+      <pubDate>Fri, 03 Jan 2020 17:16:59 +0200</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/intro/</guid>
+      <description>Hello folks! Now with the 0.8.0 release around the corner we would like to start a development blog. We hope to give you some insights here about ongoing work, our problems, goals and where you could contribute.</description>
+    </item>
+    
+  </channel>
+</rss>

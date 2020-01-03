@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://profanity-im.github.io/blog/authors/jubalh/</loc>
+    <lastmod>2020-01-03T17:16:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://profanity-im.github.io/blog/authors/</loc>
+    <lastmod>2020-01-03T17:16:59+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://profanity-im.github.io/blog/post/intro/</loc>
+    <lastmod>2020-01-03T17:16:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://profanity-im.github.io/blog/post/</loc>
+    <lastmod>2020-01-03T17:16:59+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://profanity-im.github.io/blog/</loc>
+    <lastmod>2020-01-03T17:16:59+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://profanity-im.github.io/blog/about/</loc>
+    <lastmod>2019-07-30T17:05:33+02:00</lastmod>
+  </url>
+  
+</urlset>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors on profanity</title>
+    <link>https://profanity-im.github.io/blog/authors/</link>
+    <description>Recent content in Authors on profanity</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Jan 2020 17:16:59 +0200</lastBuildDate>
+    
+	<atom:link href="https://profanity-im.github.io/blog/authors/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://profanity-im.github.io/blog/authors/jubalh/</link>
+      <pubDate>Fri, 03 Jan 2020 17:16:59 +0200</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/authors/jubalh/</guid>
+      <description>Ursula Kroeber Le Guin (October 21, 1929 – January 22, 2018) was an American novelist. The New York Times described her as “America’s greatest science fiction writer”, although she said that she would prefer to be known as an “American novelist”.</description>
+    </item>
+    
+  </channel>
+</rss>
