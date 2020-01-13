@@ -1,5 +1,10 @@
 (function () {
 
+    //polyfill Internet Explorer
+    if (window.NodeList && !NodeList.prototype.forEach) {
+        NodeList.prototype.forEach = Array.prototype.forEach;
+    }
+
     const trackDownloads = function () {
         document.querySelectorAll("#download-zip, #download-tarball").forEach(function (node) {
             var download_version = node.href;
