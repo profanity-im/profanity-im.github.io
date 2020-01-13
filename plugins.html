@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Profanity, a console based XMPP client - User Guide</title>
     <meta charset="utf-8">
@@ -7,14 +8,16 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
     <link href="css/profanity.css" type="text/css" rel="stylesheet">
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+
     <script type="text/javascript" src="js/analytics.js"></script>
 </head>
+
 <body id="article">
     <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">
     <header>
-        <a href="index.html"><h1>Profani<span class="kern-ty">ty</span></h1></a>
+        <a href="index.html">
+            <h1>Profani<span class="kern-ty">ty</span></h1>
+        </a>
         <h2>Plugins</h2>
     </header>
     <article id="manual">
@@ -24,12 +27,12 @@
                 <li><a href="#overview">Overview</a>
                 <li><a href="#featured-plugins">Featured Plugins</a>
                 <li><a href="#developing-plugins">Developing Plugins</a>
-                <ul>
-                    <li>
-                        <a href="#python-plugins">Python</a>,
-                        <a href="#c-plugins">C</a>
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            <a href="#python-plugins">Python</a>,
+                            <a href="#c-plugins">C</a>
+                        </li>
+                    </ul>
                 <li><a href="#themes-settings">Themes and Settings</a>
                 <li><a href="#contributing-plugins">Contributing Plugins</a>
             </ul>
@@ -38,40 +41,50 @@
             <a name="overview"></a>
             <h3>Overview</h3>
             <p>
-                Profanity supports plugins written in Python and C. The <a href="https://github.com/boothj5/profanity-plugins" target="_blank">profanity-plugins</a> project contains various plugins maintained by Profanity's author and other community maintained plugins.
+                Profanity supports plugins written in Python and C. The <a
+                    href="https://github.com/boothj5/profanity-plugins" target="_blank">profanity-plugins</a> project
+                contains various plugins maintained by Profanity's author and other community maintained plugins.
             </p>
             <p>
-                The master branch of the plugins repository is in synch with development in the master branch of Profanity. Branching is used to maintain plugins for releases of Profanity:
+                The master branch of the plugins repository is in synch with development in the master branch of
+                Profanity. Branching is used to maintain plugins for releases of Profanity:
             </p>
-                <table>
-                    <tr>
-                        <td>Profanity 0.5.0</td>
-                        <td><a href="https://github.com/boothj5/profanity-plugins/tree/0.5.0" target="_blank">https://github.com/boothj5/profanity-plugins/tree/0.5.0</a></td>
-                    </tr>
-                    <tr>
-                        <td>Profanity 0.5.1 to 0.6.0</td>
-                        <td><a href="https://github.com/boothj5/profanity-plugins/tree/0.5.1" target="_blank">https://github.com/boothj5/profanity-plugins/tree/0.5.1</a></td>
-                    </tr>
-                </table>
+            <table>
+                <tr>
+                    <td>Profanity 0.5.0</td>
+                    <td><a href="https://github.com/boothj5/profanity-plugins/tree/0.5.0"
+                            target="_blank">https://github.com/boothj5/profanity-plugins/tree/0.5.0</a></td>
+                </tr>
+                <tr>
+                    <td>Profanity 0.5.1 to 0.6.0</td>
+                    <td><a href="https://github.com/boothj5/profanity-plugins/tree/0.5.1"
+                            target="_blank">https://github.com/boothj5/profanity-plugins/tree/0.5.1</a></td>
+                </tr>
+            </table>
             <p>
-                There is a <a href="https://github.com/boothj5/profanity/issues/749" target="_blank">known issue</a> that C plugins do not currently work on Cygwin.
+                There is a <a href="https://github.com/boothj5/profanity/issues/749" target="_blank">known issue</a>
+                that C plugins do not currently work on Cygwin.
             </p>
             <p>
                 To install a Python plugin:
             </p>
             <pre><code>/plugins install ~/projects-git/profanity-plugins/say.py</code></pre>
             <p>
-                Any module dependencies for the plugin should be on the Python system path. If a plugin imports modules relative to its location, these modules need to manually be copied to <code>~/.local/share/profanity/plugins/</code> 
+                Any module dependencies for the plugin should be on the Python system path. If a plugin imports modules
+                relative to its location, these modules need to manually be copied to
+                <code>~/.local/share/profanity/plugins/</code>
             </p>
             <p>
                 To install a C plugin:
             </p>
             <pre><code>/plugins install ~/projects-git/profanity-plugins/pid/pid.so</code></pre>
             <p>
-                See the <a href="reference.html#plugins"><code>/plugins</code></a> command for more information on installing and enabling/disabling plugins. 
+                See the <a href="reference.html#plugins"><code>/plugins</code></a> command for more information on
+                installing and enabling/disabling plugins.
             </p>
             <p>
-                If a plugin registers it's own commands, the usual <a href="reference.html#help"><code>/help</code></a> command can be used to find out more information:
+                If a plugin registers it's own commands, the usual <a href="reference.html#help"><code>/help</code></a>
+                command can be used to find out more information:
             </p>
             <pre><code>/help say</code></pre>
         </section>
@@ -83,48 +96,64 @@
             </p>
             <table>
                 <tr>
-                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/ascii.py" target="_blank"><code>ascii.py</code></a></td>
+                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/ascii.py"
+                            target="_blank"><code>ascii.py</code></a></td>
                     <td>Convert text to ascii art text and send to the current recipient or room.</td>
                 </tr>
                 <tr>
-                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/browser.py" target="_blank"><code>browser.py</code></a></td>
+                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/browser.py"
+                            target="_blank"><code>browser.py</code></a></td>
                     <td>Open received links in the system default browser.</td>
                 </tr>
                 <tr>
-                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/clients.py" target="_blank"><code>clients.py</code></a></td>
-                    <td>Show client software used by each occupant in the current chat room, using <a href="https://xmpp.org/extensions/xep-0092.html" target="_blank">xep-0092 Software Version</a>.</td>
+                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/clients.py"
+                            target="_blank"><code>clients.py</code></a></td>
+                    <td>Show client software used by each occupant in the current chat room, using <a
+                            href="https://xmpp.org/extensions/xep-0092.html" target="_blank">xep-0092 Software
+                            Version</a>.</td>
                 </tr>
                 <tr>
-                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/imgur.py" target="_blank"><code>imgur.py</code></a></td>
+                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/imgur.py"
+                            target="_blank"><code>imgur.py</code></a></td>
                     <td>Send a local image file or a screenshot to a recipient or chat room using imgur.com.</td>
                 </tr>
                 <tr>
-                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/paste.py" target="_blank"><code>paste.py</code></a></td>
+                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/paste.py"
+                            target="_blank"><code>paste.py</code></a></td>
                     <td>Send the contents of the clipboard to the current recipient or room.</td>
                 </tr>
                 <tr>
-                    <td><a href="https://github.com/Neo-Oli/profanity-termux-notification" target="_blank"><code>termuxnotify.py</code></a></td>
-                    <td>Notifications for Termux on Android.<br> See also <a href="https://github.com/Neo-Oli/profanity-notifycmd" target="_blank"><code>notifycmd.py</code></a> for a generic version to run any system command on new messages.</td>
+                    <td><a href="https://github.com/Neo-Oli/profanity-termux-notification"
+                            target="_blank"><code>termuxnotify.py</code></a></td>
+                    <td>Notifications for Termux on Android.<br> See also <a
+                            href="https://github.com/Neo-Oli/profanity-notifycmd"
+                            target="_blank"><code>notifycmd.py</code></a> for a generic version to run any system
+                        command on new messages.</td>
                 </tr>
                 <tr>
-                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/presence_notify.py" target="_blank"><code>presence_notify.py</code></a></td>
+                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/presence_notify.py"
+                            target="_blank"><code>presence_notify.py</code></a></td>
                     <td>Configure desktop notifications for presence updates from contacts.</td>
                 </tr>
                 <tr>
-                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/say.py" target="_blank"><code>say.py</code></a></td>
+                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/say.py"
+                            target="_blank"><code>say.py</code></a></td>
                     <td>Read out loud messages from recipients or in chat rooms.</td>
                 </tr>
                 <tr>
-                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/sounds.py" target="_blank"><code>sounds.py</code></a></td>
+                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/sounds.py"
+                            target="_blank"><code>sounds.py</code></a></td>
                     <td>Play sounds when messages received.</td>
                 </tr>
                 <tr>
-                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/syscmd.py" target="_blank"><code>syscmd.py</code></a></td>
+                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/syscmd.py"
+                            target="_blank"><code>syscmd.py</code></a></td>
                     <td>Display the result shell commands in a new window.<br>
-Send results of shell commands to recipients or chat rooms.</td>
+                        Send results of shell commands to recipients or chat rooms.</td>
                 </tr>
                 <tr>
-                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/wikipedia-prof.py" target="_blank"><code>wikipedia-prof.py</code></a></td>
+                    <td><a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/wikipedia-prof.py"
+                            target="_blank"><code>wikipedia-prof.py</code></a></td>
                     <td>Search wikipedia and show search results, pages, links etc in a new window.</td>
                 </tr>
             </table>
@@ -133,7 +162,8 @@ Send results of shell commands to recipients or chat rooms.</td>
             <a name="developing-plugins"></a>
             <h3>Developing Plugins</h3>
             <p>
-                Profanity provides an API for plugins to access various functionality. Plugins may also implement 'hooks' that Profanity will call on specific events.
+                Profanity provides an API for plugins to access various functionality. Plugins may also implement
+                'hooks' that Profanity will call on specific events.
             </p>
             <a name="python-plugins"></a>
             <h4>Python</h4>
@@ -141,52 +171,61 @@ Send results of shell commands to recipients or chat rooms.</td>
                 Python plugins need to import the <code>prof</code> module to access the API.
             </p>
             <p>
-                Profanity may be compiled against Python 2 or Python 3, so plugins should be able to work with both, the <a href="https://pypi.python.org/pypi/future" target="_blank">future</a> library can be used in most cases.
-            <p>
-                Full documentation of the <code>prof</code> module and the hooks a plugin may implement can be found at:
-            </p>
-            <p>
-                <a href="plugins/0.5.1/python/html/index.html">0.5.1 to 0.6.0 Python API documentation</a>
-            </p>
-            <p>
-                Previous versions:<br>
-                <a href="plugins/0.5.0/python/html/index.html">0.5.0</a>
-            </p>
-            <a name="c-plugins"></a>
-            <h4>C</h4>
-            <p>
-                C plugins need to include the <code>profapi.h</code> header to access the API, and must be linked against <code>libprofanity</code> using the linker flag <code>-lprofanity</code>.
-            </p>
-            <p>
-                C plugins should include a <code>Makefile</code> to build a shared library (a <code>.so</code> file) which is the file Profanity will load.
-            </p>
-            <p>
-                Full documentation of the <code>profapi.h</code> header and the hooks a plugin may implement can be found at:
-            </p>
-            <p>
-                <a href="plugins/0.5.1/c/html/index.html">0.5.1 to 0.6.0 C API documentation</a>
-            </p>
-            <p>
-                Previous versions:<br>
-                <a href="plugins/0.5.0/c/html/index.html">0.5.0</a>
-            </p>
+                Profanity may be compiled against Python 2 or Python 3, so plugins should be able to work with both, the
+                <a href="https://pypi.python.org/pypi/future" target="_blank">future</a> library can be used in most
+                cases.
+                <p>
+                    Full documentation of the <code>prof</code> module and the hooks a plugin may implement can be found
+                    at:
+                </p>
+                <p>
+                    <a href="plugins/0.5.1/python/html/index.html">0.5.1 to 0.6.0 Python API documentation</a>
+                </p>
+                <p>
+                    Previous versions:<br>
+                    <a href="plugins/0.5.0/python/html/index.html">0.5.0</a>
+                </p>
+                <a name="c-plugins"></a>
+                <h4>C</h4>
+                <p>
+                    C plugins need to include the <code>profapi.h</code> header to access the API, and must be linked
+                    against <code>libprofanity</code> using the linker flag <code>-lprofanity</code>.
+                </p>
+                <p>
+                    C plugins should include a <code>Makefile</code> to build a shared library (a <code>.so</code> file)
+                    which is the file Profanity will load.
+                </p>
+                <p>
+                    Full documentation of the <code>profapi.h</code> header and the hooks a plugin may implement can be
+                    found at:
+                </p>
+                <p>
+                    <a href="plugins/0.5.1/c/html/index.html">0.5.1 to 0.6.0 C API documentation</a>
+                </p>
+                <p>
+                    Previous versions:<br>
+                    <a href="plugins/0.5.0/c/html/index.html">0.5.0</a>
+                </p>
         </section>
         <section>
             <a name="themes-settings"></a>
             <h3>Themes and Settings</h3>
             <p>
-                Plugins may make use of themes and settings by accessing the following files: 
+                Plugins may make use of themes and settings by accessing the following files:
             </p>
             <pre><code>~/.local/share/profanity/plugin_themes
 ~/.local/share/profanity/plugin_settings</code></pre>
             <p>
-                Example theme properties for <a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/syscmd.py" target="_blank">syscmd.py</a>:
+                Example theme properties for <a
+                    href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/syscmd.py"
+                    target="_blank">syscmd.py</a>:
             </p>
             <pre><code>[system]
 command=cyan
 result=green</code></pre>
             <p>
-                Example settings for <a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/say.py" target="_blank">say.py</a>:
+                Example settings for <a href="https://github.com/boothj5/profanity-plugins/blob/0.5.1/stable/say.py"
+                    target="_blank">say.py</a>:
             </p>
             <pre><code>[say]
 args=-v english -s 120
@@ -196,17 +235,20 @@ enabled=active</code></pre>
                 API functions are available to read and write to the settings and theme files.
             </p>
             <p>
-                Plugins should contain documentation on the available settings and colours, most plugins have a command to manipulate settings. 
+                Plugins should contain documentation on the available settings and colours, most plugins have a command
+                to manipulate settings.
             </p>
         </section>
         <section>
             <a name="contributing-plugins"></a>
             <h3>Contributing Plugins</h3>
             <p>
-                Submit a pull request to the <a href="https://github.com/boothj5/profanity-plugins" target="_blank">profanity-plugins</a> project.
+                Submit a pull request to the <a href="https://github.com/boothj5/profanity-plugins"
+                    target="_blank">profanity-plugins</a> project.
             </p>
             <p>
-                If the current API doesn't have what you need, raise an issue at the <a href="https://github.com/boothj5/profanity" target="_blank">Profanity</a> repository.
+                If the current API doesn't have what you need, raise an issue at the <a
+                    href="https://github.com/boothj5/profanity" target="_blank">Profanity</a> repository.
             </p>
         </section>
     </article>
@@ -214,4 +256,5 @@ enabled=active</code></pre>
         <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
     </footer>
 </body>
+
 </html>

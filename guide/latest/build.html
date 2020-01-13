@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Profanity, a console based XMPP client - Manual Building</title>
     <meta charset="utf-8">
     <meta http-equiv="Expires" content="-1">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
-    <link href="../../css/profanity.css" type="text/css" rel="stylesheet"><!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <link href="../../css/profanity.css" type="text/css" rel="stylesheet">
+
     <script type="text/javascript" src="../../js/analytics.js"></script>
     <script type="text/javascript" src="../../js/trackclicks.js"></script>
 </head>
+
 <body id="article">
     <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration">
     <header>
-        <a href="userguide.html"><h1>User Guide</h1></a>
+        <a href="userguide.html">
+            <h1>User Guide</h1>
+        </a>
         <h2>Manual Building</h2>
 
     </header>
@@ -34,22 +38,30 @@
             <a name="build"></a>
             <h3>Building</h3>
 
-            <p>Profanity uses the Autotools for it's build system. The Autotools consist of Autoconf and Automake. This page doesn't go in any detail about the Autotools, but describes the commands needed to build Profanity, and brief descriptions of the various stages. You will also need autoconf-archive.</p>
+            <p>Profanity uses the Autotools for it's build system. The Autotools consist of Autoconf and Automake. This
+                page doesn't go in any detail about the Autotools, but describes the commands needed to build Profanity,
+                and brief descriptions of the various stages. You will also need autoconf-archive.</p>
 
-            <p>You can either download the archive from the homepage or use git, a version control system, to get the latest code.</p>
+            <p>You can either download the archive from the homepage or use git, a version control system, to get the
+                latest code.</p>
             <p>If you want to get the latest version from git you'll have to do:</p>
             <pre><code>git clone https://github.com/profanity-im/profanity</code></pre>
 
             <p>After obtaining the source code, and extracting it, use the following commands to build and install<p>
-            <pre><code>./bootstrap.sh
+                    <pre><code>./bootstrap.sh
 ./configure
 make
 make install</code></pre>
-            <p>The first step is only needed if you pulled from git</p>
-            <p>The final step requires root privileges.</p>
+                    <p>The first step is only needed if you pulled from git</p>
+                    <p>The final step requires root privileges.</p>
 
-            <p>Various dependencies are required to install Profanity, the <code>./configure</code> script will fail if the minimum dependencies cannot be found.<p>
-            <p>The latest code in <code>master</code> is also kept up to date with development changes to libmesode/libstrophe, so a manual build of this library may also be needed, see the <a target="_blank" href="https://github.com/boothj5/libmesode/blob/master/README.markdown">README</a> at libmesode.</p>
+                    <p>Various dependencies are required to install Profanity, the <code>./configure</code> script will
+                        fail if the minimum dependencies cannot be found.<p>
+                            <p>The latest code in <code>master</code> is also kept up to date with development changes
+                                to libmesode/libstrophe, so a manual build of this library may also be needed, see the
+                                <a target="_blank"
+                                    href="https://github.com/boothj5/libmesode/blob/master/README.markdown">README</a>
+                                at libmesode.</p>
         </section>
         <section>
             <a name="pkgdeps"></a>
@@ -66,7 +78,11 @@ pkg-config</code></pre>
 
             <h4>Required dependencies:</h4>
 
-            <p>Profanity can be built against either <a href="https://github.com/strophe/libstrophe" target="_blank">libstrophe</a>, or <a href="https://github.com/boothj5/libmesode" target="_blank">libmesode</a>. Libmesode has a few extra features around manual TLS certificate verification.  Version 0.6.0 (and above) of Profanity requires version 0.9.2 of libstrophe or libmesode.</p>
+            <p>Profanity can be built against either <a href="https://github.com/strophe/libstrophe"
+                    target="_blank">libstrophe</a>, or <a href="https://github.com/boothj5/libmesode"
+                    target="_blank">libmesode</a>. Libmesode has a few extra features around manual TLS certificate
+                verification. Version 0.6.0 (and above) of Profanity requires version 0.9.2 of libstrophe or libmesode.
+            </p>
 
             <p>Profanity also requires:</p>
             <pre><code>libncursesw5-dev
@@ -90,7 +106,8 @@ libcmocka-dev            # To run tests</code></pre>
             <a name="distrodeps"></a>
             <h3>Distribution details:</h3>
 
-            <p>To make it easier to install all the required packages in various distributions we collect copy pastes here.</p>
+            <p>To make it easier to install all the required packages in various distributions we collect copy pastes
+                here.</p>
 
             <h4>Debian</h4>
             <pre><code>apt-get install libcaca-dev libnotify-dev libgtk2.0-dev libotr5-dev libssl-dev libstrophe-dev pkg-config python3-dev libexpat1-dev libncursesw5-dev libglib2.0-dev libreadline-dev libgpgme11-dev libcurl4-gnutls-dev uuid-dev libcmocka-dev libgcrypt20-dev libsignal-protocol-c-dev libxss-dev
@@ -105,7 +122,9 @@ libcmocka-dev            # To run tests</code></pre>
             <h4>Mac OS</h4>
             <pre><code>brew install autoconf autoconf-archive automake libtool pkg-config glib gnutls gpgme libotr libstrophe openssl ossp-uuid readline terminal-notifier libsignal-protocol-c</code></pre>
 
-            <p>Some required packages are "keg-only", which means they are not symlinked into /usr/local, therefore pkg-config will fail when detecting the libraries and the build will fail. In order to fix this we need to add these packages to the PKG_CONFIG_PATH.</p>
+            <p>Some required packages are "keg-only", which means they are not symlinked into /usr/local, therefore
+                pkg-config will fail when detecting the libraries and the build will fail. In order to fix this we need
+                to add these packages to the PKG_CONFIG_PATH.</p>
 
             <pre><code>
 export PKG_CONFIG_PATH="/usr/local/opt/ncurses/lib/pkgconfig:$PKG_CONFIG_PATH"
@@ -119,13 +138,14 @@ export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"
             <a name="installscript"></a>
             <h3>Helper script</h3>
 
-            <p>A helper script has been written to install all required and optional dependencies and run the above steps. This script currently supports Ubuntu, Fedora, Centos, openSUSE and Cygwin.<p>
-            <p>Download the script into the project directory and run it:<p>
-            <pre><code>wget https://profanity-im.github.io/install-all.sh
+            <p>A helper script has been written to install all required and optional dependencies and run the above
+                steps. This script currently supports Ubuntu, Fedora, Centos, openSUSE and Cygwin.<p>
+                    <p>Download the script into the project directory and run it:<p>
+                            <pre><code>wget https://profanity-im.github.io/install-all.sh
 chmod u+x install-all.sh
 ./install-all.sh</code></pre>
 
-            <p>The script might not be entirely up to date!<p>
+                            <p>The script might not be entirely up to date!<p>
         </section>
         <section>
             <a name="expl"></a>
@@ -135,7 +155,8 @@ chmod u+x install-all.sh
             <p>configure.ac – Macro definitions to configure profanity for the target environment (autoconf)</p>
             <p>Makefile.am – Template Makefile (automake)</p>
 
-            <p>These files are the inputs to generating the actual configure script and Makefile required to configure and compile Profanity.</p>
+            <p>These files are the inputs to generating the actual configure script and Makefile required to configure
+                and compile Profanity.</p>
 
             <h4>Generating a configure script</h4>
 
@@ -143,8 +164,12 @@ chmod u+x install-all.sh
 
             <pre><code>./bootstrap.sh</code></pre>
 
-            <p>This phase only needs to be run when changes have been made to configure.ac, however it does no harm to run it on every build. This phase also generates other files needed to create a config.h header (variables used in the main code), and a Makefile (used for compilation).</p>
-            <p>Why not just write configure yourself, instead of writing configure.ac and generating one with bootstrap.sh? Take a look at the generated configure script and you'll see why, there's a lot of work involved in writing a configure script.</p>
+            <p>This phase only needs to be run when changes have been made to configure.ac, however it does no harm to
+                run it on every build. This phase also generates other files needed to create a config.h header
+                (variables used in the main code), and a Makefile (used for compilation).</p>
+            <p>Why not just write configure yourself, instead of writing configure.ac and generating one with
+                bootstrap.sh? Take a look at the generated configure script and you'll see why, there's a lot of work
+                involved in writing a configure script.</p>
             <p>The bootstrap.sh file is very simple, it just runs autoreconf --install see autoreconf</p>
 
             <h4>Configuring</h4>
@@ -163,7 +188,8 @@ Makefile</code></pre>
 
             <pre><code>make</code></pre>
 
-            <p>Once you have run ./bootstrap.sh and ./configure once, if all you are doing is making code changes, then you only need to run make to recompile your changes.</p>
+            <p>Once you have run ./bootstrap.sh and ./configure once, if all you are doing is making code changes, then
+                you only need to run make to recompile your changes.</p>
             <p>To perform a clean build (i.e. remove all compiled files and recompile)</p>
 
             <pre><code>make clean
@@ -180,18 +206,22 @@ make</code></pre>
 
             <h4>Install</h4>
 
-            <p>Once you have compiled profanity with make, the executable will be available in the current directory:</p>
+            <p>Once you have compiled profanity with make, the executable will be available in the current directory:
+            </p>
             <pre><code>./profanity</code></pre>
 
             <p>To install this version on your system, i.e. to be able to run it from anywhere:</p>
 
             <pre><code>sudo make install</code></pre>
 
-            <p>This step is not really necessary when doing development (i.e. you can always run the version just compiled in the project directory), unless you want to have your development version available to any users on your system.</p>
+            <p>This step is not really necessary when doing development (i.e. you can always run the version just
+                compiled in the project directory), unless you want to have your development version available to any
+                users on your system.</p>
         </section>
     </article>
     <footer>
         <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
     </footer>
 </body>
+
 </html>
