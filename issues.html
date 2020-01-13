@@ -1,66 +1,78 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Profanity, a console based XMPP client - Reporting issues</title>
     <meta charset="utf-8">
-    <meta http-equiv="Expires" content="-1"> 
+    <meta http-equiv="Expires" content="-1">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
     <link href="css/profanity.css" type="text/css" rel="stylesheet">
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/analytics.js"></script> 
+
+    <script type="text/javascript" src="js/analytics.js"></script>
     <script type="text/javascript" src="js/trackclicks.js"></script>
 </head>
+
 <body id="article">
-    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">
     <header>
-        <a href="index.html"><h1>Profani<span class="kern-ty">ty</span></h1></a>
+        <a href="index.html">
+            <h1>Profani<span class="kern-ty">ty</span></h1>
+        </a>
         <h2>Reporting Issues</h2>
     </header>
     <article id="manual">
         <section>
             <h3>Contents</h3>
-            
+
             <ul>
                 <li><a href="#where">Where to report issues</a>
                 <li><a href="#proflogs">Attaching logs</a>
                 <li><a href="#config">Attaching configuration files</a>
                 <li><a href="#backtrace">Getting a backtrace</a>
-                <ul>
-                    <li><a href="#ulimit">Enabling coredumps</a></li>
-                    <li><a href="#configuredebug">Rebuild in debug mode</a></li>
-                    <li><a href="#viewingbacktrace">Viewing the backtrace</a></li>
-                <ul>
-            </ul>
+                    <ul>
+                        <li><a href="#ulimit">Enabling coredumps</a></li>
+                        <li><a href="#configuredebug">Rebuild in debug mode</a></li>
+                        <li><a href="#viewingbacktrace">Viewing the backtrace</a></li>
+                        <ul>
+                        </ul>
         </section>
         <section>
             <a name="where"></a>
             <h3>Where to report issues</h3>
 
-            <p>The best place to report issues is at the <a target="_blank" href="https://github.com/boothj5/profanity/issues">github issue tracker</a>.</p>
-            <p>Other options are the mailing list at <a target="_blank" href="https://groups.google.com/forum/#!forum/profanitydev">Google groups</a>,
-or send a mail directly to <span style="color: #4db0c4;">boothj5web@gmail.com</span>.</p>
-            <p>The following would be helpful in diagnosing/reproducing the issue if you can possibly supply it: environment (OS, OS version, window manager, terminal type), profanity release version or commit hash if from development, XMPP server and/or recipient's XMPP client if the issue only occurs with certain servers/clients, finally any information about the build configuration and enabled features.</p>
+            <p>The best place to report issues is at the <a target="_blank"
+                    href="https://github.com/boothj5/profanity/issues">github issue tracker</a>.</p>
+            <p>Other options are the mailing list at <a target="_blank"
+                    href="https://groups.google.com/forum/#!forum/profanitydev">Google groups</a>,
+                or send a mail directly to <span style="color: #4db0c4;">boothj5web@gmail.com</span>.</p>
+            <p>The following would be helpful in diagnosing/reproducing the issue if you can possibly supply it:
+                environment (OS, OS version, window manager, terminal type), profanity release version or commit hash if
+                from development, XMPP server and/or recipient's XMPP client if the issue only occurs with certain
+                servers/clients, finally any information about the build configuration and enabled features.</p>
             <p>If you cant supply the above information, a simple description will do.</p>
         </section>
         <section>
             <a name="proflogs"></a>
             <h3>Attaching logs</h3>
 
-            <p>The logs can often help to diagnose an issue.  Firstly run Profanity in debug mode to enable full debug logging:</p>
+            <p>The logs can often help to diagnose an issue. Firstly run Profanity in debug mode to enable full debug
+                logging:</p>
             <pre><code>profanity -l DEBUG</code></pre>
             <p>Then recreate the issue and attach the log (or a useful section of it) found in:</p>
             <pre><code>$XDG_DATA_HOME/profanity/logs/profanity.log</code></pre>
             <p>Which on most systems is:</p>
             <pre><code>~/.local/share/profanity/logs/profanity.log</pre></code>
-            <p>Remember to remove or obfuscate any private information in the logs. In particular check for credentials in connection logging.  For example the auth mechanism PLAIN sends the credentials as a base64 string which can be easily reversed to get your username and password, e.g.:</p>
+            <p>Remember to remove or obfuscate any private information in the logs. In particular check for credentials
+                in connection logging. For example the auth mechanism PLAIN sends the credentials as a base64 string
+                which can be easily reversed to get your username and password, e.g.:</p>
             <pre><code>12/12/2014 14:22:01: conn: DBG: SENT: &lt;auth mechanism="PLAIN" xmlns="urn:ietf:params:xml:ns:xmpp-sasl"&gt;<b>AG9saXZlci5tdWVoc2FtAE5oYTEyMDhnIw==</b>&lt;/auth&gt;</code></pre>
         </section>
         <section>
             <a name="config"></a>
             <h3>Attaching configuration files</h3>
-            <p>Some issues are only reproducible using certain configuration options, so attaching your config can also help.  Profanity stores its core config in:</p> 
+            <p>Some issues are only reproducible using certain configuration options, so attaching your config can also
+                help. Profanity stores its core config in:</p>
             <pre><code>$XDG_CONFIG_HOME/profanity/profrc</code></pre>
             <p>Which on most systems is:</p>
             <pre><code>~/.config/profanity/profrc</pre></code>
@@ -68,21 +80,27 @@ or send a mail directly to <span style="color: #4db0c4;">boothj5web@gmail.com</s
             <pre><code>$XDG_DATA_HOME/profanity/accounts</code></pre>
             <p>Which on most systems is:</p>
             <pre><code>~/.local/share/profanity/accounts</pre></code>
-            <p>Remember to remove or obfuscate any usernames/passwords from the configuration before sending, for example, account configuration will include your password if you have set one using the <a href="reference.html#account">/account</a> command.</p>
+            <p>Remember to remove or obfuscate any usernames/passwords from the configuration before sending, for
+                example, account configuration will include your password if you have set one using the <a
+                    href="reference.html#account">/account</a> command.</p>
         </section>
         <section>
             <a name="backtrace"></a>
             <h3>Getting a backtrace</h3>
 
-            <p>Segfaults and crashes usually result in a coredump which can be useful in debugging the problem. If you have the time, the following instructions should help when attaching a backtrace from a crash.</p>
+            <p>Segfaults and crashes usually result in a coredump which can be useful in debugging the problem. If you
+                have the time, the following instructions should help when attaching a backtrace from a crash.</p>
 
             <a name="ulimit"></a>
             <h4>Enabling coredumps</h4>
-            <p>The following command will enable coredumps of unlimited size to be generated in the current terminal session:</p>
+            <p>The following command will enable coredumps of unlimited size to be generated in the current terminal
+                session:</p>
             <pre><code>ulimit -c unlimited</code></pre>
-            <p>If you prefer to set a limit, the argument is in Kilobytes, for example to allow coredumps of up to 100MB:</p>
+            <p>If you prefer to set a limit, the argument is in Kilobytes, for example to allow coredumps of up to
+                100MB:</p>
             <pre><code>ulimit -c 102400</code></pre>
-            <p>Add the command to your <code>~/.bashrc</code> or equivalent to enable coredumps for all terminal sessions.</p>
+            <p>Add the command to your <code>~/.bashrc</code> or equivalent to enable coredumps for all terminal
+                sessions.</p>
 
             <hr>
             <a name="configuredebug"></a>
@@ -93,24 +111,31 @@ or send a mail directly to <span style="color: #4db0c4;">boothj5web@gmail.com</s
 ./configure-debug  # calls ./configure with debug options
 make clean
 make</code></pre>
-            <p>This will only build an executable in the source folder and will not overwrite your system installed version. To run the newly built version, in the source folder run:</p>
+            <p>This will only build an executable in the source folder and will not overwrite your system installed
+                version. To run the newly built version, in the source folder run:</p>
             <pre><code>./profanity</code></pre>
-            <p>Note, if you installed from Homebrew on OSX it is recommended to clone and build from github (checking out the relevant release tag) using the above steps, unless you are happy with editing and reinstalling brew formula.</p>
+            <p>Note, if you installed from Homebrew on OSX it is recommended to clone and build from github (checking
+                out the relevant release tag) using the above steps, unless you are happy with editing and reinstalling
+                brew formula.</p>
 
             <hr>
             <a name="viewingbacktrace"></a>
             <h4>Viewing the backtrace</h4>
             <p>On Linux, you will need the GDB debugger installed for your distribution.</p>
-            <p>The coredump will be created in the folder in which you built and ran profanity, firstly start GDB pointing to profanity and the coredump:</p>
+            <p>The coredump will be created in the folder in which you built and ran profanity, firstly start GDB
+                pointing to profanity and the coredump:</p>
             <pre><code>gdb ./profanity core</code></pre>
             <p>To view the backtrace in GDB:</p>
             <pre><code>bt</code></pre>
-            <p>On OSX, the coredump can be found somewhere in the system console (usually in Applications->Utilities->Console in the finder). It should be named with "profanity" and the date and time of the crash.</p>
-            
+            <p>On OSX, the coredump can be found somewhere in the system console (usually in
+                Applications->Utilities->Console in the finder). It should be named with "profanity" and the date and
+                time of the crash.</p>
+
         </section>
     </article>
     <footer>
         <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
     </footer>
 </body>
+
 </html>

@@ -1,53 +1,37 @@
-$(document).ready(function () {
-    $("#link-mailinglist").click(function (e) {
-        _gaq.push(['_trackEvent', 'links', 'clicked', "mailing list"]);
-    });
+(function () {
 
-    $("#link-mailinglist2").click(function (e) {
-        _gaq.push(['_trackEvent', 'links', 'clicked', "mailing list"]);
-    });
+    var toTrackArray = [
+        { selector: "#link-mailinglist", type: "mailing list" },
+        { selector: "#link-mailinglist2", type: "mailing list" },
+        { selector: "#link-github", type: "github" },
+        { selector: "#link-githubissues", type: "github issues" },
+        { selector: "#link-helpout", type: "help out" },
+        { selector: "#link-plugins", type: "plugins github" },
+        { selector: "#link-websitesource", type: "website source" },
+        { selector: "#link-mailinglist", type: "mailing list" },
+        { selector: "#link-mailinglist", type: "mailing list" },
+        { selector: "#link-otr", type: "otr" },
+        { selector: "#link-googleplus", type: "google plus" },
+        { selector: "#link-twitter", type: "twitter" },
+        { selector: "#robroom-brew", type: "mac-brew" },
+        { selector: "#louiecaulfield-macports", type: "mac-ports" },
+        { selector: "#cyg-ports", type: "cygwin ports" },
+    ]
 
-    $("#link-github").click(function (e) {
-        _gaq.push(['_trackEvent', 'links', 'clicked', "github"]);
-    });
+    var trackClicks = function () {
+        toTrackArray.forEach(function (toTrack) {
+            document.querySelector(toTrack.selector)
+                && document.querySelector(toTrack.selector).addEventListener('click', function () {
+                    _gaq.push(['_trackEvent', 'links', 'clicked', toTrack.type])
+                })
 
-    $("#link-githubissues").click(function (e) {
-        _gaq.push(['_trackEvent', 'links', 'clicked', "github issues"]);
-    });
+        })
+    };
 
-    $("#link-helpout").click(function (e) {
-        _gaq.push(['_trackEvent', 'links', 'clicked', "help out"]);
-    });
+    if (document.readyState !== 'loading') {
+        trackClicks();
+    } else {
+        document.addEventListener('DOMContentLoaded', trackClicks);
+    }
 
-    $("#link-plugins").click(function (e) {
-        _gaq.push(['_trackEvent', 'links', 'clicked', "plugins github"]);
-    });
-
-    $("#link-websitesource").click(function (e) {
-        _gaq.push(['_trackEvent', 'links', 'clicked', "website source"]);
-    });
-
-    $("#link-otr").click(function (e) {
-        _gaq.push(['_trackEvent', 'links', 'clicked', "otr"]);
-    });
-
-    $("#link-googleplus").click(function (e) {
-        _gaq.push(['_trackEvent', 'links', 'clicked', "google plus"]);
-    });
-
-    $("#link-twitter").click(function (e) {
-        _gaq.push(['_trackEvent', 'links', 'clicked', "twitter"]);
-    });
-
-    $("#robroom-brew").click(function (e) {
-        _gaq.push(['_trackEvent', 'links', 'clicked', "mac-brew"]);
-    });
-
-    $("#louiecaulfield-macports").click(function (e) {
-        _gaq.push(['_trackEvent', 'links', 'clicked', "mac-ports"]);
-    });
-
-    $("#cyg-ports").click(function (e) {
-        _gaq.push(['_trackEvent', 'links', 'clicked', "cygwin ports"]);
-    });
-});
+})();

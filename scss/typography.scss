@@ -5,7 +5,7 @@
 @include keyframes(fadeInH1) {
 	0% {
 		opacity: 0;
-		@include transform(translatex(-1em));
+		transform: translatex(-1em);
 		}
 	
 	100% {
@@ -16,11 +16,11 @@
 @include keyframes(fadeInH2) {
 	0% {
 		opacity: 0;
-		@include transform(translatex(-0.6em));
+		transform: translatex(-0.6em);
 	}
 	40% {
 		opacity: 0;
-		@include transform(translatex(-0.6em));
+		transform: translatex(-0.6em);
 	}		
 	100% {
 		opacity: 1;
