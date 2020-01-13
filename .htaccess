@@ -1,6 +1,0 @@
-<IfModule mod_rewrite.c>
-  Options +FollowSymLinks
-	RewriteEngine on
-	RewriteCond %{HTTP_HOST} ^profanity.im [NC]
-	RewriteRule ^(.*)$ http://www.profanity.im/$1 [R=301,L]
-</IfModule>
