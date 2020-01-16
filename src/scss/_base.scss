@@ -1,0 +1,130 @@
+$baseline: 5px;
+
+$ice: #4db0c4;
+$backgroundShade: #df3a26;
+$backgroundShadeGreyRed: #894536;
+$backgroundShademud: #ffeedd;
+$grey: #7c7e7c;
+$contrastText: #0e181a;
+$landingBody: #d9f5f8;
+$bodyText: #222222;
+
+// Imports -------------------------------------------------------------------
+
+// @import "susy";
+
+// Mixin -------------------------------------------------------------------
+
+@mixin border-arrow(
+  $box-size: 4em,
+  $side: left,
+  $style: solid,
+  $box-color: #888,
+  $position: relative,
+  $rounded: false,
+  $affect-parent-dimension: true
+) {
+  position: $position;
+  @if $affect-parent-dimension == true {
+    @if $side == left or $side == right {
+      height: $box-size;
+    } @else {
+      width: $box-size;
+    }
+  }
+  &:before {
+    content: "";
+    display: table;
+    position: absolute;
+    @if $rounded == true {
+      border: $box-size * 0.7 solid transparent;
+      border-#{opposite-position($side)}: $box-size * 0.7 $style $box-color;
+      border-radius: $box-size * 1.3;
+
+      @if $side == left or $side == right {
+        top: -20%;
+        #{$side}: -$box-size * 1.2;
+      } @else if $side == top or $side == bottom {
+        #{$side}: -$box-size * 1.18;
+        right: -20%;
+      }
+    } @else {
+      border: $box-size/2 solid transparent;
+      border-#{opposite-position($side)}: $box-size/2 $style $box-color;
+      @if $side == left or $side == right {
+        top: 0;
+        #{opposite-position($side)}: 100%;
+      } @else if $side == top or $side == bottom {
+        #{$side}: -$box-size;
+        right: 0%;
+      }
+    }
+  }
+}
+
+@mixin alpha-border-shape(
+  $style: solid,
+  $border-size: 1em,
+  $shape-colour: #666666,
+  $side: left
+) {
+  border-#{$side}: $style $border-size $shape-colour;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+* html {
+  //legacy and can go?
+  font-size: 93.75%;
+}
+
+html {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+// Grid ----------------------------------------------------------------------
+
+$total-columns: 4;
+$medium: 51.65625em;
+
+$cols-13: 65.15625em;
+
+$wide: 78.65625em;
+
+$cols-22: 105.65625em;
+
+$column-width: 2.9em;
+$gutter-width: 1.9em;
+$grid-padding: 4.5em; //default padding
+$container-style: fluid;
+$grid-padding-mobile: 1.8em;
+
+// Fonts
+
+@mixin sans-families {
+  font-family: Unica SB, Helvetica Neue, Arial, sans-serif;
+}
+
+// ---new custom vars
+
+$gap-vertical: 20px;
+
+@mixin font-size($size) {
+  font-size: $size;
+
+  @if ($size == 75px) {
+    line-height: 80px;
+  } @else if ($size >= 19px) {
+    line-height: 30px;
+  } @else {
+    line-height: 20px;
+  }
+}
+
+@mixin omega {
+  float: right;
+  margin-right: 0;
+}

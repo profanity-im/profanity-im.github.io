@@ -1,0 +1,384 @@
+@import "base";
+
+img {
+  vertical-align: bottom;
+}
+
+html {
+  height: 100%;
+  background: url("../images/talking-all-that-noise.png")
+    mix($backgroundShade, black, 90%);
+  min-width: 305px; //stop issues at small widths.
+  position: relative;
+}
+
+body {
+  min-height: 100%;
+  -ms-overflow-x: hidden;
+  overflow-x: hidden; //stop horizontal scrollbars
+  padding-left: $grid-padding-mobile;
+  padding-right: $grid-padding-mobile;
+  @media screen and (min-width: $medium) {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $grid-padding;
+    padding-right: $grid-padding;
+  }
+  @extend %clearfix;
+}
+
+div,
+article#manual {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: $gap-vertical * 3;
+  padding-bottom: $gap-vertical * 2;
+  @media screen and (min-width: $medium) {
+    padding-top: $gap-vertical * 4;
+    padding-bottom: $gap-vertical * 5;
+  }
+  @media screen and (min-width: $wide) {
+    padding-top: $gap-vertical * 7;
+    padding-bottom: $gap-vertical * 8;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+img.overlay {
+  padding: 0;
+  position: absolute;
+  right: $grid-padding-mobile;
+  top: 1em;
+  width: 27%;
+  max-width: 100%;
+  @extend %animation-base;
+  animation-duration: 1.5s;
+  animation-name: (fadeIn);
+  @media screen and (min-width: $medium) {
+    top: 0;
+    right: auto;
+    left: -2em;
+  }
+}
+
+#landing header {
+  @extend %clearfix;
+  position: relative;
+  width: 100%;
+  @media screen and (min-width: $medium) {
+    margin-top: $gap-vertical * 6;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: $gap-vertical * 7;
+  }
+  @media screen and (min-width: $cols-13) {
+    margin-top: $gap-vertical * 7.5;
+    margin-bottom: $gap-vertical * 7.5;
+  }
+  @media screen and (min-width: $wide) {
+    margin-top: $gap-vertical * 8.5;
+    margin-bottom: $gap-vertical * 8;
+  }
+  @media screen and (min-width: $cols-22) {
+    margin-top: $gap-vertical * 13;
+    margin-bottom: $gap-vertical * 9;
+  }
+}
+
+header {
+  margin-top: $gap-vertical * 3;
+  margin-bottom: $gap-vertical * 3;
+  a {
+    :link,
+    :visited,
+    :hover,
+    :active {
+      color: #222222;
+      text-decoration: none;
+    }
+  }
+}
+
+@keyframes fadeInDelay {
+  0% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#landing #content {
+  box-shadow: inset 0 0 100px transparentize(black, 0.5),
+    0 0 100px transparentize(white, 0.8);
+  background: url("../images/talking-all-that-noise.png")
+    mix($backgroundShade, black, 30%);
+  @extend %bleed;
+  @extend %clearfix;
+  @extend %fade-in-last;
+  @media screen and (min-width: $medium) {
+    p {
+      display: block;
+      width: 47.93926%;
+      float: left;
+      margin-right: 4.12148%;
+      &:nth-child(2) {
+        text-align: right;
+      }
+      &:nth-child(3) {
+        margin-top: $gap-vertical * 1.5;
+      }
+
+      &:nth-child(1n + 3) {
+        @include omega;
+      }
+      &:nth-child(1n + 4) {
+        clear: both;
+      }
+    }
+  }
+  @media screen and (min-width: $wide) {
+    p {
+      display: block;
+      &:nth-child(2) {
+        width: 42.3231%;
+        text-align: right;
+      }
+      &:nth-child(1n + 3) {
+        @include omega;
+      }
+      &:nth-child(1n + 4) {
+        clear: both;
+      }
+    }
+  }
+}
+#landing #features {
+  box-shadow: inset 0 0 40px transparentize(white, 0.7);
+  position: relative;
+  background: url("../images/talking-all-that-noise.png")
+    mix($backgroundShade, white, 90%);
+  @extend %bleed;
+  @extend %clearfix;
+  @extend %fade-in-last;
+  ul {
+    @extend %right-hand-block;
+  }
+  li {
+    list-style: none;
+  }
+  img {
+    float: right;
+    max-width: 33%;
+    top: -7em;
+    position: relative;
+    @media screen and (min-width: $medium) {
+      position: absolute;
+      right: auto;
+      left: $grid-padding;
+      top: auto;
+      bottom: 6em;
+    }
+  }
+}
+
+%fade-in-last {
+  * {
+    @extend %animation-base;
+    animation-duration: 2.2s;
+    animation-name: fadeInDelay;
+  }
+}
+
+%right-hand-block {
+  @media screen and (min-width: $medium) {
+    width: 47.93926%;
+    @include omega;
+  }
+  @media screen and (min-width: $wide) {
+    width: 48.73164%;
+  }
+}
+
+%bleed {
+  margin-left: -$grid-padding-mobile;
+  padding-left: $grid-padding-mobile;
+  margin-right: -$grid-padding-mobile;
+  padding-right: $grid-padding-mobile;
+  @media screen and (min-width: $medium) {
+    margin-left: -$grid-padding;
+    padding-left: $grid-padding;
+    margin-right: -$grid-padding;
+    padding-right: $grid-padding;
+  }
+}
+
+#landing #screenshots {
+  box-shadow: inset 0 0 100px transparentize(black, 0.7);
+  @extend %bleed;
+  @extend %clearfix;
+  ul {
+    @extend %right-hand-block;
+    list-style: none;
+  }
+  @media screen and (min-width: $cols-22) {
+    li {
+      width: 47.39726%;
+      float: left;
+      margin-right: 5.20548%;
+      &:nth-child(2n) {
+        @include omega;
+      }
+    }
+  }
+
+  a {
+    border-radius: 6px;
+    min-height: 10em;
+    border: 1em solid mix(black, $backgroundShade, 95%);
+    box-shadow: 0 0 0.5em mix($backgroundShade, $ice, 80%),
+      0 0 12em mix(black, $ice, 60%) inset;
+    padding: 2em 1em;
+    background-color: black;
+    background: black;
+    display: block;
+    text-align: center;
+    margin-bottom: 2em;
+    img {
+      vertical-align: middle;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+article#manual {
+  background: url("../images/talking-all-that-noise.png") #eee;
+  box-shadow: inset 0 0 100px transparentize(black, 0.7);
+  @extend %bleed;
+  @extend %clearfix;
+
+  section {
+    @media screen and (max-width: $medium) {
+      max-width: 35em;
+    }
+    hr {
+      border: 1px solid $backgroundShadeGreyRed;
+    }
+    position: relative;
+    @media screen and (min-width: $medium) {
+      margin-top: $gap-vertical * 2;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      margin-bottom: $gap-vertical * 2;
+      padding-left: 31.23644%;
+      h3 {
+        position: absolute;
+        margin-top: -0.05em;
+        left: 0;
+        width: 27.11497%;
+        text-align: right;
+      }
+      hr {
+        width: 68.76356%;
+        position: absolute;
+        margin-top: -0.5em;
+      }
+    }
+    @media screen and (min-width: $wide) {
+      padding-left: 32.04272%;
+      h3 {
+        width: 29.50601%;
+      }
+      hr {
+        width: 67.95728%;
+      }
+    }
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
+}
+
+#Zoomer {
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  padding: 4em 2em;
+  display: none;
+  background: rgba(0, 0, 0, 0.5) url("../images/stripey-dark.png") repeat;
+  margin-left: -$grid-padding-mobile;
+  @media screen and (min-width: $medium) {
+    margin-left: -$grid-padding;
+  }
+
+  img {
+    border: 2em solid black;
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    width: auto;
+    box-shadow: 0em 1em 3em black;
+  }
+
+  .control-icon {
+    width: 5em;
+    height: 5em;
+    position: absolute;
+    top: 2.5em;
+    right: 10%;
+    z-index: 30;
+    background: url(../images/close-button.svg);
+    background-size: contain;
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+footer {
+  margin-top: 0px;
+  padding-top: $gap-vertical * 4;
+  padding-bottom: $gap-vertical * 2;
+  margin-bottom: 0px;
+  background: url("../images/talking-all-that-noise.png")
+    mix($backgroundShade, black, 30%);
+  @extend %bleed;
+  @extend %clearfix;
+  box-shadow: inset 0 0 50px transparentize(black, 0.5),
+    -30px 0 70px transparentize(white, 0.7);
+  p {
+    float: left;
+    margin-right: 3em;
+  }
+}
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+%animation-base {
+  animation-timing-function: ease-out;
+  animation-fill-mode: backwards;
+}
