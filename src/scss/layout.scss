@@ -98,10 +98,10 @@ header {
   margin-top: $gap-vertical * 3;
   margin-bottom: $gap-vertical * 3;
   a {
-    :link,
-    :visited,
-    :hover,
-    :active {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
       color: #222222;
       text-decoration: none;
     }
