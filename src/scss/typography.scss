@@ -1,0 +1,281 @@
+@import "base";
+
+// @include establish-baseline;
+
+@keyframes fadeInH1 {
+  0% {
+    opacity: 0;
+    transform: translatex(-1em);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInH2 {
+  0% {
+    opacity: 0;
+    transform: translatex(-0.6em);
+  }
+  40% {
+    opacity: 0;
+    transform: translatex(-0.6em);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+  color: $bodyText;
+}
+
+p,
+ul,
+pre,
+code,
+td {
+  @include font-size(13px);
+  margin-bottom: $gap-vertical;
+  @media screen and (min-width: $medium) {
+    @include font-size(16px);
+    &.matty {
+      margin-right: 0;
+      float: right;
+    }
+  }
+  @media screen and (min-width: $wide) {
+    @include font-size(19px);
+  }
+}
+
+.kern-ty {
+  letter-spacing: 0em;
+}
+
+body {
+  @include sans-families;
+}
+#landing {
+  p {
+    text-shadow: 0 0 1px transparentize(black, 0.3);
+  }
+  p,
+  ul {
+    color: $landingBody;
+  }
+
+  h1 {
+    text-shadow: 0 0 7px transparentize(white, 0.5);
+    @include font-size(75px);
+    letter-spacing: -0.05em;
+    font-weight: normal;
+    @media screen and (min-width: $medium) {
+      width: 47.93926%;
+      float: left;
+      margin-right: 4.12148%;
+      text-align: right;
+      font-size: 95px;
+      line-height: 100px;
+    }
+    @media screen and (min-width: $wide) {
+      width: 42.3231%;
+      float: left;
+      margin-right: 2.53672%;
+      font-size: 160px;
+      line-height: 170px;
+    }
+    @extend %animation-base;
+    animation-duration: 1s;
+    animation-name: fadeInH1;
+  }
+
+  h2,
+  h3,
+  h4 {
+    text-shadow: 0 0 4px transparentize(black, 0.15);
+  }
+
+  h2 {
+    font-size: 30px;
+    color: $landingBody;
+    @media screen and (min-width: $medium) {
+      width: 100%;
+      padding-left: 52.06074%;
+      font-size: 35px;
+      line-height: 30px;
+      position: absolute;
+      bottom: 15%;
+    }
+    @media screen and (min-width: $wide) {
+      width: 100%;
+      padding-left: 51.26836%;
+      font-size: 55px;
+      line-height: 50px;
+    }
+    @extend %animation-base;
+    animation-duration: 1.5s;
+    animation-name: fadeInH2;
+  }
+  h3 {
+    @media screen and (min-width: $medium) {
+      width: 47.93926%;
+      float: left;
+      margin-right: 4.12148%;
+    }
+    @media screen and (min-width: $wide) {
+      width: 42.3231%;
+      float: left;
+      margin-right: 2.53672%;
+    }
+  }
+  h4 {
+    @media screen and (min-width: $medium) {
+      width: 100%;
+      text-align: right;
+      padding-right: 52.06074%;
+    }
+    @media screen and (min-width: $wide) {
+      padding-right: 57.6769%;
+    }
+  }
+  h3,
+  h4 {
+    color: $landingBody;
+    @media screen and (min-width: $medium) {
+      text-align: right;
+    }
+  }
+}
+
+h1 {
+  letter-spacing: -0.05em;
+  @media screen and (min-width: $medium) {
+    width: 27.11497%;
+    float: left;
+    margin-right: 4.12148%;
+    text-align: right;
+  }
+  @media screen and (min-width: $wide) {
+    width: 29.50601%;
+    float: left;
+    margin-right: 2.53672%;
+  }
+}
+
+h2 {
+  color: $landingBody;
+}
+
+h2,
+header h3 {
+  font-weight: 300;
+  @media screen and (min-width: $medium) {
+    width: 100%;
+    padding-left: 31.23644%;
+  }
+  @media screen and (min-width: $wide) {
+    width: 100%;
+    padding-left: 32.04272%;
+  }
+}
+
+h3,
+h4 {
+  display: block;
+}
+
+h3,
+h4 {
+  margin-bottom: $gap-vertical * 2;
+}
+
+h1,
+h2,
+h3 {
+  font-size: 28px;
+  line-height: 40px;
+  @media screen and (min-width: $medium) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  @media screen and (min-width: $wide) {
+    font-size: 35px;
+    line-height: 40px;
+  }
+}
+
+h4,
+section > ul > li {
+  font-size: 22px;
+  line-height: 30px;
+  @media screen and (min-width: $medium) {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  @media screen and (min-width: $wide) {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+// LINKS
+
+a {
+  text-shadow: 0 0 1px transparentize(black, 0.9);
+  text-decoration: none;
+  color: $ice;
+  &:hover {
+    color: mix($ice, white, 35%);
+    text-decoration: underline;
+  }
+}
+
+// LIST STYLES
+
+ul,
+ol {
+  font-weight: bolder;
+}
+
+li {
+  margin-top: $gap-vertical / 2;
+}
+
+// PRE STYLES
+
+pre {
+  font-family: "Courier New", Courier;
+  display: block;
+  @include font-size(13px);
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+// TABLE STYLING
+
+table {
+  margin: 0 0 $gap-vertical 0;
+  @include font-size(13px);
+  background-color: #f8f8f8;
+  border-collapse: collapse;
+}
+tr {
+  border-bottom: 1px dotted $backgroundShadeGreyRed;
+}
+tr:first-child {
+  border-top: 1px dotted $backgroundShadeGreyRed;
+}
+tr:nth-child(even) {
+  padding: 2em;
+  background-color: #eeeeee;
+}
+td {
+  border: 0px solid $landingBody;
+  padding: 1em 2em 1em 0.5em;
+}
+
+.hash {
+  word-break: break-word;
+}

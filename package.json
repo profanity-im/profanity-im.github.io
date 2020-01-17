@@ -1,0 +1,32 @@
+{
+  "name": "www_profanity_im",
+  "version": "1.0.0",
+  "description": "Sources for https://profanity-im.github.io",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode=development --watch",
+    "build": "webpack --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:profanity-im/profanity-im.github.io.gitm/www_profanity_im.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "git@github.com:profanity-im/profanity-im.github.io.git/issues"
+  },
+  "homepage": "https://github.com/MattyBalaam/www_profanity_im#readme",
+  "dependencies": {
+    "css-loader": "^3.4.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.0",
+    "postcss": "^7.0.26",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
