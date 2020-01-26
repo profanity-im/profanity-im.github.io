@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>How to get a backtrace - profanity</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="How to get a backtrace" />
+<meta property="og:description" content="When you&rsquo;re running profanity master it may occur that profanity crashes
+with SIGSEGV or SIGABRT when new features are added. If this happens it
+is helpful to provide a backtrace for the developers to find and fix the
+bug.
+
+I will explain one possibility how to get a backtrace of profanity
+(or any other TUI application):" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://profanity-im.github.io/blog/post/how-to-get-a-backtrace/" />
+<meta property="article:published_time" content="2020-01-03T17:16:59+02:00" />
+<meta property="article:modified_time" content="2020-01-03T17:16:59+02:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to get a backtrace"/>
+<meta name="twitter:description" content="When you&rsquo;re running profanity master it may occur that profanity crashes
+with SIGSEGV or SIGABRT when new features are added. If this happens it
+is helpful to provide a backtrace for the developers to find and fix the
+bug.
+
+I will explain one possibility how to get a backtrace of profanity
+(or any other TUI application):"/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://profanity-im.github.io/blog/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://profanity-im.github.io/blog/">profanity</a></h1>
+	<div class="site-description"><h2>development blog</h2><nav class="nav social">
+			<ul class="flat"><a href="https://profanity-im.github.io/" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/ProfanityIM" title="Twitter"><i data-feather="twitter"></i></a><a href="/blog/index.xml" title="RSS"><i data-feather="rss"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/blog/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog/post">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/blog/about">About</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">How to get a backtrace</h1>
+			<div class="meta">Posted at &mdash; Jan 3, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>When you&rsquo;re running profanity master it may occur that profanity crashes
+with SIGSEGV or SIGABRT when new features are added. If this happens it
+is helpful to provide a backtrace for the developers to find and fix the
+bug.</p>
+
+<p>I will explain one possibility how to get a backtrace of profanity
+(or any other TUI application):</p>
+
+<h3 id="preparation">Preparation</h3>
+
+<p>The following requirements must be installed:</p>
+
+<ul>
+<li><a href="https://www.gnu.org/software/gdb/">gdb</a></li>
+<li>gdbserver</li>
+<li>debug symbols (depending on your distribution they might already be included)
+
+<ul>
+<li>e.g. profanity-dbgsym (for debian)</li>
+<li>e.g. libstrophe0-dbgsym (for debian)</li>
+<li>e.g. libexpat1-dbgsym (for debian)</li>
+</ul></li>
+</ul>
+
+<h3 id="run-profanity">Run profanity</h3>
+
+<ul>
+<li>Open terminal #1
+
+<ul>
+<li>Run <code>gdbserver localhost:1234 /usr/bin/profanity</code></li>
+</ul></li>
+<li>Open terminal #2
+
+<ul>
+<li>Run <code>gdb /usr/bin/profanity</code></li>
+<li>Enter <code>target remote localhost:1234</code></li>
+<li>Enter <code>c</code></li>
+</ul></li>
+<li>Profanity opens in terminal #1
+
+<ul>
+<li>Reproduce crash</li>
+</ul></li>
+<li>A <em>gdb</em> command line opens in terminal #2
+
+<ul>
+<li>Enter <code>bt</code> or <code>bt full</code> <sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></li>
+</ul></li>
+<li>Create an issue in the <a href="https://github.com/profanity-im/profanity/issues">bugtracker</a> and include the output of the previous step</li>
+</ul>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><code>bt full</code> gives a much more detailled output but in most cases <code>bt</code> is enough for the dev to know what&rsquo;s going on.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>
