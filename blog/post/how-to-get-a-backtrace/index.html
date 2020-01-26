@@ -10,7 +10,7 @@ is helpful to provide a backtrace for the developers to find and fix the
 bug.
 
 I will explain one possibility how to get a backtrace of profanity
-(or any other TUI application):" />
+(or any other TUI application)1:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://profanity-im.github.io/blog/post/how-to-get-a-backtrace/" />
 <meta property="article:published_time" content="2020-01-03T17:16:59+02:00" />
@@ -23,7 +23,7 @@ is helpful to provide a backtrace for the developers to find and fix the
 bug.
 
 I will explain one possibility how to get a backtrace of profanity
-(or any other TUI application):"/>
+(or any other TUI application)1:"/>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/normalize.css" />
@@ -74,7 +74,7 @@ is helpful to provide a backtrace for the developers to find and fix the
 bug.</p>
 
 <p>I will explain one possibility how to get a backtrace of profanity
-(or any other TUI application):</p>
+(or any other TUI application)<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>:</p>
 
 <h3 id="preparation">Preparation</h3>
 
@@ -115,17 +115,19 @@ bug.</p>
 <li>A <em>gdb</em> command line opens in terminal #2
 
 <ul>
-<li>Enter <code>bt</code> or <code>bt full</code> <sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></li>
+<li>Enter <code>bt</code> or <code>bt full</code> <sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup></li>
 </ul></li>
-<li>Create an issue in the <a href="https://github.com/profanity-im/profanity/issues">bugtracker</a> and include the output of the previous step</li>
+<li>Create an issue in the <a href="https://github.com/profanity-im/profanity/issues">bugtracker</a> and include the output of the previous step (see <a href="https://github.com/profanity-im/profanity/issues/1159">this example</a>)</li>
 </ul>
 <div class="footnotes">
 
 <hr />
 
 <ol>
-<li id="fn:1"><code>bt full</code> gives a much more detailled output but in most cases <code>bt</code> is enough for the dev to know what&rsquo;s going on.
+<li id="fn:1">This explanation was first published <a href="https://blog.mdosch.de/2019/09/20/how-to-debug-a-tui-application/">on my personal blog</a>.
  <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2"><code>bt full</code> gives a much more detailled output but in most cases <code>bt</code> is enough for the dev to know what&rsquo;s going on.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
 </ol>
 </div>
 		</div>
