@@ -17,43 +17,22 @@
       <pubDate>Sun, 26 Jan 2020 17:16:59 +0200</pubDate>
       
       <guid>https://profanity-im.github.io/blog/post/how-to-get-a-backtrace/</guid>
-<<<<<<< HEAD
       <description>&lt;p&gt;When you&amp;rsquo;re running profanity master it may occur that profanity crashes
-=======
-      <description>&lt;p&gt;&lt;em&gt;Written by Martin Dosch&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;When you&amp;rsquo;re running profanity master it may occur that profanity crashes
->>>>>>> 0b548f5ad1d7a3f8707e1f6db04ab8d4415cb805
 with SIGSEGV or SIGABRT when new features are added. If this happens it
 is helpful to provide a backtrace for the developers to find and fix the
 bug.&lt;/p&gt;
-
 &lt;p&gt;I will explain one possibility how to get a backtrace of profanity
-<<<<<<< HEAD
 (or any other TUI application)&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
 &lt;h3 id=&#34;preparation&#34;&gt;Preparation&lt;/h3&gt;
 &lt;p&gt;The following requirements must be installed:&lt;/p&gt;
-=======
-(or any other TUI application)&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
-
-&lt;h3 id=&#34;preparation&#34;&gt;Preparation&lt;/h3&gt;
-
-&lt;p&gt;The following requirements must be installed:&lt;/p&gt;
-
->>>>>>> 0b548f5ad1d7a3f8707e1f6db04ab8d4415cb805
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.gnu.org/software/gdb/&#34;&gt;gdb&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;gdbserver&lt;/li&gt;
 &lt;li&gt;debug symbols (depending on your distribution they might already be included)
-<<<<<<< HEAD
-=======
-
->>>>>>> 0b548f5ad1d7a3f8707e1f6db04ab8d4415cb805
 &lt;ul&gt;
 &lt;li&gt;e.g. profanity-dbgsym (for debian)&lt;/li&gt;
 &lt;li&gt;e.g. libstrophe0-dbgsym (for debian)&lt;/li&gt;
 &lt;li&gt;e.g. libexpat1-dbgsym (for debian)&lt;/li&gt;
-<<<<<<< HEAD
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -65,26 +44,10 @@ bug.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Open terminal #2
-=======
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;run-profanity&#34;&gt;Run profanity&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Open terminal #1
-
-&lt;ul&gt;
-&lt;li&gt;Run &lt;code&gt;gdbserver localhost:1234 /usr/bin/profanity&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Open terminal #2
-
->>>>>>> 0b548f5ad1d7a3f8707e1f6db04ab8d4415cb805
 &lt;ul&gt;
 &lt;li&gt;Run &lt;code&gt;gdb /usr/bin/profanity&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Enter &lt;code&gt;target remote localhost:1234&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Enter &lt;code&gt;c&lt;/code&gt;&lt;/li&gt;
-<<<<<<< HEAD
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Profanity opens in terminal #1
@@ -110,32 +73,6 @@ bug.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;</description>
-=======
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Profanity opens in terminal #1
-
-&lt;ul&gt;
-&lt;li&gt;Reproduce crash&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;A &lt;em&gt;gdb&lt;/em&gt; command line opens in terminal #2
-
-&lt;ul&gt;
-&lt;li&gt;Enter &lt;code&gt;bt&lt;/code&gt; or &lt;code&gt;bt full&lt;/code&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Create an issue in the &lt;a href=&#34;https://github.com/profanity-im/profanity/issues&#34;&gt;bugtracker&lt;/a&gt; and include the output of the previous step (see &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/1159&#34;&gt;this example&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;This explanation was first published &lt;a href=&#34;https://blog.mdosch.de/2019/09/20/how-to-debug-a-tui-application/&#34;&gt;on my personal blog&lt;/a&gt;.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;&lt;code&gt;bt full&lt;/code&gt; gives a much more detailled output but in most cases &lt;code&gt;bt&lt;/code&gt; is enough for the dev to know what&amp;rsquo;s going on.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</description>
->>>>>>> 0b548f5ad1d7a3f8707e1f6db04ab8d4415cb805
     </item>
     
     <item>
@@ -144,13 +81,7 @@ bug.&lt;/p&gt;
       <pubDate>Fri, 03 Jan 2020 17:16:59 +0200</pubDate>
       
       <guid>https://profanity-im.github.io/blog/post/intro/</guid>
-<<<<<<< HEAD
       <description>&lt;p&gt;Hello folks!
-=======
-      <description>&lt;p&gt;&lt;em&gt;Written by Michael Vetter&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Hello folks!
->>>>>>> 0b548f5ad1d7a3f8707e1f6db04ab8d4415cb805
 Now with the 0.8.0 release around the corner we would like to start a development blog.
 We hope to give you some insights here about ongoing work, our problems, goals and where you could contribute.&lt;/p&gt;
 </description>
@@ -163,16 +94,7 @@ We hope to give you some insights here about ongoing work, our problems, goals a
       
       <guid>https://profanity-im.github.io/blog/about/</guid>
       <description>&lt;p&gt;Development blog for Profanity.&lt;/p&gt;
-<<<<<<< HEAD
 &lt;p&gt;Contribute by creating pull requests to &lt;a href=&#34;https://github.com/profanity-im/blog&#34;&gt;https://github.com/profanity-im/blog&lt;/a&gt;.&lt;/p&gt;
-=======
-
-&lt;p&gt;Blog article authors:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/jubalh&#34;&gt;jubalh&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
->>>>>>> 0b548f5ad1d7a3f8707e1f6db04ab8d4415cb805
 </description>
     </item>
     
