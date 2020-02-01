@@ -17,8 +17,7 @@
       <pubDate>Sun, 26 Jan 2020 17:16:59 +0200</pubDate>
       
       <guid>https://profanity-im.github.io/blog/post/how-to-get-a-backtrace/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Written by Martin Dosch&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;When you&amp;rsquo;re running profanity master it may occur that profanity crashes
+      <description>&lt;p&gt;When you&amp;rsquo;re running profanity master it may occur that profanity crashes
 with SIGSEGV or SIGABRT when new features are added. If this happens it
 is helpful to provide a backtrace for the developers to find and fix the
 bug.&lt;/p&gt;
@@ -32,8 +31,7 @@ bug.&lt;/p&gt;
       <pubDate>Fri, 03 Jan 2020 17:16:59 +0200</pubDate>
       
       <guid>https://profanity-im.github.io/blog/post/intro/</guid>
-      <description>Written by Michael Vetter
-Hello folks! Now with the 0.8.0 release around the corner we would like to start a development blog. We hope to give you some insights here about ongoing work, our problems, goals and where you could contribute.</description>
+      <description>Hello folks! Now with the 0.8.0 release around the corner we would like to start a development blog. We hope to give you some insights here about ongoing work, our problems, goals and where you could contribute.</description>
     </item>
     
   </channel>

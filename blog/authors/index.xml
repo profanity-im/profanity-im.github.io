@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>mdosch</title>
+      <title></title>
       <link>https://profanity-im.github.io/blog/authors/mdosch/</link>
       <pubDate>Sun, 26 Jan 2020 17:16:59 +0200</pubDate>
       
       <guid>https://profanity-im.github.io/blog/authors/mdosch/</guid>
-      <description></description>
+      <description>Martin can write something here :-)</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Fri, 03 Jan 2020 17:16:59 +0200</pubDate>
       
       <guid>https://profanity-im.github.io/blog/authors/jubalh/</guid>
-      <description>Ursula Kroeber Le Guin (October 21, 1929 – January 22, 2018) was an American novelist. The New York Times described her as “America’s greatest science fiction writer”, although she said that she would prefer to be known as an “American novelist”.</description>
+      <description>jubalh is currently the main developer of Profanity.</description>
     </item>
     
   </channel>
