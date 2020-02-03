@@ -84,13 +84,13 @@ Use the <code>/avatar &lt;jid&gt;</code> command. And open it with <code>xdg-ope
 <h2 id="trackbar">Trackbar</h2>
 <p>A trackbar was added so you can easily see where you last left off reading. <a href="https://github.com/profanity-im/profanity/issues/1238">#1238</a></p>
 <h2 id="consistent-color-generation-for-nicks">Consistent Color Generation for nicks</h2>
-<p>We gained support for XEP-0392 Consistent Color Generation for nicks <a href="https://github.com/profanity-im/profanity/issues/1191">#1191</a>
+<p>We gained support for XEP-0392 Consistent Color Generation for nicks <a href="https://github.com/profanity-im/profanity/issues/1191">#1191</a>.
 See <code>/color</code>, <code>/occupants color</code>, <code>/roster color</code>.</p>
 <h2 id="save-current-line">Save current line</h2>
 <p>Add option to store current line in history (like irssi down arrow behaviour) <a href="https://github.com/profanity-im/profanity/issues/200">#200</a>.
 Imagine you write a long line of text, only to find out someone else wrote something where you want to reply first.
 Now you can press alt+down-arrow to save the current line. Write a new one. Send it. And press arrow-up to get the saved line back from history.</p>
-<h2 id="hilight-unread-messages">Hilight unread messages</h2>
+<h2 id="highlight-unread-messages">Highlight unread messages</h2>
 <p>You can now highlight unread messages with a different color in /wins <a href="https://github.com/profanity-im/profanity/issues/895">#895</a>.
 New theming option is <code>cmd.wins.unread</code>.</p>
 <h2 id="switch-to-unread-messages">Switch to unread messages</h2>
@@ -103,7 +103,7 @@ New theming option is <code>cmd.wins.unread</code>.</p>
 <p>A possibility to specify an alternative config file has been added: Use <code>profanity -c ~/path/to/other/config</code>.</p>
 <h2 id="changes">Changes</h2>
 <h3 id="preferences">Preferences</h3>
-<p>Preferences are not immediately saved once you change them. You will need to issue the <code>/save</code> command from now on. This has the advantage that you can experiment with different settings and themes and only if you are happy with your changes you save them. If everything will stay as it was.</p>
+<p>Preferences are not immediately saved once you change them. You will need to issue the <code>/save</code> command from now on. This has the advantage that you can experiment with different settings and themes and only if you are happy with your changes you save them. If not everything will stay as it was.</p>
 <h3 id="themes">Themes</h3>
 <p>We changed the theme handling in Profanity.
 So far if you loaded a theme with <code>/theme load bios</code> it loaded new colors but also other settings the theme makes. Like changing the OMEMO char to <code>X</code>.
@@ -151,13 +151,13 @@ You can switch this off with <code>/os off</code>.</p>
 <p>Occupants and roster chars have never actually been saved!
 Seems noone discovered this for years until recently <a href="https://github.com/profanity-im/profanity/issues/1244">#1244</a>.</p>
 <h3 id="status-messages">Status messages</h3>
-<p>Allow setting of status message (which actually never worked before) (b846c49)
+<p>Allow setting of status message (which actually never worked before) <a href="https://github.com/profanity-im/profanity/commit/b846c4970bb8054ca2bacb8cebdbe4d9302f4cb6">b846c49</a>.
 <code>/status set online &quot;This is my text&quot;</code>
 <code>/status set away bye</code>
 <code>/status set away</code></p>
 <h3 id="date">Date</h3>
 <p>If you configure Profanity to load the last few lines from the history in a chat window. It always displayed a date of <code>01-01-00</code> as this was hardcoded.
-Now it acually uses the right one. Seems this got unnoticed for years too <a href="https://github.com/profanity-im/profanity/issues/922">#922</a>.</p>
+Now it acually uses the right one. Seems this has gone unnoticed for years too <a href="https://github.com/profanity-im/profanity/issues/922">#922</a>.</p>
 <h3 id="memory-leaks">Memory leaks</h3>
 <p>We fixed many memory leaks. Profanity should be much nicer now if you plan to never quit it.</p>
 <h3 id="log-message-carbons">Log message carbons</h3>

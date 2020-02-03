@@ -35,13 +35,13 @@ Use the &lt;code&gt;/avatar &amp;lt;jid&amp;gt;&lt;/code&gt; command. And open i
 &lt;h2 id=&#34;trackbar&#34;&gt;Trackbar&lt;/h2&gt;
 &lt;p&gt;A trackbar was added so you can easily see where you last left off reading. &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/1238&#34;&gt;#1238&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;consistent-color-generation-for-nicks&#34;&gt;Consistent Color Generation for nicks&lt;/h2&gt;
-&lt;p&gt;We gained support for XEP-0392 Consistent Color Generation for nicks &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/1191&#34;&gt;#1191&lt;/a&gt;
+&lt;p&gt;We gained support for XEP-0392 Consistent Color Generation for nicks &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/1191&#34;&gt;#1191&lt;/a&gt;.
 See &lt;code&gt;/color&lt;/code&gt;, &lt;code&gt;/occupants color&lt;/code&gt;, &lt;code&gt;/roster color&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;save-current-line&#34;&gt;Save current line&lt;/h2&gt;
 &lt;p&gt;Add option to store current line in history (like irssi down arrow behaviour) &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/200&#34;&gt;#200&lt;/a&gt;.
 Imagine you write a long line of text, only to find out someone else wrote something where you want to reply first.
 Now you can press alt+down-arrow to save the current line. Write a new one. Send it. And press arrow-up to get the saved line back from history.&lt;/p&gt;
-&lt;h2 id=&#34;hilight-unread-messages&#34;&gt;Hilight unread messages&lt;/h2&gt;
+&lt;h2 id=&#34;highlight-unread-messages&#34;&gt;Highlight unread messages&lt;/h2&gt;
 &lt;p&gt;You can now highlight unread messages with a different color in /wins &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/895&#34;&gt;#895&lt;/a&gt;.
 New theming option is &lt;code&gt;cmd.wins.unread&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;switch-to-unread-messages&#34;&gt;Switch to unread messages&lt;/h2&gt;
@@ -54,7 +54,7 @@ New theming option is &lt;code&gt;cmd.wins.unread&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;A possibility to specify an alternative config file has been added: Use &lt;code&gt;profanity -c ~/path/to/other/config&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;changes&#34;&gt;Changes&lt;/h2&gt;
 &lt;h3 id=&#34;preferences&#34;&gt;Preferences&lt;/h3&gt;
-&lt;p&gt;Preferences are not immediately saved once you change them. You will need to issue the &lt;code&gt;/save&lt;/code&gt; command from now on. This has the advantage that you can experiment with different settings and themes and only if you are happy with your changes you save them. If everything will stay as it was.&lt;/p&gt;
+&lt;p&gt;Preferences are not immediately saved once you change them. You will need to issue the &lt;code&gt;/save&lt;/code&gt; command from now on. This has the advantage that you can experiment with different settings and themes and only if you are happy with your changes you save them. If not everything will stay as it was.&lt;/p&gt;
 &lt;h3 id=&#34;themes&#34;&gt;Themes&lt;/h3&gt;
 &lt;p&gt;We changed the theme handling in Profanity.
 So far if you loaded a theme with &lt;code&gt;/theme load bios&lt;/code&gt; it loaded new colors but also other settings the theme makes. Like changing the OMEMO char to &lt;code&gt;X&lt;/code&gt;.
@@ -102,13 +102,13 @@ You can switch this off with &lt;code&gt;/os off&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Occupants and roster chars have never actually been saved!
 Seems noone discovered this for years until recently &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/1244&#34;&gt;#1244&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;status-messages&#34;&gt;Status messages&lt;/h3&gt;
-&lt;p&gt;Allow setting of status message (which actually never worked before) (b846c49)
+&lt;p&gt;Allow setting of status message (which actually never worked before) &lt;a href=&#34;https://github.com/profanity-im/profanity/commit/b846c4970bb8054ca2bacb8cebdbe4d9302f4cb6&#34;&gt;b846c49&lt;/a&gt;.
 &lt;code&gt;/status set online &amp;quot;This is my text&amp;quot;&lt;/code&gt;
 &lt;code&gt;/status set away bye&lt;/code&gt;
 &lt;code&gt;/status set away&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;date&#34;&gt;Date&lt;/h3&gt;
 &lt;p&gt;If you configure Profanity to load the last few lines from the history in a chat window. It always displayed a date of &lt;code&gt;01-01-00&lt;/code&gt; as this was hardcoded.
-Now it acually uses the right one. Seems this got unnoticed for years too &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/922&#34;&gt;#922&lt;/a&gt;.&lt;/p&gt;
+Now it acually uses the right one. Seems this has gone unnoticed for years too &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/922&#34;&gt;#922&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;memory-leaks&#34;&gt;Memory leaks&lt;/h3&gt;
 &lt;p&gt;We fixed many memory leaks. Profanity should be much nicer now if you plan to never quit it.&lt;/p&gt;
 &lt;h3 id=&#34;log-message-carbons&#34;&gt;Log message carbons&lt;/h3&gt;
