@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Profanity 0.8.0 - profanity</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Profanity 0.8.0" />
+<meta property="og:description" content="On 2012-02-02 the first commit to Profanity was done by @boothj5. So now Profanity is already 8 years old! Happy Birthday!
+As a present we release today the next version: 0.8.0! It&rsquo;s released five months after 0.7.0 and has 295 commits since then.
+Also more and more people contribute to Profanity&rsquo;s development. A big thanks to: @paulfariello, @svensp, @aaptel, @aszlig, @mdosch, @pasis, @mzagozen, @quite, @weiss, @Misaflo and @jubalh.
+  prof   New features We got fingerprint autocompletion for the /omemo trust command." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://profanity-im.github.io/blog/post/release-080/" />
+<meta property="article:published_time" content="2020-02-03T14:46:08+01:00" />
+<meta property="article:modified_time" content="2020-02-03T14:46:08+01:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Profanity 0.8.0"/>
+<meta name="twitter:description" content="On 2012-02-02 the first commit to Profanity was done by @boothj5. So now Profanity is already 8 years old! Happy Birthday!
+As a present we release today the next version: 0.8.0! It&rsquo;s released five months after 0.7.0 and has 295 commits since then.
+Also more and more people contribute to Profanity&rsquo;s development. A big thanks to: @paulfariello, @svensp, @aaptel, @aszlig, @mdosch, @pasis, @mzagozen, @quite, @weiss, @Misaflo and @jubalh.
+  prof   New features We got fingerprint autocompletion for the /omemo trust command."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://profanity-im.github.io/blog/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://profanity-im.github.io/blog/">profanity</a></h1>
+	<div class="site-description"><h2>development blog</h2><nav class="nav social">
+			<ul class="flat"><a href="https://profanity-im.github.io/" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/ProfanityIM" title="Twitter"><i data-feather="twitter"></i></a><a href="/blog/index.xml" title="RSS"><i data-feather="rss"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/blog/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog/post">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/blog/about">About</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Profanity 0.8.0</h1>
+            <div class="meta">Posted at &mdash; Feb 3, 2020 by
+                    <a href=" https://profanity-im.github.io/blog/authors/jubalh/ ">jubalh</a>
+                  
+                
+            </div>
+		</div>
+
+		<div class="markdown">
+			<p>On 2012-02-02 the first commit to Profanity was done by <a href="https://github.com/boothj5">@boothj5</a>.
+So now Profanity is already 8 years old! Happy Birthday!</p>
+<p>As a present we release today the next version: <a href="https://github.com/profanity-im/profanity/releases/tag/0.8.0">0.8.0</a>!
+It&rsquo;s released five months after 0.7.0 and has 295 commits since then.</p>
+<p>Also more and more people contribute to Profanity&rsquo;s development. A big thanks to:
+<a href="https://github.com/paulfariello">@paulfariello</a>, <a href="https://github.com/svensp">@svensp</a>, <a href="https://github.com/aaptel">@aaptel</a>, <a href="https://github.com/">@aszlig</a>, <a href="https://github.com/mdosch">@mdosch</a>, <a href="https://github.com/pasis">@pasis</a>, <a href="https://github.com/mzagozen">@mzagozen</a>, <a href="https://github.com/quite">@quite</a>, <a href="https://github.com/weiss">@weiss</a>, <a href="https://github.com/Misaflo">@Misaflo</a> and <a href="https://github.com/">@jubalh</a>.</p>
+<p><img src="/static/img/profanity-rel-080.jpeg" alt="Profanity"></p>
+<p><figure>
+    <img src="/static/img/profanity-rel-080.jpeg"/> <figcaption>
+            <h4>prof</h4>
+        </figcaption>
+</figure>
+
+<img src="/img/profanity-rel-080.jpeg" alt="Example image"></p>
+<h2 id="new-features">New features</h2>
+<p>We got fingerprint autocompletion for the <code>/omemo trust</code> command.   <br>
+We got a gruvbox and solarized theme.</p>
+<h2 id="muc-name-display">MUC name display</h2>
+<p>You can now decide whether you want to have the MUCs name or JID displayed in the titlebar and roster:
+See <code>/titlebar use [name|jid]</code> and <code>/roster room use name</code>.</p>
+<h2 id="avatars">Avatars</h2>
+<p>Profanity is now able to download user avatars via XEP-0084 <a href="https://github.com/profanity-im/profanity/issues/1240">#1240</a>.
+Use the <code>/avatar &lt;jid&gt;</code> command. And open it with <code>xdg-open ~/.local/share/profanity/avatars/&lt;jid&gt;.png</code> from your terminal.</p>
+<h2 id="trackbar">Trackbar</h2>
+<p>A trackbar was added so you can easily see where you last left off reading. <a href="https://github.com/profanity-im/profanity/issues/1238">#1238</a></p>
+<h2 id="consistent-color-generation-for-nicks">Consistent Color Generation for nicks</h2>
+<p>We gained support for XEP-0392 Consistent Color Generation for nicks <a href="https://github.com/profanity-im/profanity/issues/1191">#1191</a>
+See <code>/color</code>, <code>/occupants color</code>, <code>/roster color</code>.</p>
+<h2 id="save-current-line">Save current line</h2>
+<p>Add option to store current line in history (like irssi down arrow behaviour) <a href="https://github.com/profanity-im/profanity/issues/200">#200</a>.
+Imagine you write a long line of text, only to find out someone else wrote something where you want to reply first.
+Now you can press alt+down-arrow to save the current line. Write a new one. Send it. And press arrow-up to get the saved line back from history.</p>
+<h2 id="hilight-unread-messages">Hilight unread messages</h2>
+<p>You can now highlight unread messages with a different color in /wins <a href="https://github.com/profanity-im/profanity/issues/895">#895</a>.
+New theming option is <code>cmd.wins.unread</code>.</p>
+<h2 id="switch-to-unread-messages">Switch to unread messages</h2>
+<p>A keyboard shortcut to select the next window with unread messages has been added: alt+a <a href="https://github.com/profanity-im/profanity/issues/1114">#1114</a>.</p>
+<h2 id="switch-to-windows">Switch to windows</h2>
+<p>You can now switch to the first 20 open windows with alt + 1234567890qwertyuio instead of only the first 10 <a href="https://github.com/profanity-im/profanity/issues/1114">#1114</a>.</p>
+<h2 id="reload-command">Reload command</h2>
+<p>A command to reload your config has been added: <code>/reload</code>.</p>
+<h2 id="alternative-config-file">Alternative config file</h2>
+<p>A possibility to specify an alternative config file has been added: Use <code>profanity -c ~/path/to/other/config</code>.</p>
+<h2 id="changes">Changes</h2>
+<h3 id="preferences">Preferences</h3>
+<p>Preferences are not immediately saved once you change them. You will need to issue the <code>/save</code> command from now on. This has the advantage that you can experiment with different settings and themes and only if you are happy with your changes you save them. If everything will stay as it was.</p>
+<h3 id="themes">Themes</h3>
+<p>We changed the theme handling in Profanity.
+So far if you loaded a theme with <code>/theme load bios</code> it loaded new colors but also other settings the theme makes. Like changing the OMEMO char to <code>X</code>.
+If you decided you prefer <code>#</code> as your indication of OMEMO encrypted messages you set this in your preferences via <code>/omemo char #</code>. But if you later tried out different themes because you were set up with your current one it might have happened that you lost some settings <a href="https://github.com/profanity-im/profanity/issues/1077">#1077</a>.</p>
+<p>For this reason <code>/theme load bios</code> will now only load the colors of a theme.
+We have <code>/theme full-load bios</code> to load the complete theme.</p>
+<h3 id="error-message-in-settings-commands">Error message in settings commands</h3>
+<p>Profanity has functions that display settings of a certain command. Like <code>/logging</code> displays the settings for group and chat logging.
+So you know what value they have before you change them.
+So far if you issued a setting command it displayed the information, but also informed you that the command was not valid <code>Invalid usage, see '/help logging' for details.</code>. This has been fixed. <a href="https://github.com/profanity-im/profanity/issues/1237">#1237</a>.</p>
+<h3 id="xep-0092">XEP-0092</h3>
+<p>XEP-0092 Software Version, sends now the name of your operating system too.
+You can switch this off with <code>/os off</code>.</p>
+<h3 id="standardize-comamnds">Standardize comamnds</h3>
+<p>In an attempt to standardize commands some functionality got reorganized in different/new commands:</p>
+<ul>
+<li><code>/tls show on|of</code> -&gt; <code>/titlebar show|hide tls</code></li>
+<li><code>/encwarn on|off</code> -&gt; <code>/titlebar show|hide encwarn</code></li>
+<li><code>/titlebar show|hide resource</code> additionally to <code>/resource titlebar on</code></li>
+<li><code>/titlebar show|hide presence</code> additionally to <code>/presence titlebar on</code></li>
+<li><code>/invite &lt;contact&gt;</code> -&gt; <code>/invite send &lt;contact&gt;</code></li>
+<li><code>/invites</code> -&gt; <code>/invite list</code></li>
+<li><code>/decline</code> -&gt; <code>/invite decline</code></li>
+<li><code>/online</code>, <code>/away</code>, <code>/dnd</code>, <code>/chat</code>, <code>/xa</code> -&gt; <code>/status set online</code> etc.</li>
+<li><code>/status</code> -&gt; <code>/status get</code></li>
+<li><code>/chlog on</code> -&gt; <code>/logging chat on</code></li>
+<li><code>/grlog on</code> -&gt; <code>/logging group on</code></li>
+<li><code>/group</code> -&gt; <code>/roster group</code></li>
+</ul>
+<p>Read <a href="https://github.com/profanity-im/profanity/issues/1116">#1116</a>, <a href="https://github.com/profanity-im/profanity/issues/1224">#1224</a>, <a href="https://github.com/profanity-im/profanity/issues/1229">#1229</a> if you want to know more.</p>
+<h2 id="muc-pm-messages">MUC PM Messages</h2>
+<p>Log MUC PM messages <a href="https://github.com/profanity-im/profanity/issues/1184">#1184</a>, <a href="https://github.com/profanity-im/profanity/issues/1214">#1214</a>, so far this was actually not done.</p>
+<h2 id="muc-messages">MUC Messages</h2>
+<p>We now use XEP-0359: Unique and Stable Stanza IDs to detect if MUC messages come from us or not <a href="https://github.com/profanity-im/profanity/issues/1207">#1207</a>.</p>
+<h2 id="clear-command">Clear command</h2>
+<p>Add <code>/clear</code> autocompletion and improve its documentation <a href="https://github.com/profanity-im/profanity/issues/855">#855</a>.</p>
+<h2 id="subscribed-message">Subscribed message</h2>
+<p>Don&rsquo;t print subscribed message if contact is already in roster <a href="https://github.com/profanity-im/profanity/issues/1166">#1166</a>.</p>
+<h2 id="fixes">Fixes</h2>
+<h3 id="timestamps">Timestamps</h3>
+<p>So far we just displayed the timestamp of the first <!-- raw HTML omitted --> tag we found. Now we fixed this to actually check for the oldest timestamp. Meaning that the time a message was send should now be when it was first delayed not the last or any other delay <a href="https://github.com/profanity-im/profanity/issues/1254">#1254</a>.</p>
+<h3 id="omemo">OMEMO</h3>
+<p>Several OMEMO related bugs were fixed by @paulfarielle, @svensp, @aszlig.</p>
+<h3 id="occupants-and-roster-chars">Occupants and roster chars</h3>
+<p>Occupants and roster chars have never actually been saved!
+Seems noone discovered this for years until recently <a href="https://github.com/profanity-im/profanity/issues/1244">#1244</a>.</p>
+<h3 id="status-messages">Status messages</h3>
+<p>Allow setting of status message (which actually never worked before) (b846c49)
+<code>/status set online &quot;This is my text&quot;</code>
+<code>/status set away bye</code>
+<code>/status set away</code></p>
+<h3 id="date">Date</h3>
+<p>If you configure Profanity to load the last few lines from the history in a chat window. It always displayed a date of <code>01-01-00</code> as this was hardcoded.
+Now it acually uses the right one. Seems this got unnoticed for years too <a href="https://github.com/profanity-im/profanity/issues/922">#922</a>.</p>
+<h3 id="memory-leaks">Memory leaks</h3>
+<p>We fixed many memory leaks. Profanity should be much nicer now if you plan to never quit it.</p>
+<h3 id="log-message-carbons">Log message carbons</h3>
+<p>Carbon copied messages now get logged too <a href="https://github.com/profanity-im/profanity/issues/1181">#1181</a>.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

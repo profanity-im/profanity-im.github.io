@@ -6,10 +6,19 @@
     <description>Recent content in Authors on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jan 2020 17:16:59 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 14:46:08 +0100</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/authors/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>https://profanity-im.github.io/blog/authors/jubalh/</link>
+      <pubDate>Mon, 03 Feb 2020 14:46:08 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/authors/jubalh/</guid>
+      <description>jubalh is currently the main developer of Profanity.</description>
+    </item>
     
     <item>
       <title></title>
@@ -17,16 +26,7 @@
       <pubDate>Sun, 26 Jan 2020 17:16:59 +0200</pubDate>
       
       <guid>https://profanity-im.github.io/blog/authors/mdosch/</guid>
-      <description>Martin can write something here :-)</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://profanity-im.github.io/blog/authors/jubalh/</link>
-      <pubDate>Fri, 03 Jan 2020 17:16:59 +0200</pubDate>
-      
-      <guid>https://profanity-im.github.io/blog/authors/jubalh/</guid>
-      <description>jubalh is currently the main developer of Profanity.</description>
+      <description>Martin is a profanity user, usually running and testing the profanity master branch. He also created the solarized themes.</description>
     </item>
     
   </channel>

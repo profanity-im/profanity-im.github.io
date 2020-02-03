@@ -6,10 +6,22 @@
     <description>Recent content in Posts on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jan 2020 17:16:59 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 14:46:08 +0100</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Profanity 0.8.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-080/</link>
+      <pubDate>Mon, 03 Feb 2020 14:46:08 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-080/</guid>
+      <description>On 2012-02-02 the first commit to Profanity was done by @boothj5. So now Profanity is already 8 years old! Happy Birthday!
+As a present we release today the next version: 0.8.0! It&amp;rsquo;s released five months after 0.7.0 and has 295 commits since then.
+Also more and more people contribute to Profanity&amp;rsquo;s development. A big thanks to: @paulfariello, @svensp, @aaptel, @aszlig, @mdosch, @pasis, @mzagozen, @quite, @weiss, @Misaflo and @jubalh.
+  prof   New features We got fingerprint autocompletion for the /omemo trust command.</description>
+    </item>
     
     <item>
       <title>How to get a backtrace</title>
