@@ -20,7 +20,7 @@
       <description>On 2012-02-02 the first commit to Profanity was done by @boothj5. So now Profanity is already 8 years old! Happy Birthday!
 As a present we release today the next version: 0.8.0! It&amp;rsquo;s released five months after 0.7.0 and has 295 commits since then.
 Also more and more people contribute to Profanity&amp;rsquo;s development. A big thanks to: @paulfariello, @svensp, @aaptel, @aszlig, @mdosch, @pasis, @mzagozen, @quite, @weiss, @Misaflo and @jubalh.
-  prof   New features We got fingerprint autocompletion for the /omemo trust command.</description>
+New features We got fingerprint autocompletion for the /omemo trust command.</description>
     </item>
     
     <item>
