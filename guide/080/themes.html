@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profanity, a console based XMPP client - User Interface Themes</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1"> 
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="../../css/profanity.css" type="text/css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/analytics.js"></script> 
+</head>
+<body id="article">
+    <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <header>
+        <a href="userguide.html"><h1>User Guide</h1></a>
+        <h2>User Interface Themes</h2>
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#loading-a-theme">Loading a theme</a>
+                <li><a href="#creating-a-theme">Creating a Theme</a>
+            </ul>
+        </section>
+        <section>
+            <a name="loading-a-theme"></a>
+            <h3>Loading a theme</h3>
+
+            <p>To list available themes:</p>
+            <pre><code>/theme list</code></pre>
+            <p>To load a theme:</p>
+            <pre><code>/theme load &lt;theme-file&gt;</code></pre>
+        </section>
+        <section>
+            <a name="creating-a-theme"></a>
+            <h3>Creating a Theme</h3>
+
+            <p>Themes packaged with Profanity are installed to the system wide package data directory, for example:</p>
+            <pre><code>/usr/local/share/profanity/themes</code></pre>
+            <p>User defined themes may be added to your user's <a href="files.html#themes-directory">themes directory</a>. If you'd like your theme to be added as a pre-packaged theme, feel free to submit a pull request at <a href="https://github.com/boothj5/profanity" target="_blank">Github</a>.</p>
+
+            <p>A theme file contains two sections, <code>[colours]</code> and <code>[ui]</code>.</p>
+            <p>The following properties are available in the <code>[colours]</code> section:</p>
+            <table>
+                <tr>
+                    <td>Property</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>bkgnd</code></td>
+                    <td>Main window and input window background.</td>
+                </tr>
+                <tr>
+                    <td><code>titlebar</code></td>
+                    <td>Title bar background.</td>
+                </tr>
+                <tr>
+                    <td><code>statusbar</code></td>
+                    <td>Status bar background.</td>
+                </tr>
+                <tr>
+                    <td><code>titlebar.text</code></td>
+                    <td>Title bar text.</td>
+                </tr>
+                <tr>
+                    <td><code>titlebar.brackets</code></td>
+                    <td>Title bar brackets.</td>
+                </tr>
+                <tr>
+                    <td><code>titlebar.unencrypted</code></td>
+                    <td>Title bar OTR unencrypted indicator.</td>
+                </tr>
+                <tr>
+                    <td><code>titlebar.encrypted</code></td>
+                    <td>Title bar OTR encrypted indicator.</td>
+                </tr>
+                <tr>
+                    <td><code>titlebar.untrusted</code></td>
+                    <td>Title bar OTR untrusted indicator.</td>
+                </tr>
+                <tr>
+                    <td><code>titlebar.trusted</code></td>
+                    <td>Title bar OTR trusted indicator.</td>
+                </tr>
+                <tr>
+                    <td><code>titlebar.online</code></td>
+                    <td>Online presence indicators in title bar.</td>
+                </tr>
+                <tr>
+                    <td><code>titlebar.offline</code></td>
+                    <td>Offline presence indicators in title bar.</td>
+                </tr>
+                <tr>
+                    <td><code>titlebar.away</code></td>
+                    <td>Away presence indicators in title bar.</td>
+                </tr>
+                <tr>
+                    <td><code>titlebar.chat</code></td>
+                    <td>Available for chat presence indicators in title bar.</td>
+                </tr>
+                <tr>
+                    <td><code>titlebar.dnd</code></td>
+                    <td>Do not disturb presence indicators in title bar.</td>
+                </tr>
+                <tr>
+                    <td><code>titlebar.xa</code></td>
+                    <td>Extended away presence indicators in title bar.</td>
+                </tr>
+                <tr>
+                    <td><code>statusbar.text</code></td>
+                    <td>Status bar text.</td>
+                </tr>
+                <tr>
+                    <td><code>statusbar.time</code></td>
+                    <td>Time displayed in the status bar.</td>
+                </tr>
+                <tr>
+                    <td><code>statusbar.brackets</code></td>
+                    <td>Status bar brackets.</td>
+                </tr>
+                <tr>
+                    <td><code>statusbar.active</code></td>
+                    <td>Active window indicator in status bar.</td>
+                </tr>
+                <tr>
+                    <td><code>statusbar.current</code></td>
+                    <td>Current window indicator in status bar.</td>
+                </tr>
+                <tr>
+                    <td><code>statusbar.new</code></td>
+                    <td>New messages window indicator in status bar.</td>
+                </tr>
+                <tr>
+                    <td><code>main.text</code></td>
+                    <td>Main window text.</td>
+                </tr>
+                <tr>
+                    <td><code>main.text.history</code></td>
+                    <td>All history text.</td>
+                </tr>
+                <tr>
+                    <td><code>main.text.me</code></td>
+                    <td>Messages you have sent.</td>
+                </tr>
+                <tr>
+                    <td><code>main.text.them</code></td>
+                    <td>Messages you have received.</td>
+                </tr>
+                <tr>
+                    <td><code>main.splash</code></td>
+                    <td>Splash logo.</td>
+                </tr>
+                <tr>
+                    <td><code>input.text</code></td>
+                    <td>Input window text.</td>
+                </tr>
+                <tr>
+                    <td><code>main.time</code></td>
+                    <td>Main window time.</td>
+                </tr>
+                <tr>
+                    <td><code>subscribed</code></td>
+                    <td>Subscribed (to, both) in roster.</td>
+                </tr>
+                <tr>
+                    <td><code>unsubscribed</code></td>
+                    <td>Unsubscribed (from, none) in roster.</td>
+                </tr>
+                <tr>
+                    <td><code>otr.started.trusted</code></td>
+                    <td>OTR trusted message for new OTR sessions.</td>
+                </tr>
+                <tr>
+                    <td><code>otr.started.untrusted</code></td>
+                    <td>OTR untrusted message for new OTR sessions.</td>
+                </tr>
+                <tr>
+                    <td><code>otr.ended</code></td>
+                    <td>OTR ended message.</td>
+                </tr>
+                <tr>
+                    <td><code>otr.trusted</code></td>
+                    <td>OTR trusted message.</td>
+                </tr>
+                <tr>
+                    <td><code>otr.untrusted</code></td>
+                    <td>OTR untrusted message.</td>
+                </tr>
+                <tr>
+                    <td><code>online</code></td>
+                    <td>Online presence text in main window.</td>
+                </tr>
+                <tr>
+                    <td><code>away</code></td>
+                    <td>Away presence text for main window.</td>
+                </tr>
+                <tr>
+                    <td><code>chat</code></td>
+                    <td>Available for chat presence text for main window.</td>
+                </tr>
+                <tr>
+                    <td><code>dnd</code></td>
+                    <td>Do not disturb presence text for main window.</td>
+                </tr>
+                <tr>
+                    <td><code>xa</code></td>
+                    <td>Extended away presence text for main window.</td>
+                </tr>
+                <tr>
+                    <td><code>offline</code></td>
+                    <td>Offline presence text for main window.</td>
+                </tr>
+                <tr>
+                    <td><code>typing</code></td>
+                    <td>Typing message for main window.</td>
+                </tr>
+                <tr>
+                    <td><code>gone</code></td>
+                    <td>Gone message for main window.</td>
+                </tr>
+                <tr>
+                    <td><code>error</code></td>
+                    <td>Error messages in main window.</td>
+                </tr>
+                <tr>
+                    <td><code>incoming</code></td>
+                    <td>Incoming message text in console.</td>
+                </tr>
+                <tr>
+                    <td><code>roominfo</code></td>
+                    <td>Room information text in chat room windows.</td>
+                </tr>
+                <tr>
+                    <td><code>roommention</code></td>
+                    <td>Chat room message text when nickname mentioned.</td>
+                </tr>
+                <tr>
+                    <td><code>me</code></td>
+                    <td>Colour to display who a message is from, for sent messages.</td>
+                </tr>
+                <tr>
+                    <td><code>them</code></td>
+                    <td>Colour to display who a message is from, for received messages.</td>
+                </tr>
+                <tr>
+                    <td><code>roster.header</code></td>
+                    <td>Group headers in roster panel.</td>
+                </tr>
+                <tr>
+                    <td><code>occupants.header</code></td>
+                    <td>Groups headers in chat room occupants panel.</td>
+                </tr>
+                <tr>
+                    <td><code>receipt.sent</code></td>
+                    <td>Message sent with receipt request, not yet received.</td>
+                </tr>
+                <tr>
+                    <td><code>untrusted</code></td>
+                    <td>Message received is encrypted with an untrusted key.</td>
+                </tr>
+            </table>
+
+            <p>The following colour values are available:</p>
+            <pre><code>white
+green
+red
+yellow
+blue
+cyan
+magenta
+black
+bold_white
+bold_green
+bold_red
+bold_yellow
+bold_blue
+bold_cyan
+bold_magenta
+bold_black
+</code></pre>
+            <p>To see how the colours will appear in your terminal, run the following command:</p>
+            <pre><code>/theme colours</code></pre>
+
+            <p>The following properties are available in the <code>[ui]</code> section, note that the values specified are what is stored in the theme file, see the help on individual commands for how to set the properties:</p>
+            <table>
+                <tr>
+                    <td>Property</td>
+                    <td>Description</td>
+                    <td>File values</td>
+                </tr>
+                <tr>
+                    <td><code>beep</code></td>
+                    <td>Terminal beep, see <a href="reference.html#beep"><code>/beep</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>flash</code></td>
+                    <td>Terminal flash, see <a href="reference.html#flash"><code>/flash</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>splash</code></td>
+                    <td>Splash logo, see <a href="reference.html#splash"><code>/splash</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>wrap</code></td>
+                    <td>Word wrap main window, see <a href="reference.html#wrap"><code>/wrap</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>time</code></td>
+                    <td>Time format in main window, see <a href="reference.html#time"><code>/time</code></a></td>
+                    <td><a target="_blank" href="https://developer.gnome.org/glib/stable/glib-GDateTime.html#g-date-time-format">GDateTime format</a></td>
+                </tr>
+                <tr>
+                    <td><code>time.statusbar</code></td>
+                    <td>Time format in status bar, see <a href="reference.html#time"><code>/time</code></a></td>
+                    <td><a target="_blank" href="https://developer.gnome.org/glib/stable/glib-GDateTime.html#g-date-time-format">GDateTime format</a></td>
+                </tr>
+                <tr>
+                    <td><code>resource.title</code></td>
+                    <td>Show contacts resource in title bar, see <a href="reference.html#resource"><code>/resource</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>resource.message</code></td>
+                    <td>Show contacts resource on incoming messages, see <a href="reference.html#resource"><code>/resource</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>statuses.console</code></td>
+                    <td>Presence messages in console, see <a href="reference.html#presence"><code>/presence</code></a></td>
+                    <td><code>all</code>, <code>online</code>, <code>none</code></td>
+                </tr>
+                <tr>
+                    <td><code>statuses.chat</code></td>
+                    <td>Presence messages in chat windows, see <a href="reference.html#presence"><code>/presence</code></a></td>
+                    <td><code>all</code>, <code>online</code>, <code>none</code></td>
+                </tr>
+                <tr>
+                    <td><code>statuses.muc</code></td>
+                    <td>Presence messages in chat room windows, see <a href="reference.html#presence"><code>/presence</code></a></td>
+                    <td><code>all</code>, <code>online</code>, <code>none</code></td>
+                </tr>
+                <tr>
+                    <td><code>occupants</code></td>
+                    <td>Occupants panel in chat rooms, see <a href="reference.html#occupants"><code>/occupants</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>occupants.size</code></td>
+                    <td>Screen percentage taken by occupants panel, see <a href="reference.html#occupants"><code>/occupants</code></a></td>
+                    <td><code>1-99</code></td>
+                </tr>
+                <tr>
+                    <td><code>occupants.jid</code></td>
+                    <td>Show JIDs if available in occupants panel, see <a href="reference.html#occupants"><code>/occupants</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>roster</code></td>
+                    <td>Roster panel in console window, see <a href="reference.html#roster"><code>/roster</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>roster.offline</code></td>
+                    <td>Offline contacts in roster panel, see <a href="reference.html#roster"><code>/roster</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>roster.resource</code></td>
+                    <td>Resources in roster panel, see <a href="reference.html#roster"><code>/roster</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>roster.by</code></td>
+                    <td>Roster panel grouping, see <a href="reference.html#roster"><code>/roster</code></a></td>
+                    <td><code>group</code>, <code>presence</code>, <code>none</code></td>
+                </tr>
+                <tr>
+                    <td><code>roster.size</code></td>
+                    <td>Screen percentage taken by roster panel, see <a href="reference.html#roster"><code>/roster</code></a></td>
+                    <td><code>1-99</code></td>
+                </tr>
+                <tr>
+                    <td><code>roster.empty</code></td>
+                    <td>Show empty groups in roster panel, see <a href="reference.html#roster"><code>/roster</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>privileges</code></td>
+                    <td>Privilege details in chat rooms, see <a href="reference.html#privileges"><code>/privileges</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>presence</code></td>
+                    <td>Contacts presence in title bar, see <a href="reference.html#presence"><code>/presence</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>intype</code></td>
+                    <td>Contact typing messages in console and chat windows, see <a href="reference.html#intype"><code>/intype</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>enc.warn</code></td>
+                    <td>Title bar unencrypted indicator, see <a href="reference.html#encwarn"><code>/encwarn</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>wins.autotidy</code></td>
+                    <td>Automatically remove gaps when closing windows, see <a href="reference.html#winstidy"><code>/winstidy</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>pgp.char</code></td>
+                    <td>Character to show for PGP encrypted messages, see <a href="reference.html#pgp"><code>/pgp</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>otr.char</code></td>
+                    <td>Character to show for OTR encrypted messages, see <a href="reference.html#otr"><code>/otr</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>omemo.char</code></td>
+                    <td>Character to show for OMEMO encrypted messages, see <a href="reference.html#omemo"><code>/otr</code></a></td>
+                    <td><code>true</code>, <code>false</code></td>
+                </tr>
+            </table>
+
+            <p>Example themes can be found in the <a href="https://github.com/boothj5/profanity/tree/master/themes" target="_blank">themes folder</a> of the source code.</p>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+</html>
