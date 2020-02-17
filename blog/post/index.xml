@@ -6,10 +6,22 @@
     <description>Recent content in Posts on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Feb 2020 14:46:08 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 14 Feb 2020 11:34:38 +0100</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Last Message Correction</title>
+      <link>https://profanity-im.github.io/blog/post/lmc/</link>
+      <pubDate>Fri, 14 Feb 2020 11:34:38 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/lmc/</guid>
+      <description>From 10th to 14th February 2020 we had Hackweek 19 at SUSE. Part of that time I used to finally implement the long (since 2016!) sought after Last Message Correction feature, aka XEP-0308.
+See my Hackweek project and the corresponding pull request.
+Usage To enable incoming and outgoing corrections users need to enable it with /correction on, see /help correction for more details.
+Now we write a message to a friend /msg Martin Hey therr!</description>
+    </item>
     
     <item>
       <title>Profanity 0.8.0</title>
@@ -20,7 +32,7 @@
       <description>On 2012-02-02 the first commit to Profanity was done by @boothj5. So now Profanity is already 8 years old! Happy Birthday!
 As a present we release today the next version: 0.8.0! It&amp;rsquo;s released five months after 0.7.0 and has 295 commits since then.
 Also more and more people contribute to Profanity&amp;rsquo;s development. A big thanks to: @paulfariello, @svensp, @aaptel, @aszlig, @mdosch, @pasis, @mzagozen, @quite, @weiss, @Misaflo and @jubalh.
-New features We got fingerprint autocompletion for the /omemo trust command.</description>
+  prof   New features We got fingerprint autocompletion for the /omemo trust command.</description>
     </item>
     
     <item>

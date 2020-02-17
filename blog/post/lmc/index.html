@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Last Message Correction - profanity</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Last Message Correction" />
+<meta property="og:description" content="From 10th to 14th February 2020 we had Hackweek 19 at SUSE. Part of that time I used to finally implement the long (since 2016!) sought after Last Message Correction feature, aka XEP-0308.
+See my Hackweek project and the corresponding pull request.
+Usage To enable incoming and outgoing corrections users need to enable it with /correction on, see /help correction for more details.
+Now we write a message to a friend /msg Martin Hey therr!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://profanity-im.github.io/blog/post/lmc/" />
+<meta property="article:published_time" content="2020-02-14T11:34:38+01:00" />
+<meta property="article:modified_time" content="2020-02-14T11:34:38+01:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Last Message Correction"/>
+<meta name="twitter:description" content="From 10th to 14th February 2020 we had Hackweek 19 at SUSE. Part of that time I used to finally implement the long (since 2016!) sought after Last Message Correction feature, aka XEP-0308.
+See my Hackweek project and the corresponding pull request.
+Usage To enable incoming and outgoing corrections users need to enable it with /correction on, see /help correction for more details.
+Now we write a message to a friend /msg Martin Hey therr!"/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://profanity-im.github.io/blog/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://profanity-im.github.io/blog/">profanity</a></h1>
+	<div class="site-description"><h2>development blog</h2><nav class="nav social">
+			<ul class="flat"><a href="https://profanity-im.github.io/" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/ProfanityIM" title="Twitter"><i data-feather="twitter"></i></a><a href="/blog/index.xml" title="RSS"><i data-feather="rss"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/blog/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog/post">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/blog/about">About</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Last Message Correction</h1>
+            <div class="meta">Posted at &mdash; Feb 14, 2020 by
+                    <a href=" https://profanity-im.github.io/blog/authors/jubalh/ ">jubalh</a>
+                  
+                
+            </div>
+		</div>
+
+		<div class="markdown">
+			<p>From 10th to 14th February 2020 we had <a href="https://hackweek.suse.com/19/projects">Hackweek 19</a> at SUSE.
+Part of that time I used to finally implement the long (since 2016!) <a href="https://github.com/profanity-im/profanity/issues/805">sought after</a> Last Message Correction feature, aka <a href="https://xmpp.org/extensions/xep-0308.html">XEP-0308</a>.</p>
+<p>See my <a href="https://hackweek.suse.com/projects/implement-xep-0308-last-message-correction-in-profanity">Hackweek project</a> and the corresponding <a href="https://github.com/profanity-im/profanity/pull/1267">pull request</a>.</p>
+<h2 id="usage">Usage</h2>
+<p>To enable incoming and outgoing corrections users need to enable it with <code>/correction on</code>, see <code>/help correction</code> for more details.</p>
+<p>Now we write a message to a friend <code>/msg Martin Hey therr!</code>.</p>
+<p>Ouch! Already a typo.</p>
+<p>Let&rsquo;s make this right: <code>/corr&lt;TAB&gt; &lt;TAB&gt;</code> will autocomplete to <code>/correct Hey therr!</code> which then can easily be fixed and re-send.</p>
+<p><img src="img/prof-lmc-wrong.png" alt="mistake">
+<img src="img/prof-lmc-corrected.png" alt="corrected"></p>
+<h2 id="details">Details</h2>
+<p>The feature is only available in the development version of Profanity. In the master branch on git.
+So it&rsquo;s not yet ready for release.</p>
+<p>Master branch corresponds always to our development and doesn&rsquo;t guarantee anything. It&rsquo;s where we develop test and experiment.
+We write these blogposts from time to time to inform our users and sponsors about what we are currently working on.</p>
+<p>The LMC feature is in there. But for the correct behaviour we need to rewrite the UI code. We could hack a &lsquo;from&rsquo; field in but we want to think more carefully how to implement it nicely.
+For this reason in the current state we don&rsquo;t check the &lsquo;from&rsquo; attribute of the sender. Because at the time of drawing so far we don&rsquo;t have this information.</p>
+<p>Since LMC is off by default noone is at harm. But people who choose to enable it need to be aware that in theory it would be possible for other users to send special messages where they could &ldquo;correct&rdquo; a message of someone else. We think the damage and likeliness from this is quite low. And once again, this is only in our development version of Profanity.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

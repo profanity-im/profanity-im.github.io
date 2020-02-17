@@ -6,10 +6,37 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Feb 2020 14:46:08 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 14 Feb 2020 11:34:38 +0100</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Last Message Correction</title>
+      <link>https://profanity-im.github.io/blog/post/lmc/</link>
+      <pubDate>Fri, 14 Feb 2020 11:34:38 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/lmc/</guid>
+      <description>&lt;p&gt;From 10th to 14th February 2020 we had &lt;a href=&#34;https://hackweek.suse.com/19/projects&#34;&gt;Hackweek 19&lt;/a&gt; at SUSE.
+Part of that time I used to finally implement the long (since 2016!) &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/805&#34;&gt;sought after&lt;/a&gt; Last Message Correction feature, aka &lt;a href=&#34;https://xmpp.org/extensions/xep-0308.html&#34;&gt;XEP-0308&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See my &lt;a href=&#34;https://hackweek.suse.com/projects/implement-xep-0308-last-message-correction-in-profanity&#34;&gt;Hackweek project&lt;/a&gt; and the corresponding &lt;a href=&#34;https://github.com/profanity-im/profanity/pull/1267&#34;&gt;pull request&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;To enable incoming and outgoing corrections users need to enable it with &lt;code&gt;/correction on&lt;/code&gt;, see &lt;code&gt;/help correction&lt;/code&gt; for more details.&lt;/p&gt;
+&lt;p&gt;Now we write a message to a friend &lt;code&gt;/msg Martin Hey therr!&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Ouch! Already a typo.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s make this right: &lt;code&gt;/corr&amp;lt;TAB&amp;gt; &amp;lt;TAB&amp;gt;&lt;/code&gt; will autocomplete to &lt;code&gt;/correct Hey therr!&lt;/code&gt; which then can easily be fixed and re-send.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/prof-lmc-wrong.png&#34; alt=&#34;mistake&#34;&gt;
+&lt;img src=&#34;img/prof-lmc-corrected.png&#34; alt=&#34;corrected&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+&lt;p&gt;The feature is only available in the development version of Profanity. In the master branch on git.
+So it&amp;rsquo;s not yet ready for release.&lt;/p&gt;
+&lt;p&gt;Master branch corresponds always to our development and doesn&amp;rsquo;t guarantee anything. It&amp;rsquo;s where we develop test and experiment.
+We write these blogposts from time to time to inform our users and sponsors about what we are currently working on.&lt;/p&gt;
+&lt;p&gt;The LMC feature is in there. But for the correct behaviour we need to rewrite the UI code. We could hack a &amp;lsquo;from&amp;rsquo; field in but we want to think more carefully how to implement it nicely.
+For this reason in the current state we don&amp;rsquo;t check the &amp;lsquo;from&amp;rsquo; attribute of the sender. Because at the time of drawing so far we don&amp;rsquo;t have this information.&lt;/p&gt;
+&lt;p&gt;Since LMC is off by default noone is at harm. But people who choose to enable it need to be aware that in theory it would be possible for other users to send special messages where they could &amp;ldquo;correct&amp;rdquo; a message of someone else. We think the damage and likeliness from this is quite low. And once again, this is only in our development version of Profanity.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Profanity 0.8.0</title>
@@ -23,6 +50,15 @@ So now Profanity is already 8 years old! Happy Birthday!&lt;/p&gt;
 It&amp;rsquo;s released five months after 0.7.0 and has 295 commits since then.&lt;/p&gt;
 &lt;p&gt;Also more and more people contribute to Profanity&amp;rsquo;s development. A big thanks to:
 &lt;a href=&#34;https://github.com/paulfariello&#34;&gt;@paulfariello&lt;/a&gt;, &lt;a href=&#34;https://github.com/svensp&#34;&gt;@svensp&lt;/a&gt;, &lt;a href=&#34;https://github.com/aaptel&#34;&gt;@aaptel&lt;/a&gt;, &lt;a href=&#34;https://github.com/&#34;&gt;@aszlig&lt;/a&gt;, &lt;a href=&#34;https://github.com/mdosch&#34;&gt;@mdosch&lt;/a&gt;, &lt;a href=&#34;https://github.com/pasis&#34;&gt;@pasis&lt;/a&gt;, &lt;a href=&#34;https://github.com/mzagozen&#34;&gt;@mzagozen&lt;/a&gt;, &lt;a href=&#34;https://github.com/quite&#34;&gt;@quite&lt;/a&gt;, &lt;a href=&#34;https://github.com/weiss&#34;&gt;@weiss&lt;/a&gt;, &lt;a href=&#34;https://github.com/Misaflo&#34;&gt;@Misaflo&lt;/a&gt; and &lt;a href=&#34;https://github.com/&#34;&gt;@jubalh&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://profanity-im.github.io/blog/static/img/profanity-rel-080.jpeg&#34; alt=&#34;Profanity&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+    &lt;img src=&#34;https://profanity-im.github.io/blog/img/profanity-rel-080.jpeg&#34;/&gt; &lt;figcaption&gt;
+            &lt;h4&gt;prof&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;img src=&#34;https://profanity-im.github.io/blog/img/profanity-rel-080.jpeg&#34; alt=&#34;Example image&#34;&gt;
+&lt;img src=&#34;img/profanity-rel-080.jpeg&#34; alt=&#34;Example image&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;new-features&#34;&gt;New features&lt;/h2&gt;
 &lt;p&gt;We got fingerprint autocompletion for the &lt;code&gt;/omemo trust&lt;/code&gt; command.   &lt;br&gt;
 We got a gruvbox and solarized theme.&lt;/p&gt;
