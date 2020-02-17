@@ -25,8 +25,8 @@ Part of that time I used to finally implement the long (since 2016!) &lt;a href=
 &lt;p&gt;Now we write a message to a friend &lt;code&gt;/msg Martin Hey therr!&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Ouch! Already a typo.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s make this right: &lt;code&gt;/corr&amp;lt;TAB&amp;gt; &amp;lt;TAB&amp;gt;&lt;/code&gt; will autocomplete to &lt;code&gt;/correct Hey therr!&lt;/code&gt; which then can easily be fixed and re-send.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;img/prof-lmc-wrong.png&#34; alt=&#34;mistake&#34;&gt;
-&lt;img src=&#34;img/prof-lmc-corrected.png&#34; alt=&#34;corrected&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://profanity-im.github.io/blog/blog/img/prof-lmc-wrong.png&#34; alt=&#34;mistake&#34;&gt;
+&lt;img src=&#34;https://profanity-im.github.io/blog/blog/img/prof-lmc-corrected.png&#34; alt=&#34;corrected&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
 &lt;p&gt;The feature is only available in the development version of Profanity. In the master branch on git.
 So it&amp;rsquo;s not yet ready for release.&lt;/p&gt;
@@ -50,8 +50,7 @@ So now Profanity is already 8 years old! Happy Birthday!&lt;/p&gt;
 It&amp;rsquo;s released five months after 0.7.0 and has 295 commits since then.&lt;/p&gt;
 &lt;p&gt;Also more and more people contribute to Profanity&amp;rsquo;s development. A big thanks to:
 &lt;a href=&#34;https://github.com/paulfariello&#34;&gt;@paulfariello&lt;/a&gt;, &lt;a href=&#34;https://github.com/svensp&#34;&gt;@svensp&lt;/a&gt;, &lt;a href=&#34;https://github.com/aaptel&#34;&gt;@aaptel&lt;/a&gt;, &lt;a href=&#34;https://github.com/&#34;&gt;@aszlig&lt;/a&gt;, &lt;a href=&#34;https://github.com/mdosch&#34;&gt;@mdosch&lt;/a&gt;, &lt;a href=&#34;https://github.com/pasis&#34;&gt;@pasis&lt;/a&gt;, &lt;a href=&#34;https://github.com/mzagozen&#34;&gt;@mzagozen&lt;/a&gt;, &lt;a href=&#34;https://github.com/quite&#34;&gt;@quite&lt;/a&gt;, &lt;a href=&#34;https://github.com/weiss&#34;&gt;@weiss&lt;/a&gt;, &lt;a href=&#34;https://github.com/Misaflo&#34;&gt;@Misaflo&lt;/a&gt; and &lt;a href=&#34;https://github.com/&#34;&gt;@jubalh&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;blog/img/profanity-rel-080.jpeg&#34; alt=&#34;Profanity&#34;&gt;
-&lt;img src=&#34;https://profanity-im.github.io/blog/blog/img/profanity-rel-080.jpeg&#34; alt=&#34;Profanity&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://profanity-im.github.io/blog/blog/img/profanity-rel-080.jpeg&#34; alt=&#34;Profanity&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;new-features&#34;&gt;New features&lt;/h2&gt;
 &lt;p&gt;We got fingerprint autocompletion for the &lt;code&gt;/omemo trust&lt;/code&gt; command.   &lt;br&gt;
 We got a gruvbox and solarized theme.&lt;/p&gt;
