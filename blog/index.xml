@@ -35,6 +35,8 @@ We write these blogposts from time to time to inform our users and sponsors abou
 &lt;p&gt;The LMC feature is in there. But for the correct behaviour we need to rewrite the UI code. We could hack a &amp;lsquo;from&amp;rsquo; field in but we want to think more carefully how to implement it nicely.
 For this reason in the current state we don&amp;rsquo;t check the &amp;lsquo;from&amp;rsquo; attribute of the sender. Because at the time of drawing so far we don&amp;rsquo;t have this information.&lt;/p&gt;
 &lt;p&gt;Since LMC is off by default noone is at harm. But people who choose to enable it need to be aware that in theory it would be possible for other users to send special messages where they could &amp;ldquo;correct&amp;rdquo; a message of someone else. We think the damage and likeliness from this is quite low. And once again, this is only in our development version of Profanity.&lt;/p&gt;
+&lt;h2 id=&#34;done&#34;&gt;Done!&lt;/h2&gt;
+&lt;p&gt;Today, on 2020-03-09, we were able to finish LMC properly. So if you use master from &lt;a href=&#34;https://github.com/profanity-im/profanity/commit/a23d4e4af7c10f6762577940a12983903bf4428d&#34;&gt;a23d4e4af7c10f6762577940a12983903bf4428d&lt;/a&gt; you are good.&lt;/p&gt;
 </description>
     </item>
     
