@@ -156,13 +156,20 @@
 <a name="avatar"></a>
 <h4>/avatar</h4>
 <p><b>Synopsis</b></p>
-<p><pre><code>/avatar &lt;barejid&gt;
+<p><pre><code>/avatar get &lt;barejid&gt;
+/avatar open &lt;barejid&gt;
+/avatar cmd &lt;command&gt;
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Download avatar (XEP-0084) for a certain contact. If nothing happens after using this command the user either doesn't have an avatar set at all or doesn't use XEP-0084 to publish it.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>&lt;barejid&gt;</code></td><td>JID to download avatar from.</td></tr></table>
+<table><tr><td><code>get &lt;barejid&gt;</code></td><td>Download the avatar. barejid is the JID to download avatar from.</td></tr><tr><td><code>cmd &lt;command&gt;</code></td><td>Set a command to execute with 'avatar open'. Use your favourite image viewer here.</td></tr><tr><td><code>open &lt;barejid&gt;</code></td><td>Download avatar and open it with command.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/avatar get someone@contacts.org
+/avatar cmd xdg-open
+/avatar open someone@contacts.org
+</code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="ban"></a>
@@ -197,7 +204,7 @@
 /blocked remove &lt;jid&gt;
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Manage blocked users (XEP-0191), calling with no arguments shows the current list of blocked users.To blog a certain user in a MUC use the following as jid: room@conference.example.org/spammy-user
+<p>Manage blocked users (XEP-0191), calling with no arguments shows the current list of blocked users. To blog a certain user in a MUC use the following as jid: room@conference.example.org/spammy-user
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>add [&lt;jid&gt;]</code></td><td>Block the specified Jabber ID. If in a chat window and no jid is specified, the current recipient will be blocked.</td></tr><tr><td><code>remove &lt;jid&gt;</code></td><td>Remove the specified Jabber ID from the blocked list.</td></tr></table>
@@ -275,7 +282,7 @@
 <p>Clear the current window. If you set persist_history you can still access the history by pressing PAGE UP.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>persist_history on|off</code></td><td>Whether or not to clear the screen persistently</td></tr></table>
+<table><tr><td><code>persist_history on|off</code></td><td>Whether or not to clear the screen persistently.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/clear
 /clear persist_history
@@ -325,7 +332,7 @@
 <p><pre><code>/color on|off|redgreen|blue
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Settings for consistent color generation for nicks (XEP-0392). Including corrections for Color Vision Deficiencies
+<p>Settings for consistent color generation for nicks (XEP-0392). Including corrections for Color Vision Deficiencies. Your terminal needs to support 256 colors.
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>on|off|redgreen|blue</code></td><td>Enable or disable nick colorization for MUC nicks. 'redgreen' is for people with red/green blindess and 'blue' for people with blue blindness.</td></tr></table>
@@ -369,6 +376,31 @@
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>chat all</code></td><td>Indicate all new chat messages in the console.</td></tr><tr><td><code>chat first</code></td><td>Indicate only the first new message per chat in the console.</td></tr><tr><td><code>chat none</code></td><td>Do not show any new chat messages in the console window.</td></tr><tr><td><code>muc all</code></td><td>Indicate all new chat room messages in the console.</td></tr><tr><td><code>muc first</code></td><td>Indicate only the first new message in each room in the console.</td></tr><tr><td><code>muc none</code></td><td>Do not show any new chat room messages in the console window.</td></tr><tr><td><code>private all</code></td><td>Indicate all new private room messages in the console.</td></tr><tr><td><code>private first</code></td><td>Indicate only the first private room message in the console.</td></tr><tr><td><code>private none</code></td><td>Do not show any new private room messages in the console window.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="correct"></a>
+<h4>/correct</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/correct &lt;message&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Correct and resend the last message (XEP-0308). Use tab completion to get the last send message.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>message</code></td><td>The corrected message.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="correction"></a>
+<h4>/correction</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/correction &lt;on&gt;|&lt;off&gt;
+/correction char &lt;char&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Settings regarding Last Message Correction (XEP-0308).Corrections will only work in MUC and regular chat windows. MUC PMs won't be allowed.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable/Disable support for last message correction.</td></tr><tr><td><code>char</code></td><td>Set character that will prefix corrected messages. Default: '+'.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="disco"></a>
@@ -630,15 +662,17 @@
 <h4>/logging</h4>
 <p><b>Synopsis</b></p>
 <p><pre><code>/logging chat|group on|off
+/logging group color unanimous|regular
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Switch logging on or off. Chat logging will be enabled if /history is set to on. When disabling this option, /history will also be disabled. 
+<p>Configure chat logging. Switch logging on or off. Chat logging will be enabled if /history is set to on. When disabling this option, /history will also be disabled. Color MUC history unanimously or like regular MUC messages.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>chat</code></td><td>Regular chat logging</td></tr><tr><td><code>group</code></td><td>Groupchat (room) logging</td></tr><tr><td><code>on|off</code></td><td>Enable or disable logging.</td></tr></table>
+<table><tr><td><code>chat on|off</code></td><td>Enable/Disable regular chat logging.</td></tr><tr><td><code>group on|off</code></td><td>Enable/Disable groupchat (room) logging.</td></tr><tr><td><code>group color unanimous|regular</code></td><td>Color MUC history unanimous or like regular MUC messages.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/logging chat on
 /logging group off
+/logging group color regular
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -761,13 +795,14 @@
 /omemo fingerprint [&lt;contact&gt;]
 /omemo char &lt;char&gt;
 /omemo policy manual|automatic|always
+/omemo sendfile on|off
 /omemo clear_device_list
 </code></pre></p>
 <p><b>Description</b></p>
 <p>OMEMO commands to manage keys, and perform encryption during chat sessions.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>gen</code></td><td>Generate OMEMO crytographic materials for current account.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OMEMO session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OMEMO session.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OMEMO encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OMEMO encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>fingerprint [&lt;contact&gt;]</code></td><td>Show contact fingerprints, or current recipient if omitted.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OMEMO encrypted messages.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OMEMO policy to manual, OMEMO sessions must be started manually.</td></tr><tr><td><code>policy automatic</code></td><td>Set the global OMEMO policy to opportunistic, an OMEMO session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy always</code></td><td>Set the global OMEMO policy to always, an error will be displayed if an OMEMO session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>clear_device_list</code></td><td>Clear your own device list on server side. Each client will reannounce itself when connected back.</td></tr></table>
+<table><tr><td><code>gen</code></td><td>Generate OMEMO crytographic materials for current account.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OMEMO session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OMEMO session.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OMEMO encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OMEMO encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>fingerprint [&lt;contact&gt;]</code></td><td>Show contact fingerprints, or current recipient if omitted.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OMEMO encrypted messages.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OMEMO policy to manual, OMEMO sessions must be started manually.</td></tr><tr><td><code>policy automatic</code></td><td>Set the global OMEMO policy to opportunistic, an OMEMO session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy always</code></td><td>Set the global OMEMO policy to always, an error will be displayed if an OMEMO session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>sendfile on|off</code></td><td>Allow /sendfile to send unencrypted files while in an OMEMO session.</td></tr><tr><td><code>clear_device_list</code></td><td>Clear your own device list on server side. Each client will reannounce itself when connected back.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/omemo gen
 /omemo start buddy@buddychat.org
@@ -804,12 +839,13 @@
 /otr policy manual|opportunistic|always [&lt;contact&gt;]
 /otr log on|off|redact
 /otr char &lt;char&gt;
+/otr sendfile on|off
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Off The Record (OTR) commands to manage keys, and perform OTR encryption during chat sessions.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>libver</code></td><td>Show which version of the libotr library is being used.</td></tr><tr><td><code>gen</code></td><td>Generate your private key.</td></tr><tr><td><code>myfp</code></td><td>Show your fingerprint.</td></tr><tr><td><code>theirfp</code></td><td>Show contacts fingerprint.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OTR session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OTR session,</td></tr><tr><td><code>trust|untrust</code></td><td>Indicate whether or not you trust the contact's fingerprint.</td></tr><tr><td><code>secret &lt;secret&gt;</code></td><td>Verify a contact's identity using a shared secret.</td></tr><tr><td><code>question &lt;question&gt; &lt;answer&gt;</code></td><td>Verify a contact's identity using a question and expected answer.</td></tr><tr><td><code>answer &lt;answer&gt;</code></td><td>Respond to a question answer verification request with your answer.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OTR policy to manual, OTR sessions must be started manually.</td></tr><tr><td><code>policy manual &lt;contact&gt;</code></td><td>Set the OTR policy to manual for a specific contact.</td></tr><tr><td><code>policy opportunistic</code></td><td>Set the global OTR policy to opportunistic, an OTR session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy opportunistic &lt;contact&gt;</code></td><td>Set the OTR policy to opportunistic for a specific contact.</td></tr><tr><td><code>policy always</code></td><td>Set the global OTR policy to always, an error will be displayed if an OTR session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>policy always &lt;contact&gt;</code></td><td>Set the OTR policy to always for a specific contact.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OTR encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OTR encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OTR encrypted messages.</td></tr></table>
+<table><tr><td><code>libver</code></td><td>Show which version of the libotr library is being used.</td></tr><tr><td><code>gen</code></td><td>Generate your private key.</td></tr><tr><td><code>myfp</code></td><td>Show your fingerprint.</td></tr><tr><td><code>theirfp</code></td><td>Show contacts fingerprint.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OTR session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OTR session.</td></tr><tr><td><code>trust|untrust</code></td><td>Indicate whether or not you trust the contact's fingerprint.</td></tr><tr><td><code>secret &lt;secret&gt;</code></td><td>Verify a contact's identity using a shared secret.</td></tr><tr><td><code>question &lt;question&gt; &lt;answer&gt;</code></td><td>Verify a contact's identity using a question and expected answer.</td></tr><tr><td><code>answer &lt;answer&gt;</code></td><td>Respond to a question answer verification request with your answer.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OTR policy to manual, OTR sessions must be started manually.</td></tr><tr><td><code>policy manual &lt;contact&gt;</code></td><td>Set the OTR policy to manual for a specific contact.</td></tr><tr><td><code>policy opportunistic</code></td><td>Set the global OTR policy to opportunistic, an OTR session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy opportunistic &lt;contact&gt;</code></td><td>Set the OTR policy to opportunistic for a specific contact.</td></tr><tr><td><code>policy always</code></td><td>Set the global OTR policy to always, an error will be displayed if an OTR session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>policy always &lt;contact&gt;</code></td><td>Set the OTR policy to always for a specific contact.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OTR encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OTR encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OTR encrypted messages.</td></tr><tr><td><code>sendfile on|off</code></td><td>Allow /sendfile to send unencrypted files while in an OTR session.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/otr log off
 /otr policy manual
@@ -857,12 +893,13 @@
 /pgp end
 /pgp log on|off|redact
 /pgp char &lt;char&gt;
+/pgp sendfile on|off
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Open PGP commands to manage keys, and perform PGP encryption during chat sessions. See the /account command to set your own PGP key.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>libver</code></td><td>Show which version of the libgpgme library is being used.</td></tr><tr><td><code>keys</code></td><td>List all keys known to the system.</td></tr><tr><td><code>contacts</code></td><td>Show contacts with assigned public keys.</td></tr><tr><td><code>setkey &lt;contact&gt; &lt;keyid&gt;</code></td><td>Manually associate a contact with a public key.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start PGP encrypted chat, current contact will be used if not specified.</td></tr><tr><td><code>end</code></td><td>End PGP encrypted chat with the current recipient.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of PGP encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log PGP encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to PGP encrypted messages.</td></tr></table>
+<table><tr><td><code>libver</code></td><td>Show which version of the libgpgme library is being used.</td></tr><tr><td><code>keys</code></td><td>List all keys known to the system.</td></tr><tr><td><code>contacts</code></td><td>Show contacts with assigned public keys.</td></tr><tr><td><code>setkey &lt;contact&gt; &lt;keyid&gt;</code></td><td>Manually associate a contact with a public key.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start PGP encrypted chat, current contact will be used if not specified.</td></tr><tr><td><code>end</code></td><td>End PGP encrypted chat with the current recipient.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of PGP encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log PGP encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to PGP encrypted messages.</td></tr><tr><td><code>sendfile on|off</code></td><td>Allow /sendfile to send unencrypted files while otherwise using PGP.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/pgp log off
 /pgp setkey buddy@buddychat.org BA19CACE5A9592C5
@@ -1188,6 +1225,18 @@
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
+<a name="slashguard"></a>
+<h4>/slashguard</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/slashguard on|off
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Slashguard won't accept a slash in the first 4 characters of your input field. It tries to protect you from typing ' /quit' and similar things in chats.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>on|off</code></td><td>Enable or disable slashguard.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
 <a name="software"></a>
 <h4>/software</h4>
 <p><b>Synopsis</b></p>
@@ -1265,7 +1314,7 @@
 <p>Manage statusbar display preferences.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>maxtabs &lt;value&gt;</code></td><td>Set the maximum number of tabs to display, <value> must be between 0 and 10</td></tr><tr><td><code>tablen &lt;value&gt;</code></td><td>Set the maximum number of characters to show as the tab name, 0 sets to unlimited.</td></tr><tr><td><code>show|hide name</code></td><td>Show or hide names in tabs.</td></tr><tr><td><code>show|hide number</code></td><td>Show or hide numbers in tabs.</td></tr><tr><td><code>self user|barejid|fulljid</code></td><td>Show account user name, barejid, fulljid as status bar title.</td></tr><tr><td><code>self off</code></td><td>Disable showing self as status bar title.</td></tr><tr><td><code>chat user|jid</code></td><td>Show users name, or the fulljid if no nick is present for chat tabs.</td></tr><tr><td><code>room room|jid</code></td><td>Show room name, or the fulljid for room tabs.</td></tr><tr><td><code>up</code></td><td>Move the status bar up the screen.</td></tr><tr><td><code>down</code></td><td>Move the status bar down the screen.</td></tr></table>
+<table><tr><td><code>maxtabs &lt;value&gt;</code></td><td>Set the maximum number of tabs to display, <value> must be between 0 and 10.</td></tr><tr><td><code>tablen &lt;value&gt;</code></td><td>Set the maximum number of characters to show as the tab name, 0 sets to unlimited.</td></tr><tr><td><code>show|hide name</code></td><td>Show or hide names in tabs.</td></tr><tr><td><code>show|hide number</code></td><td>Show or hide numbers in tabs.</td></tr><tr><td><code>self user|barejid|fulljid</code></td><td>Show account user name, barejid, fulljid as status bar title.</td></tr><tr><td><code>self off</code></td><td>Disable showing self as status bar title.</td></tr><tr><td><code>chat user|jid</code></td><td>Show users name, or the fulljid if no nick is present for chat tabs.</td></tr><tr><td><code>room room|jid</code></td><td>Show room name, or the fulljid for room tabs.</td></tr><tr><td><code>up</code></td><td>Move the status bar up the screen.</td></tr><tr><td><code>down</code></td><td>Move the status bar down the screen.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/statusbar maxtabs 8
 /statusbar tablen 5
@@ -1427,7 +1476,7 @@
 <p>Display an icon in the tray that will indicate new messages.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>on|off</code></td><td>Show tray icon.</td></tr><tr><td><code>read on|off</code></td><td>Show tray icon when no unread messages.</td></tr><tr><td><code>timer &lt;seconds&gt;</code></td><td>Set tray icon timer, seconds must be between 1-10</td></tr></table>
+<table><tr><td><code>on|off</code></td><td>Show tray icon.</td></tr><tr><td><code>read on|off</code></td><td>Show tray icon when no unread messages.</td></tr><tr><td><code>timer &lt;seconds&gt;</code></td><td>Set tray icon timer, seconds must be between 1-10.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="vercheck"></a>
@@ -1451,7 +1500,7 @@
 /who owner|admin|member
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Show contacts or room occupants with chosen status, role or affiliation
+<p>Show contacts or room occupants with chosen status, role or affiliation.
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>offline|away|dnd|xa|chat</code></td><td>Show contacts or room occupants with specified presence.</td></tr><tr><td><code>online</code></td><td>Contacts that are online, chat, away, xa, dnd.</td></tr><tr><td><code>available</code></td><td>Contacts that are available for chat - online, chat.</td></tr><tr><td><code>unavailable</code></td><td>Contacts that are not available for chat - offline, away, xa, dnd.</td></tr><tr><td><code>any</code></td><td>Contacts with any status (same as calling with no argument).</td></tr><tr><td><code>&lt;group&gt;</code></td><td>Filter the results by the specified roster group, not applicable in chat rooms.</td></tr><tr><td><code>moderator|participant|visitor</code></td><td>Room occupants with the specified role.</td></tr><tr><td><code>owner|admin|member</code></td><td>Room occupants with the specified affiliation.</td></tr></table>
