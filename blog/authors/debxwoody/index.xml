@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>profanity</title>
+    <link>https://profanity-im.github.io/blog/authors/debxwoody/</link>
+    <description>Recent content on profanity</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Mar 2020 14:49:55 +0100</lastBuildDate>
+    
+	<atom:link href="https://profanity-im.github.io/blog/authors/debxwoody/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to run profanity instances within tmux</title>
+      <link>https://profanity-im.github.io/blog/post/how-to-run-profanity-instances-within-tmux/</link>
+      <pubDate>Tue, 03 Mar 2020 14:49:55 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/how-to-run-profanity-instances-within-tmux/</guid>
+      <description>If you have more than one XMPP account, you may run one profanity process per account. For example profanity -a AccountName.
+It&amp;rsquo;s possible to start a tmux session with one window for each profanity instance.
+Create a tmux configuration file, e.g. in ~/.config/tmux.
+mkdir ~/.config/tmux touch ~/.config/tmux/profanity.conf  Within the configuration file, you create a tmux session named Profanity. Followed by one window per XMPP Account. Each window will run a profanity followed by -a accountname.</description>
+    </item>
+    
+  </channel>
+</rss>

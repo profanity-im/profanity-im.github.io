@@ -6,10 +6,42 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Feb 2020 11:34:38 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2020 14:49:55 +0100</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to run profanity instances within tmux</title>
+      <link>https://profanity-im.github.io/blog/post/how-to-run-profanity-instances-within-tmux/</link>
+      <pubDate>Tue, 03 Mar 2020 14:49:55 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/how-to-run-profanity-instances-within-tmux/</guid>
+      <description>&lt;p&gt;If you have more than one XMPP account, you may run one profanity process per
+account. For example &lt;code&gt;profanity -a AccountName&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s possible to start a tmux session with one window for each
+profanity instance.&lt;/p&gt;
+&lt;p&gt;Create a tmux configuration file, e.g. in &lt;code&gt;~/.config/tmux&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir ~/.config/tmux
+touch ~/.config/tmux/profanity.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Within the configuration file, you create a tmux session named &lt;code&gt;Profanity&lt;/code&gt;.
+Followed by one window per XMPP Account. Each window will run a profanity
+followed by &lt;code&gt;-a accountname&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;session-name Profanity
+neww -n &amp;quot;Private&amp;quot; profanity -a private 
+neww -n &amp;quot;Work&amp;quot; profanity -a work
+neww -n &amp;quot;Movim&amp;quot; profanity -a Movim
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you are using bash, you may like to define a alias in &lt;code&gt;~/.bash_aliases&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;alias profanitymux=&#39;tmux new-session &amp;quot;tmux source-file ~/.config/tmux/profanity.conf&amp;quot;&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Done! You can start your profanity instances within a tmux session by running
+&lt;code&gt;profanitymux&lt;/code&gt;. tmux will create one window for each profanity instance. You can
+switch the
+tmux windows with CTRL-B + 1 or CTRL-B + 2,&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Last Message Correction</title>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>How to run profanity instances within tmux - profanity</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="How to run profanity instances within tmux" />
+<meta property="og:description" content="If you have more than one XMPP account, you may run one profanity process per account. For example profanity -a AccountName.
+It&rsquo;s possible to start a tmux session with one window for each profanity instance.
+Create a tmux configuration file, e.g. in ~/.config/tmux.
+mkdir ~/.config/tmux touch ~/.config/tmux/profanity.conf  Within the configuration file, you create a tmux session named Profanity. Followed by one window per XMPP Account. Each window will run a profanity followed by -a accountname." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://profanity-im.github.io/blog/post/how-to-run-profanity-instances-within-tmux/" />
+<meta property="article:published_time" content="2020-03-03T14:49:55+01:00" />
+<meta property="article:modified_time" content="2020-03-03T14:49:55+01:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to run profanity instances within tmux"/>
+<meta name="twitter:description" content="If you have more than one XMPP account, you may run one profanity process per account. For example profanity -a AccountName.
+It&rsquo;s possible to start a tmux session with one window for each profanity instance.
+Create a tmux configuration file, e.g. in ~/.config/tmux.
+mkdir ~/.config/tmux touch ~/.config/tmux/profanity.conf  Within the configuration file, you create a tmux session named Profanity. Followed by one window per XMPP Account. Each window will run a profanity followed by -a accountname."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://profanity-im.github.io/blog/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://profanity-im.github.io/blog/">profanity</a></h1>
+	<div class="site-description"><h2>development blog</h2><nav class="nav social">
+			<ul class="flat"><a href="https://profanity-im.github.io/" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/ProfanityIM" title="Twitter"><i data-feather="twitter"></i></a><a href="/blog/index.xml" title="RSS"><i data-feather="rss"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/blog/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog/post">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/blog/about">About</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">How to run profanity instances within tmux</h1>
+            <div class="meta">Posted at &mdash; Mar 3, 2020 by
+                    <a href=" https://profanity-im.github.io/blog/authors/debxwoody/ ">debxwoody</a>
+                  
+                
+            </div>
+		</div>
+
+		<div class="markdown">
+			<p>If you have more than one XMPP account, you may run one profanity process per
+account. For example <code>profanity -a AccountName</code>.</p>
+<p>It&rsquo;s possible to start a tmux session with one window for each
+profanity instance.</p>
+<p>Create a tmux configuration file, e.g. in <code>~/.config/tmux</code>.</p>
+<pre><code>mkdir ~/.config/tmux
+touch ~/.config/tmux/profanity.conf
+</code></pre>
+<p>Within the configuration file, you create a tmux session named <code>Profanity</code>.
+Followed by one window per XMPP Account. Each window will run a profanity
+followed by <code>-a accountname</code>.</p>
+<pre><code>session-name Profanity
+neww -n &quot;Private&quot; profanity -a private 
+neww -n &quot;Work&quot; profanity -a work
+neww -n &quot;Movim&quot; profanity -a Movim
+</code></pre>
+<p>If you are using bash, you may like to define a alias in <code>~/.bash_aliases</code>.</p>
+<pre><code>alias profanitymux='tmux new-session &quot;tmux source-file ~/.config/tmux/profanity.conf&quot;'
+</code></pre>
+<p>Done! You can start your profanity instances within a tmux session by running
+<code>profanitymux</code>. tmux will create one window for each profanity instance. You can
+switch the
+tmux windows with CTRL-B + 1 or CTRL-B + 2,&hellip;</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>
