@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pasis on profanity</title>
+    <link>https://profanity-im.github.io/blog/authors/pasis/</link>
+    <description>Recent content in pasis on profanity</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Apr 2020 21:16:34 +0300</lastBuildDate>
+    
+	<atom:link href="https://profanity-im.github.io/blog/authors/pasis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>XML console in Profanity</title>
+      <link>https://profanity-im.github.io/blog/post/xml-console-in-profanity/</link>
+      <pubDate>Thu, 09 Apr 2020 21:16:34 +0300</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/xml-console-in-profanity/</guid>
+      <description>Profanity is an XMPP client that allows you to chat with friends. But one feature makes it more than just a client. The name is XML console.
+It has been implemented for a long time now, but hasn&amp;rsquo;t found wide spread within Profanity community. I still believe that the XML console is unpopular because users haven&amp;rsquo;t chance to find it and to try it out. And Profanity community has a number of experts who use XMPP in their projects.</description>
+    </item>
+    
+  </channel>
+</rss>

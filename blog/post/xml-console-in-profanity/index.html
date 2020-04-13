@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>XML console in Profanity - profanity</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="XML console in Profanity" />
+<meta property="og:description" content="Profanity is an XMPP client that allows you to chat with friends. But one feature makes it more than just a client. The name is XML console.
+It has been implemented for a long time now, but hasn&rsquo;t found wide spread within Profanity community. I still believe that the XML console is unpopular because users haven&rsquo;t chance to find it and to try it out. And Profanity community has a number of experts who use XMPP in their projects." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://profanity-im.github.io/blog/post/xml-console-in-profanity/" />
+<meta property="article:published_time" content="2020-04-09T21:16:34+03:00" />
+<meta property="article:modified_time" content="2020-04-09T21:16:34+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="XML console in Profanity"/>
+<meta name="twitter:description" content="Profanity is an XMPP client that allows you to chat with friends. But one feature makes it more than just a client. The name is XML console.
+It has been implemented for a long time now, but hasn&rsquo;t found wide spread within Profanity community. I still believe that the XML console is unpopular because users haven&rsquo;t chance to find it and to try it out. And Profanity community has a number of experts who use XMPP in their projects."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://profanity-im.github.io/blog/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://profanity-im.github.io/blog/">profanity</a></h1>
+	<div class="site-description"><h2>development blog</h2><nav class="nav social">
+			<ul class="flat"><a href="https://profanity-im.github.io/" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/ProfanityIM" title="Twitter"><i data-feather="twitter"></i></a><a href="/blog/index.xml" title="RSS"><i data-feather="rss"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/blog/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog/post">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/blog/about">About</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">XML console in Profanity</h1>
+            <div class="meta">Posted at &mdash; Apr 9, 2020 by
+                    <a href=" https://profanity-im.github.io/blog/authors/pasis/ "></a>
+                  
+                
+            </div>
+		</div>
+
+		<div class="markdown">
+			<p>Profanity is an XMPP client that allows you to chat with friends. But one
+feature makes it more than just a client. The name is XML console.</p>
+<p>It has been implemented for a long time now, but hasn&rsquo;t found wide spread within
+Profanity community. I still believe that the XML console is unpopular because
+users haven&rsquo;t chance to find it and to try it out. And Profanity community has
+a number of experts who use XMPP in their projects. If you&rsquo;re one of them,
+Profanity can make life easier for you.</p>
+<p>XMPP clients implement an XML console mostly for debugging purpose. To see XMPP
+stream and analyze issues post factum. But Profanity has gone further and
+implemented XML console with ability to send any data. One this small property
+turned Profanity into a powerful developer tool. Let&rsquo;s see how to use it:</p>
+<p>To open the XML console, simply run command: <code>/xmlconsole</code>. It opens a new
+window with content of XMPP stream. Profanity starts displaying only new XMPP
+stanzas. You won&rsquo;t see the part of XMPP stream before you open the window.
+Format of the content is as follows:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">21:24 - SENT:
+21:24 - &lt;iq id=&#34;id1&#34; type=&#34;get&#34;&gt;&lt;ping xmlns=&#34;urn:xmpp:ping&#34;/&gt;&lt;/iq&gt;
+21:24 -
+21:24 - RECV:
+21:24 - &lt;iq id=&#34;id1&#34; to=&#34;pasis@jabber.ua/profanity.754a&#34; type=&#34;result&#34;/&gt;
+21:24 -
+
+</code></pre></div><p>Any text you send in the window is inserted into XMPP stream as is. So, you can
+simply type a stanza, press enter and observe server behaviour. Why is it so
+cool? Because you don&rsquo;t have to write any code while you learn a XEP or server
+behaviour.</p>
+<p>For example, you&rsquo;ve decided to implement roster support with a low-level
+library like libstrophe. Instead of debugging with writing code, printing
+text to terminal or logs, you can connect to your server with Profanity and
+type in the XML console:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;iq type=&#34;get&#34; id=&#34;id2&#34;&gt;&lt;query xmlns=&#34;jabber:iq:roster&#34;/&gt;&lt;/iq&gt;
+</code></pre></div><p>Now, you can observe what server replies in practice. In this way, you can
+debug process which requires multiple iterations.</p>
+<p>Hint: if you type a stanza without child element, don&rsquo;t forget to close the tag!
+Pay attention to the &ldquo;query&rdquo; stanza in the above example - it has &lsquo;/&rsquo; before
+closing tag.</p>
+<p>And even you send something wrong, server will close connection and Profanity
+will reconnect automatically. So, this is much faster than rewriting your code.</p>
+<p>To demonstrate a different usecase, let&rsquo;s refer to XEP-0363. After requesting
+a slot with an IQ stanza, you can upload file using curl command-line tool.
+Again, no need to write any code for debugging.</p>
+<p>Hope you will find this feature useful for you!</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

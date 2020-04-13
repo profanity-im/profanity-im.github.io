@@ -6,10 +6,20 @@
     <description>Recent content in Posts on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Mar 2020 14:49:55 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2020 21:16:34 +0300</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>XML console in Profanity</title>
+      <link>https://profanity-im.github.io/blog/post/xml-console-in-profanity/</link>
+      <pubDate>Thu, 09 Apr 2020 21:16:34 +0300</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/xml-console-in-profanity/</guid>
+      <description>Profanity is an XMPP client that allows you to chat with friends. But one feature makes it more than just a client. The name is XML console.
+It has been implemented for a long time now, but hasn&amp;rsquo;t found wide spread within Profanity community. I still believe that the XML console is unpopular because users haven&amp;rsquo;t chance to find it and to try it out. And Profanity community has a number of experts who use XMPP in their projects.</description>
+    </item>
     
     <item>
       <title>How to run profanity instances within tmux</title>

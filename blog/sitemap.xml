@@ -3,27 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://profanity-im.github.io/blog/authors/</loc>
+    <lastmod>2020-04-09T21:16:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://profanity-im.github.io/blog/authors/pasis/</loc>
+    <lastmod>2020-04-09T21:16:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://profanity-im.github.io/blog/post/</loc>
+    <lastmod>2020-04-09T21:16:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://profanity-im.github.io/blog/</loc>
+    <lastmod>2020-04-09T21:16:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://profanity-im.github.io/blog/post/xml-console-in-profanity/</loc>
+    <lastmod>2020-04-09T21:16:34+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://profanity-im.github.io/blog/authors/debxwoody/</loc>
     <lastmod>2020-03-03T14:49:55+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://profanity-im.github.io/blog/authors/</loc>
-    <lastmod>2020-03-03T14:49:55+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://profanity-im.github.io/blog/post/how-to-run-profanity-instances-within-tmux/</loc>
-    <lastmod>2020-03-03T14:49:55+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://profanity-im.github.io/blog/post/</loc>
-    <lastmod>2020-03-03T14:49:55+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://profanity-im.github.io/blog/</loc>
     <lastmod>2020-03-03T14:49:55+01:00</lastmod>
   </url>
   
