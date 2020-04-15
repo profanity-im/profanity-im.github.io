@@ -6,10 +6,20 @@
     <description>Recent content in Posts on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Apr 2020 21:16:34 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 15 Apr 2020 13:50:25 +0200</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Contributing a Patch via GitHub</title>
+      <link>https://profanity-im.github.io/blog/post/contributing-a-patch-via-github/</link>
+      <pubDate>Wed, 15 Apr 2020 13:50:25 +0200</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/contributing-a-patch-via-github/</guid>
+      <description>Several people mentioned in our MUC that they have problems contributing code to the Profanity repo on GitHub because &amp;ldquo;forking all the time is cumbersome&amp;rdquo;.
+Let me show you an example workflow. Since I don&amp;rsquo;t think it&amp;rsquo;s cumversome at all. I assume you have an account on GitHub and are logged in. First thing we do is fork the repo. So go to https://github.com/profanity-im/profanity and click on &amp;ldquo;Fork&amp;rdquo;. Now you should be at your fork, in my case this is: https://github.</description>
+    </item>
     
     <item>
       <title>XML console in Profanity</title>
