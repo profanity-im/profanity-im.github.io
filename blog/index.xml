@@ -18,7 +18,7 @@
       
       <guid>https://profanity-im.github.io/blog/post/contributing-a-patch-via-github/</guid>
       <description>&lt;p&gt;Several people mentioned in our MUC that they have problems contributing code to the Profanity repo on GitHub because &amp;ldquo;forking all the time is cumbersome&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;Let me show you an example workflow. Since I don&amp;rsquo;t think it&amp;rsquo;s cumversome at all.
+&lt;p&gt;Let me show you an example workflow. Since I don&amp;rsquo;t think it&amp;rsquo;s cumbersome at all.
 I assume you have an account on &lt;a href=&#34;https://github.com&#34;&gt;GitHub&lt;/a&gt; and are logged in.
 First thing we do is fork the repo. So go to &lt;a href=&#34;https://github.com/profanity-im/profanity&#34;&gt;https://github.com/profanity-im/profanity&lt;/a&gt; and click on &amp;ldquo;Fork&amp;rdquo;.
 Now you should be at your fork, in my case this is: &lt;a href=&#34;https://github.com/jubalh/profanity/&#34;&gt;https://github.com/jubalh/profanity/&lt;/a&gt;&lt;/p&gt;
@@ -37,7 +37,8 @@ Now you should be at your fork, in my case this is: &lt;a href=&#34;https://gith
 &lt;p&gt;&lt;code&gt;git checkout master; git pull&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;And then we do the same like before. We check out a new branch, we do our commits there. We push them.
 So this is the same like one wouldn&amp;rsquo;t use GitHub but git in general.
-The only thing that is &amp;ldquo;more work&amp;rdquo; is to go to the website and create a pull request.&lt;/p&gt;
+The only thing that is &amp;ldquo;more work&amp;rdquo; is to go to the website and create a pull request.
+The &amp;ldquo;forking&amp;rdquo; actually only happens once.&lt;/p&gt;
 &lt;p&gt;If you don&amp;rsquo;t like browsers, you can use something like &lt;a href=&#34;https://hub.github.com/&#34;&gt;hub&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>

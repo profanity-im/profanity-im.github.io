@@ -18,7 +18,7 @@
       
       <guid>https://profanity-im.github.io/blog/post/contributing-a-patch-via-github/</guid>
       <description>Several people mentioned in our MUC that they have problems contributing code to the Profanity repo on GitHub because &amp;ldquo;forking all the time is cumbersome&amp;rdquo;.
-Let me show you an example workflow. Since I don&amp;rsquo;t think it&amp;rsquo;s cumversome at all. I assume you have an account on GitHub and are logged in. First thing we do is fork the repo. So go to https://github.com/profanity-im/profanity and click on &amp;ldquo;Fork&amp;rdquo;. Now you should be at your fork, in my case this is: https://github.</description>
+Let me show you an example workflow. Since I don&amp;rsquo;t think it&amp;rsquo;s cumbersome at all. I assume you have an account on GitHub and are logged in. First thing we do is fork the repo. So go to https://github.com/profanity-im/profanity and click on &amp;ldquo;Fork&amp;rdquo;. Now you should be at your fork, in my case this is: https://github.</description>
     </item>
     
     <item>
