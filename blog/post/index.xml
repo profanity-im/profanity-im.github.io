@@ -6,10 +6,20 @@
     <description>Recent content in Posts on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Apr 2020 13:50:25 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2020 22:50:18 +0200</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>New mailing list</title>
+      <link>https://profanity-im.github.io/blog/post/new-mailing-list/</link>
+      <pubDate>Sun, 19 Apr 2020 22:50:18 +0200</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/new-mailing-list/</guid>
+      <description>I would like to announce that thanks to toogley we have a new mailing list. You can register on https://lists.notraces.net/mailman/listinfo/profanity
+The list is hosted by datenkollektiv.</description>
+    </item>
     
     <item>
       <title>Contributing a Patch via GitHub</title>
