@@ -17,7 +17,7 @@
       <pubDate>Sat, 09 May 2020 14:46:08 +0100</pubDate>
       
       <guid>https://profanity-im.github.io/blog/post/release-090/</guid>
-      <description>&lt;p&gt;Four months and 350 commits after 0.8.1 we are happy to release 0.9.0.&lt;/p&gt;
+      <description>&lt;p&gt;Four months and 350 commits after 0.8.1 we are happy to release &lt;a href=&#34;https://github.com/profanity-im/profanity/releases/tag/0.9.0&#34;&gt;0.9.0&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;7 people contributed code to it: &lt;a href=&#34;https://github.com/pasis&#34;&gt;pasis&lt;/a&gt;, &lt;a href=&#34;https://github.com/wstrm&#34;&gt;wstrm&lt;/a&gt;, &lt;a href=&#34;https://github.com/DebXWoody&#34;&gt;DebXWoody&lt;/a&gt;, &lt;a href=&#34;https://github.com/toogley&#34;&gt;toogley&lt;/a&gt;, &lt;a href=&#34;https://github.com/pmaziere&#34;&gt;pmaziere&lt;/a&gt;, &lt;a href=&#34;https://github.com/moppman&#34;&gt;moppman&lt;/a&gt; and &lt;a href=&#34;https://github.com/jubalh&#34;&gt;jubalh&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did!
 I also would like to express my gratitude to my sponsors &lt;a href=&#34;https://github.com/mdosch&#34;&gt;mdosch&lt;/a&gt; and &lt;a href=&#34;https://github.com/wstrm&#34;&gt;wstrm&lt;/a&gt;!&lt;/p&gt;
