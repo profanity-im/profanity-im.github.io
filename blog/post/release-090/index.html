@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Profanity 0.9.0 - profanity</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Profanity 0.9.0" />
+<meta property="og:description" content="Four months and 350 commits after 0.8.1 we are happy to release 0.9.0.
+7 people contributed code to it: pasis, wstrm, DebXWoody, toogley, pmaziere, moppman and jubalh.
+Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did! I also would like to express my gratitude to my sponsors mdosch and wstrm!
+LMC We support XEP-0308: Last Message Correction now. Enable it with /correction on." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://profanity-im.github.io/blog/post/release-090/" />
+<meta property="article:published_time" content="2020-05-09T14:46:08+01:00" />
+<meta property="article:modified_time" content="2020-05-09T14:46:08+01:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Profanity 0.9.0"/>
+<meta name="twitter:description" content="Four months and 350 commits after 0.8.1 we are happy to release 0.9.0.
+7 people contributed code to it: pasis, wstrm, DebXWoody, toogley, pmaziere, moppman and jubalh.
+Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did! I also would like to express my gratitude to my sponsors mdosch and wstrm!
+LMC We support XEP-0308: Last Message Correction now. Enable it with /correction on."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://profanity-im.github.io/blog/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://profanity-im.github.io/blog/">profanity</a></h1>
+	<div class="site-description"><h2>development blog</h2><nav class="nav social">
+			<ul class="flat"><a href="https://profanity-im.github.io/" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/ProfanityIM" title="Twitter"><i data-feather="twitter"></i></a><a href="/blog/index.xml" title="RSS"><i data-feather="rss"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/blog/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog/post">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/blog/about">About</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Profanity 0.9.0</h1>
+            <div class="meta">Posted at &mdash; May 9, 2020 by
+                    <a href=" https://profanity-im.github.io/blog/authors/jubalh/ ">jubalh</a>
+                  
+                
+            </div>
+		</div>
+
+		<div class="markdown">
+			<p>Four months and 350 commits after 0.8.1 we are happy to release 0.9.0.</p>
+<p>7 people contributed code to it: <a href="https://github.com/pasis">pasis</a>, <a href="https://github.com/wstrm">wstrm</a>, <a href="https://github.com/DebXWoody">DebXWoody</a>, <a href="https://github.com/toogley">toogley</a>, <a href="https://github.com/pmaziere">pmaziere</a>, <a href="https://github.com/moppman">moppman</a> and <a href="https://github.com/jubalh">jubalh</a>.</p>
+<p>Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did!
+I also would like to express my gratitude to my sponsors <a href="https://github.com/mdosch">mdosch</a> and <a href="https://github.com/wstrm">wstrm</a>!</p>
+<p><img src="/blog/img/profanity-rel-090.png" alt="Profanity"></p>
+<h2 id="lmc">LMC</h2>
+<p>We support <a href="https://xmpp.org/extensions/xep-0308.html">XEP-0308: Last Message Correction</a> now.
+Enable it with <code>/correction on</code>. If you mistyped a word just type <code>/correct</code> and hit tab to autocomplete the last sent message, then fix it and press enter.</p>
+<h2 id="slashguard">Slashguard</h2>
+<p>In our MUC we often see messages like &ldquo;q/uit&rdquo; or people having whitespaces before a command &quot; /quit&rdquo;.
+To help you to avoid such mistakes we introduce slashguard.
+Once enabled (<code>/slashguard on</code>) Profanity won&rsquo;t send messages that contain a backslash in the first four letters.</p>
+<h2 id="new-parameters">New parameters</h2>
+<p>You can specify a logfile upon startup via the new <code>-f</code> option:
+<code>profanity -f TEST</code> will log to <code>~/.local/share/profanity/logs/TEST.log</code>.</p>
+<p>Hopefully this is useful for our testers!</p>
+<p>The new <code>-t</code> option will let you select a theme right at startup: <code>/profanity -t bios</code>.
+This is useful if you run multiple instances of Profanity. Maybe you have multiple accounts and want to visually destinguish between them.</p>
+<p>Did you know we have a <a href="https://profanity-im.github.io/blog/post/how-to-run-profanity-instances-within-tmux/">blogpost</a> that should help you create such a setup with tmux?</p>
+<h2 id="titlebar">Titlebar</h2>
+<p>Previously you could choose whether to display the MUC name or MUC title in the titlebar. Now you can choose to do both or neither.
+<code>/titlebar use name|jid</code> became <code>/titlebar show|hide name|jid</code>.</p>
+<h2 id="what-software-is-this-server-running">What software is this server running?</h2>
+<p>You can now use XEP-0092 not just to request client software information but also server software information.
+Use <code>/serversoftware domain.org</code>.</p>
+<h2 id="theming">Theming</h2>
+<p>You can now colorize your trackbar by using <code>main.trackbar</code> in your theme.</p>
+<p>And you can use UTF-8 symbols as your OMEMO char.</p>
+<p>You can now choose not to colorize your own nick if you enabled XEP-0392.
+Use <code>/color own off</code> if you want consistent color generation for everybody else but not for yourself.</p>
+<p>MUC history messages were colored in one uniform color (grey by default). Many users would just like to get the same coloring and hilighting for freshly received messages. So we removed the uniform color feature <a href="https://github.com/profanity-im/profanity/issues/1261">#1261</a>.</p>
+<p>And there is a new theme based on default: jubalian. Check it out ;)</p>
+<h2 id="avatars">Avatars</h2>
+<p>Avatars can not only be downloaded but also opened automatically now.
+In 0.8.x you used <code>/avatar odin@valhalla.org</code>.
+Now you can either just download it <code>/avatar get odin@valhalla.org</code> or open it: <code>/avatar open odin@valhalla.org</code>.</p>
+<p>By default we rely on xdg-open, so your default image viewer will be used.
+But you can choose to configure it yourself. For example to use <code>feh</code> instead: <code>/executable avatar feh</code></p>
+<h2 id="open-urls">Open URLs</h2>
+<p>People often had issues with URLs that were too long and then broken into several lines. If they were in a MUC and had the occupants panel enabled, this made it impossible to click on the URL to open it because it was not one consecutive string.</p>
+<p>If you run Profanity locally (not on a remote machine where you log in via ssh) you can use use <code>/urlopen</code> to open an URL in your browser.</p>
+<p>We use xdg-open again. But you can configure it with <code>/executable urlopen firefox</code>.</p>
+<h2 id="omemo">OMEMO</h2>
+<p>OMEMO autocompletion had some quirks. We fixed them!
+We also stopped requesting the device list in non anon MUCs.</p>
+<h2 id="scrolling">Scrolling</h2>
+<p>Sometimes it happened that you scroll up a window to read up on something. Then switch to another application and later forget that you actually scrolled up. Why is noone saying anything in this MUC anymore?</p>
+<p>In this version of Profanity we display a hint in the titlebar if a window is scrolled. Use <code>titlebar.scrolled</code> to theme it.</p>
+<h2 id="legacy-authentication">Legacy authentication</h2>
+<p>Some servers still only allow legacy authentication <a href="https://github.com/profanity-im/profanity/issues/1236">#1236</a>.
+If you want to connect to them you will need libstrophe 0.9.3 and Profanity 0.9.0.</p>
+<p>Use <code>/connect &lt;account&gt; [auth default|legacy]</code> or <code>/account &lt;account&gt; set auth default|legacy</code>.</p>
+<h2 id="too-many-tabs">Too many tabs</h2>
+<p>In case you many opened windows you might want to only display the ones that have something going on in them.
+Use <code>/statusbar show|hide read</code> to configure this to your liking.</p>
+<h2 id="bookmarks">Bookmarks</h2>
+<p>We now print the boomark names when using <code>/bookmark list</code>. You can also now add a name when using <code>/bookmark add</code>.</p>
+<p>Gajim uses a custom way to save whether (autojoined) bookmarks should be minimized. When we updated a bookmark in Profanity we didn&rsquo;t respect this flag and it was overwritten. Now Profanity works nicer with Gajim <a href="https://github.com/profanity-im/profanity/issues/1326">#1326</a>.</p>
+<p>When you use multiple clients you probalby have some MUCs that you want to join on all devices. You use the autojoin flag for these cases.
+If you want to ignore the autojoin flag in a Profanity instance you can use <code>/bookmark ignore</code>.</p>
+<h2 id="narrow-terminals">Narrow terminals</h2>
+<p>We can&rsquo;t support all edge cases and users will need to have a reasonable window size to use Profanity properly.
+We fixed a bug about a messed up titlebar if a user had a very long resource name <a href="https://github.com/profanity-im/profanity/issues/715">#715</a>.</p>
+<h2 id="change-in-default-settings">Change in default settings</h2>
+<p>To give a better experience to new users we changed the default settings for some popular features.</p>
+<ul>
+<li>Allow message correction</li>
+<li>Send receipts</li>
+<li>Enable carbons</li>
+<li>Enable type/chat states</li>
+</ul>
+<h2 id="under-the-hood">Under the hood</h2>
+<p>Plenty of memory leaks where discovered and fixed. Profanity should run a lot smoother now.
+The UI and message functions were cleaned up in preparation to add MAM support.</p>
+<p>Messages are now logged in an sqlite database which is located at <code>~/.local/share/profanity/database/accountname/chatlog.db</code>.
+All later retrieval (history) is done using this database from now on. We still output regular chat logs in <code>~/.local/share/profanity/chatlogs</code> if the user enabled it (<code>/loggin chat|group on</code>) but don&rsquo;t rely on them anymore. They are just for the users convenience.</p>
+<p>This will also benefit us when implementing message searching <a href="https://github.com/profanity-im/profanity/issues/206">#206</a> or MAM <a href="https://github.com/profanity-im/profanity/issues/660">#660</a> for example.</p>
+<p>We always send delivery receipts and not just if the other client advertises it <a href="https://github.com/profanity-im/profanity/issues/1268">#1268</a>.</p>
+<p>Some users experienced connectivity problems. Several things were done by DebXWoody to improve this.</p>
+<p>We also had an edge case where the roster only displayed offline contacts because we received the presence after the roster.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

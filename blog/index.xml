@@ -6,10 +6,99 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Apr 2020 22:50:18 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 09 May 2020 14:46:08 +0100</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Profanity 0.9.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-090/</link>
+      <pubDate>Sat, 09 May 2020 14:46:08 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-090/</guid>
+      <description>&lt;p&gt;Four months and 350 commits after 0.8.1 we are happy to release 0.9.0.&lt;/p&gt;
+&lt;p&gt;7 people contributed code to it: &lt;a href=&#34;https://github.com/pasis&#34;&gt;pasis&lt;/a&gt;, &lt;a href=&#34;https://github.com/wstrm&#34;&gt;wstrm&lt;/a&gt;, &lt;a href=&#34;https://github.com/DebXWoody&#34;&gt;DebXWoody&lt;/a&gt;, &lt;a href=&#34;https://github.com/toogley&#34;&gt;toogley&lt;/a&gt;, &lt;a href=&#34;https://github.com/pmaziere&#34;&gt;pmaziere&lt;/a&gt;, &lt;a href=&#34;https://github.com/moppman&#34;&gt;moppman&lt;/a&gt; and &lt;a href=&#34;https://github.com/jubalh&#34;&gt;jubalh&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did!
+I also would like to express my gratitude to my sponsors &lt;a href=&#34;https://github.com/mdosch&#34;&gt;mdosch&lt;/a&gt; and &lt;a href=&#34;https://github.com/wstrm&#34;&gt;wstrm&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://profanity-im.github.io/blog/blog/img/profanity-rel-090.png&#34; alt=&#34;Profanity&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;lmc&#34;&gt;LMC&lt;/h2&gt;
+&lt;p&gt;We support &lt;a href=&#34;https://xmpp.org/extensions/xep-0308.html&#34;&gt;XEP-0308: Last Message Correction&lt;/a&gt; now.
+Enable it with &lt;code&gt;/correction on&lt;/code&gt;. If you mistyped a word just type &lt;code&gt;/correct&lt;/code&gt; and hit tab to autocomplete the last sent message, then fix it and press enter.&lt;/p&gt;
+&lt;h2 id=&#34;slashguard&#34;&gt;Slashguard&lt;/h2&gt;
+&lt;p&gt;In our MUC we often see messages like &amp;ldquo;q/uit&amp;rdquo; or people having whitespaces before a command &amp;quot; /quit&amp;rdquo;.
+To help you to avoid such mistakes we introduce slashguard.
+Once enabled (&lt;code&gt;/slashguard on&lt;/code&gt;) Profanity won&amp;rsquo;t send messages that contain a backslash in the first four letters.&lt;/p&gt;
+&lt;h2 id=&#34;new-parameters&#34;&gt;New parameters&lt;/h2&gt;
+&lt;p&gt;You can specify a logfile upon startup via the new &lt;code&gt;-f&lt;/code&gt; option:
+&lt;code&gt;profanity -f TEST&lt;/code&gt; will log to &lt;code&gt;~/.local/share/profanity/logs/TEST.log&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Hopefully this is useful for our testers!&lt;/p&gt;
+&lt;p&gt;The new &lt;code&gt;-t&lt;/code&gt; option will let you select a theme right at startup: &lt;code&gt;/profanity -t bios&lt;/code&gt;.
+This is useful if you run multiple instances of Profanity. Maybe you have multiple accounts and want to visually destinguish between them.&lt;/p&gt;
+&lt;p&gt;Did you know we have a &lt;a href=&#34;https://profanity-im.github.io/blog/post/how-to-run-profanity-instances-within-tmux/&#34;&gt;blogpost&lt;/a&gt; that should help you create such a setup with tmux?&lt;/p&gt;
+&lt;h2 id=&#34;titlebar&#34;&gt;Titlebar&lt;/h2&gt;
+&lt;p&gt;Previously you could choose whether to display the MUC name or MUC title in the titlebar. Now you can choose to do both or neither.
+&lt;code&gt;/titlebar use name|jid&lt;/code&gt; became &lt;code&gt;/titlebar show|hide name|jid&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;what-software-is-this-server-running&#34;&gt;What software is this server running?&lt;/h2&gt;
+&lt;p&gt;You can now use XEP-0092 not just to request client software information but also server software information.
+Use &lt;code&gt;/serversoftware domain.org&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;theming&#34;&gt;Theming&lt;/h2&gt;
+&lt;p&gt;You can now colorize your trackbar by using &lt;code&gt;main.trackbar&lt;/code&gt; in your theme.&lt;/p&gt;
+&lt;p&gt;And you can use UTF-8 symbols as your OMEMO char.&lt;/p&gt;
+&lt;p&gt;You can now choose not to colorize your own nick if you enabled XEP-0392.
+Use &lt;code&gt;/color own off&lt;/code&gt; if you want consistent color generation for everybody else but not for yourself.&lt;/p&gt;
+&lt;p&gt;MUC history messages were colored in one uniform color (grey by default). Many users would just like to get the same coloring and hilighting for freshly received messages. So we removed the uniform color feature &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/1261&#34;&gt;#1261&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;And there is a new theme based on default: jubalian. Check it out ;)&lt;/p&gt;
+&lt;h2 id=&#34;avatars&#34;&gt;Avatars&lt;/h2&gt;
+&lt;p&gt;Avatars can not only be downloaded but also opened automatically now.
+In 0.8.x you used &lt;code&gt;/avatar odin@valhalla.org&lt;/code&gt;.
+Now you can either just download it &lt;code&gt;/avatar get odin@valhalla.org&lt;/code&gt; or open it: &lt;code&gt;/avatar open odin@valhalla.org&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;By default we rely on xdg-open, so your default image viewer will be used.
+But you can choose to configure it yourself. For example to use &lt;code&gt;feh&lt;/code&gt; instead: &lt;code&gt;/executable avatar feh&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;open-urls&#34;&gt;Open URLs&lt;/h2&gt;
+&lt;p&gt;People often had issues with URLs that were too long and then broken into several lines. If they were in a MUC and had the occupants panel enabled, this made it impossible to click on the URL to open it because it was not one consecutive string.&lt;/p&gt;
+&lt;p&gt;If you run Profanity locally (not on a remote machine where you log in via ssh) you can use use &lt;code&gt;/urlopen&lt;/code&gt; to open an URL in your browser.&lt;/p&gt;
+&lt;p&gt;We use xdg-open again. But you can configure it with &lt;code&gt;/executable urlopen firefox&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;omemo&#34;&gt;OMEMO&lt;/h2&gt;
+&lt;p&gt;OMEMO autocompletion had some quirks. We fixed them!
+We also stopped requesting the device list in non anon MUCs.&lt;/p&gt;
+&lt;h2 id=&#34;scrolling&#34;&gt;Scrolling&lt;/h2&gt;
+&lt;p&gt;Sometimes it happened that you scroll up a window to read up on something. Then switch to another application and later forget that you actually scrolled up. Why is noone saying anything in this MUC anymore?&lt;/p&gt;
+&lt;p&gt;In this version of Profanity we display a hint in the titlebar if a window is scrolled. Use &lt;code&gt;titlebar.scrolled&lt;/code&gt; to theme it.&lt;/p&gt;
+&lt;h2 id=&#34;legacy-authentication&#34;&gt;Legacy authentication&lt;/h2&gt;
+&lt;p&gt;Some servers still only allow legacy authentication &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/1236&#34;&gt;#1236&lt;/a&gt;.
+If you want to connect to them you will need libstrophe 0.9.3 and Profanity 0.9.0.&lt;/p&gt;
+&lt;p&gt;Use &lt;code&gt;/connect &amp;lt;account&amp;gt; [auth default|legacy]&lt;/code&gt; or &lt;code&gt;/account &amp;lt;account&amp;gt; set auth default|legacy&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;too-many-tabs&#34;&gt;Too many tabs&lt;/h2&gt;
+&lt;p&gt;In case you many opened windows you might want to only display the ones that have something going on in them.
+Use &lt;code&gt;/statusbar show|hide read&lt;/code&gt; to configure this to your liking.&lt;/p&gt;
+&lt;h2 id=&#34;bookmarks&#34;&gt;Bookmarks&lt;/h2&gt;
+&lt;p&gt;We now print the boomark names when using &lt;code&gt;/bookmark list&lt;/code&gt;. You can also now add a name when using &lt;code&gt;/bookmark add&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Gajim uses a custom way to save whether (autojoined) bookmarks should be minimized. When we updated a bookmark in Profanity we didn&amp;rsquo;t respect this flag and it was overwritten. Now Profanity works nicer with Gajim &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/1326&#34;&gt;#1326&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;When you use multiple clients you probalby have some MUCs that you want to join on all devices. You use the autojoin flag for these cases.
+If you want to ignore the autojoin flag in a Profanity instance you can use &lt;code&gt;/bookmark ignore&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;narrow-terminals&#34;&gt;Narrow terminals&lt;/h2&gt;
+&lt;p&gt;We can&amp;rsquo;t support all edge cases and users will need to have a reasonable window size to use Profanity properly.
+We fixed a bug about a messed up titlebar if a user had a very long resource name &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/715&#34;&gt;#715&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;change-in-default-settings&#34;&gt;Change in default settings&lt;/h2&gt;
+&lt;p&gt;To give a better experience to new users we changed the default settings for some popular features.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Allow message correction&lt;/li&gt;
+&lt;li&gt;Send receipts&lt;/li&gt;
+&lt;li&gt;Enable carbons&lt;/li&gt;
+&lt;li&gt;Enable type/chat states&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;under-the-hood&#34;&gt;Under the hood&lt;/h2&gt;
+&lt;p&gt;Plenty of memory leaks where discovered and fixed. Profanity should run a lot smoother now.
+The UI and message functions were cleaned up in preparation to add MAM support.&lt;/p&gt;
+&lt;p&gt;Messages are now logged in an sqlite database which is located at &lt;code&gt;~/.local/share/profanity/database/accountname/chatlog.db&lt;/code&gt;.
+All later retrieval (history) is done using this database from now on. We still output regular chat logs in &lt;code&gt;~/.local/share/profanity/chatlogs&lt;/code&gt; if the user enabled it (&lt;code&gt;/loggin chat|group on&lt;/code&gt;) but don&amp;rsquo;t rely on them anymore. They are just for the users convenience.&lt;/p&gt;
+&lt;p&gt;This will also benefit us when implementing message searching &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/206&#34;&gt;#206&lt;/a&gt; or MAM &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/660&#34;&gt;#660&lt;/a&gt; for example.&lt;/p&gt;
+&lt;p&gt;We always send delivery receipts and not just if the other client advertises it &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/1268&#34;&gt;#1268&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Some users experienced connectivity problems. Several things were done by DebXWoody to improve this.&lt;/p&gt;
+&lt;p&gt;We also had an edge case where the roster only displayed offline contacts because we received the presence after the roster.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>New mailing list</title>

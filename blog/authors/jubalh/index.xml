@@ -6,10 +6,22 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Apr 2020 22:50:18 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 09 May 2020 14:46:08 +0100</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/authors/jubalh/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Profanity 0.9.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-090/</link>
+      <pubDate>Sat, 09 May 2020 14:46:08 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-090/</guid>
+      <description>Four months and 350 commits after 0.8.1 we are happy to release 0.9.0.
+7 people contributed code to it: pasis, wstrm, DebXWoody, toogley, pmaziere, moppman and jubalh.
+Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did! I also would like to express my gratitude to my sponsors mdosch and wstrm!
+LMC We support XEP-0308: Last Message Correction now. Enable it with /correction on.</description>
+    </item>
     
     <item>
       <title>New mailing list</title>
