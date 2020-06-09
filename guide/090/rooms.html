@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profanity, a console based XMPP client - Chat Rooms</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="../../css/profanity.css" type="text/css" rel="stylesheet">
+
+    <script type="text/javascript" src="../../js/analytics.js"></script>
+</head>
+
+<body id="article">
+    <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration">
+    <header>
+        <a href="userguide.html">
+            <h1>User Guide</h1>
+        </a>
+        <h2>Chat Rooms</h2>
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+
+            <ul>
+                <li><a href="#joining-a-chat-room">Joining a chat room</a>
+                <li><a href="#creating-a-chat-room">Creating a chat room</a>
+                <li><a href="#changing-your-nickname">Changing your nickname</a>
+                <li><a href="#inviting-contacts">Inviting contacts to a room</a>
+                <li><a href="#sending-messages">Sending messages</a>
+                <li><a href="#sending-a-private-message">Sending a private message</a>
+                <li><a href="#leaving-a-room">Leaving a room</a></li>
+                <li><a href="#bookmarks">Bookmarking rooms</a></li>
+            </ul>
+        </section>
+        <section>
+            <a name="joining-a-chat-room"></a>
+            <h3>Joining a chat room</h3>
+
+            <p>Use the <a href="reference.html#join"><code>/join</code></a> command to join a chat room supplying the
+                name of the room:</p>
+            <pre><code>/join room@conference.server.com</code></pre>
+            <p>Your nickname will be the account <code>nick</code> setting which by default is set to the 'localpart' of
+                your Jabber ID. For example if you are logged in as <code>itsme@server.com</code> you will join the room
+                with the nickname <code>itsme</code>.</p>
+            <p>To specify a nickname different to your account setting when joining the room, use the <code>nick</code>
+                option:<p>
+                    <pre><code>/join room@conference.server.com nick MrChatty</code></pre>
+                    <p>If you omit the domain part of the chat room, the account setting <code>muc</code> will be used
+                        which by default is set to <code>conference.&lt;domain&gt;</code>. For example, if you are
+                        logged in as <code>kai@mycompany.org</code>, using the following command:</p>
+                    <pre><code>/join development</code></pre>
+                    <p>is the same as:</p>
+                    <pre><code>/join development@conference.mycompany.org</code></pre>
+                    <p>To join a room which requires a password, use the <code>password</code> option:</p>
+                    <pre><code>/join privatedev@conference.someserver.im password p455w0rd</code></pre>
+                    <p>The account settings for default nickname and conference service may be changed for any account
+                        using the <a href="reference.html#account"><code>/account</code></a> command.<p>
+        </section>
+        <section>
+            <a name="creating-a-chat-room"></a>
+            <h3>Creating a chat room</h3>
+
+            <p>If a room is joined which did not previously exist, and the server allows it, the room will be created.
+                More information on creating and configuring chat rooms can be found at <a href="roomconf.html">Chat
+                    Room Configuration and Administration</a>.</p>
+
+            <p>If you are using Google Talk, creating a new room is slightly different. See the <a
+                    href="faq.html#gtalkrooms">FAQ</a>.</p>
+        </section>
+        <section>
+            <a name="changing-your-nickname"></a>
+            <h3>Changing your nickname</h3>
+
+            <p>Use the <a href="reference.html#nick"><code>/nick</code></a> command whilst in a chat room to change your
+                nickname, for example to change your nickname to <code>bob</code>:</p>
+            <pre><code>/nick bob</code></pre>
+        </section>
+        <section>
+            <a name="inviting-contacts"></a>
+            <h3>Inviting contacts to a room</h3>
+
+            <p>To invite one of your contacts to the current chat room, use the <a
+                    href="reference.html#invite"><code>/invite</code></a> command with an optional reason for the
+                invite:</p>
+            <pre><code>/invite Bruce</code></pre>
+            <p>or with a reason:</p>
+            <pre><code>/invite Bruce Come and join the chat</code></pre>
+            <p>As with other commands, the name must be double quoted if it contains spaces:</p>
+            <pre><code>/invite "Bruce Dickenson" Join us!</code></pre>
+        </section>
+        <section>
+            <a name="sending-messages"></a>
+            <h3>Sending messages</h3>
+
+            <p>To send a message to the room, enter the message and press enter.</p>
+            <p>To direct a message to a particular recipient in the room, type the start of the recipients nickname and
+                use &lt;tab&gt; to autocomplete the nickname. The nickname will be followed by ": ", after which you may
+                type your message.<p>
+                    <p>For example, assuming a participant exists in the room named <code>eddie</code>, type:</p>
+                    <pre><code>ed&lt;tab&gt;this message is just for you</code></pre>
+                    <p>Which will result in the following:</p>
+                    <pre><code>eddie: this message is just for you</code></pre>
+                    <p>Autocompletion using &lt;tab&gt; will also complete participants names in the middle of message
+                        text, without the ": ".</p>
+        </section>
+        <section>
+            <a name="sending-a-private-message"></a>
+            <h3>Sending a private message</h3>
+
+            <p>To start a private chat session with a room participant use the <a
+                    href="reference.html#msg"><code>/msg</code></a> command supplying the participants nickname:<p>
+                    <pre><code>/msg "Some User" Hello there!</code></pre>
+                    <pre><code>/msg mike hello there!</code></pre>
+        </section>
+        <section>
+            <a name="leaving-a-room"></a>
+            <h3>Leaving a room</h3>
+
+            <p>To leave a chat room, use the <a href="reference.html#leave"><code>/leave</code></a> command, the <a
+                    href="reference.html#close"><code>/close</code></a> command has the same effect.</p>
+        </section>
+        <section>
+            <a name="bookmarks"></a>
+            <h3>Bookmarking rooms</h3>
+
+            <p>To bookmark chat rooms, including the ability to autojoin the rooms when signing in, see the <a
+                    href="reference.html#bookmark"><code>/bookmark</code></a> command. The simplest way to bookmark a
+                room (and enable autojoin) is to use the <code>/bookmark</code> command with no arguments in the room
+                you wish to bookmark.</p>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+
+</html>

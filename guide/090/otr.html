@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profanity, a console based XMPP client - Off The Record (OTR) Encryption</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="../../css/profanity.css" type="text/css" rel="stylesheet">
+
+    <script type="text/javascript" src="../../js/analytics.js"></script>
+    <script type="text/javascript" src="../../js/trackclicks.js"></script>
+</head>
+
+<body id="article">
+    <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration">
+    <header>
+        <a href="userguide.html">
+            <h1>User Guide</h1>
+        </a>
+        <h2>OTR Message Encryption</h2>
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+
+            <ul>
+                <li><a href="#installing-otr">Building with OTR support</a>
+                <li><a href="#private-key-gen">Generating a private key</a>
+                <li><a href="#private-conversation">Starting a private conversation</a>
+                <li><a href="#authentication">Authenticating a contact</a>
+                    <ul>
+                        <li><a href="#question-answer">question and answer</a>,
+                            <a href="#shared-secret">shared secret</a>,
+                            <a href="#fingerprints">manual authentication</a></li>
+                    </ul>
+                <li><a href="#policy">Setting OTR policy</a>
+                    <ul>
+                        <li><a href="#global-policy">global</a>,
+                            <a href="#account-policy">account</a>,
+                            <a href="#contact-policy">contact</a></li>
+                    </ul>
+                <li><a href="#ui-opts">User Interface options</a>
+                <li><a href="#otr-message-logging">OTR message logging</a>
+                <li><a href="#otr-importing-keys">Importing OTR keys</a>
+            </ul>
+        </section>
+        <section>
+            <a name="installing-otr"></a>
+            <h3>Building with OTR support</h3>
+            <p>
+                Off The Record (OTR) messaging is a form of secure messaging, it includes encryption, authentication
+                between users, deniability and perfect forward secrecy.
+            </p>
+            <p>
+                An overview and many useful resources can be found at the <a id="otr-site" target="_blank"
+                    href="https://otr.cypherpunks.ca/">OTR site</a>.
+            </p>
+            <p>
+                If you have <code>libotr-dev</code> installed, support will be included by default. To force the build
+                to fail if support cannot be included, configure with the following:
+            </p>
+            <pre><code>./configure --enable-otr</code></pre>
+            <p>
+                Supported <code>libotr</code> versions are 3.2.x, and 4.0.x.
+            </p>
+            <p>
+                On most distributions there is simply a <code>libotr-dev</code> package you need to install first.
+            </p>
+            <p>
+                On Mac OS X, the <a id="robroom-brew" target="_blank"
+                    href="https://github.com/robrooms/homebrew-profanity">brew formula</a> will automatically install
+                the dependency and compile with OTR support.
+            </p>
+            <p>
+                On Cygwin you will need to install the <code>libgcrypt-devel</code> package first. Secondly you will
+                need <code>libotr-devel</code> package which is not currently in the official repositories. You can
+                install it from the <a id="cyg-ports" target="_blank" href="https://sourceware.org/cygwinports/">Cygwin
+                    Ports project</a>.
+            </p>
+        </section>
+        <section>
+            <a name="private-key-gen"></a>
+            <h3>Generating a private key</h3>
+            <p>
+                Before you can start using OTR for a particular account, you must generate a private key. Use the
+                following command:
+            </p>
+            <pre><code>/otr gen</code></pre>
+            <p>
+                A message will appear informing you that the key is being generated which may take a few minutes.
+            </p>
+            <p>
+                If the generation takes a long time you can try to move the mouse or install an entropy daemon, such as
+                <code>haveged</code>, to increase the available entropy.
+            </p>
+            <img src="../../images/otr/key_generated.png" /><br><br>
+            <p>
+                Once you have generated a key, you will not need to do so again.
+            </p>
+        </section>
+        <section>
+            <a name="private-conversation"></a>
+            <h3>Starting a private conversation</h3>
+            <p>
+                Once you have a private key, you may start OTR encrypted sessions with other contacts who have OTR
+                enabled.
+            </p>
+            <p>
+                To start a new conversation using OTR encryption:
+            </p>
+            <pre><code>/otr start bob@ejabberd.local</code></pre>
+            <p>
+                If you are already in a conversation window without OTR, you can start sending encrypted messages with
+                the same command omitting the contact:
+            </p>
+            <pre><code>/otr start</code></pre>
+            <img src="../../images/otr/started.png" /><br><br>
+            <p>
+                The <code>[untrusted]</code> shown in the titlebar indicates that although this conversation is
+                encrypted, the contact has not yet been authenticated.
+            </p>
+        </section>
+        <section>
+            <a name="authentication"></a>
+            <h3>Authenticating a contact</h3>
+            <p>
+                The previous conversations were encrypted, however as the recipient noticed, neither user can be certain
+                of the identity of the other.
+            </p>
+            <p>
+                Authentication is for each OTR key that the contact may have generated. For example if your contact has
+                different OTR keys on different devices, you will need to authenticate each device separately.
+            </p>
+            <p>
+                Once a particular contact (and client) has been authenticated, this information is saved.
+            </p>
+            <p>
+                OTR supports three ways to authenticate a contact, question and answer, shared secret, and manual
+                fingerprint verification.
+            </p>
+
+            <a name="question-answer"></a>
+            <h4>Question and answer</h4>
+            <p>
+                Question and answer verification allows one user to verify the identity of another by asking a question
+                with an expected answer.
+            </p>
+            <p>
+                Once in an OTR session, a user may ask the recipient a question supplying their expect answer, for
+                example if Alice wishes to authenticate Bob:
+            </p>
+            <pre><code>/otr question "What is the name of your best friends rabbit?" fiffi</code></pre>
+            <p>
+                A message will be displayed showing that the authentication process has started.
+            </p>
+            <img src="../../images/otr/question_sent.png" /><br><br>
+            <p>
+                If Bob answers correctly a message will be shown indicating that Bob is now trusted by Alice.
+            </p>
+            <img src="../../images/otr/question_received_success.png" /><br><br>
+            <p>
+                If Bob answers incorrectly a message will be shown indicating that Bob is not trusted by Alice.
+            </p>
+            <img src="../../images/otr/question_received_fail.png" /><br><br>
+            <p>
+                Bob may also wish to authenticate Alice. If he does, Alice will receive a message showing Bob's
+                question, and prompting her to answer. Alice may answer using the <code>/otr answer</code> command:
+            </p>
+            <pre><code>/otr answer red</code></pre>
+            <img src="../../images/otr/bobquestion.png" /><br><br>
+            <p>
+                Note that question and answer authentication is a way for one contact to verify the identity of another.
+                If the recipient answers correctly then the sender has authenticated them, however the recipient must
+                also authenticate the sender with another question.
+            </p>
+
+            <a name="shared-secret"></a>
+            <h4>Shared secret</h4>
+            <p>
+                Shared secret verification is a way for both parties to authenticate each other at the same time using a
+                shared passphrase that only the two of them know.
+            </p>
+            <p>
+                In an OTR session, one user may start shared secret authentication with the <code>/otr secret</code>
+                command, supplying the secret, for example Alice initiates the authentication:
+            </p>
+            <pre><code>/otr secret 5up3r53cr3t</code></pre>
+            <p>
+                Bob enters the same secret using his client, Alice and Bob now trust each other.
+            </p>
+            <img src="../../images/otr/secret_received_success.png" /><br><br>
+
+            <p>
+                If Bob started the shared secret authentication, Alice will receive a message asking her to enter the
+                secret using the <code>/otr secret</code> command:
+            </p>
+            <pre><code>/otr secret 5up3r53cr3t</code></pre>
+            <img src="../../images/otr/secret_sent_success.png" /><br><br>
+
+            <a name="fingerprints"></a>
+            <h4>Manual fingerprint authentication</h4>
+            <p>
+                The above two methods allow you to verify the fingerprint of a contact's OTR key without having to know
+                the fingerprint. The final method is to manually verify the fingerprint.
+            </p>
+            <p>
+                You should exchange fingerprints with your contact's via another secure communication channel. To
+                display your fingerprint, use the following command:
+            </p>
+            <pre><code>/otr myfp</code></pre>
+            <img src="../../images/otr/myfp.png" /><br><br>
+            <p>
+                To view the fingerprint of a contact whilst in an OTR session, use the following command:
+            </p>
+            <pre><code>/otr theirfp</code></pre>
+            <img src="../../images/otr/theirfp.png" /><br><br>
+            <p>
+                If the fingerprint you see matches the fingerprint you communicated via another means, you can manually
+                authenticate the contact with the following command:
+            </p>
+            <pre><code>/otr trust</code></pre>
+            <p>
+                You can untrust a contact at anytime using the following command:
+            </p>
+            <pre><code>/otr untrust</code></pre>
+        </section>
+        <section>
+            <a name="policy"></a>
+            <h3>Setting OTR policy</h3>
+
+            <p>
+                By default, OTR sessions must be started manually using the <code>/otr start</code> command.
+            </p>
+            <p>
+                The policy may be set at three levels, global, per account, and per contact with the order of preference
+                being the most specific first:
+            </p>
+            <p>
+                1 - Use the policy for the contact, if no setting found:<br />
+                2 - Use the policy for the account, if no setting found:<br />
+                3 - Use the global policy
+            </p>
+            <p>
+                The following three settings are available for each level:
+            </p>
+            <p>
+                <b><code>manual</code></b> - The default. Unencrypted messaging is allowed, OTR sessions must be started
+                manually.
+            </p>
+            <p>
+                <b><code>opportunistic</code></b> - Upon sending an unencrypted message with the <code>/msg</code>
+                command, profanity will attempt to start an OTR session with the contact. The contact's policy must be
+                set to <code>opportunistic</code> or <code>always</code> for the session to start.
+            </p>
+            <p>
+                <b><code>always</code></b> - An error message will be displayed if you try to start a conversation
+                without starting an OTR session and the message will not be sent.
+            </p>
+
+            <a name="global-policy"></a>
+            <h4>Setting global policy</h4>
+            <p>
+                To set the global policy:
+            </p>
+            <pre><code>/otr policy &lt;setting&gt;</code></pre>
+            <p>
+                The current global setting can be viewed with the following command:
+            </p>
+            <pre><code>/prefs otr</code></pre>
+
+            <a name="account-policy"></a>
+            <h4>Setting account policy</h4>
+            <p>
+                To set the policy for a particular account:
+            </p>
+            <pre><code>/account set &lt;account_name&gt; otr &lt;setting&gt;</code></pre>
+            <p>
+                The account setting can be viewed with the following command:
+            </p>
+            <pre><code>/account show &lt;account_name&gt;</code></pre>
+
+            <a name="contact-policy"></a>
+            <h4>Setting contact policy</h4>
+            <p>
+                To set the policy for a particular contact (you must be logged in):
+            </p>
+            <pre><code>/otr policy &lt;setting&gt; &lt;contact&gt;</code></pre>
+            <p>
+                Contact policy settings can also be viewed with:
+            </p>
+            <pre><code>/account show &lt;account_name&gt;</code></pre>
+        </section>
+        <section>
+            <a name="ui-opts"></a>
+            <h3>User Interface options</h3>
+
+            <p>
+                By default, an indicator is displayed in the titlebar when no encryption is being used (including <a
+                    href="pgp.html">PGP</a> and <a href="omemo.html">OMEMO</a>).
+            </p>
+            <img src="../../images/pgp/encwarn.png" /><br><br>
+            <p>
+                This indicator can be removed using the <a href="reference.html#encwarn"><code>/encwarn</code></a>
+                command.
+            </p>
+            <pre><code>/encwarn off</code></pre>
+            <img src="../../images/pgp/encwarnoff.png" /><br><br>
+            <p>
+                Both incoming and outgoing plaintext messages are always preceeded by the '<code>-</code>' character.
+            </p>
+            <img src="../../images/pgp/plainchar.png" /><br><br>
+            <p>
+                By default OTR encrypted messages are preceeded by the '<code>~</code>' character.
+            </p>
+            <img src="../../images/otr/otrchar.png" /><br><br>
+            <p>
+                This character can be changed using the <code>/otr char</code> command.
+            </p>
+            <pre><code>/otr char O</code></pre>
+            <img src="../../images/otr/newchar.png" /><br><br>
+        </section>
+        <section>
+            <a name="otr-message-logging"></a>
+            <h3>OTR message logging</h3>
+            <p>
+                The <code>/otr log</code> command may be used with the following options to control if and how OTR
+                messages are recorded in chat logs.
+            </p>
+            <table>
+                <tr>
+                    <td>
+                        <pre><code>on</code></pre>
+                    </td>
+                    <td>OTR messages will be logged in plaintext</td>
+                </tr>
+                <tr>
+                    <td>
+                        <pre><code>redact</code></pre>
+                    </td>
+                    <td>OTR messages will be logged, but the message will be replaced with the text
+                        '<code>[redacted]</code>'.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <pre><code>off</code></pre>
+                    </td>
+                    <td>OTR messages will not be logged.</td>
+                </tr>
+            </table>
+            <p>
+                For the <code>on</code> and <code>redact</code> settings, chat logging must also be enabled with the <a
+                    href="reference.html#chlog"><code>/chlog</code></a> command.
+            </p>
+        </section>
+        <section>
+            <a name="otr-importing-keys"></a>
+            <h3>Importing OTR keys</h3>
+            <p>Since profanity uses the libotr library to store keys and trusted fingerprints, files created by another
+                client which uses libotr should also work with profanity.</p>
+            <p>The files need to be placed in the following locations:</p>
+            <pre><code>$XDG_DATA_HOME/profanity/otr/<account>/keys.txt
+$XDG_DATA_HOME/profanity/otr/<account>/fingerprints.txt</code></pre>
+            <p>On most systems <code>$XDG_DATA_HOME</code> is <code>~/.local/share</code>.
+                The <account> folder is the account name with <code>_at_</code> replacing the @ symbol, for example
+                    account my.account@server.org will have the above two files stored as:</p>
+            <pre><code>~/.local/share/profanity/otr/my.account_at_server.org/keys.txt
+~/.local/share/profanity/otr/my.account_at_server.org/fingerprints.txt</code></pre>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+
+</html>
