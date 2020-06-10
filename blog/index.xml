@@ -6,7 +6,7 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 May 2020 14:46:08 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2020 14:46:08 +0100</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Profanity 0.9.0</title>
       <link>https://profanity-im.github.io/blog/post/release-090/</link>
-      <pubDate>Sat, 09 May 2020 14:46:08 +0100</pubDate>
+      <pubDate>Tue, 09 Jun 2020 14:46:08 +0100</pubDate>
       
       <guid>https://profanity-im.github.io/blog/post/release-090/</guid>
       <description>&lt;p&gt;Four months and 350 commits after 0.8.1 we are happy to release &lt;a href=&#34;https://github.com/profanity-im/profanity/releases/tag/0.9.0&#34;&gt;0.9.0&lt;/a&gt;.&lt;/p&gt;
