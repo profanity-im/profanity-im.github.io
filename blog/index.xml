@@ -28,7 +28,7 @@ Enable it with &lt;code&gt;/correction on&lt;/code&gt;. If you mistyped a word j
 &lt;h2 id=&#34;slashguard&#34;&gt;Slashguard&lt;/h2&gt;
 &lt;p&gt;In our MUC we often see messages like &amp;ldquo;q/uit&amp;rdquo; or people having whitespaces before a command &amp;quot; /quit&amp;rdquo;.
 To help you to avoid such mistakes we introduce slashguard.
-Once enabled (&lt;code&gt;/slashguard on&lt;/code&gt;) Profanity won&amp;rsquo;t send messages that contain a backslash in the first four letters.&lt;/p&gt;
+Once enabled (&lt;code&gt;/slashguard on&lt;/code&gt;) Profanity won&amp;rsquo;t send messages that contain a slash in the first four letters.&lt;/p&gt;
 &lt;h2 id=&#34;new-parameters&#34;&gt;New parameters&lt;/h2&gt;
 &lt;p&gt;You can specify a logfile upon startup via the new &lt;code&gt;-f&lt;/code&gt; option:
 &lt;code&gt;profanity -f TEST&lt;/code&gt; will log to &lt;code&gt;~/.local/share/profanity/logs/TEST.log&lt;/code&gt;.&lt;/p&gt;
