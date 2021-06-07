@@ -6,10 +6,15 @@
     <description>Recent content in Authors on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Jun 2020 14:46:08 +0100</lastBuildDate>
-    
-	<atom:link href="https://profanity-im.github.io/blog/authors/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sat, 05 Jun 2021 15:07:30 +0200</lastBuildDate><atom:link href="https://profanity-im.github.io/blog/authors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://profanity-im.github.io/blog/authors/debxwoody/</link>
+      <pubDate>Sat, 05 Jun 2021 15:07:30 +0200</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/authors/debxwoody/</guid>
+      <description>debxwoody is a Profanity contributor</description>
+    </item>
     
     <item>
       <title></title>
@@ -27,15 +32,6 @@
       
       <guid>https://profanity-im.github.io/blog/authors/pasis/</guid>
       <description>pasis is a Profanity contributor and maintainer of libstrophe.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://profanity-im.github.io/blog/authors/debxwoody/</link>
-      <pubDate>Tue, 03 Mar 2020 14:49:55 +0100</pubDate>
-      
-      <guid>https://profanity-im.github.io/blog/authors/debxwoody/</guid>
-      <description>debxwoody is a Profanity contributor</description>
     </item>
     
     <item>

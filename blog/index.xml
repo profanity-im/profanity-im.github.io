@@ -6,10 +6,87 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Jun 2020 14:46:08 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 05 Jun 2021 15:07:30 +0200</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Attention, attention!</title>
+      <link>https://profanity-im.github.io/blog/post/attention-attention/</link>
+      <pubDate>Sat, 05 Jun 2021 15:07:30 +0200</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/attention-attention/</guid>
+      <description>&lt;p&gt;Hello folks,&lt;/p&gt;
+&lt;p&gt;we have implemented an attention flag in profanity.&lt;/p&gt;
+&lt;p&gt;The attention flag can be used to mark chats and groupchats where you would like to
+pay particular attention.&lt;/p&gt;
+&lt;p&gt;This is only available on master, but will be in the next release (0.11.0).&lt;/p&gt;
+&lt;h1 id=&#34;how-it-works&#34;&gt;How it works&lt;/h1&gt;
+&lt;p&gt;Open the chat or groupchat window and press shortcut &lt;code&gt;ALT+F&lt;/code&gt;. Profanity will
+display a line to inform you when the attention flag has been activated and
+deactivated.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;05/06/21 15:25:49 - Staff restaurant: Lunch recommendations:
+05/06/21 15:27:04 ! Attention flag has been activated
+05/06/21 15:27:04 ! Attention flag has been deactivated
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can use the shortcut &lt;code&gt;ALT+F&lt;/code&gt; to toggle the flag.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;/wins attention&lt;/code&gt; command can be used to display all windows with you pay
+attention.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;15:38:19 - 3: Room roomA@conference.domain.tld
+15:38:19 - 15: Room roomB@conference.server.tld, 1 unread
+15:38:19 - 28: Room roomC@chat.server.tld
+15:38:19 - 29: Room roomD@chat.server.tld, 3 unread
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can just circle around the marked windows with shortcut &lt;code&gt;ALT+M&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OMEMO</title>
+      <link>https://profanity-im.github.io/blog/post/omemo/</link>
+      <pubDate>Fri, 27 Nov 2020 17:14:07 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/omemo/</guid>
+      <description>&lt;p&gt;OMEMO with profanity.&lt;/p&gt;
+&lt;h3 id=&#34;hello-omemo&#34;&gt;Hello OMEMO!&lt;/h3&gt;
+&lt;p&gt;OMEMO needs crytographic materials. You can generated this crytographic
+materials via &lt;code&gt;/omemo gen&lt;/code&gt;.  If you have more than one device, make sure you are
+trusting your other devices.  Check your fingerprints via &lt;code&gt;/omemo fingerprint&lt;/code&gt;.
+You may wont trust all your devices:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/omemo trust &amp;lt;Your XMPP-ID&amp;gt; &amp;lt;Your fingerpint&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check the fingerprint of your buddy. List the fingerprints of your buddy via&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/omemo fingerprint &amp;lt;XMPP-ID of your buddy&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check the fingerprints with you buddy over a secure medium (phone or singed OpenPGP message)
+and trust the buddy&amp;rsquo;s fingerprint via the command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/omemo trust &amp;lt;Buddy&amp;#39;s XMPP-ID&amp;gt; &amp;lt;Buddy&amp;#39;s fingerpint&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can start a OMEMO Session via the omemo-start command &lt;code&gt;/omemo start &amp;lt;buddy&#39;s XMPP-ID&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;debugging&#34;&gt;Debugging&lt;/h3&gt;
+&lt;p&gt;Get the device list of your Buddy. Change the &lt;code&gt;to&lt;/code&gt; and the &lt;code&gt;from&lt;/code&gt; tag of the
+line shown below.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&amp;lt;iq type=&amp;#39;get&amp;#39; from=&amp;#39;your@domain.tld&amp;#39; to=&amp;#39;buddy@domain.tld&amp;#39; id=&amp;#39;getOmemoDeviceList&amp;#39;&amp;gt;&amp;lt;pubsub xmlns=&amp;#39;http://jabber.org/protocol/pubsub&amp;#39;&amp;gt;&amp;lt;items node=&amp;#39;eu.siacs.conversations.axolotl.devicelist&amp;#39;/&amp;gt;&amp;lt;/pubsub&amp;gt;&amp;lt;/iq&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Use the &lt;code&gt;/xmlconsole&lt;/code&gt; to open the XMP Console Window and sent those line to your
+server.&lt;/p&gt;
+&lt;p&gt;The Server should return a result of the &lt;code&gt;iq&lt;/code&gt; with id &lt;code&gt;getOmemoDeviceList&lt;/code&gt;.
+There should be a &lt;code&gt;item&lt;/code&gt;-Tag with the id &lt;code&gt;current&lt;/code&gt; followed by a list of device
+id.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&amp;lt;items node=&amp;#34;eu.siacs.conversations.axolotl.devicelist&amp;#34;&amp;gt;
+	&amp;lt;item id=&amp;#34;current&amp;#34;&amp;gt;
+	&amp;lt;list xmlns=&amp;#34;eu.siacs.conversations.axolotl&amp;#34;&amp;gt;
+	&amp;lt;device id=&amp;#34;174235744&amp;#34;/&amp;gt;
+	&amp;lt;device id=&amp;#34;71071234&amp;#34;/&amp;gt;
+	&amp;lt;device id=&amp;#34;22318128&amp;#34;/&amp;gt;
+	&amp;lt;/list&amp;gt;
+	&amp;lt;/item&amp;gt;
+&amp;lt;/items&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The known devices and fingerprints are stored in &lt;code&gt;~/.local/share/profanity/omemo/&amp;lt;account&amp;gt;/known_devices.txt&lt;/code&gt;.
+The trust information are stored in &lt;code&gt;~/.local/share/profanity/omemo/&amp;lt;account&amp;gt;/trust.txt&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;qr-code&#34;&gt;QR Code&lt;/h3&gt;
+&lt;p&gt;If you need a QR Code of you Fingerprint, check xmppc.
+xmppc is a XMPP Command Line Tool which can be used to &lt;a href=&#34;https://codeberg.org/Anoxinon_e.V./xmppc/wiki/Usage#user-content-omemo&#34;&gt;generate a QR
+Code&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Profanity 0.9.0</title>
@@ -26,7 +103,7 @@ I also would like to express my gratitude to my sponsors &lt;a href=&#34;https:/
 &lt;p&gt;We support &lt;a href=&#34;https://xmpp.org/extensions/xep-0308.html&#34;&gt;XEP-0308: Last Message Correction&lt;/a&gt; now.
 Enable it with &lt;code&gt;/correction on&lt;/code&gt;. If you mistyped a word just type &lt;code&gt;/correct&lt;/code&gt; and hit tab to autocomplete the last sent message, then fix it and press enter.&lt;/p&gt;
 &lt;h2 id=&#34;slashguard&#34;&gt;Slashguard&lt;/h2&gt;
-&lt;p&gt;In our MUC we often see messages like &amp;ldquo;q/uit&amp;rdquo; or people having whitespaces before a command &amp;quot; /quit&amp;rdquo;.
+&lt;p&gt;In our MUC we often see messages like &amp;ldquo;q/uit&amp;rdquo; or people having whitespaces before a command &amp;quot; /quit&amp;quot;.
 To help you to avoid such mistakes we introduce slashguard.
 Once enabled (&lt;code&gt;/slashguard on&lt;/code&gt;) Profanity won&amp;rsquo;t send messages that contain a slash in the first four letters.&lt;/p&gt;
 &lt;h2 id=&#34;new-parameters&#34;&gt;New parameters&lt;/h2&gt;

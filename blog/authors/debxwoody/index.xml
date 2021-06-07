@@ -6,10 +6,31 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Mar 2020 14:49:55 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 05 Jun 2021 15:07:30 +0200</lastBuildDate><atom:link href="https://profanity-im.github.io/blog/authors/debxwoody/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Attention, attention!</title>
+      <link>https://profanity-im.github.io/blog/post/attention-attention/</link>
+      <pubDate>Sat, 05 Jun 2021 15:07:30 +0200</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/attention-attention/</guid>
+      <description>Hello folks,
+we have implemented an attention flag in profanity.
+The attention flag can be used to mark chats and groupchats where you would like to pay particular attention.
+This is only available on master, but will be in the next release (0.11.0).
+How it works Open the chat or groupchat window and press shortcut ALT+F. Profanity will display a line to inform you when the attention flag has been activated and deactivated.</description>
+    </item>
     
-	<atom:link href="https://profanity-im.github.io/blog/authors/debxwoody/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>OMEMO</title>
+      <link>https://profanity-im.github.io/blog/post/omemo/</link>
+      <pubDate>Fri, 27 Nov 2020 17:14:07 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/omemo/</guid>
+      <description>OMEMO with profanity.
+Hello OMEMO! OMEMO needs crytographic materials. You can generated this crytographic materials via /omemo gen. If you have more than one device, make sure you are trusting your other devices. Check your fingerprints via /omemo fingerprint. You may wont trust all your devices:
+/omemo trust &amp;lt;Your XMPP-ID&amp;gt; &amp;lt;Your fingerpint&amp;gt; Check the fingerprint of your buddy. List the fingerprints of your buddy via
+/omemo fingerprint &amp;lt;XMPP-ID of your buddy&amp;gt; Check the fingerprints with you buddy over a secure medium (phone or singed OpenPGP message) and trust the buddy&amp;rsquo;s fingerprint via the command:</description>
+    </item>
     
     <item>
       <title>How to run profanity instances within tmux</title>
