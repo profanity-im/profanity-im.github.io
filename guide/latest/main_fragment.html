@@ -418,6 +418,16 @@
 <table><tr><td><code>message</code></td><td>The corrected message.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
+<a name="correct-editor"></a>
+<h4>/correct-editor</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/correct-editor
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Spawn external editor to correct and resend the last message (XEP-0308). For more information on how to configure corrections, see: /help correction. Use /executable to set your favourite editor.
+</p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
 <a name="correction"></a>
 <h4>/correction</h4>
 <p><b>Synopsis</b></p>
@@ -763,6 +773,21 @@
 <table><tr><td><code>on|off</code></td><td>Enable or disable MAM</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
+<a name="mood"></a>
+<h4>/mood</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/mood set &lt;mood&gt; [text]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Set your mood (XEP-0107). Use tab to switch through predefined moods.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>set &lt;mood&gt;</code></td><td>Setting your mood.</td></tr><tr><td><code>&lt;text&gt;</code></td><td>Additional Text.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/mood set happy "So happy to use Profanity!"
+</code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
 <a name="msg"></a>
 <h4>/msg</h4>
 <p><b>Synopsis</b></p>
@@ -1026,8 +1051,6 @@
 <h4>/plugins</h4>
 <p><b>Synopsis</b></p>
 <p><pre><code>/plugins
-/plugins sourcepath set &lt;path&gt;
-/plugins sourcepath clear
 /plugins install [&lt;path&gt;]
 /plugins uninstall [&lt;plugin&gt;]
 /plugins update [&lt;path&gt;]
@@ -1037,13 +1060,12 @@
 /plugins python_version
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Manage plugins. Passing no arguments lists currently loaded plugins.
+<p>Manage plugins. Passing no arguments lists currently loaded plugins and global plugins which are available for local installation. Global directory for Python plugins is /usr/local/share/profanity/plugins and for C Plugins is /usr/local/lib64/profanity/plugins.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>sourcepath set &lt;path&gt;</code></td><td>Set the default path to install plugins from, will be used if no arg is passed to /plugins install.</td></tr><tr><td><code>sourcepath clear</code></td><td>Clear the default plugins source path.</td></tr><tr><td><code>install [&lt;path&gt;]</code></td><td>Install a plugin, or all plugins found in a directory (recursive). Passing no argument will use the sourcepath if one is set.</td></tr><tr><td><code>uninstall [&lt;plugin&gt;]</code></td><td>Uninstall a plugin.</td></tr><tr><td><code>update [&lt;path&gt;]</code></td><td>Updates an installed plugin</td></tr><tr><td><code>load [&lt;plugin&gt;]</code></td><td>Load a plugin that already exists in the plugin directory, passing no argument loads all found plugins.</td></tr><tr><td><code>unload [&lt;plugin&gt;]</code></td><td>Unload a loaded plugin, passing no argument will unload all plugins.</td></tr><tr><td><code>reload [&lt;plugin&gt;]</code></td><td>Reload a plugin, passing no argument will reload all plugins.</td></tr><tr><td><code>python_version</code></td><td>Show the Python interpreter version.</td></tr></table>
+<table><tr><td><code>install [&lt;path&gt;]</code></td><td>Install a plugin, or all plugins found in a directory (recursive). And loads it/them.</td></tr><tr><td><code>uninstall [&lt;plugin&gt;]</code></td><td>Uninstall a plugin.</td></tr><tr><td><code>update [&lt;path&gt;]</code></td><td>Updates an installed plugin</td></tr><tr><td><code>load [&lt;plugin&gt;]</code></td><td>Load a plugin that already exists in the plugin directory, passing no argument loads all found plugins. It will be loaded upon next start too unless unloaded.</td></tr><tr><td><code>unload [&lt;plugin&gt;]</code></td><td>Unload a loaded plugin, passing no argument will unload all plugins.</td></tr><tr><td><code>reload [&lt;plugin&gt;]</code></td><td>Reload a plugin, passing no argument will reload all plugins.</td></tr><tr><td><code>python_version</code></td><td>Show the Python interpreter version.</td></tr></table>
 <p><b>Examples</b></p>
-<p><pre><code>/plugins sourcepath set /home/meee/projects/profanity-plugins
-/plugins install
+<p><pre><code>/plugins install
 /plugins install /home/steveharris/Downloads/metal.py
 /plugins update /home/steveharris/Downloads/metal.py
 /plugins uninstall browser.py
@@ -1143,6 +1165,24 @@
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>&lt;seconds&gt;</code></td><td>Number of seconds before attempting to reconnect, a value of 0 disables reconnect.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="register"></a>
+<h4>/register</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/register &lt;username&gt; &lt;server&gt; [port &lt;port&gt;] [tls force|allow|trust|legacy|disable]
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Register an account on a server.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>&lt;username&gt;</code></td><td>Username to register with.</td></tr><tr><td><code>&lt;server&gt;</code></td><td>Server to register account on.</td></tr><tr><td><code>port &lt;port&gt;</code></td><td>The port to use if different to the default (5222, or 5223 for SSL).</td></tr><tr><td><code>tls force</code></td><td>Force TLS connection, and fail if one cannot be established. This is the default behavior.</td></tr><tr><td><code>tls allow</code></td><td>Use TLS for the connection if it is available.</td></tr><tr><td><code>tls trust</code></td><td>Force TLS connection and trust the server's certificate.</td></tr><tr><td><code>tls legacy</code></td><td>Use legacy TLS for the connection. This forces TLS just after the TCP connection is established. Use when a server doesn't support STARTTLS.</td></tr><tr><td><code>tls disable</code></td><td>Disable TLS for the connection.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/register odin valhalla.edda 
+/register freyr vanaheimr.edda port 5678
+/register me 127.0.0.1 tls disable
+/register someuser my.xmppserv.er port 5443 tls force
+</code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="reload"></a>
