@@ -6,10 +6,55 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Jun 2021 15:07:30 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 02 Feb 2022 20:47:44 +0100</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Profanity on Pinephone</title>
+      <link>https://profanity-im.github.io/blog/post/profanity-on-pinephone/</link>
+      <pubDate>Wed, 02 Feb 2022 20:47:44 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/profanity-on-pinephone/</guid>
+      <description>&lt;p&gt;Hi all,&lt;/p&gt;
+&lt;p&gt;So far, in my pinephone I used mainly GUI applications, because I was using a touch screen. Terminal applications are not user-friendly when it comes to one-handed operation.&lt;/p&gt;
+&lt;p&gt;I tested different distributions on my pinephone (mobian, manjaro, archarm), but usually most based on Phosh. In my opinion it is currently the best mobile graphics environment and stable as well.&lt;/p&gt;
+&lt;p&gt;In Phosh I tested few xmpp clients:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the default application installed with Phosh is chatty, a combine that supports sms / mms / xmpp (OMEMO)&lt;/li&gt;
+&lt;li&gt;Dino from &lt;a href=&#34;https://github.com/dino/dino/tree/feature/handy&#34;&gt;repo: handy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Gajim&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I know there are KDE plasma applications as well, but during my testing, plasma was unusable and I even gave up installing it. My pinephone comes with preinstalled Plasma factory image but I could not even upgrade to latest Plasma version, So I gave up KDE :(&lt;/p&gt;
+&lt;p&gt;In my opinion, &lt;code&gt;Dino&lt;/code&gt; works the best on PinePhone with Phosh.&lt;/p&gt;
+&lt;p&gt;Recently I ordered keyboard dedicated to pinephone(pro), so I decided that I will also test terminal xmpp client.&lt;/p&gt;
+&lt;p&gt;I also decided to check profanity as I use it on my home server and it works perfectly, but I was curious how it would handle on pinephone. I installed it and everything worked well. Just one thing: pinephone terminal is small to read more than 2 lines. I wanted to scroll window Up to be able see previous content. Well, first I changed the resolution in Phosh from 200% to 150%, and I could see more than two lines.&lt;/p&gt;
+&lt;p&gt;But, I still had a trouble scrolling the main window in profanity&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://kraut.zone/w/6jG9F41Z7nNUZLFdHE43cN&#34;&gt;video: ppkb keyboard issue&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I looked at &lt;a href=&#34;http://www.profanity.im/keybindings.html&#34;&gt;profanity keybindings&lt;/a&gt; and in the &lt;code&gt;User Interface Navigation&lt;/code&gt; section I found that I should use &lt;code&gt;PageUp/PageDown&lt;/code&gt; keys, but looking at &lt;a href=&#34;https://wiki.pine64.org/wiki/PinePhone_(Pro)_Keyboard#Keyboard_layout&#34;&gt;Pinephone wiki&lt;/a&gt; this keyboard does not have &lt;code&gt;PageUp/PageDown&lt;/code&gt; keys.&lt;/p&gt;
+&lt;p&gt;I had to do key mapping in profanity. Using following url &lt;a href=&#34;http://www.profanity.im/keybindings.html&#34;&gt;profanity keybindings&lt;/a&gt; quickly I found solution.&lt;/p&gt;
+&lt;p&gt;Basicaly, I created a file &lt;code&gt;~/.config/profanity/inputrc&lt;/code&gt; with content&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;$ if profanity
+&amp;#34;\ C-p&amp;#34;: prof_win_prev
+&amp;#34;\ C-n&amp;#34;: prof_win_next
+&amp;#34;\ C-j&amp;#34;: prof_win_pageup
+&amp;#34;\ C-k&amp;#34;: prof_win_pagedown
+&amp;#34;\ C-h&amp;#34;: prof_subwin_pageup
+&amp;#34;\ C-l&amp;#34;: prof_subwin_pagedown
+&amp;#34;\ C-y&amp;#34;: prof_win_clear
+$ endif
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After starting profanity, I was able to scroll window with content using following shortcuts&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;C-j&lt;/code&gt; - scroll up&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-k&lt;/code&gt; - to scroll down&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://kraut.zone/w/fA2LeeRRmonkHVB5d3NMYe&#34;&gt;video: ppkb keyboard scroll&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here you can see some photos.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://profanity-im.github.io/blog/blog/img/profanity-on-pinephone-screen2.png&#34; alt=&#34;Profanity screeen 1&#34;&gt;
+&lt;img src=&#34;https://profanity-im.github.io/blog/blog/img/profanity-on-pinephone-screen2.png&#34; alt=&#34;Profanity screeen 2&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Attention, attention!</title>

@@ -6,7 +6,20 @@
     <description>Recent content in Posts on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Jun 2021 15:07:30 +0200</lastBuildDate><atom:link href="https://profanity-im.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Feb 2022 20:47:44 +0100</lastBuildDate><atom:link href="https://profanity-im.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Profanity on Pinephone</title>
+      <link>https://profanity-im.github.io/blog/post/profanity-on-pinephone/</link>
+      <pubDate>Wed, 02 Feb 2022 20:47:44 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/profanity-on-pinephone/</guid>
+      <description>Hi all,
+So far, in my pinephone I used mainly GUI applications, because I was using a touch screen. Terminal applications are not user-friendly when it comes to one-handed operation.
+I tested different distributions on my pinephone (mobian, manjaro, archarm), but usually most based on Phosh. In my opinion it is currently the best mobile graphics environment and stable as well.
+In Phosh I tested few xmpp clients:
+ the default application installed with Phosh is chatty, a combine that supports sms / mms / xmpp (OMEMO) Dino from repo: handy Gajim  I know there are KDE plasma applications as well, but during my testing, plasma was unusable and I even gave up installing it.</description>
+    </item>
+    
     <item>
       <title>Attention, attention!</title>
       <link>https://profanity-im.github.io/blog/post/attention-attention/</link>
