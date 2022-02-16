@@ -27,6 +27,7 @@
                 <li>
                     <ul>
                         <li><a href="#multiacc">How do I connect with multiple accounts?</a></li>
+                        <li><a href="#omemo">OMEMO doesn't work for me</a></li>
                         <li><a href="#persistent">Why are my settings not persistent?</a></li>
                         <li><a href="#profrc">Where is the profrc file format described?</a></li>
                         <li><a href="#platform">Will Profanity run on &ltsome platform&gt?</a></li>
@@ -52,9 +53,19 @@
         </section>
         <section>
             <a name="multiacc"></a>
-            <h4>How do i connect with multiple accounts?</h4>
+            <h4>How do I connect with multiple accounts?</h4>
             <p>Profanity only supports one account per instance. But you certainly can run several instances of Profanity! Run Profanity in multiple terminals or use a terminal multiplexer like screen or tmux. An example setup can be seen in this <a href="https://profanity-im.github.io/blog/post/how-to-run-profanity-instances-within-tmux/">blogpost</a>.
             </p>
+            <a href="#top">
+                <h5>back to top</h5>
+            </a>
+        </section>
+        <section>
+            <a name="omemo"></a>
+            <h4>OMEMO doesn't work for me</h4>
+            <p>OMEMO support was added in 0.7.0. Version 0.11.1 fixed a lot of common bugs. But please make sure to run the <strong>latest</strong> version of Profanity.</p>
+            <p>A common error is that the PEP nodes are wrongly configured. It could be that your server isn't configured the right way or that some client configured 
+            this the wrong way in the past. Profanity tries to correct this but might fail. See <a href="https://github.com/profanity-im/profanity/issues/1538">issue 1538</a> for details.</p>
             <a href="#top">
                 <h5>back to top</h5>
             </a>
