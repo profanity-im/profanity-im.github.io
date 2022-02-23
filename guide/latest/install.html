@@ -141,6 +141,10 @@
             <h4>Homebrew</h4>
             <p>To install profanity using <a href="https://brew.sh/">homebrew</a>:</p>
             <pre><code>brew install profanity</code></pre>
+            <p>Desktop notifications are an optional (disabled by default) dependency since terminal-notifier is not
+                available on all versions of OSX. To attempt to install the formula with desktop notification support:
+            </p>
+            <pre><code>brew install profanity --with-terminal-notifier</code></pre>
             <p>To ensure you have all features supported <code>profanity -v</code> should show the following:</p>
             <pre><code>Desktop notification support: Enabled
 OTR support: Enabled
@@ -187,9 +191,9 @@ brew install profanity --HEAD</code></pre>
                 <h4>Download and Install</h4>
                 <p>Download the zip archive from the homepage and extract it, then download the install script and run
                     it in the project directory:<p>
-                        <pre><code>wget https://profanity-im.github.io/profanity-0.7.1.zip
-unzip profanity-0.7.1.zip
-cd profanity-0.7.1
+                        <pre><code>wget https://profanity-im.github.io/profanity-0.11.1.zip
+unzip profanity-*.zip
+cd profanity-*
 wget https://profanity-im.github.io/install-all.sh
 chmod u+x install-all.sh
 ./install-all.sh</code></pre>
@@ -200,8 +204,9 @@ chmod u+x install-all.sh
         <section>
             <a name="androidtermux"></a>
             <h3>Android</h3>
-            <p>Profanity is included as a Termux package on Android. Install Termux from <a
-                    href="https://f-droid.org/en/packages/com.termux" target="_blank">F-Droid</a>.</p>
+            <p>Profanity is included as a Termux package on Android. Install Termux from the <a
+                    href="https://play.google.com/store/apps/details?id=com.termux&hl=en" target="_blank">Google Play
+                    App store</a>.</p>
             <p>Update the package list and install Profanity:<p>
                     <pre><code>apt update
 apt install profanity</code></pre>
