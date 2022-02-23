@@ -28,7 +28,6 @@
                 <li><a href="#build">Building</a>
                 <li><a href="#pkgdeps">Dependencies</a>
                 <li><a href="#distrodeps">Distribution details</a>
-                <li><a href="#installscript">Helper script</a>
                 <li><a href="#expl">Explanations</a>
             </ul>
         </section>
@@ -128,19 +127,6 @@ export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"
 
             <h4>OpenBSD</h4>
             <pre><code>pkg_add cmake gmake cmocka libtool automake-1.16.2 pkgconf readline python-3.8.2 autoconf-2.69p2 autoconf-archive libstrophe curl gpgme glib2 gtk+2 libotr libassuan libgpg-error libgcrypt libsignal-protocol-c sqlite3</code></pre>
-        </section>
-        <section>
-            <a name="installscript"></a>
-            <h3>Helper script</h3>
-
-            <p>A helper script has been written to install all required and optional dependencies and run the above
-                steps. This script currently supports Ubuntu, Fedora, Centos, openSUSE and Cygwin.<p>
-                    <p>Download the script into the project directory and run it:<p>
-                            <pre><code>wget https://profanity-im.github.io/install-all.sh
-chmod u+x install-all.sh
-./install-all.sh</code></pre>
-
-                            <p>The script might not be entirely up to date!<p>
         </section>
         <section>
             <a name="expl"></a>
