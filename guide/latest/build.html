@@ -56,10 +56,7 @@ make install</code></pre>
                     <p>Various dependencies are required to install Profanity, the <code>./configure</code> script will
                         fail if the minimum dependencies cannot be found.<p>
                             <p>The latest code in <code>master</code> is also kept up to date with development changes
-                                to libmesode/libstrophe, so a manual build of this library may also be needed, see the
-                                <a target="_blank"
-                                    href="https://github.com/boothj5/libmesode/blob/master/README.markdown">README</a>
-                                at libmesode.</p>
+                            to libstrophe, so a manual build of this library may also be needed</p>
         </section>
         <section>
             <a name="pkgdeps"></a>
@@ -76,11 +73,7 @@ pkg-config</code></pre>
 
             <h4>Required dependencies:</h4>
 
-            <p>Profanity can be built against either <a href="https://github.com/strophe/libstrophe"
-                    target="_blank">libstrophe</a>, or <a href="https://github.com/boothj5/libmesode"
-                    target="_blank">libmesode</a>. Libmesode has a few extra features around manual TLS certificate
-                verification. Version 0.6.0 (and above) of Profanity requires version 0.9.2 of libstrophe or libmesode.
-            </p>
+            <p>Profanity is using <a href="https://github.com/strophe/libstrophe" target="_blank">libstrophe</a>.</p>
 
             <p>Profanity also requires:</p>
             <pre><code>libncursesw5-dev
@@ -113,7 +106,7 @@ libcmocka-dev            # To run tests</code></pre>
 </code></pre>
 
             <h4>openSUSE</h4>
-            <pre><code>zypper in gcc make automake autoconf libtool glib2-devel gtk2-devel libcurl-devel libexpat-devel libgpgme-devel libmesode-devel libnotify-devel libotr-devel libuuid-devel ncurses-devel python3-devel readline-devel autoconf-archive libsignal-protocol-c-devel libgcrypt-devel sqlite3-devel</code></pre>
+            <pre><code>zypper in gcc make automake autoconf libtool glib2-devel gtk2-devel libcurl-devel libexpat-devel libgpgme-devel libstrophe-devel libnotify-devel libotr-devel libuuid-devel ncurses-devel python3-devel readline-devel autoconf-archive libsignal-protocol-c-devel libgcrypt-devel sqlite3-devel</code></pre>
 
             <h4>Arch Linux</h4>
             <pre><code>pacman -S --needed autoconf autoconf-archive automake base-devel check cmake cmocka curl doxygen expat gcc git gpgme gtk2 libgcrypt libnotify libotr libtool libxss make openssl pkg-config python wget sqlite</code></pre>
@@ -134,7 +127,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"
             </code></pre>
 
             <h4>OpenBSD</h4>
-            <pre><code>pkg_add cmake gmake cmocka libtool automake-1.16.2 pkgconf readline python-3.8.2 autoconf-2.69p2 autoconf-archive libmesode curl gpgme glib2 gtk+2 libotr libassuan libgpg-error libgcrypt libsignal-protocol-c sqlite3</code></pre>
+            <pre><code>pkg_add cmake gmake cmocka libtool automake-1.16.2 pkgconf readline python-3.8.2 autoconf-2.69p2 autoconf-archive libstrophe curl gpgme glib2 gtk+2 libotr libassuan libgpg-error libgcrypt libsignal-protocol-c sqlite3</code></pre>
         </section>
         <section>
             <a name="installscript"></a>
