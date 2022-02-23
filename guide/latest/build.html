@@ -74,24 +74,24 @@ pkg-config</code></pre>
 
             <p>Profanity is using <a href="https://github.com/strophe/libstrophe" target="_blank">libstrophe</a>.</p>
 
-            <p>Profanity also requires:</p>
-            <pre><code>libncursesw5-dev
-libglib2.0-dev
-libcurl3-dev
-libreadline-dev
-libsqlite3-dev</code></pre>
+            <p>Profanity also requires development packages of:</p>
+            <pre><code>ncurses
+glib
+libcurl
+readline
+sqlite3</code></pre>
 
             <h4>Optional dependencies:</h4>
 
-            <pre><code>libnotify-dev            # Desktop notification support
-libxss-dev               # Desktop idle time autoaway support
-libotr5-dev              # OTR support
-libgpgme11-dev           # PGP support
-libsignal-protocol-c-dev # OMEMO support
-libgcrypt-dev            # OMEMO support (>= 1.7)
-libgtk2.0-dev            # Desktop tray icon support
-python-dev               # Python plugin support
-libcmocka-dev            # To run tests</code></pre>
+            <pre><code>libnotify                # Desktop notification support
+libxss                   # Desktop idle time autoaway support
+libotr                   # OTR support
+libgpgme                 # PGP support
+libsignal-protocol-c     # OMEMO support
+libgcrypt                # OMEMO support (>= 1.7)
+gtk2 or gtk3             # Desktop tray icon support
+python                   # Python plugin support
+cmocka                   # To run tests</code></pre>
         </section>
         <section>
             <a name="distrodeps"></a>
