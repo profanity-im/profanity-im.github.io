@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Profanity and OpenPGP for XMPP (OX) - profanity</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Profanity and OpenPGP for XMPP (OX)" />
+<meta property="og:description" content="We have been to implement OX in profanity. OX is XEP-0374: OpenPGP for XMPP Instant Messaging which may replace XEP-0027: Current Jabber OpenPGP Usage.
+It is part of Profanity since version 0.10 but got some fixes since then.
+Feel free to try and test the implementation. Let us know, if you have some issues and support the development via testing and reporting bugs.
+How does it works? There are some parts which will be done directly with GnuPG." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://profanity-im.github.io/blog/post/openpgp-for-xmpp-ox/" />
+<meta property="article:published_time" content="2022-03-24T15:07:30+02:00" />
+<meta property="article:modified_time" content="2022-03-24T15:07:30+02:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Profanity and OpenPGP for XMPP (OX)"/>
+<meta name="twitter:description" content="We have been to implement OX in profanity. OX is XEP-0374: OpenPGP for XMPP Instant Messaging which may replace XEP-0027: Current Jabber OpenPGP Usage.
+It is part of Profanity since version 0.10 but got some fixes since then.
+Feel free to try and test the implementation. Let us know, if you have some issues and support the development via testing and reporting bugs.
+How does it works? There are some parts which will be done directly with GnuPG."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://profanity-im.github.io/blog/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://profanity-im.github.io/blog/">profanity</a></h1>
+	<div class="site-description"><h2>development blog</h2><nav class="nav social">
+			<ul class="flat"><a href="https://profanity-im.github.io/" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/ProfanityIM" title="Twitter"><i data-feather="twitter"></i></a><a href="/blog/index.xml" title="RSS"><i data-feather="rss"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/blog/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog/post">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/blog/about">About</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Profanity and OpenPGP for XMPP (OX)</h1>
+            <div class="meta">Posted at &mdash; Mar 24, 2022 by
+                    <a href=" https://profanity-im.github.io/blog/authors/debxwoody/ ">debxwoody</a>
+                  
+                
+            </div>
+		</div>
+
+		<div class="markdown">
+			<p>We have been to implement OX in profanity. OX is
+<a href="https://xmpp.org/extensions/xep-0374.html">XEP-0374: OpenPGP for XMPP Instant Messaging</a> which
+may replace <a href="https://xmpp.org/extensions/xep-0027.html">XEP-0027: Current Jabber OpenPGP Usage</a>.</p>
+<p>It is part of Profanity since version 0.10 but got some fixes since then.</p>
+<p>Feel free to try and test the implementation. Let us know, if you have some
+issues and support the development via testing and reporting bugs.</p>
+<p>How does it works? There are some parts which will be done directly with
+GnuPG. You will see those <code>gpg</code> commands which needs to be executed in the
+shell. The commands within profanity are the <code>/ox</code> commands.</p>
+<h1 id="generate-openpgp-key-materials">Generate OpenPGP key materials</h1>
+<p>The first step is to create a OpenPGP key pair. The key pair generation
+will be done with the <code>gpg</code> command of GnuPG.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">gpg --quick-generate-key xmpp:alice@domain.tld future-default default 3y
+</code></pre></div><p>This command will generated a OpenPGP key with a UID
+<code>xmpp:alice@domain.tld</code>. The option <code>future-default</code> has been used to
+generate a ed25519/cv25519 key. The expiration date will be in three
+years. Replace the Jabber ID with your JID and do <strong>not</strong> forget the URI
+<code>xmpp:</code> prefix.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pub   ed25519 2021-09-21 [SC] [verfällt: 2024-09-20]
+      583BAE703A801095B6B71A56BD801174B1A0B84A
+uid                      xmpp:alice@domain.tld
+sub   cv25519 2021-09-21 [E]
+</code></pre></div><h1 id="export-your-public-key">Export your public key</h1>
+<p>You need to export your public key to share this public key with your
+buddy. Use the command below to export public key:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">gpg --export \
+  --export-options export-minimal \
+  --export-filter &#39;keep-uid=uid =~ xmpp:alice@domain.tld&#39; \
+  --export-filter &#39;drop-subkey=usage =~ a&#39; \
+  583BAE703A801095B6B71A56BD801174B1A0B84A \
+  &gt; /tmp/pep-key.gpg
+</code></pre></div><p>The key will be exported to <code>/tmp/pep-key.gpg</code>. You may check the key with
+the command below:</p>
+<p><code>gpg --show-key --with-sig-list /tmp/pep-key.gpg</code></p>
+<p>Keep in mind: Public keys may have some information (signatures, name,
+e-mail address). Be careful which data will be exported. The
+<code>export-options</code> and <code>export-filter</code> option of GnuPG will help you to
+filter the data.</p>
+<h1 id="publish-your-key">Publish your key</h1>
+<p>You can use profanity to publish your exported key into your account (PEP).
+The <code>/ox announce</code> command will publish your key.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/ox announce /tmp/pep-key.gpg
+Annonuce OpenPGP Key for OX /tmp/pep-key.gpg ... 
+</code></pre></div><p>The command will create two PEP node records to store the key.</p>
+<h1 id="discover-keys">Discover keys</h1>
+<p>The <code>/ox discover</code> command will be used to discover keys.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/ox discover buddy@domain.tld
+Discovering Public Key for buddy@domain.tld 
+1234567890ABCDEF1234567890ABCDEF12345678
+</code></pre></div><p>To request and import a key, you can use the <code>/ox request</code> command.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/ox request buddy@domain.tld 1234567890ABCDEF1234567890ABCDEF12345678
+Requesting Public Key 1234567890ABCDEF1234567890ABCDEF12345678 for buddy@domain.tld
+Public Key imported 
+</code></pre></div><p>The key will be imported into your gnupg keyring.</p>
+<h1 id="sign-the-imported-key">Sign the imported key</h1>
+<p>The key can been shown via gpg <code>gpg -k xmpp:buddy@domain.tld</code>.
+Make sure the key is the key of your buddy and sign the key with your key.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">gpg --ask-cert-level --default-key 583BAE703A801095B6B71A56BD801174B1A0B84A --sign-key 1234567890ABCDEF1234567890ABCDEF12345678
+</code></pre></div><p>The command <code>/ox contacts</code> will show the keys with XMPP-UID.
+The command <code>/ox keys</code> will show all known OpenPGP keys.</p>
+<h1 id="use-ox">Use OX</h1>
+<p>Within a chat window you can start OX via <code>/ox start</code> and stop it via <code>/ox end</code>.</p>
+<p>Messages will be send signed and encrypted.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

@@ -6,10 +6,82 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Feb 2022 20:47:44 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 24 Mar 2022 15:07:30 +0200</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Profanity and OpenPGP for XMPP (OX)</title>
+      <link>https://profanity-im.github.io/blog/post/openpgp-for-xmpp-ox/</link>
+      <pubDate>Thu, 24 Mar 2022 15:07:30 +0200</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/openpgp-for-xmpp-ox/</guid>
+      <description>&lt;p&gt;We have been to implement OX in profanity. OX is
+&lt;a href=&#34;https://xmpp.org/extensions/xep-0374.html&#34;&gt;XEP-0374: OpenPGP for XMPP Instant Messaging&lt;/a&gt; which
+may replace &lt;a href=&#34;https://xmpp.org/extensions/xep-0027.html&#34;&gt;XEP-0027: Current Jabber OpenPGP Usage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It is part of Profanity since version 0.10 but got some fixes since then.&lt;/p&gt;
+&lt;p&gt;Feel free to try and test the implementation. Let us know, if you have some
+issues and support the development via testing and reporting bugs.&lt;/p&gt;
+&lt;p&gt;How does it works? There are some parts which will be done directly with
+GnuPG. You will see those &lt;code&gt;gpg&lt;/code&gt; commands which needs to be executed in the
+shell. The commands within profanity are the &lt;code&gt;/ox&lt;/code&gt; commands.&lt;/p&gt;
+&lt;h1 id=&#34;generate-openpgp-key-materials&#34;&gt;Generate OpenPGP key materials&lt;/h1&gt;
+&lt;p&gt;The first step is to create a OpenPGP key pair. The key pair generation
+will be done with the &lt;code&gt;gpg&lt;/code&gt; command of GnuPG.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;gpg --quick-generate-key xmpp:alice@domain.tld future-default default 3y
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This command will generated a OpenPGP key with a UID
+&lt;code&gt;xmpp:alice@domain.tld&lt;/code&gt;. The option &lt;code&gt;future-default&lt;/code&gt; has been used to
+generate a ed25519/cv25519 key. The expiration date will be in three
+years. Replace the Jabber ID with your JID and do &lt;strong&gt;not&lt;/strong&gt; forget the URI
+&lt;code&gt;xmpp:&lt;/code&gt; prefix.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;pub   ed25519 2021-09-21 [SC] [verfällt: 2024-09-20]
+      583BAE703A801095B6B71A56BD801174B1A0B84A
+uid                      xmpp:alice@domain.tld
+sub   cv25519 2021-09-21 [E]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;export-your-public-key&#34;&gt;Export your public key&lt;/h1&gt;
+&lt;p&gt;You need to export your public key to share this public key with your
+buddy. Use the command below to export public key:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;gpg --export \
+  --export-options export-minimal \
+  --export-filter &amp;#39;keep-uid=uid =~ xmpp:alice@domain.tld&amp;#39; \
+  --export-filter &amp;#39;drop-subkey=usage =~ a&amp;#39; \
+  583BAE703A801095B6B71A56BD801174B1A0B84A \
+  &amp;gt; /tmp/pep-key.gpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The key will be exported to &lt;code&gt;/tmp/pep-key.gpg&lt;/code&gt;. You may check the key with
+the command below:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gpg --show-key --with-sig-list /tmp/pep-key.gpg&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Keep in mind: Public keys may have some information (signatures, name,
+e-mail address). Be careful which data will be exported. The
+&lt;code&gt;export-options&lt;/code&gt; and &lt;code&gt;export-filter&lt;/code&gt; option of GnuPG will help you to
+filter the data.&lt;/p&gt;
+&lt;h1 id=&#34;publish-your-key&#34;&gt;Publish your key&lt;/h1&gt;
+&lt;p&gt;You can use profanity to publish your exported key into your account (PEP).
+The &lt;code&gt;/ox announce&lt;/code&gt; command will publish your key.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/ox announce /tmp/pep-key.gpg
+Annonuce OpenPGP Key for OX /tmp/pep-key.gpg ... 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The command will create two PEP node records to store the key.&lt;/p&gt;
+&lt;h1 id=&#34;discover-keys&#34;&gt;Discover keys&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;/ox discover&lt;/code&gt; command will be used to discover keys.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/ox discover buddy@domain.tld
+Discovering Public Key for buddy@domain.tld 
+1234567890ABCDEF1234567890ABCDEF12345678
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To request and import a key, you can use the &lt;code&gt;/ox request&lt;/code&gt; command.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/ox request buddy@domain.tld 1234567890ABCDEF1234567890ABCDEF12345678
+Requesting Public Key 1234567890ABCDEF1234567890ABCDEF12345678 for buddy@domain.tld
+Public Key imported 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The key will be imported into your gnupg keyring.&lt;/p&gt;
+&lt;h1 id=&#34;sign-the-imported-key&#34;&gt;Sign the imported key&lt;/h1&gt;
+&lt;p&gt;The key can been shown via gpg &lt;code&gt;gpg -k xmpp:buddy@domain.tld&lt;/code&gt;.
+Make sure the key is the key of your buddy and sign the key with your key.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;gpg --ask-cert-level --default-key 583BAE703A801095B6B71A56BD801174B1A0B84A --sign-key 1234567890ABCDEF1234567890ABCDEF12345678
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The command &lt;code&gt;/ox contacts&lt;/code&gt; will show the keys with XMPP-UID.
+The command &lt;code&gt;/ox keys&lt;/code&gt; will show all known OpenPGP keys.&lt;/p&gt;
+&lt;h1 id=&#34;use-ox&#34;&gt;Use OX&lt;/h1&gt;
+&lt;p&gt;Within a chat window you can start OX via &lt;code&gt;/ox start&lt;/code&gt; and stop it via &lt;code&gt;/ox end&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Messages will be send signed and encrypted.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Profanity on Pinephone</title>

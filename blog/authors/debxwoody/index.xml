@@ -6,7 +6,19 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Jun 2021 15:07:30 +0200</lastBuildDate><atom:link href="https://profanity-im.github.io/blog/authors/debxwoody/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Mar 2022 15:07:30 +0200</lastBuildDate><atom:link href="https://profanity-im.github.io/blog/authors/debxwoody/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Profanity and OpenPGP for XMPP (OX)</title>
+      <link>https://profanity-im.github.io/blog/post/openpgp-for-xmpp-ox/</link>
+      <pubDate>Thu, 24 Mar 2022 15:07:30 +0200</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/openpgp-for-xmpp-ox/</guid>
+      <description>We have been to implement OX in profanity. OX is XEP-0374: OpenPGP for XMPP Instant Messaging which may replace XEP-0027: Current Jabber OpenPGP Usage.
+It is part of Profanity since version 0.10 but got some fixes since then.
+Feel free to try and test the implementation. Let us know, if you have some issues and support the development via testing and reporting bugs.
+How does it works? There are some parts which will be done directly with GnuPG.</description>
+    </item>
+    
     <item>
       <title>Attention, attention!</title>
       <link>https://profanity-im.github.io/blog/post/attention-attention/</link>
