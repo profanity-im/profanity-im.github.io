@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profanity, a console based XMPP client - Chat Rooms</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="../../css/profanity.css" type="text/css" rel="stylesheet">
+
+</head>
+
+<body id="article">
+    <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration">
+    <header>
+        <a href="userguide.html">
+            <h1>User Guide</h1>
+        </a>
+        <h2>Key Bindings</h2>
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+
+            <ul>
+                <li><a href="#gnu-readline">GNU Readline</a>
+                <li><a href="#nav-bindings">User Interface Navigation</a>
+                <li><a href="#readline-funcs">Custom Readline functions</a>
+            </ul>
+        </section>
+        <section>
+            <a name="gnu-readline"></a>
+            <h3>GNU Readline</h3>
+
+            <p>
+                Profanity uses <a target="_blank" href="https://tiswww.case.edu/php/chet/readline/rltop.html">GNU
+                    Readline</a> for handling input. GNU Readline comes with many features including customisable key
+                bindings, and Emacs or Vi editing modes.
+            </p>
+            <p>
+                In addition to checking <code>~/.inputrc</code>, Profanity will also look in
+                <code>~/.config/profanity/inputrc</code> for Readline bindings.
+            </p>
+            <p>
+                For more information on key bindings and customisations available in GNU Readline, see the <a
+                    target="_blank" href="https://tiswww.case.edu/php/chet/readline/rluserman.html">guide</a>. Taken
+                from the above guide, below is a list of basic bindings that come with GNU Readline by default.
+            </p>
+            <p>
+                In the following table <code>C-k</code> means Control-k, <code>M-k</code> means Meta-k where the meta
+                key may differ depending on your OS (alt key, windows key, command key etc).
+            </p>
+            <table>
+                <tr>
+                    <td>C-b</td>
+                    <td>Move back one character</td>
+                </tr>
+                <tr>
+                    <td>C-f</td>
+                    <td>Move forward one character</td>
+                </tr>
+                <tr>
+                    <td>C-d</td>
+                    <td>Delete the character underneath the cursor</td>
+                </tr>
+                <tr>
+                    <td>C-_ or C-x C-u</td>
+                    <td>Undo the last editing command</td>
+                </tr>
+                <tr>
+                    <td>C-a</td>
+                    <td>Move to the start of the line.</td>
+                </tr>
+                <tr>
+                    <td>C-e</td>
+                    <td>Move to the end of the line.</td>
+                </tr>
+                <tr>
+                    <td>M-f</td>
+                    <td>Move forward a word, where a word is composed of letters and digits.</td>
+                </tr>
+                <tr>
+                    <td>M-b</td>
+                    <td>Move backward a word.</td>
+                </tr>
+                <tr>
+                    <td>C-l</td>
+                    <td>Clear the screen.</td>
+                </tr>
+                <tr>
+                    <td>C-k</td>
+                    <td>Kill the text from the current cursor position to the end of the line.</td>
+                </tr>
+                <tr>
+                    <td>M-d</td>
+                    <td>Kill from the cursor to the end of the current word, or, if between words, to the end of the
+                        next word. Word boundaries are the same as those used by M-f.</td>
+                </tr>
+                <tr>
+                    <td>M-DEL</td>
+                    <td>Kill from the cursor the start of the current word, or, if between words, to the start of the
+                        previous word. Word boundaries are the same as those used by M-b.</td>
+                </tr>
+                <tr>
+                    <td>C-w</td>
+                    <td>Kill from the cursor to the previous whitespace. This is different than M-DEL because the word
+                        boundaries differ.</td>
+                </tr>
+                <tr>
+                    <td>C-y</td>
+                    <td>Yank the most recently killed text back into the buffer at the cursor.</td>
+                </tr>
+                <tr>
+                    <td>M-y</td>
+                    <td>Rotate the kill-ring, and yank the new top. You can only do this if the prior command is C-y or
+                        M-y.</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <a name="nav-bindings"></a>
+            <h3>User Interface Navigation</h3>
+
+            <p>
+                In addition to GNU Readline input key bindings, Profanity has a few more bindings for managing the User
+                Interface.
+            </p>
+            <table>
+                <tr>
+                    <td>Alt-1..Alt-0, F1..F10</td>
+                    <td>Focus window.</td>
+                </tr>
+                <tr>
+                    <td>Alt-Left</td>
+                    <td>Focus previous window.</td>
+                </tr>
+                <tr>
+                    <td>Alt-Right</td>
+                    <td>Focus next window.</td>
+                </tr>
+                <tr>
+                    <td>Page Up</td>
+                    <td>Scroll backwards through main window contents.</td>
+                </tr>
+                <tr>
+                    <td>Page Down</td>
+                    <td>Scroll forwards through main window contents.</td>
+                </tr>
+                <tr>
+                    <td>Alt-Page Up</td>
+                    <td>Scroll backwards through occupants/roster panel.</td>
+                </tr>
+                <tr>
+                    <td>Alt-Page Down</td>
+                    <td>Scroll forwards through occupants/roster panel.</td>
+                </tr>
+                <tr>
+                    <td>Alt A</td>
+                    <td>Select next unread window.</td>
+                </tr>
+                <tr>
+                    <td>Ctrl+Arrow Down</td>
+                    <td>Store current line in history.</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <a name="readline-funcs"></a>
+            <h3>Custom Readline functions</h3>
+            <p>
+                Profanity also makes functions available to readline to allow customising Profanity bindings:
+            </p>
+            <table>
+                <tr>
+                    <td><code>prof_win_N</code></td>
+                    <td>Focus window N where N is 1,2,3,4,5,6,7,8,9 or 0</td>
+                </tr>
+                <tr>
+                    <td><code>prof_win_prev</code></td>
+                    <td>Focus previous window</td>
+                </tr>
+                <tr>
+                    <td><code>prof_win_next</code></td>
+                    <td>Focus next window</td>
+                </tr>
+                <tr>
+                    <td><code>prof_win_pageup</code></td>
+                    <td>Page up contents of main window</td>
+                </tr>
+                <tr>
+                    <td><code>prof_win_pagedown</code></td>
+                    <td>Page down contents of main window</td>
+                </tr>
+                <tr>
+                    <td><code>prof_subwin_pageup</code></td>
+                    <td>Page up contents of sub window (roster or occupants)</td>
+                </tr>
+                <tr>
+                    <td><code>prof_subwin_pagedown</code></td>
+                    <td>Page down contents of sub window (roster or occupants)</td>
+                </tr>
+                <tr>
+                    <td><code>prof_win_clear</code></td>
+                    <td>Clear current window contents</td>
+                </tr>
+            </table>
+            <p>
+                Example usage in <code>inputrc</code>:
+                <pre><code>$if profanity
+"\C-p": prof_win_prev
+"\C-n": prof_win_next
+"\C-j": prof_win_pageup
+"\C-k": prof_win_pagedown
+"\C-h": prof_subwin_pageup
+"\C-l": prof_subwin_pagedown
+"\C-y": prof_win_clear
+$endif</code></pre>
+            </p>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+
+</html>

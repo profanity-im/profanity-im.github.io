@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profanity, a console based XMPP client - Getting Started</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="../../css/profanity.css" type="text/css" rel="stylesheet">
+
+</head>
+
+<body id="article">
+    <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration">
+    <header>
+        <a href="userguide.html">
+            <h1>User Guide</h1>
+        </a>
+        <h2>Quick Start Guide</h2>
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+
+            <ul>
+                <li><a href="#starting-profanity">Starting Profanity</a>
+                <li><a href="#user-interface">User Interface</a>
+                <li><a href="#switching-between-windows">Window navigation</a>
+                <li><a href="#connecting">Connecting</a>
+                <li><a href="#sending-a-message">One to one chat</a>
+                <li><a href="#room-messages">Chat rooms</a>
+                <li><a href="#managing-contacts">Adding contacts</a>
+                <li><a href="#changing-your-presence">Changing your presence</a>
+                <li><a href="#logging-out">Logging out</a></li>
+            </ul>
+        </section>
+        <section>
+            <a name="starting-profanity"></a>
+            <h3>Starting Profanity</h3>
+
+            <p>To start Profanity, run the following at the command line:</p>
+            <pre><code>$ profanity</code></pre>
+            <p>To see options available to the command:</p>
+            <pre><code>$ profanity -h</code></pre>
+        </section>
+        <section>
+            <a name="user-interface"></a>
+            <h3>User Interface</h3>
+
+            <p><img src="../../images/main.png" /></p>
+            <p>The user interface is split into four main areas:</p>
+
+            <p><b>Title bar</b></p>
+            <p><img src="../../images/main1.png" /></p>
+            <p>Shows the title for the current window (usually the contact you are chatting with, or the chat room you
+                have joined), and your current presence.</p>
+
+            <p><b>Main window area</b></p>
+            <p><img src="../../images/main2.png" /></p>
+            <p>Used to show the current active window. The first window (1) is reserved for the 'console' where system
+                messages and command responses are shown.</p>
+
+            <p><b>Status bar</b></p>
+            <p><img src="../../images/main3.png" /></p>
+            <p>Shows the time, the user you are logged in as, and status of each window. If a window is used, its number
+                will appear, if it has new messages of any kind, the number will be highlighted. The current window is
+                shown as -1-.</p>
+
+            <p><b>Input area</b></p>
+            <p><img src="../../images/main4.png" /></p>
+            <p>Where commands and messages are entered. Commands and command arguments can be autocompleted with the tab
+                key.</p>
+            <p>All commands start with a <code>/</code> character e.g.:</p>
+            <pre><code>/help</code></pre>
+        </section>
+        <section>
+            <a name="switching-between-windows"></a>
+            <h3>Window navigation</h3>
+
+            <p>To make a window visible in the main window area, use any of the following:<p>
+                    <p>
+                        <code>Alt-1</code> to <code>Alt-0</code><br>
+                        <code>F1</code> to <code>F10</code><br>
+                        <code>Alt-left</code>, <code>Alt-right</code>
+                    </p>
+                    <p>The <a href="reference.html#win"><code>/win</code></a> command may also be used. Either the
+                        window number may be passed, or the window title:</p>
+                    <pre><code>/win 4</code>
+<code>/win someroom@chatserver.org</code>
+<code>/win MyBuddy</code></pre>
+                    <p>To close the current window:</p>
+                    <pre><code>/close</code></pre>
+        </section>
+        <section>
+            <a name="connecting"></a>
+            <h3>Connecting</h3>
+
+            <p>To connect to an XMPP chat service:</p>
+            <pre><code>/connect user@server.com</code></pre>
+            <p>You will be prompted by the status bar to enter your password.</p>
+            <p>See the <a href="reference.html#connect"><code>/connect</code></a> command for additional arguments that
+                may be used when connecting.</p>
+        </section>
+        <section>
+            <a name="sending-a-message"></a>
+            <h3>One to one chat</h3>
+
+            <p>To open a new window and send a message use the <a href="reference.html#msg"><code>/msg</code></a>
+                command:<p>
+                    <pre><code>/msg mycontact@server.com Hello there!</code></pre>
+
+                    <p>Profanity uses the contact's nickname by default, if one exists. For example:</p>
+                    <pre><code>/msg Bob Are you there bob?</code></pre>
+
+                    <p>Once a window is opened with the contact, messages can be sent by just typing them in the input
+                        window:</p>
+                    <pre><code>Hows it going?</code></pre>
+        </section>
+        <section>
+            <a name="room-messages"></a>
+            <h3>Chat rooms</h3>
+
+            <p>To join a chat room, use the <a href="reference.html#join"><code>/join</code></a> command:<p>
+                    <pre><code>/join room@server.org</code></pre>
+
+                    <p>Once a window is opened for the room, messages can be sent by just typing them in the input
+                        window:</p>
+                    <pre><code>Hello everyone</code></pre>
+
+                    <p>See the chat <a href="rooms.html">Chat room guide</a> for more detail.</p>
+        </section>
+        <section>
+            <a name="managing-contacts"></a>
+            <h3>Adding contacts</h3>
+
+            <p>To add someone to your roster:</p>
+            <pre><code>/roster add newfriend@server.chat.com</code></pre>
+
+            <p>To subscribe to a contacts presence (to be notified when they are online/offline etc):</p>
+            <pre><code>/sub request newfriend@server.chat.com</code></pre>
+
+            <p>To approve a contact's request to subscribe to your presence:</p>
+            <pre><code>/sub allow newfriend@server.chat.com</code></pre>
+
+            <p>See the <a href="reference.html#roster"><code>/roster</code></a> and <a
+                    href="reference.html#sub"><code>/sub</code></a> commands for more detail.</p>
+        </section>
+        <section>
+            <a name="changing-your-presence"></a>
+            <h3>Changing your presence</h3>
+
+            <p>To change your presence, use the following commands:</p>
+            <pre><code>/status set away
+/status set xa
+/status set chat
+/status set online
+/status set dnd</code></pre>
+            <p>Each of these commands accepts a message as a parameter, so to show the message "I'm very busy" to your
+                contacts when setting status to Do Not Disturb:</p>
+            <pre><code>/status set dnd I'm very busy</code></pre>
+        </section>
+        <section>
+            <a name="logging-out"></a>
+            <h3>Logging out</h3>
+
+            <p>To log out from the current chat service:</p>
+            <pre><code>/disconnect</code></pre>
+            <p>To quit profanity:</p>
+            <pre><code>/quit</code></pre>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+
+</html>
