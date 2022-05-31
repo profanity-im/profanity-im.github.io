@@ -92,7 +92,9 @@ libgcrypt                # OMEMO support (>= 1.7)
 gtk2 or gtk3             # Desktop tray icon support
 python                   # Python plugin support
 cmocka                   # To run tests
-shared-mime-info         # Send files with the correct mime type</code></pre>
+shared-mime-info         # Send files with the correct mime type
+gdk-pixbuf2              # Scale the image for `/avatar set`
+qrencode                 # Display OMEMO QR code</code></pre>
         </section>
         <section>
             <a name="distrodeps"></a>
@@ -102,14 +104,14 @@ shared-mime-info         # Send files with the correct mime type</code></pre>
             here. These are contributed to users and might be out of date. Feel free to create <a href="https://github.com/profanity-im/profanity-im.github.io">pull request</a> to improve this section.</p>
 
             <h4>Debian</h4>
-            <pre><code>apt-get install libcaca-dev libnotify-dev libgtk2.0-dev libotr5-dev libssl-dev libstrophe-dev pkg-config python3-dev libexpat1-dev libncursesw5-dev libglib2.0-dev libreadline-dev libgpgme11-dev libcurl4-gnutls-dev uuid-dev libcmocka-dev libgcrypt20-dev libsignal-protocol-c-dev libxss-dev libsqlite3-dev autoconf-archive  autoconf
+            <pre><code>apt-get install libcaca-dev libnotify-dev libgtk2.0-dev libotr5-dev libssl-dev libstrophe-dev pkg-config python3-dev libexpat1-dev libncursesw5-dev libglib2.0-dev libreadline-dev libgpgme11-dev libcurl4-gnutls-dev uuid-dev libcmocka-dev libgcrypt20-dev libsignal-protocol-c-dev libxss-dev libsqlite3-dev autoconf-archive  autoconf libgdk-pixbuf-2.0-dev libqrencode-dev
 </code></pre>
 
             <h4>openSUSE</h4>
-            <pre><code>zypper in gcc make automake autoconf libtool glib2-devel gtk2-devel libcurl-devel libexpat-devel libgpgme-devel libstrophe-devel libnotify-devel libotr-devel libuuid-devel ncurses-devel python3-devel readline-devel autoconf-archive libsignal-protocol-c-devel libgcrypt-devel sqlite3-devel</code></pre>
+            <pre><code>zypper in gcc make automake autoconf libtool glib2-devel gtk2-devel libcurl-devel libexpat-devel libgpgme-devel libstrophe-devel libnotify-devel libotr-devel libuuid-devel ncurses-devel python3-devel readline-devel autoconf-archive libsignal-protocol-c-devel libgcrypt-devel sqlite3-devel gdk-pixbuf-devel qrencode-devel</code></pre>
 
             <h4>Arch Linux</h4>
-            <pre><code>pacman -S --needed autoconf autoconf-archive automake base-devel check cmake cmocka curl doxygen expat gcc git gpgme gtk2 libgcrypt libnotify libotr libtool libxss make openssl pkg-config python wget sqlite</code></pre>
+            <pre><code>pacman -S --needed autoconf autoconf-archive automake base-devel check cmake cmocka curl doxygen expat gcc git gpgme gtk2 libgcrypt libnotify libotr libtool libxss make openssl pkg-config python wget sqlite gdk-pixbuf2 qrencode</code></pre>
 
             <h4>Mac OS</h4>
             <pre><code>brew install autoconf autoconf-archive automake libtool pkg-config glib gnutls gpgme libotr libstrophe openssl ossp-uuid readline terminal-notifier libsignal-protocol-c</code></pre>
