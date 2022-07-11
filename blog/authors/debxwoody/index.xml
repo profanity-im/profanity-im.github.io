@@ -53,7 +53,7 @@ Hello OMEMO! OMEMO needs crytographic materials. You can generated this crytogra
       <description>If you have more than one XMPP account, you may run one profanity process per account. For example profanity -a AccountName.
 It&amp;rsquo;s possible to start a tmux session with one window for each profanity instance.
 Create a tmux configuration file, e.g. in ~/.config/tmux.
-mkdir ~/.config/tmux touch ~/.config/tmux/profanity.conf  Within the configuration file, you create a tmux session named Profanity. Followed by one window per XMPP Account. Each window will run a profanity followed by -a accountname.</description>
+mkdir ~/.config/tmux touch ~/.config/tmux/profanity.conf Within the configuration file, you create a tmux session named Profanity. Followed by one window per XMPP Account. Each window will run a profanity followed by -a accountname.</description>
     </item>
     
   </channel>

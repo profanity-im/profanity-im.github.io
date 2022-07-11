@@ -8,18 +8,19 @@
 So far, in my pinephone I used mainly GUI applications, because I was using a touch screen. Terminal applications are not user-friendly when it comes to one-handed operation.
 I tested different distributions on my pinephone (mobian, manjaro, archarm), but usually most based on Phosh. In my opinion it is currently the best mobile graphics environment and stable as well.
 In Phosh I tested few xmpp clients:
- the default application installed with Phosh is chatty, a combine that supports sms / mms / xmpp (OMEMO) Dino from repo: handy Gajim  I know there are KDE plasma applications as well, but during my testing, plasma was unusable and I even gave up installing it." />
+the default application installed with Phosh is chatty, a combine that supports sms / mms / xmpp (OMEMO) Dino from repo: handy Gajim I know there are KDE plasma applications as well, but during my testing, plasma was unusable and I even gave up installing it." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://profanity-im.github.io/blog/post/profanity-on-pinephone/" />
+<meta property="og:url" content="https://profanity-im.github.io/blog/post/profanity-on-pinephone/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-02-02T20:47:44+01:00" />
 <meta property="article:modified_time" content="2022-02-02T20:47:44+01:00" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Profanity on Pinephone"/>
 <meta name="twitter:description" content="Hi all,
 So far, in my pinephone I used mainly GUI applications, because I was using a touch screen. Terminal applications are not user-friendly when it comes to one-handed operation.
 I tested different distributions on my pinephone (mobian, manjaro, archarm), but usually most based on Phosh. In my opinion it is currently the best mobile graphics environment and stable as well.
 In Phosh I tested few xmpp clients:
- the default application installed with Phosh is chatty, a combine that supports sms / mms / xmpp (OMEMO) Dino from repo: handy Gajim  I know there are KDE plasma applications as well, but during my testing, plasma was unusable and I even gave up installing it."/>
+the default application installed with Phosh is chatty, a combine that supports sms / mms / xmpp (OMEMO) Dino from repo: handy Gajim I know there are KDE plasma applications as well, but during my testing, plasma was unusable and I even gave up installing it."/>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/normalize.css" />
@@ -86,16 +87,16 @@ In Phosh I tested few xmpp clients:
 <p>I looked at <a href="http://www.profanity.im/keybindings.html">profanity keybindings</a> and in the <code>User Interface Navigation</code> section I found that I should use <code>PageUp/PageDown</code> keys, but looking at <a href="https://wiki.pine64.org/wiki/PinePhone_(Pro)_Keyboard#Keyboard_layout">Pinephone wiki</a> this keyboard does not have <code>PageUp/PageDown</code> keys.</p>
 <p>I had to do key mapping in profanity. Using following url <a href="http://www.profanity.im/keybindings.html">profanity keybindings</a> quickly I found solution.</p>
 <p>Basicaly, I created a file <code>~/.config/profanity/inputrc</code> with content</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ if profanity
-&#34;\ C-p&#34;: prof_win_prev
-&#34;\ C-n&#34;: prof_win_next
-&#34;\ C-j&#34;: prof_win_pageup
-&#34;\ C-k&#34;: prof_win_pagedown
-&#34;\ C-h&#34;: prof_subwin_pageup
-&#34;\ C-l&#34;: prof_subwin_pagedown
-&#34;\ C-y&#34;: prof_win_clear
-$ endif
-</code></pre></div><p>After starting profanity, I was able to scroll window with content using following shortcuts</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ if profanity
+</span></span><span style="display:flex;"><span>&#34;\ C-p&#34;: prof_win_prev
+</span></span><span style="display:flex;"><span>&#34;\ C-n&#34;: prof_win_next
+</span></span><span style="display:flex;"><span>&#34;\ C-j&#34;: prof_win_pageup
+</span></span><span style="display:flex;"><span>&#34;\ C-k&#34;: prof_win_pagedown
+</span></span><span style="display:flex;"><span>&#34;\ C-h&#34;: prof_subwin_pageup
+</span></span><span style="display:flex;"><span>&#34;\ C-l&#34;: prof_subwin_pagedown
+</span></span><span style="display:flex;"><span>&#34;\ C-y&#34;: prof_win_clear
+</span></span><span style="display:flex;"><span>$ endif
+</span></span></code></pre></div><p>After starting profanity, I was able to scroll window with content using following shortcuts</p>
 <ul>
 <li><code>C-j</code> - scroll up</li>
 <li><code>C-k</code> - to scroll down</li>

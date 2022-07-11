@@ -29,26 +29,26 @@ shell. The commands within profanity are the &lt;code&gt;/ox&lt;/code&gt; comman
 &lt;h1 id=&#34;generate-openpgp-key-materials&#34;&gt;Generate OpenPGP key materials&lt;/h1&gt;
 &lt;p&gt;The first step is to create a OpenPGP key pair. The key pair generation
 will be done with the &lt;code&gt;gpg&lt;/code&gt; command of GnuPG.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;gpg --quick-generate-key xmpp:alice@domain.tld future-default default 3y
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This command will generated a OpenPGP key with a UID
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gpg --quick-generate-key xmpp:alice@domain.tld future-default default 3y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This command will generated a OpenPGP key with a UID
 &lt;code&gt;xmpp:alice@domain.tld&lt;/code&gt;. The option &lt;code&gt;future-default&lt;/code&gt; has been used to
 generate a ed25519/cv25519 key. The expiration date will be in three
 years. Replace the Jabber ID with your JID and do &lt;strong&gt;not&lt;/strong&gt; forget the URI
 &lt;code&gt;xmpp:&lt;/code&gt; prefix.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;pub   ed25519 2021-09-21 [SC] [verfällt: 2024-09-20]
-      583BAE703A801095B6B71A56BD801174B1A0B84A
-uid                      xmpp:alice@domain.tld
-sub   cv25519 2021-09-21 [E]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;export-your-public-key&#34;&gt;Export your public key&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pub   ed25519 2021-09-21 [SC] [verfällt: 2024-09-20]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      583BAE703A801095B6B71A56BD801174B1A0B84A
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uid                      xmpp:alice@domain.tld
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sub   cv25519 2021-09-21 [E]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;export-your-public-key&#34;&gt;Export your public key&lt;/h1&gt;
 &lt;p&gt;You need to export your public key to share this public key with your
 buddy. Use the command below to export public key:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;gpg --export \
-  --export-options export-minimal \
-  --export-filter &amp;#39;keep-uid=uid =~ xmpp:alice@domain.tld&amp;#39; \
-  --export-filter &amp;#39;drop-subkey=usage =~ a&amp;#39; \
-  583BAE703A801095B6B71A56BD801174B1A0B84A \
-  &amp;gt; /tmp/pep-key.gpg
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The key will be exported to &lt;code&gt;/tmp/pep-key.gpg&lt;/code&gt;. You may check the key with
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gpg --export \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --export-options export-minimal \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --export-filter &amp;#39;keep-uid=uid =~ xmpp:alice@domain.tld&amp;#39; \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --export-filter &amp;#39;drop-subkey=usage =~ a&amp;#39; \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  583BAE703A801095B6B71A56BD801174B1A0B84A \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &amp;gt; /tmp/pep-key.gpg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The key will be exported to &lt;code&gt;/tmp/pep-key.gpg&lt;/code&gt;. You may check the key with
 the command below:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;gpg --show-key --with-sig-list /tmp/pep-key.gpg&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Keep in mind: Public keys may have some information (signatures, name,
@@ -58,24 +58,24 @@ filter the data.&lt;/p&gt;
 &lt;h1 id=&#34;publish-your-key&#34;&gt;Publish your key&lt;/h1&gt;
 &lt;p&gt;You can use profanity to publish your exported key into your account (PEP).
 The &lt;code&gt;/ox announce&lt;/code&gt; command will publish your key.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/ox announce /tmp/pep-key.gpg
-Annonuce OpenPGP Key for OX /tmp/pep-key.gpg ... 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The command will create two PEP node records to store the key.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/ox announce /tmp/pep-key.gpg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Annonuce OpenPGP Key for OX /tmp/pep-key.gpg ... 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The command will create two PEP node records to store the key.&lt;/p&gt;
 &lt;h1 id=&#34;discover-keys&#34;&gt;Discover keys&lt;/h1&gt;
 &lt;p&gt;The &lt;code&gt;/ox discover&lt;/code&gt; command will be used to discover keys.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/ox discover buddy@domain.tld
-Discovering Public Key for buddy@domain.tld 
-1234567890ABCDEF1234567890ABCDEF12345678
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To request and import a key, you can use the &lt;code&gt;/ox request&lt;/code&gt; command.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/ox request buddy@domain.tld 1234567890ABCDEF1234567890ABCDEF12345678
-Requesting Public Key 1234567890ABCDEF1234567890ABCDEF12345678 for buddy@domain.tld
-Public Key imported 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The key will be imported into your gnupg keyring.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/ox discover buddy@domain.tld
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Discovering Public Key for buddy@domain.tld 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1234567890ABCDEF1234567890ABCDEF12345678
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To request and import a key, you can use the &lt;code&gt;/ox request&lt;/code&gt; command.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/ox request buddy@domain.tld 1234567890ABCDEF1234567890ABCDEF12345678
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Requesting Public Key 1234567890ABCDEF1234567890ABCDEF12345678 for buddy@domain.tld
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Public Key imported 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The key will be imported into your gnupg keyring.&lt;/p&gt;
 &lt;h1 id=&#34;sign-the-imported-key&#34;&gt;Sign the imported key&lt;/h1&gt;
 &lt;p&gt;The key can been shown via gpg &lt;code&gt;gpg -k xmpp:buddy@domain.tld&lt;/code&gt;.
 Make sure the key is the key of your buddy and sign the key with your key.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;gpg --ask-cert-level --default-key 583BAE703A801095B6B71A56BD801174B1A0B84A --sign-key 1234567890ABCDEF1234567890ABCDEF12345678
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The command &lt;code&gt;/ox contacts&lt;/code&gt; will show the keys with XMPP-UID.
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gpg --ask-cert-level --default-key 583BAE703A801095B6B71A56BD801174B1A0B84A --sign-key 1234567890ABCDEF1234567890ABCDEF12345678
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The command &lt;code&gt;/ox contacts&lt;/code&gt; will show the keys with XMPP-UID.
 The command &lt;code&gt;/ox keys&lt;/code&gt; will show all known OpenPGP keys.&lt;/p&gt;
 &lt;h1 id=&#34;use-ox&#34;&gt;Use OX&lt;/h1&gt;
 &lt;p&gt;Within a chat window you can start OX via &lt;code&gt;/ox start&lt;/code&gt; and stop it via &lt;code&gt;/ox end&lt;/code&gt;.&lt;/p&gt;
@@ -107,16 +107,16 @@ The command &lt;code&gt;/ox keys&lt;/code&gt; will show all known OpenPGP keys.&
 &lt;p&gt;I looked at &lt;a href=&#34;http://www.profanity.im/keybindings.html&#34;&gt;profanity keybindings&lt;/a&gt; and in the &lt;code&gt;User Interface Navigation&lt;/code&gt; section I found that I should use &lt;code&gt;PageUp/PageDown&lt;/code&gt; keys, but looking at &lt;a href=&#34;https://wiki.pine64.org/wiki/PinePhone_(Pro)_Keyboard#Keyboard_layout&#34;&gt;Pinephone wiki&lt;/a&gt; this keyboard does not have &lt;code&gt;PageUp/PageDown&lt;/code&gt; keys.&lt;/p&gt;
 &lt;p&gt;I had to do key mapping in profanity. Using following url &lt;a href=&#34;http://www.profanity.im/keybindings.html&#34;&gt;profanity keybindings&lt;/a&gt; quickly I found solution.&lt;/p&gt;
 &lt;p&gt;Basicaly, I created a file &lt;code&gt;~/.config/profanity/inputrc&lt;/code&gt; with content&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;$ if profanity
-&amp;#34;\ C-p&amp;#34;: prof_win_prev
-&amp;#34;\ C-n&amp;#34;: prof_win_next
-&amp;#34;\ C-j&amp;#34;: prof_win_pageup
-&amp;#34;\ C-k&amp;#34;: prof_win_pagedown
-&amp;#34;\ C-h&amp;#34;: prof_subwin_pageup
-&amp;#34;\ C-l&amp;#34;: prof_subwin_pagedown
-&amp;#34;\ C-y&amp;#34;: prof_win_clear
-$ endif
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After starting profanity, I was able to scroll window with content using following shortcuts&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ if profanity
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;#34;\ C-p&amp;#34;: prof_win_prev
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;#34;\ C-n&amp;#34;: prof_win_next
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;#34;\ C-j&amp;#34;: prof_win_pageup
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;#34;\ C-k&amp;#34;: prof_win_pagedown
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;#34;\ C-h&amp;#34;: prof_subwin_pageup
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;#34;\ C-l&amp;#34;: prof_subwin_pagedown
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;#34;\ C-y&amp;#34;: prof_win_clear
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ endif
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After starting profanity, I was able to scroll window with content using following shortcuts&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;C-j&lt;/code&gt; - scroll up&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;C-k&lt;/code&gt; - to scroll down&lt;/li&gt;
@@ -125,6 +125,50 @@ $ endif
 &lt;p&gt;Here you can see some photos.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://profanity-im.github.io/blog/blog/img/profanity-on-pinephone-screen2.png&#34; alt=&#34;Profanity screeen 1&#34;&gt;
 &lt;img src=&#34;https://profanity-im.github.io/blog/blog/img/profanity-on-pinephone-screen2.png&#34; alt=&#34;Profanity screeen 2&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Profanity 0.11.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-0110/</link>
+      <pubDate>Wed, 14 Jul 2021 00:00:00 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-0110/</guid>
+      <description>&lt;p&gt;Six months and 242 commits after 0.10.0 we are happy to release 0.11.0.&lt;/p&gt;
+&lt;p&gt;10 people contributed code to it: @DebXWoody, @xenrox, @mwuttke97, @dustinlagoy, @kaffeekanne, @CIacademic, @rjc, @raspbeguy, @Mic92 and @jubalh.&lt;/p&gt;
+&lt;p&gt;Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did!
+I also would like to express my gratitude to my sponsors &lt;a href=&#34;https://github.com/mdosch&#34;&gt;mdosch&lt;/a&gt;, &lt;a href=&#34;https://github.com/wstrm&#34;&gt;wstrm&lt;/a&gt;, &lt;a href=&#34;https://github.com/huhndev&#34;&gt;huhndev&lt;/a&gt;, &lt;a href=&#34;https://github.com/matteobin&#34;&gt;matteobin&lt;/a&gt; and &lt;a href=&#34;https://github.com/jamesponddotco&#34;&gt;jamesponddotco&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;mam&#34;&gt;MAM&lt;/h2&gt;
+&lt;p&gt;This release has experimental support for &lt;a href=&#34;https://xmpp.org/extensions/xep-0313.html&#34;&gt;XEP-0313: Message Archive Management&lt;/a&gt;.
+It is not quite usable yet and we recommend that you only enable it (&lt;code&gt;/mam on&lt;/code&gt;) if you are a developer or know what you are doing.&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/660&#34;&gt;issue 660&lt;/a&gt; for details.&lt;/p&gt;
+&lt;h2 id=&#34;muc&#34;&gt;MUC&lt;/h2&gt;
+&lt;p&gt;You can now display offline members in the occupants panel: &lt;code&gt; /occupants default show|hide [jid|offline]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Via &lt;code&gt;/affiliation request&lt;/code&gt; you can request &lt;em&gt;voice&lt;/em&gt; in MUCs.&lt;/p&gt;
+&lt;p&gt;And &lt;code&gt;/affiliation register&lt;/code&gt; lets you register a nickname with a MUC.&lt;/p&gt;
+&lt;p&gt;From now on Profanity will use direct messages instead of MUC Private Messages for non-anonymous MUCs.&lt;/p&gt;
+&lt;h2 id=&#34;files&#34;&gt;Files&lt;/h2&gt;
+&lt;p&gt;We updated &lt;a href=&#34;https://xmpp.org/extensions/xep-0363.html&#34;&gt;XEP-0363: HTTP File Upload&lt;/a&gt; to version 1.0.0 and Profanity can now also handle paths containing the &lt;code&gt;file://&lt;/code&gt; prefix.&lt;/p&gt;
+&lt;h2 id=&#34;account&#34;&gt;Account&lt;/h2&gt;
+&lt;p&gt;Via the freshly introduced &lt;code&gt;/changepassword&lt;/code&gt; command you can change your account password.&lt;/p&gt;
+&lt;h2 id=&#34;multiline-messages&#34;&gt;Multiline messages&lt;/h2&gt;
+&lt;p&gt;You can now write multiline messages via &lt;code&gt;/editor&lt;/code&gt;. This is generally handy since it will give you all the capabilities of your favourite editor. Like spell checking etc.&lt;/p&gt;
+&lt;h2 id=&#34;omemo&#34;&gt;OMEMO&lt;/h2&gt;
+&lt;p&gt;We introduced an omemo trustmode &lt;code&gt;/omemo trustmode manual|firstusage|blind&lt;/code&gt;. Read more about it in the manual.&lt;/p&gt;
+&lt;h2 id=&#34;marking-windows&#34;&gt;Marking windows&lt;/h2&gt;
+&lt;p&gt;With alt-a we can jump to all unread windows.
+However sometimes we read something but don&amp;rsquo;t have time to reply. For such situations we added the ability to mark windows with an attention flag.
+Press alt-f to toggle the flag and use alt-m to switch to marked windows. Use &lt;code&gt;/wins attention&lt;/code&gt; to list them in the console.&lt;/p&gt;
+&lt;h2 id=&#34;call-notice&#34;&gt;Call notice&lt;/h2&gt;
+&lt;p&gt;When someone tries to call via &lt;a href=&#34;https://xmpp.org/extensions/xep-0353.html&#34;&gt;XEP-0353: Jingle Message Initiation&lt;/a&gt; we now display a message in the console.&lt;/p&gt;
+&lt;h2 id=&#34;server-contact-information&#34;&gt;Server contact information&lt;/h2&gt;
+&lt;p&gt;We now implement the lookup of server contact information according to &lt;a href=&#34;https://xmpp.org/extensions/xep-0157.html&#34;&gt;XEP-0157&lt;/a&gt;. Use &lt;code&gt;/disco info&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;spam&#34;&gt;Spam&lt;/h2&gt;
+&lt;p&gt;You can now report spam according to &lt;a href=&#34;https://xmpp.org/extensions/xep-0377.html&#34;&gt;XEP-0377: Spam Reporting&lt;/a&gt; via &lt;code&gt;/blocked report abuse|spam &amp;lt;jid&amp;gt; &amp;lt;message&amp;gt;&lt;/code&gt; to your server admin.&lt;/p&gt;
+&lt;p&gt;In case you just don&amp;rsquo;t want to get ANY messages at all from people that you don&amp;rsquo;t have subscribed to in your roster then you can use &lt;code&gt;/silence on&lt;/code&gt;.
+Use this with care though since generally we want people to be able to contact us in instant messaging :-).&lt;/p&gt;
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+&lt;p&gt;We also added plenty of fixes. To read up on those and further details, please check the &lt;a href=&#34;https://github.com/profanity-im/profanity/releases/tag/0.11.0&#34;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -160,6 +204,85 @@ attention.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Profanity 0.12.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-0120/</link>
+      <pubDate>Tue, 30 Mar 2021 00:00:00 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-0120/</guid>
+      <description>&lt;p&gt;Eight months and 207 commits after 0.11.0 we are happy to release 0.12.0.&lt;/p&gt;
+&lt;p&gt;16 people contributed code to it: @sjaeckel, @MarcoPolo-PasTonMolo, @paulfertser,
+@DebXWoody, @trofi, @nandesu-utils, @carlocab, @binex-dsk, @nlfx, @JurajMlich,
+@wstrm, @arya-pratap-singh, @a02c1175-5220-4e75-b7a1-18e20548305f,
+@mdosch, @jugendhacker and @jubalh.&lt;/p&gt;
+&lt;p&gt;That certainly is one of our records!&lt;/p&gt;
+&lt;p&gt;Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did!
+I also would like to express my gratitude to my sponsors &lt;a href=&#34;https://github.com/mdosch&#34;&gt;mdosch&lt;/a&gt;, &lt;a href=&#34;https://github.com/wstrm&#34;&gt;wstrm&lt;/a&gt;, &lt;a href=&#34;https://github.com/jamesponddotco&#34;&gt;jamesponddotco&lt;/a&gt; and &lt;a href=&#34;https://github.com/LeSpocky&#34;&gt;LeSpocky&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;libmesode&#34;&gt;libmesode&lt;/h2&gt;
+&lt;p&gt;libmesode has finally been deprecated.
+We now depend on libstrophe &amp;gt;= 0.11.0.
+All the functionality from libmesode has been brought to libstrophe.&lt;/p&gt;
+&lt;h2 id=&#34;plugins&#34;&gt;Plugins&lt;/h2&gt;
+&lt;p&gt;We tried to make it easier to use (Python) plugins.&lt;/p&gt;
+&lt;p&gt;In the process the &lt;code&gt;sourcepath&lt;/code&gt; setting got removed see &lt;a href=&#34;https://github.com/profanity-im/profanity/commit/3b3a6b7a756e0f162d212249750524b7ce045cea&#34;&gt;here&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;p&gt;And we finally support a global installation path for plugins.
+So now we have to ways to install a plugins. Either by using the full path:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/plugins install ~/src/profanity-plugins/my.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Or by using:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;`/plugins install my.py`
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The latter will check two location. Which are the local one &lt;code&gt;~/.local/share/profanity/plugins&lt;/code&gt; and the global &lt;code&gt;/usr/local/share/profanity/plugins/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;So distributions could actually create a &lt;code&gt;profanity-plugins&lt;/code&gt; package that install to the global path. Users could then install/active it by running the above mentioned install command.&lt;/p&gt;
+&lt;p&gt;For more details see &lt;a href=&#34;https://github.com/profanity-im/profanity/pull/1598&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;in-band-registration&#34;&gt;In-band registration&lt;/h2&gt;
+&lt;p&gt;We now support &lt;a href=&#34;https://xmpp.org/extensions/xep-0077.html&#34;&gt;XEP-0077: In-Band Registration&lt;/a&gt;.
+Learn to use it via &lt;code&gt;/help register&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;ui&#34;&gt;UI&lt;/h2&gt;
+&lt;p&gt;We got a new color theme, check it out: &lt;code&gt;/theme load snicket&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You can now set UTF-8 signs not only for your OTR/OMEMO/PGP indicators but also for your: roster header char, roster contact char, roster resource char, roster private char, occupants char, occupants header char.&lt;/p&gt;
+&lt;h2 id=&#34;user-mood&#34;&gt;User Mood&lt;/h2&gt;
+&lt;p&gt;We now support &lt;a href=&#34;https://xmpp.org/extensions/xep-0107.html&#34;&gt;XEP-0107: User Mood&lt;/a&gt;.
+Try it out: &lt;code&gt;/mood set happy&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;editor&#34;&gt;Editor&lt;/h2&gt;
+&lt;p&gt;Additionally to &lt;code&gt;/editor&lt;/code&gt; we now have: &lt;code&gt;/subject editor&lt;/code&gt; and &lt;code&gt;/correct-editor&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You can also always press alt-c to open the external editor and the result will be used in the inputwindow.
+This works with every command.&lt;/p&gt;
+&lt;h2 id=&#34;quoting&#34;&gt;Quoting&lt;/h2&gt;
+&lt;p&gt;If you want to quote someone just type &lt;code&gt;&amp;gt;&lt;/code&gt; and then use TAB completion to cycle through the last messages. Type your reply and hit enter!&lt;/p&gt;
+&lt;h2 id=&#34;contributing&#34;&gt;Contributing&lt;/h2&gt;
+&lt;p&gt;We reworked our contributions guide. New developers should now have it a lot easier.
+See the &lt;a href=&#34;https://github.com/profanity-im/profanity/pull/1640&#34;&gt;PR&lt;/a&gt; and &lt;a href=&#34;https://github.com/profanity-im/profanity/blob/master/CONTRIBUTING.md&#34;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+&lt;p&gt;We also got several important fixes in.
+For all the details please see the &lt;a href=&#34;https://github.com/profanity-im/profanity/releases/tag/0.12.0&#34;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Profanity 0.10.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-0100/</link>
+      <pubDate>Sat, 09 Jan 2021 00:00:00 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-0100/</guid>
+      <description>&lt;p&gt;Six months and 270 commits after 0.9.5 we are happy to release &lt;a href=&#34;https://github.com/profanity-im/profanity/releases/tag/0.10.0&#34;&gt;0.10.0&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;10 people contributed code to it: @wstrm, @DebXWoody, @pasis, @Niacat, @kaffeekanne,
+@timgates42, @spth, @licaon-kter, @misaflo and @jubalh.&lt;/p&gt;
+&lt;p&gt;Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did!
+I also would like to express my gratitude to my sponsors &lt;a href=&#34;https://github.com/mdosch&#34;&gt;mdosch&lt;/a&gt;, &lt;a href=&#34;https://github.com/wstrm&#34;&gt;wstrm&lt;/a&gt; and &lt;a href=&#34;https://github.com/huhndev&#34;&gt;huhndev&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h2&gt;
+&lt;p&gt;This release bumped a few dependencies. Namely: libstrophe/libmesode &amp;gt;= 0.10.0, glib &amp;gt;= 2.62 sqlite &amp;gt;= 3.22 and gtk3 &amp;gt;= 3.24 (or gtk2 &amp;gt;= 2.24.10).&lt;/p&gt;
+&lt;h2 id=&#34;roadmap&#34;&gt;Roadmap&lt;/h2&gt;
+&lt;p&gt;The roadmap for 0.10.0 was announced on our &lt;a href=&#34;https://lists.notraces.net/pipermail/profanity/2020/000018.html&#34;&gt;mailing list&lt;/a&gt;. The goal was mainly cleanupg and fixes.&lt;/p&gt;
+&lt;h2 id=&#34;contributing-to-profanity&#34;&gt;Contributing to Profanity&lt;/h2&gt;
+&lt;p&gt;To make it easier for newcomers to contribue to Profanity we added a &lt;a href=&#34;https://github.com/profanity-im/profanity/blob/master/CONTRIBUTING.md&#34;&gt;Contributing&lt;/a&gt; file which has, as we hope, some quite important information on how to get started. And about our workflow.&lt;/p&gt;
+&lt;h2 id=&#34;netbsd&#34;&gt;NetBSD&lt;/h2&gt;
+&lt;p&gt;It is also the first official Proanity release that got NetBSD support.&lt;/p&gt;
+&lt;h2 id=&#34;omemo&#34;&gt;OMEMO&lt;/h2&gt;
+&lt;p&gt;You can now sent OMEMO encrypted files via &lt;code&gt;/sendfile&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+&lt;p&gt;For details look at the &lt;a href=&#34;https://github.com/profanity-im/profanity/releases/tag/0.10.0&#34;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>OMEMO</title>
       <link>https://profanity-im.github.io/blog/post/omemo/</link>
       <pubDate>Fri, 27 Nov 2020 17:14:07 +0100</pubDate>
@@ -171,32 +294,32 @@ attention.&lt;/p&gt;
 materials via &lt;code&gt;/omemo gen&lt;/code&gt;.  If you have more than one device, make sure you are
 trusting your other devices.  Check your fingerprints via &lt;code&gt;/omemo fingerprint&lt;/code&gt;.
 You may wont trust all your devices:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/omemo trust &amp;lt;Your XMPP-ID&amp;gt; &amp;lt;Your fingerpint&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check the fingerprint of your buddy. List the fingerprints of your buddy via&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/omemo fingerprint &amp;lt;XMPP-ID of your buddy&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check the fingerprints with you buddy over a secure medium (phone or singed OpenPGP message)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/omemo trust &amp;lt;Your XMPP-ID&amp;gt; &amp;lt;Your fingerpint&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check the fingerprint of your buddy. List the fingerprints of your buddy via&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/omemo fingerprint &amp;lt;XMPP-ID of your buddy&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check the fingerprints with you buddy over a secure medium (phone or singed OpenPGP message)
 and trust the buddy&amp;rsquo;s fingerprint via the command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/omemo trust &amp;lt;Buddy&amp;#39;s XMPP-ID&amp;gt; &amp;lt;Buddy&amp;#39;s fingerpint&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can start a OMEMO Session via the omemo-start command &lt;code&gt;/omemo start &amp;lt;buddy&#39;s XMPP-ID&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/omemo trust &amp;lt;Buddy&amp;#39;s XMPP-ID&amp;gt; &amp;lt;Buddy&amp;#39;s fingerpint&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can start a OMEMO Session via the omemo-start command &lt;code&gt;/omemo start &amp;lt;buddy&#39;s XMPP-ID&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;debugging&#34;&gt;Debugging&lt;/h3&gt;
 &lt;p&gt;Get the device list of your Buddy. Change the &lt;code&gt;to&lt;/code&gt; and the &lt;code&gt;from&lt;/code&gt; tag of the
 line shown below.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&amp;lt;iq type=&amp;#39;get&amp;#39; from=&amp;#39;your@domain.tld&amp;#39; to=&amp;#39;buddy@domain.tld&amp;#39; id=&amp;#39;getOmemoDeviceList&amp;#39;&amp;gt;&amp;lt;pubsub xmlns=&amp;#39;http://jabber.org/protocol/pubsub&amp;#39;&amp;gt;&amp;lt;items node=&amp;#39;eu.siacs.conversations.axolotl.devicelist&amp;#39;/&amp;gt;&amp;lt;/pubsub&amp;gt;&amp;lt;/iq&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Use the &lt;code&gt;/xmlconsole&lt;/code&gt; to open the XMP Console Window and sent those line to your
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;iq type=&amp;#39;get&amp;#39; from=&amp;#39;your@domain.tld&amp;#39; to=&amp;#39;buddy@domain.tld&amp;#39; id=&amp;#39;getOmemoDeviceList&amp;#39;&amp;gt;&amp;lt;pubsub xmlns=&amp;#39;http://jabber.org/protocol/pubsub&amp;#39;&amp;gt;&amp;lt;items node=&amp;#39;eu.siacs.conversations.axolotl.devicelist&amp;#39;/&amp;gt;&amp;lt;/pubsub&amp;gt;&amp;lt;/iq&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Use the &lt;code&gt;/xmlconsole&lt;/code&gt; to open the XMP Console Window and sent those line to your
 server.&lt;/p&gt;
 &lt;p&gt;The Server should return a result of the &lt;code&gt;iq&lt;/code&gt; with id &lt;code&gt;getOmemoDeviceList&lt;/code&gt;.
 There should be a &lt;code&gt;item&lt;/code&gt;-Tag with the id &lt;code&gt;current&lt;/code&gt; followed by a list of device
 id.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&amp;lt;items node=&amp;#34;eu.siacs.conversations.axolotl.devicelist&amp;#34;&amp;gt;
-	&amp;lt;item id=&amp;#34;current&amp;#34;&amp;gt;
-	&amp;lt;list xmlns=&amp;#34;eu.siacs.conversations.axolotl&amp;#34;&amp;gt;
-	&amp;lt;device id=&amp;#34;174235744&amp;#34;/&amp;gt;
-	&amp;lt;device id=&amp;#34;71071234&amp;#34;/&amp;gt;
-	&amp;lt;device id=&amp;#34;22318128&amp;#34;/&amp;gt;
-	&amp;lt;/list&amp;gt;
-	&amp;lt;/item&amp;gt;
-&amp;lt;/items&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The known devices and fingerprints are stored in &lt;code&gt;~/.local/share/profanity/omemo/&amp;lt;account&amp;gt;/known_devices.txt&lt;/code&gt;.
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;items node=&amp;#34;eu.siacs.conversations.axolotl.devicelist&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&amp;lt;item id=&amp;#34;current&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&amp;lt;list xmlns=&amp;#34;eu.siacs.conversations.axolotl&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&amp;lt;device id=&amp;#34;174235744&amp;#34;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&amp;lt;device id=&amp;#34;71071234&amp;#34;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&amp;lt;device id=&amp;#34;22318128&amp;#34;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&amp;lt;/list&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&amp;lt;/item&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/items&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The known devices and fingerprints are stored in &lt;code&gt;~/.local/share/profanity/omemo/&amp;lt;account&amp;gt;/known_devices.txt&lt;/code&gt;.
 The trust information are stored in &lt;code&gt;~/.local/share/profanity/omemo/&amp;lt;account&amp;gt;/trust.txt&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;qr-code&#34;&gt;QR Code&lt;/h3&gt;
 &lt;p&gt;If you need a QR Code of you Fingerprint, check xmppc.
@@ -359,14 +482,13 @@ turned Profanity into a powerful developer tool. Let&amp;rsquo;s see how to use 
 window with content of XMPP stream. Profanity starts displaying only new XMPP
 stanzas. You won&amp;rsquo;t see the part of XMPP stream before you open the window.
 Format of the content is as follows:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;21:24 - SENT:
-21:24 - &amp;lt;iq id=&amp;#34;id1&amp;#34; type=&amp;#34;get&amp;#34;&amp;gt;&amp;lt;ping xmlns=&amp;#34;urn:xmpp:ping&amp;#34;/&amp;gt;&amp;lt;/iq&amp;gt;
-21:24 -
-21:24 - RECV:
-21:24 - &amp;lt;iq id=&amp;#34;id1&amp;#34; to=&amp;#34;pasis@jabber.ua/profanity.754a&amp;#34; type=&amp;#34;result&amp;#34;/&amp;gt;
-21:24 -
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Any text you send in the window is inserted into XMPP stream as is. So, you can
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;21:24 - SENT:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;21:24 - &amp;lt;iq id=&amp;#34;id1&amp;#34; type=&amp;#34;get&amp;#34;&amp;gt;&amp;lt;ping xmlns=&amp;#34;urn:xmpp:ping&amp;#34;/&amp;gt;&amp;lt;/iq&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;21:24 -
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;21:24 - RECV:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;21:24 - &amp;lt;iq id=&amp;#34;id1&amp;#34; to=&amp;#34;pasis@jabber.ua/profanity.754a&amp;#34; type=&amp;#34;result&amp;#34;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;21:24 -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Any text you send in the window is inserted into XMPP stream as is. So, you can
 simply type a stanza, press enter and observe server behaviour. Why is it so
 cool? Because you don&amp;rsquo;t have to write any code while you learn a XEP or server
 behaviour.&lt;/p&gt;
@@ -374,8 +496,8 @@ behaviour.&lt;/p&gt;
 library like libstrophe. Instead of debugging with writing code, printing
 text to terminal or logs, you can connect to your server with Profanity and
 type in the XML console:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&amp;lt;iq type=&amp;#34;get&amp;#34; id=&amp;#34;id2&amp;#34;&amp;gt;&amp;lt;query xmlns=&amp;#34;jabber:iq:roster&amp;#34;/&amp;gt;&amp;lt;/iq&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, you can observe what server replies in practice. In this way, you can
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;iq type=&amp;#34;get&amp;#34; id=&amp;#34;id2&amp;#34;&amp;gt;&amp;lt;query xmlns=&amp;#34;jabber:iq:roster&amp;#34;/&amp;gt;&amp;lt;/iq&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, you can observe what server replies in practice. In this way, you can
 debug process which requires multiple iterations.&lt;/p&gt;
 &lt;p&gt;Hint: if you type a stanza without child element, don&amp;rsquo;t forget to close the tag!
 Pay attention to the &amp;ldquo;query&amp;rdquo; stanza in the above example - it has &amp;lsquo;/&amp;rsquo; before
@@ -607,17 +729,17 @@ bug.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;Create an issue in the &lt;a href=&#34;https://github.com/profanity-im/profanity/issues&#34;&gt;bugtracker&lt;/a&gt; and include the output of the previous step (see &lt;a href=&#34;https://github.com/profanity-im/profanity/issues/1159&#34;&gt;this example&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;This explanation was first published &lt;a href=&#34;https://blog.mdosch.de/2019/09/20/how-to-debug-a-tui-application/&#34;&gt;on my personal blog&lt;/a&gt;. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;This explanation was first published &lt;a href=&#34;https://blog.mdosch.de/2019/09/20/how-to-debug-a-tui-application/&#34;&gt;on my personal blog&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;&lt;code&gt;bt full&lt;/code&gt; gives a much more detailled output but in most cases &lt;code&gt;bt&lt;/code&gt; is enough for the dev to know what&amp;rsquo;s going on. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;&lt;code&gt;bt full&lt;/code&gt; gives a much more detailled output but in most cases &lt;code&gt;bt&lt;/code&gt; is enough for the dev to know what&amp;rsquo;s going on.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/section&gt;</description>
+&lt;/div&gt;</description>
     </item>
     
     <item>

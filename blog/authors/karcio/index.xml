@@ -17,7 +17,7 @@
 So far, in my pinephone I used mainly GUI applications, because I was using a touch screen. Terminal applications are not user-friendly when it comes to one-handed operation.
 I tested different distributions on my pinephone (mobian, manjaro, archarm), but usually most based on Phosh. In my opinion it is currently the best mobile graphics environment and stable as well.
 In Phosh I tested few xmpp clients:
- the default application installed with Phosh is chatty, a combine that supports sms / mms / xmpp (OMEMO) Dino from repo: handy Gajim  I know there are KDE plasma applications as well, but during my testing, plasma was unusable and I even gave up installing it.</description>
+the default application installed with Phosh is chatty, a combine that supports sms / mms / xmpp (OMEMO) Dino from repo: handy Gajim I know there are KDE plasma applications as well, but during my testing, plasma was unusable and I even gave up installing it.</description>
     </item>
     
   </channel>

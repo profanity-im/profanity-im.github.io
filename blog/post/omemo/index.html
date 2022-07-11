@@ -9,9 +9,10 @@ Hello OMEMO! OMEMO needs crytographic materials. You can generated this crytogra
 /omemo trust &lt;Your XMPP-ID&gt; &lt;Your fingerpint&gt; Check the fingerprint of your buddy. List the fingerprints of your buddy via
 /omemo fingerprint &lt;XMPP-ID of your buddy&gt; Check the fingerprints with you buddy over a secure medium (phone or singed OpenPGP message) and trust the buddy&rsquo;s fingerprint via the command:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://profanity-im.github.io/blog/post/omemo/" />
+<meta property="og:url" content="https://profanity-im.github.io/blog/post/omemo/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-11-27T17:14:07+01:00" />
 <meta property="article:modified_time" content="2020-11-27T17:14:07+01:00" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="OMEMO"/>
 <meta name="twitter:description" content="OMEMO with profanity.
@@ -72,32 +73,32 @@ Hello OMEMO! OMEMO needs crytographic materials. You can generated this crytogra
 materials via <code>/omemo gen</code>.  If you have more than one device, make sure you are
 trusting your other devices.  Check your fingerprints via <code>/omemo fingerprint</code>.
 You may wont trust all your devices:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/omemo trust &lt;Your XMPP-ID&gt; &lt;Your fingerpint&gt;
-</code></pre></div><p>Check the fingerprint of your buddy. List the fingerprints of your buddy via</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/omemo fingerprint &lt;XMPP-ID of your buddy&gt;
-</code></pre></div><p>Check the fingerprints with you buddy over a secure medium (phone or singed OpenPGP message)
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>/omemo trust &lt;Your XMPP-ID&gt; &lt;Your fingerpint&gt;
+</span></span></code></pre></div><p>Check the fingerprint of your buddy. List the fingerprints of your buddy via</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>/omemo fingerprint &lt;XMPP-ID of your buddy&gt;
+</span></span></code></pre></div><p>Check the fingerprints with you buddy over a secure medium (phone or singed OpenPGP message)
 and trust the buddy&rsquo;s fingerprint via the command:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/omemo trust &lt;Buddy&#39;s XMPP-ID&gt; &lt;Buddy&#39;s fingerpint&gt;
-</code></pre></div><p>You can start a OMEMO Session via the omemo-start command <code>/omemo start &lt;buddy's XMPP-ID&gt;</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>/omemo trust &lt;Buddy&#39;s XMPP-ID&gt; &lt;Buddy&#39;s fingerpint&gt;
+</span></span></code></pre></div><p>You can start a OMEMO Session via the omemo-start command <code>/omemo start &lt;buddy's XMPP-ID&gt;</code>.</p>
 <h3 id="debugging">Debugging</h3>
 <p>Get the device list of your Buddy. Change the <code>to</code> and the <code>from</code> tag of the
 line shown below.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;iq type=&#39;get&#39; from=&#39;your@domain.tld&#39; to=&#39;buddy@domain.tld&#39; id=&#39;getOmemoDeviceList&#39;&gt;&lt;pubsub xmlns=&#39;http://jabber.org/protocol/pubsub&#39;&gt;&lt;items node=&#39;eu.siacs.conversations.axolotl.devicelist&#39;/&gt;&lt;/pubsub&gt;&lt;/iq&gt;
-</code></pre></div><p>Use the <code>/xmlconsole</code> to open the XMP Console Window and sent those line to your
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&lt;iq type=&#39;get&#39; from=&#39;your@domain.tld&#39; to=&#39;buddy@domain.tld&#39; id=&#39;getOmemoDeviceList&#39;&gt;&lt;pubsub xmlns=&#39;http://jabber.org/protocol/pubsub&#39;&gt;&lt;items node=&#39;eu.siacs.conversations.axolotl.devicelist&#39;/&gt;&lt;/pubsub&gt;&lt;/iq&gt;
+</span></span></code></pre></div><p>Use the <code>/xmlconsole</code> to open the XMP Console Window and sent those line to your
 server.</p>
 <p>The Server should return a result of the <code>iq</code> with id <code>getOmemoDeviceList</code>.
 There should be a <code>item</code>-Tag with the id <code>current</code> followed by a list of device
 id.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;items node=&#34;eu.siacs.conversations.axolotl.devicelist&#34;&gt;
-	&lt;item id=&#34;current&#34;&gt;
-	&lt;list xmlns=&#34;eu.siacs.conversations.axolotl&#34;&gt;
-	&lt;device id=&#34;174235744&#34;/&gt;
-	&lt;device id=&#34;71071234&#34;/&gt;
-	&lt;device id=&#34;22318128&#34;/&gt;
-	&lt;/list&gt;
-	&lt;/item&gt;
-&lt;/items&gt;
-</code></pre></div><p>The known devices and fingerprints are stored in <code>~/.local/share/profanity/omemo/&lt;account&gt;/known_devices.txt</code>.
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&lt;items node=&#34;eu.siacs.conversations.axolotl.devicelist&#34;&gt;
+</span></span><span style="display:flex;"><span>	&lt;item id=&#34;current&#34;&gt;
+</span></span><span style="display:flex;"><span>	&lt;list xmlns=&#34;eu.siacs.conversations.axolotl&#34;&gt;
+</span></span><span style="display:flex;"><span>	&lt;device id=&#34;174235744&#34;/&gt;
+</span></span><span style="display:flex;"><span>	&lt;device id=&#34;71071234&#34;/&gt;
+</span></span><span style="display:flex;"><span>	&lt;device id=&#34;22318128&#34;/&gt;
+</span></span><span style="display:flex;"><span>	&lt;/list&gt;
+</span></span><span style="display:flex;"><span>	&lt;/item&gt;
+</span></span><span style="display:flex;"><span>&lt;/items&gt;
+</span></span></code></pre></div><p>The known devices and fingerprints are stored in <code>~/.local/share/profanity/omemo/&lt;account&gt;/known_devices.txt</code>.
 The trust information are stored in <code>~/.local/share/profanity/omemo/&lt;account&gt;/trust.txt</code>.</p>
 <h3 id="qr-code">QR Code</h3>
 <p>If you need a QR Code of you Fingerprint, check xmppc.

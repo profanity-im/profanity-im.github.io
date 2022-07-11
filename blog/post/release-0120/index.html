@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Profanity 0.12.0 - profanity</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Profanity 0.12.0" />
+<meta property="og:description" content="Eight months and 207 commits after 0.11.0 we are happy to release 0.12.0.
+16 people contributed code to it: @sjaeckel, @MarcoPolo-PasTonMolo, @paulfertser, @DebXWoody, @trofi, @nandesu-utils, @carlocab, @binex-dsk, @nlfx, @JurajMlich, @wstrm, @arya-pratap-singh, @a02c1175-5220-4e75-b7a1-18e20548305f, @mdosch, @jugendhacker and @jubalh.
+That certainly is one of our records!
+Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did! I also would like to express my gratitude to my sponsors mdosch, wstrm, jamesponddotco and LeSpocky." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://profanity-im.github.io/blog/post/release-0120/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-03-30T00:00:00+01:00" />
+<meta property="article:modified_time" content="2021-03-30T00:00:00+01:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Profanity 0.12.0"/>
+<meta name="twitter:description" content="Eight months and 207 commits after 0.11.0 we are happy to release 0.12.0.
+16 people contributed code to it: @sjaeckel, @MarcoPolo-PasTonMolo, @paulfertser, @DebXWoody, @trofi, @nandesu-utils, @carlocab, @binex-dsk, @nlfx, @JurajMlich, @wstrm, @arya-pratap-singh, @a02c1175-5220-4e75-b7a1-18e20548305f, @mdosch, @jugendhacker and @jubalh.
+That certainly is one of our records!
+Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did! I also would like to express my gratitude to my sponsors mdosch, wstrm, jamesponddotco and LeSpocky."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://profanity-im.github.io/blog/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://profanity-im.github.io/blog/">profanity</a></h1>
+	<div class="site-description"><h2>development blog</h2><nav class="nav social">
+			<ul class="flat"><a href="https://profanity-im.github.io/" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/ProfanityIM" title="Twitter"><i data-feather="twitter"></i></a><a href="/blog/index.xml" title="RSS"><i data-feather="rss"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/blog/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog/post">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/blog/about">About</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Profanity 0.12.0</h1>
+            <div class="meta">Posted at &mdash; Mar 30, 2021 by
+                    <a href=" https://profanity-im.github.io/blog/authors/jubalh/ ">jubalh</a>
+                  
+                
+            </div>
+		</div>
+
+		<div class="markdown">
+			<p>Eight months and 207 commits after 0.11.0 we are happy to release 0.12.0.</p>
+<p>16 people contributed code to it: @sjaeckel, @MarcoPolo-PasTonMolo, @paulfertser,
+@DebXWoody, @trofi, @nandesu-utils, @carlocab, @binex-dsk, @nlfx, @JurajMlich,
+@wstrm, @arya-pratap-singh, @a02c1175-5220-4e75-b7a1-18e20548305f,
+@mdosch, @jugendhacker and @jubalh.</p>
+<p>That certainly is one of our records!</p>
+<p>Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did!
+I also would like to express my gratitude to my sponsors <a href="https://github.com/mdosch">mdosch</a>, <a href="https://github.com/wstrm">wstrm</a>, <a href="https://github.com/jamesponddotco">jamesponddotco</a> and <a href="https://github.com/LeSpocky">LeSpocky</a>.</p>
+<h2 id="libmesode">libmesode</h2>
+<p>libmesode has finally been deprecated.
+We now depend on libstrophe &gt;= 0.11.0.
+All the functionality from libmesode has been brought to libstrophe.</p>
+<h2 id="plugins">Plugins</h2>
+<p>We tried to make it easier to use (Python) plugins.</p>
+<p>In the process the <code>sourcepath</code> setting got removed see <a href="https://github.com/profanity-im/profanity/commit/3b3a6b7a756e0f162d212249750524b7ce045cea">here</a> for more details.</p>
+<p>And we finally support a global installation path for plugins.
+So now we have to ways to install a plugins. Either by using the full path:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>/plugins install ~/src/profanity-plugins/my.py
+</span></span></code></pre></div><p>Or by using:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>`/plugins install my.py`
+</span></span></code></pre></div><p>The latter will check two location. Which are the local one <code>~/.local/share/profanity/plugins</code> and the global <code>/usr/local/share/profanity/plugins/</code>.</p>
+<p>So distributions could actually create a <code>profanity-plugins</code> package that install to the global path. Users could then install/active it by running the above mentioned install command.</p>
+<p>For more details see <a href="https://github.com/profanity-im/profanity/pull/1598">here</a>.</p>
+<h2 id="in-band-registration">In-band registration</h2>
+<p>We now support <a href="https://xmpp.org/extensions/xep-0077.html">XEP-0077: In-Band Registration</a>.
+Learn to use it via <code>/help register</code>.</p>
+<h2 id="ui">UI</h2>
+<p>We got a new color theme, check it out: <code>/theme load snicket</code>.</p>
+<p>You can now set UTF-8 signs not only for your OTR/OMEMO/PGP indicators but also for your: roster header char, roster contact char, roster resource char, roster private char, occupants char, occupants header char.</p>
+<h2 id="user-mood">User Mood</h2>
+<p>We now support <a href="https://xmpp.org/extensions/xep-0107.html">XEP-0107: User Mood</a>.
+Try it out: <code>/mood set happy</code>.</p>
+<h2 id="editor">Editor</h2>
+<p>Additionally to <code>/editor</code> we now have: <code>/subject editor</code> and <code>/correct-editor</code>.</p>
+<p>You can also always press alt-c to open the external editor and the result will be used in the inputwindow.
+This works with every command.</p>
+<h2 id="quoting">Quoting</h2>
+<p>If you want to quote someone just type <code>&gt;</code> and then use TAB completion to cycle through the last messages. Type your reply and hit enter!</p>
+<h2 id="contributing">Contributing</h2>
+<p>We reworked our contributions guide. New developers should now have it a lot easier.
+See the <a href="https://github.com/profanity-im/profanity/pull/1640">PR</a> and <a href="https://github.com/profanity-im/profanity/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+<h2 id="details">Details</h2>
+<p>We also got several important fixes in.
+For all the details please see the <a href="https://github.com/profanity-im/profanity/releases/tag/0.12.0">changelog</a>.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

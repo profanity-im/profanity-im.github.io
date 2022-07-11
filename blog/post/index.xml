@@ -29,7 +29,19 @@ How does it works? There are some parts which will be done directly with GnuPG.<
 So far, in my pinephone I used mainly GUI applications, because I was using a touch screen. Terminal applications are not user-friendly when it comes to one-handed operation.
 I tested different distributions on my pinephone (mobian, manjaro, archarm), but usually most based on Phosh. In my opinion it is currently the best mobile graphics environment and stable as well.
 In Phosh I tested few xmpp clients:
- the default application installed with Phosh is chatty, a combine that supports sms / mms / xmpp (OMEMO) Dino from repo: handy Gajim  I know there are KDE plasma applications as well, but during my testing, plasma was unusable and I even gave up installing it.</description>
+the default application installed with Phosh is chatty, a combine that supports sms / mms / xmpp (OMEMO) Dino from repo: handy Gajim I know there are KDE plasma applications as well, but during my testing, plasma was unusable and I even gave up installing it.</description>
+    </item>
+    
+    <item>
+      <title>Profanity 0.11.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-0110/</link>
+      <pubDate>Wed, 14 Jul 2021 00:00:00 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-0110/</guid>
+      <description>Six months and 242 commits after 0.10.0 we are happy to release 0.11.0.
+10 people contributed code to it: @DebXWoody, @xenrox, @mwuttke97, @dustinlagoy, @kaffeekanne, @CIacademic, @rjc, @raspbeguy, @Mic92 and @jubalh.
+Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did! I also would like to express my gratitude to my sponsors mdosch, wstrm, huhndev, matteobin and jamesponddotco.
+MAM This release has experimental support for XEP-0313: Message Archive Management.</description>
     </item>
     
     <item>
@@ -43,6 +55,30 @@ we have implemented an attention flag in profanity.
 The attention flag can be used to mark chats and groupchats where you would like to pay particular attention.
 This is only available on master, but will be in the next release (0.11.0).
 How it works Open the chat or groupchat window and press shortcut ALT+F. Profanity will display a line to inform you when the attention flag has been activated and deactivated.</description>
+    </item>
+    
+    <item>
+      <title>Profanity 0.12.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-0120/</link>
+      <pubDate>Tue, 30 Mar 2021 00:00:00 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-0120/</guid>
+      <description>Eight months and 207 commits after 0.11.0 we are happy to release 0.12.0.
+16 people contributed code to it: @sjaeckel, @MarcoPolo-PasTonMolo, @paulfertser, @DebXWoody, @trofi, @nandesu-utils, @carlocab, @binex-dsk, @nlfx, @JurajMlich, @wstrm, @arya-pratap-singh, @a02c1175-5220-4e75-b7a1-18e20548305f, @mdosch, @jugendhacker and @jubalh.
+That certainly is one of our records!
+Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did! I also would like to express my gratitude to my sponsors mdosch, wstrm, jamesponddotco and LeSpocky.</description>
+    </item>
+    
+    <item>
+      <title>Profanity 0.10.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-0100/</link>
+      <pubDate>Sat, 09 Jan 2021 00:00:00 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-0100/</guid>
+      <description>Six months and 270 commits after 0.9.5 we are happy to release 0.10.0.
+10 people contributed code to it: @wstrm, @DebXWoody, @pasis, @Niacat, @kaffeekanne, @timgates42, @spth, @licaon-kter, @misaflo and @jubalh.
+Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did! I also would like to express my gratitude to my sponsors mdosch, wstrm and huhndev.
+Dependencies This release bumped a few dependencies. Namely: libstrophe/libmesode &amp;gt;= 0.</description>
     </item>
     
     <item>
@@ -108,7 +144,7 @@ It has been implemented for a long time now, but hasn&amp;rsquo;t found wide spr
       <description>If you have more than one XMPP account, you may run one profanity process per account. For example profanity -a AccountName.
 It&amp;rsquo;s possible to start a tmux session with one window for each profanity instance.
 Create a tmux configuration file, e.g. in ~/.config/tmux.
-mkdir ~/.config/tmux touch ~/.config/tmux/profanity.conf  Within the configuration file, you create a tmux session named Profanity. Followed by one window per XMPP Account. Each window will run a profanity followed by -a accountname.</description>
+mkdir ~/.config/tmux touch ~/.config/tmux/profanity.conf Within the configuration file, you create a tmux session named Profanity. Followed by one window per XMPP Account. Each window will run a profanity followed by -a accountname.</description>
     </item>
     
     <item>
