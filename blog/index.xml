@@ -6,10 +6,63 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Mar 2022 15:07:30 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Profanity 0.12.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-0120/</link>
+      <pubDate>Wed, 30 Mar 2022 00:00:00 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-0120/</guid>
+      <description>&lt;p&gt;Eight months and 207 commits after 0.11.0 we are happy to release 0.12.0.&lt;/p&gt;
+&lt;p&gt;16 people contributed code to it: @sjaeckel, @MarcoPolo-PasTonMolo, @paulfertser,
+@DebXWoody, @trofi, @nandesu-utils, @carlocab, @binex-dsk, @nlfx, @JurajMlich,
+@wstrm, @arya-pratap-singh, @a02c1175-5220-4e75-b7a1-18e20548305f,
+@mdosch, @jugendhacker and @jubalh.&lt;/p&gt;
+&lt;p&gt;That certainly is one of our records!&lt;/p&gt;
+&lt;p&gt;Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did!
+I also would like to express my gratitude to my sponsors &lt;a href=&#34;https://github.com/mdosch&#34;&gt;mdosch&lt;/a&gt;, &lt;a href=&#34;https://github.com/wstrm&#34;&gt;wstrm&lt;/a&gt;, &lt;a href=&#34;https://github.com/jamesponddotco&#34;&gt;jamesponddotco&lt;/a&gt; and &lt;a href=&#34;https://github.com/LeSpocky&#34;&gt;LeSpocky&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;libmesode&#34;&gt;libmesode&lt;/h2&gt;
+&lt;p&gt;libmesode has finally been deprecated.
+We now depend on libstrophe &amp;gt;= 0.11.0.
+All the functionality from libmesode has been brought to libstrophe.&lt;/p&gt;
+&lt;h2 id=&#34;plugins&#34;&gt;Plugins&lt;/h2&gt;
+&lt;p&gt;We tried to make it easier to use (Python) plugins.&lt;/p&gt;
+&lt;p&gt;In the process the &lt;code&gt;sourcepath&lt;/code&gt; setting got removed see &lt;a href=&#34;https://github.com/profanity-im/profanity/commit/3b3a6b7a756e0f162d212249750524b7ce045cea&#34;&gt;here&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;p&gt;And we finally support a global installation path for plugins.
+So now we have to ways to install a plugins. Either by using the full path:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/plugins install ~/src/profanity-plugins/my.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Or by using:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;`/plugins install my.py`
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The latter will check two location. Which are the local one &lt;code&gt;~/.local/share/profanity/plugins&lt;/code&gt; and the global &lt;code&gt;/usr/local/share/profanity/plugins/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;So distributions could actually create a &lt;code&gt;profanity-plugins&lt;/code&gt; package that install to the global path. Users could then install/active it by running the above mentioned install command.&lt;/p&gt;
+&lt;p&gt;For more details see &lt;a href=&#34;https://github.com/profanity-im/profanity/pull/1598&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;in-band-registration&#34;&gt;In-band registration&lt;/h2&gt;
+&lt;p&gt;We now support &lt;a href=&#34;https://xmpp.org/extensions/xep-0077.html&#34;&gt;XEP-0077: In-Band Registration&lt;/a&gt;.
+Learn to use it via &lt;code&gt;/help register&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;ui&#34;&gt;UI&lt;/h2&gt;
+&lt;p&gt;We got a new color theme, check it out: &lt;code&gt;/theme load snicket&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You can now set UTF-8 signs not only for your OTR/OMEMO/PGP indicators but also for your: roster header char, roster contact char, roster resource char, roster private char, occupants char, occupants header char.&lt;/p&gt;
+&lt;h2 id=&#34;user-mood&#34;&gt;User Mood&lt;/h2&gt;
+&lt;p&gt;We now support &lt;a href=&#34;https://xmpp.org/extensions/xep-0107.html&#34;&gt;XEP-0107: User Mood&lt;/a&gt;.
+Try it out: &lt;code&gt;/mood set happy&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;editor&#34;&gt;Editor&lt;/h2&gt;
+&lt;p&gt;Additionally to &lt;code&gt;/editor&lt;/code&gt; we now have: &lt;code&gt;/subject editor&lt;/code&gt; and &lt;code&gt;/correct-editor&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You can also always press alt-c to open the external editor and the result will be used in the inputwindow.
+This works with every command.&lt;/p&gt;
+&lt;h2 id=&#34;quoting&#34;&gt;Quoting&lt;/h2&gt;
+&lt;p&gt;If you want to quote someone just type &lt;code&gt;&amp;gt;&lt;/code&gt; and then use TAB completion to cycle through the last messages. Type your reply and hit enter!&lt;/p&gt;
+&lt;h2 id=&#34;contributing&#34;&gt;Contributing&lt;/h2&gt;
+&lt;p&gt;We reworked our contributions guide. New developers should now have it a lot easier.
+See the &lt;a href=&#34;https://github.com/profanity-im/profanity/pull/1640&#34;&gt;PR&lt;/a&gt; and &lt;a href=&#34;https://github.com/profanity-im/profanity/blob/master/CONTRIBUTING.md&#34;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
+&lt;p&gt;We also got several important fixes in.
+For all the details please see the &lt;a href=&#34;https://github.com/profanity-im/profanity/releases/tag/0.12.0&#34;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Profanity and OpenPGP for XMPP (OX)</title>
@@ -200,59 +253,6 @@ attention.&lt;/p&gt;
 15:38:19 - 29: Room roomD@chat.server.tld, 3 unread
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can just circle around the marked windows with shortcut &lt;code&gt;ALT+M&lt;/code&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Profanity 0.12.0</title>
-      <link>https://profanity-im.github.io/blog/post/release-0120/</link>
-      <pubDate>Tue, 30 Mar 2021 00:00:00 +0100</pubDate>
-      
-      <guid>https://profanity-im.github.io/blog/post/release-0120/</guid>
-      <description>&lt;p&gt;Eight months and 207 commits after 0.11.0 we are happy to release 0.12.0.&lt;/p&gt;
-&lt;p&gt;16 people contributed code to it: @sjaeckel, @MarcoPolo-PasTonMolo, @paulfertser,
-@DebXWoody, @trofi, @nandesu-utils, @carlocab, @binex-dsk, @nlfx, @JurajMlich,
-@wstrm, @arya-pratap-singh, @a02c1175-5220-4e75-b7a1-18e20548305f,
-@mdosch, @jugendhacker and @jubalh.&lt;/p&gt;
-&lt;p&gt;That certainly is one of our records!&lt;/p&gt;
-&lt;p&gt;Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did!
-I also would like to express my gratitude to my sponsors &lt;a href=&#34;https://github.com/mdosch&#34;&gt;mdosch&lt;/a&gt;, &lt;a href=&#34;https://github.com/wstrm&#34;&gt;wstrm&lt;/a&gt;, &lt;a href=&#34;https://github.com/jamesponddotco&#34;&gt;jamesponddotco&lt;/a&gt; and &lt;a href=&#34;https://github.com/LeSpocky&#34;&gt;LeSpocky&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;libmesode&#34;&gt;libmesode&lt;/h2&gt;
-&lt;p&gt;libmesode has finally been deprecated.
-We now depend on libstrophe &amp;gt;= 0.11.0.
-All the functionality from libmesode has been brought to libstrophe.&lt;/p&gt;
-&lt;h2 id=&#34;plugins&#34;&gt;Plugins&lt;/h2&gt;
-&lt;p&gt;We tried to make it easier to use (Python) plugins.&lt;/p&gt;
-&lt;p&gt;In the process the &lt;code&gt;sourcepath&lt;/code&gt; setting got removed see &lt;a href=&#34;https://github.com/profanity-im/profanity/commit/3b3a6b7a756e0f162d212249750524b7ce045cea&#34;&gt;here&lt;/a&gt; for more details.&lt;/p&gt;
-&lt;p&gt;And we finally support a global installation path for plugins.
-So now we have to ways to install a plugins. Either by using the full path:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/plugins install ~/src/profanity-plugins/my.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Or by using:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;`/plugins install my.py`
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The latter will check two location. Which are the local one &lt;code&gt;~/.local/share/profanity/plugins&lt;/code&gt; and the global &lt;code&gt;/usr/local/share/profanity/plugins/&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;So distributions could actually create a &lt;code&gt;profanity-plugins&lt;/code&gt; package that install to the global path. Users could then install/active it by running the above mentioned install command.&lt;/p&gt;
-&lt;p&gt;For more details see &lt;a href=&#34;https://github.com/profanity-im/profanity/pull/1598&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;in-band-registration&#34;&gt;In-band registration&lt;/h2&gt;
-&lt;p&gt;We now support &lt;a href=&#34;https://xmpp.org/extensions/xep-0077.html&#34;&gt;XEP-0077: In-Band Registration&lt;/a&gt;.
-Learn to use it via &lt;code&gt;/help register&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;ui&#34;&gt;UI&lt;/h2&gt;
-&lt;p&gt;We got a new color theme, check it out: &lt;code&gt;/theme load snicket&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;You can now set UTF-8 signs not only for your OTR/OMEMO/PGP indicators but also for your: roster header char, roster contact char, roster resource char, roster private char, occupants char, occupants header char.&lt;/p&gt;
-&lt;h2 id=&#34;user-mood&#34;&gt;User Mood&lt;/h2&gt;
-&lt;p&gt;We now support &lt;a href=&#34;https://xmpp.org/extensions/xep-0107.html&#34;&gt;XEP-0107: User Mood&lt;/a&gt;.
-Try it out: &lt;code&gt;/mood set happy&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;editor&#34;&gt;Editor&lt;/h2&gt;
-&lt;p&gt;Additionally to &lt;code&gt;/editor&lt;/code&gt; we now have: &lt;code&gt;/subject editor&lt;/code&gt; and &lt;code&gt;/correct-editor&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;You can also always press alt-c to open the external editor and the result will be used in the inputwindow.
-This works with every command.&lt;/p&gt;
-&lt;h2 id=&#34;quoting&#34;&gt;Quoting&lt;/h2&gt;
-&lt;p&gt;If you want to quote someone just type &lt;code&gt;&amp;gt;&lt;/code&gt; and then use TAB completion to cycle through the last messages. Type your reply and hit enter!&lt;/p&gt;
-&lt;h2 id=&#34;contributing&#34;&gt;Contributing&lt;/h2&gt;
-&lt;p&gt;We reworked our contributions guide. New developers should now have it a lot easier.
-See the &lt;a href=&#34;https://github.com/profanity-im/profanity/pull/1640&#34;&gt;PR&lt;/a&gt; and &lt;a href=&#34;https://github.com/profanity-im/profanity/blob/master/CONTRIBUTING.md&#34;&gt;CONTRIBUTING.md&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
-&lt;p&gt;We also got several important fixes in.
-For all the details please see the &lt;a href=&#34;https://github.com/profanity-im/profanity/releases/tag/0.12.0&#34;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

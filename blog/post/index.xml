@@ -6,7 +6,19 @@
     <description>Recent content in Posts on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Mar 2022 15:07:30 +0200</lastBuildDate><atom:link href="https://profanity-im.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0100</lastBuildDate><atom:link href="https://profanity-im.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Profanity 0.12.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-0120/</link>
+      <pubDate>Wed, 30 Mar 2022 00:00:00 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-0120/</guid>
+      <description>Eight months and 207 commits after 0.11.0 we are happy to release 0.12.0.
+16 people contributed code to it: @sjaeckel, @MarcoPolo-PasTonMolo, @paulfertser, @DebXWoody, @trofi, @nandesu-utils, @carlocab, @binex-dsk, @nlfx, @JurajMlich, @wstrm, @arya-pratap-singh, @a02c1175-5220-4e75-b7a1-18e20548305f, @mdosch, @jugendhacker and @jubalh.
+That certainly is one of our records!
+Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did! I also would like to express my gratitude to my sponsors mdosch, wstrm, jamesponddotco and LeSpocky.</description>
+    </item>
+    
     <item>
       <title>Profanity and OpenPGP for XMPP (OX)</title>
       <link>https://profanity-im.github.io/blog/post/openpgp-for-xmpp-ox/</link>
@@ -55,18 +67,6 @@ we have implemented an attention flag in profanity.
 The attention flag can be used to mark chats and groupchats where you would like to pay particular attention.
 This is only available on master, but will be in the next release (0.11.0).
 How it works Open the chat or groupchat window and press shortcut ALT+F. Profanity will display a line to inform you when the attention flag has been activated and deactivated.</description>
-    </item>
-    
-    <item>
-      <title>Profanity 0.12.0</title>
-      <link>https://profanity-im.github.io/blog/post/release-0120/</link>
-      <pubDate>Tue, 30 Mar 2021 00:00:00 +0100</pubDate>
-      
-      <guid>https://profanity-im.github.io/blog/post/release-0120/</guid>
-      <description>Eight months and 207 commits after 0.11.0 we are happy to release 0.12.0.
-16 people contributed code to it: @sjaeckel, @MarcoPolo-PasTonMolo, @paulfertser, @DebXWoody, @trofi, @nandesu-utils, @carlocab, @binex-dsk, @nlfx, @JurajMlich, @wstrm, @arya-pratap-singh, @a02c1175-5220-4e75-b7a1-18e20548305f, @mdosch, @jugendhacker and @jubalh.
-That certainly is one of our records!
-Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did! I also would like to express my gratitude to my sponsors mdosch, wstrm, jamesponddotco and LeSpocky.</description>
     </item>
     
     <item>

@@ -6,7 +6,19 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Jul 2021 00:00:00 +0100</lastBuildDate><atom:link href="https://profanity-im.github.io/blog/authors/jubalh/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0100</lastBuildDate><atom:link href="https://profanity-im.github.io/blog/authors/jubalh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Profanity 0.12.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-0120/</link>
+      <pubDate>Wed, 30 Mar 2022 00:00:00 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-0120/</guid>
+      <description>Eight months and 207 commits after 0.11.0 we are happy to release 0.12.0.
+16 people contributed code to it: @sjaeckel, @MarcoPolo-PasTonMolo, @paulfertser, @DebXWoody, @trofi, @nandesu-utils, @carlocab, @binex-dsk, @nlfx, @JurajMlich, @wstrm, @arya-pratap-singh, @a02c1175-5220-4e75-b7a1-18e20548305f, @mdosch, @jugendhacker and @jubalh.
+That certainly is one of our records!
+Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did! I also would like to express my gratitude to my sponsors mdosch, wstrm, jamesponddotco and LeSpocky.</description>
+    </item>
+    
     <item>
       <title>Profanity 0.11.0</title>
       <link>https://profanity-im.github.io/blog/post/release-0110/</link>
@@ -17,18 +29,6 @@
 10 people contributed code to it: @DebXWoody, @xenrox, @mwuttke97, @dustinlagoy, @kaffeekanne, @CIacademic, @rjc, @raspbeguy, @Mic92 and @jubalh.
 Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did! I also would like to express my gratitude to my sponsors mdosch, wstrm, huhndev, matteobin and jamesponddotco.
 MAM This release has experimental support for XEP-0313: Message Archive Management.</description>
-    </item>
-    
-    <item>
-      <title>Profanity 0.12.0</title>
-      <link>https://profanity-im.github.io/blog/post/release-0120/</link>
-      <pubDate>Tue, 30 Mar 2021 00:00:00 +0100</pubDate>
-      
-      <guid>https://profanity-im.github.io/blog/post/release-0120/</guid>
-      <description>Eight months and 207 commits after 0.11.0 we are happy to release 0.12.0.
-16 people contributed code to it: @sjaeckel, @MarcoPolo-PasTonMolo, @paulfertser, @DebXWoody, @trofi, @nandesu-utils, @carlocab, @binex-dsk, @nlfx, @JurajMlich, @wstrm, @arya-pratap-singh, @a02c1175-5220-4e75-b7a1-18e20548305f, @mdosch, @jugendhacker and @jubalh.
-That certainly is one of our records!
-Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did! I also would like to express my gratitude to my sponsors mdosch, wstrm, jamesponddotco and LeSpocky.</description>
     </item>
     
     <item>
