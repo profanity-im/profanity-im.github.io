@@ -159,16 +159,18 @@
 <a name="avatar"></a>
 <h4>/avatar</h4>
 <p><b>Synopsis</b></p>
-<p><pre><code>/avatar get &lt;barejid&gt;
+<p><pre><code>/avatar set &lt;path&gt;
+/avatar get &lt;barejid&gt;
 /avatar open &lt;barejid&gt;
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Download avatar (XEP-0084) for a certain contact. If nothing happens after using this command the user either doesn't have an avatar set at all or doesn't use XEP-0084 to publish it.
+<p>Upload avatar for oneself (XEP-0084). Download avatar (XEP-0084) for a certain contact. If nothing happens after using this command the user either doesn't have an avatar set at all or doesn't use XEP-0084 to publish it.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>get &lt;barejid&gt;</code></td><td>Download the avatar. barejid is the JID to download avatar from.</td></tr><tr><td><code>open &lt;barejid&gt;</code></td><td>Download avatar and open it with command.</td></tr></table>
+<table><tr><td><code>set &lt;path&gt;</code></td><td>Set avatar to the image at <path>.</td></tr><tr><td><code>get &lt;barejid&gt;</code></td><td>Download the avatar. barejid is the JID to download avatar from.</td></tr><tr><td><code>open &lt;barejid&gt;</code></td><td>Download avatar and open it with command.</td></tr></table>
 <p><b>Examples</b></p>
-<p><pre><code>/avatar get thor@valhalla.edda
+<p><pre><code>/avatar set ~/images/avatar.png
+/avatar get thor@valhalla.edda
 /avatar open freyja@vanaheimr.edda
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
@@ -724,12 +726,13 @@
 /log rotate on|off
 /log maxsize &lt;bytes&gt;
 /log shared on|off
+/log level INFO|DEBUG|WARN|ERROR
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Manage profanity log settings.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>where</code></td><td>Show the current log file location.</td></tr><tr><td><code>rotate on|off</code></td><td>Rotate log, default on. Does not take effect if you specified a filename yourself when starting Profanity.</td></tr><tr><td><code>maxsize &lt;bytes&gt;</code></td><td>With rotate enabled, specifies the max log size, defaults to 1048580 (1MB).</td></tr><tr><td><code>shared on|off</code></td><td>Share logs between all instances, default: on. When off, the process id will be included in the log filename. Does not take effect if you specified a filename yourself when starting Profanity.</td></tr></table>
+<table><tr><td><code>where</code></td><td>Show the current log file location.</td></tr><tr><td><code>rotate on|off</code></td><td>Rotate log, default on. Does not take effect if you specified a filename yourself when starting Profanity.</td></tr><tr><td><code>maxsize &lt;bytes&gt;</code></td><td>With rotate enabled, specifies the max log size, defaults to 10485760 (10MB).</td></tr><tr><td><code>shared on|off</code></td><td>Share logs between all instances, default: on. When off, the process id will be included in the log filename. Does not take effect if you specified a filename yourself when starting Profanity.</td></tr><tr><td><code>level INFO|DEBUG|WARN|EFFOR</code></td><td>Set the log level. Default is INFO. Only works with default log file, not with user provided log file during startup via -f.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="logging"></a>
@@ -776,14 +779,15 @@
 <a name="mood"></a>
 <h4>/mood</h4>
 <p><b>Synopsis</b></p>
-<p><pre><code>/mood set &lt;mood&gt; [text]
+<p><pre><code>/mood on|off
+/mood set &lt;mood&gt; [text]
 /mood clear
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Set your mood (XEP-0107).
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>set &lt;mood&gt; &lt;</code></td><td>Set user mood to <mood> with an optional [text]. Use /mood set <tab> to toggle through predfined moods.</td></tr><tr><td><code>clear</code></td><td>Clear your user mood.</td></tr></table>
+<table><tr><td><code>on|off</code></td><td>Enable or disable displaying the mood of other users. On by default.</td></tr><tr><td><code>set &lt;mood&gt; [text]</code></td><td>Set user mood to <mood> with an optional [text]. Use /mood set <tab> to toggle through predfined moods.</td></tr><tr><td><code>clear</code></td><td>Clear your user mood.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/mood set happy "So happy to use Profanity!"
 /mood set amazed
@@ -832,6 +836,7 @@
 /notify room mention on|off
 /notify room mention case_sensitive|case_insensitive
 /notify room mention word_whole|word_part
+/notify room offline on|off
 /notify room current on|off
 /notify room text on|off
 /notify room trigger add &lt;text&gt;
@@ -852,11 +857,12 @@
 <p>Configure desktop notifications. To configure presence update messages in the console, chat and chat room windows, see '/help presence'.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>chat on|off</code></td><td>Notifications for regular chat messages.</td></tr><tr><td><code>chat current on|off</code></td><td>Whether to show regular chat message notifications when the window is focused.</td></tr><tr><td><code>chat text on|off</code></td><td>Show message text in regular message notifications.</td></tr><tr><td><code>room on|off</code></td><td>Notifications for all chat room messages.</td></tr><tr><td><code>room mention on|off</code></td><td>Notifications for chat room messages when your nick is mentioned.</td></tr><tr><td><code>room mention case_sensitive</code></td><td>Set room mention notifications as case sensitive.</td></tr><tr><td><code>room mention case_insensitive</code></td><td>Set room mention notifications as case insensitive.</td></tr><tr><td><code>room mention word_whole</code></td><td>Set room mention notifications only on whole word match, i.e. when nickname is not part of a larger word.</td></tr><tr><td><code>room mention word_part</code></td><td>Set room mention notifications on partial word match, i.e. nickname may be part of a larger word.</td></tr><tr><td><code>room current on|off</code></td><td>Whether to show all chat room messages notifications when the window is focused.</td></tr><tr><td><code>room text on|off</code></td><td>Show message text in chat room message notifications.</td></tr><tr><td><code>room trigger add &lt;text&gt;</code></td><td>Notify when specified text included in all chat room messages.</td></tr><tr><td><code>room trigger remove &lt;text&gt;</code></td><td>Remove chat room notification trigger.</td></tr><tr><td><code>room trigger list</code></td><td>List all chat room highlight triggers.</td></tr><tr><td><code>room trigger on|off</code></td><td>Enable or disable all chat room notification triggers.</td></tr><tr><td><code>on|off</code></td><td>Override the global message setting for the current chat room.</td></tr><tr><td><code>mention on|off</code></td><td>Override the global 'mention' setting for the current chat room.</td></tr><tr><td><code>trigger on|off</code></td><td>Override the global 'trigger' setting for the current chat room.</td></tr><tr><td><code>reset</code></td><td>Reset to global notification settings for the current chat room.</td></tr><tr><td><code>remind &lt;seconds&gt;</code></td><td>Notification reminder period for unread messages, use 0 to disable.</td></tr><tr><td><code>typing on|off</code></td><td>Notifications when contacts are typing.</td></tr><tr><td><code>typing current on|off</code></td><td>Whether typing notifications are triggered for the current window.</td></tr><tr><td><code>invite on|off</code></td><td>Notifications for chat room invites.</td></tr><tr><td><code>sub on|off</code></td><td>Notifications for subscription requests.</td></tr></table>
+<table><tr><td><code>chat on|off</code></td><td>Notifications for regular chat messages.</td></tr><tr><td><code>chat current on|off</code></td><td>Whether to show regular chat message notifications when the window is focused.</td></tr><tr><td><code>chat text on|off</code></td><td>Show message text in regular message notifications.</td></tr><tr><td><code>room on|off</code></td><td>Notifications for all chat room messages.</td></tr><tr><td><code>room mention on|off</code></td><td>Notifications for chat room messages when your nick is mentioned.</td></tr><tr><td><code>room mention case_sensitive</code></td><td>Set room mention notifications as case sensitive.</td></tr><tr><td><code>room mention case_insensitive</code></td><td>Set room mention notifications as case insensitive.</td></tr><tr><td><code>room mention word_whole</code></td><td>Set room mention notifications only on whole word match, i.e. when nickname is not part of a larger word.</td></tr><tr><td><code>room mention word_part</code></td><td>Set room mention notifications on partial word match, i.e. nickname may be part of a larger word.</td></tr><tr><td><code>room offline on|off</code></td><td>Notifications for chat room messages that were sent while you were offline.</td></tr><tr><td><code>room current on|off</code></td><td>Whether to show all chat room messages notifications when the window is focused.</td></tr><tr><td><code>room text on|off</code></td><td>Show message text in chat room message notifications.</td></tr><tr><td><code>room trigger add &lt;text&gt;</code></td><td>Notify when specified text included in all chat room messages.</td></tr><tr><td><code>room trigger remove &lt;text&gt;</code></td><td>Remove chat room notification trigger.</td></tr><tr><td><code>room trigger list</code></td><td>List all chat room highlight triggers.</td></tr><tr><td><code>room trigger on|off</code></td><td>Enable or disable all chat room notification triggers.</td></tr><tr><td><code>on|off</code></td><td>Override the global message setting for the current chat room.</td></tr><tr><td><code>mention on|off</code></td><td>Override the global 'mention' setting for the current chat room.</td></tr><tr><td><code>trigger on|off</code></td><td>Override the global 'trigger' setting for the current chat room.</td></tr><tr><td><code>reset</code></td><td>Reset to global notification settings for the current chat room.</td></tr><tr><td><code>remind &lt;seconds&gt;</code></td><td>Notification reminder period for unread messages, use 0 to disable.</td></tr><tr><td><code>typing on|off</code></td><td>Notifications when contacts are typing.</td></tr><tr><td><code>typing current on|off</code></td><td>Whether typing notifications are triggered for the current window.</td></tr><tr><td><code>invite on|off</code></td><td>Notifications for chat room invites.</td></tr><tr><td><code>sub on|off</code></td><td>Notifications for subscription requests.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/notify chat on
 /notify chat text on
 /notify room mention on
+/notify room offline on
 /notify room trigger add beer
 /notify room trigger on
 /notify room current off
@@ -899,12 +905,13 @@
 /omemo trustmode manual|firstusage|blind
 /omemo policy manual|automatic|always
 /omemo clear_device_list
+/omemo qrcode
 </code></pre></p>
 <p><b>Description</b></p>
 <p>OMEMO commands to manage keys, and perform encryption during chat sessions.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>gen</code></td><td>Generate OMEMO crytographic materials for current account.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OMEMO session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OMEMO session.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OMEMO encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OMEMO encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>fingerprint [&lt;contact&gt;]</code></td><td>Show contact fingerprints, or current recipient if omitted.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OMEMO encrypted messages.</td></tr><tr><td><code>trustmode manual</code></td><td>Set the global OMEMO trust mode to manual, OMEMO keys has to be trusted manually.</td></tr><tr><td><code>trustmode firstusage</code></td><td>Set the global OMEMO trust mode to ToFu, first OMEMO keys trusted automatically.</td></tr><tr><td><code>trustmode blind</code></td><td>Set the global OMEMO trust mode to blind, ALL OMEMO keys trusted automatically.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OMEMO policy to manual, OMEMO sessions must be started manually.</td></tr><tr><td><code>policy automatic</code></td><td>Set the global OMEMO policy to opportunistic, an OMEMO session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy always</code></td><td>Set the global OMEMO policy to always, an error will be displayed if an OMEMO session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>clear_device_list</code></td><td>Clear your own device list on server side. Each client will reannounce itself when connected back.</td></tr></table>
+<table><tr><td><code>gen</code></td><td>Generate OMEMO crytographic materials for current account.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OMEMO session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OMEMO session.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OMEMO encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OMEMO encrypted messages, but replace the contents with [redacted].</td></tr><tr><td><code>fingerprint [&lt;contact&gt;]</code></td><td>Show contact fingerprints, or current recipient if omitted.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OMEMO encrypted messages.</td></tr><tr><td><code>trustmode manual</code></td><td>Set the global OMEMO trust mode to manual, OMEMO keys has to be trusted manually.</td></tr><tr><td><code>trustmode firstusage</code></td><td>Set the global OMEMO trust mode to ToFu, first OMEMO keys trusted automatically.</td></tr><tr><td><code>trustmode blind</code></td><td>Set the global OMEMO trust mode to blind, ALL OMEMO keys trusted automatically.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OMEMO policy to manual, OMEMO sessions must be started manually.</td></tr><tr><td><code>policy automatic</code></td><td>Set the global OMEMO policy to opportunistic, an OMEMO session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy always</code></td><td>Set the global OMEMO policy to always, an error will be displayed if an OMEMO session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>clear_device_list</code></td><td>Clear your own device list on server side. Each client will reannounce itself when connected back.</td></tr><tr><td><code>qrcode</code></td><td>Display QR code of your OMEMO fingerprint</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/omemo gen
 /omemo start odin@valhalla.edda
@@ -947,7 +954,7 @@
 <p>Off The Record (OTR) commands to manage keys, and perform OTR encryption during chat sessions.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>libver</code></td><td>Show which version of the libotr library is being used.</td></tr><tr><td><code>gen</code></td><td>Generate your private key.</td></tr><tr><td><code>myfp</code></td><td>Show your fingerprint.</td></tr><tr><td><code>theirfp</code></td><td>Show contacts fingerprint.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OTR session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OTR session.</td></tr><tr><td><code>trust|untrust</code></td><td>Indicate whether or not you trust the contact's fingerprint.</td></tr><tr><td><code>secret &lt;secret&gt;</code></td><td>Verify a contact's identity using a shared secret.</td></tr><tr><td><code>question &lt;question&gt; &lt;answer&gt;</code></td><td>Verify a contact's identity using a question and expected answer.</td></tr><tr><td><code>answer &lt;answer&gt;</code></td><td>Respond to a question answer verification request with your answer.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OTR policy to manual, OTR sessions must be started manually.</td></tr><tr><td><code>policy manual &lt;contact&gt;</code></td><td>Set the OTR policy to manual for a specific contact.</td></tr><tr><td><code>policy opportunistic</code></td><td>Set the global OTR policy to opportunistic, an OTR session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy opportunistic &lt;contact&gt;</code></td><td>Set the OTR policy to opportunistic for a specific contact.</td></tr><tr><td><code>policy always</code></td><td>Set the global OTR policy to always, an error will be displayed if an OTR session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>policy always &lt;contact&gt;</code></td><td>Set the OTR policy to always for a specific contact.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OTR encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OTR encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OTR encrypted messages.</td></tr><tr><td><code>sendfile on|off</code></td><td>Allow /sendfile to send unencrypted files while in an OTR session.</td></tr></table>
+<table><tr><td><code>libver</code></td><td>Show which version of the libotr library is being used.</td></tr><tr><td><code>gen</code></td><td>Generate your private key.</td></tr><tr><td><code>myfp</code></td><td>Show your fingerprint.</td></tr><tr><td><code>theirfp</code></td><td>Show contacts fingerprint.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OTR session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OTR session.</td></tr><tr><td><code>trust|untrust</code></td><td>Indicate whether or not you trust the contact's fingerprint.</td></tr><tr><td><code>secret &lt;secret&gt;</code></td><td>Verify a contact's identity using a shared secret.</td></tr><tr><td><code>question &lt;question&gt; &lt;answer&gt;</code></td><td>Verify a contact's identity using a question and expected answer.</td></tr><tr><td><code>answer &lt;answer&gt;</code></td><td>Respond to a question answer verification request with your answer.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OTR policy to manual, OTR sessions must be started manually.</td></tr><tr><td><code>policy manual &lt;contact&gt;</code></td><td>Set the OTR policy to manual for a specific contact.</td></tr><tr><td><code>policy opportunistic</code></td><td>Set the global OTR policy to opportunistic, an OTR session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy opportunistic &lt;contact&gt;</code></td><td>Set the OTR policy to opportunistic for a specific contact.</td></tr><tr><td><code>policy always</code></td><td>Set the global OTR policy to always, an error will be displayed if an OTR session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>policy always &lt;contact&gt;</code></td><td>Set the OTR policy to always for a specific contact.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OTR encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OTR encrypted messages, but replace the contents with [redacted].</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OTR encrypted messages.</td></tr><tr><td><code>sendfile on|off</code></td><td>Allow /sendfile to send unencrypted files while in an OTR session.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/otr log off
 /otr policy manual
@@ -983,16 +990,15 @@
 /ox end
 /ox log on|off|redact
 /ox char &lt;char&gt;
-/ox sendfile on|off
 /ox announce &lt;file&gt;
 /ox discover &lt;jid&gt;
 /ox request &lt;jid&gt; &lt;keyid&gt;
 </code></pre></p>
 <p><b>Description</b></p>
-<p>OpenPGP (OX) commands to manage keys, and perform OpenPGP encryption during chat sessions. Your OpenPGP key needs a user-id with your JID URI (xmpp:local@domain.tld). A key can be generated with "gpg --quick-gen-key xmpp:local@domain.tld future-default default 3y".
+<p>OpenPGP (OX) commands to manage keys, and perform OpenPGP encryption during chat sessions. Your OpenPGP key needs a user-id with your JID URI (xmpp:local@domain.tld). A key can be generated with "gpg --quick-gen-key xmpp:local@domain.tld future-default default 3y". See man profanity-ox-setup for details on how to set up OX the first time.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>keys</code></td><td>List all keys known to the system.</td></tr><tr><td><code>contacts</code></td><td>Show contacts with assigned public keys.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start PGP encrypted chat, current contact will be used if not specified.</td></tr><tr><td><code>end</code></td><td>End PGP encrypted chat with the current recipient.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of PGP encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log PGP encrypted messages, but replace the contents with [redacted]. This is the default.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to PGP encrypted messages.</td></tr><tr><td><code>announce &lt;file&gt;</code></td><td>Announce a public key by pushing it on the XMPP Server</td></tr><tr><td><code>discover &lt;jid&gt;</code></td><td>Discover public keys of a jid. The OpenPGP Key IDs will be displayed</td></tr><tr><td><code>request &lt;jid&gt;</code></td><td>Request public keys</td></tr><tr><td><code>sendfile on|off</code></td><td>Allow /sendfile to send unencrypted files while otherwise using PGP.</td></tr></table>
+<table><tr><td><code>keys</code></td><td>List all keys known to the system.</td></tr><tr><td><code>contacts</code></td><td>Show contacts with assigned public keys.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start PGP encrypted chat, current contact will be used if not specified.</td></tr><tr><td><code>end</code></td><td>End PGP encrypted chat with the current recipient.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of PGP encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log PGP encrypted messages, but replace the contents with [redacted].</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to PGP encrypted messages.</td></tr><tr><td><code>announce &lt;file&gt;</code></td><td>Announce a public key by pushing it on the XMPP Server</td></tr><tr><td><code>discover &lt;jid&gt;</code></td><td>Discover public keys of a jid. The OpenPGP Key IDs will be displayed</td></tr><tr><td><code>request &lt;jid&gt; &lt;keyid&gt;</code></td><td>Request public key. See /ox discover to to get available key IDs.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/ox log off
 /ox start odin@valhalla.edda
@@ -1435,6 +1441,25 @@
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>on|off</code></td><td>Enable or disable splash logo.</td></tr></table>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="stamp"></a>
+<h4>/stamp</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/stamp outgoing &lt;string&gt;
+/stamp incoming &lt;string&gt;
+/stamp unset outgoing|incoming
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Set chat window stamp. The format of line in the chat window is: "<timestamp> <encryption sign> <stamp> <message>" where <stamp> is "me:" for incoming messages or "username@server/resource" for outgoing messages. This command allows to change <stamp> value.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>outgoing</code></td><td>Set outgoing stamp</td></tr><tr><td><code>incoming</code></td><td>Set incoming stamp</td></tr><tr><td><code>unset outgoing|incoming</code></td><td>Use the defaults</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/stamp outgoing -->
+/stamp incoming <--
+/stamp unset incoming
+</code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="states"></a>
