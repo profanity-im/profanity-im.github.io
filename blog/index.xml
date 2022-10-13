@@ -6,10 +6,25 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 13 Oct 2022 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Profanity 0.13.1</title>
+      <link>https://profanity-im.github.io/blog/post/release-0131/</link>
+      <pubDate>Thu, 13 Oct 2022 00:00:00 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-0131/</guid>
+      <description>&lt;p&gt;One month ago we released Profanity 0.13.0 and yesterday the minor release 0.13.1.&lt;/p&gt;
+&lt;p&gt;18 people contributed code to this release: @binex-dsk, @cockroach, @DebXWoody, @MarcoPolo-PasTonMolo, @mdosch, @nandesu-utils, @netboy3, @paulfertser, @sjaeckel, @Zash, @omar-polo, @wahjava, @vinegret, @sgn, Max Wuttke, @tran-h-trung, @techmetx11 and @jubalh.
+Also a big thanks to our sponsors: @mdosch, @wstrm, @LeSpocky, @jamesponddotco and one anonymous person.&lt;/p&gt;
+&lt;p&gt;We would also like to thank our testers, packagers and users.&lt;/p&gt;
+&lt;p&gt;The release already landed several major distributions.&lt;/p&gt;
+&lt;p&gt;For a list of changes please see the &lt;a href=&#34;https://github.com/profanity-im/profanity/releases/tag/0.13.0&#34;&gt;0.13.0&lt;/a&gt; and &lt;a href=&#34;https://github.com/profanity-im/profanity/releases/tag/0.13.1&#34;&gt;0.13.1&lt;/a&gt; release notes.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Profanity 0.12.0</title>
