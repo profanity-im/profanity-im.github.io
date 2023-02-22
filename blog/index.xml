@@ -6,10 +6,154 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Oct 2022 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 22 Feb 2023 12:03:36 +0100</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>New Profanity Old System</title>
+      <link>https://profanity-im.github.io/blog/post/distrobox/</link>
+      <pubDate>Wed, 22 Feb 2023 12:03:36 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/distrobox/</guid>
+      <description>&lt;p&gt;Occasionally people visit our MUC asking how to run the latest profanity release on years old systems.
+For some distributions people maintain a backports project, so you can get it from there if available.&lt;/p&gt;
+&lt;p&gt;Here we want to describe another methods, using containers, more specifically &lt;a href=&#34;https://github.com/89luca89/distrobox&#34;&gt;distrobox&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;whats-distrobox&#34;&gt;What&amp;rsquo;s Distrobox?&lt;/h1&gt;
+&lt;p&gt;It&amp;rsquo;s basically a tool that let&amp;rsquo;s you run another distribution on your system. It uses docker/podman to create containers that are well integrated into your host system.
+This means all your Profanity config files etc will be in the usual place in &lt;code&gt;~/.config/profanity&lt;/code&gt; and &lt;code&gt;~/.local/share/profanity&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Be aware:
+Profanitys configuration files might change with new versions. Usually we transform old config files into the new format. If you however use distrobox to run the latest Profanity and then want to go back to your old version it might be that your old Profanity doesn&amp;rsquo;t understand the new or changed config options.&lt;/p&gt;
+&lt;h1 id=&#34;setup&#34;&gt;Setup&lt;/h1&gt;
+&lt;p&gt;You need to have docker/podman installed. And the daemon should be running.
+Install distrobox preferably via your distribution package manager. Alternatively you can use the infamous line &lt;code&gt;curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In this guide we will use an openSUSE Tumbleweed maintainer, since it&amp;rsquo;s a rolling release distribution that will always have the latest Profanity available.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;host$ distrobox-create --name profanity-on-tw --image opensuse/tumbleweed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Using default tag: latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;latest: Pulling from opensuse/tumbleweed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;f7cda0ba8b2c: Pull complete
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Digest: sha256:8d4c43253942e84737681ee8307c79be4ca9ec9011b6616d40b2ef204143ab88
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Status: Downloaded newer image for opensuse/tumbleweed:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker.io/opensuse/tumbleweed:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Creating &amp;#39;profanity-on-tw&amp;#39; using image opensuse/tumbleweed	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Distrobox &amp;#39;profanity-on-tw&amp;#39; successfully created.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;To enter, run:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;distrobox enter profanity-on-tw
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;profanity-on-tw
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We can now enter this container and install profanity in it via:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;host&lt;span style=&#34;&#34;&gt;$&lt;/span&gt; distrobox-enter profanity-on-tw
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Container profanity-on-tw is not running.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Starting container profanity-on-tw
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;run this command to follow along:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; docker logs -f profanity-on-tw
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Starting container...                  	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Installing basic packages...           	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Setting up read-only mounts...         	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Setting up read-write mounts...        	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Setting up host&lt;span style=&#34;&#34;&gt;&amp;#39;&lt;/span&gt;s sockets integration...	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Integrating host&lt;span style=&#34;&#34;&gt;&amp;#39;&lt;/span&gt;s themes, icons, fonts...	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Setting up &lt;span style=&#34;color:#00f&#34;&gt;package&lt;/span&gt; manager exceptions...	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Setting up rpm exceptions...           	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Setting up sudo...                     	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Setting up groups...                   	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Integrating host&lt;span style=&#34;&#34;&gt;&amp;#39;&lt;/span&gt;s themes, icons, fonts...	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Setting up &lt;span style=&#34;color:#00f&#34;&gt;package&lt;/span&gt; manager exceptions...	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Setting up rpm exceptions...           	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Setting up sudo...                     	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Setting up groups...                   	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Setting up users...                    	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Executing init hooks...                	 [ OK ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Container Setup Complete!
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;profanity-on-tw&lt;span style=&#34;&#34;&gt;$&lt;/span&gt; sudo zypper in profanity
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Loading repository data...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Reading installed packages...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Resolving &lt;span style=&#34;color:#00f&#34;&gt;package&lt;/span&gt; dependencies...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The following 4 recommended packages were automatically selected:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  python310 python310-curses python310-dbm python310-pip
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The following 16 NEW packages are going to be installed:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  libgdbm6 libgdbm_compat4 libmpdec3 libotr5 libpython3_10-1_0 libsignal-protocol-c2 libstrophe0 profanity
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  profanity-mini python310 python310-base python310-curses python310-dbm python310-pip python310-setuptools
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  shared-python-startup
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;16 new packages to install.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Overall download size: 15.7 MiB. Already cached: 0 B. After the operation, additional 60.1 MiB will be used.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Continue&lt;span style=&#34;&#34;&gt;?&lt;/span&gt; [y/n/v/...&lt;span style=&#34;&#34;&gt;?&lt;/span&gt; shows all options] (y): y
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libgdbm6-1.23-1.10.x86_64 (openSUSE-Tumbleweed-Oss)                                  (1/16),  53.0 KiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libgdbm6-1.23-1.10.x86_64.rpm ........................................................[done (303.6 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libmpdec3-2.5.1-2.12.x86_64 (openSUSE-Tumbleweed-Oss)                                (2/16),  82.8 KiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libmpdec3-2.5.1-2.12.x86_64.rpm ......................................................[done (466.2 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libotr5-4.1.1-4.1.x86_64 (openSUSE-Tumbleweed-Oss)                                   (3/16),  60.7 KiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libotr5-4.1.1-4.1.x86_64.rpm .........................................................[done (624.3 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libsignal-protocol-c2-2.3.3-1.15.x86_64 (openSUSE-Tumbleweed-Oss)                    (4/16), 163.7 KiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libsignal-protocol-c2-2.3.3-1.15.x86_64.rpm ..........................................[done (773.8 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libstrophe0-0.12.2-1.3.x86_64 (openSUSE-Tumbleweed-Oss)                              (5/16),  89.5 KiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libstrophe0-0.12.2-1.3.x86_64.rpm ....................................................[done (548.6 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: shared-python-startup-0.1-6.9.noarch (openSUSE-Tumbleweed-Oss)                       (6/16),  12.9 KiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: shared-python-startup-0.1-6.9.noarch.rpm ...........................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libgdbm_compat4-1.23-1.10.x86_64 (openSUSE-Tumbleweed-Oss)                           (7/16),  27.7 KiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libgdbm_compat4-1.23-1.10.x86_64.rpm ...................................................[done (1.2 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libpython3_10-1_0-3.10.9-2.2.x86_64 (openSUSE-Tumbleweed-Oss)                        (8/16),   1.3 MiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: libpython3_10-1_0-3.10.9-2.2.x86_64.rpm ..............................................[done (882.1 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: python310-base-3.10.9-2.2.x86_64 (openSUSE-Tumbleweed-Oss)                           (9/16),   9.1 MiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: python310-base-3.10.9-2.2.x86_64.rpm .................................................[done (975.5 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: python310-setuptools-65.6.3-1.2.noarch (openSUSE-Tumbleweed-Oss)                    (10/16),   1.3 MiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: python310-setuptools-65.6.3-1.2.noarch.rpm ...........................................[done (913.8 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: python310-pip-22.3.1-1.2.noarch (openSUSE-Tumbleweed-Oss)                           (11/16),   2.5 MiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: python310-pip-22.3.1-1.2.noarch.rpm ..................................................[done (958.3 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: python310-3.10.9-2.2.x86_64 (openSUSE-Tumbleweed-Oss)                               (12/16), 168.5 KiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: python310-3.10.9-2.2.x86_64.rpm ......................................................[done (738.3 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: python310-dbm-3.10.9-2.2.x86_64 (openSUSE-Tumbleweed-Oss)                           (13/16), 141.2 KiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: python310-dbm-3.10.9-2.2.x86_64.rpm ..................................................[done (806.6 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: python310-curses-3.10.9-2.2.x86_64 (openSUSE-Tumbleweed-Oss)                        (14/16), 171.6 KiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: python310-curses-3.10.9-2.2.x86_64.rpm ...............................................[done (910.2 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: profanity-0.13.1-1.2.x86_64 (openSUSE-Tumbleweed-Oss)                               (15/16), 104.8 KiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: profanity-0.13.1-1.2.x86_64.rpm ......................................................[done (744.9 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: profanity-mini-0.13.1-1.2.x86_64 (openSUSE-Tumbleweed-Oss)                          (16/16), 446.4 KiB    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Retrieving: profanity-mini-0.13.1-1.2.x86_64.rpm .................................................[done (934.5 KiB/s)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Checking &lt;span style=&#34;color:#00f&#34;&gt;for&lt;/span&gt; file conflicts: ...................................................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;( 1/16) Installing: libgdbm6-1.23-1.10.x86_64 ..................................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;( 2/16) Installing: libmpdec3-2.5.1-2.12.x86_64 ................................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;( 3/16) Installing: libotr5-4.1.1-4.1.x86_64 ...................................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;( 4/16) Installing: libsignal-protocol-c2-2.3.3-1.15.x86_64 ....................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;( 5/16) Installing: libstrophe0-0.12.2-1.3.x86_64 ..............................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;( 6/16) Installing: shared-python-startup-0.1-6.9.noarch .......................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;( 7/16) Installing: libgdbm_compat4-1.23-1.10.x86_64 ...........................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;( 8/16) Installing: libpython3_10-1_0-3.10.9-2.2.x86_64 ........................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;( 9/16) Installing: python310-base-3.10.9-2.2.x86_64 ...........................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(10/16) Installing: python310-setuptools-65.6.3-1.2.noarch .....................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(11/16) Installing: python310-pip-22.3.1-1.2.noarch ............................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(12/16) Installing: python310-3.10.9-2.2.x86_64 ................................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(13/16) Installing: python310-dbm-3.10.9-2.2.x86_64 ............................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(14/16) Installing: python310-curses-3.10.9-2.2.x86_64 .........................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(15/16) Installing: profanity-0.13.1-1.2.x86_64 ................................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;update-alternatives: using /usr/bin/profanity-mini to provide /usr/bin/profanity (profanity) in auto mode
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(16/16) Installing: profanity-mini-0.13.1-1.2.x86_64 ...........................................................[done]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Notice how the bash prompt changed from &lt;code&gt;host$&lt;/code&gt; to &lt;code&gt;profanity-on-tw$&lt;/code&gt;, which is the name we gave our container.
+So the call to zypper happened inside that container. You can now start profanity. And on your host system you will then see the usual files in &lt;code&gt;~/.config/profanity&lt;/code&gt;.
+Type &lt;code&gt;exit&lt;/code&gt; to get out.&lt;/p&gt;
+&lt;h1 id=&#34;usage&#34;&gt;Usage&lt;/h1&gt;
+&lt;p&gt;Each time you want to start profanity you now have to do enter the container and start it there:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;host$ distrobox-enter profanity-on-tw
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;profanity-on-tw$ profanity
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You have however also the option to &amp;ldquo;export&amp;rdquo; profanity to your host system.
+Some people have a &lt;code&gt;~/bin&lt;/code&gt;, &lt;code&gt;~/.local/bin&lt;/code&gt; or another directory where they put binaries or scripts which they make available via the &lt;code&gt;$PATH&lt;/code&gt; variable.
+Here we will use the &lt;code&gt;~/.local/bin&lt;/code&gt; folder.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;profanity-on-tw$ distrobox-export --bin /usr/bin/profanity --export-path $HOME/.local/bin
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now you can call &lt;code&gt;profanity&lt;/code&gt; even from the host system. It will be the latest version of Profanity and all its dependencies, running inside a container. With full access to your usual environment.&lt;/p&gt;
+&lt;h1 id=&#34;uninstall&#34;&gt;Uninstall&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;host$ distrobox-stop profanity-on-tw
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;host$ distrobox-rm profanity-on-tw
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>Profanity 0.13.1</title>

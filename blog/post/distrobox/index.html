@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>New Profanity Old System - profanity</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="New Profanity Old System" />
+<meta property="og:description" content="Occasionally people visit our MUC asking how to run the latest profanity release on years old systems. For some distributions people maintain a backports project, so you can get it from there if available.
+Here we want to describe another methods, using containers, more specifically distrobox.
+What&rsquo;s Distrobox? It&rsquo;s basically a tool that let&rsquo;s you run another distribution on your system. It uses docker/podman to create containers that are well integrated into your host system." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://profanity-im.github.io/blog/post/distrobox/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-02-22T12:03:36+01:00" />
+<meta property="article:modified_time" content="2023-02-22T12:03:36+01:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="New Profanity Old System"/>
+<meta name="twitter:description" content="Occasionally people visit our MUC asking how to run the latest profanity release on years old systems. For some distributions people maintain a backports project, so you can get it from there if available.
+Here we want to describe another methods, using containers, more specifically distrobox.
+What&rsquo;s Distrobox? It&rsquo;s basically a tool that let&rsquo;s you run another distribution on your system. It uses docker/podman to create containers that are well integrated into your host system."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://profanity-im.github.io/blog/css/main.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://profanity-im.github.io/blog/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://profanity-im.github.io/blog/">profanity</a></h1>
+	<div class="site-description"><h2>development blog</h2><nav class="nav social">
+			<ul class="flat"><a href="https://profanity-im.github.io/" title="Github"><i data-feather="github"></i></a><a href="https://twitter.com/ProfanityIM" title="Twitter"><i data-feather="twitter"></i></a><a href="/blog/index.xml" title="RSS"><i data-feather="rss"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/blog/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog/post">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/blog/about">About</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">New Profanity Old System</h1>
+            <div class="meta">Posted at &mdash; Feb 22, 2023 by
+                    <a href=" https://profanity-im.github.io/blog/authors/jubalh/ ">jubalh</a>
+                  
+                
+            </div>
+		</div>
+
+		<div class="markdown">
+			<p>Occasionally people visit our MUC asking how to run the latest profanity release on years old systems.
+For some distributions people maintain a backports project, so you can get it from there if available.</p>
+<p>Here we want to describe another methods, using containers, more specifically <a href="https://github.com/89luca89/distrobox">distrobox</a>.</p>
+<h1 id="whats-distrobox">What&rsquo;s Distrobox?</h1>
+<p>It&rsquo;s basically a tool that let&rsquo;s you run another distribution on your system. It uses docker/podman to create containers that are well integrated into your host system.
+This means all your Profanity config files etc will be in the usual place in <code>~/.config/profanity</code> and <code>~/.local/share/profanity</code>.</p>
+<p>Be aware:
+Profanitys configuration files might change with new versions. Usually we transform old config files into the new format. If you however use distrobox to run the latest Profanity and then want to go back to your old version it might be that your old Profanity doesn&rsquo;t understand the new or changed config options.</p>
+<h1 id="setup">Setup</h1>
+<p>You need to have docker/podman installed. And the daemon should be running.
+Install distrobox preferably via your distribution package manager. Alternatively you can use the infamous line <code>curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh</code>.</p>
+<p>In this guide we will use an openSUSE Tumbleweed maintainer, since it&rsquo;s a rolling release distribution that will always have the latest Profanity available.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>host$ distrobox-create --name profanity-on-tw --image opensuse/tumbleweed
+</span></span><span style="display:flex;"><span>Using default tag: latest
+</span></span><span style="display:flex;"><span>latest: Pulling from opensuse/tumbleweed
+</span></span><span style="display:flex;"><span>f7cda0ba8b2c: Pull complete
+</span></span><span style="display:flex;"><span>Digest: sha256:8d4c43253942e84737681ee8307c79be4ca9ec9011b6616d40b2ef204143ab88
+</span></span><span style="display:flex;"><span>Status: Downloaded newer image for opensuse/tumbleweed:latest
+</span></span><span style="display:flex;"><span>docker.io/opensuse/tumbleweed:latest
+</span></span><span style="display:flex;"><span>Creating &#39;profanity-on-tw&#39; using image opensuse/tumbleweed	 [ OK ]
+</span></span><span style="display:flex;"><span>Distrobox &#39;profanity-on-tw&#39; successfully created.
+</span></span><span style="display:flex;"><span>To enter, run:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>distrobox enter profanity-on-tw
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>profanity-on-tw
+</span></span></code></pre></div><p>We can now enter this container and install profanity in it via:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>host<span style="">$</span> distrobox-enter profanity-on-tw
+</span></span><span style="display:flex;"><span>Container profanity-on-tw is not running.
+</span></span><span style="display:flex;"><span>Starting container profanity-on-tw
+</span></span><span style="display:flex;"><span>run this command to follow along:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> docker logs -f profanity-on-tw
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> Starting container...                  	 [ OK ]
+</span></span><span style="display:flex;"><span> Installing basic packages...           	 [ OK ]
+</span></span><span style="display:flex;"><span> Setting up read-only mounts...         	 [ OK ]
+</span></span><span style="display:flex;"><span> Setting up read-write mounts...        	 [ OK ]
+</span></span><span style="display:flex;"><span> Setting up host<span style="">&#39;</span>s sockets integration...	 [ OK ]
+</span></span><span style="display:flex;"><span> Integrating host<span style="">&#39;</span>s themes, icons, fonts...	 [ OK ]
+</span></span><span style="display:flex;"><span> Setting up <span style="color:#00f">package</span> manager exceptions...	 [ OK ]
+</span></span><span style="display:flex;"><span> Setting up rpm exceptions...           	 [ OK ]
+</span></span><span style="display:flex;"><span> Setting up sudo...                     	 [ OK ]
+</span></span><span style="display:flex;"><span> Setting up groups...                   	 [ OK ]
+</span></span><span style="display:flex;"><span> Integrating host<span style="">&#39;</span>s themes, icons, fonts...	 [ OK ]
+</span></span><span style="display:flex;"><span> Setting up <span style="color:#00f">package</span> manager exceptions...	 [ OK ]
+</span></span><span style="display:flex;"><span> Setting up rpm exceptions...           	 [ OK ]
+</span></span><span style="display:flex;"><span> Setting up sudo...                     	 [ OK ]
+</span></span><span style="display:flex;"><span> Setting up groups...                   	 [ OK ]
+</span></span><span style="display:flex;"><span> Setting up users...                    	 [ OK ]
+</span></span><span style="display:flex;"><span> Executing init hooks...                	 [ OK ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Container Setup Complete!
+</span></span><span style="display:flex;"><span>profanity-on-tw<span style="">$</span> sudo zypper in profanity
+</span></span><span style="display:flex;"><span>Loading repository data...
+</span></span><span style="display:flex;"><span>Reading installed packages...
+</span></span><span style="display:flex;"><span>Resolving <span style="color:#00f">package</span> dependencies...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The following 4 recommended packages were automatically selected:
+</span></span><span style="display:flex;"><span>  python310 python310-curses python310-dbm python310-pip
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The following 16 NEW packages are going to be installed:
+</span></span><span style="display:flex;"><span>  libgdbm6 libgdbm_compat4 libmpdec3 libotr5 libpython3_10-1_0 libsignal-protocol-c2 libstrophe0 profanity
+</span></span><span style="display:flex;"><span>  profanity-mini python310 python310-base python310-curses python310-dbm python310-pip python310-setuptools
+</span></span><span style="display:flex;"><span>  shared-python-startup
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>16 new packages to install.
+</span></span><span style="display:flex;"><span>Overall download size: 15.7 MiB. Already cached: 0 B. After the operation, additional 60.1 MiB will be used.
+</span></span><span style="display:flex;"><span>Continue<span style="">?</span> [y/n/v/...<span style="">?</span> shows all options] (y): y
+</span></span><span style="display:flex;"><span>Retrieving: libgdbm6-1.23-1.10.x86_64 (openSUSE-Tumbleweed-Oss)                                  (1/16),  53.0 KiB    
+</span></span><span style="display:flex;"><span>Retrieving: libgdbm6-1.23-1.10.x86_64.rpm ........................................................[done (303.6 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: libmpdec3-2.5.1-2.12.x86_64 (openSUSE-Tumbleweed-Oss)                                (2/16),  82.8 KiB    
+</span></span><span style="display:flex;"><span>Retrieving: libmpdec3-2.5.1-2.12.x86_64.rpm ......................................................[done (466.2 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: libotr5-4.1.1-4.1.x86_64 (openSUSE-Tumbleweed-Oss)                                   (3/16),  60.7 KiB    
+</span></span><span style="display:flex;"><span>Retrieving: libotr5-4.1.1-4.1.x86_64.rpm .........................................................[done (624.3 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: libsignal-protocol-c2-2.3.3-1.15.x86_64 (openSUSE-Tumbleweed-Oss)                    (4/16), 163.7 KiB    
+</span></span><span style="display:flex;"><span>Retrieving: libsignal-protocol-c2-2.3.3-1.15.x86_64.rpm ..........................................[done (773.8 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: libstrophe0-0.12.2-1.3.x86_64 (openSUSE-Tumbleweed-Oss)                              (5/16),  89.5 KiB    
+</span></span><span style="display:flex;"><span>Retrieving: libstrophe0-0.12.2-1.3.x86_64.rpm ....................................................[done (548.6 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: shared-python-startup-0.1-6.9.noarch (openSUSE-Tumbleweed-Oss)                       (6/16),  12.9 KiB    
+</span></span><span style="display:flex;"><span>Retrieving: shared-python-startup-0.1-6.9.noarch.rpm ...........................................................[done]
+</span></span><span style="display:flex;"><span>Retrieving: libgdbm_compat4-1.23-1.10.x86_64 (openSUSE-Tumbleweed-Oss)                           (7/16),  27.7 KiB    
+</span></span><span style="display:flex;"><span>Retrieving: libgdbm_compat4-1.23-1.10.x86_64.rpm ...................................................[done (1.2 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: libpython3_10-1_0-3.10.9-2.2.x86_64 (openSUSE-Tumbleweed-Oss)                        (8/16),   1.3 MiB    
+</span></span><span style="display:flex;"><span>Retrieving: libpython3_10-1_0-3.10.9-2.2.x86_64.rpm ..............................................[done (882.1 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: python310-base-3.10.9-2.2.x86_64 (openSUSE-Tumbleweed-Oss)                           (9/16),   9.1 MiB    
+</span></span><span style="display:flex;"><span>Retrieving: python310-base-3.10.9-2.2.x86_64.rpm .................................................[done (975.5 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: python310-setuptools-65.6.3-1.2.noarch (openSUSE-Tumbleweed-Oss)                    (10/16),   1.3 MiB    
+</span></span><span style="display:flex;"><span>Retrieving: python310-setuptools-65.6.3-1.2.noarch.rpm ...........................................[done (913.8 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: python310-pip-22.3.1-1.2.noarch (openSUSE-Tumbleweed-Oss)                           (11/16),   2.5 MiB    
+</span></span><span style="display:flex;"><span>Retrieving: python310-pip-22.3.1-1.2.noarch.rpm ..................................................[done (958.3 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: python310-3.10.9-2.2.x86_64 (openSUSE-Tumbleweed-Oss)                               (12/16), 168.5 KiB    
+</span></span><span style="display:flex;"><span>Retrieving: python310-3.10.9-2.2.x86_64.rpm ......................................................[done (738.3 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: python310-dbm-3.10.9-2.2.x86_64 (openSUSE-Tumbleweed-Oss)                           (13/16), 141.2 KiB    
+</span></span><span style="display:flex;"><span>Retrieving: python310-dbm-3.10.9-2.2.x86_64.rpm ..................................................[done (806.6 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: python310-curses-3.10.9-2.2.x86_64 (openSUSE-Tumbleweed-Oss)                        (14/16), 171.6 KiB    
+</span></span><span style="display:flex;"><span>Retrieving: python310-curses-3.10.9-2.2.x86_64.rpm ...............................................[done (910.2 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: profanity-0.13.1-1.2.x86_64 (openSUSE-Tumbleweed-Oss)                               (15/16), 104.8 KiB    
+</span></span><span style="display:flex;"><span>Retrieving: profanity-0.13.1-1.2.x86_64.rpm ......................................................[done (744.9 KiB/s)]
+</span></span><span style="display:flex;"><span>Retrieving: profanity-mini-0.13.1-1.2.x86_64 (openSUSE-Tumbleweed-Oss)                          (16/16), 446.4 KiB    
+</span></span><span style="display:flex;"><span>Retrieving: profanity-mini-0.13.1-1.2.x86_64.rpm .................................................[done (934.5 KiB/s)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Checking <span style="color:#00f">for</span> file conflicts: ...................................................................................[done]
+</span></span><span style="display:flex;"><span>( 1/16) Installing: libgdbm6-1.23-1.10.x86_64 ..................................................................[done]
+</span></span><span style="display:flex;"><span>( 2/16) Installing: libmpdec3-2.5.1-2.12.x86_64 ................................................................[done]
+</span></span><span style="display:flex;"><span>( 3/16) Installing: libotr5-4.1.1-4.1.x86_64 ...................................................................[done]
+</span></span><span style="display:flex;"><span>( 4/16) Installing: libsignal-protocol-c2-2.3.3-1.15.x86_64 ....................................................[done]
+</span></span><span style="display:flex;"><span>( 5/16) Installing: libstrophe0-0.12.2-1.3.x86_64 ..............................................................[done]
+</span></span><span style="display:flex;"><span>( 6/16) Installing: shared-python-startup-0.1-6.9.noarch .......................................................[done]
+</span></span><span style="display:flex;"><span>( 7/16) Installing: libgdbm_compat4-1.23-1.10.x86_64 ...........................................................[done]
+</span></span><span style="display:flex;"><span>( 8/16) Installing: libpython3_10-1_0-3.10.9-2.2.x86_64 ........................................................[done]
+</span></span><span style="display:flex;"><span>( 9/16) Installing: python310-base-3.10.9-2.2.x86_64 ...........................................................[done]
+</span></span><span style="display:flex;"><span>(10/16) Installing: python310-setuptools-65.6.3-1.2.noarch .....................................................[done]
+</span></span><span style="display:flex;"><span>(11/16) Installing: python310-pip-22.3.1-1.2.noarch ............................................................[done]
+</span></span><span style="display:flex;"><span>(12/16) Installing: python310-3.10.9-2.2.x86_64 ................................................................[done]
+</span></span><span style="display:flex;"><span>(13/16) Installing: python310-dbm-3.10.9-2.2.x86_64 ............................................................[done]
+</span></span><span style="display:flex;"><span>(14/16) Installing: python310-curses-3.10.9-2.2.x86_64 .........................................................[done]
+</span></span><span style="display:flex;"><span>(15/16) Installing: profanity-0.13.1-1.2.x86_64 ................................................................[done]
+</span></span><span style="display:flex;"><span>update-alternatives: using /usr/bin/profanity-mini to provide /usr/bin/profanity (profanity) in auto mode
+</span></span><span style="display:flex;"><span>(16/16) Installing: profanity-mini-0.13.1-1.2.x86_64 ...........................................................[done]
+</span></span></code></pre></div><p>Notice how the bash prompt changed from <code>host$</code> to <code>profanity-on-tw$</code>, which is the name we gave our container.
+So the call to zypper happened inside that container. You can now start profanity. And on your host system you will then see the usual files in <code>~/.config/profanity</code>.
+Type <code>exit</code> to get out.</p>
+<h1 id="usage">Usage</h1>
+<p>Each time you want to start profanity you now have to do enter the container and start it there:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>host$ distrobox-enter profanity-on-tw
+</span></span><span style="display:flex;"><span>profanity-on-tw$ profanity
+</span></span></code></pre></div><p>You have however also the option to &ldquo;export&rdquo; profanity to your host system.
+Some people have a <code>~/bin</code>, <code>~/.local/bin</code> or another directory where they put binaries or scripts which they make available via the <code>$PATH</code> variable.
+Here we will use the <code>~/.local/bin</code> folder.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>profanity-on-tw$ distrobox-export --bin /usr/bin/profanity --export-path $HOME/.local/bin
+</span></span></code></pre></div><p>Now you can call <code>profanity</code> even from the host system. It will be the latest version of Profanity and all its dependencies, running inside a container. With full access to your usual environment.</p>
+<h1 id="uninstall">Uninstall</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>host$ distrobox-stop profanity-on-tw
+</span></span><span style="display:flex;"><span>host$ distrobox-rm profanity-on-tw
+</span></span></code></pre></div>
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>
