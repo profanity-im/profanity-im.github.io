@@ -21,7 +21,7 @@
   "dependencies": {
     "css-loader": "^6.7.3",
     "mini-css-extract-plugin": "^2.7.2",
-    "node-sass": "^7.0.3",
+    "node-sass": "^9.0.0",
     "postcss": "^8.2.13",
     "postcss-cssnext": "^3.1.0",
     "postcss-loader": "^7.0.2",
