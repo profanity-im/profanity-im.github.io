@@ -6,7 +6,19 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Feb 2023 12:03:36 +0100</lastBuildDate><atom:link href="https://profanity-im.github.io/blog/authors/jubalh/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Aug 2023 00:00:00 +0100</lastBuildDate><atom:link href="https://profanity-im.github.io/blog/authors/jubalh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Profanity 0.14.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-0140/</link>
+      <pubDate>Wed, 16 Aug 2023 00:00:00 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-0140/</guid>
+      <description>Apologies for the late blog post. We have good news though! Two weeks ago we released Profanity 0.14.0!
+13 people contributed to this release: Daniel Santos, @DebXWoody, @H3rnand3zzz, @ike08, @MarcoPolo-PasTonMolo, @mdosch, @pasis, @paulfertser, @shahab-vahedi, @sjaeckel, @techmetx11, @thexhr and @jubalh.
+Also a big thanks to our sponsors: @mdosch, @LeSpocky, @jamesponddotco and one anonymous sponsor!
+We introduced a new /privacy command which should make it easier to find all privacy related settings and we introduced vCard support (XEP-0054)!</description>
+    </item>
+    
     <item>
       <title>New Profanity Old System</title>
       <link>https://profanity-im.github.io/blog/post/distrobox/</link>

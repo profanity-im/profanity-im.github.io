@@ -6,10 +6,28 @@
     <description>Recent content on profanity</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Feb 2023 12:03:36 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 16 Aug 2023 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://profanity-im.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Profanity 0.14.0</title>
+      <link>https://profanity-im.github.io/blog/post/release-0140/</link>
+      <pubDate>Wed, 16 Aug 2023 00:00:00 +0100</pubDate>
+      
+      <guid>https://profanity-im.github.io/blog/post/release-0140/</guid>
+      <description>&lt;p&gt;Apologies for the late blog post.
+We have good news though! Two weeks ago we released Profanity 0.14.0!&lt;/p&gt;
+&lt;p&gt;13 people contributed to this release: Daniel Santos, @DebXWoody, @H3rnand3zzz, @ike08, @MarcoPolo-PasTonMolo, @mdosch, @pasis, @paulfertser, @shahab-vahedi, @sjaeckel, @techmetx11, @thexhr and @jubalh.&lt;/p&gt;
+&lt;p&gt;Also a big thanks to our sponsors: @mdosch, @LeSpocky, @jamesponddotco and one anonymous sponsor!&lt;/p&gt;
+&lt;p&gt;We introduced a new &lt;code&gt;/privacy&lt;/code&gt; command which should make it easier to find all privacy related settings and we introduced vCard support (XEP-0054)!&lt;/p&gt;
+&lt;p&gt;With &lt;code&gt;/plugins install&lt;/code&gt; we have now a more convenient way to directly install plugins from the web.&lt;/p&gt;
+&lt;p&gt;Sharing of PGP keys got easier with the &lt;code&gt;/pgp sendpub&lt;/code&gt; and &lt;code&gt;/pgp autoimport&lt;/code&gt; commands. This is compatible with PSI and Pidgin, but doesn&amp;rsquo;t have an official XEP.&lt;/p&gt;
+&lt;p&gt;You can configure libstrophe internal related settings via the new &lt;code&gt;/strophe&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;There are plenty of more fixes and improvements. For a list of changes please see the 0.14.0 &lt;a href=&#34;https://github.com/profanity-im/profanity/releases/tag/0.14.0&#34;&gt;release notes&lt;/a&gt; or &lt;a href=&#34;https://github.com/profanity-im/profanity/releases/tag/0.14.0&#34;&gt;git history&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>New Profanity Old System</title>
