@@ -50,6 +50,7 @@
                         <li><a href="#tor">How to connect to XMPP server using Tor</a></li>
                         <li><a href="#onion">How to connect to an onion XMPP server</a></li>
                         <li><a href="#distrobox">How to run the latest version on old distributions?</a></li>
+                        <li><a href="#autoopen">How do I automatically open chat windows with contacts?</a></li>
                     </ul>
                 </li>
             </ul>
@@ -274,6 +275,15 @@
             <a name="distrobox"></a>
             <h4>How to run the latest version on old distributions?</h4>
             <p>Some distributions, like Debian, have backports repositories. You can also run Profanity in a container via distrobox. See our <a href="https://profanity-im.github.io/blog/post/distrobox/">blogpost</a> </p>
+            <a href="#top">
+                <h5>back to top</h5>
+            </a>
+        </section>
+        <section>
+            <a name="autoopen"></a>
+			<h4>How do I automatically open chat windows with contacts?</h4>
+			To the right side you can see your roster. It contains all your contacts and rooms (MUCs). MUCs can be automatically joined via bookmarks. If you want to open a chat window to a user automatically upon the start of profanity you can write a script to do that. Put <code>/msg theusersnickname</code> into <code>~/.local/share/profanity/scripts/myautoscript</code>. And configure your account to automatically launch that script <code>/account set <account> startscript myautoscript</code>.
+			<p></p>
             <a href="#top">
                 <h5>back to top</h5>
             </a>
