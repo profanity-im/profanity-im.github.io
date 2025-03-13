@@ -19,6 +19,8 @@ const themeList = [
     "batman",
     "bios",
     "boothj5",
+    "boothj5_slack",
+    "boothj5_laptop",
     "complex",
     "forest",
     "gruvbox",
