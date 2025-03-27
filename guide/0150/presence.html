@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profanity, a console based XMPP client - Advanced presence, resources and priorities</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1"> 
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="../../css/profanity.css" type="text/css" rel="stylesheet">
+    
+</head>
+<body id="article">
+    <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <header>
+        <h1>
+            <a href="userguide.html">
+                User Guide
+            </a>
+        </h1>
+        <h2>Advanced presence, resources and priorities</h2>
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+
+            <ul>
+                <li><a href="#overview">Overview</a>
+                <li><a href="#setting-resource">Setting the resource</a>
+                <li><a href="#setting-priority">Setting priority</a>
+                <li><a href="#setting-priority-per-presence">Setting priority per presence</a></li>
+            </ul>
+        </section>
+        <section>
+            <a name="overview"></a>
+            <h3>Overview</h3>
+
+            <p>Since version 0.2.0, Profanity allows more flexible handling of resource and priority settings.</p>
+            <p>If you only ever connect to a chat service using the same computer (for example, you log on at work on your desktop, and never from anywhere else), you probably need not be concerned with these settings.</p>
+            <p>If you already know about resources and priorities and want to use them in Profanity, you can skip this overview and go straight to the <a href="#setting-resource">settings</a> section.</p>
+            <p>If you often connect from many devices, and want to ensure that messages are routed to the right place, but don't know how, this brief overview should help before moving on to the settings sections below.</p>
+
+            <p><b>Resources</b></p>
+
+            <p>The XMPP protocol allows users to connect from more than one place at a time. For example, I might connect from my laptop, my desktop, my tablet and my phone.
+                Or, unlikely but still possible, from two Jabber clients on my desktop, Profanity and Miranda.</p>
+            <p>Contact's identifiers are called JIDs (Jabber IDentifiers).  A JID is of the form:</p>
+            <pre><code>localpart@domainpart</code></pre>
+            <p>E.g.:</p>
+            <pre><code>friends.name@ourserver.org
+
+localpart = friends.name
+domainpart = ourserver.org</code></pre>
+            <p>This is enough to identify a contact.  However, when a contact connects to a chat service using a Jabber client, that client is represented as a <i>resource</i></p>
+            <p>So whilst a contact can be identified as <code>localpart@domainpart</code> (known as a <i>bare jid</i>),
+                their connection using a specific client is identified as <code>localpart@domainpart/resourcepart</code> (known as a <i>full jid</i>).<p>
+            <p>For example, a contact <code>some.friend@chat.server.org</code> logs in using both their laptop and their phone. The software on their laptop uses the resource name <code>laptop</code> and the phone <code>phone</code>.</p>
+            <p>Our contact can be identified as:</p>
+
+            <pre><code>some.friend@chat.server.org</code></pre>
+
+            <p>And they have two connected resources:</p>
+
+            <pre><code>some.friend@chat.server.org/laptop
+some.friend@chat.server.org/phone</code></pre>
+
+            <p>When we receive a message, it will be from a <i>full jid</i>, i.e. from a specific client the contact is using.</p>
+            <p>You might be unaware of the resource most of the time, most client software uses a default (often the name of the software) which you can find in it's settings.</p>
+            <p>Even if the client software provides no default, the chat service will generate a unique resource name, which is why you might see long numbers appear after a contacts name in your client:</p>
+            <pre><code>someone@theserver.com/b2be5700-73ed-4922-91be-f4bd5ae1526a</code></pre>
+
+            <p><b>Priorities</b></p>
+
+            <p>Since a user may be connected using more than one client, the server needs to know where to route messages, therefore resources are given a priority</p>
+            <p>A priority is a number between -128 and 127.</p>
+            <p>The exact rules to determine which resource (laptop or phone, for example) gets a message, vary between server implementations, but most follow something like the following:</p>
+            <pre><code>Find the resource with the highest priority
+Send the message to that resource
+If two resources have the same priority, send to both
+If the only resources available have a negative number, store the message until a resource connects with a priority of 0 or higher</code></pre>
+            <p>If we go back to the example above, adding a priority to each resource:<p>
+
+            <p>Contact:</p>
+            <pre><code>some.friend@chat.server.org</code></pre>
+            <p>Connected Resources:</p>
+
+            <pre><code>some.friend@chat.server.org/laptop, priority = 5
+some.friend@chat.server.org/phone, priority = 20</code></pre>
+
+            <p>If we send a message to our contact:</p>
+            <pre><code>/msg some.friend@chat.server.org Hi there!</code></pre>
+            <p>The message will be delivered to the contact's phone</p>
+            <p>The following sections show how to set the resource name, and priority for Profanity.</p>
+        </section>
+        <section>
+            <a name="setting-resource"></a>
+            <h3>Setting the resource</h3>
+
+            <p>To set the resource for a particular account in Profanity, use the <a href="reference.html#account">/account</a> command:</p>
+            <p>For example to set the resource for the account <code>work</code> to <code>laptop</code>:</p>
+            <pre><code>/account set work resource laptop</code></pre>
+            <p>To find out what resource name is being used at any time:</p>
+            <pre><code>/account show work</code></pre>
+            <p>Or, if you are logged in:</p>
+            <pre><code>/account</code></pre>
+            <p>Will show the settings for the current account.</p>
+        </section>
+        <section>
+            <a name="setting-priority"></a>
+            <h3>Setting priority</h3>
+
+            <p>To set the priority for an account whilst logged in use the <a href="reference.html#priority">/priority</a> command:</p>
+            <pre><code>/priority 10</code></pre>
+            <p>This will set the priority to 10 for this account.  Whether you are online, away, dnd etc, the priority will always be 10.</p>
+            <p>For more flexible priority settings per presence, see the next section.</p>
+        </section>
+        <section>
+            <a name="setting-priority-per-presence"></a>
+            <h3>Setting priority per presence</h3>
+
+            <p>You may set a different priority for each presence for an account.  This is useful, for example, if you want messages to be routed to your phone, when your desktop client becomes <code>away</code>.</p>
+            <p>To set the priority for a particular presence for an account, use the <a href="reference.html#account">/account</a> command.</p>
+            <pre><code>/account set work away 0
+/account set work online 20</code></pre>
+            <p>Whenever your work account becomes <code>away</code> including <a href="reference.html#autoaway">autoaway</a> the priority will be set to 0.<p>
+            <p>When the account is <code>online</code> the priority will be 20.</p>
+            <p>To find out the priority associated with each presence for an account at any time:</p>
+            <pre><code>/account show work</code></pre>
+            <p>Or, if you are logged in:</p>
+            <pre><code>/account</code></pre>
+            <p>Will show the settings for the current account.</p>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+</html>
