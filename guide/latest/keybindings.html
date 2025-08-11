@@ -29,6 +29,7 @@
                 <li><a href="#gnu-readline">GNU Readline</a>
                 <li><a href="#nav-bindings">User Interface Navigation</a>
                 <li><a href="#readline-funcs">Custom Readline functions</a>
+                <li><a href="#vi-mode">Vi-Mode In The Input Bar</a>
             </ul>
         </section>
         <section>
@@ -220,6 +221,27 @@
 $endif</code></pre>
             </p>
         </section>
+		<section>
+			<h3 id="vi-mode">Vi Mode</h3>
+			<p>To be able to use vi-mode bindings in the input bar, put in <code>inputrc</code>:</p>
+			<pre><code>$if profanity
+	set editing-mode vi
+$endif</code></pre>
+			<p>Here are some examples of what you can do with it:</p>
+			<pre><code>$if profanity
+	set editing-mode vi
+	set keymap vi-move
+		# Use Space as a leader-key with " "
+		" q": "i/quit\r"
+		# Use j/k to move up and down in the window.
+		"k": prof_win_pageup
+		"j": prof_win_pagedown
+	set keymap vi-insert
+		# Correct last message quickly:
+		"\C-e": "/correct \t"
+$endif</code></pre>
+			<p>You can find out all the keys you can use using <code>bind -p</code> on bash.</p>
+		</section>
     </article>
     <footer>
         <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
