@@ -1,26 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Profanity, a console based XMPP client - FAQ</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="Expires" content="-1" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Cache-Control" content="no-cache" />
-    <link href="css/profanity.css" type="text/css" rel="stylesheet" />
-
-</head>
-
-<body id="article">
-    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration" />
-    <header>
-        <h1>
-            <a href="index.html">
-            Profani<span class="kern-ty">ty</span>
-            </a>
-        </h1>
-        <h2>Frequently Asked Questions</h2>
-    </header>
-    <article id="manual" data-sblg-article="1" data-sblg-set-title="Profanity, a console based XMPP client - FAQ" data-sblg-set-subtitle="Frequently Asked Questions">
+<?xml version="1.0" encoding="utf-8"?>
+    <article id="manual"
+             data-sblg-article="1"
+             data-sblg-set-title="Profanity, a console based XMPP client - FAQ"
+             data-sblg-set-subtitle="Frequently Asked Questions">
         <section>
             <h3>Contents</h3>
                 <ul>
@@ -85,7 +67,8 @@
             <a name="gtalk"></a>
             <h4>Will Profanity work with Google Talk?</h4>
             <p>Profanity was able to work with Google Talk. But in 2013 after Google merged it's messenger products
-                Google Talk, Google+ Messenger and Hangouts together XMPP support was <a href="https://www.theverge.com/2013/5/15/4318830/inside-hangouts-googles-big-fix-for-its-messaging-mess">dropped</a>. 
+                Google Talk, Google+ Messenger and Hangouts together XMPP support was <a
+                    href="https://www.theverge.com/2013/5/15/4318830/inside-hangouts-googles-big-fix-for-its-messaging-mess">dropped</a>. 
             </p>
                 <a href="#top">
                     <h5>back to top</h5>
@@ -103,7 +86,8 @@
         <section>
             <a name="slack"></a>
             <h4>Will Profanity work with Slack?</h4>
-            <p>Provided the XMPP gateway has been enabled for your team, Profanity will work. See <a target="_blank" href="https://slack.zendesk.com/hc/en-us/articles/201727913-Connecting-to-Slack-over-IRC-and-XMPP">the
+            <p>Provided the XMPP gateway has been enabled for your team, Profanity will work. See <a target="_blank"
+                    href="https://slack.zendesk.com/hc/en-us/articles/201727913-Connecting-to-Slack-over-IRC-and-XMPP">the
                     Slack page on gateways.</a></p>
             <a href="#top">
                 <h5>back to top</h5>
@@ -122,7 +106,9 @@
             <h4>Can Profanity use my keychain/keyring to retrieve my password?</h4>
             <p>Yes, the <a href="reference.html#account"><code>/account</code></a> command includes an
                 <code>eval_password</code> property which can be used to execute a script to retrieve your password.</p>
-            <p>For example on Ubuntu using gnome-keyring and <a href="https://apps.ubuntu.com/cat/applications/libsecret-tools/" target="_blank"><code>secret-tool</code></a>:</p>
+            <p>For example on Ubuntu using gnome-keyring and <a
+                    href="https://apps.ubuntu.com/cat/applications/libsecret-tools/"
+                    target="_blank"><code>secret-tool</code></a>:</p>
             <p>To add the password:</p>
             <pre><code>secret-tool store --label="Bobs account" xmpp bob@server.org</code></pre>
             <p>You will be prompted to enter the password.</p>
@@ -130,7 +116,8 @@
             <pre><code>secret-tool lookup xmpp bob@server.org</code></pre>
             <p>On OS X, use the following command for the <code>eval_password</code> property:</p>
             <pre><code>security find-generic-password -s bob@server.org -w</code></pre>
-            <p>You can also use Profanity together with <code>pass</code>, see this <a href="https://hispagatos.org/post/xmpp_profanity_and_pass">guide</a></p>
+            <p>You can also use Profanity together with <code>pass</code>, see this <a
+                    href="https://hispagatos.org/post/xmpp_profanity_and_pass">guide</a></p>
                 <a href="#top">
                     <h5>back to top</h5>
                 </a>
@@ -196,9 +183,11 @@
         <section>
             <a name="bugs"></a>
             <h4>I've found a bug/have a feature request who do I tell?</h4>
-            <p>If you have a github account, you can log an issue on the <a href="https://github.com/profanity-im/profanity/issues?state=open" target="_blank">issue
+            <p>If you have a github account, you can log an issue on the <a
+                    href="https://github.com/profanity-im/profanity/issues?state=open" target="_blank">issue
                     tracker</a>.</p>
-            <p>Alternatively you are welcome to post on the <a href="https://lists.posteo.de/listinfo/profanity" target="_blank">mailing
+            <p>Alternatively you are welcome to post on the <a
+                    href="https://lists.posteo.de/listinfo/profanity" target="_blank">mailing
                     list</a>.</p>
             <a href="#top">
                 <h5>back to top</h5>
@@ -208,7 +197,8 @@
             <a name="contrib"></a>
             <h4>I'd like to contribute, what should I do?</h4>
             <p>A page has been written with some ideas for how to <a id="link-helpout" href="helpout.html">help out</a>.
-                Any contributions/ideas are very welcome. Also see the <a href="https://github.com/profanity-im/profanity/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>
+                Any contributions/ideas are very welcome. Also see the <a
+                    href="https://github.com/profanity-im/profanity/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>
                 file on GitHub.</p>
             <a href="#top">
                 <h5>back to top</h5>
@@ -220,10 +210,12 @@
             <p>If you want to pay the developers and maintainers of Profanity a coffee there are various ways to do so.
             </p>
             <p>On <a href="https://github.com/profanity-im/profanity">GitHub</a> there is a <b>Sponsor</b> button
-                linking to relevant pages. If you want to send the money directly you can ask for an IBAN via <a href="mailto:jubalh@iodoru.org">email</a>.</p>
+                linking to relevant pages. If you want to send the money directly you can ask for an IBAN via <a
+                    href="mailto:jubalh@iodoru.org">email</a>.</p>
             <p>We also got selected for GitHub Sponsors. You can find the link also on the <b>Sponsor</b> button on
                 GitHub.</p>
-            <p>There is also the possibility to set a bounty for certain issues via <a href="https://www.bountysource.com/teams/profanity">Bountysource</a>. So in case you want to see a
+            <p>There is also the possibility to set a bounty for certain issues via <a
+                    href="https://www.bountysource.com/teams/profanity">Bountysource</a>. So in case you want to see a
                 certain feature implemented or bug fixed you can set a bounty there and the person doing the work gets
                 the reward.</p>
             <a href="#top">
@@ -233,7 +225,10 @@
         <section>
             <a name="clients"></a>
             <h4>Are there more clients like this?</h4>
-            <p>Yes, there are several commandline clients: <a href="https://www.gnu.org/software/freetalk/">freetalk</a>, <a href="https://mcabber.com/">mcabber</a>, <a href="https://poez.io">poezio</a> and <a href="https://xmpp.org/software/clients.html">more clients</a>.</p>
+            <p>Yes, there are several commandline clients: <a
+                    href="https://www.gnu.org/software/freetalk/">freetalk</a>, <a
+                    href="https://mcabber.com/">mcabber</a>, <a href="https://poez.io">poezio</a> and <a
+                    href="https://xmpp.org/software/clients.html">more clients</a>.</p>
             <a href="#top">
                 <h5>back to top</h5>
             </a>
@@ -283,10 +278,3 @@
             </a>
         </section>
     </article>
-    <footer>
-        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
-    </footer>
-</body>
-
-</html>
-

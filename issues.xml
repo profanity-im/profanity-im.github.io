@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Profanity, a console based XMPP client - Reporting issues</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="Expires" content="-1" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Cache-Control" content="no-cache" />
-    <link href="css/profanity.css" type="text/css" rel="stylesheet" />
+<?xml version="1.0" encoding="utf-8"?>
 
-</head>
-
-<body id="article">
-    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration" />
-    <header>
-        <h1>
-            <a href="index.html">
-            Profani<span class="kern-ty">ty</span>
-            </a>
-        </h1>
-        <h2>Reporting Issues</h2>
-    </header>
-    <article id="manual" data-sblg-article="1" data-sblg-set-title="Profanity, a console based XMPP client - Reporting issues" data-sblg-set-subtitle="Reporting Issues">
+    <article id="manual"
+             data-sblg-article="1"
+             data-sblg-set-title="Profanity, a console based XMPP client - Reporting issues"
+             data-sblg-set-subtitle="Reporting Issues">
         <section>
             <h3>Contents</h3>
 
@@ -40,8 +23,10 @@
             <a name="where"></a>
             <h3>Where to report issues</h3>
 
-            <p>The best place to report issues is at the <a target="_blank" href="https://github.com/boothj5/profanity/issues">github issue tracker</a>.</p>
-	    <p>Other options are the <a target="_blank" href="https://lists.posteo.de/listinfo/profanity">mailing list</a>,</p>
+            <p>The best place to report issues is at the <a target="_blank"
+                    href="https://github.com/boothj5/profanity/issues">github issue tracker</a>.</p>
+	    <p>Other options are the <a target="_blank"
+		    href="https://lists.posteo.de/listinfo/profanity">mailing list</a>,</p>
             <p>The following would be helpful in diagnosing/reproducing the issue if you can possibly supply it:
                 environment (OS, OS version, window manager, terminal type), profanity release version or commit hash if
                 from development, XMPP server and/or recipient's XMPP client if the issue only occurs with certain
@@ -77,7 +62,8 @@
             <p>Which on most systems is:</p>
             <pre><code>~/.local/share/profanity/accounts</code></pre>
             <p>Remember to remove or obfuscate any usernames/passwords from the configuration before sending, for
-                example, account configuration will include your password if you have set one using the <a href="reference.html#account">/account</a> command.</p>
+                example, account configuration will include your password if you have set one using the <a
+                    href="reference.html#account">/account</a> command.</p>
         </section>
         <section>
             <a name="backtrace"></a>
@@ -97,7 +83,7 @@
             <p>Add the command to your <code>~/.bashrc</code> or equivalent to enable coredumps for all terminal
                 sessions.</p>
 
-            <hr/>
+            <hr />
             <a name="configuredebug"></a>
             <h4>Rebuild in debug mode</h4>
             <p>Profanity needs to be rebuilt from source to enable more useful information in the coredump.</p>
@@ -113,7 +99,7 @@ make</code></pre>
                 out the relevant release tag) using the above steps, unless you are happy with editing and reinstalling
                 brew formula.</p>
 
-            <hr/>
+            <hr />
             <a name="viewingbacktrace"></a>
             <h4>Viewing the backtrace</h4>
             <p>On Linux, you will need the GDB debugger installed for your distribution.</p>
@@ -128,10 +114,3 @@ make</code></pre>
 
         </section>
     </article>
-    <footer>
-        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
-    </footer>
-</body>
-
-</html>
-

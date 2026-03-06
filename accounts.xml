@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Profanity, a console based XMPP client - Account Configuration</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="Expires" content="-1" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Cache-Control" content="no-cache" />
-    <link href="css/profanity.css" type="text/css" rel="stylesheet" />
-
-</head>
-
-<body id="article">
-    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration" />
-    <header>
-        <h1>
-            <a href="index.html">
-            Profani<span class="kern-ty">ty</span>
-            </a>
-        </h1>
-        <h2>Account Configuration</h2>
-    </header>
-    <article id="manual" data-sblg-article="1" data-sblg-set-title="Profanity, a console based XMPP client - Account Configuration" data-sblg-set-subtitle="Account Configuration">
+<?xml version="1.0" encoding="utf-8"?>
+    
+<article id="manual"
+         data-sblg-article="1"
+         data-sblg-set-title="Profanity, a console based XMPP client - Account Configuration"
+         data-sblg-set-subtitle="Account Configuration">
         <section>
             <h3>Contents</h3>
 
@@ -66,10 +49,3 @@ muc.nick=smithy
 </code></pre>
         </section>
 </article>
-    <footer>
-        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
-    </footer>
-</body>
-
-</html>
-
