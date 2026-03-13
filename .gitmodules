@@ -1,0 +1,3 @@
+[submodule "blog_source"]
+	path = blog_source
+	url = https://github.com/profanity-im/blog

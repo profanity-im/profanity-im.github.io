@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Developer Blog</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <link href="../css/profanity.css" type="text/css" rel="stylesheet"/>
+    <link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom Feed" />
+</head>
+
+<body id="blogposts">
+    <img class="overlay" src="../images/profanity_mouth-only.png" alt="Profanity Illustration" />
+    <header>
+        <h1>Profani<span class="kern-ty">ty</span></h1>
+        <h2>Developer Blog</h2>
+    </header>
+    <nav style="float: right;">
+        <a href="../index.html">Main page</a>
+    </nav>
+    <article id="manual">
+        <ul>
+            <li data-sblg-nav="1" data-sblg-navcontent="1">
+                <a href="${sblg-base}.html">${sblg-title}</a>
+                <address>${sblg-author}</address>
+                <time datetime="${sblg-date}">${sblg-date}</time>
+            </li>
+        </ul>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+</html>
