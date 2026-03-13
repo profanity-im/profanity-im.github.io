@@ -1,0 +1,42 @@
+name: Build and Deploy Site
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - run: cat /etc/os-release
+    - name: install dependencies
+      run: |
+       sudo dnf -y update
+       sudo dnf install -y lowdown make sblg
+    - name: build site
+      run: make
+    - name: package site
+      run: |
+       mkdir site
+       make install PREFIX=$(pwd)/site
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v4
+      with:
+       path: site
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
