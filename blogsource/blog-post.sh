@@ -21,7 +21,7 @@ TITLE=${TITLE//\ /-} 	# Replace spaces with -
 cat > ./content/post/"$TITLE".md << EOF
 ---
 title: $TITLEINPUT
-date: $HUGODATE
+date: $DATE
 authors: $USERNAME
 ---
 
