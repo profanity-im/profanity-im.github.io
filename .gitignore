@@ -1,3 +1,5 @@
 images/.DS_Store
 .DS_Store
 node_modules
+blog_sources/public/
+blog_sources/themes/

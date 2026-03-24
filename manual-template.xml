@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>${sblg-get|title}</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <link href="css/profanity.css" type="text/css" rel="stylesheet"/>
+
+</head>
+
+<body id="article">
+    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration" />
+    <header>
+        <h1>
+            <a href="index.html">
+            Profani<span class="kern-ty">ty</span>
+            </a>
+        </h1>
+        <h2>${sblg-get|subtitle}</h2>
+    </header>
+    <article data-sblg-article="1"> Content</article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+
+</html>

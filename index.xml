@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<article data-sblg-article="1"
+         data-sblg-set-title="Profanity, a console based XMPP client - Home"
+         data-sblg-set-subtitle="A console based XMPP&nbsp;client">
+     <div id="content">
+        <h4>
+            Profanity is a console based XMPP client written in C using <a href="http://www.gnu.org/software/ncurses/"
+                target="_blank">ncurses</a> and <a href="http://strophe.im/libstrophe/" target="_blank">libstrophe</a>,
+            inspired&nbsp;by&nbsp;<a href="http://irssi.org/" target="_blank">Irssi</a>
+        </h4>
+
+        <p>
+            Available on Linux, FreeBSD, OpenBSD, OSX, Windows and Android (Termux)<br />
+            <br />
+            Do you like Profanity?<br />
+            Consider <a href="donate.html">donating</a>!<br />
+        </p>
+
+        <p>
+            <b>Latest release:</b><br />
+            <b><a id="download-tarball" href="tarballs/profanity-0.16.0.tar.gz">profanity-0.16.0.tar.gz</a></b><br />
+            sha256:  <span class="hash">1f2e36a081cd299173f1c12b64b1cef971063e67bf226fb3f7048f2e67bd6a70</span><br />
+            <br />
+            <b><a id="download-zip" href="tarballs/profanity-0.16.0.zip">profanity-0.16.0.zip</a></b><br />
+            sha256:  <span class="hash">5c2a0601b49c43ed9f23b2e3f6fe79fb1eaece0f33e03ccad217d8b5ffc0800f</span><br />
+        </p>
+
+        <p><b>Documentation:</b><br />
+              <a href="userguide.html">User Guide</a><br />
+              <a href="faq.html">FAQ</a><br />
+              <a href="xeps.html">Supported XEPs</a><br />
+              <a href="plugins.html">Plugins</a><br />
+              <a href="issues.html">Reporting issues</a><br />
+              <a id="link-helpout" href="helpout.html">How to help out</a><br />
+              <a href="blog/index.html">Blog</a><br />
+              <a href="themegallery.html">Theme Gallery</a><br />
+        </p>
+
+        <p><b>Links:</b><br />
+              <a id="link-github" href="http://github.com/profanity-im/profanity" target="_blank">Github</a><br />
+              <a id="link-mailinglist" href="https://lists.posteo.de/listinfo/profanity" target="_blank">Mailing
+                list</a><br />
+              <a id="link-twitter" href="https://twitter.com/profanityim" target="_blank">Twitter</a><br />
+              <a id="link-muc" href='xmpp:profanity@rooms.dismail.de?join'>xmpp:profanity@rooms.dismail.de</a><br />
+        </p>
+    </div>
+    <div id="features">
+        <h3>Features</h3>
+        <img src="images/profanity_logo.png" alt="Profanity Logo" />
+        <ul>
+            <li>Supports XMPP chat services</li>
+            <li>MUC chat room support</li>
+            <li>OTR, PGP and OMEMO encryption</li>
+            <li>Roster management</li>
+            <li>Flexible resource and priority settings</li>
+            <li>Desktop notifications</li>
+            <li>Plugins in Python and C</li>
+        </ul>
+    </div>
+    <div id="screenshots">
+        <h3>Screenshots</h3>
+        <ul>
+            <li><a href="images/prof-1.png"><img src="images/prof-1.png" /></a></li>
+            <li><a href="images/profroster.png"><img src="images/profroster.png" /></a></li>
+            <li><a href="images/profoldterm.png"><img src="images/profoldterm.png" /></a></li>
+            <li><a href="images/roompanel.png"><img src="images/roompanel.png" /></a></li>
+            <li><a href="images/profxfce.png"><img src="images/profxfce_small.png" /></a></li>
+            <li><a href="images/prof_mac.png"><img src="images/prof_mac_small.png" /></a></li>
+            <li><a href="images/prof-win.png"><img src="images/prof-win.png" /></a></li>
+            <li><a href="images/prof-pink.png"><img src="images/prof-pink.png" /></a></li>
+            <li><a href="images/2-barebones-chat.png"><img src="images/2-barebones-chat.png" /></a></li>
+        </ul>
+    </div>
+</article>
