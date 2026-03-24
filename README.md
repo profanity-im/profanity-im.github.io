@@ -1,30 +1,42 @@
 Sources for https://profanity-im.github.io
 
-Most site are edited by hand.
+The website is generated from XML and Markdown sources using [sblg](https://kristaps.bsd.lv/sblg/) and [lowdown](https://kristaps.bsd.lv/lowdown).
 
-Top level pages are generated from xml sources using [sblg](https://kristaps.bsd.lv/sblg/).
-The source file for the landing page is index.xml which contains html for everything other
-than the header and footer.  The source files for other top level pages are in the folder
-`pagesource`. These are xml files which contain html content for everything other than the
-header and footer. Edit them by hand.
+## Reference
 
-Blog entry sources are in the directory `blogsource/content/post`. These are markdown
-files which are processed by [lowdown](https://kristaps.bsd.lv/lowdown). To create a new
-blog entry enter the directory `blogsource`. Run `blog-post.sh` to create a blog post
-starter file. Edit the starter file created in `blogsource/content/post/` to add the
-content for the blog post. If you do not have a contributor profile, please create one in
-`blogsource/content/contributors`. See one of the existing contributor profiles for the
-formatting. Optionally add an image in jpeg format with name `username.jpg` to be used with
-your profile in `blogsource/content/contributors/img`.
+| To Change... | Edit File(s) | Format |
+| :--- | :--- | :--- |
+| **Home Page (Landing)** | `index.xml` | XML Fragment |
+| **Top-Level Pages** (FAQ, Donate, etc.) | `pagesource/*.xml` | XML Fragment |
+| **Blog Posts** | `blogsource/content/post/*.md` | Markdown |
+| **Blog User Profiles** | `blogsource/content/contributors/*.md` | Markdown |
+| **Site Header/Footer (Home)** | `landing-template.xml` | HTML Template |
+| **Site Header/Footer (Manuals)** | `manual-template.xml` | HTML Template |
+| **Blog Post Layout** | `blogsource/content/post/blog-post-template.xml` | HTML Template |
+| **Theme Gallery Layout** | `gallery-template.xml` | HTML Template |
+| **Style** | `css/*.css` | CSS |
 
-Command references (main_fragment.html, toc_fragment.html),  and apidocs are generated via
-`profanity docgen`. See the
-[release guide](https://github.com/profanity-im/profanity/blob/master/RELEASE_GUIDE.md) for
-details.
+### Page Sources
+The source files for the landing page (`index.xml`) and other top level pages in `pagesource/` are XML fragments. They contain the HTML content for the body, which is then injected into the appropriate header and footer templates.
 
-GitHubActions will build and deploy the website for updates to blog entries and to changes in
-the top level pages.
+### Blog
+Blog posts and contributor profiles are written in Markdown.
 
-To build the site locally, type `make` in the top level directory.  You will need to have
-[sblg](https://kristaps.bsd.lv/sblg/) and [lowdown](https://kristaps/bsd.lv/lowdown) installed
-on your system.
+To create a new blog entry:
+1. Enter the directory `blogsource`.
+2. Run `./blog-post.sh` to create a starter file in `blogsource/content/post/`.
+3. Edit the new `.md` file to add your content.
+
+If you do not have a contributor profile, please create one in `blogsource/content/contributors/` using an existing profile as a template. You can optionally add a JPEG image (named `username.jpg`) to `blogsource/content/contributors/img/`.
+
+### Documentation
+Command references (`main_fragment.html`, `toc_fragment.html`) and apidocs are generated via `profanity docgen`. See the [release guide](https://github.com/profanity-im/profanity/blob/master/RELEASE_GUIDE.md) for details.
+
+### Build & Deploy
+GitHub Actions will automatically build and deploy the website to GitHub Pages on every push.
+
+To build the site locally, run `make` in the top level directory. You will need `sblg` and `lowdown` installed on your system.
+
+To preview the site locally, run `make install` which will create a directory `site`, open `site/index.html` in a web browser.
+
+To remove the generated files and keep the source files, run `make clean`.
