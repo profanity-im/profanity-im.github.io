@@ -20,6 +20,9 @@ body {
   overflow-x: hidden; //stop horizontal scrollbars
   padding-left: $grid-padding-mobile;
   padding-right: $grid-padding-mobile;
+  a {
+    position: relative;
+  }
   @media screen and (min-width: $medium) {
     width: auto;
     margin-left: auto;
@@ -100,6 +103,7 @@ header {
   margin-top: $gap-vertical * 3;
   margin-bottom: $gap-vertical * 3;
   a {
+    position:relative,
     &:link,
     &:visited,
     &:hover,
@@ -216,6 +220,7 @@ header {
   }
 
   a {
+    position: relative;
     border-radius: 6px;
     min-height: 10em;
     border: 1em solid color.mix(black, $backgroundShade, 95%);

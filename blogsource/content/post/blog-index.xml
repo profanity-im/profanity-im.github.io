@@ -14,16 +14,16 @@
     <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration" />
     <header>
         <h1>
-            <a href="../../index.html">
+            <a href="../../index.html" style="position: relative">
             Profani<span class="kern-ty">ty</span>
             </a>
         </h1>
         <h2>Developer Blog</h2>
     </header>
     <nav style="float: right;">
-        <a href="../../index.html">Main page</a>
+        <a href="../../index.html" style="position: relative">Main page</a>
     </nav>
-    <article id="manual">
+    <article id="manual" style="position: relative">
         <ul>
             <li data-sblg-nav="1" data-sblg-navcontent="1">
                 <a href="${sblg-base}.html">${sblg-title}</a>
