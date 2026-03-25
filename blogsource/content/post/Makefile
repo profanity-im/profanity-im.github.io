@@ -18,7 +18,7 @@ $(BLOG_POSTS_XML): $(BLOG_POSTS)
 	echo "<article id=\"manual\" data-sblg-article=\"1\">"  >$@
 	echo " <header>" >>$@
 	echo "  <h3>`lowdown -X title $(subst .xml,.md,$@)`</h3>" >>$@
-	echo "  <address><a href=\"../contributors/`lowdown -X authors $(subst .xml,.md,$@)`.html\">`lowdown -X authors $(subst .xml,.md,$@)`</a></address>" >>$@
+	echo "  <address><a href=\"../../contributors/`lowdown -X authors $(subst .xml,.md,$@)`.html\">`lowdown -X authors $(subst .xml,.md,$@)`</a></address>" >>$@
 	echo "  <time datetime=\"`lowdown -X date $(subst .xml,.md,$@) | cut -f1 -dT`\">`lowdown -X date $(subst .xml,.md,$@) | cut -f1 -dT`</time>" >>$@
 	echo " </header>" >>$@
 	lowdown  $(subst .xml,.md,$@) >>$@
