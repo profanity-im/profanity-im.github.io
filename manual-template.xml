@@ -14,13 +14,13 @@
     <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration" />
     <header>
         <h1>
-            <a href="index.html">
+            <a href="index.html" style="position: relative">
             Profani<span class="kern-ty">ty</span>
             </a>
         </h1>
         <h2>${sblg-get|subtitle}</h2>
     </header>
-    <article data-sblg-article="1"> Content</article>
+    <article data-sblg-article="1" style="position: relative"> Content</article>
     <footer>
         <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
     </footer>

@@ -17,7 +17,7 @@
         <h1>Profani<span class="kern-ty">ty</span></h1>
         <h2>${sblg-get|subtitle}</h2>
     </header>
-    <article data-sblg-article="1"> Content</article>
+    <article data-sblg-article="1" style="position: relative"> Content</article>
     <div id="Zoomer" style="overflow-y:auto"></div>
     <footer>
         <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
