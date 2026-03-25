@@ -39,6 +39,7 @@ index.html: landing-template.xml
 $(PAGES): manual-template.xml
 	cp --preserve=mode,ownership,timestamps $(addprefix $(PAGES_SRC_DIR)/,$(@:.html=.xml)) .
 	$(SBLG) -o $@ -t manual-template.xml -c $(@:.html=.xml)
+	rm -f $(PAGES:.html=.xml)
 
 themegallery.html: gallery-template.xml
 	$(SBLG) -o $@ -t gallery-template.xml -c themegallery.xml
@@ -64,6 +65,6 @@ $(REDIRECTS): $(REDIRECTS_SRC)
 clean:
 	$(MAKE) -C $(BLOG_POST_SRC_DIR) clean
 	$(MAKE) -C $(CONTRIBUTORS_SRC_DIR) clean
-	rm -f index.html $(PAGES) $(PAGES:.html=.xml) themegallery.html $(REDIRECTS)
+	rm -f index.html $(PAGES) themegallery.html $(REDIRECTS)
 	rm -r $(BLOG_POSTS_XML) $(BLOG_POSTS_OUT) $(BLOG_POST_OUT_DIR)
 	rm -r $(CONTRIBUTORS_XML) $(CONTRIBUTORS_OUT) $(CONTRIBUTORS_OUT_DIR)
