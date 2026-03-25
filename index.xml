@@ -61,15 +61,15 @@
     <div id="screenshots">
         <h3>Screenshots</h3>
         <ul>
-            <li><a href="images/prof-1.png"><img src="images/prof-1.png" /></a></li>
-            <li><a href="images/profroster.png"><img src="images/profroster.png" /></a></li>
-            <li><a href="images/profoldterm.png"><img src="images/profoldterm.png" /></a></li>
-            <li><a href="images/roompanel.png"><img src="images/roompanel.png" /></a></li>
-            <li><a href="images/profxfce.png"><img src="images/profxfce_small.png" /></a></li>
-            <li><a href="images/prof_mac.png"><img src="images/prof_mac_small.png" /></a></li>
-            <li><a href="images/prof-win.png"><img src="images/prof-win.png" /></a></li>
-            <li><a href="images/prof-pink.png"><img src="images/prof-pink.png" /></a></li>
-            <li><a href="images/2-barebones-chat.png"><img src="images/2-barebones-chat.png" /></a></li>
+            <li><a href="images/prof-1.webp"><img src="images/prof-1.webp" /></a></li>
+            <li><a href="images/profroster.webp"><img src="images/profroster.webp" /></a></li>
+            <li><a href="images/profoldterm.webp"><img src="images/profoldterm.webp" /></a></li>
+            <li><a href="images/roompanel.webp"><img src="images/roompanel.webp" /></a></li>
+            <li><a href="images/profxfce.webp"><img src="images/profxfce_small.webp" /></a></li>
+            <li><a href="images/prof_mac.webp"><img src="images/prof_mac_small.webp" /></a></li>
+            <li><a href="images/prof-win.webp"><img src="images/prof-win.webp" /></a></li>
+            <li><a href="images/prof-pink.webp"><img src="images/prof-pink.webp" /></a></li>
+            <li><a href="images/2-barebones-chat.webp"><img src="images/2-barebones-chat.webp" /></a></li>
         </ul>
     </div>
 </article>
