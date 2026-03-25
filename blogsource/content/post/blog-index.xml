@@ -6,18 +6,18 @@
     <meta http-equiv="Expires" content="-1"/>
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Cache-Control" content="no-cache"/>
-    <link href="../css/profanity.css" type="text/css" rel="stylesheet"/>
+    <link href="../../css/profanity.css" type="text/css" rel="stylesheet"/>
     <link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom Feed" />
 </head>
 
 <body id="blogposts">
-    <img class="overlay" src="../images/profanity_mouth-only.png" alt="Profanity Illustration" />
+    <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration" />
     <header>
         <h1>Profani<span class="kern-ty">ty</span></h1>
         <h2>Developer Blog</h2>
     </header>
     <nav style="float: right;">
-        <a href="../index.html">Main page</a>
+        <a href="../../index.html">Main page</a>
     </nav>
     <article id="manual">
         <ul>
