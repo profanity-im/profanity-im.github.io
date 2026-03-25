@@ -19,11 +19,11 @@
 
         <p>
             <b>Latest release:</b><br />
-            <b><a id="download-tarball" href="tarballs/profanity-0.16.0.tar.gz">profanity-0.16.0.tar.gz</a></b><br />
-            sha256:  <span class="hash">1f2e36a081cd299173f1c12b64b1cef971063e67bf226fb3f7048f2e67bd6a70</span><br />
+            <b><a id="download-tarball" href="tarballs/profanity-${version}.tar.xz">profanity-${version}.tar.xz</a></b><br />
+            sha256:  <span class="hash">${tar_xz_sha256}</span><br />
             <br />
-            <b><a id="download-zip" href="tarballs/profanity-0.16.0.zip">profanity-0.16.0.zip</a></b><br />
-            sha256:  <span class="hash">5c2a0601b49c43ed9f23b2e3f6fe79fb1eaece0f33e03ccad217d8b5ffc0800f</span><br />
+            <b><a id="download-zip" href="tarballs/profanity-${version}.zip">profanity-${version}.zip</a></b><br />
+            sha256:  <span class="hash">${zip_sha256}</span><br />
         </p>
 
         <p><b>Documentation:</b><br />

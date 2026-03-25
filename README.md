@@ -40,3 +40,13 @@ To build the site locally, run `make` in the top level directory. You will need 
 To preview the site locally, run `make install` which will create a directory `site`, open `site/index.html` in a web browser.
 
 To remove the generated files and keep the source files, run `make clean`.
+
+## Release Process
+
+When a new version of Profanity is released:
+
+1. Update the version string in `profanity_version.txt`.
+2. Add the new `.tar.xz` and `.zip` source tarballs to the `tarballs/` directory.
+3. Generate the documentation for the new version (`profanity docgen` see RELEASE_NOTES.md in the profanity repo) and copy it to a new subdirectory in `guide/`. Add a link to the new guide in `pagesource/userguide.xml`.
+
+Do not manually update the version strings or SHA-256 hashes in `index.html`. These are calculated dynamically from the files during the build process on GitHub Actions.
