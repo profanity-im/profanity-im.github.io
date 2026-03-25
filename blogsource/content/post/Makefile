@@ -10,9 +10,11 @@ all: index.html atom.xml
 atom.xml: $(BLOG_POSTS_XML) atom-template.xml
 	$(SBLG) -s rcmdline -o $@ -a $(BLOG_POSTS_XML)
 
-$(BLOG_POSTS_OUT) index.html: $(BLOG_POSTS_XML) blog-post-template.xml blog-index.xml
+index.html: $(BLOG_POSTS_OUT) blog-index.xml
+	$(SBLG) -o $@ -t blog-index.xml $(BLOG_POSTS_OUT)
+
+$(BLOG_POSTS_OUT): $(BLOG_POSTS_XML) blog-post-template.xml
 	$(SBLG) -s cmdline -t blog-post-template.xml -L $(BLOG_POSTS_XML)
-	$(SBLG) -s rcmdline -t blog-index.xml -o $@ $(BLOG_POSTS_XML)
 
 $(BLOG_POSTS_XML): $(BLOG_POSTS)
 	echo "<article id=\"manual\" data-sblg-article=\"1\">"  >$@
