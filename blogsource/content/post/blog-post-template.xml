@@ -11,7 +11,7 @@
 </head>
 
 <body id="blogpost">
-    <img class="overlay" src="../images/profanity_mouth-only.png" alt="Profanity Illustration" />
+    <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration" />
     <header>
         <h1>
             <a href="index.html">
