@@ -19,12 +19,14 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              url: url => {
-                if (url.includes(".png") || url.includes(".svg")) {
-                  return false;
-                }
+              url: {
+                filter: (url, resourcePath) => {
+                  if (url.includes(".png") || url.includes(".svg")) {
+                    return false;
+                  }
 
-                return true;
+                  return true;
+                }
               }
             }
           },
@@ -32,9 +34,7 @@ module.exports = {
           {
             loader: "sass-loader",
             options: {
-              sassOptions: {
-                fiber: false
-              }
+              sassOptions: {}
             }
           }
         ]
@@ -61,9 +61,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.DefinePlugin({
-      "process.env.NODE_ENV": process.env.NODE_ENV
-    }),
     new MiniCssExtractPlugin()
   ]
 };

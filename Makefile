@@ -16,6 +16,10 @@ REDIRECTS_DIR = pageredirects
 REDIRECTS_SRC = $(wildcard $(REDIRECTS_DIR)/*.html)
 REDIRECTS = $(subst $(REDIRECTS_DIR)/,,$(REDIRECTS_SRC))
 
+VERSION = $(shell cat profanity_version.txt)
+TAR_XZ_SHA256 = $(shell sha256sum tarballs/profanity-$(VERSION).tar.xz | cut -d' ' -f1)
+ZIP_SHA256 = $(shell sha256sum tarballs/profanity-$(VERSION).zip | cut -d' ' -f1)
+
 all: index.html $(PAGES) themegallery.html $(BLOG_POSTS_OUT) $(BLOG_POST_OUT_DIR)/atom.xml \
      $(BLOG_POST_OUT_DIR)/index.html $(CONTRIBUTORS_OUT) $(CONTRIBUTORS_OUT_DIR)/index.html $(REDIRECTS)
 
@@ -36,8 +40,12 @@ install:  index.html $(PAGES) themegallery.html $(BLOG_POSTS_OUT) $(BLOG_POST_OU
 	cp -p -r tarballs $(PREFIX)
 
 
-index.html: landing-template.xml
-	$(SBLG) -o $@ -t landing-template.xml -c index.xml
+index.html: landing-template.xml index.xml profanity_version.txt
+	sed -e 's/$${version}/$(VERSION)/g' \
+	    -e 's/$${tar_xz_sha256}/$(TAR_XZ_SHA256)/g' \
+	    -e 's/$${zip_sha256}/$(ZIP_SHA256)/g' index.xml > index.gen.xml
+	$(SBLG) -o $@ -t landing-template.xml -c index.gen.xml
+	rm -f index.gen.xml
 
 $(PAGES): manual-template.xml
 	cp --preserve=mode,ownership,timestamps $(addprefix $(PAGES_SRC_DIR)/,$(@:.html=.xml)) .
