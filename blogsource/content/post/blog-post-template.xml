@@ -6,7 +6,7 @@
     <meta http-equiv="Expires" content="-1"/>
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Cache-Control" content="no-cache"/>
-    <link href="../css/profanity.css" type="text/css" rel="stylesheet"/>
+    <link href="../../css/profanity.css" type="text/css" rel="stylesheet"/>
     <link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom Feed"/>
 </head>
 
