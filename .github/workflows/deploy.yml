@@ -1,5 +1,10 @@
 name: Build and Deploy Site
-on: push
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -8,7 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v6
-    - run: cat /etc/os-release
     - name: install dependencies
       run: |
        sudo dnf -y update
@@ -25,6 +29,7 @@ jobs:
        path: site
 
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: build
 
     permissions:
