@@ -1,4 +1,6 @@
-@import "base";
+@use "sass:color";
+@use "sass:math";
+@use "base" as *;
 
 // @include establish-baseline;
 
@@ -59,7 +61,7 @@ body {
 }
 #landing {
   p {
-    text-shadow: 0 0 1px transparentize(black, 0.3);
+    text-shadow: 0 0 1px color.adjust(black, $alpha: -0.3);
   }
   p,
   ul {
@@ -67,7 +69,7 @@ body {
   }
 
   h1 {
-    text-shadow: 0 0 7px transparentize(white, 0.5);
+    text-shadow: 0 0 7px color.adjust(white, $alpha: -0.5);
     @include font-size(75px);
     letter-spacing: -0.05em;
     font-weight: normal;
@@ -94,7 +96,7 @@ body {
   h2,
   h3,
   h4 {
-    text-shadow: 0 0 4px transparentize(black, 0.15);
+    text-shadow: 0 0 4px color.adjust(black, $alpha: -0.15);
   }
 
   h2 {
@@ -223,11 +225,11 @@ section > ul > li {
 // LINKS
 
 a {
-  text-shadow: 0 0 1px transparentize(black, 0.9);
+  text-shadow: 0 0 1px color.adjust(black, $alpha: -0.9);
   text-decoration: none;
   color: $ice;
   &:hover {
-    color: mix($ice, white, 35%);
+    color: color.mix($ice, white, 35%);
     text-decoration: underline;
   }
 }
@@ -240,7 +242,7 @@ ol {
 }
 
 li {
-  margin-top: $gap-vertical / 2;
+  margin-top: math.div($gap-vertical, 2);
 }
 
 // PRE STYLES

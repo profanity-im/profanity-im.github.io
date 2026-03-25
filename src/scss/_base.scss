@@ -1,3 +1,4 @@
+@use "sass:math";
 $baseline: 5px;
 
 $ice: #4db0c4;
@@ -45,8 +46,8 @@ $bodyText: #222222;
         right: -20%;
       }
     } @else {
-      border: $box-size/2 solid transparent;
-      border-#{opposite-position($side)}: $box-size/2 $style $box-color;
+      border: math.div($box-size, 2) solid transparent;
+      border-#{opposite-position($side)}: math.div($box-size, 2) $style $box-color;
       @if $side == left or $side == right {
         top: 0;
         #{opposite-position($side)}: 100%;
@@ -123,4 +124,49 @@ $gap-vertical: 20px;
 @mixin omega {
   float: right;
   margin-right: 0;
+}
+
+%animation-base {
+  animation-timing-function: ease-out;
+  animation-fill-mode: backwards;
+}
+
+%fade-in-last {
+  * {
+    @extend %animation-base;
+    animation-duration: 2.2s;
+    animation-name: fadeInDelay;
+  }
+}
+
+%right-hand-block {
+  @media screen and (min-width: 51.65625em) {
+    width: 47.93926%;
+    float: right;
+    margin-right: 0;
+  }
+  @media screen and (min-width: 78.65625em) {
+    width: 48.73164%;
+  }
+}
+
+%bleed {
+  margin-left: -1.8em;
+  padding-left: 1.8em;
+  margin-right: -1.8em;
+  padding-right: 1.8em;
+  @media screen and (min-width: 51.65625em) {
+    margin-left: -4.5em;
+    padding-left: 4.5em;
+    margin-right: -4.5em;
+    padding-right: 4.5em;
+  }
+}
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }

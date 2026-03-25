@@ -16,7 +16,11 @@ jobs:
     - name: install dependencies
       run: |
        sudo dnf -y update
-       sudo dnf install -y lowdown make sblg
+       sudo dnf install -y lowdown make sblg nodejs npm
+    - name: build css
+      run: |
+       npm install
+       npm run build
     - name: build site
       run: make
     - name: package site
