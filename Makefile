@@ -1,5 +1,5 @@
 SBLG = sblg
-PREFIX = $(HOME)/profanity
+PREFIX = $(PWD)/site
 BLOG_POST_SRC_DIR = blogsource/content/post
 BLOG_POST_OUT_DIR = blog
 BLOG_POSTS = $(wildcard $(BLOG_POST_SRC_DIR)/*.md)
