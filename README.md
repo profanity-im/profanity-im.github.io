@@ -1,13 +1,13 @@
 Sources for https://profanity-im.github.io
 
-The website is generated from XML and Markdown sources using [sblg](https://kristaps.bsd.lv/sblg/) and [lowdown](https://kristaps.bsd.lv/lowdown).
+The website is generated from XML templates and Markdown sources using [sblg](https://kristaps.bsd.lv/sblg/) and [lowdown](https://kristaps.bsd.lv/lowdown).
 
 ## Reference
 
 | To Change... | Edit File(s) | Format |
 | :--- | :--- | :--- |
-| **Home Page (Landing)** | `index.xml` | XML Fragment |
-| **Top-Level Pages** (FAQ, Donate, etc.) | `pagesource/*.xml` | XML Fragment |
+| **Home Page (Landing)** | `index.content.md`, `index.features.md` and `index.screenshots.md` | Markdown |
+| **Top-Level Pages** (FAQ, Donate, etc.) | `pagesource/*.md` | Markdown |
 | **Blog Posts** | `blogsource/content/post/*.md` | Markdown |
 | **Blog User Profiles** | `blogsource/content/contributors/*.md` | Markdown |
 | **Site Header/Footer (Home)** | `landing-template.xml` | HTML Template |
@@ -17,7 +17,7 @@ The website is generated from XML and Markdown sources using [sblg](https://kris
 | **Style** | `css/*.css` | CSS |
 
 ### Page Sources
-The source files for the landing page (`index.xml`) and other top level pages in `pagesource/` are XML fragments. They contain the HTML content for the body, which is then injected into the appropriate header and footer templates. The list of supported XEPS is generated using a git submodule for https://github.com/profanity-im/profanity/blob/master/profanity.doap.
+The source files for the landing page (`index.content.md`, `index.features.md` and `index.screenshots.md`) and other top level pages in `pagesource/` are writen in Markdown. They are transformed to HTML and then injected into the appropriate header and footer templates.  The list of supported XEPS is generated using a git submodule for https://github.com/profanity-im/profanity/blob/master/profanity.doap.
 
 ### Blog
 Blog posts and contributor profiles are written in Markdown.
@@ -55,6 +55,6 @@ When a new version of Profanity is released:
 
 1. Update the version string in `profanity_version.txt`.
 2. Add the new `.tar.xz` and `.zip` source tarballs to the `tarballs/` directory.
-3. Generate the documentation for the new version (`profanity docgen` see RELEASE_NOTES.md in the profanity repo) and copy it to a new subdirectory in `guide/`. Add a link to the new guide in `pagesource/userguide.xml`.
+3. Generate the documentation for the new version (`profanity docgen` see RELEASE_NOTES.md in the profanity repo) and copy it to a new subdirectory in `guide/`. Add a link to the new guide in `pagesource/userguide.md`.
 
 Do not manually update the version strings or SHA-256 hashes in `index.html`. These are calculated dynamically from the files during the build process on GitHub Actions.
