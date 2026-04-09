@@ -12,12 +12,14 @@ jobs:
       image: opensuse/tumbleweed:latest
 
     steps:
-    - uses: actions/checkout@v6
     - name: install dependencies
       run: |
        zypper refresh
        zypper --non-interactive update
-       zypper --non-interactive install git lowdown make sblg nodejs npm
+       zypper --non-interactive install git libxslt lowdown make sblg nodejs npm
+    - uses: actions/checkout@v6
+      with:
+        submodules: recursive
     - name: build css
       run: |
        npm install
