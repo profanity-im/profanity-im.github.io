@@ -9,14 +9,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: fedora:latest
+      image: opensuse/tumbleweed:latest
 
     steps:
     - uses: actions/checkout@v6
     - name: install dependencies
       run: |
-       sudo dnf -y update
-       sudo dnf install -y lowdown make sblg nodejs npm
+       zypper refresh
+       zypper --non-interactive update
+       zypper --non-interactive install git lowdown make sblg nodejs npm
     - name: build css
       run: |
        npm install
