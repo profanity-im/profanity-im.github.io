@@ -5,28 +5,13 @@
     xmlns:schema="https://schema.org/"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     >
-    <xsl:output method="html"/>
+    <xsl:output method="xml"/>
     <xsl:template match="doap:Project">
-        <html>
-            <head>
-                <link href="../style.css" type="text/css" rel="stylesheet"/>
-                <title><xsl:value-of select="doap:name"/> - XMPP implementation support</title>
-            </head>
-            <body>
-                <div class="header">
-                    <h1><xsl:apply-templates select="schema:logo"/> <xsl:value-of select="doap:name"/></h1>
-                    <p class="shortdesc"><xsl:value-of select="doap:shortdesc"/></p>
-                    <p class="description"><xsl:value-of select="doap:description"/></p>
-                    <p>
-                        <xsl:apply-templates select="doap:homepage"/>
-                        <xsl:apply-templates select="doap:download-page"/>
-                        <xsl:apply-templates select="schema:documentation"/>
-                    </p>
-                </div>
-                <div class="os">
-                    <p>Supported operating systems</p>
-                    <xsl:apply-templates select="doap:os" />
-                </div>
+        <article id="manual"
+             data-sblg-article="1"
+             data-sblg-set-title="Profanity, a console based XMPP client - Supported XEPs"
+             data-sblg-set-subtitle="Supported XEPs">
+        <section style="padding-left: 0">
                 <xsl:choose>
                     <xsl:when test="doap:implements">
                         <table>
@@ -44,30 +29,8 @@
                         <p class="no-info">No info about supported extensions available.</p>
                     </xsl:otherwise>
                 </xsl:choose>
-            </body>
-        </html>
-    </xsl:template>
-
-    <xsl:template match="schema:logo">
-        <img src="{@rdf:resource}" alt="logo" width="96" height="96" />
-    </xsl:template>
-
-    <xsl:template match="doap:homepage">
-        <a class="button" href="{@rdf:resource}">Website</a>
-    </xsl:template>
-
-    <xsl:template match="doap:download-page">
-        <a class="button" href="{@rdf:resource}">Download</a>
-    </xsl:template>
-
-    <xsl:template match="schema:documentation">
-        <a class="button" href="{@rdf:resource}">Documentation</a>
-    </xsl:template>
-
-    <xsl:template match="doap:os">
-        <div class="chip">
-            <xsl:value-of select="."/>
-        </div>
+            </section>
+        </article>
     </xsl:template>
 
     <xsl:template match="xmpp:SupportedXep">

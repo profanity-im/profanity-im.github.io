@@ -17,7 +17,7 @@ The website is generated from XML and Markdown sources using [sblg](https://kris
 | **Style** | `css/*.css` | CSS |
 
 ### Page Sources
-The source files for the landing page (`index.xml`) and other top level pages in `pagesource/` are XML fragments. They contain the HTML content for the body, which is then injected into the appropriate header and footer templates.
+The source files for the landing page (`index.xml`) and other top level pages in `pagesource/` are XML fragments. They contain the HTML content for the body, which is then injected into the appropriate header and footer templates. The list of supported XEPS is generated using a git submodule for [https://github.com/profanity-im/profanity/blob/master/profanity.doap](https://github.com/profanity-im/profanity/blob/master/profanity.doap).
 
 ### Blog
 Blog posts and contributor profiles are written in Markdown.
@@ -35,7 +35,14 @@ Command references (`main_fragment.html`, `toc_fragment.html`) and apidocs are g
 ### Build & Deploy
 GitHub Actions will automatically build and deploy the website to GitHub Pages on every push.
 
-To build the site locally, run `make` in the top level directory. You will need `sblg` and `lowdown` installed on your system.
+To build the site locally, run
+```
+git clone https://github.com/profanity-im/profanity-im.github.io.git
+cd profanity-im.github.io
+git submodule update --init --recursive
+make
+```
+You will need `sblg`, `lowdown` and `libxslt` installed on your system.
 
 To preview the site locally, run `make install` which will create a directory `site`, open `site/index.html` in a web browser.
 
@@ -47,6 +54,7 @@ When a new version of Profanity is released:
 
 1. Update the version string in `profanity_version.txt`.
 2. Add the new `.tar.xz` and `.zip` source tarballs to the `tarballs/` directory.
-3. Generate the documentation for the new version (`profanity docgen` see RELEASE_NOTES.md in the profanity repo) and copy it to a new subdirectory in `guide/`. Add a link to the new guide in `pagesource/userguide.xml`.
+3. Update the commit that the submodule in [pagesource/doap](https://github.com/profanity-im/profanity/blob/master/profanity.doap) points to the latest release verion
+4. Generate the documentation for the new version (`profanity docgen` see RELEASE_NOTES.md in the profanity repo) and copy it to a new subdirectory in `guide/`. Add a link to the new guide in `pagesource/userguide.xml`.
 
 Do not manually update the version strings or SHA-256 hashes in `index.html`. These are calculated dynamically from the files during the build process on GitHub Actions.

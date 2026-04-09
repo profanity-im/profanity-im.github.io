@@ -1,4 +1,5 @@
 SBLG = sblg
+XSLTPROC = xsltproc
 PREFIX = $(PWD)/site
 BLOG_SRC_TOP_DIR = blogsource/content
 BLOG_POST_SRC_DIR = $(BLOG_SRC_TOP_DIR)/post
@@ -11,6 +12,7 @@ CONTRIBUTORS_OUT_DIR = contributors
 CONTRIBUTORS = $(wildcard $(CONTRIBUTORS_SRC_DIR)/*.md)
 PAGES_SRC_DIR = pagesource
 PAGES_SRC = $(wildcard $(PAGES_SRC_DIR)/*.xml)
+PAGES_SRC += "xeps.xml"
 PAGES = $(subst $(PAGES_SRC_DIR)/,,$(PAGES_SRC:.xml=.html))
 REDIRECTS_DIR = pageredirects
 REDIRECTS_SRC = $(wildcard $(REDIRECTS_DIR)/*.html)
@@ -47,10 +49,19 @@ index.html: landing-template.xml index.xml profanity_version.txt
 	$(SBLG) -o $@ -t landing-template.xml -c index.gen.xml
 	rm -f index.gen.xml
 
-$(PAGES): manual-template.xml
+$(PAGES): manual-template.xml xeplist
 	cp --preserve=mode,ownership,timestamps $(addprefix $(PAGES_SRC_DIR)/,$(@:.html=.xml)) .
 	$(SBLG) -o $@ -t manual-template.xml -c $(@:.html=.xml)
 	rm -f $(PAGES:.html=.xml)
+
+xeplist: $(PAGES_SRC_DIR)/doap-stylesheet/style.xsl $(PAGES_SRC_DIR)/doap/profanity.doap \
+	$(PAGES_SRC_DIR)/xeplist/xeplist.xml
+	cp --preserve=mode,ownership,timestamps $(PAGES_SRC_DIR)/xeplist/xeplist.xml \
+		$(PAGES_SRC_DIR)/doap-stylesheet/
+	$(XSLTPROC) $(PAGES_SRC_DIR)/doap-stylesheet/style.xsl \
+		$(PAGES_SRC_DIR)/doap/profanity.doap \
+		> $(PAGES_SRC_DIR)/xeps.xml
+	rm $(PAGES_SRC_DIR)/doap-stylesheet/xeplist.xml
 
 themegallery.html: gallery-template.xml
 	$(SBLG) -o $@ -t gallery-template.xml -c themegallery.xml
@@ -77,6 +88,6 @@ $(REDIRECTS): $(REDIRECTS_SRC)
 clean:
 	$(MAKE) -C $(BLOG_POST_SRC_DIR) clean
 	$(MAKE) -C $(CONTRIBUTORS_SRC_DIR) clean
-	rm -f index.html $(PAGES) themegallery.html $(REDIRECTS)
+	rm -f index.html $(PAGES) themegallery.html $(REDIRECTS) $(PAGES_SRC_DIR)/xeps.xml
 	rm -r $(BLOG_POSTS_XML) $(BLOG_POSTS_OUT) $(BLOG_POST_OUT_TOP_DIR)
 	rm -r $(CONTRIBUTORS_XML) $(CONTRIBUTORS_OUT) $(CONTRIBUTORS_OUT_DIR)
