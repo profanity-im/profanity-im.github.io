@@ -1,3 +1,6 @@
 [submodule "blog_source"]
 	path = blog_source
 	url = https://github.com/profanity-im/blog
+[submodule "pagesource/doap"]
+	path = pagesource/doap
+	url = https://github.com/profanity-im/profanity.git
