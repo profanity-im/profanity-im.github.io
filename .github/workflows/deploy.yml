@@ -16,7 +16,7 @@ jobs:
       run: |
        zypper refresh
        zypper --non-interactive update
-       zypper --non-interactive install git libxslt lowdown make sblg nodejs npm
+       zypper --non-interactive install git libxslt linkchecker lowdown make python3 sblg nodejs npm
     - uses: actions/checkout@v6
       with:
         submodules: recursive
@@ -30,6 +30,11 @@ jobs:
       run: |
        mkdir site
        make install PREFIX=$(pwd)/site
+    - name: check for broken links
+      run: |
+        python3 -m http.server -d site 8000 > server.log &
+        sleep 10
+        linkchecker -o Failures --check-extern http://0.0.0.0:8000/ || true
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v4
       with:
