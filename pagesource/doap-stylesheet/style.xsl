@@ -46,7 +46,7 @@
         />
         <xsl:variable
             name="xeplist"
-            select="document('https://xmpp.org/extensions/xeplist.xml')/xep-infos"
+	    select="document('xeplist.xml')/xep-infos"
         />
         <xsl:variable
             name="xep-descriptor"
