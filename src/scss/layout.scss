@@ -112,6 +112,18 @@ header {
       text-decoration: none;
     }
   }
+  h1 {
+    a {
+      position:relative,
+      &:link,
+      &:visited,
+      &:hover,
+      &:active {
+        color: #222222;
+        text-decoration: none;
+      }      
+    }
+  }
 }
 
 @keyframes fadeInDelay {
