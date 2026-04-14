@@ -12,8 +12,8 @@ CONTRIBUTORS_OUT_DIR = contributors
 CONTRIBUTORS = $(wildcard $(CONTRIBUTORS_SRC_DIR)/*.md)
 PAGES_SRC_DIR = pagesource
 PAGES_SRC = $(wildcard $(PAGES_SRC_DIR)/*.xml)
+PAGES_SRC += xeps.xml
 PAGES = $(subst $(PAGES_SRC_DIR)/,,$(PAGES_SRC:.xml=.html))
-PAGES_SRC += "xeps.xml"
 REDIRECTS_DIR = pageredirects
 REDIRECTS_SRC = $(wildcard $(REDIRECTS_DIR)/*.html)
 REDIRECTS = $(subst $(REDIRECTS_DIR)/,,$(REDIRECTS_SRC))
