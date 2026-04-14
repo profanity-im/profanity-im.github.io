@@ -6,7 +6,7 @@ The website is generated from XML templates and Markdown sources using [sblg](ht
 
 | To Change... | Edit File(s) | Format |
 | :--- | :--- | :--- |
-| **Home Page (Landing)** | `index.content.md`, `index.features.md` and `index.screenshots.md` | Markdown |
+| **Home Page (Landing)** | `index.md` | Markdown |
 | **Top-Level Pages** (FAQ, Donate, etc.) | `pagesource/*.md` | Markdown |
 | **Blog Posts** | `blogsource/content/post/*.md` | Markdown |
 | **Blog User Profiles** | `blogsource/content/contributors/*.md` | Markdown |
@@ -17,7 +17,7 @@ The website is generated from XML templates and Markdown sources using [sblg](ht
 | **Style** | `css/*.css` | CSS |
 
 ### Page Sources
-The source files for the landing page (`index.content.md`, `index.features.md` and `index.screenshots.md`) and other top level pages in `pagesource/` are writen in Markdown. They are transformed to HTML and then injected into the appropriate header and footer templates.  The list of supported XEPS is generated using a git submodule for https://github.com/profanity-im/profanity/blob/master/profanity.doap.
+The source files for the landing page (`index.md`) and other top level pages in `pagesource/` are writen in Markdown. They are transformed to HTML and then injected into the appropriate header and footer templates.  The list of supported XEPS is generated using a git submodule for https://github.com/profanity-im/profanity/blob/master/profanity.doap.
 
 ### Blog
 Blog posts and contributor profiles are written in Markdown.
