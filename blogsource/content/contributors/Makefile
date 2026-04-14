@@ -1,4 +1,5 @@
 SBLG = sblg
+LOWDOWN = lowdown
 CONTRIBUTORS = $(wildcard *.md)
 CONTRIBUTORS_XML = $(CONTRIBUTORS:.md=.xml)
 CONTRIBUTORS_OUT = $(CONTRIBUTORS_XML:.xml=.html)
@@ -12,12 +13,12 @@ $(CONTRIBUTORS_OUT) index.html: $(CONTRIBUTORS_XML) contributor-template.xml con
 $(CONTRIBUTORS_XML): $(CONTRIBUTORS)
 	echo "<article id=\"manual\" data-sblg-article=\"1\">"  >$@
 	echo " <header>" >>$@
-	echo "  <h3>`lowdown -X name $(subst .xml,.md,$@)`</h3>" >>$@
+	echo "  <h3>`$(LOWDOWN) -X name $(subst .xml,.md,$@)`</h3>" >>$@
 	echo " </header>" >>$@
-	test -f img/$(shell lowdown -X name $(subst .xml,.md,$@)).jpg  && \
-	echo " <img src=\"img/`lowdown -X name $(subst .xml,.md,$@)`.jpg\" alt=\"Avatar for `lowdown -X name $(subst .xml,.md,$@)`.\"/>" >>$@ || \
+	test -f img/$(shell $(LOWDOWN) -X name $(subst .xml,.md,$@)).jpg  && \
+	echo " <img src=\"img/`$(LOWDOWN) -X name $(subst .xml,.md,$@)`.jpg\" alt=\"Avatar for `$(LOWDOWN) -X name $(subst .xml,.md,$@)`.\"/>" >>$@ || \
 	echo No image
-	lowdown  $(subst .xml,.md,$@) >>$@
+	$(LOWDOWN) --html-no-skiphtml --html-no-escapehtml $(subst .xml,.md,$@) >>$@
 	echo "</article>" >>$@
 
 clean:
