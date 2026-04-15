@@ -35,27 +35,32 @@
             <a name="build"></a>
             <h3>Building</h3>
 
-            <p>Profanity uses the Autotools for its build system. The Autotools consist of Autoconf and Automake. This
-                page doesn't go in any detail about the Autotools, but describes the commands needed to build Profanity,
-                and brief descriptions of the various stages. You will also need autoconf-archive.</p>
+	    <p>Profanity uses the <a href="https://mesonbuild.com">Meson</a> build
+	        system. This page doesn't go into any detail about Meson, but describes
+		the commands needed to build Profanity, and brief descriptions of the
+		various stages.</p>
 
-            <p>You can either download the archive from the homepage or use git, a version control system, to get the
-                latest code.</p>
+            <p>You can either download the archive from the homepage or use git, a
+	        version control system, to get the latest code.</p>
             <p>If you want to get the latest version from git you'll have to do:</p>
             <pre><code>git clone https://github.com/profanity-im/profanity</code></pre>
 
-            <p>After obtaining the source code, and extracting it, use the following commands to build and install<p>
-                    <pre><code>./bootstrap.sh
-./configure
-make
-make install</code></pre>
-                    <p>The first step is only needed if you pulled from git</p>
+            <p>After obtaining the source code, use the following
+	    commands to build and install it with no options enabled<p>
+                    <pre><code>cd profanity
+meson setup build_run
+meson compile -C build_run
+meson install -C build_run</code></pre>
                     <p>The final step requires root privileges.</p>
 
-                    <p>Various dependencies are required to install Profanity, the <code>./configure</code> script will
-                        fail if the minimum dependencies cannot be found.<p>
-                            <p>The latest code in <code>master</code> is also kept up to date with development changes
-                            to libstrophe, so a manual build of this library may also be needed</p>
+                    <p>Various dependencies are required to install Profanity, the
+		       <code>meson setup build_run</code> step will
+                       fail if the minimum dependencies cannot be found.<p>
+                    <p>To enable greater functionality, additional optional dependencies are required.
+		       Please read on for instructions for how to get the required and optional dependencies
+		       and how to enable different options.</p>
+                    <p>The latest code in <code>master</code> is also kept up to date with development changes
+                       to libstrophe, so a manual build of this library may also be needed</p>
         </section>
         <section>
             <a name="pkgdeps"></a>
@@ -64,15 +69,13 @@ make install</code></pre>
             <p>The package names below are from Ubuntu and may differ per distribution.</p>
 
             <h4>Build dependencies:</h4>
-            <pre><code>automake
-autoconf
-autoconf-archive
-libtool
+            <pre><code>gcc
+meson
 pkg-config</code></pre>
 
             <h4>Required dependencies:</h4>
 
-            <p>Profanity is using <a href="https://github.com/strophe/libstrophe" target="_blank">libstrophe</a>.</p>
+            <p>Profanity uses <a href="https://github.com/strophe/libstrophe" target="_blank">libstrophe</a>.</p>
 
             <p>Profanity also requires development packages of:</p>
             <pre><code>ncurses
@@ -89,40 +92,43 @@ libotr                   # OTR support
 libgpgme                 # PGP support
 libsignal-protocol-c     # OMEMO support
 libgcrypt                # OMEMO support (>= 1.7)
-gtk2 or gtk3             # Desktop tray icon support
+libenchant-2             # Spell check support
+gtk3                     # Desktop tray icon support
 python                   # Python plugin support
 cmocka                   # To run tests
 shared-mime-info         # Send files with the correct mime type
 gdk-pixbuf2              # Scale the image for `/avatar set`
-qrencode                 # Display OMEMO QR code</code></pre>
+qrencode                 # Display OMEMO QR code
+xscreensaver             # Idle time detection</code></pre>
         </section>
         <section>
             <a name="distrodeps"></a>
             <h3>Distribution details:</h3>
 
             <p>To make it easier to install all the required packages in various distributions we collect copy pastes
-            here. These are contributed to users and might be out of date. Feel free to create <a href="https://github.com/profanity-im/profanity-im.github.io">pull request</a> to improve this section.</p>
+            here. These are contributed to users and might be out of date. Feel free to create a
+	    <a href="https://github.com/profanity-im/profanity-im.github.io">pull request</a> to improve this section.</p>
 
             <h4>Debian</h4>
-            <pre><code>apt-get install libcaca-dev libnotify-dev libgtk2.0-dev libotr5-dev libssl-dev libstrophe-dev pkg-config python3-dev libexpat1-dev libncursesw5-dev libglib2.0-dev libreadline-dev libgpgme11-dev libcurl4-gnutls-dev uuid-dev libcmocka-dev libgcrypt20-dev libsignal-protocol-c-dev libxss-dev libsqlite3-dev autoconf-archive  autoconf libgdk-pixbuf-2.0-dev libqrencode-dev
+            <pre><code>apt-get install libcaca-dev libnotify-dev libgtk2.0-dev libotr5-dev libssl-dev libstrophe-dev pkg-config python3-dev libexpat1-dev libncursesw5-dev libglib2.0-dev libreadline-dev libgpgme11-dev libcurl4-gnutls-dev uuid-dev libcmocka-dev libgcrypt20-dev libsignal-protocol-c-dev libxss-dev libsqlite3-dev libgdk-pixbuf-2.0-dev libqrencode-dev libenchant-2-dev meson
 </code></pre>
 
             <h4>openSUSE</h4>
-            <pre><code>zypper in gcc make automake autoconf libtool glib2-devel gtk2-devel libcmocka-devel libcurl-devel libexpat-devel libgpgme-devel libstrophe-devel libnotify-devel libotr-devel libuuid-devel ncurses-devel python3-devel readline-devel autoconf-archive libsignal-protocol-c-devel libgcrypt-devel sqlite3-devel gdk-pixbuf-devel qrencode-devel</code></pre>
+            <pre><code>zypper in gcc meson enchant-devel glib2-devel gtk2-devel libcmocka-devel libcurl-devel libexpat-devel libgpgme-devel libstrophe-devel libnotify-devel libotr-devel libuuid-devel ncurses-devel python3-devel readline-devel libsignal-protocol-c-devel libgcrypt-devel sqlite3-devel gdk-pixbuf-devel qrencode-devel</code></pre>
 
             <h4>Alpine Linux (Edge)</h4>
-            <pre><code>apk add build-base autoconf autoconf-archive automake libtool pkgconf libmesode-dev ncurses-dev glib-dev curl-dev readline-dev libnotify-dev libxscrnsaver libotr-dev gpgme-dev libsignal-protocol-c-dev libgcrypt-dev gtk+2.0-dev python3-dev cmocka-dev</code></pre>
+            <pre><code>apk add build-base meson enchant2-dev libtool pkgconf libmesode-dev ncurses-dev glib-dev curl-dev readline-dev libnotify-dev libxscrnsaver libotr-dev gpgme-dev libsignal-protocol-c-dev libgcrypt-dev gtk+3.0-dev python3-dev cmocka-dev</code></pre>
 
             <p>Note that some of the packages for Alpine Linux are only available in the "testing" repository</p>            
             
             <h4>Arch Linux</h4>
-            <pre><code>pacman -S --needed autoconf autoconf-archive automake base-devel check cmake cmocka curl doxygen expat gcc git gpgme gtk2 libgcrypt libnotify libotr libtool libxss make openssl pkg-config python wget sqlite gdk-pixbuf2 qrencode</code></pre>
+            <pre><code>pacman -S --needed base-devel cairo check cmake cmocka curl doxygen expat gcc git gdk-pixbuf2 gpgme gtk3 libcurl.so libgcrypt libgpg-error libncursesw.so libnotify libotr libsignal-protocol-c libstrophe.so libtool libx11 libxss meson openssl pkg-config python qrencode sqlite wget</code></pre>
 
             <h4>Fedora</h4>
-            <pre><code>dnf install autoconf autoconf-archive automake expect-devel gcc git glib2-devel glibc-all-langpacks gtk2-devel libXScrnSaver-devel libcmocka-devel libcurl-devel expat-devel libgcrypt-devel gpgme-devel libmicrohttpd-devel libnotify-devel libotr-devel libsignal-protocol-c-devel libtool libuuid-devel make ncurses-devel python3 python3-devel readline-devel openssl-devel sqlite-devel gdk-pixbuf2-devel qrencode-devel libstrophe-devel</code></pre>
+            <pre><code>dnf install enchant2-devel expect-devel gcc git glib2-devel glibc-all-langpacks gtk3-devel libXScrnSaver-devel libcmocka-devel libcurl-devel expat-devel libgcrypt-devel gpgme-devel libmicrohttpd-devel libnotify-devel libotr-devel libsignal-protocol-c-devel libtool libuuid-devel meson ncurses-devel python3 python3-devel readline-devel openssl-devel sqlite-devel gdk-pixbuf2-devel qrencode-devel libstrophe-devel</code></pre>
 
             <h4>Mac OS</h4>
-            <pre><code>brew install autoconf autoconf-archive automake libtool pkg-config glib gnutls gpgme libotr libstrophe openssl ossp-uuid readline terminal-notifier libsignal-protocol-c</code></pre>
+            <pre><code>brew install cmocka gettext glib gpgme gtk+3 libomemo-c libotr libstrophe libxscrnsaver meson ninja pkgconf python@3.14 qrencode readline sqlite terminal-notifier</code></pre>
 
             <p>Some required packages are "keg-only", which means they are not symlinked into /usr/local, therefore
                 pkg-config will fail when detecting the libraries and the build will fail. In order to fix this we need
@@ -137,74 +143,164 @@ export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"
             </code></pre>
 
             <h4>OpenBSD</h4>
-            <pre><code>pkg_add cmake gmake cmocka libtool automake-1.16.2 pkgconf readline python-3.8.2 autoconf-2.69p2 autoconf-archive libstrophe curl gpgme glib2 gtk+2 libotr libassuan libgpg-error libgcrypt libsignal-protocol-c sqlite3</code></pre>
+            <pre><code>pkg_add meson cmake gmake cmocka pkgconf readline python-3.12.11 libstrophe curl gpgme glib2 gtk+3 libotr libassuan libgpg-error libgcrypt libsignal-protocol-c sqlite3 enchant2</code></pre>
         </section>
         <section>
             <a name="expl"></a>
             <h3>Explanations:</h3>
+	    
+	    <p>Profanity is built using the <a href="https://mesonbuild.com">Meson</a> build system.</p>
 
             <h4>Input files</h4>
-            <p>configure.ac – Macro definitions to configure profanity for the target environment (autoconf)</p>
-            <p>Makefile.am – Template Makefile (automake)</p>
+            <p>meson.build – Definitions to setup profanity to build for the target environment</p>
+            <p>meson_options.txt – Default settings for input options</p>
 
-            <p>These files are the inputs to generating the actual configure script and Makefile required to configure
-                and compile Profanity.</p>
+            <p>These files are the inputs to generating the actual build definitions to compile Profanity.</p>
 
-            <h4>Generating a configure script</h4>
+            <h4>Preparing for compilation</h4>
 
-            <p>To generate the configure script:</p>
+            <p>Once all needed dependencies are installed, setup a minimal build by using</p>
 
-            <pre><code>./bootstrap.sh</code></pre>
+            <pre><code>meson setup build_run</code></pre>
 
-            <p>This phase only needs to be run when changes have been made to configure.ac, however it does no harm to
-                run it on every build. This phase also generates other files needed to create a config.h header
-                (variables used in the main code), and a Makefile (used for compilation).</p>
-            <p>Why not just write configure yourself, instead of writing configure.ac and generating one with
-                bootstrap.sh? Take a look at the generated configure script and you'll see why, there's a lot of work
-                involved in writing a configure script.</p>
-            <p>The bootstrap.sh file is very simple, it just runs autoreconf --install see autoreconf</p>
+	    <p>This will result in an out of source build directory <code>build_run</code> being
+	    created.</p>
 
-            <h4>Configuring</h4>
+	    <h4>Build Options</h4>
+	    <p>Meson requires features to be <strong>explicitly enabled</strong>.
+	    Nothing is auto-enabled; if you want a feature, you must pass the
+	    corresponding <code>-Doption=enabled</code> flag.</p>
 
-            <p>Once the configure script has been generated, run it to configure profanity.</p>
+	    <p>The system libstrophe is used by default; if you instead want to
+	    automatically download and link against libstrophe HEAD from upstream
+	    Git, provide <code>-Dforce_fallback_for=libstrophe</code> flag.</p>
 
-            <pre><code>./configure</code></pre>
+	    <table>
+		    <colgroup>
+			    <col style="width: 33%" />
+			    <col style="width: 33%" />
+			    <col style="width: 33%" />
+		    </colgroup>
+		    <thead>
+			    <tr>
+				    <th>Feature</th>
+				    <th>Description</th>
+				    <th>Meson option</th>
+			    </tr>
+		    </thead>
+		    <tbody>
+			    <tr>
+				    <td><strong>Notifications</strong></td>
+				    <td>Desktop notifications support</td>
+				    <td><code>-Dnotifications=enabled</code></td>
+			    </tr>
+			    <tr>
+				    <td><strong>Python Plugins</strong></td>
+				    <td>Support for Python plugins</td>
+				    <td><code>-Dpython-plugins=enabled</code></td>
+			    </tr>
+			    <tr>
+				    <td><strong>C Plugins</strong></td>
+				    <td>Support for C plugins</td>
+				    <td><code>-Dc-plugins=enabled</code></td>
+			    </tr>
+			    <tr>
+				    <td><strong>OTR</strong></td>
+				    <td>Off-the-Record encryption</td>
+				    <td><code>-Dotr=enabled</code></td>
+			    </tr>
+			    <tr>
+				    <td><strong>PGP</strong></td>
+				    <td>PGP encryption support</td>
+				    <td><code>-Dpgp=enabled</code></td>
+			    </tr>
+			    <tr>
+				    <td><strong>OMEMO</strong></td>
+				    <td>OMEMO encryption support</td>
+				    <td><code>-Domemo=enabled</code></td>
+			    </tr>
+			    <tr>
+				    <td><strong>OMEMO Backend</strong></td>
+				    <td>Select OMEMO backend library</td>
+				    <td><code>-Domemo-backend=libsignal\|libomemo-c</code></td>
+			    </tr>
+			    <tr>
+				    <td><strong>QR Code</strong></td>
+				    <td>OMEMO QR code display</td>
+				    <td><code>-Domemo-qrcode=enabled</code></td>
+			    </tr>
+			    <tr>
+				    <td><strong>Icons/Clipboard</strong></td>
+				    <td>GTK tray icons &amp; clipboard</td>
+				    <td><code>-Dicons-and-clipboard=enabled</code></td>
+			    </tr>
+			    <tr>
+				    <td><strong>GDK Pixbuf</strong></td>
+				    <td>Avatar scaling support</td>
+				    <td><code>-Dgdk-pixbuf=enabled</code></td>
+			    </tr>
+			    <tr>
+				    <td><strong>XScreenSaver</strong></td>
+				    <td>Idle time detection</td>
+				    <td><code>-Dxscreensaver=enabled</code></td>
+			    </tr>
+			    <tr>
+				    <td><strong>Spellcheck</strong></td>
+				    <td>Check spelling</td>
+				    <td><code>-Dspellcheck=enabled</code></td>
+			    </tr>
+			    <tr>
+				    <td><strong>Tests</strong></td>
+				    <td>Build unit tests</td>
+				    <td><code>-Dtests=true</code></td>
+			    </tr>
+			    <tr>
+				    <td><strong>Sanitizers</strong></td>
+				    <td>Run-time error detection</td>
+				    <td><code>-Db_sanitize=address,undefined</code></td>
+			    </tr>
+		    </tbody>
+	    </table>
 
-            <p>This will result in the following being generated, along with some other files:</p>
+	    <h4>Selecting OMEMO Backend</h4>
+	    
+	    <p>When building with OMEMO support enabled, you can choose between two
+	    backend libraries: - <code>libsignal</code>: The default backend using
+	    <code>libsignal-protocol-c</code>. - <code>libomemo-c</code>: An
+	    alternative backend using <code>libomemo-c</code>.</p>
 
-            <pre><code>src/config.h
-Makefile</code></pre>
+	    <p>Example of choosing the <code>libomemo-c</code> backend:</p>
+	    
+	    <pre><code>meson setup build_run -Domemo=enabled -Domemo-backend=libomemo-c</code></pre>
+
 
             <h4>Compiling</h4>
             <p>The following step will then compile Profanity:</p>
 
-            <pre><code>make</code></pre>
+            <pre><code>meson compile -C build_run</code></pre>
 
-            <p>Once you have run ./bootstrap.sh and ./configure once, if all you are doing is making code changes, then
-                you only need to run make to recompile your changes.</p>
-            <p>To perform a clean build (i.e. remove all compiled files and recompile)</p>
+            <p>To clean the build directory before recompiling use:</p>
 
-            <pre><code>make clean
-make</code></pre>
+            <pre><code>meson compile --clean -C build_run</code></pre>
 
             <h4>Tests</h4>
-            <p>All tests (unit and functional) can be run with:</p>
+            <p>All (functional and unit) tests can be run with:</p>
 
-            <pre><code>make check</code></pre>
+            <pre><code>meson test -C build_run</code></pre>
 
-            <p>Unit tests alone can be run with:</p>
+            <p>Unit tests can be run with:</p>
 
-            <pre><code>make check-unit</code></pre>
+            <pre><code>meson test -C build_run "unit tests"</code></pre>
 
             <h4>Install</h4>
 
-            <p>Once you have compiled profanity with make, the executable will be available in the current directory:
+            <p>Once you have compiled profanity, the executable can be run using:
             </p>
-            <pre><code>./profanity</code></pre>
+            <pre><code>./build_run/profanity</code></pre>
 
             <p>To install this version on your system, i.e. to be able to run it from anywhere:</p>
 
-            <pre><code>sudo make install</code></pre>
+            <pre><code>sudo meson install -C build_run</code></pre>
 
             <p>This step is not really necessary when doing development (i.e. you can always run the version just
                 compiled in the project directory), unless you want to have your development version available to any
