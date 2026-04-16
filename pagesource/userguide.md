@@ -6,6 +6,7 @@ ${section_start}
 ### Userguides
 
 - [For latest development version](guide/latest/userguide.html)
+- [For version 0.18.0](guide/0180/userguide.html)
 - [For version 0.17.0](guide/0170/userguide.html)
 - [For version 0.16.0](guide/0160/userguide.html)
 - [For version 0.15.0](guide/0150/userguide.html)
