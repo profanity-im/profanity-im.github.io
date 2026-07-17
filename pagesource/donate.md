@@ -13,7 +13,7 @@ You can help the development of Profanity and show your appreciation by donating
 
 There are several ways to do so:
 
-1. Become a sponsor on [GitHub Sponsors](https://github.com/jublah)
+1. Become a sponsor on [GitHub Sponsors](https://github.com/jubalh)
 2. Write an email to jubalh@iodoru.org to ask for bank details
 3. Send Bitcoin to: bc1qx265eat7hfasqkqmk9qf38delydnrnuvzhzy0x
 
