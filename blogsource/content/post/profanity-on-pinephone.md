@@ -25,7 +25,7 @@ I also decided to check profanity as I use it on my home server and it works per
 
 But, I still had a trouble scrolling the main window in profanity
 
-[video: ppkb keyboard issue](https://kraut.zone/w/6jG9F41Z7nNUZLFdHE43cN)
+[video: ppkb keyboard issue (video unavailable)](https://kraut.zone/w/6jG9F41Z7nNUZLFdHE43cN)
 
 I looked at [profanity keybindings](http://www.profanity.im/keybindings.html) and in the `User Interface Navigation` section I found that I should use `PageUp/PageDown` keys, but looking at [Pinephone wiki](https://wiki.pine64.org/wiki/PinePhone_(Pro)_Keyboard#Keyboard_layout) this keyboard does not have `PageUp/PageDown` keys.
 
@@ -49,7 +49,7 @@ After starting profanity, I was able to scroll window with content using followi
 - `C-j` - scroll up
 - `C-k` - to scroll down 
 
-[video: ppkb keyboard scroll](https://kraut.zone/w/fA2LeeRRmonkHVB5d3NMYe)
+[video: ppkb keyboard scroll (video unavailable)](https://kraut.zone/w/fA2LeeRRmonkHVB5d3NMYe)
 
 Here you can see some photos. 
 

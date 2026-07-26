@@ -5,22 +5,22 @@ ${section_start}
 
 ### Contents
 
-- [Use Profanity](use-profanity)
-- [Help with the website](website-help)
-- [Contribute code](contribute-code)
-- [Donate](donate)
+- [Use Profanity](#use-profanity)
+- [Help with the website](#help-with-the-website)
+- [Contribute code](#contribute-code)
+- [Donate](#donate)
 
 
 ${section_end}
 
 ${section_start}
 
-[](use-profanity)
+[](#use-profanity)
 ### Use Profanity
             
 The easiest way you can help out is just by using Profanity and sending any
 feedback you have to the
-[mailing list](https://lists.notraces.net/mailman/listinfo/profanity).
+[mailing list](https://lists.posteo.de/listinfo/profanity).
 Any feedback is welcome, although please keep it polite, and refrain from using
 profanity (pun intended).
 
@@ -31,7 +31,7 @@ ${section_end}
 
 ${section_start}
 
-[](website-help)
+[](#help-with-the-website)
 ### Help with the website
             
 The website often has small errors or omissions in documentation etc. The
@@ -46,7 +46,7 @@ ${section_end}
 
 ${section_start}
 
-[](contribute-code)
+[](#contribute-code)
 ### Contribute code
             
 Code contributions are always very welcome. From the small (spelling fixes) to
@@ -89,7 +89,7 @@ ${section_end}
 
 ${section_start}
 
-[](donate)
+[](#donate)
 ### Donate
 
 Yes, the rumors are true. Developers also have to eat. They also have limited

@@ -6,7 +6,7 @@ authors: jubalh
 
 Four months and 350 commits after 0.8.1 we are happy to release [0.9.0](https://github.com/profanity-im/profanity/releases/tag/0.9.0).
 
-7 people contributed code to it: [pasis](https://github.com/pasis), [wstrm](https://github.com/wstrm), [DebXWoody](https://github.com/DebXWoody), [toogley](https://github.com/toogley), [pmaziere](https://github.com/pmaziere), [moppman](https://github.com/moppman) and [jubalh](https://github.com/jubalh).
+7 people contributed code to it: [pasis](https://github.com/pasis), [wstrm](https://github.com/wstrm), [DebXWoody](https://github.com/DebXWoody), [toogley](https://web.archive.org/web/20210512220718/https://github.com/toogley), [pmaziere](https://github.com/pmaziere), [moppman](https://github.com/moppman) and [jubalh](https://github.com/jubalh).
 
 Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did!
 I also would like to express my gratitude to my sponsors [mdosch](https://github.com/mdosch) and [wstrm](https://github.com/wstrm)!
@@ -31,7 +31,7 @@ Hopefully this is useful for our testers!
 The new `-t` option will let you select a theme right at startup: `/profanity -t bios`.
 This is useful if you run multiple instances of Profanity. Maybe you have multiple accounts and want to visually destinguish between them.
 
-Did you know we have a [blogpost](https://profanity-im.github.io/blog/post/how-to-run-profanity-instances-within-tmux/) that should help you create such a setup with tmux?
+Did you know we have a [blogpost](https://profanity-im.github.io/blog/post/how-to-run-profanity-instances-within-tmux.html) that should help you create such a setup with tmux?
 
 ## Titlebar
 Previously you could choose whether to display the MUC name or MUC title in the titlebar. Now you can choose to do both or neither.

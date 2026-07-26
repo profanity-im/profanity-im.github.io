@@ -1,7 +1,7 @@
 ---
 title: OMEMO
 date: 2020-11-27T17:14:07+01:00
-authors: debxwoody 
+authors: debxwoody
 ---
 
 OMEMO with profanity.

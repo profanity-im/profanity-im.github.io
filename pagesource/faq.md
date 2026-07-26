@@ -10,7 +10,7 @@ ${section_start}
 - [Why are my settings not persistent?](#why-are-my-settings-not-persistent)
 - [Where is the profrc file format described?](#where-is-the-profrc-file-format-described)
 - [Will Profanity run on &lt;some platform&gt;?](#will-profanity-run-on-some-platform)
-- [Will Profanity work with Google Talk?](#will-profanity-work-with-google-gtalk)
+- [Will Profanity work with Google Talk?](#will-profanity-work-with-google-talk)
 - [Will Profanity work with Facebook Chat?](#will-profanity-work-with-facebook-chat)
 - [Will Profanity work with Slack?](#will-profanity-work-with-slack)
 - [Will Profanity work with MSN/Yahoo/AIM/IRC etc?](#will-profanity-work-with-msnyahooirc-etc)

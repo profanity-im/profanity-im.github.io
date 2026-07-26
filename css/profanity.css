@@ -716,7 +716,7 @@ article#manual ol,article#manual ul{
     list-style:none
 }
 #Zoomer{
-    background:rgba(0,0,0,.5) url(../images/stripey-dark.png) repeat;
+    background:rgba(0,0,0,.5);
     display:none;
     height:100%;
     margin-left:-1.8em;
@@ -738,17 +738,6 @@ article#manual ol,article#manual ul{
     margin:auto;
     max-width:100%;
     width:auto
-}
-#Zoomer .control-icon{
-    background:url(../images/close-button.svg);
-    background-size:contain;
-    height:5em;
-    opacity:.8;
-    position:absolute;
-    right:10%;
-    top:2.5em;
-    width:5em;
-    z-index:30
 }
 #Zoomer .control-icon:hover{
     opacity:1

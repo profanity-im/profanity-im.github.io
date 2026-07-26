@@ -40,6 +40,7 @@ profanity-on-tw
 ```
 
 We can now enter this container and install profanity in it via:
+
 ```
 host$ distrobox-enter profanity-on-tw
 Container profanity-on-tw is not running.
@@ -142,6 +143,7 @@ Type `exit` to get out.
 
 # Usage
 Each time you want to start profanity you now have to do enter the container and start it there:
+
 ```
 host$ distrobox-enter profanity-on-tw
 profanity-on-tw$ profanity
