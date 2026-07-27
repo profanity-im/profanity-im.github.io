@@ -269,11 +269,6 @@ can ask for an IBAN via [email](mailto:jubalh@iodoru.org).
 We also got selected for GitHub Sponsors. You can find the link also on the
 *Sponsor* button on GitHub.
 
-There is also the possibility to set a bounty for certain issues via
-[Bountysource](https://www.bountysource.com/teams/profanity).
-So in case you want to see a certain feature implemented or bug fixed you can
-set a bounty there and the person doing the work gets the reward.
-
 ##### [back to top](#top)
 
 ${section_end}
