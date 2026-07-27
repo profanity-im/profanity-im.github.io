@@ -101,9 +101,8 @@ ${section_start}
 
 #### Will Profanity work with Slack?
 
-Provided the XMPP gateway has been enabled for your team, Profanity will work.
-See the
-[Slack page on gateways](https://slack.zendesk.com/hc/en-us/articles/201727913-Connecting-to-Slack-over-IRC-and-XMPP)
+No. [Slack has closed the XMPP gateway on May 15,
+2018](https://www.theregister.com/software/2018/03/09/slack-cuts-ties-to-irc-and-xmpp-cos-they-dont-speak-emoji/1048417)
 
 ##### [back to top](#top)
 
