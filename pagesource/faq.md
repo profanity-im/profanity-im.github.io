@@ -10,7 +10,7 @@ ${section_start}
 - [Why are my settings not persistent?](#why-are-my-settings-not-persistent)
 - [Where is the profrc file format described?](#where-is-the-profrc-file-format-described)
 - [Will Profanity run on &lt;some platform&gt;?](#will-profanity-run-on-some-platform)
-- [Will Profanity work with Google Talk?](#will-profanity-work-with-google-gtalk)
+- [Will Profanity work with Google Talk?](#will-profanity-work-with-google-talk)
 - [Will Profanity work with Facebook Chat?](#will-profanity-work-with-facebook-chat)
 - [Will Profanity work with Slack?](#will-profanity-work-with-slack)
 - [Will Profanity work with MSN/Yahoo/AIM/IRC etc?](#will-profanity-work-with-msnyahooirc-etc)
@@ -101,9 +101,8 @@ ${section_start}
 
 #### Will Profanity work with Slack?
 
-Provided the XMPP gateway has been enabled for your team, Profanity will work.
-See the
-[Slack page on gateways](https://slack.zendesk.com/hc/en-us/articles/201727913-Connecting-to-Slack-over-IRC-and-XMPP)
+No. [Slack has closed the XMPP gateway on May 15,
+2018](https://www.theregister.com/software/2018/03/09/slack-cuts-ties-to-irc-and-xmpp-cos-they-dont-speak-emoji/1048417)
 
 ##### [back to top](#top)
 
@@ -269,11 +268,6 @@ can ask for an IBAN via [email](mailto:jubalh@iodoru.org).
 
 We also got selected for GitHub Sponsors. You can find the link also on the
 *Sponsor* button on GitHub.
-
-There is also the possibility to set a bounty for certain issues via
-[Bountysource](https://www.bountysource.com/teams/profanity).
-So in case you want to see a certain feature implemented or bug fixed you can
-set a bounty there and the person doing the work gets the reward.
 
 ##### [back to top](#top)
 

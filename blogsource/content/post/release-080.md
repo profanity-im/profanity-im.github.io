@@ -13,7 +13,7 @@ It's released five months after 0.7.0 and has 295 commits since then.
 Also more and more people contribute to Profanity's development. A big thanks to:
 [@paulfariello](https://github.com/paulfariello), [@svensp](https://github.com/svensp), [@aaptel](https://github.com/aaptel), [@aszlig](https://github.com/), [@mdosch](https://github.com/mdosch), [@pasis](https://github.com/pasis), [@mzagozen](https://github.com/mzagozen), [@quite](https://github.com/quite), [@weiss](https://github.com/weiss), [@Misaflo](https://github.com/Misaflo) and [@jubalh](https://github.com/).
 
-![Profanity](/blog/img/profanity-rel-080.jpeg)
+![Profanity](img/profanity-rel-080.jpeg)
 
 ## New features
 We got fingerprint autocompletion for the `/omemo trust` command.      

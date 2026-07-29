@@ -12,10 +12,10 @@ Do you like Profanity?
 Consider [donating](donate.html)!  
 
 **Latest release:**
-**[profanity-${version}.tar.xz](tarballs/profanity-${version}.tar.xz id="download-tarball")**  
+**[profanity-${version}.tar.xz](tarballs/profanity-${version}.tar.xz)**  
 sha256:  <span class="hash">${tar_xz_sha256}</span>  
   
-**[profanity-${version}.zip](tarballs/profanity-${version}.zip id="download-zip")**  
+**[profanity-${version}.zip](tarballs/profanity-${version}.zip)**  
 sha256:  <span class="hash">${zip_sha256}</span>  
 
 **Documentation:**  

@@ -7,7 +7,7 @@ ${section_start}
 
 - [Overview](#overview)
 - [Featured Plugins](#featured-plugins)
-- [Developing Plugins](developing-plugins)
+- [Developing Plugins](#developing-plugins)
 
      - [Python](#python),
      - [C](#c)

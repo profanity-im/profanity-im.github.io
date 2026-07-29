@@ -35,6 +35,7 @@ install:  index.html $(PAGES) themegallery.html $(BLOG_POSTS_OUT) $(BLOG_POST_OU
 	install -m0444 -p -D -t $(PREFIX)/$(BLOG_POST_OUT_TOP_DIR) $(BLOG_POST_OUT_TOP_DIR)/index.html
 	install -m0444 -p -D -t $(PREFIX)/$(BLOG_POST_OUT_DIR) $(BLOG_POST_OUT_DIR)/*.html
 	install -m0444 -p -D -t $(PREFIX)/$(BLOG_POST_OUT_DIR)/img $(BLOG_POST_OUT_DIR)/img/*.png
+	install -m0444 -p -D -t $(PREFIX)/$(BLOG_POST_OUT_DIR)/img $(BLOG_POST_OUT_DIR)/img/*.jpeg
 	install -m0444 -p -D -t $(PREFIX)/$(CONTRIBUTORS_OUT_DIR) $(CONTRIBUTORS_OUT_DIR)/*.html
 	install -m0444 -p -D -t $(PREFIX)/$(CONTRIBUTORS_OUT_DIR)/img $(CONTRIBUTORS_OUT_DIR)/img/*jpg
 	cp -p -r css $(PREFIX)

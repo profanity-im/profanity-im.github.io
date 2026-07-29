@@ -1,14 +1,13 @@
 ---
 title: "Last Message Correction"
 date: 2020-02-14T11:34:38+01:00
-authors:
-  - jubalh
+authors: jubalh
 ---
 
-From 10th to 14th February 2020 we had [Hackweek 19](https://hackweek.suse.com/19/projects) at SUSE.
+From 10th to 14th February 2020 we had [Hackweek 19](https://web.archive.org/web/20210728133610/https://hackweek.suse.com/19/projects) at SUSE.
 Part of that time I used to finally implement the long (since 2016!) [sought after](https://github.com/profanity-im/profanity/issues/805) Last Message Correction feature, aka [XEP-0308](https://xmpp.org/extensions/xep-0308.html).
 
-See my [Hackweek project](https://hackweek.suse.com/projects/implement-xep-0308-last-message-correction-in-profanity) and the corresponding [pull request](https://github.com/profanity-im/profanity/pull/1267).
+See my [Hackweek project](https://web.archive.org/web/20210423141452/https://hackweek.suse.com/projects/implement-xep-0308-last-message-correction-in-profanity) and the corresponding [pull request](https://github.com/profanity-im/profanity/pull/1267).
 
 ## Usage
 To enable incoming and outgoing corrections users need to enable it with `/correction on`, see `/help correction` for more details.

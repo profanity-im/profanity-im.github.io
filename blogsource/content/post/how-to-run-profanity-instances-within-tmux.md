@@ -1,7 +1,7 @@
 ---
 title: How to run profanity instances within tmux
 date: 2020-03-03T14:49:55+01:00
-authors: debxwoody 
+authors: debxwoody
 ---
 
 If you have more than one XMPP account, you may run one profanity process per
