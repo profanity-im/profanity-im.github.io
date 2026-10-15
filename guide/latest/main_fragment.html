@@ -796,12 +796,13 @@
 <h4>/mam</h4>
 <p><b>Synopsis</b></p>
 <p><pre><code>/mam &lt;on&gt;|&lt;off&gt;
+/mam verify
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Enable/Disable Message Archive Management (XEP-0313) Currently MAM in groupchats (MUCs) is not supported. Use the PG UP key to load more history.
+<p>Enable or disable Message Archive Management (XEP-0313), or verify loaded history. Use the PG UP key to load more history.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>on|off</code></td><td>Enable or disable MAM</td></tr></table>
+<table><tr><td><code>on|off</code></td><td>Enable or disable MAM</td></tr><tr><td><code>verify</code></td><td>Verify history between the oldest and newest loaded messages in the current window and fetch any missing ones from the server</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="mood"></a>
@@ -840,6 +841,19 @@
 /msg Thor Here is a private message
 /msg "My Friend" Hi, how are you?
 </code></pre></p>
+<a href="#top"><h5>back to top</h5></a><br><hr>
+
+<a name="mucping"></a>
+<h4>/mucping</h4>
+<p><b>Synopsis</b></p>
+<p><pre><code>/mucping set &lt;seconds&gt;
+/mucping timeout &lt;seconds&gt;
+</code></pre></p>
+<p><b>Description</b></p>
+<p>Set the interval and timeout for MUC self-pings (XEP-0410). Recommended interval is between 300 and 900 seconds, with a timeout of 10 to 60 seconds. Note that the interval must be greater than the timeout.
+</p>
+<p><b>Arguments</b></p>
+<table><tr><td><code>set &lt;seconds&gt;</code></td><td>Number of seconds of idle room activity before sending a ping, a value of 0 disables MUC self-pings.</td></tr><tr><td><code>timeout &lt;seconds&gt;</code></td><td>Seconds to wait for MUC self-ping responses, after which the room connection is considered disconnected. A value of 0 disables MUC self-pings entirely.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="nick"></a>
@@ -938,9 +952,8 @@
 <p><b>Description</b></p>
 <p>OMEMO commands to manage keys, and perform encryption during chat sessions.
 The title bar will show the OMEMO session status:
-[OMEMO][trusted]   - All active devices for the contact are trusted.
-[OMEMO][untrusted] - One or more active devices for the contact are untrusted.
-
+[OMEMO] [trusted]   - All active devices for the contact are trusted.
+[OMEMO] [untrusted] - One or more active devices for the contact are untrusted.
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>gen</code></td><td>Generate OMEMO cryptographic materials for current account.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OMEMO session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OMEMO session.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OMEMO encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OMEMO encrypted messages, but replace the contents with [redacted].</td></tr><tr><td><code>trust [&lt;contact&gt;] &lt;fp&gt;</code></td><td>Trust a fingerprint for a contact, or current recipient if omitted. If all active devices are trusted, the title bar will show [trusted]. Otherwise, it will show [untrusted].</td></tr><tr><td><code>untrust [&lt;contact&gt;] &lt;fp&gt;</code></td><td>Untrust a fingerprint for a contact, or current recipient if omitted.</td></tr><tr><td><code>fingerprint [&lt;contact&gt;]</code></td><td>Show contact's fingerprints, or current recipient's if omitted.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OMEMO encrypted messages.</td></tr><tr><td><code>trustmode manual</code></td><td>Set the global OMEMO trust mode to manual, OMEMO keys has to be trusted manually.</td></tr><tr><td><code>trustmode firstusage</code></td><td>Set the global OMEMO trust mode to ToFu, first OMEMO keys trusted automatically.</td></tr><tr><td><code>trustmode blind</code></td><td>Set the global OMEMO trust mode to blind, ALL OMEMO keys trusted automatically.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OMEMO policy to manual, OMEMO sessions must be started manually.</td></tr><tr><td><code>policy automatic</code></td><td>Set the global OMEMO policy to opportunistic, an OMEMO session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy always</code></td><td>Set the global OMEMO policy to always, an error will be displayed if an OMEMO session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>clear_device_list</code></td><td>Clear your own device list on server side. Each client will reannounce itself when connected back.</td></tr><tr><td><code>qrcode</code></td><td>Display QR code of your OMEMO fingerprint</td></tr></table>
@@ -972,6 +985,10 @@ The title bar will show the OMEMO session status:
 </code></pre></p>
 <p><b>Description</b></p>
 <p>Off The Record (OTR) commands to manage keys, and perform OTR encryption during chat sessions.
+The title bar will show the OTR session status:
+[OTR] [inactive]: session inactive, plaintext blocked
+[OTR] [untrusted]: session active, unverified fingerprint
+[OTR] [trusted]: session active, authenticated.
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>libver</code></td><td>Show which version of the libotr library is being used.</td></tr><tr><td><code>gen</code></td><td>Generate your private key.</td></tr><tr><td><code>myfp</code></td><td>Show your fingerprint.</td></tr><tr><td><code>theirfp</code></td><td>Show contacts fingerprint.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OTR session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OTR session.</td></tr><tr><td><code>trust|untrust</code></td><td>Indicate whether or not you trust the contact's fingerprint.</td></tr><tr><td><code>secret &lt;secret&gt;</code></td><td>Verify a contact's identity using a shared secret.</td></tr><tr><td><code>question &lt;question&gt; &lt;answer&gt;</code></td><td>Verify a contact's identity using a question and expected answer.</td></tr><tr><td><code>answer &lt;answer&gt;</code></td><td>Respond to a question answer verification request with your answer.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OTR policy to manual, OTR sessions must be started manually.</td></tr><tr><td><code>policy manual &lt;contact&gt;</code></td><td>Set the OTR policy to manual for a specific contact.</td></tr><tr><td><code>policy opportunistic</code></td><td>Set the global OTR policy to opportunistic, an OTR session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy opportunistic &lt;contact&gt;</code></td><td>Set the OTR policy to opportunistic for a specific contact.</td></tr><tr><td><code>policy always</code></td><td>Set the global OTR policy to always, an error will be displayed if an OTR session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>policy always &lt;contact&gt;</code></td><td>Set the OTR policy to always for a specific contact.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OTR encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OTR encrypted messages, but replace the contents with [redacted].</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OTR encrypted messages.</td></tr><tr><td><code>sendfile on|off</code></td><td>Allow /sendfile to send unencrypted files while in an OTR session.</td></tr></table>
@@ -1009,6 +1026,7 @@ The title bar will show the OMEMO session status:
 /ox start [&lt;contact&gt;]
 /ox end
 /ox log on|off|redact
+/ox encryptfile on|off
 /ox char &lt;char&gt;
 /ox announce &lt;file&gt;
 /ox discover &lt;jid&gt;
@@ -1018,7 +1036,7 @@ The title bar will show the OMEMO session status:
 <p>OpenPGP (OX) commands to manage keys, and perform OpenPGP encryption during chat sessions. Your OpenPGP key needs a user-id with your JID URI (xmpp:local@domain.tld). A key can be generated with "gpg --quick-gen-key xmpp:local@domain.tld future-default default 3y". See man profanity-ox-setup for details on how to set up OX the first time.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>keys</code></td><td>List all keys known to the system.</td></tr><tr><td><code>contacts</code></td><td>Show contacts with assigned public keys.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start PGP encrypted chat, current contact will be used if not specified.</td></tr><tr><td><code>end</code></td><td>End PGP encrypted chat with the current recipient.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of PGP encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log PGP encrypted messages, but replace the contents with [redacted].</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to PGP encrypted messages.</td></tr><tr><td><code>announce &lt;file&gt;</code></td><td>Announce a public key by pushing it on the XMPP Server</td></tr><tr><td><code>discover &lt;jid&gt;</code></td><td>Discover public keys of a jid. The OpenPGP Key IDs will be displayed</td></tr><tr><td><code>request &lt;jid&gt; &lt;keyid&gt;</code></td><td>Request public key. See /ox discover to to get available key IDs.</td></tr></table>
+<table><tr><td><code>keys</code></td><td>List all keys known to the system.</td></tr><tr><td><code>contacts</code></td><td>Show contacts with assigned public keys.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start PGP encrypted chat, current contact will be used if not specified.</td></tr><tr><td><code>end</code></td><td>End PGP encrypted chat with the current recipient.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of PGP encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log PGP encrypted messages, but replace the contents with [redacted].</td></tr><tr><td><code>encryptfile on|off</code></td><td>Encrypt files locally using AES-GCM (XEP-0454) before uploading them when using OX.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to PGP encrypted messages.</td></tr><tr><td><code>announce &lt;file&gt;</code></td><td>Announce a public key by pushing it on the XMPP Server</td></tr><tr><td><code>discover &lt;jid&gt;</code></td><td>Discover public keys of a jid. The OpenPGP Key IDs will be displayed</td></tr><tr><td><code>request &lt;jid&gt; &lt;keyid&gt;</code></td><td>Request public key. See /ox discover to to get available key IDs.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/ox log off
 /ox start odin@valhalla.edda
@@ -1445,7 +1463,7 @@ The title bar will show the OMEMO session status:
 <p><pre><code>/silence on|off
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Let's you silence all message attempts from people who are not in your roster.
+<p>Lets you silence all message attempts from people who are not in your roster.
 </p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
