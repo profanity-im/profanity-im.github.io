@@ -3,6 +3,8 @@ subtitle: A console based XMPP client
 
 ${div_downloads}
 
+<p class="donate-hint"><span class="heart">&#9829;</span> Enjoying Profanity? Consider <a href="donate.html">donating to support development</a>.</p>
+
 <div class="docs-col">
     <h3>Documentation</h3>
     <ul class="docs-directory">

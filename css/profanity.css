@@ -739,26 +739,76 @@ header a:hover{
     justify-content:center;
     box-sizing:border-box;
     padding:4em 1.8em;
-    gap:3em
+    gap:2.5em
+}
+#landing #docs-and-downloads .donate-hint{
+    text-align:center;
+    font-family:'Fira Code',monospace;
+    font-size:clamp(14px, 1.2vw, 17px);
+    color:#cbd5e1;
+    margin:0 auto;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.6em;
+    background:rgba(244,63,94,.08);
+    border:1px solid rgba(244,63,94,.25);
+    border-radius:9999px;
+    padding:.45em 1.3em;
+    transition:all .2s ease
+}
+#landing #docs-and-downloads .donate-hint:hover{
+    background:rgba(244,63,94,.14);
+    border-color:rgba(244,63,94,.45);
+    box-shadow:0 0 16px rgba(244,63,94,.2)
+}
+#landing #docs-and-downloads .donate-hint .heart{
+    color:#f43f5e;
+    font-size:1.15em;
+    line-height:1;
+    display:inline-block;
+    filter:drop-shadow(0 0 4px rgba(244,63,94,.5))
+}
+#landing #docs-and-downloads .donate-hint a{
+    color:#58d3e6;
+    text-decoration:none;
+    font-weight:600;
+    border-bottom:1px dashed rgba(88,211,230,.5);
+    padding-bottom:1px;
+    transition:all .15s ease
+}
+#landing #docs-and-downloads .donate-hint a:hover{
+    color:#38bdf8;
+    border-bottom-style:solid;
+    border-bottom-color:#38bdf8
 }
 @media screen and (min-width:51.65625em){
     #landing #docs-and-downloads{
         display:grid;
         grid-template-columns:47.93926% 47.93926%;
         column-gap:4.12148%;
+        row-gap:2.5em;
         align-items:start;
         padding-left:4.5em;
         padding-right:4.5em;
         padding-top:5em;
         padding-bottom:5em
     }
+    #landing #docs-and-downloads .donate-hint{
+        grid-column:1 / span 2;
+        grid-row:1;
+        justify-self:center;
+        margin-bottom:.5em
+    }
     #landing #docs-and-downloads .docs-col{
         grid-column:1;
+        grid-row:2;
         width:85%;
         margin-left:auto
     }
     #landing #docs-and-downloads .downloads-col{
         grid-column:2;
+        grid-row:2;
         width:100%
     }
     #landing #docs-and-downloads h3{
