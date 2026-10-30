@@ -20,9 +20,6 @@
         </h1>
         <h2>Contributors</h2>
     </header>
-    <nav style="float: right;">
-        <a href="../index.html">Main page</a>
-    </nav>
     <article id="manual" style="position: relative">
         <ul>
             <li data-sblg-nav="1" data-sblg-navcontent="1">
