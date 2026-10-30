@@ -11,10 +11,10 @@
 </head>
 
 <body id="blogpost">
-    <img class="overlay" src="../images/profanity_mouth-only.png" alt="Profanity Illustration" />
+    <img class="overlay" src="../images/profanity_logo_mouth.svg" alt="Profanity Illustration" />
     <header>
         <h1>
-            <a href="../index.html" style="position: relative">
+            <a href="../index.html">
             <span class="kern-ty">Profanity</span>
             </a>
         </h1>

@@ -11,16 +11,16 @@
 </head>
 
 <body id="contributors">
-    <img class="overlay" src="../images/profanity_mouth-only.png" alt="Profanity Illustration" />
+    <img class="overlay" src="../images/profanity_logo_mouth.svg" alt="Profanity Illustration" />
     <header>
         <h1>
-            <a href="../../index.html" style="position: relative">
+            <a href="../index.html">
             <span class="kern-ty">Profanity</span>
             </a>
         </h1>
         <h2>Contributors</h2>
     </header>
-    <article id="manual" style="position: relative">
+    <article id="manual">
         <ul>
             <li data-sblg-nav="1" data-sblg-navcontent="1">
                 <a href="${sblg-base}.html">${sblg-title}</a>
@@ -28,6 +28,12 @@
         </ul>
     </article>
     <footer>
+        <ul class="footer-links">
+            <li><a href="http://github.com/profanity-im/profanity">GitHub</a></li>
+            <li><a href="https://lists.posteo.de/listinfo/profanity">Mailing List</a></li>
+            <li><a href="https://x.com/profanityim">X (Twitter)</a></li>
+            <li><a href="xmpp:profanity@rooms.dismail.de?join">XMPP Chat Room</a></li>
+        </ul>
     </footer>
 </body>
 </html>

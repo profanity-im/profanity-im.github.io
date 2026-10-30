@@ -1475,6 +1475,17 @@ body#blogpost article#manual img{
     box-shadow:0 4px 16px rgba(0,0,0,.4);
     margin:2em auto
 }
+body#blogpost article#manual > img[alt*="Avatar"],
+article#manual > img[alt*="Avatar"]{
+    width:140px;
+    height:140px;
+    border-radius:12px;
+    border:2px solid #30363d;
+    box-shadow:0 4px 16px rgba(0,0,0,.5);
+    margin:1em 0 1.5em;
+    object-fit:cover;
+    display:block
+}
 body#blogpost .post-nav,
 body#contributors .post-nav{
     display:flex;
