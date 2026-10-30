@@ -183,36 +183,95 @@ textarea{
 }
 table{
     border-spacing:0;
-    background-color:#161b22;
+    background-color:transparent;
     border-collapse:collapse;
-    border:1px solid #30363d;
-    border-radius:6px;
-    margin:0 0 20px;
-    font-size:13px;
-    line-height:20px
+    border:none;
+    margin:1em 0 2em;
+    width:100%;
+    font-size:14px;
+    line-height:22px
 }
 th{
-    background-color:#21262d;
-    color:#f0f6fc;
+    background-color:transparent;
+    color:#8b949e;
     font-family:'Fira Code',monospace;
-    font-size:13px;
+    font-size:12px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.05em;
     text-align:left;
-    padding:.8em 1em;
+    padding:1em 1.2em;
+    border:0;
     border-bottom:1px solid #30363d
 }
 tr{
-    border-bottom:1px solid #21262d
+    border-bottom:1px solid #21262d;
+    transition:background-color .15s ease
+}
+tr:hover{
+    background:rgba(56,189,248,.03)
 }
 tr:last-child{
-    border-bottom:none
+    border-bottom:1px solid #21262d
 }
 tr:nth-child(2n){
-    background-color:#1c212a
+    background-color:transparent
 }
 td{
     border:0;
-    padding:.8em 1em;
-    color:#c9d1d9
+    padding:1.1em 1.2em;
+    color:#cbd5e1;
+    vertical-align:middle
+}
+td a{
+    font-family:'Fira Code',monospace;
+    font-weight:600;
+    color:#f0f6fc;
+    text-decoration:none;
+    display:inline-block;
+    transition:color .15s ease,transform .15s ease
+}
+td a:hover{
+    color:#58d3e6;
+    transform:translateX(5px);
+    text-decoration:none
+}
+.xep-implementation-status{
+    display:inline-block;
+    font-family:'Fira Code',monospace;
+    font-size:14px;
+    font-weight:600;
+    padding:.25em .65em;
+    border-radius:4px;
+    letter-spacing:.02em;
+    white-space:nowrap
+}
+.xep-implementation-status.complete{
+    background:rgba(34,197,94,.12);
+    color:#4ade80;
+    border:1px solid rgba(34,197,94,.25)
+}
+.xep-implementation-status.partial{
+    background:rgba(245,158,11,.12);
+    color:#fbbf24;
+    border:1px solid rgba(245,158,11,.25)
+}
+.version{
+    font-family:'Fira Code',monospace;
+    color:#8b949e;
+    font-size:14px;
+    white-space:nowrap
+}
+.version-outdated{
+    color:#f43f5e;
+    font-size:12px;
+    display:inline-block;
+    margin-top:2px
+}
+.small{
+    font-size:14px;
+    color:#8b949e;
+    line-height:1.4
 }
 a,h1,h2,h3,h4,h5,h6,ol,p,ul{
     margin:0;
