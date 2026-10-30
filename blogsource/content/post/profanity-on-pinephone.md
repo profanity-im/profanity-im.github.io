@@ -53,6 +53,7 @@ After starting profanity, I was able to scroll window with content using followi
 
 Here you can see some photos. 
 
-![Profanity screeen 1](img/profanity-on-pinephone-screen2.png)
+![Profanity screeen 1](img/profanity-on-pinephone-screen1.png)
+
 ![Profanity screeen 2](img/profanity-on-pinephone-screen2.png)
 

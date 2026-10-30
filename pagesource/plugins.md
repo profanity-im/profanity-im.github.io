@@ -8,10 +8,8 @@ ${section_start}
 - [Overview](#overview)
 - [Featured Plugins](#featured-plugins)
 - [Developing Plugins](#developing-plugins)
-
-     - [Python](#python),
-     - [C](#c)
-
+- [Python](#python)
+- [C](#c)
 - [Themes and Settings](#themes-and-settings)
 - [Contributing Plugins](#contributing-plugins)
 

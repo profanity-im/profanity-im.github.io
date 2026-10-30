@@ -1,38 +1,36 @@
 title: Profanity, a console based XMPP client - Home
 subtitle: A console based XMPP client
 
-${div_content}
+${div_downloads}
 
-#### Profanity is a console based XMPP client written in C using [ncurses](http://www.gnu.org/software/ncurses/) and [libstrophe](http://strophe.im/libstrophe/), inspired&nbsp;by&nbsp; [Irssi](http://irssi.org/)
+<div class="docs-col">
+    <h3>Documentation</h3>
+    <ul class="docs-directory">
+        <li><a href="userguide.html">User Guide</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="xeps.html">Supported XEPs</a></li>
+        <li><a href="plugins.html">Plugins</a></li>
+        <li><a href="issues.html">Reporting Issues</a></li>
+        <li><a href="helpout.html">How to Help Out</a></li>
+        <li><a href="blog/post/index.html">Blog</a></li>
+        <li><a href="themegallery.html">Theme Gallery</a></li>
+    </ul>
+</div>
 
+<div class="downloads-col">
+    <h3>Download Profanity</h3>
+    <div class="dl-list">
+        <div class="dl-item">
+            <a class="dl-link" href="tarballs/profanity-${version}.tar.xz">profanity-${version}.tar.xz</a>
+            <div class="dl-hash"><span class="hash-label">sha256:</span> ${tar_xz_sha256}</div>
+        </div>
 
-Available on Linux, FreeBSD, OpenBSD, OSX, Windows and Android (Termux)  
-
-Do you like Profanity?  
-Consider [donating](donate.html)!  
-
-**Latest release:**
-**[profanity-${version}.tar.xz](tarballs/profanity-${version}.tar.xz)**  
-sha256:  <span class="hash">${tar_xz_sha256}</span>  
-  
-**[profanity-${version}.zip](tarballs/profanity-${version}.zip)**  
-sha256:  <span class="hash">${zip_sha256}</span>  
-
-**Documentation:**  
-[User Guide](userguide.html)  
-[FAQ](faq.html)  
-[Supported XEPs](xeps.html)  
-[Plugins](plugins.html)  
-[Reporting Issues](issues.html)  
-[How to help out](helpout.html)  
-[Blog](blog/post/index.html)  
-[Theme Gallery](themegallery.html)  
-
-**Links:**  
-[GitHub](http://github.com/profanity-im/profanity)  
-[Mailing List](https://lists.posteo.de/listinfo/profanity)  
-[X](https://x.com/profanityim)  
-[xmpp:profanity@rooms.dismail.de](xmpp:profanity@rooms.dismail.de?join)  
+        <div class="dl-item">
+            <a class="dl-link" href="tarballs/profanity-${version}.zip">profanity-${version}.zip</a>
+            <div class="dl-hash"><span class="hash-label">sha256:</span> ${zip_sha256}</div>
+        </div>
+    </div>
+</div>
 
 ${div_end}
 

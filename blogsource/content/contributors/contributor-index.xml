@@ -15,7 +15,7 @@
     <header>
         <h1>
             <a href="../../index.html" style="position: relative">
-            Profani<span class="kern-ty">ty</span>
+            <span class="kern-ty">Profanity</span>
             </a>
         </h1>
         <h2>Contributors</h2>
@@ -31,7 +31,6 @@
         </ul>
     </article>
     <footer>
-        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
     </footer>
 </body>
 </html>

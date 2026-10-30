@@ -15,36 +15,27 @@
     <header>
         <h1>
             <a href="../index.html" style="position: relative">
-            Profani<span class="kern-ty">ty</span>
+            <span class="kern-ty">Profanity</span>
             </a>
         </h1>
         <h2>Contributors</h2>
     </header>
-    <nav style="float: right;">
+    <nav class="post-nav">
         <span>
-            <a href="${sblg-prev-base}.html">&#x219E;</a>
+            <a href="${sblg-prev-base}.html" title="Previous">&#x25C0;</a>
         </span>
         <span>
-            <a href="index.html">&#x219F;</a>
-        </span>
-        <span>
-            <a href="${sblg-next-base}.html">&#x21A0;</a>
+            <a href="${sblg-next-base}.html" title="Next">&#x25B6;</a>
         </span>
     </nav>
     <article data-sblg-article="1" style="position: relative"> Content</article>
-    <nav style="float: right;">
-        <span>
-            <a href="${sblg-prev-base}.html">&#x219E;</a>
-        </span>
-        <span>
-            <a href="index.html">&#x219F;</a>
-        </span>
-        <span>
-            <a href="${sblg-next-base}.html"> &#x21A0;</a>
-        </span>
-    </nav>
     <footer>
-        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+        <ul class="footer-links">
+            <li><a href="http://github.com/profanity-im/profanity">GitHub</a></li>
+            <li><a href="https://lists.posteo.de/listinfo/profanity">Mailing List</a></li>
+            <li><a href="https://x.com/profanityim">X (Twitter)</a></li>
+            <li><a href="xmpp:profanity@rooms.dismail.de?join">XMPP Chat Room</a></li>
+        </ul>
     </footer>
 </body>
 

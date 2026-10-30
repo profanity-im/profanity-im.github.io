@@ -53,10 +53,11 @@ index.html: landing-template.xml index.md profanity_version.txt
 	echo "<article data-sblg-article=\"1\" data-sblg-set-title=\"Profanity, a console based XMPP client - Home\" data-sblg-set-subtitle=\"A console based XMPP client\">"  >$(@:.html=.xml)
 	$(LOWDOWN) --html-no-head-ids  --html-no-skiphtml --html-no-escapehtml index.tmpmd >>$(@:.html=.xml)
 	echo "</article>" >>$(@:.html=.xml)
-	sed -e 's|<p>$${div_content}</p>|<div id="content">|g' $(@:.html=.xml) > $(@:.html=.tmpxml)
-	sed -e 's|<p>$${div_features}</p>|<div id="features">|g' $(@:.html=.tmpxml) > $(@:.html=.xml)
-	sed -e 's|<p>$${div_screenshots}</p>|<div id="screenshots">|g' $(@:.html=.xml) > $(@:.html=.tmpxml)
-	sed -e 's|<p>$${div_end}</p>|</div>|g' $(@:.html=.tmpxml) > $(@:.html=.xml)
+	sed -e 's|<p>$${div_downloads}</p>|<div id="docs-and-downloads">|g' \
+	    -e 's|<p>$${div_features}</p>|<div id="features">|g' \
+	    -e 's|<p>$${div_screenshots}</p>|<div id="screenshots">|g' \
+	    -e 's|<p>$${div_end}</p>|</div>|g' $(@:.html=.xml) > $(@:.html=.tmpxml)
+	mv $(@:.html=.tmpxml) $(@:.html=.xml)
 	$(SBLG) -o $@ -t landing-template.xml -c index.xml
 	rm -f index.xml index.tmpxml index.tmpmd
 
@@ -96,7 +97,7 @@ $(BLOG_POST_OUT_DIR)/atom.xml $(BLOG_POST_OUT_DIR)/index.html $(BLOG_POSTS_OUT):
 
 $(CONTRIBUTORS_OUT_DIR)/index.html $(CONTRIBUTORS_OUT): $(CONTRIBUTORS)
 	$(MAKE) -C $(CONTRIBUTORS_SRC_DIR)
-	mkdir $(CONTRIBUTORS_OUT_DIR)
+	mkdir -p $(CONTRIBUTORS_OUT_DIR)
 	mv $(CONTRIBUTORS_SRC_DIR)/*.html $(CONTRIBUTORS_OUT_DIR)/
 	cp --preserve=mode,ownership,timestamps --recursive $(CONTRIBUTORS_SRC_DIR)/img $(CONTRIBUTORS_OUT_DIR)/
 	$(MAKE) -C $(CONTRIBUTORS_SRC_DIR) clean

@@ -11,11 +11,11 @@
 </head>
 
 <body id="blogposts">
-    <img class="overlay" src="../../images/profanity_mouth-only.png" alt="Profanity Illustration" />
+    <img class="overlay" src="../../images/profanity_logo_mouth.svg" alt="Profanity Illustration" />
     <header>
         <h1>
             <a href="../../index.html" style="position: relative">
-            Profani<span class="kern-ty">ty</span>
+            <span class="kern-ty">Profanity</span>
             </a>
         </h1>
         <h2>Developer Blog</h2>
@@ -33,7 +33,12 @@
         </ul>
     </article>
     <footer>
-        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+        <ul class="footer-links">
+            <li><a href="http://github.com/profanity-im/profanity">GitHub</a></li>
+            <li><a href="https://lists.posteo.de/listinfo/profanity">Mailing List</a></li>
+            <li><a href="https://x.com/profanityim">X (Twitter)</a></li>
+            <li><a href="xmpp:profanity@rooms.dismail.de?join">XMPP Chat Room</a></li>
+        </ul>
     </footer>
 </body>
 </html>

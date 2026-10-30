@@ -12,15 +12,26 @@
 </head>
 
 <body id="landing">
-    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration" />
-    <header>
-        <h1>Profani<span class="kern-ty">ty</span></h1>
-        <h2>${sblg-get|subtitle}</h2>
-    </header>
+    <section id="hero">
+        <header>
+            <img class="overlay" src="images/profanity_logo_mouth.svg" alt="Profanity Illustration" />
+			<h1><span class="kern-ty">Profanity</span></h1>
+            <h2>${sblg-get|subtitle}</h2>
+        </header>
+        <div id="intro">
+            <p class="intro-lead">Profanity is a console based XMPP client written in C using <a href="http://www.gnu.org/software/ncurses/">ncurses</a> and <a href="http://strophe.im/libstrophe/">libstrophe</a>, inspired&nbsp;by&nbsp;<a href="http://irssi.org/">Irssi</a></p>
+            <p class="intro-platforms">Available on Linux, FreeBSD, OpenBSD, OSX, Windows and Android (Termux)</p>
+        </div>
+    </section>
     <article data-sblg-article="1" style="position: relative"> Content</article>
     <div id="Zoomer" style="overflow-y:auto"></div>
     <footer>
-        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+        <ul class="footer-links">
+            <li><a href="http://github.com/profanity-im/profanity">GitHub</a></li>
+            <li><a href="https://lists.posteo.de/listinfo/profanity">Mailing List</a></li>
+            <li><a href="https://x.com/profanityim">X (Twitter)</a></li>
+            <li><a href="xmpp:profanity@rooms.dismail.de?join">XMPP Chat Room</a></li>
+        </ul>
     </footer>
 </body>
 

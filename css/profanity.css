@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{
     display:block
 }
@@ -12,47 +14,98 @@ audio:not([controls]){
     display:none
 }
 html{
-    font-family:sans-serif;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     -webkit-text-size-adjust:100%;
-    -ms-text-size-adjust:100%
+    -ms-text-size-adjust:100%;
+    background:#0d1117;
+    height:100%;
+    min-width:305px;
+    position:relative;
+    color-scheme:dark;
+    font-size:15px;
+    line-height:22px
 }
 body{
-    margin:0
+    margin:0;
+    min-height:100%;
+    -ms-overflow-x:hidden;
+    overflow-x:hidden;
+    padding-left:1.8em;
+    padding-right:1.8em;
+    background-color:#0d1117;
+    color:#c9d1d9;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif
+}
+a{
+    color:#58d3e6;
+    text-decoration:none;
+    transition:color .15s ease
 }
 a:focus{
     outline:thin dotted
 }
 a:active,a:hover{
+    color:#58d3e6;
+    text-decoration:underline;
     outline:0
 }
+h1,h2,h3,h4,h5,h6{
+    font-family:'Fira Code',ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+    font-weight:600;
+    margin:0;
+    padding:0;
+    letter-spacing:-.02em
+}
 h1{
-    font-size:2em;
-    a{
-          position:relative;
-          color:#000
-    }
+    font-size:2em
+}
+h1 a{
+    position:relative;
+    color:#f0f6fc
+}
+h1 a:hover{
+    color:#58d3e6;
+    text-decoration:none
 }
 abbr[title]{
-    border-bottom:1px dotted
+    border-bottom:1px dotted #8b949e
 }
 b,strong{
-    font-weight:700
+    font-weight:700;
+    color:#f0f6fc
 }
 dfn{
     font-style:italic
 }
 mark{
-    background:#ff0;
+    background:#e3b341;
     color:#000
 }
 code,kbd,pre,samp{
-    font-family:monospace,serif;
-    font-size:1em
+    font-family:'Fira Code',ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+    font-size:13px
 }
 pre{
-    white-space:pre;
+    background:#161b22;
+    border:1px solid #30363d;
+    border-radius:6px;
+    color:#58d3e6;
+    display:block;
+    padding:.8em 1em;
     white-space:pre-wrap;
     word-wrap:break-word
+}
+code{
+    background:rgba(56,189,248,.12);
+    color:#58d3e6;
+    padding:.15em .35em;
+    border-radius:4px
+}
+pre code{
+    background:transparent;
+    padding:0;
+    color:inherit;
+    font-size:inherit
 }
 q{
     quotes:"“" "”" "‘" "’"
@@ -73,7 +126,8 @@ sub{
     bottom:-.25em
 }
 img{
-    border:0
+    border:0;
+    vertical-align:bottom
 }
 svg:not(:root){
     overflow:hidden
@@ -82,18 +136,21 @@ figure{
     margin:0
 }
 fieldset{
-    border:1px solid silver;
+    border:1px solid #30363d;
     margin:0 2px;
     padding:.35em .625em .75em
 }
 legend{
     border:0;
-    padding:0
+    padding:0;
+    color:#f0f6fc
 }
 button,input,select,textarea{
     font-family:inherit;
     font-size:100%;
-    margin:0
+    margin:0;
+    color:#f0f6fc;
+    background:#161b22
 }
 button,input{
     line-height:normal
@@ -125,7 +182,37 @@ textarea{
     vertical-align:top
 }
 table{
-    border-spacing:0
+    border-spacing:0;
+    background-color:#161b22;
+    border-collapse:collapse;
+    border:1px solid #30363d;
+    border-radius:6px;
+    margin:0 0 20px;
+    font-size:13px;
+    line-height:20px
+}
+th{
+    background-color:#21262d;
+    color:#f0f6fc;
+    font-family:'Fira Code',monospace;
+    font-size:13px;
+    text-align:left;
+    padding:.8em 1em;
+    border-bottom:1px solid #30363d
+}
+tr{
+    border-bottom:1px solid #21262d
+}
+tr:last-child{
+    border-bottom:none
+}
+tr:nth-child(2n){
+    background-color:#1c212a
+}
+td{
+    border:0;
+    padding:.8em 1em;
+    color:#c9d1d9
 }
 a,h1,h2,h3,h4,h5,h6,ol,p,ul{
     margin:0;
@@ -137,45 +224,37 @@ a,h1,h2,h3,h4,h5,h6,ol,p,ul{
 * html{
     font-size:93.75%
 }
-html{
-    font-size:15px;
-    line-height:20px
-}
-#landing #content *,#landing #features *,#landing h1,#landing h2,img.overlay{
+#landing h1,#landing h2,img.overlay{
     animation-fill-mode:backwards;
     animation-timing-function:ease-out
 }
-#landing #content *,#landing #features *{
-    animation-duration:2.2s;
-    animation-name:fadeInDelay
-}
 @media screen and (min-width:51.65625em){
-    #landing #features ul,#landing #screenshots ul{
+    #landing #features ul{
         float:right;
         margin-right:0;
         width:47.93926%
     }
 }
 @media screen and (min-width:78.65625em){
-    #landing #features ul,#landing #screenshots ul{
+    #landing #features ul{
         width:48.73164%
     }
 }
-#landing #content,#landing #features,#landing #screenshots,article#manual,footer{
+#landing #hero,#landing #docs-and-downloads,#landing #features,#landing #screenshots,article#manual,footer{
     margin-left:-1.8em;
     margin-right:-1.8em;
     padding-left:1.8em;
     padding-right:1.8em
 }
 @media screen and (min-width:51.65625em){
-    #landing #content,#landing #features,#landing #screenshots,article#manual,footer{
+    #landing #hero,#landing #docs-and-downloads,#landing #features,#landing #screenshots,article#manual,footer{
         margin-left:-4.5em;
         margin-right:-4.5em;
         padding-left:4.5em;
         padding-right:4.5em
     }
 }
-#landing #content:after,#landing #features:after,#landing #screenshots:after,#landing header:after,article#manual:after,body:after,footer:after{
+#landing #hero:after,#landing #docs-and-downloads:after,#landing #features:after,#landing #screenshots:after,#landing header:after,article#manual:after,body:after,footer:after{
     clear:both;
     content:"";
     display:table
@@ -202,48 +281,38 @@ html{
         opacity:1
     }
 }
-body{
-    color:#222
-}
 code,p,pre,td,ul{
-    font-size:13px;
-    line-height:20px;
+    font-size:14px;
+    line-height:22px;
     margin-bottom:20px
 }
 @media screen and (min-width:51.65625em){
     code,p,pre,td,ul{
         font-size:16px;
-        line-height:20px
-    }
-    code.matty,p.matty,pre.matty,td.matty,ul.matty{
-        float:right;
-        margin-right:0
+        line-height:24px
     }
 }
 @media screen and (min-width:78.65625em){
     code,p,pre,td,ul{
-        font-size:19px;
+        font-size:18px;
         line-height:30px
     }
 }
 .kern-ty{
-    letter-spacing:0
-}
-body{
-    font-family:Unica SB,Helvetica Neue,Arial,sans-serif
-}
-#landing p{
-    text-shadow:0 0 1px rgba(0,0,0,.7)
+    letter-spacing:0;
+    color:#f43f5e
 }
 #landing p,#landing ul{
-    color:#d9f5f8
+    color:#c9d1d9
 }
 #landing h1{
     font-size:75px;
-    font-weight:400;
+    font-weight:600;
     letter-spacing:-.05em;
     line-height:80px;
-    text-shadow:0 0 7px hsla(0,0%,100%,.5)
+    color:#f0f6fc;
+    animation-duration:1s;
+    animation-name:fadeInH1
 }
 @media screen and (min-width:51.65625em){
     #landing h1{
@@ -264,16 +333,12 @@ body{
         width:42.3231%
     }
 }
-#landing h1{
-    animation-duration:1s;
-    animation-name:fadeInH1
-}
-#landing h2,#landing h3,#landing h4{
-    text-shadow:0 0 4px rgba(0,0,0,.85)
-}
 #landing h2{
-    color:#d9f5f8;
-    font-size:30px
+    color:#58d3e6;
+    font-size:30px;
+    font-weight:400;
+    animation-duration:1.5s;
+    animation-name:fadeInH2
 }
 @media screen and (min-width:51.65625em){
     #landing h2{
@@ -292,10 +357,6 @@ body{
         padding-left:51.26836%;
         width:100%
     }
-}
-#landing h2{
-    animation-duration:1.5s;
-    animation-name:fadeInH2
 }
 @media screen and (min-width:51.65625em){
     #landing h3{
@@ -324,7 +385,7 @@ body{
     }
 }
 #landing h3,#landing h4{
-    color:#d9f5f8
+    color:#f43f5e
 }
 @media screen and (min-width:51.65625em){
     #landing h3,#landing h4{
@@ -332,7 +393,8 @@ body{
     }
 }
 h1{
-    letter-spacing:-.05em
+    letter-spacing:-.05em;
+    color:#f0f6fc
 }
 @media screen and (min-width:51.65625em){
     h1{
@@ -350,10 +412,12 @@ h1{
     }
 }
 h2{
-    color:#d9f5f8
+    color:#58d3e6;
+    font-weight:400
 }
-h2,header h3{
-    font-weight:300
+header h3{
+    font-weight:300;
+    color:#94a3b8
 }
 @media screen and (min-width:51.65625em){
     h2,header h3{
@@ -369,7 +433,8 @@ h2,header h3{
 }
 h3,h4{
     display:block;
-    margin-bottom:40px
+    margin-bottom:40px;
+    color:#f0f6fc
 }
 h1,h2,h3{
     font-size:28px;
@@ -387,84 +452,33 @@ h1,h2,h3{
         line-height:40px
     }
 }
-h4,section>ul>li{
+h4,#landing #features ul li{
     font-size:22px;
     line-height:30px
 }
 @media screen and (min-width:51.65625em){
-    h4,section>ul>li{
+    h4,#landing #features ul li{
         font-size:24px;
         line-height:30px
     }
 }
 @media screen and (min-width:78.65625em){
-    h4,section>ul>li{
+    h4,#landing #features ul li{
         font-size:30px;
         line-height:40px
     }
 }
-a{
-    color:#4db0c4;
-    text-decoration:none;
-    text-shadow:0 0 1px rgba(0,0,0,.1)
-}
-a:hover{
-    color:#c1e3ea;
-    text-decoration:underline
-}
 ol,ul{
-    font-weight:bolder
+    font-weight:500
 }
 li{
     margin-top:10px
 }
-pre{
-    background:#f8f8f8;
-    display:block;
-    font-family:Courier New,Courier;
-    padding:.5em
-}
-pre,table{
-    font-size:13px;
-    line-height:20px
-}
-table{
-    background-color:#f8f8f8;
-    border-collapse:collapse;
-    margin:0 0 20px
-}
-tr{
-    border-bottom:1px dotted #894536
-}
-tr:first-child{
-    border-top:1px dotted #894536
-}
-tr:nth-child(2n){
-    background-color:#eee;
-    padding:2em
-}
-td{
-    border:0 solid #d9f5f8;
-    padding:1em 2em 1em .5em
-}
 .hash{
-    word-break:break-word
-}
-img{
-    vertical-align:bottom
-}
-html{
-    background:url(../images/talking-all-that-noise.png) #c93422;
-    height:100%;
-    min-width:305px;
-    position:relative
-}
-body{
-    min-height:100%;
-    -ms-overflow-x:hidden;
-    overflow-x:hidden;
-    padding-left:1.8em;
-    padding-right:1.8em
+    word-break:break-all;
+    font-family:'Fira Code',monospace;
+    font-size:.85em;
+    color:#8b949e
 }
 @media screen and (min-width:51.65625em){
     body{
@@ -475,22 +489,22 @@ body{
         width:auto
     }
 }
-article#manual,div{
+article#manual{
     margin-bottom:0;
     margin-top:0;
     padding-bottom:40px;
-    padding-top:60px
+    padding-top:30px
 }
 @media screen and (min-width:51.65625em){
-    article#manual,div{
-        padding-bottom:100px;
-        padding-top:80px
+    article#manual{
+        padding-bottom:60px;
+        padding-top:40px
     }
 }
 @media screen and (min-width:78.65625em){
-    article#manual,div{
-        padding-bottom:160px;
-        padding-top:140px
+    article#manual{
+        padding-bottom:80px;
+        padding-top:40px
     }
 }
 @keyframes fadeIn{
@@ -501,60 +515,13 @@ article#manual,div{
         opacity:1
     }
 }
-img.overlay{
-    animation-duration:1.5s;
-    animation-name:fadeIn;
-    max-width:100%;
-    padding:0;
-    position:absolute;
-    right:1.8em;
-    top:1em;
-    width:27%
-}
-@media screen and (min-width:51.65625em){
-    img.overlay{
-        left:-2em;
-        right:auto;
-        top:0
+@keyframes fadeInOverlay{
+    0%{
+        opacity:0
     }
-}
-#landing header{
-    position:relative;
-    width:100%
-}
-@media screen and (min-width:51.65625em){
-    #landing header{
-        margin-bottom:140px;
-        margin-top:120px;
-        padding-bottom:0;
-        padding-top:0
+    to{
+        opacity:.3
     }
-}
-@media screen and (min-width:65.15625em){
-    #landing header{
-        margin-bottom:150px;
-        margin-top:150px
-    }
-}
-@media screen and (min-width:78.65625em){
-    #landing header{
-        margin-bottom:160px;
-        margin-top:170px
-    }
-}
-@media screen and (min-width:105.65625em){
-    #landing header{
-        margin-bottom:180px;
-        margin-top:260px
-    }
-}
-header{
-    margin-bottom:60px;
-    margin-top:60px
-}
-header a:active,header a:hover,header a:link,header a:visited{
-    color:#222;
-    text-decoration:none
 }
 @keyframes fadeInDelay{
     0%{
@@ -567,107 +534,514 @@ header a:active,header a:hover,header a:link,header a:visited{
         opacity:1
     }
 }
-#landing #content{
-    background:url(../images/talking-all-that-noise.png) #43110b;
-    box-shadow:inset 0 0 100px rgba(0,0,0,.5),0 0 100px hsla(0,0%,100%,.2)
+
+/* Scroll snapping for landing page sections */
+html:has(body#landing){
+    scroll-snap-type:y mandatory;
+    scroll-behavior:smooth
+}
+body#landing{
+    scroll-behavior:smooth
+}
+#landing #hero,
+#landing #docs-and-downloads,
+#landing #features{
+    min-height:100vh;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    box-sizing:border-box
+}
+#landing #screenshots{
+    scroll-snap-align:start;
+    scroll-snap-stop:normal
+}
+#landing footer{
+    scroll-snap-align:end
+}
+
+/* Section 1: Hero */
+#landing #hero{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    padding-top:3em;
+    padding-bottom:5em;
+    text-align:center
+}
+#landing #hero header{
+    margin:0 0 1.5em;
+    padding:0;
+    position:relative;
+    width:100%;
+    max-width:56em;
+    z-index:1
+}
+#landing #hero h1,
+#landing #hero h2{
+    position:relative;
+    z-index:1
+}
+#landing #hero h1{
+    font-size:clamp(55px, 8vw, 130px);
+    line-height:1.05;
+    font-weight:700;
+    letter-spacing:-.04em;
+    color:#f0f6fc;
+    text-shadow:0 0 20px #0d1117, 0 2px 8px rgba(0,0,0,.8);
+    margin-bottom:.25em;
+    float:none;
+    text-align:center;
+    width:100%;
+    animation-duration:1s;
+    animation-name:fadeInH1
+}
+#landing #hero h2{
+    font-size:clamp(20px, 3vw, 36px);
+    line-height:1.2;
+    color:#58d3e6;
+    font-weight:500;
+    position:static;
+    padding:0;
+    width:100%;
+    text-align:center;
+    animation-duration:1.5s;
+    animation-name:fadeInH2
+}
+#landing #hero img.overlay{
+    animation-duration:1.5s;
+    animation-name:fadeInOverlay;
+    animation-fill-mode:forwards;
+    height:clamp(160px, 22vw, 290px);
+    width:auto;
+    max-width:none;
+    padding:0;
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    opacity:.35;
+    pointer-events:none;
+    z-index:0;
+    -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 95%);
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 95%)
 }
 @media screen and (min-width:51.65625em){
-    #landing #content p{
-        display:block;
-        float:left;
-        margin-right:4.12148%;
-        width:47.93926%
+    #landing #hero img.overlay{
+        top:0;
+        left:50%;
+        right:auto;
+        transform:translateX(-50%);
+        height:clamp(180px, 20vw, 300px);
+        width:auto
     }
-    #landing #content p:nth-child(2){
-        text-align:right
+}
+#landing #intro{
+    max-width:48em;
+    margin:0 auto;
+    text-align:center;
+    animation-duration:2.2s;
+    animation-name:fadeInDelay
+}
+#landing #intro .intro-lead{
+    font-size:clamp(16px, 1.8vw, 24px);
+    line-height:1.5;
+    color:#cbd5e1;
+    margin-bottom:.8em
+}
+#landing #intro .intro-platforms{
+    font-size:clamp(13px, 1.2vw, 17px);
+    line-height:1.5;
+    color:#8b949e;
+    margin-bottom:0
+}
+
+header{
+    margin-bottom:60px;
+    margin-top:60px
+}
+header a:active,header a:hover,header a:link,header a:visited{
+    color:#f0f6fc;
+    text-decoration:none
+}
+header a:hover{
+    color:#58d3e6
+}
+
+/* Section 2: Combined Documentation & Downloads */
+#landing #docs-and-downloads{
+    background:#161b22;
+    border-top:1px solid #21262d;
+    border-bottom:1px solid #21262d;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    box-sizing:border-box;
+    padding:4em 1.8em;
+    gap:3em
+}
+@media screen and (min-width:51.65625em){
+    #landing #docs-and-downloads{
+        display:grid;
+        grid-template-columns:47.93926% 47.93926%;
+        column-gap:4.12148%;
+        align-items:start;
+        padding-left:4.5em;
+        padding-right:4.5em;
+        padding-top:5em;
+        padding-bottom:5em
     }
-    #landing #content p:nth-child(3){
-        margin-top:30px
+    #landing #docs-and-downloads .docs-col{
+        grid-column:1;
+        width:85%;
+        margin-left:auto
     }
-    #landing #content p:nth-child(1n+3){
-        float:right;
-        margin-right:0
+    #landing #docs-and-downloads .downloads-col{
+        grid-column:2;
+        width:100%
     }
-    #landing #content p:nth-child(1n+4){
-        clear:both
+    #landing #docs-and-downloads h3{
+        float:none !important;
+        display:block !important;
+        width:100% !important;
+        font-size:clamp(26px, 2.6vw, 36px);
+        line-height:1.2;
+        color:#f43f5e;
+        margin:0 0 .5em !important;
+        letter-spacing:-.02em;
+        font-family:'Fira Code',monospace;
+        font-weight:600;
+        text-align:left !important
+    }
+    #landing #docs-and-downloads .docs-directory,
+    #landing #docs-and-downloads .dl-list{
+        margin-top:0
+    }
+    #landing #docs-and-downloads .docs-directory li:first-child{
+        margin-top:0
     }
 }
 @media screen and (min-width:78.65625em){
-    #landing #content p{
-        display:block
-    }
-    #landing #content p:nth-child(2){
-        text-align:right;
-        width:42.3231%
-    }
-    #landing #content p:nth-child(1n+3){
-        float:right;
-        margin-right:0
-    }
-    #landing #content p:nth-child(1n+4){
-        clear:both
+    #landing #docs-and-downloads{
+        grid-template-columns:42.3231% 48.73164%;
+        column-gap:8.94526%
     }
 }
+
+/* Section 3: Features */
 #landing #features{
-    background:url(../images/talking-all-that-noise.png) #e24e3c;
-    box-shadow:inset 0 0 40px hsla(0,0%,100%,.3);
-    position:relative
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    box-sizing:border-box;
+    padding:4em 1.8em;
+    background:#11151c;
+    border-bottom:1px solid #21262d
 }
+#landing #features h3{
+    font-family:'Fira Code',monospace;
+    font-size:clamp(26px, 2.6vw, 36px);
+    line-height:1.2;
+    font-weight:600;
+    letter-spacing:-.02em;
+    color:#f43f5e;
+    text-align:left;
+    margin:0 0 .8em
+}
+
+@media screen and (min-width:51.65625em){
+    #landing #features{
+        display:grid;
+        grid-template-columns:47.93926% 47.93926%;
+        column-gap:4.12148%;
+        row-gap:.8em;
+        align-content:center;
+        align-items:center;
+        padding-left:4.5em;
+        padding-right:4.5em;
+        padding-top:4em;
+        padding-bottom:4em
+    }
+    #landing #features h3{
+        grid-column:1 / span 2;
+        grid-row:1;
+        text-align:left;
+        margin:0;
+        width:100%;
+        font-family:'Fira Code',monospace;
+        font-size:clamp(26px, 2.6vw, 36px);
+        line-height:1.2;
+        font-weight:600;
+        letter-spacing:-.02em;
+        color:#f43f5e
+    }
+    #landing #features p{
+        grid-column:1;
+        grid-row:2;
+        margin:0 0 0 auto;
+        display:flex;
+        justify-content:flex-end;
+        align-self:center;
+        width:100%
+    }
+    #landing #features ul{
+        grid-column:2;
+        grid-row:2;
+        align-self:center;
+        width:100%
+    }
+}
+@media screen and (min-width:78.65625em){
+    #landing #features{
+        grid-template-columns:42.3231% 48.73164%;
+        column-gap:8.94526%
+    }
+}
+
+/* Download Items */
+.dl-list{
+    display:flex;
+    flex-direction:column;
+    gap:2em
+}
+.dl-item{
+    display:flex;
+    flex-direction:column;
+    gap:.8em
+}
+.dl-link{
+    display:inline-block;
+    font-size:clamp(20px, 2vw, 26px);
+    font-weight:600;
+    font-family:'Fira Code',monospace;
+    color:#cbd5e1;
+    text-decoration:none;
+    transition:color .15s ease,transform .15s ease
+}
+.dl-link strong{
+    color:inherit;
+    font-weight:inherit
+}
+.dl-link:hover,
+.dl-link:hover strong{
+    color:#58d3e6;
+    transform:translateX(5px);
+    text-decoration:none
+}
+.dl-hash{
+    font-family:'Fira Code',monospace;
+    font-size:clamp(13px, 1.1vw, 15px);
+    color:#8b949e;
+    word-break:break-all;
+    line-height:1.4
+}
+.dl-hash .hash-label{
+    color:#64748b;
+    font-weight:600
+}
+
+/* Documentation Directory */
+.docs-directory{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:1em
+}
+.docs-directory li{
+    margin:0
+}
+.docs-directory a{
+    font-size:clamp(20px, 2vw, 26px);
+    line-height:1.4;
+    color:#cbd5e1;
+    font-family:'Fira Code',monospace;
+    font-weight:500;
+    display:inline-block;
+    transition:color .15s ease,transform .15s ease
+}
+.docs-directory a:hover{
+    color:#58d3e6;
+    transform:translateX(5px);
+    text-decoration:none
+}
+
+/* Section 3: Features */
 #landing #features li{
     list-style:none
 }
 #landing #features img{
-    float:right;
-    max-width:33%;
-    position:relative;
-    top:-7em
-}
-@media screen and (min-width:51.65625em){
-    #landing #features img{
-        bottom:6em;
-        left:4.5em;
-        position:absolute;
-        right:auto;
-        top:auto
-    }
+    position:static;
+    float:none;
+    max-width:85%;
+    top:auto;
+    bottom:auto;
+    left:auto;
+    filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 3px rgba(255,255,255,.6)) drop-shadow(0 8px 20px rgba(0,0,0,.7))
 }
 #landing #screenshots{
-    box-shadow:inset 0 0 100px rgba(0,0,0,.3)
+    background:#0d1117;
+    padding-top:5em;
+    padding-bottom:6em;
+    box-sizing:border-box
+}
+#landing #screenshots h3{
+    float:none !important;
+    display:block !important;
+    width:100% !important;
+    font-size:clamp(26px, 2.6vw, 36px);
+    line-height:1.2;
+    color:#f43f5e;
+    margin:0 0 1.5em !important;
+    letter-spacing:-.02em;
+    font-family:'Fira Code',monospace;
+    font-weight:600;
+    text-align:left !important
 }
 #landing #screenshots ul{
-    list-style:none
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2em;
+    width:100%
 }
-@media screen and (min-width:105.65625em){
-    #landing #screenshots li{
-        float:left;
-        margin-right:5.20548%;
-        width:47.39726%
+@media screen and (min-width:48em){
+    #landing #screenshots ul{
+        grid-template-columns:repeat(2, 1fr)
     }
-    #landing #screenshots li:nth-child(2n){
-        float:right;
-        margin-right:0
+}
+@media screen and (min-width:75em){
+    #landing #screenshots ul{
+        grid-template-columns:repeat(3, 1fr)
     }
+}
+#landing #screenshots li{
+    margin:0;
+    width:100%;
+    float:none
 }
 #landing #screenshots a{
-    background-color:#000;
-    background:#000;
-    border:1em solid #0b0302;
-    border-radius:6px;
-    box-shadow:0 0 .5em #c25246,inset 0 0 12em #1f464e;
-    display:block;
-    margin-bottom:2em;
-    min-height:10em;
-    padding:2em 1em;
-    text-align:center
+    background:#161b22;
+    border:1px solid #30363d;
+    border-radius:10px;
+    box-shadow:0 4px 16px rgba(0,0,0,.4);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:1.2em;
+    margin:0;
+    height:100%;
+    box-sizing:border-box;
+    transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease
+}
+#landing #screenshots a:hover{
+    transform:translateY(-4px);
+    border-color:#58d3e6;
+    box-shadow:0 8px 24px rgba(88,211,230,.2)
 }
 #landing #screenshots a img{
     height:auto;
     max-width:100%;
-    vertical-align:middle
+    vertical-align:middle;
+    border-radius:6px;
+    display:block
 }
+/* Subpage Header (User Guide, XEPs, Issues, Blog, etc.) */
+body:not(#landing) > img.overlay{
+    float:left;
+    height:clamp(90px, 10vw, 125px);
+    width:auto;
+    margin-right:2em;
+    margin-bottom:1.5em;
+    display:block;
+    filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 3px rgba(255,255,255,.5)) drop-shadow(0 4px 14px rgba(0,0,0,.6));
+    transition:transform .2s ease
+}
+body:not(#landing) > img.overlay:hover{
+    transform:scale(1.04)
+}
+body:not(#landing) > header{
+    margin-top:2em;
+    margin-bottom:1.5em;
+    min-height:clamp(90px, 10vw, 125px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:.2em
+}
+body:not(#landing) > header h1{
+    font-size:clamp(32px, 3.5vw, 44px);
+    line-height:1.1;
+    letter-spacing:-.04em;
+    margin:0;
+    float:none;
+    width:auto;
+    text-align:left
+}
+body:not(#landing) > header h1 a{
+    color:#f0f6fc;
+    text-decoration:none
+}
+body:not(#landing) > header h1 a:hover{
+    text-decoration:none
+}
+body:not(#landing) > header h2{
+    font-size:clamp(18px, 2vw, 26px);
+    line-height:1.3;
+    color:#58d3e6;
+    margin:0;
+    font-weight:400;
+    padding-left:0;
+    float:none;
+    width:auto;
+    text-align:left
+}
+body:not(#landing) article#manual{
+    clear:both
+}
+body:not(#landing) > nav{
+    float:right;
+    margin-top:2.5em;
+    font-family:'Fira Code',monospace
+}
+body:not(#landing) > nav a{
+    color:#38bdf8;
+    text-decoration:none;
+    margin-left:.8em;
+    transition:color .15s ease
+}
+body:not(#landing) > nav a:hover{
+    color:#58d3e6;
+    text-decoration:underline
+}
+
 article#manual{
-    background:url(../images/talking-all-that-noise.png) #eee;
-    box-shadow:inset 0 0 100px rgba(0,0,0,.3)
+    background:#13171f;
+    border-top:1px solid #21262d;
+    border-bottom:1px solid #21262d;
+    color:#c9d1d9
+}
+article#manual section:first-of-type{
+    margin-top:0
+}
+/* Table of Contents: Fira Code Monospace */
+article#manual section:first-of-type ul,
+article#manual section:first-of-type ul li,
+article#manual section:first-of-type ul a,
+article#manual h3#contents ~ ul,
+article#manual h3#contents ~ ul li,
+article#manual h3#contents ~ ul a,
+article#manual h3#userguides ~ ul,
+article#manual h3#userguides ~ ul li,
+article#manual h3#userguides ~ ul a{
+    font-family:'Fira Code',monospace;
+    letter-spacing:-.02em
 }
 @media screen and (max-width:51.65625em){
     article#manual section{
@@ -675,7 +1049,8 @@ article#manual{
     }
 }
 article#manual section hr{
-    border:1px solid #894536
+    border:0;
+    border-top:1px solid #30363d
 }
 article#manual section{
     position:relative
@@ -688,12 +1063,16 @@ article#manual section{
         padding-left:31.23644%;
         padding-top:0
     }
+    article#manual section:first-of-type{
+        margin-top:0
+    }
     article#manual section h3{
         left:0;
         margin-top:-.05em;
         position:absolute;
         text-align:right;
-        width:27.11497%
+        width:27.11497%;
+        color:#f43f5e
     }
     article#manual section hr{
         margin-top:-.5em;
@@ -716,7 +1095,8 @@ article#manual ol,article#manual ul{
     list-style:none
 }
 #Zoomer{
-    background:rgba(0,0,0,.5);
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(4px);
     display:none;
     height:100%;
     margin-left:-1.8em;
@@ -732,8 +1112,9 @@ article#manual ol,article#manual ul{
     }
 }
 #Zoomer img{
-    border:2em solid #000;
-    box-shadow:0 1em 3em #000;
+    border:1px solid #30363d;
+    border-radius:8px;
+    box-shadow:0 1em 3em rgba(0,0,0,.8);
     display:block;
     margin:auto;
     max-width:100%;
@@ -742,18 +1123,325 @@ article#manual ol,article#manual ul{
 #Zoomer .control-icon:hover{
     opacity:1
 }
-footer{
-    background:url(../images/talking-all-that-noise.png) #43110b;
-    box-shadow:inset 0 0 50px rgba(0,0,0,.5),-30px 0 70px hsla(0,0%,100%,.3);
-    margin-bottom:0;
-    margin-top:0;
-    padding-bottom:40px;
-    padding-top:80px
+
+/* Blog Post Index: Clean Terminal Feed */
+body#blogposts article#manual > ul,
+body#blogposts article#manual > ul > li,
+body#blogposts article#manual > ul > li > ul{
+    list-style:none;
+    padding:0;
+    margin:0
 }
-footer p{
-    color:#d9f5f8;
-    float:left;
-    margin-right:3em;
-    text-shadow:0 0 1px rgba(0,0,0,.7)
+body#blogposts article#manual > ul > li > ul{
+    display:flex;
+    flex-direction:column;
+    border-top:1px solid #21262d
+}
+body#blogposts article#manual > ul > li > ul > li{
+    display:flex;
+    flex-direction:column;
+    gap:.4em;
+    padding:1.2em 0;
+    border-bottom:1px solid #21262d;
+    margin:0;
+    transition:background-color .15s ease
+}
+@media screen and (min-width:48em){
+    body#blogposts article#manual > ul > li > ul > li{
+        display:grid;
+        grid-template-columns:10em 1fr auto;
+        column-gap:1.5em;
+        align-items:center;
+        padding:1.1em .5em
+    }
+    body#blogposts article#manual > ul > li > ul > li > time{
+        grid-column:1;
+        grid-row:1;
+        text-align:left
+    }
+    body#blogposts article#manual > ul > li > ul > li > a{
+        grid-column:2;
+        grid-row:1;
+        text-align:left
+    }
+    body#blogposts article#manual > ul > li > ul > li > address{
+        grid-column:3;
+        grid-row:1;
+        text-align:right;
+        margin:0
+    }
+}
+body#blogposts article#manual > ul > li > ul > li:hover{
+    background:rgba(56,189,248,.03)
+}
+body#blogposts article#manual > ul > li > ul > li > a{
+    font-family:'Fira Code',monospace;
+    font-size:clamp(16px, 1.4vw, 19px);
+    font-weight:600;
+    color:#f0f6fc;
+    text-decoration:none;
+    transition:color .15s ease,transform .15s ease;
+    display:inline-block
+}
+body#blogposts article#manual > ul > li > ul > li:hover > a{
+    color:#58d3e6;
+    transform:translateX(5px);
+    text-decoration:none
+}
+body#blogposts article#manual address,
+body#blogposts article#manual time{
+    font-style:normal;
+    display:inline-block;
+    font-size:clamp(16px, 1.4vw, 19px);
+    font-family:'Fira Code',monospace
+}
+body#blogposts article#manual time{
+    color:#8b949e
+}
+body#blogposts article#manual address{
+    margin:0
+}
+body#blogposts article#manual address:before{
+    content:"by @";
+    color:#64748b
+}
+body#blogposts article#manual address a{
+    color:#fb7185;
+    text-decoration:none
+}
+body#blogposts article#manual address a:hover{
+    color:#f43f5e;
+    text-decoration:underline
 }
 
+/* Individual Blog Post Styles */
+body#blogpost article#manual{
+    max-width:72em;
+    margin:0 auto;
+    background:transparent;
+    border:none;
+    padding-top:1.5em;
+    padding-bottom:3em
+}
+body#blogpost article#manual h1,
+body#blogpost article#manual h2,
+body#blogpost article#manual h3,
+body#blogpost article#manual h4,
+body#blogpost article#manual h5,
+body#blogpost article#manual h6{
+    float:none !important;
+    width:100% !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    text-align:left !important;
+    display:block !important;
+    letter-spacing:-.02em;
+    font-family:'Fira Code',monospace
+}
+body#blogpost article#manual h1{
+    font-size:clamp(25px, 2.5vw, 30px);
+    font-weight:700;
+    color:#f0f6fc;
+    margin-top:2em !important;
+    margin-bottom:.8em !important;
+    padding-bottom:.4em !important;
+    border-bottom:1px solid #21262d
+}
+body#blogpost article#manual h2{
+    font-size:clamp(21px, 2vw, 25px);
+    font-weight:600;
+    color:#f0f6fc;
+    margin-top:1.8em !important;
+    margin-bottom:.6em !important;
+    border-bottom:none !important
+}
+body#blogpost article#manual h3{
+    font-size:clamp(18px, 1.6vw, 20px);
+    font-weight:600;
+    color:#f0f6fc;
+    margin-top:1.5em !important;
+    margin-bottom:.5em !important
+}
+body#blogpost article#manual h4{
+    font-size:clamp(15px, 1.3vw, 17px);
+    font-weight:600;
+    color:#f0f6fc;
+    margin-top:1.3em !important;
+    margin-bottom:.4em !important
+}
+body#blogpost article#manual > header{
+    margin-top:0;
+    margin-bottom:2em;
+    padding-bottom:1.2em;
+    border-bottom:1px solid #21262d;
+    min-height:auto;
+    display:flex;
+    flex-direction:column;
+    gap:.6em
+}
+body#blogpost article#manual > header h3{
+    font-size:clamp(28px, 3vw, 38px);
+    line-height:1.2;
+    color:#f0f6fc;
+    font-family:'Fira Code',monospace;
+    font-weight:700;
+    margin:0 !important;
+    padding:0 !important;
+    border:none !important;
+    text-align:left;
+    float:none;
+    width:auto
+}
+body#blogpost article#manual > header address,
+body#blogpost article#manual > header time{
+    display:inline-block;
+    font-style:normal;
+    font-size:14px;
+    font-family:'Fira Code',monospace;
+    color:#8b949e
+}
+body#blogpost article#manual > header address{
+    margin-right:1.2em
+}
+body#blogpost article#manual > header address:before{
+    content:"by @";
+    color:#64748b
+}
+body#blogpost article#manual > header address a{
+    color:#fb7185;
+    text-decoration:none
+}
+body#blogpost article#manual > header address a:hover{
+    color:#f43f5e;
+    text-decoration:underline
+}
+body#blogpost article#manual > header time{
+    color:#64748b
+}
+body#blogpost article#manual p{
+    font-size:clamp(15px, 1.2vw, 17px);
+    line-height:1.75;
+    color:#cbd5e1;
+    margin-bottom:1.5em
+}
+body#blogpost article#manual p a{
+    color:#38bdf8
+}
+body#blogpost article#manual p a:hover{
+    color:#58d3e6;
+    text-decoration:underline
+}
+body#blogpost article#manual code{
+    background:rgba(56,189,248,.1);
+    color:#38bdf8;
+    padding:.2em .45em;
+    border-radius:4px;
+    font-family:'Fira Code',monospace;
+    font-size:.9em
+}
+body#blogpost article#manual pre{
+    background:#11151c;
+    border:1px solid #232a38;
+    border-radius:8px;
+    padding:1.2em 1.5em;
+    overflow-x:auto;
+    margin-bottom:1.8em
+}
+body#blogpost article#manual pre code{
+    background:transparent;
+    color:#f0f6fc;
+    padding:0;
+    font-size:14px;
+    line-height:1.5
+}
+body#blogpost article#manual img{
+    display:block;
+    max-width:min(100%, 920px);
+    width:auto;
+    height:auto;
+    border:1px solid #30363d;
+    border-radius:8px;
+    box-shadow:0 4px 16px rgba(0,0,0,.4);
+    margin:2em auto
+}
+body#blogpost .post-nav,
+body#contributors .post-nav{
+    display:flex;
+    align-items:center;
+    gap:.6em;
+    float:right;
+    margin:1em 0
+}
+body#blogpost .post-nav a,
+body#contributors .post-nav a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#161b22;
+    border:1px solid #30363d;
+    border-radius:6px;
+    padding:.35em .85em;
+    font-family:'Fira Code',monospace;
+    font-size:15px;
+    font-weight:600;
+    color:#38bdf8;
+    text-decoration:none;
+    transition:all .15s ease
+}
+body#blogpost .post-nav a:hover,
+body#contributors .post-nav a:hover{
+    border-color:#58d3e6;
+    color:#58d3e6;
+    transform:translateY(-1px);
+    text-decoration:none;
+    box-shadow:0 2px 8px rgba(88,211,230,.2)
+}
+
+footer{
+    background:#0a0c10;
+    border-top:1px solid #21262d;
+    margin-bottom:0;
+    margin-top:0;
+    padding:2.5em 1.8em;
+    display:flex;
+    flex-direction:column;
+    gap:1.5em;
+    align-items:center;
+    text-align:center;
+    box-sizing:border-box;
+    scroll-snap-align:end
+}
+@media screen and (min-width:51.65625em){
+    footer{
+        padding:2.5em 4.5em;
+        flex-direction:row;
+        align-items:center;
+        justify-content:center
+    }
+}
+.footer-links{
+    list-style:none;
+    padding:0;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:1.5em 2.5em
+}
+.footer-links li{
+    margin:0
+}
+.footer-links a{
+    font-family:'Fira Code',monospace;
+    font-size:clamp(14px, 1.2vw, 16px);
+    font-weight:600;
+    color:#58d3e6;
+    text-decoration:none;
+    transition:color .15s ease
+}
+.footer-links a:hover{
+    color:#58d3e6;
+    text-decoration:underline
+}
