@@ -21,6 +21,7 @@
         <div id="intro">
             <p class="intro-lead">Profanity is a console based XMPP client written in C using <a href="http://www.gnu.org/software/ncurses/">ncurses</a> and <a href="http://strophe.im/libstrophe/">libstrophe</a>, inspired&nbsp;by&nbsp;<a href="http://irssi.org/">Irssi</a></p>
             <p class="intro-platforms">Available on Linux, FreeBSD, OpenBSD, OSX, Windows and Android (Termux)</p>
+            <p class="intro-maintainer">Maintained by <a href="https://iodoru.org/">jubalh</a></p>
         </div>
     </section>
     <article data-sblg-article="1" style="position: relative"> Content</article>

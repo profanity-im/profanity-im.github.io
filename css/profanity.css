@@ -715,6 +715,24 @@ body#landing{
     color:#8b949e;
     margin-bottom:0
 }
+#landing #intro .intro-maintainer{
+    font-family:'Fira Code',monospace;
+    font-size:clamp(13px, 1.1vw, 15px);
+    line-height:1.5;
+    color:#64748b;
+    margin-top:1.2em;
+    margin-bottom:0
+}
+#landing #intro .intro-maintainer a{
+    color:#fb7185;
+    text-decoration:none;
+    font-weight:600;
+    transition:color .15s ease
+}
+#landing #intro .intro-maintainer a:hover{
+    color:#f43f5e;
+    text-decoration:underline
+}
 
 header{
     margin-bottom:60px;
