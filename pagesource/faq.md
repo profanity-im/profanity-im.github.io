@@ -178,10 +178,10 @@ ${section_start}
 
 #### Where is the profrc file format described?
 
-Nowhere. Well, actually you cold read the source code.
-But you should not edit the profrc file yourself anyways.
-Just use the commands to manipulate the settings.
-And don't forget to `/save` before exiting.
+It is recommended to use the commands inside Profanity to manipulate
+the profrc file.
+This way we can be sure you don't end up with unsupported values.
+If you really want to edit it we have a documented version in our [repo](https://github.com/profanity-im/profanity/blob/master/profrc.example).
 
 ##### [back to top](#top)
 
