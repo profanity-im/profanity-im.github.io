@@ -20,7 +20,7 @@ ${div_downloads}
 </div>
 
 <div class="downloads-col">
-    <h3>Download Profanity</h3>
+    <h3>Download</h3>
     <div class="dl-list">
         <div class="dl-item">
             <a class="dl-link" href="tarballs/profanity-${version}.tar.xz">profanity-${version}.tar.xz</a>
