@@ -44,7 +44,7 @@ make
 
 You will need `sblg`, `lowdown` and `libxslt` installed on your system.
 
-To preview the site locally, run `make install` which will create a directory `site`, open `site/index.html` in a web browser.
+To preview the site locally, run `make install` which will create a directory `site`, open `site/index.html` in a web browser. You can also just run `make && python3 -m http.server 8000`.
 
 To remove the generated files and keep the source files, run `make clean`.
 
