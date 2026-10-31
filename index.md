@@ -47,7 +47,7 @@ ${div_features}
 - Encryption: OMEMO, PGP, OX and OTR
 - Sync: Message Carbons and Message Archive Management
 - File Sharing via HTTP File Upload
-- Advanced messaging: Message Correction, Delivery Receipts, and Chat States
+- Message Correction, Delivery Receipts, and Chat States
 - Robust connections with Stream Management
 - Theming and Consistent Color Generation
 - Desktop notifications
