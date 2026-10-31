@@ -43,9 +43,9 @@ ${div_features}
 ![](images/profanity_logo.png "Profanity Logo")
 
 - Supports modern XMPP chat services
-- Multi-User Chat (MUC) room support
-- End-to-end Encryption: OMEMO, PGP, OX and OTR
-- Multi-device sync: Message Carbons and Message Archive Management (MAM)
+- Multi-User Chat room support
+- Encryption: OMEMO, PGP, OX and OTR
+- Sync: Message Carbons and Message Archive Management
 - File Sharing via HTTP File Upload
 - Advanced messaging: Message Correction, Delivery Receipts, and Chat States
 - Robust connections with Stream Management
