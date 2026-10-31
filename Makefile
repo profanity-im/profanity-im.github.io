@@ -17,19 +17,16 @@ PAGES_MD_TO_XML = $(subst $(PAGES_SRC_DIR)/,,$(PAGES_SRC:.md=.xml))
 PAGES_XML = $(PAGES_MD_TO_XML)
 PAGES_XML += xeps.xml
 PAGES = $(PAGES_XML:.xml=.html)
-REDIRECTS_DIR = pageredirects
-REDIRECTS_SRC = $(wildcard $(REDIRECTS_DIR)/*.html)
-REDIRECTS = $(subst $(REDIRECTS_DIR)/,,$(REDIRECTS_SRC))
 
 VERSION = $(shell cat profanity_version.txt)
 TAR_XZ_SHA256 = $(shell sha256sum tarballs/profanity-$(VERSION).tar.xz | cut -d' ' -f1)
 ZIP_SHA256 = $(shell sha256sum tarballs/profanity-$(VERSION).zip | cut -d' ' -f1)
 
 all: index.html $(PAGES) themegallery.html $(BLOG_POSTS_OUT) $(BLOG_POST_OUT_DIR)/atom.xml \
-     $(BLOG_POST_OUT_DIR)/index.html $(CONTRIBUTORS_OUT) $(CONTRIBUTORS_OUT_DIR)/index.html $(REDIRECTS)
+     $(BLOG_POST_OUT_DIR)/index.html $(CONTRIBUTORS_OUT) $(CONTRIBUTORS_OUT_DIR)/index.html
 
 install:  index.html $(PAGES) themegallery.html $(BLOG_POSTS_OUT) $(BLOG_POST_OUT_DIR)/atom.xml \
-	$(BLOG_POST_OUT_DIR)/index.html $(CONTRIBUTORS_OUT) $(CONTRIBUTORS_OUT_DIR)/index.html $(REDIRECTS)
+	$(BLOG_POST_OUT_DIR)/index.html $(CONTRIBUTORS_OUT) $(CONTRIBUTORS_OUT_DIR)/index.html
 	mkdir -p $(PREFIX)
 	install -m0444 *.html $(PREFIX)
 	install -m0444 -p -D -t $(PREFIX)/$(BLOG_POST_OUT_TOP_DIR) $(BLOG_POST_OUT_TOP_DIR)/index.html
@@ -102,12 +99,9 @@ $(CONTRIBUTORS_OUT_DIR)/index.html $(CONTRIBUTORS_OUT): $(CONTRIBUTORS)
 	cp --preserve=mode,ownership,timestamps --recursive $(CONTRIBUTORS_SRC_DIR)/img $(CONTRIBUTORS_OUT_DIR)/
 	$(MAKE) -C $(CONTRIBUTORS_SRC_DIR) clean
 
-$(REDIRECTS): $(REDIRECTS_SRC)
-	cp --preserve=mode,ownership,timestamps $(addprefix $(REDIRECTS_DIR)/,$@) .
-
 clean:
 	$(MAKE) -C $(BLOG_POST_SRC_DIR) clean
 	$(MAKE) -C $(CONTRIBUTORS_SRC_DIR) clean
-	rm -f index.html $(PAGES) themegallery.html $(REDIRECTS) $(PAGES_SRC_DIR)/xeps.xml
+	rm -f index.html $(PAGES) themegallery.html $(PAGES_SRC_DIR)/xeps.xml
 	rm -r $(BLOG_POSTS_XML) $(BLOG_POSTS_OUT) $(BLOG_POST_OUT_TOP_DIR)
 	rm -r $(CONTRIBUTORS_XML) $(CONTRIBUTORS_OUT) $(CONTRIBUTORS_OUT_DIR)
