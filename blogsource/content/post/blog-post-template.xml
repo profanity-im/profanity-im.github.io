@@ -27,6 +27,7 @@
         <span>
             <a href="${sblg-next-base}.html" title="Next post">&#x25B6;</a>
         </span>
+        <a href="atom.xml" title="Atom Feed">Atom Feed</a>
     </nav>
     <article data-sblg-article="1" style="position: relative"> Content</article>
     <footer>
@@ -35,6 +36,7 @@
             <li><a href="https://lists.posteo.de/listinfo/profanity">Mailing List</a></li>
             <li><a href="https://x.com/profanityim">X (Twitter)</a></li>
             <li><a href="xmpp:profanity@rooms.dismail.de?join">XMPP Chat Room</a></li>
+            <li><a href="atom.xml">Atom Feed</a></li>
         </ul>
     </footer>
 </body>

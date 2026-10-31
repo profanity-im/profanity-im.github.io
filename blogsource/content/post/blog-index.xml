@@ -20,6 +20,9 @@
         </h1>
         <h2>Developer Blog</h2>
     </header>
+    <nav class="post-nav">
+        <a href="atom.xml" title="Atom Feed">Atom Feed</a>
+    </nav>
     <article id="manual" style="position: relative">
         <ul>
             <li data-sblg-nav="1" data-sblg-navcontent="1">
@@ -35,6 +38,7 @@
             <li><a href="https://lists.posteo.de/listinfo/profanity">Mailing List</a></li>
             <li><a href="https://x.com/profanityim">X (Twitter)</a></li>
             <li><a href="xmpp:profanity@rooms.dismail.de?join">XMPP Chat Room</a></li>
+            <li><a href="atom.xml">Atom Feed</a></li>
         </ul>
     </footer>
 </body>

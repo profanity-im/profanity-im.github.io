@@ -1504,6 +1504,7 @@ article#manual > img[alt*="Avatar"]{
     object-fit:cover;
     display:block
 }
+body#blogposts .post-nav,
 body#blogpost .post-nav,
 body#contributors .post-nav{
     display:flex;
@@ -1512,6 +1513,7 @@ body#contributors .post-nav{
     float:right;
     margin:1em 0
 }
+body#blogposts .post-nav a,
 body#blogpost .post-nav a,
 body#contributors .post-nav a{
     display:inline-flex;
@@ -1528,6 +1530,7 @@ body#contributors .post-nav a{
     text-decoration:none;
     transition:all .15s ease
 }
+body#blogposts .post-nav a:hover,
 body#blogpost .post-nav a:hover,
 body#contributors .post-nav a:hover{
     border-color:#58d3e6;
