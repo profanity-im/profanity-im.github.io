@@ -2,4 +2,4 @@
 name: karcio
 ---
 
-karcio is a profanity user.
+[karcio](https://github.com/karcio) is a profanity user.

@@ -3,18 +3,6 @@ subtitle: Helping Out
 
 ${section_start}
 
-### Contents
-
-- [Use Profanity](#use-profanity)
-- [Help with the website](#help-with-the-website)
-- [Contribute code](#contribute-code)
-- [Donate](#donate)
-
-
-${section_end}
-
-${section_start}
-
 [](#use-profanity)
 ### Use Profanity
             
@@ -59,11 +47,8 @@ Also make sure to read the
 [CONTRIBUTING](https://github.com/profanity-im/profanity/blob/master/CONTRIBUTING.md)
 document on GitHub.
 
-To find a first issue to work on check out the various repositories:
-
-- [Profanity](https://github.com/profanity-im/profanity)
-- [Website](https://github.com/profanity-im/profanity-im.github.io)
-- [Plugins](https://github.com/profanity-im/profanity-plugins)
+To find a first issue to work on check out the [Profanity](https://github.com/profanity-im/profanity) main repo.
+The [Website](https://github.com/profanity-im/profanity-im.github.io) repo. Or you can work on [Plugins](https://github.com/profanity-im/community-plugins).
 
 Click on the tab called *Issues* in the repository on GitHub and go through
 them until you find something that interests you.

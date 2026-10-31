@@ -6,10 +6,11 @@ PAGES_OUT = $(PAGES:.xml=.html)
 BLOG_POSTS_XML = $(BLOG_POSTS:.md=.xml)
 BLOG_POSTS_OUT = $(BLOG_POSTS_XML:.xml=.html)
 
-all: index.html atom.xml
+all: index.html atom.xml index.xml
 
-atom.xml: $(BLOG_POSTS_XML) atom-template.xml
-	$(SBLG) -s rcmdline -o $@ -a $(BLOG_POSTS_XML)
+atom.xml index.xml: $(BLOG_POSTS_XML) atom-template.xml
+	$(SBLG) -s rcmdline -o atom.xml -a $(BLOG_POSTS_XML)
+	cp atom.xml index.xml
 
 index.html: $(BLOG_POSTS_OUT) blog-index.xml
 	$(SBLG) -o $@ -t blog-index.xml $(BLOG_POSTS_OUT)
@@ -28,4 +29,4 @@ $(BLOG_POSTS_XML): $(BLOG_POSTS)
 	echo "</article>" >>$@
 
 clean:
-	rm -f index.html $(BLOG_POSTS_XML) $(BLOG_POSTS_OUT) atom.xml
+	rm -f index.html $(BLOG_POSTS_XML) $(BLOG_POSTS_OUT) atom.xml index.xml

@@ -8,10 +8,8 @@ ${section_start}
 - [Overview](#overview)
 - [Featured Plugins](#featured-plugins)
 - [Developing Plugins](#developing-plugins)
-
-     - [Python](#python),
-     - [C](#c)
-
+- [Python](#python)
+- [C](#c)
 - [Themes and Settings](#themes-and-settings)
 - [Contributing Plugins](#contributing-plugins)
 
@@ -22,10 +20,14 @@ ${section_start}
 
 #### Overview
 
-Profanity supports plugins written in Python and C. The
+Profanity until version 0.19.0 supported plugins written in Python and C.
+Newer versions will only support Lua plugins. The [community-plugins](https://github.com/profanity-im/community-plugins) collect plugins used by the author and community.
+
+The rest of this page will talk about Python and C Page since this is what we have in currently released versions of Profanity.
+
+The
 [profanity-plugins](https://github.com/profanity-im/profanity-plugins)
-project contains various plugins maintained by Profanity's author and other
-community maintained plugins.
+project contains various plugins contributed by the community.
 
 The master branch of the plugins repository is in sync with development in the
 master branch of Profanity. Branching is used to maintain plugins for releases

@@ -17,7 +17,7 @@ The website is generated from XML templates and Markdown sources using [sblg](ht
 | **Style** | `css/*.css` | CSS |
 
 ### Page Sources
-The source files for the landing page (`index.md`) and other top level pages in `pagesource/` are writen in Markdown. They are transformed to HTML and then injected into the appropriate header and footer templates.  The list of supported XEPS is generated using a git submodule for https://github.com/profanity-im/profanity/blob/master/profanity.doap.
+The source files for the landing page (`index.md`) and other top level pages in `pagesource/` are writen in Markdown. They are transformed to HTML and then injected into the appropriate header and footer templates. The list of supported XEPS is generated from https://raw.githubusercontent.com/profanity-im/profanity/refs/heads/master/profanity.doap.
 
 ### Blog
 Blog posts and contributor profiles are written in Markdown.
@@ -39,13 +39,12 @@ To build the site locally, run
 ```
 git clone https://github.com/profanity-im/profanity-im.github.io.git
 cd profanity-im.github.io
-git submodule update --init --recursive
 make
 ```
 
 You will need `sblg`, `lowdown` and `libxslt` installed on your system.
 
-To preview the site locally, run `make install` which will create a directory `site`, open `site/index.html` in a web browser.
+To preview the site locally, run `make install` which will create a directory `site`, open `site/index.html` in a web browser. You can also just run `make && python3 -m http.server 8000`.
 
 To remove the generated files and keep the source files, run `make clean`.
 

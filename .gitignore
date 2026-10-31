@@ -3,3 +3,14 @@ images/.DS_Store
 node_modules
 blog_sources/public/
 blog_sources/themes/
+
+# Downloaded upon make
+pagesource/profanity.doap
+pagesource/xeplist/xeplist.xml
+
+# Generated site build artifacts
+/*.html
+/blog/
+/contributors/
+/site/
+xeps.xml

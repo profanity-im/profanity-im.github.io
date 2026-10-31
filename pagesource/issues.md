@@ -9,23 +9,21 @@ ${section_start}
 - [Attaching logs](#attaching-logs)
 - [Attaching configuration files](#attaching-configuration-files)
 - [Getting a backtrace](#getting-a-backtrace)
-
-  - [Enabling coredumps](#enabling-coredumps)
-  - [Rebuild in debug mode](#rebuild-in-debug-mode)
-  - [Viewing the backtrace](#viewing-the-backtrace)
-
+- [Enabling coredumps](#enabling-coredumps)
+- [Rebuild in debug mode](#rebuild-in-debug-mode)
+- [Viewing the backtrace](#viewing-the-backtrace)
 
 ${section_end}
 
 ${section_start}
 
-
 #### Where to report issues
 
 The best place to report issues is at the
-[github issue tracker](https://github.com/boothj5/profanity/issues).
+[github issue tracker](https://github.com/profanity-im/profanity/issues).
+If you click on `New issue` a template will open which will ask you about all the details that we need to know.
 
-Other options are the
+Another option is the
 [mailing list](https://lists.posteo.de/listinfo/profanity).
 
 The following would be helpful in diagnosing/reproducing the issue if you can
@@ -35,8 +33,6 @@ profanity release version or commit hash if from development,
 XMPP server and/or recipient's XMPP client if the issue only occurs with certain
 servers/clients,
 finally any information about the build configuration and enabled features.
-
-If you cant supply the above information, a simple description will do.
 
 ${section_end}
 
@@ -73,7 +69,6 @@ ${section_end}
 
 ${section_start}
 
-
 #### Attaching configuration files
          
 Some issues are only reproducible using certain configuration options, so
@@ -105,7 +100,6 @@ ${section_end}
 
 ${section_start}
 
-
 #### Getting a backtrace
 
 Segfaults and crashes usually result in a coredump which can be useful in
@@ -115,7 +109,6 @@ help when attaching a backtrace from a crash.
 ${section_end}
 
 ${section_start}
-
 
 #### Enabling coredumps
 
@@ -147,22 +140,16 @@ the coredump.
 In the source folder (where you extracted the download, or checked out from git)
 run the following:
 ```
-./bootstrap.sh
-./configure-debug  # calls ./configure with debug options
-make clean
-make
+meson setup build --buildtype=debug
+meson compile -C build
 ```
 
 This will only build an executable in the source folder and will not overwrite
 your system installed version. To run the newly built version, in the source
 folder run:
 ```
-./profanity
+./build/profanity
 ```
-
-Note, if you installed from Homebrew on OSX it is recommended to clone and
-build from github (checking out the relevant release tag) using the above
-steps, unless you are happy with editing and reinstalling brew formula.
 
 ${section_end}
 

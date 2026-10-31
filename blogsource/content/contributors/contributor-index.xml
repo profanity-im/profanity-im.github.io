@@ -7,23 +7,20 @@
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Cache-Control" content="no-cache"/>
     <link href="../css/profanity.css" type="text/css" rel="stylesheet"/>
-    <link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom Feed" />
+    <link rel="alternate" href="../blog/index.xml" type="application/atom+xml" title="Atom Feed" />
 </head>
 
 <body id="contributors">
-    <img class="overlay" src="../images/profanity_mouth-only.png" alt="Profanity Illustration" />
+    <img class="overlay" src="../images/profanity_logo_mouth.svg" alt="Profanity Illustration" />
     <header>
         <h1>
-            <a href="../../index.html" style="position: relative">
-            Profani<span class="kern-ty">ty</span>
+            <a href="../index.html">
+            <span class="kern-ty">Profanity</span>
             </a>
         </h1>
         <h2>Contributors</h2>
     </header>
-    <nav style="float: right;">
-        <a href="../index.html">Main page</a>
-    </nav>
-    <article id="manual" style="position: relative">
+    <article id="manual">
         <ul>
             <li data-sblg-nav="1" data-sblg-navcontent="1">
                 <a href="${sblg-base}.html">${sblg-title}</a>
@@ -31,7 +28,12 @@
         </ul>
     </article>
     <footer>
-        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+        <ul class="footer-links">
+            <li><a href="http://github.com/profanity-im/profanity">GitHub</a></li>
+            <li><a href="https://lists.posteo.de/listinfo/profanity">Mailing List</a></li>
+            <li><a href="https://x.com/profanityim">X (Twitter)</a></li>
+            <li><a href="xmpp:profanity@rooms.dismail.de?join">XMPP Chat Room</a></li>
+        </ul>
     </footer>
 </body>
 </html>
