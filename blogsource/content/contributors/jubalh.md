@@ -2,4 +2,4 @@
 name: jubalh
 ---
 
-jubalh is currently the main developer of Profanity.
+[jubalh](https://github.com/jubalh) is currently the main developer of Profanity.
