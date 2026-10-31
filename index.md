@@ -42,13 +42,16 @@ ${div_features}
 
 ![](images/profanity_logo.png "Profanity Logo")
 
-- Supports XMPP chat services
-- MUC chat room support
-- OTR, PGP and OMEMO encryption
-- Roster management
-- Flexible resource and priority settings
+- Supports modern XMPP chat services
+- Multi-User Chat (MUC) room support
+- End-to-end Encryption: OMEMO, PGP, OX and OTR
+- Multi-device sync: Message Carbons and Message Archive Management (MAM)
+- File Sharing via HTTP File Upload
+- Advanced messaging: Message Correction, Delivery Receipts, and Chat States
+- Robust connections with Stream Management
+- Theming and Consistent Color Generation
 - Desktop notifications
-- Plugins in Python and C
+- Extensible via plugins
 
 ${div_end}
 
