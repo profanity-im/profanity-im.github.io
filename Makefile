@@ -1,6 +1,9 @@
 SBLG = sblg
 XSLTPROC = xsltproc
 LOWDOWN = lowdown
+CURL = curl
+DOAP_URL = https://raw.githubusercontent.com/profanity-im/profanity/refs/heads/master/profanity.doap
+XEPLIST_URL = https://xmpp.org/extensions/xeplist.xml
 PREFIX = $(PWD)/site
 BLOG_SRC_TOP_DIR = blogsource/content
 BLOG_POST_SRC_DIR = $(BLOG_SRC_TOP_DIR)/post
@@ -71,12 +74,18 @@ $(PAGES_MD_TO_XML): $(PAGES_SRC)
 	sed -e 's|<p>$${section_end}</p>|</section>|g' $(@:.xml=.tmpxml) > $@
 	rm -f $(@:.xml=.md) $(@:.xml=.tmpxml)
 
-xeplist: $(PAGES_SRC_DIR)/doap-stylesheet/style.xsl $(PAGES_SRC_DIR)/doap/profanity.doap \
+$(PAGES_SRC_DIR)/profanity.doap:
+	$(CURL) -sSL $(DOAP_URL) > $@
+
+$(PAGES_SRC_DIR)/xeplist/xeplist.xml:
+	$(CURL) -sSL $(XEPLIST_URL) > $@
+
+xeplist: $(PAGES_SRC_DIR)/doap-stylesheet/style.xsl $(PAGES_SRC_DIR)/profanity.doap \
 	$(PAGES_SRC_DIR)/xeplist/xeplist.xml
 	cp --preserve=mode,ownership,timestamps $(PAGES_SRC_DIR)/xeplist/xeplist.xml \
 		$(PAGES_SRC_DIR)/doap-stylesheet/
 	$(XSLTPROC) $(PAGES_SRC_DIR)/doap-stylesheet/style.xsl \
-		$(PAGES_SRC_DIR)/doap/profanity.doap \
+		$(PAGES_SRC_DIR)/profanity.doap \
 		> xeps.xml
 	rm $(PAGES_SRC_DIR)/doap-stylesheet/xeplist.xml
 
@@ -102,6 +111,6 @@ $(CONTRIBUTORS_OUT_DIR)/index.html $(CONTRIBUTORS_OUT): $(CONTRIBUTORS)
 clean:
 	$(MAKE) -C $(BLOG_POST_SRC_DIR) clean
 	$(MAKE) -C $(CONTRIBUTORS_SRC_DIR) clean
-	rm -f index.html $(PAGES) themegallery.html $(PAGES_SRC_DIR)/xeps.xml
+	rm -f index.html $(PAGES) $(PAGES_XML) themegallery.html $(PAGES_SRC_DIR)/xeps.xml $(PAGES_SRC_DIR)/profanity.doap $(PAGES_SRC_DIR)/xeplist/xeplist.xml
 	rm -r $(BLOG_POSTS_XML) $(BLOG_POSTS_OUT) $(BLOG_POST_OUT_TOP_DIR)
 	rm -r $(CONTRIBUTORS_XML) $(CONTRIBUTORS_OUT) $(CONTRIBUTORS_OUT_DIR)
