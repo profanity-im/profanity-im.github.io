@@ -26,15 +26,18 @@ TAR_XZ_SHA256 = $(shell sha256sum tarballs/profanity-$(VERSION).tar.xz | cut -d'
 ZIP_SHA256 = $(shell sha256sum tarballs/profanity-$(VERSION).zip | cut -d' ' -f1)
 
 all: index.html $(PAGES) themegallery.html $(BLOG_POSTS_OUT) $(BLOG_POST_OUT_DIR)/atom.xml \
-     $(BLOG_POST_OUT_DIR)/index.html $(CONTRIBUTORS_OUT) $(CONTRIBUTORS_OUT_DIR)/index.html
+     $(BLOG_POST_OUT_TOP_DIR)/index.xml $(BLOG_POST_OUT_DIR)/index.html $(CONTRIBUTORS_OUT) $(CONTRIBUTORS_OUT_DIR)/index.html
 
 install:  index.html $(PAGES) themegallery.html $(BLOG_POSTS_OUT) $(BLOG_POST_OUT_DIR)/atom.xml \
-	$(BLOG_POST_OUT_DIR)/index.html $(CONTRIBUTORS_OUT) $(CONTRIBUTORS_OUT_DIR)/index.html
+	$(BLOG_POST_OUT_TOP_DIR)/index.xml $(BLOG_POST_OUT_DIR)/index.html $(CONTRIBUTORS_OUT) $(CONTRIBUTORS_OUT_DIR)/index.html
 	mkdir -p $(PREFIX)
 	install -m0444 *.html $(PREFIX)
 	install -m0444 -p -D -t $(PREFIX)/$(BLOG_POST_OUT_TOP_DIR) $(BLOG_POST_OUT_TOP_DIR)/index.html
+	install -m0444 -p -D -t $(PREFIX)/$(BLOG_POST_OUT_TOP_DIR) $(BLOG_POST_OUT_TOP_DIR)/index.xml
+	install -m0444 -p -D -t $(PREFIX)/$(BLOG_POST_OUT_TOP_DIR) $(BLOG_POST_OUT_TOP_DIR)/atom.xml
 	install -m0444 -p -D -t $(PREFIX)/$(BLOG_POST_OUT_DIR) $(BLOG_POST_OUT_DIR)/*.html
 	install -m0444 -p -D -t $(PREFIX)/$(BLOG_POST_OUT_DIR) $(BLOG_POST_OUT_DIR)/atom.xml
+	install -m0444 -p -D -t $(PREFIX)/$(BLOG_POST_OUT_DIR) $(BLOG_POST_OUT_DIR)/index.xml
 	install -m0444 -p -D -t $(PREFIX)/$(BLOG_POST_OUT_DIR)/img $(BLOG_POST_OUT_DIR)/img/*.png
 	install -m0444 -p -D -t $(PREFIX)/$(BLOG_POST_OUT_DIR)/img $(BLOG_POST_OUT_DIR)/img/*.jpeg
 	install -m0444 -p -D -t $(PREFIX)/$(CONTRIBUTORS_OUT_DIR) $(CONTRIBUTORS_OUT_DIR)/*.html
@@ -94,12 +97,15 @@ themegallery.html: gallery-template.xml
 	$(SBLG) -o $@ -t gallery-template.xml -c themegallery.xml
 
 BLOG_POST_TEMPLATES = $(wildcard $(BLOG_POST_SRC_DIR)/*.xml)
-$(BLOG_POST_OUT_DIR)/atom.xml $(BLOG_POST_OUT_DIR)/index.html $(BLOG_POSTS_OUT): $(BLOG_POSTS) $(BLOG_POST_TEMPLATES)
+$(BLOG_POST_OUT_DIR)/atom.xml $(BLOG_POST_OUT_TOP_DIR)/index.xml $(BLOG_POST_OUT_DIR)/index.html $(BLOG_POSTS_OUT): $(BLOG_POSTS) $(BLOG_POST_TEMPLATES)
 	$(MAKE) -C $(BLOG_POST_SRC_DIR)
 	mkdir -p $(BLOG_POST_OUT_DIR)
 	cp --preserve=mode,ownership,timestamps $(BLOG_SRC_TOP_DIR)/index.html $(BLOG_POST_OUT_TOP_DIR)/
 	mv $(BLOG_POST_SRC_DIR)/*.html $(BLOG_POST_OUT_DIR)/
-	mv $(BLOG_POST_SRC_DIR)/atom.xml $(BLOG_POST_OUT_DIR)/
+	cp --preserve=mode,ownership,timestamps $(BLOG_POST_SRC_DIR)/atom.xml $(BLOG_POST_OUT_TOP_DIR)/index.xml
+	cp --preserve=mode,ownership,timestamps $(BLOG_POST_SRC_DIR)/atom.xml $(BLOG_POST_OUT_TOP_DIR)/atom.xml
+	cp --preserve=mode,ownership,timestamps $(BLOG_POST_SRC_DIR)/atom.xml $(BLOG_POST_OUT_DIR)/index.xml
+	mv $(BLOG_POST_SRC_DIR)/atom.xml $(BLOG_POST_OUT_DIR)/atom.xml
 	cp --preserve=mode,ownership,timestamps --recursive $(BLOG_POST_SRC_DIR)/img $(BLOG_POST_OUT_DIR)/
 	$(MAKE) -C $(BLOG_POST_SRC_DIR) clean
 

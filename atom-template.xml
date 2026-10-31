@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>Feed</title>
 	<link href="https://profanity-im.github.io/blog/" />
-	<link href="https://profanity-im.github.io/blog/atom.xml" rel="self" />
+	<link href="https://profanity-im.github.io/blog/index.xml" rel="self" />
 	<id />
 	<updated />
 	<entry data-sblg-forall="1" data-sblg-entry="1" data-sblg-altlink="1"

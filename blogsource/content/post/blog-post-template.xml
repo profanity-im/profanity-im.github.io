@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Cache-Control" content="no-cache"/>
     <link href="../../css/profanity.css" type="text/css" rel="stylesheet"/>
-    <link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom Feed"/>
+    <link rel="alternate" href="../index.xml" type="application/atom+xml" title="Atom Feed"/>
 </head>
 
 <body id="blogpost">
@@ -27,7 +27,7 @@
         <span>
             <a href="${sblg-next-base}.html" title="Next post">&#x25B6;</a>
         </span>
-        <a href="atom.xml" title="Atom Feed">Atom Feed</a>
+        <a href="../index.xml" title="Atom Feed">Atom Feed</a>
     </nav>
     <article data-sblg-article="1" style="position: relative"> Content</article>
     <footer>
@@ -36,7 +36,7 @@
             <li><a href="https://lists.posteo.de/listinfo/profanity">Mailing List</a></li>
             <li><a href="https://x.com/profanityim">X (Twitter)</a></li>
             <li><a href="xmpp:profanity@rooms.dismail.de?join">XMPP Chat Room</a></li>
-            <li><a href="atom.xml">Atom Feed</a></li>
+            <li><a href="../index.xml">Atom Feed</a></li>
         </ul>
     </footer>
 </body>
