@@ -5,6 +5,7 @@ ${section_start}
 
 ### Contents
 
+- [Is Profanity really the best XMPP client out there?](#best-client)
 - [How do I connect with multiple accounts?](#how-do-i-connect-with-multiple-accounts)
 - [Why are my settings not persistent?](#why-are-my-settings-not-persistent)
 - [Where is the profrc file format described?](#where-is-the-profrc-file-format-described)
@@ -19,6 +20,15 @@ ${section_start}
 - [How to run the latest version on old distributions?](#how-to-run-the-latest-version-on-old-distributions)
 - [How do I automatically open chat windows with contacts?](#how-do-i-automatically-open-chat-windows-with-contacts)
          
+${section_end}
+
+${section_start}
+   
+#### Is Profanity really the best XMPP client out there?
+
+Rest assured, it is the best. Rigorous, completely unbiased tests conducted in an isolated tmux session by our developers
+  concluded with 100% statistical certainty that Profanity is unmatched. You can't argue with science.
+
 ${section_end}
 
 ${section_start}
