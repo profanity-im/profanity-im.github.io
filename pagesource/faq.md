@@ -6,20 +6,11 @@ ${section_start}
 ### Contents
 
 - [How do I connect with multiple accounts?](#how-do-i-connect-with-multiple-accounts)
-- [OMEMO doesn't work for me](#omemo-doesnt-work-for-me)
 - [Why are my settings not persistent?](#why-are-my-settings-not-persistent)
 - [Where is the profrc file format described?](#where-is-the-profrc-file-format-described)
-- [Will Profanity run on &lt;some platform&gt;?](#will-profanity-run-on-some-platform)
-- [Will Profanity work with Google Talk?](#will-profanity-work-with-google-talk)
-- [Will Profanity work with Facebook Chat?](#will-profanity-work-with-facebook-chat)
-- [Will Profanity work with Slack?](#will-profanity-work-with-slack)
-- [Will Profanity work with MSN/Yahoo/AIM/IRC etc?](#will-profanity-work-with-msnyahooirc-etc)
 - [Can Profanity use my keychain/keyring to retrieve my password?](#can-profanity-use-my-keychainkeyring-to-retreive-my-password)
-- [Can I connect to more than one account at a time?](#can-i-connect-to-more-than-one-account-at-a-time)
-- [Why does the F1 key open terminal help rather than going back to the main console window?](#why-does-the-f1-key-open-terminal-help-rather-than-going-back-to-the-main-console-window)
 - [Why can I not type anything in the input bar?](#why-can-i-not-type-anything-in-the-input-bar)
 - [How can I hide join/leave messages in MUCs?](#how-can-i-hide-joinleave-messages-in-mucs)
-- [I've found a bug/have a feature request, who do I tell?](#ive-found-a-bughave-a-feature-request-who-do-i-tell)
 - [I'd like to contribute, what should I do?](#id-like-to-contribute-what-should-i-do)
 - [I'd like to donate to Profanity](#id-like-to-donate-to-profanity)
 - [Are there more clients like this?](#are-there-more-clients-like-this)
@@ -38,81 +29,6 @@ Profanity only supports one account per instance. But you certainly can run
 several instances of Profanity! Run Profanity in multiple terminals or use a
 terminal multiplexer like screen or tmux. An example setup can be seen in this
 [blogpost](https://profanity-im.github.io/blog/post/how-to-run-profanity-instances-within-tmux.html).
-
-##### [back to top](#top)
-
-${section_end}
-
-${section_start}
-
-#### OMEMO doesn't work for me
-
-OMEMO support was added in 0.7.0. Version 0.11.1 fixed a lot of common bugs.
-But please make sure to run the *latest* version of Profanity.
-
-A common error is that the PEP nodes are wrongly configured. It could be that
-your server isn't configured the right way or that some client configured 
-this the wrong way in the past. Profanity tries to correct this but might fail.
-See [issue 1538](https://github.com/profanity-im/profanity/issues/1538) for
-details.
-        
-
-##### [back to top](#top)
-
-${section_end}
-
-${section_start}
-
-#### Will Profanity run on &lt;some platform&gt;?
-
-Profanity should run on any POSIX system, see the [install guide](install.html)
-for specifics.
-
-##### [back to top](#top)
-
-${section_end}
-
-${section_start}
-
-#### Will Profanity work with Google Talk?
-
-Profanity was able to work with Google Talk. But in 2013 after Google merged
-it's messenger products Google Talk, Google+ Messenger and Hangouts together
-XMPP support was
-[dropped](https://www.theverge.com/2013/5/15/4318830/inside-hangouts-googles-big-fix-for-its-messaging-mess). 
-
-
-##### [back to top](#top)
-
-${section_end}
-
-${section_start}
-
-#### Will Profanity work with Facebook Chat?
-
-Facebook have recently announced that they will no longer support the open
-XMPP chat protocol, so Profanity will no longer work with Facebook Chat.
-
-##### [back to top](#top)
-
-${section_end}
-
-${section_start}
-
-#### Will Profanity work with Slack?
-
-No. [Slack has closed the XMPP gateway on May 15,
-2018](https://www.theregister.com/software/2018/03/09/slack-cuts-ties-to-irc-and-xmpp-cos-they-dont-speak-emoji/1048417)
-
-##### [back to top](#top)
-
-${section_end}
-
-${section_start}
-
-#### Will Profanity work with MSN/Yahoo/AIM/IRC etc?
-
-No, Profanity is purely an XMPP chat client.
 
 ##### [back to top](#top)
 
@@ -155,17 +71,6 @@ ${section_end}
 
 ${section_start}
 
-#### Can I connect to more than one account at a time?
-
-No, the recommended way is to use multiple terminal windows, or a terminal
-multiplexer like GNU Screen or tmux.
-
-##### [back to top](#top)
-
-${section_end}
-
-${section_start}
-
 #### Why are my settings not persistent?
 
 Because you did not use `/save`.
@@ -182,18 +87,6 @@ It is recommended to use the commands inside Profanity to manipulate
 the profrc file.
 This way we can be sure you don't end up with unsupported values.
 If you really want to edit it we have a documented version in our [repo](https://github.com/profanity-im/profanity/blob/master/profrc.example).
-
-##### [back to top](#top)
-
-${section_end}
-
-${section_start}
-
-#### Why does the F1 key open terminal help rather than going back to the main console window?
-
-Some terminals have a key binding for F1 to open help. You can use the alt-num
-keys to change windows, or if you prefer to use the F keys, you'll need to
-change the terminal setting to open help with another key.
 
 ##### [back to top](#top)
 
@@ -229,20 +122,6 @@ ${section_end}
 
 ${section_start}
 
-#### I've found a bug/have a feature request who do I tell?
-
-If you have a github account, you can log an issue on the
-[issue tracker](https://github.com/profanity-im/profanity/issues?state=open).
-
-Alternatively you are welcome to post on the
-[mailing list](https://lists.posteo.de/listinfo/profanity).
-
-##### [back to top](#top)
-
-${section_end}
-
-${section_start}
-
 #### I'd like to contribute, what should I do?
 
 A page has been written with some ideas for how to
@@ -268,20 +147,6 @@ can ask for an IBAN via [email](mailto:jubalh@iodoru.org).
 
 We also got selected for GitHub Sponsors. You can find the link also on the
 *Sponsor* button on GitHub.
-
-##### [back to top](#top)
-
-${section_end}
-
-${section_start}
-
-#### Are there more clients like this?
-
-Yes, there are several commandline clients:
-[freetalk](https://www.gnu.org/software/freetalk/),
-[mcabber](https://mcabber.com/),
-[poezio](https://poez.io) and
-[more clients](https://xmpp.org/software/clients.html).
 
 ##### [back to top](#top)
 
@@ -332,10 +197,7 @@ ${section_start}
 To the right side you can see your roster. It contains all your contacts and 
 rooms (MUCs). MUCs can be automatically joined via bookmarks. If you want to
 open a chat window to a user automatically upon the start of profanity you can
-write a script to do that. Put `/msg theusersnickname` into
-`~/.local/share/profanity/scripts/myautoscript`.
-And configure your account to automatically launch that script
-`/account set &lt;account&gt; startscript myautoscript`.
+write a plugin to do that. Or you can call profanity with `--cmd`.
 
 ##### [back to top](#top)
 
