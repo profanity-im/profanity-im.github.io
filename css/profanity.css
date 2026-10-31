@@ -511,18 +511,18 @@ h1,h2,h3{
         line-height:40px
     }
 }
-h4,#landing #features ul li{
+h4{
     font-size:22px;
     line-height:30px
 }
 @media screen and (min-width:51.65625em){
-    h4,#landing #features ul li{
+    h4{
         font-size:24px;
         line-height:30px
     }
 }
 @media screen and (min-width:78.65625em){
-    h4,#landing #features ul li{
+    h4{
         font-size:30px;
         line-height:40px
     }
@@ -998,8 +998,22 @@ header a:hover{
 }
 
 /* Section 3: Features */
+#landing #features ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:.6em
+}
 #landing #features li{
-    list-style:none
+    list-style:none;
+    margin:0;
+    font-size:clamp(20px, 2vw, 26px);
+    line-height:1.4;
+    color:#cbd5e1;
+    font-family:'Fira Code',monospace;
+    font-weight:500
 }
 #landing #features img{
     position:static;
