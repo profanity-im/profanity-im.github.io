@@ -9,12 +9,13 @@ ${div_downloads}
     <h3>Documentation</h3>
     <ul class="docs-directory">
         <li><a href="userguide.html">User Guide</a></li>
-        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="blog/post/index.html">Blog</a></li>
         <li><a href="xeps.html">Supported XEPs</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a href="issues.html">Reporting Issues</a></li>
         <li><a href="helpout.html">How to Help Out</a></li>
-        <li><a href="blog/post/index.html">Blog</a></li>
         <li><a href="themegallery.html">Theme Gallery</a></li>
+        <li><a href="https://github.com/profanity-im/profanity">Source Code</a></li>
     </ul>
 </div>
 
