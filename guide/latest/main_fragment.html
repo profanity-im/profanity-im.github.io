@@ -35,7 +35,7 @@
 /account set &lt;account&gt; otr &lt;policy&gt;
 /account set &lt;account&gt; pgpkeyid &lt;pgpkeyid&gt;
 /account set &lt;account&gt; startscript &lt;script&gt;
-/account set &lt;account&gt; clientid "&lt;name&gt; &lt;version&gt;"
+/account set &lt;account&gt; clientid &quot;&lt;name&gt; &lt;version&gt;&quot;
 /account set &lt;account&gt; tls force|allow|trust|direct|disable|legacy
 /account set &lt;account&gt; auth default|legacy
 /account set &lt;account&gt; theme &lt;theme&gt;
@@ -56,7 +56,7 @@
 <p>Commands for creating and managing accounts. Calling with no arguments will display information for the current account.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>list</code></td><td>List all accounts.</td></tr><tr><td><code>enable &lt;account&gt;</code></td><td>Enable the account, it will be used for autocompletion.</td></tr><tr><td><code>show &lt;account&gt;</code></td><td>Show details for the specified account.</td></tr><tr><td><code>disable &lt;account&gt;</code></td><td>Disable the account.</td></tr><tr><td><code>default set &lt;account&gt;</code></td><td>Set the default account, used when no argument passed to the /connect command.</td></tr><tr><td><code>default off</code></td><td>Clear the default account setting.</td></tr><tr><td><code>add &lt;account&gt;</code></td><td>Create a new account.</td></tr><tr><td><code>remove &lt;account&gt;</code></td><td>Remove an account.</td></tr><tr><td><code>rename &lt;account&gt; &lt;newaccount&gt;</code></td><td>Rename 'account' to 'newaccount'.</td></tr><tr><td><code>set &lt;account&gt; jid &lt;jid&gt;</code></td><td>Set the Jabber ID for the account, account name will be used if not set.</td></tr><tr><td><code>set &lt;account&gt; server &lt;server&gt;</code></td><td>The chat server, if different to the domainpart of the JID.</td></tr><tr><td><code>set &lt;account&gt; port &lt;port&gt;</code></td><td>The port used for connecting if not the default (5222, or 5223 for SSL).</td></tr><tr><td><code>set &lt;account&gt; status &lt;presence&gt;</code></td><td>The presence status to use on login.</td></tr><tr><td><code>set &lt;account&gt; status last</code></td><td>Use your last status before logging out, when logging in.</td></tr><tr><td><code>set &lt;account&gt; &lt;presence&gt; &lt;priority&gt;</code></td><td>Set the priority (-128..127) to use for the specified presence.</td></tr><tr><td><code>set &lt;account&gt; resource &lt;resource&gt;</code></td><td>The resource to be used for this account, defaults to 'profanity'.</td></tr><tr><td><code>set &lt;account&gt; password &lt;password&gt;</code></td><td>Password for the account, note this is currently stored in plaintext if set.</td></tr><tr><td><code>set &lt;account&gt; eval_password &lt;command&gt;</code></td><td>Shell command evaluated to retrieve password for the account. Can be used to retrieve password from keyring.</td></tr><tr><td><code>set &lt;account&gt; muc &lt;service&gt;</code></td><td>The default MUC chat service to use, defaults to the servers disco info response.</td></tr><tr><td><code>set &lt;account&gt; nick &lt;nick&gt;</code></td><td>The default nickname to use when joining chat rooms.</td></tr><tr><td><code>set &lt;account&gt; otr &lt;policy&gt;</code></td><td>Override global OTR policy for this account, see /otr.</td></tr><tr><td><code>set &lt;account&gt; pgpkeyid &lt;pgpkeyid&gt;</code></td><td>Set the ID of the PGP key for this account, see /pgp.</td></tr><tr><td><code>set &lt;account&gt; startscript &lt;script&gt;</code></td><td>Set the script to execute after connecting.</td></tr><tr><td><code>set &lt;account&gt; clientid "&lt;name&gt; &lt;version&gt;"</code></td><td>Set XMPP client name for discovery according to XEP-0092. For privacy geeks. Recommendation to leave as is.</td></tr><tr><td><code>set &lt;account&gt; tls force</code></td><td>Force TLS connection, and fail if one cannot be established, this is default behaviour.</td></tr><tr><td><code>set &lt;account&gt; tls allow</code></td><td>Use TLS for the connection if it is available.</td></tr><tr><td><code>set &lt;account&gt; tls trust</code></td><td>Force TLS connection and trust server's certificate.</td></tr><tr><td><code>set &lt;account&gt; tls direct</code></td><td>Use direct TLS for the connection. It means TLS handshake is started right after TCP connection is established.</td></tr><tr><td><code>set &lt;account&gt; tls disable</code></td><td>Disable TLS for the connection.</td></tr><tr><td><code>set &lt;account&gt; tls legacy</code></td><td>Alternative keyword for 'direct', which was created when one still thought that 'STARTTLS' is the future.</td></tr><tr><td><code>set &lt;account&gt; auth default</code></td><td>Use default authentication process.</td></tr><tr><td><code>set &lt;account&gt; auth legacy</code></td><td>Allow legacy authentication.</td></tr><tr><td><code>set &lt;account&gt; theme &lt;theme&gt;</code></td><td>Set the UI theme for the account.</td></tr><tr><td><code>set &lt;account&gt; session_alarm &lt;max_sessions&gt;</code></td><td>Alarm about suspicious activity if sessions count exceeds max_sessions.</td></tr><tr><td><code>clear &lt;account&gt; server</code></td><td>Remove the server setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; port</code></td><td>Remove the port setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; password</code></td><td>Remove the password setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; eval_password</code></td><td>Remove the eval_password setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; otr</code></td><td>Remove the OTR policy setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; pgpkeyid</code></td><td>Remove pgpkeyid associated with this account.</td></tr><tr><td><code>clear &lt;account&gt; startscript</code></td><td>Remove startscript associated with this account.</td></tr><tr><td><code>clear &lt;account&gt; clientid</code></td><td>Reset client's name to default.</td></tr><tr><td><code>clear &lt;account&gt; theme</code></td><td>Clear the theme setting for the account, the global theme will be used.</td></tr><tr><td><code>clear &lt;account&gt; resource</code></td><td>Remove the resource setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; muc</code></td><td>Remove the default MUC service setting.</td></tr><tr><td><code>clear &lt;account&gt; session_alarm</code></td><td>Disable the session alarm.</td></tr></table>
+<table><tr><td><code>list</code></td><td>List all accounts.</td></tr><tr><td><code>enable &lt;account&gt;</code></td><td>Enable the account, it will be used for autocompletion.</td></tr><tr><td><code>show &lt;account&gt;</code></td><td>Show details for the specified account.</td></tr><tr><td><code>disable &lt;account&gt;</code></td><td>Disable the account.</td></tr><tr><td><code>default set &lt;account&gt;</code></td><td>Set the default account, used when no argument passed to the /connect command.</td></tr><tr><td><code>default off</code></td><td>Clear the default account setting.</td></tr><tr><td><code>add &lt;account&gt;</code></td><td>Create a new account.</td></tr><tr><td><code>remove &lt;account&gt;</code></td><td>Remove an account.</td></tr><tr><td><code>rename &lt;account&gt; &lt;newaccount&gt;</code></td><td>Rename 'account' to 'newaccount'.</td></tr><tr><td><code>set &lt;account&gt; jid &lt;jid&gt;</code></td><td>Set the Jabber ID for the account, account name will be used if not set.</td></tr><tr><td><code>set &lt;account&gt; server &lt;server&gt;</code></td><td>The chat server, if different to the domainpart of the JID.</td></tr><tr><td><code>set &lt;account&gt; port &lt;port&gt;</code></td><td>The port used for connecting if not the default (5222, or 5223 for SSL).</td></tr><tr><td><code>set &lt;account&gt; status &lt;presence&gt;</code></td><td>The presence status to use on login.</td></tr><tr><td><code>set &lt;account&gt; status last</code></td><td>Use your last status before logging out, when logging in.</td></tr><tr><td><code>set &lt;account&gt; &lt;presence&gt; &lt;priority&gt;</code></td><td>Set the priority (-128..127) to use for the specified presence.</td></tr><tr><td><code>set &lt;account&gt; resource &lt;resource&gt;</code></td><td>The resource to be used for this account, defaults to 'profanity'.</td></tr><tr><td><code>set &lt;account&gt; password &lt;password&gt;</code></td><td>Password for the account, note this is currently stored in plaintext if set.</td></tr><tr><td><code>set &lt;account&gt; eval_password &lt;command&gt;</code></td><td>Shell command evaluated to retrieve password for the account. Can be used to retrieve password from keyring.</td></tr><tr><td><code>set &lt;account&gt; muc &lt;service&gt;</code></td><td>The default MUC chat service to use, defaults to the servers disco info response.</td></tr><tr><td><code>set &lt;account&gt; nick &lt;nick&gt;</code></td><td>The default nickname to use when joining chat rooms.</td></tr><tr><td><code>set &lt;account&gt; otr &lt;policy&gt;</code></td><td>Override global OTR policy for this account, see /otr.</td></tr><tr><td><code>set &lt;account&gt; pgpkeyid &lt;pgpkeyid&gt;</code></td><td>Set the ID of the PGP key for this account, see /pgp.</td></tr><tr><td><code>set &lt;account&gt; startscript &lt;script&gt;</code></td><td>Set the script to execute after connecting.</td></tr><tr><td><code>set &lt;account&gt; clientid &quot;&lt;name&gt; &lt;version&gt;&quot;</code></td><td>Set XMPP client name for discovery according to XEP-0092. For privacy geeks. Recommendation to leave as is.</td></tr><tr><td><code>set &lt;account&gt; tls force</code></td><td>Force TLS connection, and fail if one cannot be established, this is default behaviour.</td></tr><tr><td><code>set &lt;account&gt; tls allow</code></td><td>Use TLS for the connection if it is available.</td></tr><tr><td><code>set &lt;account&gt; tls trust</code></td><td>Force TLS connection and trust server's certificate.</td></tr><tr><td><code>set &lt;account&gt; tls direct</code></td><td>Use direct TLS for the connection. It means TLS handshake is started right after TCP connection is established.</td></tr><tr><td><code>set &lt;account&gt; tls disable</code></td><td>Disable TLS for the connection.</td></tr><tr><td><code>set &lt;account&gt; tls legacy</code></td><td>Alternative keyword for 'direct', which was created when one still thought that 'STARTTLS' is the future.</td></tr><tr><td><code>set &lt;account&gt; auth default</code></td><td>Use default authentication process.</td></tr><tr><td><code>set &lt;account&gt; auth legacy</code></td><td>Allow legacy authentication.</td></tr><tr><td><code>set &lt;account&gt; theme &lt;theme&gt;</code></td><td>Set the UI theme for the account.</td></tr><tr><td><code>set &lt;account&gt; session_alarm &lt;max_sessions&gt;</code></td><td>Alarm about suspicious activity if sessions count exceeds max_sessions.</td></tr><tr><td><code>clear &lt;account&gt; server</code></td><td>Remove the server setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; port</code></td><td>Remove the port setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; password</code></td><td>Remove the password setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; eval_password</code></td><td>Remove the eval_password setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; otr</code></td><td>Remove the OTR policy setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; pgpkeyid</code></td><td>Remove pgpkeyid associated with this account.</td></tr><tr><td><code>clear &lt;account&gt; startscript</code></td><td>Remove startscript associated with this account.</td></tr><tr><td><code>clear &lt;account&gt; clientid</code></td><td>Reset client's name to default.</td></tr><tr><td><code>clear &lt;account&gt; theme</code></td><td>Clear the theme setting for the account, the global theme will be used.</td></tr><tr><td><code>clear &lt;account&gt; resource</code></td><td>Remove the resource setting for this account.</td></tr><tr><td><code>clear &lt;account&gt; muc</code></td><td>Remove the default MUC service setting.</td></tr><tr><td><code>clear &lt;account&gt; session_alarm</code></td><td>Disable the session alarm.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/account add me
 /account set me jid ulfhednar@valhalla.edda
@@ -119,7 +119,7 @@
 /autoaway check on|off
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Manage autoaway settings for idle time.
+<p>Automatically update your presence or advertise inactivity after a period of no input. Use 'mode away' to change your status to away/xa, or 'mode idle' to stay online while letting contacts see how long you have been idle.
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>mode idle</code></td><td>Sends idle time, status remains online.</td></tr><tr><td><code>mode away</code></td><td>Sends away and xa presence as well as idle time.</td></tr><tr><td><code>mode off</code></td><td>Disabled (default).</td></tr><tr><td><code>time away &lt;minutes&gt;</code></td><td>Number of minutes before the away presence is sent, default: 15.</td></tr><tr><td><code>time xa &lt;minutes&gt;</code></td><td>Number of minutes before the xa presence is sent, default: 0 (disabled).</td></tr><tr><td><code>message away &lt;message&gt;</code></td><td>Optional message to send with the away presence, default: off (disabled).</td></tr><tr><td><code>message xa &lt;message&gt;</code></td><td>Optional message to send with the xa presence, default: off (disabled).</td></tr><tr><td><code>message away off</code></td><td>Send no message with away presence.</td></tr><tr><td><code>message xa off</code></td><td>Send no message with xa presence.</td></tr><tr><td><code>check on|off</code></td><td>When enabled, checks for activity and sends online presence, default: on.</td></tr></table>
@@ -167,20 +167,22 @@
 <h4>/avatar</h4>
 <p><b>Synopsis</b></p>
 <p><pre><code>/avatar set &lt;path&gt;
-/avatar disable
+/avatar unset
 /avatar get &lt;barejid&gt;
 /avatar open &lt;barejid&gt;
+/avatar auto on|off
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Upload an avatar for yourself, disable your avatar, or download a contact's avatar (XEP-0084). If nothing happens after using this command, the user either doesn't have an avatar set or doesn't use XEP-0084 to publish it.
+<p>Manage your avatar and contact avatars (XEP-0084). You can publish your own avatar with set or remove it using unset. Contact avatars can be displayed in desktop notifications when available on disk. Contact avatars are not downloaded automatically by default. Use get to fetch a contact's avatar on demand, or enable auto to download and sync avatars automatically.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>set &lt;path&gt;</code></td><td>Set avatar to the image at <path>.</td></tr><tr><td><code>disable</code></td><td>Disable avatar publishing; your avatar will not display to others.</td></tr><tr><td><code>get &lt;barejid&gt;</code></td><td>Download the avatar. barejid is the JID to download avatar from.</td></tr><tr><td><code>open &lt;barejid&gt;</code></td><td>Download avatar and open it with command. See /executable.</td></tr></table>
+<table><tr><td><code>set &lt;path&gt;</code></td><td>Set your avatar to the image file at <path>.</td></tr><tr><td><code>unset</code></td><td>Remove your published avatar so others no longer see an avatar for you.</td></tr><tr><td><code>get &lt;barejid&gt;</code></td><td>Download the contact's avatar. barejid is the JID to download from.</td></tr><tr><td><code>open &lt;barejid&gt;</code></td><td>Download avatar and open it in your configured image viewer. See /executable.</td></tr><tr><td><code>auto on|off</code></td><td>Automatically download and sync contact avatars in the background.</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/avatar set ~/images/avatar.png
-/avatar disable
+/avatar unset
 /avatar get thor@valhalla.edda
 /avatar open freyja@vanaheimr.edda
+/avatar auto on
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -218,7 +220,7 @@
 /blocked remove &lt;jid&gt;
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Manage blocked users (XEP-0191), calling with no arguments shows the current list of blocked users. To blog a certain user in a MUC use the following as jid: room@conference.example.org/spammy-userIt is also possible to block and report (XEP-0377) a user with the report-abuse and report-spam commands. For spam reporting, please include the content of the spam message as evidence for the service operator.
+<p>Manage blocked users (XEP-0191), calling with no arguments shows the current list of blocked users. To block a certain user in a MUC use the following as jid: room@conference.example.org/spammy-user. It is also possible to block and report (XEP-0377) a user with the report-abuse and report-spam commands. For spam reporting, please include the content of the spam message as evidence for the service operator.
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>add [&lt;jid&gt;]</code></td><td>Block the specified Jabber ID. If in a chat window and no jid is specified, the current recipient will be blocked.</td></tr><tr><td><code>remove &lt;jid&gt;</code></td><td>Remove the specified Jabber ID from the blocked list.</td></tr><tr><td><code>report-abuse &lt;jid&gt; [&lt;message&gt;]</code></td><td>Report a user for abuse with an optional description of the behavior.</td></tr><tr><td><code>report-spam &lt;jid&gt; [&lt;message&gt;]</code></td><td>Report a user for spam, including the actual spam message as evidence.</td></tr></table>
@@ -519,12 +521,12 @@
 /executable vcard_photo default
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Configure executable that should be called upon a certain command.
+<p>Configure external programs used to open files, URLs, or avatars. Command templates support '%p' as a placeholder for the file path, and '%u' for URLs.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>avatar set</code></td><td>Set executable that is run by /avatar open. Use your favorite image viewer.</td></tr><tr><td><code>avatar default</code></td><td>Restore to default settings.</td></tr><tr><td><code>urlopen set</code></td><td>Set executable that is run by /url open. Takes a command template that replaces %u and %p with the URL and path respectively.</td></tr><tr><td><code>urlopen default</code></td><td>Restore to default settings.</td></tr><tr><td><code>urlsave set</code></td><td>Set executable that is run by /url save. Takes a command template that replaces %u and %p with the URL and path respectively.</td></tr><tr><td><code>urlsave default</code></td><td>Use the built-in download method for saving.</td></tr><tr><td><code>editor set</code></td><td>Set editor to be used with /editor. Needs a terminal editor or a script to run a graphical editor.</td></tr><tr><td><code>editor default</code></td><td>Restore to default settings.</td></tr><tr><td><code>vcard_photo set</code></td><td>Set executable that is run by /vcard photo open. Takes a command template that replaces %p with the path</td></tr><tr><td><code>vcard_photo default</code></td><td>Restore to default settings.</td></tr></table>
+<table><tr><td><code>avatar set</code></td><td>Set executable that is run by /avatar open. Takes a command template replacing %p with the path.</td></tr><tr><td><code>avatar default</code></td><td>Restore to default settings.</td></tr><tr><td><code>urlopen set</code></td><td>Set executable that is run by /url open. Takes a command template that replaces %u and %p with the URL and path respectively.</td></tr><tr><td><code>urlopen default</code></td><td>Restore to default settings.</td></tr><tr><td><code>urlsave set</code></td><td>Set executable that is run by /url save. Takes a command template that replaces %u and %p with the URL and path respectively.</td></tr><tr><td><code>urlsave default</code></td><td>Use the built-in download method for saving.</td></tr><tr><td><code>editor set</code></td><td>Set editor to be used with /editor. Needs a terminal editor or a script to run a graphical editor.</td></tr><tr><td><code>editor default</code></td><td>Restore to default settings.</td></tr><tr><td><code>vcard_photo set</code></td><td>Set executable that is run by /vcard photo open. Takes a command template that replaces %p with the path.</td></tr><tr><td><code>vcard_photo default</code></td><td>Restore to default settings.</td></tr></table>
 <p><b>Examples</b></p>
-<p><pre><code>/executable avatar xdg-open
+<p><pre><code>/executable avatar set "feh %p"
 /executable urlopen set "xdg-open %u"
 /executable urlopen set "firefox %u"
 /executable urlopen default
@@ -568,15 +570,16 @@
 <h4>/form</h4>
 <p><b>Synopsis</b></p>
 <p><pre><code>/form show
+/form clear &lt;field&gt;
 /form submit
 /form cancel
 /form help [&lt;tag&gt;]
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Form configuration.
+<p>Interact with XMPP data forms (XEP-0004) in configuration windows, such as chat room setup or vCard editing. Allows displaying the form, viewing field descriptions, clearing fields, and submitting changes.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>show</code></td><td>Show the current form.</td></tr><tr><td><code>submit</code></td><td>Submit the current form.</td></tr><tr><td><code>cancel</code></td><td>Cancel changes to the current form.</td></tr><tr><td><code>help [&lt;tag&gt;]</code></td><td>Display help for form, or a specific field.</td></tr></table>
+<table><tr><td><code>show</code></td><td>Display the current form and its fields.</td></tr><tr><td><code>clear &lt;field&gt;</code></td><td>Clear the value of the specified field.</td></tr><tr><td><code>submit</code></td><td>Submit completed form to the server.</td></tr><tr><td><code>cancel</code></td><td>Cancel changes and close the form window.</td></tr><tr><td><code>help [&lt;tag&gt;]</code></td><td>Display help for the entire form or a specific field tag.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="gone"></a>
@@ -612,13 +615,22 @@
 <a name="history"></a>
 <h4>/history</h4>
 <p><b>Synopsis</b></p>
-<p><pre><code>/history on|off
+<p><pre><code>/history
+/history local on|off
+/history mam on|off
+/history mam verify
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Switch chat history on or off, /logging chat will automatically be enabled when this setting is on. When history is enabled, previous messages are shown in chat windows.
+<p>Configure message history. Controls displaying past messages from the local database when opening chat windows, and syncing messages from the server using Message Archive Management (MAM, XEP-0313). Use the PG UP key in a window to load older messages.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>on|off</code></td><td>Enable or disable showing chat history.</td></tr></table>
+<table><tr><td><code>local on|off</code></td><td>Enable or disable showing local database history when opening a window.</td></tr><tr><td><code>mam on|off</code></td><td>Enable or disable syncing server message archives (XEP-0313).</td></tr><tr><td><code>mam verify</code></td><td>Verify history between oldest and newest messages in current window and fetch missing ones.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/history
+/history local on
+/history mam on
+/history mam verify
+</code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="info"></a>
@@ -757,10 +769,10 @@
 /log level INFO|DEBUG|WARN|ERROR
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Manage profanity log settings.
+<p>Manage application diagnostic and error logs.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>where</code></td><td>Show the current log file location.</td></tr><tr><td><code>rotate on|off</code></td><td>Rotate log, default on. Does not take effect if you specified a filename yourself when starting Profanity.</td></tr><tr><td><code>maxsize &lt;bytes&gt;</code></td><td>With rotate enabled, specifies the max log size, defaults to 10485760 (10MB).</td></tr><tr><td><code>shared on|off</code></td><td>Share logs between all instances, default: on. When off, the process id will be included in the log filename. Does not take effect if you specified a filename yourself when starting Profanity.</td></tr><tr><td><code>level INFO|DEBUG|WARN|ERROR</code></td><td>Set the log level. Default is INFO. Only works with default log file, not with user provided log file during startup via -f.</td></tr></table>
+<table><tr><td><code>where</code></td><td>Show the current log file location.</td></tr><tr><td><code>rotate on|off</code></td><td>Rotate log, default on. Does not take effect if you specified a filename yourself when starting Profanity.</td></tr><tr><td><code>maxsize &lt;bytes&gt;</code></td><td>With rotate enabled, specifies the max log size, defaults to 10485760 (10MB).</td></tr><tr><td><code>shared on|off</code></td><td>Share logs between all instances, default: on. When off, the process id will be included in the log filename. Does not take effect if you specified a filename yourself when starting Profanity.</td></tr><tr><td><code>level INFO|DEBUG|WARN|ERROR</code></td><td>Set the log level, default is INFO.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="logging"></a>
@@ -790,19 +802,6 @@
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>up</code></td><td>Move the main window up the screen.</td></tr><tr><td><code>down</code></td><td>Move the main window down the screen.</td></tr></table>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
-<a name="mam"></a>
-<h4>/mam</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/mam &lt;on&gt;|&lt;off&gt;
-/mam verify
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Enable or disable Message Archive Management (XEP-0313), or verify loaded history. Use the PG UP key to load more history.
-</p>
-<p><b>Arguments</b></p>
-<table><tr><td><code>on|off</code></td><td>Enable or disable MAM</td></tr><tr><td><code>verify</code></td><td>Verify history between the oldest and newest loaded messages in the current window and fetch any missing ones from the server</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="mood"></a>
@@ -896,7 +895,7 @@
 /notify sub on|off
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Configure desktop notifications. To configure presence update messages in the console, chat and chat room windows, see '/help presence'.
+<p>Configure desktop notifications. Incoming message notifications display the contact's avatar if cached on disk See '/help avatar' to download avatars on demand with get or automatically with auto. To configure presence update messages in the console, chat and chat room windows, see '/help presence'.
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>chat on|off</code></td><td>Notifications for regular chat messages.</td></tr><tr><td><code>chat current on|off</code></td><td>Whether to show regular chat message notifications when the window is focused.</td></tr><tr><td><code>chat text on|off</code></td><td>Show message text in regular message notifications.</td></tr><tr><td><code>room on|off</code></td><td>Notifications for all chat room messages.</td></tr><tr><td><code>room mention on|off</code></td><td>Notifications for chat room messages when your nick is mentioned.</td></tr><tr><td><code>room mention case_sensitive</code></td><td>Set room mention notifications as case sensitive.</td></tr><tr><td><code>room mention case_insensitive</code></td><td>Set room mention notifications as case insensitive.</td></tr><tr><td><code>room mention word_whole</code></td><td>Set room mention notifications only on whole word match, i.e. when nickname is not part of a larger word.</td></tr><tr><td><code>room mention word_part</code></td><td>Set room mention notifications on partial word match, i.e. nickname may be part of a larger word.</td></tr><tr><td><code>room offline on|off</code></td><td>Notifications for chat room messages that were sent while you were offline.</td></tr><tr><td><code>room current on|off</code></td><td>Whether to show all chat room messages notifications when the window is focused.</td></tr><tr><td><code>room text on|off</code></td><td>Show message text in chat room message notifications.</td></tr><tr><td><code>room trigger add &lt;text&gt;</code></td><td>Notify when specified text included in all chat room messages.</td></tr><tr><td><code>room trigger remove &lt;text&gt;</code></td><td>Remove chat room notification trigger.</td></tr><tr><td><code>room trigger list</code></td><td>List all chat room highlight triggers.</td></tr><tr><td><code>room trigger on|off</code></td><td>Enable or disable all chat room notification triggers.</td></tr><tr><td><code>on|off</code></td><td>Override the global message setting for the current chat room.</td></tr><tr><td><code>mention on|off</code></td><td>Override the global 'mention' setting for the current chat room.</td></tr><tr><td><code>trigger on|off</code></td><td>Override the global 'trigger' setting for the current chat room.</td></tr><tr><td><code>reset</code></td><td>Reset to global notification settings for the current chat room.</td></tr><tr><td><code>remind &lt;seconds&gt;</code></td><td>Notification reminder period for unread messages, use 0 to disable.</td></tr><tr><td><code>typing on|off</code></td><td>Notifications when contacts are typing.</td></tr><tr><td><code>typing current on|off</code></td><td>Whether typing notifications are triggered for the current window.</td></tr><tr><td><code>invite on|off</code></td><td>Notifications for chat room invites.</td></tr><tr><td><code>sub on|off</code></td><td>Notifications for subscription requests.</td></tr></table>
@@ -956,7 +955,7 @@ The title bar will show the OMEMO session status:
 [OMEMO] [untrusted] - One or more active devices for the contact are untrusted.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>gen</code></td><td>Generate OMEMO cryptographic materials for current account.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OMEMO session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OMEMO session.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OMEMO encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OMEMO encrypted messages, but replace the contents with [redacted].</td></tr><tr><td><code>trust [&lt;contact&gt;] &lt;fp&gt;</code></td><td>Trust a fingerprint for a contact, or current recipient if omitted. If all active devices are trusted, the title bar will show [trusted]. Otherwise, it will show [untrusted].</td></tr><tr><td><code>untrust [&lt;contact&gt;] &lt;fp&gt;</code></td><td>Untrust a fingerprint for a contact, or current recipient if omitted.</td></tr><tr><td><code>fingerprint [&lt;contact&gt;]</code></td><td>Show contact's fingerprints, or current recipient's if omitted.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OMEMO encrypted messages.</td></tr><tr><td><code>trustmode manual</code></td><td>Set the global OMEMO trust mode to manual, OMEMO keys has to be trusted manually.</td></tr><tr><td><code>trustmode firstusage</code></td><td>Set the global OMEMO trust mode to ToFu, first OMEMO keys trusted automatically.</td></tr><tr><td><code>trustmode blind</code></td><td>Set the global OMEMO trust mode to blind, ALL OMEMO keys trusted automatically.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OMEMO policy to manual, OMEMO sessions must be started manually.</td></tr><tr><td><code>policy automatic</code></td><td>Set the global OMEMO policy to opportunistic, an OMEMO session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy always</code></td><td>Set the global OMEMO policy to always, an error will be displayed if an OMEMO session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>clear_device_list</code></td><td>Clear your own device list on server side. Each client will reannounce itself when connected back.</td></tr><tr><td><code>qrcode</code></td><td>Display QR code of your OMEMO fingerprint</td></tr></table>
+<table><tr><td><code>gen</code></td><td>Generate OMEMO cryptographic materials for current account.</td></tr><tr><td><code>start [&lt;contact&gt;]</code></td><td>Start an OMEMO session with contact, or current recipient if omitted.</td></tr><tr><td><code>end</code></td><td>End the current OMEMO session.</td></tr><tr><td><code>log on|off</code></td><td>Enable or disable plaintext logging of OMEMO encrypted messages.</td></tr><tr><td><code>log redact</code></td><td>Log OMEMO encrypted messages, but replace the contents with [redacted].</td></tr><tr><td><code>trust [&lt;contact&gt;] &lt;fp&gt;</code></td><td>Trust a fingerprint for a contact, or current recipient if omitted. If all active devices are trusted, the title bar will show [trusted]. Otherwise, it will show [untrusted].</td></tr><tr><td><code>untrust [&lt;contact&gt;] &lt;fp&gt;</code></td><td>Untrust a fingerprint for a contact, or current recipient if omitted.</td></tr><tr><td><code>fingerprint [&lt;contact&gt;]</code></td><td>Show contact's fingerprints, or current recipient's if omitted.</td></tr><tr><td><code>char &lt;char&gt;</code></td><td>Set the character to be displayed next to OMEMO encrypted messages.</td></tr><tr><td><code>trustmode manual</code></td><td>Set the global OMEMO trust mode to manual, OMEMO keys has to be trusted manually.</td></tr><tr><td><code>trustmode firstusage</code></td><td>Set the global OMEMO trust mode to ToFu, first OMEMO keys trusted automatically.</td></tr><tr><td><code>trustmode blind</code></td><td>Set global trust mode to blind trust before verification (BTBV). Keys are trusted automatically until at least one key for a contact is manually trusted, after which new devices for that contact require manual confirmation.</td></tr><tr><td><code>policy manual</code></td><td>Set the global OMEMO policy to manual, OMEMO sessions must be started manually.</td></tr><tr><td><code>policy automatic</code></td><td>Set the global OMEMO policy to opportunistic, an OMEMO session will be attempted upon starting a conversation.</td></tr><tr><td><code>policy always</code></td><td>Set the global OMEMO policy to always, an error will be displayed if an OMEMO session cannot be initiated upon starting a conversation.</td></tr><tr><td><code>clear_device_list</code></td><td>Clear your own device list on server side. Each client will reannounce itself when connected back.</td></tr><tr><td><code>qrcode</code></td><td>Display QR code of your OMEMO fingerprint</td></tr></table>
 <p><b>Examples</b></p>
 <p><pre><code>/omemo gen
 /omemo start odin@valhalla.edda
@@ -1045,16 +1044,6 @@ The title bar will show the OTR session status:
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
-<a name="paste"></a>
-<h4>/paste</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/paste
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Paste clipboard.
-</p>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
 <a name="pgp"></a>
 <h4>/pgp</h4>
 <p><b>Synopsis</b></p>
@@ -1099,28 +1088,28 @@ The title bar will show the OTR session status:
 <h4>/plugins</h4>
 <p><b>Synopsis</b></p>
 <p><pre><code>/plugins
-/plugins install [&lt;path or URL&gt;]
-/plugins update [&lt;path or URL&gt;]
-/plugins uninstall [&lt;plugin&gt;]
-/plugins unload [&lt;plugin&gt;]
+/plugins install &lt;path|URL&gt;
 /plugins load [&lt;plugin&gt;]
-/plugins reload [&lt;plugin&gt;]
-/plugins python_version
+/plugins unload [&lt;plugin&gt;]
+/plugins enable &lt;plugin&gt;
+/plugins disable &lt;plugin&gt;
+/plugins uninstall &lt;plugin&gt;
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Manage plugins. Passing no arguments lists installed plugins and global plugins which are available for local installation. Global directory for Python plugins is /usr/local/share/profanity/plugins and for C Plugins is /usr/local/lib64/profanity/plugins.
+<p>Manage plugins. Plugins are searched for in global and user XDG directories.
+ Use 'load' and 'unload' to run plugins for the current session only. Use 'enable' and 'disable' to configure plugins to auto-load on startup. Running '/plugins' without arguments displays active and available plugins.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>install [&lt;path or URL&gt;]</code></td><td>Install a plugin, or all plugins found in a directory (recursive), or download and install plugin (plugin name is based on basename). And loads it/them.</td></tr><tr><td><code>update [&lt;path or URL&gt;]</code></td><td>Uninstall and then install the plugin. Plugin name to update is basename.</td></tr><tr><td><code>uninstall [&lt;plugin&gt;]</code></td><td>Uninstall a plugin.</td></tr><tr><td><code>load [&lt;plugin&gt;]</code></td><td>Load a plugin that already exists in the plugin directory, passing no argument loads all found plugins. It will be loaded upon next start too unless unloaded.</td></tr><tr><td><code>unload [&lt;plugin&gt;]</code></td><td>Unload a loaded plugin, passing no argument will unload all plugins.</td></tr><tr><td><code>reload [&lt;plugin&gt;]</code></td><td>Reload a plugin, passing no argument will reload all plugins.</td></tr><tr><td><code>python_version</code></td><td>Show the Python interpreter version.</td></tr></table>
+<table><tr><td><code>install &lt;path|URL&gt;</code></td><td>Copy a local .lua file or directory, or download from URL into the user plugins directory.</td></tr><tr><td><code>load [&lt;plugin&gt;]</code></td><td>Load a plugin into the current session only. Passing no argument loads all available plugins.</td></tr><tr><td><code>unload [&lt;plugin&gt;]</code></td><td>Unload a plugin from the current session. Passing no argument unloads all loaded plugins.</td></tr><tr><td><code>enable &lt;plugin&gt;</code></td><td>Enable a plugin to autoload on start and load it into the active session.</td></tr><tr><td><code>disable &lt;plugin&gt;</code></td><td>Disable a plugin from autoloading on start and unload it.</td></tr><tr><td><code>uninstall &lt;plugin&gt;</code></td><td>Unload, disable, and remove a plugin from the user plugins directory.</td></tr></table>
 <p><b>Examples</b></p>
-<p><pre><code>/plugins install /home/steveharris/Downloads/metal.py
-/plugins install https://raw.githubusercontent.com/profanity-im/profanity-plugins/master/stable/sounds.py
-/plugins update /home/steveharris/Downloads/metal.py
-/plugins update https://raw.githubusercontent.com/profanity-im/profanity-plugins/master/stable/sounds.py
-/plugins uninstall browser.py
-/plugins load browser.py
-/plugins unload say.py
-/plugins reload wikipedia.py
+<p><pre><code>/plugins
+/plugins install https://profanity-im.github.io/example.lua
+/plugins install /home/user/example.lua
+/plugins load example.lua
+/plugins unload example.lua
+/plugins enable sounds.lua
+/plugins disable sounds.lua
+/plugins uninstall sounds.lua
 </code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
@@ -1406,25 +1395,6 @@ The title bar will show the OTR session status:
 </p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
-<a name="script"></a>
-<h4>/script</h4>
-<p><b>Synopsis</b></p>
-<p><pre><code>/script run &lt;script&gt;
-/script list
-/script show &lt;script&gt;
-</code></pre></p>
-<p><b>Description</b></p>
-<p>Run command scripts. Scripts are stored in $XDG_DATA_HOME/profanity/scripts/ which is usually $HOME/.local/share/profanity/scripts/.
-</p>
-<p><b>Arguments</b></p>
-<table><tr><td><code>script run &lt;script&gt;</code></td><td>Execute a script.</td></tr><tr><td><code>script list</code></td><td>List all scripts TODO.</td></tr><tr><td><code>script show &lt;script&gt;</code></td><td>Show the commands in script TODO.</td></tr></table>
-<p><b>Examples</b></p>
-<p><pre><code>/script list
-/script run myscript
-/script show somescript
-</code></pre></p>
-<a href="#top"><h5>back to top</h5></a><br><hr>
-
 <a name="sendfile"></a>
 <h4>/sendfile</h4>
 <p><b>Synopsis</b></p>
@@ -1557,7 +1527,7 @@ The title bar will show the OTR session status:
 <a name="status"></a>
 <h4>/status</h4>
 <p><b>Synopsis</b></p>
-<p><pre><code>/status set &lt;state&gt; ["&lt;message&gt;"]
+<p><pre><code>/status set &lt;state&gt; [&quot;&lt;message&gt;&quot;]
 /status get &lt;contact&gt;|&lt;nick&gt;
 </code></pre></p>
 <p><b>Description</b></p>
@@ -1742,7 +1712,7 @@ The title bar will show the OTR session status:
 /tls certpath default
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Handle TLS certificates. 
+<p>Inspect and manage TLS certificate trust. When connecting to a server with a certificate warning, use '/tls cert' to view details, '/tls allow' to proceed for this session, '/tls trust' to trust it permanently, or '/tls deny' to abort.
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>allow</code></td><td>Allow connection to continue with TLS certificate.</td></tr><tr><td><code>always</code></td><td>Always allow connections with TLS certificate.</td></tr><tr><td><code>deny</code></td><td>Abort connection.</td></tr><tr><td><code>cert</code></td><td>Show the current TLS certificate.</td></tr><tr><td><code>cert &lt;fingerprint&gt;</code></td><td>Show details of trusted certificate.</td></tr><tr><td><code>trust</code></td><td>Add the current TLS certificate to manually trusted certificates.</td></tr><tr><td><code>trusted</code></td><td>List summary of manually trusted certificates (with '/tls always' or '/tls trust').</td></tr><tr><td><code>revoke &lt;fingerprint&gt;</code></td><td>Remove a manually trusted certificate.</td></tr><tr><td><code>certpath</code></td><td>Show the trusted certificate path.</td></tr><tr><td><code>certpath set &lt;path&gt;</code></td><td>Specify filesystem path containing trusted certificates.</td></tr><tr><td><code>certpath clear</code></td><td>Clear the trusted certificate path.</td></tr><tr><td><code>certpath default</code></td><td>Use default system certificate path, if it can be found.</td></tr></table>
@@ -1756,7 +1726,7 @@ The title bar will show the OTR session status:
 /tray timer &lt;seconds&gt;
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Display an icon in the tray that will indicate new messages.
+<p>Display an icon in the system tray to indicate new messages. Clicking the icon acknowledges current messages and resets the alert until new messages arrive. Unread indicators in chat windows remain untouched so you can still see where to reply.
 </p>
 <p><b>Arguments</b></p>
 <table><tr><td><code>on|off</code></td><td>Show tray icon.</td></tr><tr><td><code>read on|off</code></td><td>Show tray icon when no unread messages.</td></tr><tr><td><code>timer &lt;seconds&gt;</code></td><td>Set tray icon timer, seconds must be between 1-10.</td></tr></table>
@@ -1782,60 +1752,26 @@ The title bar will show the OTR session status:
 <a name="vcard"></a>
 <h4>/vcard</h4>
 <p><b>Synopsis</b></p>
-<p><pre><code>/vcard get [&lt;nick|contact&gt;]
+<p><pre><code>/vcard
+/vcard get [&lt;nick|contact&gt;]
+/vcard edit
 /vcard photo open &lt;nick|contact&gt; [&lt;index&gt;]
 /vcard photo save &lt;nick|contact&gt; [output &lt;filepath&gt;] [index &lt;index&gt;]
-/vcard set fullname &lt;fullname&gt;
-/vcard set name family &lt;family&gt;
-/vcard set name given &lt;given&gt;
-/vcard set name middle &lt;middle&gt;
-/vcard set name prefix &lt;prefix&gt;
-/vcard set name suffix &lt;suffix&gt;
-/vcard set &lt;index&gt; [&lt;value&gt;]
-/vcard set &lt;index&gt; pobox &lt;value&gt;
-/vcard set &lt;index&gt; extaddr &lt;value&gt;
-/vcard set &lt;index&gt; street &lt;value&gt;
-/vcard set &lt;index&gt; locality &lt;value&gt;
-/vcard set &lt;index&gt; region &lt;value&gt;
-/vcard set &lt;index&gt; pocode &lt;value&gt;
-/vcard set &lt;index&gt; country &lt;value&gt;
-/vcard set &lt;index&gt; type domestic|international
-/vcard set &lt;index&gt; home on|off
-/vcard set &lt;index&gt; work on|off
-/vcard set &lt;index&gt; voice on|off
-/vcard set &lt;index&gt; fax on|off
-/vcard set &lt;index&gt; pager on|off
-/vcard set &lt;index&gt; msg on|off
-/vcard set &lt;index&gt; cell on|off
-/vcard set &lt;index&gt; video on|off
-/vcard set &lt;index&gt; bbs on|off
-/vcard set &lt;index&gt; modem on|off
-/vcard set &lt;index&gt; isdn on|off
-/vcard set &lt;index&gt; pcs on|off
-/vcard set &lt;index&gt; preferred on|off
-/vcard set &lt;index&gt; parcel on|off
-/vcard set &lt;index&gt; postal on|off
-/vcard set &lt;index&gt; internet on|off
-/vcard set &lt;index&gt; x400 on|off
-/vcard add nickname &lt;nickname&gt;
-/vcard add birthday &lt;date&gt;
-/vcard add address
-/vcard add tel &lt;number&gt;
-/vcard add email &lt;userid&gt;
-/vcard add jid &lt;jid&gt;
-/vcard add title &lt;title&gt;
-/vcard add role &lt;role&gt;
-/vcard add note &lt;note&gt;
-/vcard add url &lt;url&gt;
-/vcard remove &lt;index&gt;
-/vcard refresh
-/vcard save
+/vcard photo open-self [&lt;index&gt;]
+/vcard photo save-self [output &lt;filepath&gt;] [index &lt;index&gt;]
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Read your vCard or a user's vCard, get a user's avatar via their vCard, or modify your vCard. If no arguments are given, your vCard will be displayed in a new window, or an existing vCard window.
+<p>View or edit your vCard profile (XEP-0054). If no arguments are given, your vCard is displayed. 
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>get [&lt;nick|contact&gt;]</code></td><td>Get your vCard, if a nickname/contact is provided, get that user's vCard</td></tr><tr><td><code>photo open &lt;nick|contact&gt; [&lt;index&gt;]</code></td><td>Download a user's photo from their vCard to a file, and open it. If index is not specified, download the first photo (usually avatar) from their vCard</td></tr><tr><td><code>photo save &lt;nick|contact&gt;</code></td><td>Download a user's photo from their vCard to a file. If index is not specified, download the first photo (usually avatar) from their vCard. If output is not specified, download the photo to profanity's photos directory.</td></tr><tr><td><code>photo open-self [&lt;index&gt;]</code></td><td>Download a photo from your vCard to a file, and open it. If index is not specified, download the first photo (usually avatar) from your vCard</td></tr><tr><td><code>photo save-self</code></td><td>Download a photo from your vCard to a file. If index is not specified, download the first photo (usually avatar) from your vCard. If output is not specified, download the photo to profanity's photos directory. Same arguments as `photo open`</td></tr><tr><td><code>set fullname &lt;fullname&gt;</code></td><td>Set your vCard's fullname to the specified value</td></tr><tr><td><code>set name family &lt;family&gt;</code></td><td>Set your vCard's family name to the specified value</td></tr><tr><td><code>set name given &lt;given&gt;</code></td><td>Set your vCard's given name to the specified value</td></tr><tr><td><code>set name middle &lt;middle&gt;</code></td><td>Set your vCard's middle name to the specified value</td></tr><tr><td><code>set name prefix &lt;prefix&gt;</code></td><td>Set your vCard's prefix name to the specified value</td></tr><tr><td><code>set name suffix &lt;suffix&gt;</code></td><td>Set your vCard's suffix name to the specified value</td></tr><tr><td><code>set &lt;index&gt; [&lt;value&gt;]</code></td><td>Set the main field in a element in your vCard to the specified value, or if no value was specified, modify the field in an editor, This only works in elements that have one field.</td></tr><tr><td><code>set &lt;index&gt; pobox &lt;value&gt;</code></td><td>Set the P.O. box in an address element in your vCard to the specified value.</td></tr><tr><td><code>set &lt;index&gt; extaddr &lt;value&gt;</code></td><td>Set the extended address in an address element in your vCard to the specified value.</td></tr><tr><td><code>set &lt;index&gt; street &lt;value&gt;</code></td><td>Set the street in an address element in your vCard to the specified value.</td></tr><tr><td><code>set &lt;index&gt; locality &lt;value&gt;</code></td><td>Set the locality in an address element in your vCard to the specified value.</td></tr><tr><td><code>set &lt;index&gt; region &lt;value&gt;</code></td><td>Set the region in an address element in your vCard to the specified value.</td></tr><tr><td><code>set &lt;index&gt; pocode &lt;value&gt;</code></td><td>Set the P.O. code in an address element in your vCard to the specified value.</td></tr><tr><td><code>set &lt;index&gt; type domestic|international</code></td><td>Set the type in an address element in your vCard to either domestic or international.</td></tr><tr><td><code>set &lt;index&gt; home on|off</code></td><td>Set the home option in an element in your vCard. (address, telephone, e-mail only)</td></tr><tr><td><code>set &lt;index&gt; work on|off</code></td><td>Set the work option in an element in your vCard. (address, telephone, e-mail only)</td></tr><tr><td><code>set &lt;index&gt; voice on|off</code></td><td>Set the voice option in a telephone element in your vCard.</td></tr><tr><td><code>set &lt;index&gt; fax on|off</code></td><td>Set the fax option in a telephone element in your vCard.</td></tr><tr><td><code>set &lt;index&gt; pager on|off</code></td><td>Set the pager option in a telephone element in your vCard.</td></tr><tr><td><code>set &lt;index&gt; msg on|off</code></td><td>Set the message option in a telephone element in your vCard.</td></tr><tr><td><code>set &lt;index&gt; cell on|off</code></td><td>Set the cellphone option in a telephone element in your vCard.</td></tr><tr><td><code>set &lt;index&gt; video on|off</code></td><td>Set the video option in a telephone element in your vCard.</td></tr><tr><td><code>set &lt;index&gt; bbs on|off</code></td><td>Set the BBS option in a telephone element in your vCard.</td></tr><tr><td><code>set &lt;index&gt; modem on|off</code></td><td>Set the modem option in a telephone element in your vCard.</td></tr><tr><td><code>set &lt;index&gt; isdn on|off</code></td><td>Set the ISDN option in a telephone element in your vCard.</td></tr><tr><td><code>set &lt;index&gt; pcs on|off</code></td><td>Set the PCS option in a telephone element in your vCard.</td></tr><tr><td><code>set &lt;index&gt; preferred on|off</code></td><td>Set the preferred option in an element in your vCard. (address, telephone, e-mail only)</td></tr><tr><td><code>set &lt;index&gt; parcel on|off</code></td><td>Set the parcel option in an address element in your vCard.</td></tr><tr><td><code>set &lt;index&gt; postal on|off</code></td><td>Set the postal option in an address element in your vCard.</td></tr><tr><td><code>set &lt;index&gt; internet on|off</code></td><td>Set the internet option in an e-mail address in your vCard.</td></tr><tr><td><code>set &lt;index&gt; x400 on|off</code></td><td>Set the X400 option in an e-mail address in your vCard.</td></tr><tr><td><code>add nickname &lt;nickname&gt;</code></td><td>Add a nickname to your vCard</td></tr><tr><td><code>add birthday &lt;date&gt;</code></td><td>Add a birthday date to your vCard</td></tr><tr><td><code>add address</code></td><td>Add an address to your vCard</td></tr><tr><td><code>add tel &lt;number&gt;</code></td><td>Add a telephone number to your vCard</td></tr><tr><td><code>add email &lt;userid&gt;</code></td><td>Add an e-mail address to your vCard</td></tr><tr><td><code>add jid &lt;jid&gt;</code></td><td>Add a Jabber ID to your vCard</td></tr><tr><td><code>add title &lt;title&gt;</code></td><td>Add a title to your vCard</td></tr><tr><td><code>add role &lt;role&gt;</code></td><td>Add a role to your vCard</td></tr><tr><td><code>add note &lt;note&gt;</code></td><td>Add a note to your vCard</td></tr><tr><td><code>add url &lt;url&gt;</code></td><td>Add a URL to your vCard</td></tr><tr><td><code>remove &lt;index&gt;</code></td><td>Remove a element in your vCard by index</td></tr><tr><td><code>refresh</code></td><td>Refreshes the local copy of the current account's vCard (undoes all your unpublished modifications)</td></tr><tr><td><code>save</code></td><td>Save changes to the server</td></tr></table>
+<table><tr><td><code>get [&lt;nick|contact&gt;]</code></td><td>View your vCard, or a contact's vCard if provided.</td></tr><tr><td><code>edit</code></td><td>Edit your vCard profile in an interactive form window.</td></tr><tr><td><code>photo open &lt;nick|contact&gt; [&lt;index&gt;]</code></td><td>Download a user's photo from their vCard to a file, and open it.</td></tr><tr><td><code>photo save &lt;nick|contact&gt;</code></td><td>Download a user's photo from their vCard to a file.</td></tr><tr><td><code>photo open-self [&lt;index&gt;]</code></td><td>Download a photo from your vCard to a file, and open it.</td></tr><tr><td><code>photo save-self</code></td><td>Download a photo from your vCard to a file.</td></tr></table>
+<p><b>Examples</b></p>
+<p><pre><code>/vcard
+/vcard get
+/vcard get friend@server.org
+/vcard edit
+/vcard photo open friend@server.org
+</code></pre></p>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="vercheck"></a>
@@ -1936,10 +1872,10 @@ The title bar will show the OTR session status:
 <p><pre><code>/wrap on|off
 </code></pre></p>
 <p><b>Description</b></p>
-<p>Word wrapping.
+<p>Enable or disable automatic word wrapping for long messages in chat and console windows.
 </p>
 <p><b>Arguments</b></p>
-<table><tr><td><code>on|off</code></td><td>Enable or disable word wrapping in the main window.</td></tr></table>
+<table><tr><td><code>on|off</code></td><td>Enable or disable word wrapping.</td></tr></table>
 <a href="#top"><h5>back to top</h5></a><br><hr>
 
 <a name="xmlconsole"></a>
